@@ -12,6 +12,22 @@ This script will download llamafiles from HuggingFace and may take several minut
 
 NOTE: setup script requires pyenv
 
+I used wget to get a local version 
+
+
+* [nix.dev](http://nix.dev)
+* Nix pills https://nixos.org/guides/nix-pills/
+* https://www.youtube.com/@vimjoyer
+* https://www.youtube.com/watch?app=desktop&v=CwfKlX3rA6E
+* Learn Nix https://nixos.org/learn/
+* https://nixos-and-flakes.thiscute.world/
+
+There's also the Book about nix in production https://leanpub.com/nixos-in-production. Buy it, convert it to text if you want to replicate my results.
+
+Then I ran    to git plain text version of those sourecs calling links2; you would need to install this TUI browser. The result is in /local_data"
+
+
+
 ## Quickstart with toy data
 
 To start the app, run:
