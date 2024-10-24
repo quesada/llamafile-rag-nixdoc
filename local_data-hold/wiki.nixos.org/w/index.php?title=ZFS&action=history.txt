@@ -1,0 +1,308 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             ZFS: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    6 October 2024
+
+     * curprev [ ] [ ] 21:2821:28, 6 October 2024‎ KarolisStasaitis talk
+       contribs‎ m 23,605 bytes +19‎ Added missing closing </syntaxhighlight>
+       tag Tag: Visual edit: Switched
+
+    27 September 2024
+
+     * curprev [ ] [ ] 08:4508:45, 27 September 2024‎ Mic92 talk contribs‎
+       23,586 bytes +395‎ improve module that selects the oldest kernel.
+
+    26 September 2024
+
+     * curprev [ ] [ ] 16:3016:30, 26 September 2024‎ Adamcstephens talk
+       contribs‎ 23,191 bytes +359‎ →‎Latest kernel compatible with ZFS Tag:
+       Visual edit
+
+    23 September 2024
+
+     * curprev [ ] [ ] 16:0316:03, 23 September 2024‎ FedericoSchonborn talk
+       contribs‎ m 22,832 bytes +2‎ worth -> forth Tag: Visual edit
+
+    22 September 2024
+
+     * curprev [ ] [ ] 13:0713:07, 22 September 2024‎ Mic92 talk contribs‎
+       22,830 bytes +500‎ →‎Latest kernel compatible with ZFS
+
+    15 September 2024
+
+     * curprev [ ] [ ] 14:4814:48, 15 September 2024‎ Tboston talk contribs‎
+       m 22,330 bytes −18‎ No edit summary
+     * curprev [ ] [ ] 08:3708:37, 15 September 2024‎ Tboston talk contribs‎
+       22,348 bytes +84‎ use variables for simplicity
+
+    14 September 2024
+
+     * curprev [ ] [ ] 20:4420:44, 14 September 2024‎ Tboston talk contribs‎
+       m 22,264 bytes +19‎ No edit summary
+     * curprev [ ] [ ] 20:4120:41, 14 September 2024‎ Tboston talk contribs‎
+       22,245 bytes +660‎ fix missing dev and update fixing the disk IDs
+     * curprev [ ] [ ] 19:5719:57, 14 September 2024‎ Tboston talk contribs‎
+       21,585 bytes +772‎ finalize zfs install on root example
+     * curprev [ ] [ ] 18:5118:51, 14 September 2024‎ Tboston talk contribs‎
+       20,813 bytes +351‎ No edit summary
+     * curprev [ ] [ ] 18:4818:48, 14 September 2024‎ Tboston talk contribs‎
+       20,462 bytes +662‎ update partitioning tasks to follow a complete
+       example with gdisk Tag: Visual edit: Switched
+
+    17 August 2024
+
+     * curprev [ ] [ ] 19:0319:03, 17 August 2024‎ Sandro talk contribs‎
+       19,800 bytes −2‎ Better headline
+     * curprev [ ] [ ] 19:0219:02, 17 August 2024‎ Sandro talk contribs‎
+       19,802 bytes +40‎ Improve wording
+     * curprev [ ] [ ] 19:0119:01, 17 August 2024‎ Sandro talk contribs‎
+       19,762 bytes −42‎ Improve wording
+     * curprev [ ] [ ] 18:5918:59, 17 August 2024‎ Sandro talk contribs‎ m
+       19,804 bytes 0‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 18:5818:58, 17 August 2024‎ Sandro talk contribs‎
+       19,804 bytes −76‎ Drop obvious statement about zfs packages
+     * curprev [ ] [ ] 18:5718:57, 17 August 2024‎ Sandro talk contribs‎
+       19,880 bytes −21‎ No edit summary
+
+    3 June 2024
+
+     * curprev [ ] [ ] 23:4823:48, 3 June 2024‎ Sandro talk contribs‎ 19,901
+       bytes +141‎ Add short command to know the difference between different
+       disk/by-* paths
+     * curprev [ ] [ ] 18:2318:23, 3 June 2024‎ Sandro talk contribs‎ 19,760
+       bytes 0‎ In zstd we trust Tags: Mobile edit Mobile web edit
+
+    30 May 2024
+
+     * curprev [ ] [ ] 02:0502:05, 30 May 2024‎ Achooie talk contribs‎ m
+       19,760 bytes +345‎ →‎Importing on boot: fix zpool cache filename; add
+       usage for /dev/disk/by-id. Tag: Visual edit
+
+    15 May 2024
+
+     * curprev [ ] [ ] 14:2514:25, 15 May 2024‎ Flokli talk contribs‎ 19,415
+       bytes −19‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 13:4413:44, 15 May 2024‎ Mic92 talk contribs‎ 19,434
+       bytes +1‎ set compression to lz4. It' doesn't create bottlenecks on
+       fast NVMEs. Tag: Visual edit: Switched
+     * curprev [ ] [ ] 12:5812:58, 15 May 2024‎ Mic92 talk contribs‎ 19,433
+       bytes −219‎ Remove note about removing systemd
+     * curprev [ ] [ ] 12:5712:57, 15 May 2024‎ Mic92 talk contribs‎ 19,652
+       bytes −71‎ Use systemd-boot as grub's zfs support cannot be used with
+       zfs encryption anyway.
+     * curprev [ ] [ ] 12:5212:52, 15 May 2024‎ Mic92 talk contribs‎ 19,723
+       bytes +61‎ fixup some bits in the encrypted zfs pool tutorial
+     * curprev [ ] [ ] 12:5012:50, 15 May 2024‎ Mic92 talk contribs‎ 19,662
+       bytes +1,199‎ Rework encrypted zfs tutorial
+     * curprev [ ] [ ] 04:3504:35, 15 May 2024‎ Achooie talk contribs‎ m
+       18,463 bytes −52‎ →‎boot.zfs.devNodes in virtual machines: this can
+       happen in native NixOS installs as well Tag: Visual edit
+     * curprev [ ] [ ] 04:2904:29, 15 May 2024‎ Achooie talk contribs‎ 18,515
+       bytes +887‎ →‎Importing on boot Tag: Visual edit: Switched
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:0521:05, 24 April 2024‎ Illode talk contribs‎
+       17,628 bytes +193‎ Update notes on using SWAP and add warning about
+       hibernation Tag: Visual edit: Switched
+
+    19 April 2024
+
+     * curprev [ ] [ ] 05:1205:12, 19 April 2024‎ Mic92 talk contribs‎ 17,435
+       bytes +8‎ copied from old wiki
+
+    15 February 2024
+
+     * curprev [ ] [ ] 12:0712:07, 15 February 2024‎ imported>Vater‎ m 17,427
+       bytes +23‎ category (to classify the purpose of the software) added
+
+    22 January 2024
+
+     * curprev [ ] [ ] 09:3209:32, 22 January 2024‎ imported>Domtoro‎ m
+       17,404 bytes +1‎ →‎Unlock encrypted zfs via ssh on boot: fix syntax
+       (was closing bracket instead of quotes)
+
+    20 January 2024
+
+     * curprev [ ] [ ] 23:1323:13, 20 January 2024‎ imported>Zyansheep‎
+       17,403 bytes +316‎ Make a note about how users should read up on
+       ashift and other options when creating the zpool to not loose out on
+       performance
+
+    1 December 2023
+
+     * curprev [ ] [ ] 10:3210:32, 1 December 2023‎ imported>Ragnis‎ m 17,087
+       bytes −1‎ Fix typo
+
+    30 November 2023
+
+     * curprev [ ] [ ] 18:4618:46, 30 November 2023‎ imported>Ragnis‎ m
+       17,088 bytes −1‎ Fix typos
+
+    17 November 2023
+
+     * curprev [ ] [ ] 18:5818:58, 17 November 2023‎ imported>Eskytthe‎ m
+       17,089 bytes +462‎ Did forget fileSystems definations
+
+    15 November 2023
+
+     * curprev [ ] [ ] 15:2115:21, 15 November 2023‎ imported>Eskytthe‎ m
+       16,627 bytes −1‎ uppercase change to previous bigger change
+     * curprev [ ] [ ] 15:0115:01, 15 November 2023‎ imported>Eskytthe‎
+       16,628 bytes +2,903‎ No edit summary
+
+    30 August 2023
+
+     * curprev [ ] [ ] 09:4309:43, 30 August 2023‎ imported>Thblt‎ m 13,725
+       bytes +2‎ Typo
+
+    20 May 2023
+
+     * curprev [ ] [ ] 15:4115:41, 20 May 2023‎ imported>SuperSandro2000‎
+       13,723 bytes +258‎ No edit summary
+
+    29 April 2023
+
+     * curprev [ ] [ ] 18:5018:50, 29 April 2023‎ imported>Jmesmon‎ 13,465
+       bytes +102‎ note alternate devNodes option to fix vm boot
+
+    20 April 2023
+
+     * curprev [ ] [ ] 06:3706:37, 20 April 2023‎ imported>Sjau‎ 13,363 bytes
+       +2,900‎ No edit summary
+     * curprev [ ] [ ] 06:3206:32, 20 April 2023‎ imported>Winny‎ 10,463
+       bytes −12‎ rewrite confusing paragraph
+     * curprev [ ] [ ] 06:2706:27, 20 April 2023‎ imported>Winny‎ 10,475
+       bytes +11‎ woops that was not well written, going to undo then rewrite
+       that -- Undo revision 9380 by Winny (talk)
+     * curprev [ ] [ ] 06:2606:26, 20 April 2023‎ imported>Winny‎ 10,464
+       bytes −11‎ I don't think the linked page described the definition of
+       modularized with respect to computer software in general. It module
+       seems to be about nix modules in particular. Not a general concept
+       page.
+
+    16 April 2023
+
+     * curprev [ ] [ ] 18:5418:54, 16 April 2023‎ imported>SuperSandro2000‎
+       10,475 bytes +189‎ Improve wording, fix ref links
+
+    28 March 2023
+
+     * curprev [ ] [ ] 20:2220:22, 28 March 2023‎ imported>VincentVanlaer‎
+       10,286 bytes +178‎ Auto ZFS trimming: clarify that this doesn't refer
+       to the autotrim property
+
+    23 March 2023
+
+     * curprev [ ] [ ] 14:5814:58, 23 March 2023‎ imported>Vater‎ m 10,108
+       bytes +36‎ →‎Guides
+     * curprev [ ] [ ] 14:5614:56, 23 March 2023‎ imported>Vater‎ 10,072
+       bytes +228‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/ZFS"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

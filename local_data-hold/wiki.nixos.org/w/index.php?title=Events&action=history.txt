@@ -1,0 +1,145 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Events: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 June 2024
+
+     * curprev [ ] [ ] 10:1410:14, 2 June 2024‎ Vater talk contribs‎ m 4,193
+       bytes +57‎ →‎NixCon 2024
+     * curprev [ ] [ ] 09:5309:53, 2 June 2024‎ Vater talk contribs‎ m 4,136
+       bytes +48‎ →‎Events organized by others
+     * curprev [ ] [ ] 09:1509:15, 2 June 2024‎ Vater talk contribs‎ m 4,088
+       bytes +124‎ →‎Events organized by others
+
+    1 June 2024
+
+     * curprev [ ] [ ] 20:5420:54, 1 June 2024‎ Vater talk contribs‎ m 3,964
+       bytes +211‎ →‎Events organized by others
+     * curprev [ ] [ ] 20:4120:41, 1 June 2024‎ Vater talk contribs‎ 3,753
+       bytes +227‎ →‎Events organized by others
+     * curprev [ ] [ ] 20:1520:15, 1 June 2024‎ Vater talk contribs‎ 3,526
+       bytes +286‎ "upcoming" NixCon
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:4820:48, 24 April 2024‎ Klinger talk contribs‎ m
+       3,240 bytes +24‎ Category:Community
+
+    16 April 2024
+
+     * curprev [ ] [ ] 20:5720:57, 16 April 2024‎ Klinger talk contribs‎ m
+       3,216 bytes +124‎ added a link to the conference link on nixos.org
+       Tag: Visual edit: Switched
+     * curprev [ ] [ ] 20:5320:53, 16 April 2024‎ Klinger talk contribs‎
+       3,092 bytes +3,092‎ Moved Events out of „get in touch“. Today you have
+       several links on the landing page to several paragraphs of the „get in
+       touch“ article. This is confusing and needs to be corrected. When
+       events are more up to date on nixos.org the article may not be needed
+       anymore and it could be linked directly to an official events page.
+       (in 2024 the „upcoming conference“ on nixos.org is still said to be in
+       November 2023) Tag: Visual edit
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Events"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,233 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Language servers
+     * 2 Emacs
+     * 3 Vim
+          * 3.1 vim-addon-nix
+          * 3.2 vim-nix
+     * 4 Neovim
+     * 5 IntelliJ IDEA
+     * 6 Eclipse
+     * 7 Sublime Text
+     * 8 Atom
+     * 9 Visual Studio Code
+     * 10 Howl
+     * 11 Far2l
+     * 12 nano
+     * 13 micro
+     * 14 Codemirror
+     * 15 Zed
+     * 16 Relevant pages
+   [ ] Toggle the table of contents
+
+                           Editor Modes for Nix Files
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Nix language has decent syntax highlighting (SH) support among popular
+   code editors, but refactoring/autocomplete is still rare. Below is a list
+   of editor modes for Nix syntax.
+
+Language servers
+
+   Most popular editors have support for the language server protocol, the
+   following language servers can be used to provide features like
+   completions and go-to-definition.
+
+     * nil
+     * rnix-lsp
+     * nixd
+
+Emacs
+
+     * nix-mode official available in melpa
+     * @marsam's nix-mode
+     * nix-buffer
+     * nix-update-el
+
+Vim
+
+  vim-addon-nix
+
+   This plugin supports syntax highlighting and simple syntax and undeclared
+   variable checking.
+
+     * vim-addon-nix on github
+
+   Usage with VAM package manager:
+
+ { # /etc/nixos/configuration.nix
+   environment.systemPackages = [
+     (pkgs.vim_configurable.customize {
+       name = "vim";
+       vimrcConfig.vam.pluginDictionaries = [
+         # vim-nix handles indentation better but does not perform sanity
+         { names = [ "vim-addon-nix" ]; ft_regex = "^nix\$"; }
+       ];
+     })
+   ];
+ }
+
+  vim-nix
+
+   vim-nix *only* supports syntax-highighting.
+
+     * vim-nix on github
+
+   Usage with vim package manager:
+
+ { # /etc/nixos/configuration.nix
+   environment.systemPackages = [
+     (pkgs.vim_configurable.customize {
+       name = "vim";
+       vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+         start = [ vim-nix ]; # load plugin on startup
+       };
+     })
+   ];
+ }
+
+Neovim
+
+   In addition to the Vim plugins listed above, nvim-treesitter also has
+   support for nix.
+
+ {
+   programs.neovim = {
+     configure = {
+       packages.all.start = with pkgs.vimPlugins; [
+         (nvim-treesitter.withPlugins (ps: [ ps.nix ]))
+         # or
+         nvim-treesitter.withAllGrammars # to install all grammars (including nix)
+       ];
+     };
+   };
+ }
+
+IntelliJ IDEA
+
+     * nix-idea on github
+
+Eclipse
+
+     * nix-eclipse - development stopped in 2010
+
+Sublime Text
+
+     * sublime-nix on github
+
+Atom
+
+     * atom-nix on github
+
+Visual Studio Code
+
+     * vscode-nix on github
+     * vscode-nix-ide on GitHub and VSCode Store with support to format and
+       lint
+
+Howl
+
+     * howl-nix on github
+
+Far2l
+
+     * far2l with nix syntax highlighting patch in nixpkgs
+
+nano
+
+     * nanonix
+
+micro
+
+   Syntax highlighting is built-in. LSP support is available through the lsp
+   plugin.
+
+Codemirror
+
+     * codemirror-lang-nix
+
+Zed
+
+     * zed-nix on github
+
+Relevant pages
+
+     * Overview of the Nix Expression Language
+     * Nix Expression Language: Tips & Tricks
+     * Learning resources
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Editor_Modes_for_Nix_Files&oldid=13530"
+   Categories:
+     * Nix Language
+     * Guide
+     * Text Editor
+     * This page was last edited on 25 June 2024, at 20:09.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

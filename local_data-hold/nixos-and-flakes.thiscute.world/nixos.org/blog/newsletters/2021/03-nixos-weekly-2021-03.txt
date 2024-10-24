@@ -1,0 +1,105 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #03 - NixOS Weekly
+
+   Published on Fri Apr 09 2021
+
+                               #03 - NixOS Weekly
+
+                                      News
+
+Announcements
+
+     * RFC 0085 FCP NixOS Release Stabilization: ZHF on master, new timeline
+
+       RFC 0085 has been accepted!
+
+     * Nix Portable
+
+       Nix - Static, Permissionless, Install-free, Pre-configured
+
+     * The Summer of Nix
+
+       A two month train and work program from August 2nd to October 15th
+       2021 - great for anyone who wants to rapidly increase their Nix skills
+       while doing useful work.
+
+     * Nix 🖤 macOS Monthly Update
+
+     * Nix is the ultimate DevOps toolkit
+
+     * nix-script: nix-shell shebangs for speed and flexibility
+
+Tutorials & Resources
+
+     * Building container images with Nix
+
+     * Getting started with Home Manager
+
+     * Using NixOS as a Router (NaaR)
+
+     * My Automagic NixOS Wireguard Setup
+
+     * Qubes-lite With KVM and Wayland
+
+     * Installing NixOS on a Mac
+
+     * Video Series: Introduction To Nix and NixOS
+
+     * Video tutorial of Flakes in Nix 2.4
+
+       Video explains how to improve the reproducibility of nix expressions,
+       why and for what we may need flakes and how to use them.
+
+     * Build Arduino sketches like any other nix derivation.
+
+Jobs
+
+     * DevOps Engineer at Secure Compute Startup
+
+       Drive the adoption of Nix at a secure compute startup by developing
+       and maintaining our CI pipeline and infrastructure.
+
+                           Contribute to NixOS Weekly
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

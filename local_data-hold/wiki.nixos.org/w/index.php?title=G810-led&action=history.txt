@@ -1,0 +1,121 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           G810-led: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    18 June 2024
+
+     * curprev [ ] [ ] 21:1021:10, 18 June 2024‎ Klinger talk contribs‎ 1,059
+       bytes +188‎ description in the beginning Tag: Visual edit
+
+    11 May 2024
+
+     * curprev [ ] [ ] 12:0012:00, 11 May 2024‎ Klinger talk contribs‎ m 871
+       bytes +24‎ Category: Hardware
+     * curprev [ ] [ ] 10:5310:53, 11 May 2024‎ N42 talk contribs‎ 847 bytes
+       +847‎ Added my basic configuration of `pkgs.g810-led`. Tag: Visual
+       edit
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/G810-led"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

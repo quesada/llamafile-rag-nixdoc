@@ -1,0 +1,186 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 The easiest way
+     * 2 The easy way
+          * 2.1 Building U-Boot from your NixOS PC
+     * 3 The hard way
+     * 4 Contributing new boards to nixpkgs
+   [ ] Toggle the table of contents
+
+                   NixOS on ARM/Adding support for new boards
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+    This article or section is out of date.                                   
+    Reason: This page needs a cleanup; it was migrated from an organically    
+    evolving article from about three wikis ago. The information may still be 
+    accurate though. (Discuss in Talk:NixOS on ARM/Adding support for new     
+    boards)                                                                   
+    Once the page has been updated this notice can be removed.                
+
+  The easiest way
+
+   Assuming upstream U-Boot supports the board through a defconfig, it is
+   possible possible to build U-Boot using the cross-compiling architecture
+   from an x86_64 host. Here's a sample use.
+
+ # Assuming you're in a recent nixpkgs checkout
+ $ nix-shell \
+     -I "nixpkgs=$PWD" \
+     -p 'let plat = pkgsCross.aarch64-multiplatform; in plat.buildUBoot{defconfig = "orangepi_zero_plus2_defconfig"; extraMeta.platforms = ["aarch64-linux"]; BL31 = "${plat.armTrustedFirmwareAllwinner}/bl31.bin"; filesToInstall = ["u-boot-sunxi-with-spl.bin"];}'
+
+   For armv7 and armv6 pkgsCross.arm-embedded should work, this is available
+   in the unstable channel (19.03 and following) by setting -I
+   "nixpkgs=/path/to/new-nixpkgs-checkout.
+
+   This should build whatever is needed for, and then build U-Boot for the
+   desired defconfig, then open a shell with the build in $buildInputs. Do
+   note that this particular invocation may need more changes than only the
+   defconfig if built for other than allwinner boards.
+
+   Here's an example command, for allwinner boards, on how to write to an SD
+   card.
+
+ $ sudo dd if=$buildInputs/u-boot-sunxi-with-spl.bin of=/dev/sdX bs=1024 seek=8
+
+  The easy way
+
+   (if you're lucky)
+
+   If your board is an ARMv7 board supported by multi_v7_defconfig and you
+   have access to U-Boot on the board, getting sd-image-armv7l-linux.img to
+   boot is the easiest option:
+
+     * If you're lucky and your U-Boot build comes with the extlinux.conf
+       support built in, the image boots out-of-the-box. This is the case for
+       all (upstream) Allwinner and Tegra U-Boots, for instance.
+     * Otherwise, you can get the boot information (path to kernel zImage,
+       initrd, DTB, command line arguments) by extracting extlinux.conf from
+       the boot partition of the image, and then attempt to boot it via the
+       U-Boot shell, or some other mechanism that your board's distro uses
+       (e.g. uEnv.txt).
+
+    Building U-Boot from your NixOS PC
+
+   Assuming
+
+     * Your board is supported upstream by U-Boot or there is a recent enough
+       fork with extlinux.conf support.
+     * You do not have nix setup on an ARM device
+     * Your nix isn't setup for cross-compilation
+
+   It is still possible to build U-Boot using tools provided by NixOS.
+
+   In the following terminal session, replace orangepi_pc_defconfig with the
+   appropriate board from the configs folder of U-Boot.
+
+ $ nix-shell -E 'with import <nixpkgs> {}; stdenv.mkDerivation { name = "arm-shell"; buildInputs = [git gnumake gcc gcc-arm-embedded dtc]; }'
+ $ git clone git://git.denx.de/u-boot.git
+ $ cd u-boot
+ # We're checking out a version from before the use of `binman`.
+ # The dtc package is 1.4.2, which does not include `pylibftd`.
+ # Furthermore, I do not know how to package the library so it would be
+ # available in the python interpreter, making binman happy.
+ $ git checkout v2017.03
+ $ make -j4 CROSS_COMPILE=arm-none-eabi- orangepi_pc_defconfig
+ $ make -j4 CROSS_COMPILE=arm-none-eabi-
+
+   The name of the final file will change depending on the board. For this
+   specific build, and most Allwinner builds, the file will be named
+   u-boot-sunxi-with-spl.bin.
+
+   You can flash this file to boot device with
+
+  dd if=u-boot-sunxi-with-spl.bin of=/dev/sdX bs=1024 seek=8
+
+   Note: This mailing list contains a patch which may help some builds:
+   https://lists.denx.de/pipermail/u-boot/2016-December/275664.html
+
+  The hard way
+
+   Alternatively/if all else fails, you can do it the hard way and bootstrap
+   NixOS from an existing ARM Linux installation.
+
+  Contributing new boards to nixpkgs
+
+     * Add a new derivation for your board's U-Boot configuration, see for
+       example ubootPine64LTS in [IMG] all-packages.nix.
+     * If your board's U-Boot configuration doesn't use the extlinux.conf
+       format by default, create a patch to enable it. Some C hacking skills
+       & U-Boot knowledge might be required. For some pointers, see this
+       patch to enable it on the Versatile Express.
+     * Make a pull request, also containing the board-specific instructions.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Adding_support_for_new_boards&oldid=11907"
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 8 April 2024, at 01:51.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

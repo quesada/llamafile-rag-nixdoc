@@ -1,0 +1,290 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Zsh: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    10 August 2024
+
+     * curprev [ ] [ ] 21:0221:02, 10 August 2024‎ Likivik talk contribs‎
+       6,749 bytes +918‎ →‎Troubleshooting Tag: Visual edit
+     * curprev [ ] [ ] 00:3900:39, 10 August 2024‎ Likivik talk contribs‎ m
+       5,831 bytes +479‎ →‎How to use plugins?: 1) Added links for plugin
+       managers 2) Added Antidote to plugin managers and code example Tag:
+       Visual edit
+
+    29 July 2024
+
+     * curprev [ ] [ ] 04:5704:57, 29 July 2024‎ YoshiRulz talk contribs‎ m
+       5,352 bytes +6‎ →‎How to use plugins?: Fix syntax error Tag: 2017
+       source edit
+
+    24 June 2024
+
+     * curprev [ ] [ ] 06:3606:36, 24 June 2024‎ Layer-09 talk contribs‎ m
+       5,346 bytes −28‎ Removed numbering Tag: Visual edit
+
+    20 June 2024
+
+     * curprev [ ] [ ] 09:2209:22, 20 June 2024‎ Layer-09 talk contribs‎
+       5,374 bytes +980‎ I divided the information into more manageable
+       sections and formatted the code using Alejandra. Additionally, I added
+       references and some other options. Tag: Visual edit
+
+    15 May 2024
+
+     * curprev [ ] [ ] 18:2418:24, 15 May 2024‎ Klinger talk contribs‎ 4,394
+       bytes +279‎ →‎Oh-My-Zsh Tag: Visual edit: Switched
+
+    6 April 2024
+
+     * curprev [ ] [ ] 08:1808:18, 6 April 2024‎ Claes talk contribs‎ 4,115
+       bytes +19‎ Add category shell Tag: Visual edit
+
+    4 April 2024
+
+     * curprev [ ] [ ] 13:4413:44, 4 April 2024‎ Ctfg talk contribs‎ 4,096
+       bytes −1‎ →‎Oh-My-Zsh
+
+    24 March 2024
+
+     * curprev [ ] [ ] 19:3119:31, 24 March 2024‎ imported>Jennydaman‎ 4,097
+       bytes +1‎ he option `programs.zsh.enableAutosuggestions' defined in
+       `/etc/nixos/configuration.nix' has been renamed to
+       `programs.zsh.autosuggestions.enable'.
+
+    1 March 2024
+
+     * curprev [ ] [ ] 01:1301:13, 1 March 2024‎ imported>Jmarmstrong1207‎ m
+       4,096 bytes −54‎ Add syntax highlighting option in example
+     * curprev [ ] [ ] 01:0901:09, 1 March 2024‎ imported>Jmarmstrong1207‎ m
+       4,150 bytes +150‎ Add enableCompletion and enableAutosuggestions in
+       example
+
+    28 February 2024
+
+     * curprev [ ] [ ] 20:3920:39, 28 February 2024‎ imported>5fh9st5fh‎ m
+       4,000 bytes +8‎ Update option names based on modules/programs/zsh.nix
+
+    27 February 2024
+
+     * curprev [ ] [ ] 13:2013:20, 27 February 2024‎ imported>Werererer‎
+       3,992 bytes +3‎ fix: rename oh-my-zsh according to man
+       home-configuration.nix
+     * curprev [ ] [ ] 01:5201:52, 27 February 2024‎ imported>Lplawlor‎ m
+       3,989 bytes −2‎ programs.zsh.oh-my-zsh options were renamed to
+       programs.zsh.ohMyZsh
+
+    30 January 2024
+
+     * curprev [ ] [ ] 20:1120:11, 30 January 2024‎ imported>NWuensche‎ m
+       3,991 bytes +2‎ oh my zsh named changed
+
+    29 January 2024
+
+     * curprev [ ] [ ] 20:2420:24, 29 January 2024‎
+       imported>Rustybucket-cloud‎ 3,989 bytes −2‎ Renames `oh-my-zsh` to
+       `ohMyZsh` due to the program being renamed.
+
+    25 January 2024
+
+     * curprev [ ] [ ] 21:5821:58, 25 January 2024‎ imported>Anonix‎ 3,991
+       bytes +2‎ No edit summary
+
+    29 December 2023
+
+     * curprev [ ] [ ] 11:2911:29, 29 December 2023‎ imported>Paradx‎ m 3,989
+       bytes +9‎ updated link to home-manager documentation
+
+    24 December 2023
+
+     * curprev [ ] [ ] 10:1810:18, 24 December 2023‎ imported>Root-Time‎ m
+       3,980 bytes −2‎ oh-my-zsh is depreacted ohMyZsh is now standart
+
+    9 October 2023
+
+     * curprev [ ] [ ] 06:4306:43, 9 October 2023‎ imported>Alex-glez-felix‎
+       3,982 bytes +2‎ The property to access oh my zsh was wrong according
+       to
+       https://rycee.gitlab.io/home-manager/options.html#opt-programs.zsh.oh-my-zsh
+
+    18 September 2023
+
+     * curprev [ ] [ ] 04:5504:55, 18 September 2023‎ imported>OctylFractal‎
+       3,980 bytes −2‎ correct oh-my-zsh config name
+
+    18 August 2023
+
+     * curprev [ ] [ ] 13:3013:30, 18 August 2023‎ imported>FMGordillo‎ m
+       3,982 bytes −15‎ Updated `zsh.history` for the current one
+
+    14 May 2023
+
+     * curprev [ ] [ ] 23:3823:38, 14 May 2023‎ imported>Toast‎ 3,997 bytes
+       +1‎ pretty sure it's actually this option, the older spelling didn't
+       work for me, but this spelling works fine and appears to be what it is
+
+    12 May 2023
+
+     * curprev [ ] [ ] 22:5322:53, 12 May 2023‎ imported>Honky‎ 3,996 bytes
+       −2‎ fixed: oh-my-zsh to ohMyZsh due to option
+       `programs.zsh.oh-my-zsh.enable' has been renamed to
+       `programs.zsh.ohMyZsh.enable'.
+
+    23 December 2022
+
+     * curprev [ ] [ ] 08:0508:05, 23 December 2022‎ imported>Mic92‎ 3,998
+       bytes +2‎ fix oh-my-zsh option name.
+
+    29 September 2022
+
+     * curprev [ ] [ ] 01:4401:44, 29 September 2022‎ imported>Yeshey‎ m
+       3,996 bytes −2‎ The option oh-my-zsh has been changed to ohMyZsh
+
+    19 August 2022
+
+     * curprev [ ] [ ] 16:3816:38, 19 August 2022‎ imported>Pfeiferj‎ 3,998
+       bytes +472‎ No edit summary
+
+    26 December 2021
+
+     * curprev [ ] [ ] 11:0811:08, 26 December 2021‎ imported>Lockejan‎ m
+       3,526 bytes +487‎ Adding instructions how to get valid sha hash for
+       manual plugin installation
+
+    3 December 2021
+
+     * curprev [ ] [ ] 09:2809:28, 3 December 2021‎ imported>EDevil‎ m 3,039
+       bytes +1‎ Corrected theme name.
+
+    1 October 2021
+
+     * curprev [ ] [ ] 16:4016:40, 1 October 2021‎
+       imported>Username-is-too-long‎ 3,038 bytes −14‎ →‎Configuration
+
+    13 June 2021
+
+     * curprev [ ] [ ] 12:5412:54, 13 June 2021‎ imported>Flexagoon‎ 3,052
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 12:5012:50, 13 June 2021‎ imported>Flexagoon‎ 3,050
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 12:2512:25, 13 June 2021‎ imported>Flexagoon‎ 3,051
+       bytes −23‎ No edit summary
+
+    12 June 2021
+
+     * curprev [ ] [ ] 14:4114:41, 12 June 2021‎ imported>Flexagoon‎ 3,074
+       bytes +491‎ No edit summary
+     * curprev [ ] [ ] 05:3605:36, 12 June 2021‎ imported>Flexagoon‎ 2,583
+       bytes +36‎ No edit summary
+     * curprev [ ] [ ] 05:3105:31, 12 June 2021‎ imported>Flexagoon‎ m 2,547
+       bytes +14‎ No edit summary
+     * curprev [ ] [ ] 05:3005:30, 12 June 2021‎ imported>Flexagoon‎ 2,533
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 05:2905:29, 12 June 2021‎ imported>Flexagoon‎ 2,533
+       bytes −554‎ No edit summary
+     * curprev [ ] [ ] 05:1705:17, 12 June 2021‎ imported>Flexagoon‎ 3,087
+       bytes +3,087‎ Create a zsh page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Zsh"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

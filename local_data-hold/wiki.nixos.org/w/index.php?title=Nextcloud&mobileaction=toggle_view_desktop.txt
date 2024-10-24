@@ -1,0 +1,745 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Configuration
+          * 2.1 Apps
+          * 2.2 TLS
+          * 2.3 Caching
+          * 2.4 Object store
+          * 2.5 Mail delivery
+          * 2.6 Max upload file size
+          * 2.7 Secrets management
+          * 2.8 Dynamic configuration
+     * 3 Maintenance
+          * 3.1 Upgrade
+          * 3.2 Database
+     * 4 Clients
+          * 4.1 Nextcloudcmd
+          * 4.2 Nextcloud Desktop
+     * 5 Tips and tricks
+          * 5.1 Change default listening port
+          * 5.2 Enable HEIC image preview
+          * 5.3 Run Nextcloud in a sub-directory
+          * 5.4 Use Caddy as webserver
+          * 5.5 Add users declaratively
+     * 6 Troubleshooting
+          * 6.1 Reading php logs
+     * 7 App specific configuration
+          * 7.1 Whiteboard
+          * 7.2 NextCloud Office
+          * 7.3 ONLYOFFICE
+               * 7.3.1 services.onlyoffice
+               * 7.3.2 the documentserver_community Nextcloud app
+               * 7.3.3 in a docker/podman container
+               * 7.3.4 Collabora Online
+   [ ] Toggle the table of contents
+
+                                   Nextcloud
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Nextcloud (wikipedia:en:Nextcloud) is a self-hosted web groupware and
+   cloud software, offering collaboration on files, managing calendar events,
+   contacts and tasks.
+
+   This article extends the documentation in the NixOS manual.
+
+Setup
+
+   A minimal example to get the latest Nextcloud version (for your specific
+   NixOS release) running on localhost should look like this, replacing PWD
+   with a 10+ char password that meets Nextcloud's default password policy.
+
+ /etc/nixos/configuration.nix
+
+ environment.etc."nextcloud-admin-pass".text = "PWD";
+ services.nextcloud = {
+   enable = true;
+   hostName = "localhost";
+   config.adminpassFile = "/etc/nextcloud-admin-pass";
+ };
+
+   After that you will be able to login into your Nextcloud instance at
+   http://localhost with user root and password PWD as configured above.
+
+Configuration
+
+   Be sure to read the Nextcloud module's documentation in the NixOS Manual.
+
+  Apps
+
+   Some apps which are already packaged on NixOS can be installed directly
+   with the following example configuration
+
+ /etc/nixos/configuration.nix
+
+ services.nextcloud = {               
+   enable = true;                  
+   [...]
+   # Instead of using pkgs.nextcloud29Packages.apps or similar,
+   # we'll reference the package version specified in services.nextcloud.package
+   extraApps = {
+     inherit (config.services.nextcloud.package.packages.apps) news contacts calendar tasks;
+   };
+   extraAppsEnable = true;
+ };
+
+   The apps mail, news and contacts will be installed and enabled in your
+   instance automatically. Note that the Nextcloud version specified in
+   package and extraApps need to match one of the stable Nextcloud versions
+   available in the NixOS repository.
+
+   To manually fetch and install packages, you need to add them via the
+   helper script fetchNextcloudApp by specifing the release tarball as url,
+   the correct checksum and the license. Additional apps can be found via
+   Nextcloud app store, while the nc4nix provides an easy reference for the
+   required variables. Note that the declarative specification of apps via
+   this approach requires manual updating of package version (url) and
+   checksum for a new release.
+
+ /etc/nixos/configuration.nix
+
+ services.nextcloud = {               
+   enable = true;                  
+   [...]
+   extraApps = {
+     inherit (config.services.nextcloud.package.packages.apps) news contacts calendar tasks;
+     memories = pkgs.fetchNextcloudApp {
+         sha256 = "sha256-Xr1SRSmXo2r8yOGuoMyoXhD0oPVm/0/ISHlmNZpJYsg=";
+         url = "https://github.com/pulsejet/memories/releases/download/v6.2.2/memories.tar.gz";
+         license = "agpl3Only";
+     };
+
+   };
+   extraAppsEnable = true;
+ };
+
+   It is even possible to fetch and build an app from source, in this example
+   the development app hmr_enabler.
+
+ /etc/nixos/configuration.nix
+
+ services.nextcloud = {               
+   enable = true;                  
+   [...]
+   extraApps = {
+     hmr_enabler = pkgs.php.buildComposerProject (finalAttrs: {
+       pname = "hmr_enabler";
+       version = "1.0.0";
+       src = pkgs.fetchFromGitHub {
+         owner = "nextcloud";
+         repo = "hmr_enabler";
+         rev = "b8d3ad290bfa6fe407280587181a5167d71a2617";
+         hash = "sha256-yXFby5zlDiPdrw6HchmBoUdu9Zjfgp/bSu0G/isRpKg=";
+       };
+       composerNoDev = false;
+       vendorHash = "sha256-PCWWu/SqTUGnZXUnXyL8c72p8L14ZUqIxoa5i49XPH4=";
+       postInstall = ''
+         cp -r $out/share/php/hmr_enabler/* $out/
+         rm -r $out/share
+       '';
+     });
+   };
+   extraAppsEnable = true;
+ };
+
+   Alternatively apps can be manually installed via the app store integrated
+   in your Nextcloud instance by navigating in the profile menu to the site
+   "Apps".
+
+  TLS
+
+   If you would like to setup Nextcloud with Let's Encrypt TLS certificates
+   (or certs from any other certificate authority) make sure to set
+   services.nextcloud.https = true; and to enable it in the
+   nginx-VirtualHost.
+
+ /etc/nixos/configuration.nix
+
+ services.nextcloud = {               
+   enable = true;                  
+   [...]
+   hostName = "nextcloud.example.org";
+   https = true;
+ };
+
+ services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
+   forceSSL = true;
+   enableACME = true;
+ };
+
+ security.acme = {
+   acceptTerms = true;  
+   certs = {
+     ${config.services.nextcloud.hostName}.email = "your-letsencrypt-email@example.com";
+   };
+ };
+
+  Caching
+
+   Redis can be enabled as a performant caching backend using following
+   configuration. This will bring faster page loads to your Nextcloud
+   instance.
+
+ /etc/nixos/configuration.nix
+
+ services.nextcloud = {               
+   enable = true;       
+   configureRedis = true;
+   [...]
+ };
+
+   Note that APCu will still be used for local caching, as recommended by
+   Nextcloud upstream.
+
+  Object store
+
+   In this example we'll configure a local S3-compatible object store using
+   Minio and connect it to Nextcloud
+
+ /etc/nixos/configuration.nix
+
+ { ... } let
+
+   accessKey = "nextcloud";
+   secretKey = "test12345";
+
+   rootCredentialsFile = pkgs.writeText "minio-credentials-full" ''
+     MINIO_ROOT_USER=nextcloud
+     MINIO_ROOT_PASSWORD=test12345
+   '';
+
+ in {
+   services.nextcloud = {               
+     [...]
+     config.objectstore.s3 = {
+       enable = true;
+       bucket = "nextcloud";
+       autocreate = true;
+       key = accessKey;
+       secretFile = "${pkgs.writeText "secret" "test12345"}";
+       hostname = "localhost";
+       useSsl = false;
+       port = 9000;
+       usePathStyle = true;
+       region = "us-east-1";
+     };
+   };
+
+   services.minio = {
+     enable = true;
+     listenAddress = "127.0.0.1:9000";
+     consoleAddress = "127.0.0.1:9001";
+     inherit rootCredentialsFile;
+   };
+
+   environment.systemPackages = [ pkgs.minio-client ];
+
+ };
+
+   We'll need to run two commands to create the bucket nextcloud by using the
+   access key nextcloud and the secret key test12345.
+
+ mc config host add minio http://localhost:9000 ${accessKey} ${secretKey} --api s3v4
+ mc mb minio/nextcloud
+
+  Mail delivery
+
+   Besides various mail delivery options and settings, mail clients like
+   Msmtp can be used to configure mail delivery for Nextcloud. This can be
+   useful for sending registration mails or system notifications etc. To
+   configure Nextcloud to use a local mail delivery daemon, we configure
+   mail_smtpmode to sendmail and a further sending mode.
+
+ services.nextcloud = {
+   [...]
+   extraOptions = {
+     mail_smtpmode = "sendmail";
+     mail_sendmailmode = "pipe";
+   };
+ };
+
+   Test mails can be send via administration interface in the menu section
+   "Basic settings".
+
+  Max upload file size
+
+   To increase the maximum upload file size, for example to 1 GB, add
+   following option
+
+ /etc/nixos/configuration.nix
+
+ services.nextcloud.maxUploadSize = "1G";
+
+  Secrets management
+
+   Do not suply passwords, hashes or keys via extraOptions option, since they
+   will be copied into the world-readable Nix store. Instead reference a JSON
+   file containing secrets using the secretFile option.
+
+ services.nextcloud = {
+   [...]
+   secretFile = "/etc/nextcloud-secrets.json";
+ };
+
+ environment.etc."nextcloud-secrets.json".text = ''
+   {
+     "passwordsalt": "12345678910",
+     "secret": "12345678910",
+     "instanceid": "10987654321",
+     "redis": {
+       "password": "secret"
+     }
+   }
+ '';
+
+   Consider using a secret management tool instead of referencing an
+   unencrypted local secrets file.
+
+  Dynamic configuration
+
+   Unfortunately, some options can only be set 'interactively' in the
+   database (either through the nextcloud-occ command line tool or the web
+   UI), and not via the configuration file. One way to manage them
+   "semi-declaratively" is to register a systemd script to reset the options
+   on each redeploy:
+
+   systemd.services.nextcloud-custom-config = {
+     path = [
+       config.services.nextcloud.occ
+     ];
+     script = ''
+       nextcloud-occ theming:config name "My Cloud"
+       nextcloud-occ theming:config url "https://cloud.mine.com";
+       nextcloud-occ theming:config privacyUrl "https://www.mine.com/privacy";
+       nextcloud-occ theming:config color "#3253a5";
+       nextcloud-occ theming:config logo ${./logo.png}
+     '';
+     after = [ "nextcloud-setup.service" ];
+     wantedBy = [ "multi-user.target" ];
+   };
+
+   Of course this is not ideal: changes through the web interface or occ
+   client are still possible but will be overwritten the next redeploy, and
+   removing a line from the script will not remove it from the configuration.
+
+Maintenance
+
+  Upgrade
+
+   As you can see on the package search, there is no default nextcloud
+   package. Instead you have to set the current version in
+   services.nextcloud.package. As soon a major version of Nextcloud gets
+   unsupported, it will be removed from nixpkgs as well.
+
+   Upgrading then consists of these steps:
+
+    1. Increment the version of services.nextcloud.package in your config by
+       1 (leaving out a major version is not supported)
+    2. nixos-rebuild switch
+
+   In theory, your nextcloud has now been upgraded by one version. NixOS
+   attempts nextcloud-occ upgrade, if this succeeds without problems you
+   don't need to do anything. Check journalctl to make sure nothing horrible
+   happened. Go to the /settings/admin/overview page in your nextcloud to see
+   whether it recommends further processing, such as database reindexing or
+   conversion.
+
+  Database
+
+   You can access the mysql database, for backup/restore, etc. like this:
+
+   sudo -u nextcloud -- mysql -u nextcloud <options>
+
+   No password is required.
+
+Clients
+
+  Nextcloudcmd
+
+   nextcloudcmd is a terminal client performing only a single sync run and
+   then exits. The following example command will synchronize the local
+   folder /home/myuser/music with the remote folder /music of the Nextcloud
+   server https://nextcloud.example.org.
+
+ # nix shell nixpkgs#nextcloud-client -h --user example --password test123 --path /music /home/myuser/music https://nextcloud.example.org
+
+   The argument -h will enable syncing hidden files. For demonstration
+   purpose username and password are supplied as an argument. This is a
+   security risk and shouldn't be used in production.
+
+   Using Home Manager we can create a systemd-timer which automatically runs
+   the sync command every hour for the user myuser.
+
+ /etc/nixos/configuration.nix
+
+ home-manager.users.myuser = {
+   systemd.user = {
+     services.nextcloud-autosync = {
+       Unit = {
+         Description = "Auto sync Nextcloud";
+         After = "network-online.target";
+       };
+       Service = {
+         Type = "simple";
+         ExecStart= "${pkgs.nextcloud-client}/bin/nextcloudcmd -h -n --path /music /home/myuser/music https://nextcloud.example.org";
+         TimeoutStopSec = "180";
+         KillMode = "process";
+         KillSignal = "SIGINT";
+       };
+       Install.WantedBy = ["multi-user.target"];
+     };
+     timers.nextcloud-autosync = {
+       Unit.Description = "Automatic sync files with Nextcloud when booted up after 5 minutes then rerun every 60 minutes";
+       Timer.OnBootSec = "5min";
+       Timer.OnUnitActiveSec = "60min";
+       Install.WantedBy = ["multi-user.target" "timers.target"];
+     };
+     startServices = true;
+   };
+ };
+
+   The login credentials will be written to a file called .netrc used
+   nextcloudcmd for authentication to the Nextcloud server.
+
+  Nextcloud Desktop
+
+   "nextcloud-client" is a nextcloud themed desktop client. It requires a
+   keyring to store its login token. Without an active keyring, the user will
+   be asked to login on every application startup.
+
+Tips and tricks
+
+  Change default listening port
+
+   In case port 80 is already used by a different application or you're using
+   a different web server than Nginx, which is used by the Nextcloud module,
+   you can change the listening port with the following option:
+
+ /etc/nixos/configuration.nix
+
+ services.nginx.virtualHosts."localhost".listen = [ { addr = "127.0.0.1"; port = 8080; } ];
+
+  Enable HEIC image preview
+
+   HEIC image preview needs to be explicitly enabled. This is done by
+   adjusting the enabledPreviewProviders option. Beside the default list of
+   supported formats, add an additional line "OC\\Preview\\HEIC" for HEIC
+   image support.
+
+ /etc/nixos/configuration.nix
+
+ services.nextcloud = {
+   settings.enabledPreviewProviders = [
+     "OC\\Preview\\BMP"
+     "OC\\Preview\\GIF"
+     "OC\\Preview\\JPEG"
+     "OC\\Preview\\Krita"
+     "OC\\Preview\\MarkDown"
+     "OC\\Preview\\MP3"
+     "OC\\Preview\\OpenDocument"
+     "OC\\Preview\\PNG"
+     "OC\\Preview\\TXT"
+     "OC\\Preview\\XBitmap"
+     "OC\\Preview\\HEIC"
+   ];
+ };
+
+  Run Nextcloud in a sub-directory
+
+   Say, you don't want to run nextcloud at your.site/ but in a sub-directory
+   your.site/nextcloud/. To do so, we are going to add more configurations to
+   nextcloud and to nginx to make it a reverse-proxy.
+
+   First, define some overwritings. Nextcloud uses them to write out all URLs
+   as if it runs in a sub-directory (which it is not.)
+
+ /etc/nixos/configuration.nix
+
+ services.nextcloud = {
+   settings = let
+     prot = "http"; # or https
+     host = "127.0.0.1";
+     dir = "/nextcloud";
+   in {
+     overwriteprotocol = prot;
+     overwritehost = host;
+     overwritewebroot = dir;
+     overwrite.cli.url = "${prot}://${host}${dir}/";
+     htaccess.RewriteBase = dir;
+   };
+ };
+
+   Make sure your nginx doesn't host nextcloud on your exposed port:
+
+ /etc/nixos/configuration.nix
+
+ services.nginx.virtualHosts."${config.services.nextcloud.hostName}".listen = [ {
+   addr = "127.0.0.1";
+   port = 8080; # NOT an exposed port
+ } ];
+
+   Redirect some well-known URLs which have to be found at
+   your.site/.well-known towards your new nextcloud URL:
+
+ /etc/nixos/configuration.nix
+
+ services.nginx.virtualHosts."localhost" = {
+   "^~ /.well-known" = {
+             priority = 9000;
+             extraConfig = ''
+               absolute_redirect off;
+               location ~ ^/\\.well-known/(?:carddav|caldav)$ {
+                 return 301 /nextcloud/remote.php/dav;
+               }
+               location ~ ^/\\.well-known/host-meta(?:\\.json)?$ {
+                 return 301 /nextcloud/public.php?service=host-meta-json;
+               }
+               location ~ ^/\\.well-known/(?!acme-challenge|pki-validation) {
+                 return 301 /nextcloud/index.php$request_uri;
+               }
+               try_files $uri $uri/ =404;
+             '';
+           };
+ };
+
+   Finally, forward your.site/nextcloud/ (exposed port 80 or 443) to your
+   unexposed nextcloud port 8080 (defined earlier):
+
+ /etc/nixos/configuration.nix
+
+ services.nginx.virtualHosts."localhost" = {
+   "/nextcloud/" = {
+         priority = 9999;
+         extraConfig = ''
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-NginX-Proxy true;
+           proxy_set_header X-Forwarded-Proto http;
+           proxy_pass http://127.0.0.1:8080/; # tailing / is important!
+           proxy_set_header Host $host;
+           proxy_cache_bypass $http_upgrade;
+           proxy_redirect off;
+         '';
+       };
+ }
+
+   Note: If you have TLS (https) enabled, make sure nginx forwards to the
+   correct port and nextcloud overwrites for the correct protocol.
+
+  Use Caddy as webserver
+
+   Using a third-party module extension, the webserver Caddy can be used as
+   an alternative by adding following options
+
+ /etc/nixos/configuration.nix
+
+ imports = [
+   "${fetchTarball {
+     url = "https://github.com/onny/nixos-nextcloud-testumgebung/archive/fa6f062830b4bc3cedb9694c1dbf01d5fdf775ac.tar.gz";
+     sha256 = "0gzd0276b8da3ykapgqks2zhsqdv4jjvbv97dsxg0hgrhb74z0fs";}}/nextcloud-extras.nix"
+ ];
+
+ services.nextcloud = {
+   webserver = "caddy";
+ };
+
+  Add users declaratively
+
+   Using a third-party module extension, additional users can be
+   automatically configured using the ensureUsers option
+
+ /etc/nixos/configuration.nix
+
+ imports = [
+   "${fetchTarball {
+     url = "https://github.com/onny/nixos-nextcloud-testumgebung/archive/fa6f062830b4bc3cedb9694c1dbf01d5fdf775ac.tar.gz";
+     sha256 = "0gzd0276b8da3ykapgqks2zhsqdv4jjvbv97dsxg0hgrhb74z0fs";}}/nextcloud-extras.nix"
+ ];
+
+ environment.etc."nextcloud-user-pass".text = "PWD";
+
+ services.nextcloud = {
+   ensureUsers = {
+     user1 = {
+       email = "user1@localhost";
+       passwordFile = "/etc/nextcloud-user-pass";
+     };
+     user2 = {
+       email = "user2@localhost";
+       passwordFile = "/etc/nextcloud-user-pass";
+     };
+   };
+ };
+
+Troubleshooting
+
+  Reading php logs
+
+   The default Nextcloud setting is to log to syslog. To read php logs simply
+   run
+
+ # journalctl -t Nextcloud
+
+App specific configuration
+
+  Whiteboard
+
+   The Whiteboard app requires a running backend server which is also
+   packaged in NixOS.
+
+ environment.etc."nextcloud-whiteboard-secret".text = ''
+   JWT_SECRET_KEY=test123
+ '';
+
+ services.nextcloud-whiteboard-server = {
+   enable = true;
+   settings.NEXTCLOUD_URL = "http://localhost";
+   secrets = [ /etc/nextcloud-whiteboard-secret ];
+ };
+
+   After applying the configuration configure the Nextcloud app to use it
+
+ nextcloud-occ config:app:set whiteboard collabBackendUrl --value="http://localhost:3002"
+ nextcloud-occ config:app:set whiteboard jwt_secret_key --value="test123"
+
+  NextCloud Office
+
+   The NextCloud Office app provides a Google Docs like online office suite
+   integrated into NextCloud. For this to work it requires a document server
+   that provides the editing functionality as a WOPI client.
+
+   The main options to use as WOPI client are ONLYOFFICE and Collabora
+   Online. Although the documentation makes it look like Collabora Online is
+   the only option, any document server with WOPI capabilities can be used.
+
+   To enable the NextCloud Office app, add the following to your
+   configuration:
+
+ services.nextcloud = {
+   enable = true;
+   extraApps = {
+     inherit (config.services.nextcloud.package.packages.apps) richdocuments;
+   };
+ }
+
+  ONLYOFFICE
+
+   You need to install both a document server and the ONLYOFFICE Nextcloud
+   plug-in. There are several ways to install onlyoffice:
+
+      services.onlyoffice
+
+   Due to https://github.com/ONLYOFFICE/onlyoffice-nextcloud/issues/931 you
+   need to apply the workaround from
+   https://github.com/NixOS/nixpkgs/pull/338794.
+
+   Then point the app to the document server from within the Nextcloud UI
+   ("Administration Settings" -> Administration -> ONLYOFFICE), and make sure
+   the 'services.onlyoffice.jwtSecretFile points to a file containing the
+   same key as entered in the configuration of the Nextcloud app.
+
+      the documentserver_community Nextcloud app
+
+   (not tested)
+
+      in a docker/podman container
+
+   (not tested)
+
+    Collabora Online
+
+   Collabora comes in two flavors:
+
+     * Collabora Online For Business / For Enterprise
+     * Collabora Online Development Edition (aka CODE)
+
+   As the name indicates the former two require a license, while the latter
+   is free for evaluation and personal use.
+
+   For easy deployment, there's the richdocumentscode app which bundles the
+   CODE server. While being less performant than a standalone deployment of
+   the CODE server, this solution does not require an additional service to
+   be deployed and managed externally from NextCloud. Unfortunately the
+   richdocumentscode app bundles the CODE server as an AppImage and therefore
+   does not work out of the box on NixOS. Follow
+   https://github.com/NixOS/nixpkgs/issues/339798 if you want to get informed
+   about packaging progress. Also CODE standalone is currently not packaged
+   in nixpkgs (https://github.com/NixOS/nixpkgs/issues/218878).
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nextcloud&oldid=17935"
+   Categories:
+     * Server
+     * Applications
+     * Web Applications
+     * NixOS Manual
+     * This page was last edited on 21 October 2024, at 16:08.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

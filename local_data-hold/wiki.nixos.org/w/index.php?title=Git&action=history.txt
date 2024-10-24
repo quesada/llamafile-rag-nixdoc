@@ -1,0 +1,196 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Git: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    12 September 2024
+
+     * curprev [ ] [ ] 08:3208:32, 12 September 2024‎ H7x4 talk contribs‎ m
+       5,011 bytes +5‎ Undo revision 17370 by H7x4 (talk), didn't read close
+       enough that this was homemanager config Tag: Undo
+     * curprev [ ] [ ] 08:3008:30, 12 September 2024‎ H7x4 talk contribs‎ m
+       5,006 bytes −5‎ Rewrite sample config with nonexistent options
+
+    4 September 2024
+
+     * curprev [ ] [ ] 07:2107:21, 4 September 2024‎ Mic92 talk contribs‎
+       5,011 bytes +52‎ imported from old wiki
+
+    1 July 2024
+
+     * curprev [ ] [ ] 20:5820:58, 1 July 2024‎ Klinger talk contribs‎ m
+       4,959 bytes +29‎ added category version control
+
+    30 June 2024
+
+     * curprev [ ] [ ] 17:4417:44, 30 June 2024‎ Kiara talk contribs‎ 4,930
+       bytes +52‎ link to bisecting article Tag: Visual edit: Switched
+
+    1 March 2024
+
+     * curprev [ ] [ ] 09:2609:26, 1 March 2024‎ imported>Erikarvstedt‎ m
+       4,878 bytes −2‎ No edit summary
+
+    14 February 2024
+
+     * curprev [ ] [ ] 22:0522:05, 14 February 2024‎ imported>Erikarvstedt‎ m
+       4,880 bytes +25‎ add reference to gitolite
+     * curprev [ ] [ ] 19:4719:47, 14 February 2024‎ imported>Erikarvstedt‎ m
+       4,855 bytes −1‎ No edit summary
+     * curprev [ ] [ ] 19:4619:46, 14 February 2024‎ imported>Erikarvstedt‎
+       4,856 bytes +1,647‎ Add section "Serve Git repos via SSH"
+
+    11 December 2023
+
+     * curprev [ ] [ ] 10:4810:48, 11 December 2023‎ imported>RichardJActon‎
+       3,209 bytes +483‎ Add an example of setting a simple option in
+       gitconfig with an attribute set in extraConfig
+
+    30 September 2023
+
+     * curprev [ ] [ ] 20:3220:32, 30 September 2023‎ imported>Zaporter‎ m
+       2,726 bytes +167‎ Add explicit instructions for the common use case of
+       enabling git lfs
+
+    29 September 2023
+
+     * curprev [ ] [ ] 09:3409:34, 29 September 2023‎ imported>IgorM‎ m 2,559
+       bytes +67‎ Fixed syntax highlighting
+
+    29 August 2022
+
+     * curprev [ ] [ ] 19:1119:11, 29 August 2022‎ imported>Kindrobot‎ 2,492
+       bytes +207‎ Add information about adding git aliases
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5005:50, 20 September 2021‎ imported>Nix‎ m 2,285
+       bytes +27‎ add Software/Applications subcategory
+
+    17 June 2021
+
+     * curprev [ ] [ ] 16:1416:14, 17 June 2021‎ imported>Gmfawcett‎ m 2,258
+       bytes +123‎ mention `gitFull` package to fill in missing GUI commands
+
+    30 March 2021
+
+     * curprev [ ] [ ] 12:1712:17, 30 March 2021‎ imported>Ikovnatsky‎ 2,135
+       bytes +313‎ Add git-credential-helper with libsecret
+
+    7 January 2019
+
+     * curprev [ ] [ ] 22:5922:59, 7 January 2019‎ imported>Profpatsch‎ 1,822
+       bytes +1,138‎ nixpkgs management git-gc section
+
+    13 January 2018
+
+     * curprev [ ] [ ] 19:4719:47, 13 January 2018‎ imported>Krey‎ 684 bytes
+       +4‎ →‎Configuration
+     * curprev [ ] [ ] 19:3219:32, 13 January 2018‎ imported>Krey‎ 680 bytes
+       +680‎ Created page with "[https://en.wikipedia.org/wiki/Git_(software)
+       Git] is the version control system (VCS) designed and developed by
+       Linus Torvalds, the creator of the Linux kernel. Git is used t..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Git"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

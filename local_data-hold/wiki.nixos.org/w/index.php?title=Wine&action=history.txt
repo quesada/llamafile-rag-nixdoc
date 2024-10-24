@@ -1,0 +1,169 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Wine: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:2317:23, 19 April 2024‎ Klinger talk contribs‎
+       1,255 bytes +1‎ No edit summary
+     * curprev [ ] [ ] 17:1217:12, 19 April 2024‎ Klinger talk contribs‎
+       1,254 bytes +108‎ Beginning and categories added
+
+    10 February 2024
+
+     * curprev [ ] [ ] 10:2610:26, 10 February 2024‎ imported>Float3‎ m 1,146
+       bytes +38‎ No edit summary
+
+    1 August 2022
+
+     * curprev [ ] [ ] 22:2322:23, 1 August 2022‎ imported>Reedrw‎ 1,108
+       bytes −103‎ Wine dependency was removed from winetricks months ago
+       (https://github.com/NixOS/nixpkgs/commit/68ca39a775a637f289c63248b64443ef7342f6ad)
+
+    16 March 2022
+
+     * curprev [ ] [ ] 08:1508:15, 16 March 2022‎ imported>Anpandey‎ m 1,211
+       bytes +73‎ add wayland modifier
+
+    25 May 2021
+
+     * curprev [ ] [ ] 20:4720:47, 25 May 2021‎ imported>Cwyc‎ 1,138 bytes
+       +151‎ mention updating winetricks etc.
+     * curprev [ ] [ ] 20:4120:41, 25 May 2021‎ imported>Cwyc‎ m 987 bytes
+       −6‎ It's unecessary to comment these lines.
+
+    11 January 2020
+
+     * curprev [ ] [ ] 03:5103:51, 11 January 2020‎ imported>Nh2‎ 993 bytes
+       −74‎ Update how to use 32/64 bit build and staging from binary cache,
+       see
+       https://github.com/NixOS/nixpkgs/issues/32435#issuecomment-572741214
+
+    3 December 2019
+
+     * curprev [ ] [ ] 11:2411:24, 3 December 2019‎ imported>Nh2‎ 1,067 bytes
+       +197‎ Explain when wineWow is needed
+
+    14 September 2018
+
+     * curprev [ ] [ ] 22:1722:17, 14 September 2018‎ imported>Haslersn‎ m
+       870 bytes −3‎ Adapted headline to the previous change
+     * curprev [ ] [ ] 21:5621:56, 14 September 2018‎ imported>Haslersn‎ 873
+       bytes +176‎ Took into account that wineBuild defaults to: if
+       stdenv.hostPlatform.system == "x86_64-linux" then "wineWow" else
+       "wine32"
+
+    27 August 2017
+
+     * curprev [ ] [ ] 11:4911:49, 27 August 2017‎ imported>Fadenb‎ m 697
+       bytes −7‎ Syntaxhighlight
+
+    21 August 2017
+
+     * curprev [ ] [ ] 18:1418:14, 21 August 2017‎ imported>Makefu‎ 704 bytes
+       +704‎ initial batch of nixos-users
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Wine"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

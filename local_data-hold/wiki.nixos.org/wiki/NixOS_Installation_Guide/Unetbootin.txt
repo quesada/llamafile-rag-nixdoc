@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      NixOS Installation Guide/Unetbootin
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section is out of date.                                   
+    Reason: Instructions are old, from around 2014, and are are unlikely to   
+    work. (Discuss in Talk:NixOS Installation Guide/Unetbootin)               
+    Once the page has been updated this notice can be removed.                
+
+   NOTE: Using Unetbootin to produce a USB flash drive is not supported.
+
+     ----------------------------------------------------------------------
+
+   It is possible to install NixOS from a USB stick, rather than from a CD.
+   This is useful if you want to install NixOS on a machine that doesn't have
+   a CD-ROM drive (such as most netbooks), or if you don't want to waste a
+   blank CD. Here is how to do it:
+
+    1. Download a NixOS ISO image or #Build a custom installation image.
+    2. Obtain a USB stick formatted with the VFAT/FAT32 filesystem with
+       enough free disk space to hold the contents of the ISO image.
+       Note: It's not necessary to erase the USB stick.
+    3. Install UNetbootin, a tool that allows you to create a bootable USB
+       stick from an ISO image. UNetbootin runs on both Linux and Windows. If
+       you already have Nix/NixOS, you can install it by running nix-env -i
+       unetbootin. Other tools may also work.
+    4. Insert the USB stick, start UNetbootin, select the ISO file and target
+       USB drive, and press Ok. This copies the contents of the ISO to the
+       USB stick and installs the GRUB boot loader.
+    5. You should now be able to boot NixOS from the USB stick, and perform
+       the installation as usual.
+   Note: For EFI support you may need to change the label of the FAT
+   filesystem. You can do this on Linux with mlabel, and on OS X with
+   diskutil: `sudo diskutil rename OLDNAME NIXOS_ISO`.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Installation_Guide/Unetbootin&oldid=17417"
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 14 September 2024, at 08:24.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,110 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                Talk:Cheatsheet
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 30 March 2022 by TLATER
+
+   the table is overly long and requires scrolling left and right, not sure
+   how to make the page show it all without the need for scrolling --Makefu
+   (talk) 22:06, 1 December 2017 (UTC)Reply
+
+     * I added a notice to use the Vector wiki theme for easier viewing of
+       this specific page. We can remove it once the problem is resolved.
+       Gmarmstrong (talk) 10:15, 1 June 2018 (UTC)Reply
+
+   I'm sure it's a bit early to convert this to use the new `nix` command but
+   wanted to get a sense of when people think a good time for that would be.
+   Perhaps we could start building the content on another page now, linked
+   from this one? --Abrooks (talk) 17:45, 10 April 2018 (UTC)Reply
+
+     * due to the fact that nix2 is now the new default for 18.03 and 17.09
+       is unsupported i think we should just rewrite the parts which need
+       rewriting. also most of the stuff should still *just work* --Makefu
+       (talk) 17:48, 10 April 2018 (UTC)Reply
+
+   Am I ok to add a big caveat to the `nix-env -iA` example, stating that it
+   should not be used? I've just run into my umphteenth case of "user
+   confused by package not updating because they installed it into their
+   profile", and I suspect a lot of this usage comes from people finding this
+   cheat sheet:
+   https://discourse.nixos.org/t/test-locally-changed-package-that-is-used-by-a-systemd-service/18408/9
+   --TLATER (talk) 11:19, 30 March 2022 (UTC)Reply
+
+   The search commands don't really work. Most things that can be installed
+   will not be listed by these commands.
+
+   The 7 July edit to "move comparison table to Ubuntu vs. NixOS" has removed
+   almost all the utility of this page for me. There is now almost no
+   difference between this page and a dozen other "I assume you already know
+   NixOS so..." pages that are out there, including the official manual. Is
+   there any particular reason why that was moved? Cynic (talk)
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Cheatsheet&oldid=4571"
+     * This page was last edited on 5 August 2022, at 15:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

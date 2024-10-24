@@ -1,0 +1,196 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                               Category:Hardware
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+   This section is dedicated to articles focusing on hardware-related topics.
+   The primary resource for hardware-related NixOS code can be found in a
+   GitHub repository abundant with code snippets:
+   https://github.com/NixOS/nixos-hardware . The repository is organized by
+   device manufacturer and also includes a common directory containing
+   snippets for various hardware components such as CPU, GPU, HDD, and SSD.
+
+Subcategories
+
+   This category has the following 3 subcategories, out of 3 total.
+
+  A
+
+     * Audio
+
+  N
+
+     * NixOS on ARM
+
+  V
+
+     * Video
+
+Pages in category "Hardware"
+
+   The following 39 pages are in this category, out of 39 total.
+
+  B
+
+     * Backlight
+     * Bluetooth
+
+  C
+
+     * Corsair
+
+  D
+
+     * Digital Bitbox
+     * Drawing Tablet
+
+  F
+
+     * Fingerprint scanner
+
+  G
+
+     * G810-led
+
+  H
+
+     * Hardware
+     * Hardware/Framework
+     * Hardware/System76
+     * Hue+
+
+  K
+
+     * Keyboard Layout Customization
+
+  L
+
+     * Laptop
+     * LIRC
+     * Logitech Unifying Receiver
+
+  N
+
+     * Nitrokey
+     * Nitrokey/en
+     * Nitrokey/fr
+     * Nitrokey/ru
+
+  O
+
+     * OpenRGB
+     * OpenTabletDriver
+
+  P
+
+     * PCI passthrough
+     * PinePhone
+     * PlayStation 2
+     * Printing
+
+  Q
+
+     * Qmk
+
+  S
+
+     * Scanners
+     * Smartmontools
+     * Smartmontools/en
+     * Smartmontools/ru
+     * Solokey
+     * Stream Deck
+
+  T
+
+     * Thunderbolt
+     * Touchpad
+     * Trezor
+
+  V
+
+     * VR
+
+  W
+
+     * Web eID
+
+  Y
+
+     * Yubikey
+
+  Z
+
+     * ZSA Keyboards
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Hardware&oldid=12151"
+   Category:
+     * Configuration
+     * This page was last edited on 18 April 2024, at 16:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

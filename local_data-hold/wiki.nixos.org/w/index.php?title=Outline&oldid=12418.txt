@@ -1,0 +1,278 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+          * 1.1 SSL example
+     * 2 Troubleshooting
+          * 2.1 Option storageType does not exist
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                    Outline
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 19:16, 24 April 2024 by Klinger (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Outline is a modern web based wiki and knowledge base for teams.
+
+Setup
+
+   The most minimal local installation of Outline can be enabled with the
+   following configuration
+
+   Note: Previous example used the mockPassword connector, which is an
+   undocumented configuration option in Dex, used solely to run some tests.
+   Use staticPasswords configuration instead, which allows using a hash for
+   the password and setting a real email for the user which can be used to
+   send notifications if an SMTP server is configured. Keep in mind, if you
+   created your first user with the previous method (mockPassword), that user
+   is your only admin user and you need to keep it around in order to confer
+   admin privileges to the next user.
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, lib, ... }: {
+
+ networking.extraHosts = ''
+   127.0.0.1 dex.localhost
+ '';
+
+ services = {
+
+   outline = {
+     enable = true;
+     publicUrl = "http://localhost:3000";
+     forceHttps = false;
+     storage.storageType = "local";
+     oidcAuthentication = {
+       # Parts taken from
+       # http://dex.localhost/.well-known/openid-configuration
+       authUrl = "http://dex.localhost/auth";
+       tokenUrl = "http://dex.localhost/token";
+       userinfoUrl = "http://dex.localhost/userinfo";
+       clientId = "outline";
+       clientSecretFile = (builtins.elemAt config.services.dex.settings.staticClients 0).secretFile;
+       scopes = [ "openid" "email" "profile" ];
+       usernameClaim = "preferred_username";
+       displayName = "Dex";
+     };
+   };
+
+   dex = {
+     enable = true;
+     settings = {
+       issuer = "http://dex.localhost";
+       storage.type = "sqlite3";
+       web.http = "127.0.0.1:5556";
+       enablePasswordDB = true;
+       staticClients = [
+         {
+           id = "outline";
+           name = "Outline Client";
+           redirectURIs = [ "http://localhost:3000/auth/oidc.callback" ];
+           secretFile = "${pkgs.writeText "outline-oidc-secret" "test123"}";
+         }
+       ];
+       staticPasswords = [
+         {
+           email = "user.email@example.com";
+           # bcrypt hash of the string "password": $(echo password | htpasswd -BinC 10 admin | cut -d: -f2)
+           hash = "10$TDh68T5XUK10$TDh68T5XUK10$TDh68T5XUK";
+           username = "test";
+           # easily generated with `$ uuidgen`
+           userID = "6D196B03-8A28-4D6E-B849-9298168CBA34";
+         }
+       ];
+     };
+   };
+
+   nginx = {
+     enable = true;
+     virtualHosts = {
+       "localhost" = {
+         locations."/" = {
+           proxyPass = "${config.services.outline.publicUrl}";
+         };
+       };
+       "dex.localhost" = {
+         locations."/" = {
+           proxyPass = "http://${config.services.dex.settings.web.http}";
+         };
+       };
+     };
+   };
+
+ };
+
+   Outline is available at http://localhost . Choose login provider "Dex" and
+   authenticate with the example mock login user.email@example.com and
+   password.
+
+  SSL example
+
+   Similar as before but this time with Nginx handling SSL.
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, lib, ... }: {
+
+   services.nginx = {
+     enable = true;
+     recommendedProxySettings = true;
+     recommendedTlsSettings = true;
+     virtualHosts = {
+       "outline.example.tld" = {
+         onlySSL = true;
+         useACMEHost = "example.tld"; # assuming security.acme.certs."example.tld" with `extraDomainNames = [ "outline.example.tld" ]`
+         locations."/" = {
+           proxyPass = "http://localhost:${toString config.services.outline.port}";
+           proxyWebsockets = true;
+           extraConfig = ''
+                 proxy_set_header X-Scheme $scheme;
+           '';
+         };
+       };
+       "dex.example.tld" = {
+         onlySSL = true;
+         useACMEHost = "example.tld";
+         locations."/" = {
+           proxyPass = "http://${config.services.dex.settings.web.http}";
+           proxyWebsockets = true;
+         };
+       };
+     };
+   };
+
+
+   services.outline = {
+     enable = true;
+     publicUrl = "https://outline.example.tld";
+     port = 3003; # using 3003 instead of default 3000 just in case another service is already using 3000
+     forceHttps = false;
+     storage.storageType = "local";
+     oidcAuthentication = {
+       authUrl = "https://dex.example.tld/auth";
+       tokenUrl = "https://dex.example.tld/token";
+       userinfoUrl = "https://dex.example.tld/userinfo";
+       clientId = "outline";
+       clientSecretFile = (builtins.elemAt config.services.dex.settings.staticClients 0).secretFile;
+       scopes = [ "openid" "email" "profile" ];
+       usernameClaim = "preferred_username";
+       displayName = "Dex";
+     };
+   };
+
+   services.dex = {
+     enable = true;
+     settings = {
+       issuer = "https://dex.example.tld";
+       storage.type = "sqlite3";
+       web.http = "127.0.0.1:5556";
+       staticClients = [
+         {
+           id = "outline";
+           name = "Outline Client";
+           redirectURIs = [ "https://outline.example.tld/auth/oidc.callback" ];
+           secretFile = "${pkgs.writeText "outline-oidc-secret" "test123"}";
+         }
+       ];
+       staticPasswords = [
+         {
+           email = "user.email@example.com";
+           # bcrypt hash of the string "password": $(echo password | htpasswd -BinC 10 admin | cut -d: -f2)
+           hash = "10$TDh68T5XUK10$TDh68T5XUK10$TDh68T5XUK";
+           username = "test";
+           # easily generated with `$ uuidgen`
+           userID = "6D196B03-8A28-4D6E-B849-9298168CBA34";
+         }
+       ];
+     };
+   };
+
+Troubleshooting
+
+  Option storageType does not exist
+
+   If you see an error that says something like option
+   "services.outline.storage.storageType" does not exist" you may need to
+   update your channels (nix-channel --update)
+
+See also
+
+     * Mediawiki, PHP- and web-based wiki software.
+     * Dokuwiki, simple PHP- and web-based wiki software which uses file
+       based storage for its content.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Outline&oldid=12418"
+   Categories:
+     * Server
+     * Web Applications
+     * This page was last edited on 24 April 2024, at 19:16.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

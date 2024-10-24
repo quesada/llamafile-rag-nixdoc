@@ -1,0 +1,148 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Basic development environment
+     * 2 NixOS
+     * 3 Use in vscode
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                   Platformio
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   PlatformIO is a SDK/toolchain manager for various microcontrollers and and
+   embedded platforms i.e. esp32.
+
+Basic development environment
+
+ { pkgs ? import <nixpkgs> {} }:
+ let
+ in
+   pkgs.mkShell {
+     buildInputs = [
+       pkgs.platformio
+       # optional: needed as a programmer i.e. for esp32
+       # pkgs.avrdude
+     ];
+ }
+
+NixOS
+
+   Add the required udev rules.
+
+ {
+   services.udev.packages = [
+     pkgs.platformio-core
+     pkgs.openocd
+   ];
+ }
+
+Use in vscode
+
+   To use the nix-shell provided PlatformIO rather the builtin one first open
+   vscode within the nix-shell and also modify it's settings.json to also
+   contain the following line:
+
+ {
+       "platformio-ide.useBuiltinPIOCore": false,
+ }
+
+   As of PlatformIO IDE 2.0.0, you will need a shell that allows the
+   extension to run “python -m platformio” (#237313):
+
+ { pkgs ? import (builtins.fetchTarball {
+     # NixOS/nixpkgs#237313 = ppenguin:refactor-platformio-fix-ide
+     url = "https://github.com/NixOS/nixpkgs/archive/3592b10a67b518700002f1577e301d73905704fe.tar.gz";
+   }) {},
+ }:
+ let
+   envname = "platformio-fhs";
+   mypython = pkgs.python3.withPackages (ps: with ps; [ platformio ]);
+ in
+ (pkgs.buildFHSUserEnv {
+   name = envname;
+   targetPkgs = pkgs: (with pkgs; [
+     platformio-core
+     mypython
+     openocd
+   ]);
+   # NixOS/nixpkgs#263201, NixOS/nixpkgs#262775, NixOS/nixpkgs#262080
+   runScript = "env LD_LIBRARY_PATH= bash";
+ }).env
+
+See also
+
+     * Platformio permission denied[13]
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Platformio&oldid=9445"
+   Category:
+     * Development
+     * This page was last edited on 9 December 2023, at 03:11.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

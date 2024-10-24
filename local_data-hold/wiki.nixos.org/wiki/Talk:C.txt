@@ -1,0 +1,83 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                     Talk:C
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   (first contribution to the wiki)
+
+   1) editing NIX_CFLAGS_COMPILE_BEFORE_x86_64_unknown_linux_gnu was needed
+   instead of NIX_CFLAGS_COMPILE. 2) a link to an autotools documentation, or
+   another wiki page on this subject, would be greatly appreciated. For
+   instance, the wiki page of Gentoo
+   https://devmanual.gentoo.org/general-concepts/autotools/index.html could
+   help.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:C&oldid=9330"
+     * This page was last edited on 30 September 2021, at 17:52.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

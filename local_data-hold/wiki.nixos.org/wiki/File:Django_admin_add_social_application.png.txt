@@ -1,0 +1,103 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  File:Django admin add social application.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+   File:Django admin add social application.png
+   Size of this preview: 694 × 599 pixels. Other resolution: 1,647 × 1,422
+   pixels.
+
+   Original file ‎(1,647 × 1,422 pixels, file size: 167 KB, MIME type:
+   image/png)
+
+   Screenshot of the Django admin site on the Add Social Application page
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail    Dimensions User            Comment          
+                     Thumbnail                               Screenshot of    
+           07:20, 20 for version  1,647 ×                    the Django admin 
+   current February  as of 07:20, 1,422 (167 Imported>Benley site on the Add  
+           2020      20 February  KB)                        Social           
+                     2020                                    Application page 
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * Mailman
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Django_admin_add_social_application.png&oldid=7374"
+     * This page was last edited on 1 April 2024, at 11:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

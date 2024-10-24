@@ -1,0 +1,114 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                  File:CDE.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:CDE.png
+   Size of this preview: 800 × 500 pixels. Other resolution: 1,920 × 1,200
+   pixels.
+
+   Original file ‎(1,920 × 1,200 pixels, file size: 994 KB, MIME type:
+   image/png)
+
+   Common Desktop Environment
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail           Dimensions User          Comment     
+           09:58, 16 Thumbnail for       1,920 ×                  Common      
+   current May 2020  version as of       1,200 (994 Imported>User Desktop     
+                     09:58, 16 May 2020  KB)                      Environment 
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * CDE
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Horizontal resolution 37.8 dpc 
+   Vertical resolution   37.8 dpc 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:CDE.png&oldid=7653"
+     * This page was last edited on 1 April 2024, at 11:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

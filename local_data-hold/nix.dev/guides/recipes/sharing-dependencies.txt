@@ -1,0 +1,211 @@
+   Link: canonical
+   Link: index: Index
+   Link: search: Search
+   Link: next: Automatically managing remote sources with npins
+   Link: prev: Automatic environment activation with direnv
+   Skip to main content [ ] [ ]
+   _____________________ Ctrl+K
+   [IMG] nix.dev
+   IFrame
+
+   Official documentation for getting things done with Nix.
+
+   _____________________ Ctrl+K
+     * Install Nix
+     * Tutorials [ ]
+          * First steps [ ]
+               * Ad hoc shell environments
+               * Reproducible interpreted scripts
+               * Declarative shell environments
+               * Towards reproducibility: pinning Nixpkgs
+          * Nix language basics
+          * Packaging existing software
+          * Package parameters and overrides with callPackage
+          * Working with local files
+          * Cross compilation
+          * Module system [ ]
+               * 1. A basic module
+               * 2. Module system deep dive
+          * NixOS [ ]
+               * NixOS virtual machines
+               * Building a bootable ISO image
+               * Building and running Docker images
+               * Integration testing with NixOS virtual machines
+               * Provisioning remote machines via SSH
+               * Installing NixOS on a Raspberry Pi
+               * Deploying NixOS using Terraform
+               * Setting up an HTTP binary cache
+               * Setting up distributed builds
+     * Guides [ ]
+          * Recipes [ ]
+               * Configure Nix to use a custom binary cache
+               * Automatic environments
+               * Dependencies in the development shell
+               * Managing remote sources
+               * Python development environment
+               * Setting up post-build hooks
+               * Continuous integration with GitHub Actions
+          * Best practices
+          * Troubleshooting
+          * Frequently Asked Questions
+     * Reference [ ]
+          * Glossary
+          * Nix reference manual [ ]
+               * Nix pre-release (development)
+               * Nix 2.24 (latest)
+               * Nix 2.18 (in Nixpkgs rolling)
+               * Nix 2.18 (in Nixpkgs 24.05)
+               * Nix 2.18 (in Nixpkgs 23.11)
+          * Nixpkgs manual
+          * NixOS manual
+          * Community projects
+          * Support tools
+          * Further reading
+          * Pinning Nixpkgs
+     * Concepts [ ]
+          * Flakes
+          * Frequently Asked Questions
+     * Contributing [ ]
+          * How to contribute
+          * How to get help
+          * Contributing documentation [ ]
+               * Documentation resources
+               * Documentation framework
+               * Style guide
+               * How to write a tutorial
+     * Acknowledgements [ ]
+          * Sponsors
+     * Repository
+     * Suggest edit
+     * Open issue
+     * .md
+     * .pdf
+   [ Submit ]
+
+                     Dependencies in the development shell
+
+Contents
+
+     * Summary
+     * Complete example
+     * Next steps
+
+                     Dependencies in the development shell#
+
+   When packaging software in default.nix, you’ll want a development
+   environment in shell.nix to enter it conveniently with nix-shell or
+   automatically with direnv.
+
+   How to share the package’s dependencies in default.nix with the
+   development environment in shell.nix?
+
+Summary#
+
+   Use the inputsFrom attribute to pkgs.mkShellNoCC:
+
+  1# default.nix
+  2let
+  3  pkgs = import <nixpkgs> {};
+  4  build = pkgs.callPackage ./build.nix {};
+  5in
+  6{
+  7  inherit build;
+  8  shell = pkgs.mkShellNoCC {
+  9    inputsFrom = [ build ];
+ 10  };
+ 11}
+
+   Import the shell attribute in shell.nix:
+
+ 1# shell.nix
+ 2(import ./.).shell
+
+Complete example#
+
+   Assume your build is defined in build.nix:
+
+ 1# build.nix
+ 2{ cowsay, runCommand }:
+ 3runCommand "cowsay-output" { buildInputs = [ cowsay ]; } ''
+ 4  cowsay Hello, Nix! > $out
+ 5''
+
+   In this example, cowsay is declared as a build-time dependency using
+   buildInputs.
+
+   Further assume your project is defined in default.nix:
+
+ 1# default.nix
+ 2let
+ 3  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-23.11";
+ 4  pkgs = import nixpkgs { config = {}; overlays = []; };
+ 5in
+ 6{
+ 7  build = pkgs.callPackage ./build.nix {};
+ 8}
+
+   Add an attribute to default.nix specifying an environment:
+
+  let
+    nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-23.11";
+    pkgs = import nixpkgs { config = {}; overlays = []; };
+  in
+  {
+    build = pkgs.callPackage ./build.nix {};
+ +  shell = pkgs.mkShellNoCC {
+ +  };
+  }
+
+   Move the build attribute into the let binding to be able to re-use it.
+   Then take the package’s dependencies into the environment with inputsFrom:
+
+  let
+    nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-23.11";
+    pkgs = import nixpkgs { config = {}; overlays = []; };
+ +  build = pkgs.callPackage ./build.nix {};
+  in
+  {
+ -  build = pkgs.callPackage ./build.nix {};
+ +  inherit build;
+    shell = pkgs.mkShellNoCC {
+ +    inputsFrom = [ build ];
+    };
+  }
+
+   Finally, import the shell attribute in shell.nix:
+
+ 1# shell.nix
+ 2(import ./.).shell
+
+   Check the development environment, it contains the build-time dependency
+   cowsay:
+
+ $ nix-shell --pure
+ [nix-shell]$ cowsay shell.nix
+
+Next steps#
+
+     * Towards reproducibility: pinning Nixpkgs
+
+     * Automatic environment activation with direnv
+
+     * Setting up a Python development environment
+
+     * Packaging existing software with Nix
+
+   previous
+
+   Automatic environment activation with direnv
+
+   next
+
+   Automatically managing remote sources with npins
+
+   Contents
+     * Summary
+     * Complete example
+     * Next steps
+
+   By the Nix documentation team and contributors.
+
+   © Copyright 2016-2024, NixOS Foundation.

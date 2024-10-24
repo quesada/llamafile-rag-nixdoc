@@ -1,0 +1,145 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+               Move Nix Store to new partition: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    29 February 2024
+
+     * curprev [ ] [ ] 20:2620:26, 29 February 2024‎ imported>Wittypal‎ m
+       2,182 bytes +128‎ No edit summary
+     * curprev [ ] [ ] 20:1820:18, 29 February 2024‎ imported>Wittypal‎ m
+       2,054 bytes −3‎ More fitting template
+     * curprev [ ] [ ] 20:1620:16, 29 February 2024‎ imported>Wittypal‎ m
+       2,057 bytes +50‎ The added link tackles the same problem as this page
+
+    7 September 2023
+
+     * curprev [ ] [ ] 16:4116:41, 7 September 2023‎ imported>Toraritte‎ m
+       2,007 bytes +9‎ Fix typo
+
+    3 June 2021
+
+     * curprev [ ] [ ] 08:5808:58, 3 June 2021‎ imported>Appetrosyan‎ m 1,998
+       bytes +293‎ Formatting fixes
+
+    8 February 2019
+
+     * curprev [ ] [ ] 21:4721:47, 8 February 2019‎ imported>Buecking‎ 1,705
+       bytes +562‎ No edit summary
+     * curprev [ ] [ ] 21:3321:33, 8 February 2019‎ imported>Buecking‎ 1,143
+       bytes −44‎ No edit summary
+     * curprev [ ] [ ] 21:3221:32, 8 February 2019‎ imported>Buecking‎ 1,187
+       bytes −27‎ No edit summary
+     * curprev [ ] [ ] 21:3121:31, 8 February 2019‎ imported>Buecking‎ 1,214
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 21:3021:30, 8 February 2019‎ imported>Buecking‎ 1,215
+       bytes +7‎ No edit summary
+     * curprev [ ] [ ] 21:2921:29, 8 February 2019‎ imported>Buecking‎ 1,208
+       bytes +1,208‎ Created page with "== Moving /nix to a new parition ==
+       The tutorial will teach you how to relocate `/nix` to a new device.
+       There is no more space on / and I want to mv $ du -h Filesy..."
+   [ Compare selected revisions ]
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Move_Nix_Store_to_new_partition"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

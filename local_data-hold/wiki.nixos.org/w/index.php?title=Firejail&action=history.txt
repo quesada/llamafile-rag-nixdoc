@@ -1,0 +1,221 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Firejail: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    25 June 2024
+
+     * curprev [ ] [ ] 21:0121:01, 25 June 2024‎ Klinger talk contribs‎ m
+       7,731 bytes +7‎ →‎Torify application traffic
+
+    3 May 2024
+
+     * curprev [ ] [ ] 10:2210:22, 3 May 2024‎ Onny talk contribs‎ 7,724
+       bytes +260‎ →‎Configuration: Update signal-desktop example Tag: Visual
+       edit
+
+    29 December 2023
+
+     * curprev [ ] [ ] 02:0102:01, 29 December 2023‎ imported>Kugland‎ m
+       7,464 bytes +91‎ No edit summary
+
+    28 December 2023
+
+     * curprev [ ] [ ] 21:0721:07, 28 December 2023‎ imported>Kugland‎ m
+       7,373 bytes −1‎ No edit summary
+     * curprev [ ] [ ] 21:0121:01, 28 December 2023‎ imported>Kugland‎ m
+       7,374 bytes −63‎ No edit summary
+     * curprev [ ] [ ] 20:5920:59, 28 December 2023‎ imported>Kugland‎ 7,437
+       bytes +847‎ Added another way of restoring the icons of firejailed
+       applications, without home manager.
+
+    15 December 2023
+
+     * curprev [ ] [ ] 08:0508:05, 15 December 2023‎ imported>Onny‎ 6,590
+       bytes −17‎ Remove unneeded workaorund in Signal-Desktop example
+
+    18 November 2023
+
+     * curprev [ ] [ ] 08:2308:23, 18 November 2023‎ imported>Onny‎ 6,607
+       bytes −114‎ Remove unstable notice
+
+    3 August 2023
+
+     * curprev [ ] [ ] 03:2003:20, 3 August 2023‎ imported>Ljlapierre‎ 6,721
+       bytes +1,806‎ I wrote a small section on my solution for getting app
+       icons working with Firejail
+
+    12 March 2023
+
+     * curprev [ ] [ ] 22:1722:17, 12 March 2023‎ imported>Onny‎ 4,915 bytes
+       +190‎ Update Tor instructions
+
+    8 March 2023
+
+     * curprev [ ] [ ] 20:0320:03, 8 March 2023‎ imported>Onny‎ m 4,725 bytes
+       +63‎ No edit summary
+     * curprev [ ] [ ] 20:0120:01, 8 March 2023‎ imported>Onny‎ 4,662 bytes
+       +212‎ Add note on networkd-dispatcher
+
+    13 February 2023
+
+     * curprev [ ] [ ] 10:2110:21, 13 February 2023‎ imported>Onny‎ 4,450
+       bytes +124‎ Use networking.nat instead of custom nftables rule
+
+    12 February 2023
+
+     * curprev [ ] [ ] 12:5412:54, 12 February 2023‎ imported>Onny‎ 4,326
+       bytes +206‎ Updated Tor instruction to use nftables instead of
+       iptables
+
+    11 February 2023
+
+     * curprev [ ] [ ] 13:4913:49, 11 February 2023‎ imported>Onny‎ 4,120
+       bytes −24‎ Simplify tor instructions
+
+    9 February 2023
+
+     * curprev [ ] [ ] 08:0208:02, 9 February 2023‎ imported>Onny‎ m 4,144
+       bytes +36‎ No edit summary
+
+    12 December 2022
+
+     * curprev [ ] [ ] 17:5117:51, 12 December 2022‎ imported>Luflosi‎ m
+       4,108 bytes +4‎ Fix grammar
+
+    2 December 2022
+
+     * curprev [ ] [ ] 13:0213:02, 2 December 2022‎ imported>Onny‎ 4,104
+       bytes +95‎ Note about allowing system notifications via Dbus
+
+    15 November 2022
+
+     * curprev [ ] [ ] 17:5117:51, 15 November 2022‎ imported>Onny‎ m 4,009
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 09:4009:40, 15 November 2022‎ imported>Onny‎ m 4,009
+       bytes +215‎ No edit summary
+     * curprev [ ] [ ] 09:3909:39, 15 November 2022‎ imported>Onny‎ m 3,794
+       bytes +19‎ No edit summary
+     * curprev [ ] [ ] 09:0409:04, 15 November 2022‎ imported>Onny‎ 3,775
+       bytes +11‎ Fix installation instruction, restructure
+
+    14 November 2022
+
+     * curprev [ ] [ ] 18:4418:44, 14 November 2022‎ imported>Onny‎ m 3,764
+       bytes +136‎ No edit summary
+     * curprev [ ] [ ] 18:0418:04, 14 November 2022‎ imported>Onny‎ m 3,628
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 17:5717:57, 14 November 2022‎ imported>Onny‎ m 3,628
+       bytes +441‎ No edit summary
+     * curprev [ ] [ ] 17:5017:50, 14 November 2022‎ imported>Onny‎ 3,187
+       bytes +1,127‎ Add Tor routing example
+     * curprev [ ] [ ] 17:1517:15, 14 November 2022‎ imported>Onny‎ 2,060
+       bytes +1,082‎ Add info about Firejail module
+     * curprev [ ] [ ] 17:1017:10, 14 November 2022‎ imported>Onny‎ 978 bytes
+       +480‎ Add usage examples
+     * curprev [ ] [ ] 17:0317:03, 14 November 2022‎ imported>Onny‎ 498 bytes
+       +498‎ Init page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Firejail"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

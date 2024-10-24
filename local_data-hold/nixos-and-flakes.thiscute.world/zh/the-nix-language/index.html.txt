@@ -1,0 +1,163 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS 与 Flakes
+   SearchK
+   Main Navigation首页前言开始使用最佳实践
+
+   简体中文
+
+   English
+
+   简体中文
+
+   English
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+前言
+
+   前言
+
+开始使用
+
+   简介
+
+   优缺点
+
+   安装
+
+Nix 语言
+
+   快速入门
+
+NixOS 与 Flakes
+
+   开始使用 NixOS
+
+   Flakes 简介
+
+   使用 Flakes 管理 NixOS
+
+   NixOS 的 flake.nix 内容详解
+
+   Flakes 的组合能力与 Nixpkgs 模块系统
+
+   安装使用 Home Manager
+
+   模块化系统配置
+
+   更新系统
+
+   降级或升级软件包
+
+   其他杂七杂八的内容
+
+Nixpkgs 高级用法
+
+   简介
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   多 Nixpkgs 实例的妙用
+
+Nix Store 与二进制缓存
+
+   简介
+
+   添加二进制缓存服务器
+
+   搭建你自己的缓存服务器
+
+NixOS 最佳实践
+
+   简介
+
+   运行非 NixOS 的二进制文件
+
+   简化常用的 NixOS 相关命令
+
+   加速 Dotfiles 的调试
+
+   自定义 NIX_PATH 与 Flake Registry
+
+   远程部署 NixOS 配置
+
+   调试 Nix 软件包与 Nix 表达式
+
+Flakes 的其他玩法
+
+   简介
+
+   Flake Inputs
+
+   Flake Outputs
+
+   新一代 Nix 命令行工具的使用
+
+   模块系统与自定义 options
+
+   [WIP]Testing
+
+在 NixOS 上进行开发工作
+
+   nix shell, nix develop & pkgs.runCommand
+
+   各语言的开发环境
+
+   [WIP]软件打包
+
+   跨平台编译
+
+   分布式构建
+
+   [WIP]内核开发
+
+其他进阶话题
+
+   其他进阶话题
+
+常见问题 FAQ
+
+   常见问题 FAQ
+
+   On this page
+
+                                   Nix 语言入门 ​
+
+   Nix 语言是 Nix 包管理器的基础，要想玩得转 NixOS 与 Nix Flakes，享受到它们带来的诸多好处，就必须学会这门语言。
+
+   Nix 是一门比较简单的函数式语言，在已有一定编程基础的情况下，过一遍这些语法用时应该在 2 个小时以内。
+
+   NixOS-CN 社区已经有了一份不错的 Nix 语言教程，我不打算重复造轮子，请直接阅读Nix 语言概览 - NixOS-CN 来快速入门。
+
+   先把语法过一遍，有个大概的印象就行，后面需要用到时再边用边复习语法知识。
+
+补充说明 ​
+
+    1. 如果你英文尚可，我建议直接阅读官方的入门教程 Nix language basics - nix.dev 了解 Nix 语言的基础语法。
+    2. 另外需要注意的是，NixOS-CN 的语言教程跟 nix.dev 都未介绍完整的 Nix
+       语法，仅适合新手快速入门。如果你遇到任何自己未接触过的语法，请通过官方文档 Nix Language - Nix Reference
+       Manual 查阅 Nix 语言的完整语法！
+    3. https://noogle.dev/ 是社区的一个 Nix 函数库搜索器，可以帮助你快速查找你需要的函数以及它们的用法，非常实用。
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous page安装
+   Next page开始使用 NixOS
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

@@ -1,0 +1,159 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Category:Desktop environment
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Revision as of 16:21, 4 September 2024 by MorningstarSunset (talk |
+   contribs) (Marked this version for translation)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+   Other languages:
+     * English
+     * 中文（中国大陆）
+
+   Linux desktop environments are graphical user interfaces and sets of tools
+   for a PC. They allow you to manage windows, edit settings, and much more,
+   as well as offering different sets of features and user experiences.
+
+   Contrary to most other Linux distributions, it is trivial to install and
+   change desktop environments in NixOS. For example, the use of a fully
+   functional GNOME desktop environment only requires the following lines in
+   your configuration.
+
+ /etc/nixos/configuration.nix
+
+ services.xserver.enable = true;
+ services.xserver.displayManager.gdm.enable = true;
+ services.xserver.desktopManager.gnome.enable = true;
+
+   Changing the desktopManager and displayManager options should be enough to
+   select a different desktop environment. Applying the configuration and
+   rebooting the system should greet you to your new environment. Only some
+   desktop environments require additional configuration options. Because of
+   how NixOS works, the system will not become bloated when experimenting
+   with different desktop environments by their various tools and
+   dependencies: The default applications of a desktop environment are only
+   here when said desktop environment is active, or when you manually install
+   programs from another desktop environment.
+
+Desktop     displayManager                                                            
+Environment (others may    desktopManager additionally needed
+            work too)      
+Gnome       gdm            gnome          
+KDE/Plasma5 sddm           plasma5        
+KDE/Plasma6 sddm           plasma6        services.displayManager.sddm.wayland.enable 
+                                          = true;                                     
+Cinnamon    lightdm        cinnamon       
+Mate        lightdm        mate           
+XFCE        lightdm        xfce           
+Budgie      lightdm        budgie         
+Deepin      lightdm        deepin         
+Pantheon    lightdm        pantheon       
+CDE         lightdm        cde            
+COSMIC                                    see COSMIC                                  
+LXQT        lightdm        lxqt           
+Lumina      lightdm        lumina         
+
+Pages in category "Desktop environment"
+
+   The following 9 pages are in this category, out of 9 total.
+
+  B
+
+     * Budgie Desktop
+
+  C
+
+     * CDE
+     * COSMIC
+
+  G
+
+     * GNOME
+     * Greetd
+
+  K
+
+     * KDE
+
+  P
+
+     * Pantheon
+
+  U
+
+     * Using X without a Display Manager
+
+  X
+
+     * Xfce
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Desktop_environment&oldid=17105"
+   Category:
+     * Desktop
+     * This page was last edited on 4 September 2024, at 16:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

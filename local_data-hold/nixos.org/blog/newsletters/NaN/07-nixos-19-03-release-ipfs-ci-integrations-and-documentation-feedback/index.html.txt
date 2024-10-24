@@ -1,0 +1,82 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                                      News
+
+     * The IPFS team made package managers their top priority for 2019
+
+       There might be progress on its Nix integration.
+
+     * Statically linked Haskell executables and optionally Docker images or
+       Debian packages
+
+       Alexandre shows us how to use Niklas’ package set to compile Haskell
+       packages statically using musl.
+
+     * Concourse CI on NixOS
+
+       Michael walks us through the process of setting up Concourse CI on a
+       NixOS machine.
+
+     * NixOS 19.03 Koi released
+
+       Linus announces latest NixOS release, a total of over 20,000 commits
+       since 18.09, by 886 contributors (67 more than for 18.09).
+
+     * Why NixOS is hard and how to fix it
+
+       Dave shares his experience using NixOS and gives some feedback what
+       can be improved by the community in the future w.r.t documentation.
+
+     * Hercules CI sprint #1 development update
+
+       Development update includes features and bug fixes shipped in last two
+       weeks and shares plans what the focus is in next two weeks.
+
+     * Mixing channels in NixOS
+
+       Garry shares a trick how to use packages from different channels.
+       Useful when NixOS upgrade/update is blocked due to a broken package.
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

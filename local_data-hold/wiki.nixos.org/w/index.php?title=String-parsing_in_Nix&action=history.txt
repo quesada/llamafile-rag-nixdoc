@@ -1,0 +1,137 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                    String-parsing in Nix: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:4320:43, 24 April 2024‎ Klinger talk contribs‎ m
+       2,521 bytes +42‎ No edit summary
+
+    20 November 2022
+
+     * curprev [ ] [ ] 07:5507:55, 20 November 2022‎ imported>Milahu‎ m 2,479
+       bytes 0‎ upper case
+     * curprev [ ] [ ] 07:5407:54, 20 November 2022‎ imported>Milahu‎ 2,479
+       bytes +346‎ add parsers: xml, mix.lock + text + format
+
+    17 November 2022
+
+     * curprev [ ] [ ] 19:3319:33, 17 November 2022‎ imported>Milahu‎ m 2,133
+       bytes −2‎ rename section to IPv4 address
+     * curprev [ ] [ ] 19:2919:29, 17 November 2022‎ imported>Milahu‎ 2,135
+       bytes +126‎ add section: Grammars
+     * curprev [ ] [ ] 19:2619:26, 17 November 2022‎ imported>Milahu‎ 2,009
+       bytes +81‎ update: Parser combinators
+     * curprev [ ] [ ] 19:1919:19, 17 November 2022‎ imported>Milahu‎ 1,928
+       bytes +81‎ add parser: PureScript
+     * curprev [ ] [ ] 18:5618:56, 17 November 2022‎ imported>Milahu‎ 1,847
+       bytes +634‎ add links
+     * curprev [ ] [ ] 17:5417:54, 17 November 2022‎ imported>Milahu‎ m 1,213
+       bytes +257‎ See also: String parsing in other FP Languages
+     * curprev [ ] [ ] 17:4517:45, 17 November 2022‎ imported>Milahu‎ 956
+       bytes +956‎ init
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/String-parsing_in_Nix"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

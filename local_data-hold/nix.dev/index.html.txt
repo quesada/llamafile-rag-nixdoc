@@ -1,0 +1,188 @@
+   Link: canonical
+   Link: index: Index
+   Link: search: Search
+   Link: next: Install Nix
+   Skip to main content [ ] [ ]
+   _____________________ Ctrl+K
+   [IMG] nix.dev
+   IFrame
+
+   Official documentation for getting things done with Nix.
+
+   _____________________ Ctrl+K
+     * Install Nix
+     * Tutorials [ ]
+          * First steps [ ]
+               * Ad hoc shell environments
+               * Reproducible interpreted scripts
+               * Declarative shell environments
+               * Towards reproducibility: pinning Nixpkgs
+          * Nix language basics
+          * Packaging existing software
+          * Package parameters and overrides with callPackage
+          * Working with local files
+          * Cross compilation
+          * Module system [ ]
+               * 1. A basic module
+               * 2. Module system deep dive
+          * NixOS [ ]
+               * NixOS virtual machines
+               * Building a bootable ISO image
+               * Building and running Docker images
+               * Integration testing with NixOS virtual machines
+               * Provisioning remote machines via SSH
+               * Installing NixOS on a Raspberry Pi
+               * Deploying NixOS using Terraform
+               * Setting up an HTTP binary cache
+               * Setting up distributed builds
+     * Guides [ ]
+          * Recipes [ ]
+               * Configure Nix to use a custom binary cache
+               * Automatic environments
+               * Dependencies in the development shell
+               * Managing remote sources
+               * Python development environment
+               * Setting up post-build hooks
+               * Continuous integration with GitHub Actions
+          * Best practices
+          * Troubleshooting
+          * Frequently Asked Questions
+     * Reference [ ]
+          * Glossary
+          * Nix reference manual [ ]
+               * Nix pre-release (development)
+               * Nix 2.24 (latest)
+               * Nix 2.18 (in Nixpkgs rolling)
+               * Nix 2.18 (in Nixpkgs 24.05)
+               * Nix 2.18 (in Nixpkgs 23.11)
+          * Nixpkgs manual
+          * NixOS manual
+          * Community projects
+          * Support tools
+          * Further reading
+          * Pinning Nixpkgs
+     * Concepts [ ]
+          * Flakes
+          * Frequently Asked Questions
+     * Contributing [ ]
+          * How to contribute
+          * How to get help
+          * Contributing documentation [ ]
+               * Documentation resources
+               * Documentation framework
+               * Style guide
+               * How to write a tutorial
+     * Acknowledgements [ ]
+          * Sponsors
+     * Repository
+     * Suggest edit
+     * Open issue
+     * .md
+     * .pdf
+   [ Submit ]
+
+                               Welcome to nix.dev
+
+Contents
+
+     * What can you do with Nix?
+     * Who is Nix for?
+
+                              Welcome to nix.dev#
+
+   nix.dev is the home of official documentation for the Nix ecosystem. It is
+   maintained by the Nix documentation team.
+
+   If you’re new here, install Nix and begin your journey with our tutorial
+   series!
+
+   Tutorials
+
+   Series of lessons to get started
+
+   Guides
+
+   Guides to getting things done
+
+   Reference
+
+   Collections of detailed technical descriptions
+
+   Concepts
+
+   Explanations of history and ideas in the Nix ecosystem
+
+What can you do with Nix?#
+
+   The following list illustrates some of what can be achieved with the Nix
+   ecosystem:
+
+     * Reproducible development environments.
+
+     * Easy installation of software over URLs.
+
+     * Easy transfer of software environments between computers.
+
+     * Declarative specification of Linux machines.
+
+     * Reproducible integration testing using virtual machines.
+
+     * Avoidance of version conflicts with already installed software.
+
+     * Installing software from source code.
+
+     * Transparent build caching using binary caches.
+
+     * Strong support for software auditability.
+
+     * First-class cross compilation support.
+
+     * Remote builds.
+
+     * Remote deployments.
+
+     * Atomic upgrades and rollbacks.
+
+Who is Nix for?#
+
+   Nix is a tool for people who both need computers to do exactly as
+   intended, repeatably, far into the future, and who are familiar with
+   command line interfaces and plain text editors.
+
+   You don’t have to be a professional software developer and you don’t need
+   formal education in informatics to greatly benefit from Nix. However,
+   experience with complex software projects and knowing some informatics
+   helps with appreciating why it’s useful and how it works. And it helps
+   with learning how to use it effectively and how to make improvements.
+
+   You probably won’t want to go back to a world without Nix if you’re a:
+
+     * Full-stack or back-end developer
+
+     * Test engineer
+
+     * Embedded systems developer
+
+     * DevOps engineer
+
+     * System administrator
+
+     * Data scientist
+
+     * Natural scientist
+
+     * Student of a technical field
+
+     * Open source software enthusiast
+
+   next
+
+   Install Nix
+
+   Contents
+     * What can you do with Nix?
+     * Who is Nix for?
+
+   By the Nix documentation team and contributors.
+
+   © Copyright 2016-2024, NixOS Foundation.

@@ -1,0 +1,222 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 How-to
+          * 1.1 Partitioning and formatting
+          * 1.2 Getting Nix
+          * 1.3 Installing NixOS
+   [ ] Toggle the table of contents
+
+                            Install NixOS on Kimsufi
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This guide explains how to install NixOS on Kimsufi machines from the
+   rescue system. It is based on this blog post (with permission) and
+   includes some minor corrections & simplifications. All thanks to Michael
+   Maclean & Graham Christensen for the original post.
+
+How-to
+
+   Set your machine to netboot into the rescue system using the Kimsufi
+   control panel, and reboot it. You’ll get a password for the root user via
+   email. The rescue system starts the machine up using a Linux distro
+   provided over a read-only NFS, and a home directory which is in a tmpfs in
+   memory. We’ll use this space to install the Nix tools later on. We’re
+   logged in as root which gives us a fair amount of flexibility. The
+   machine’s own hard disk is not mounted by default–we’ll do this after
+   partitioning.
+
+   The first steps are to log in via SSH, and flatten the disk, then set up
+   the partition layout.
+
+  Partitioning and formatting
+
+   I created a 512MB partition for /boot, then most of the disk is taken up
+   by the root partition (btrfs in this instance, but choose your own poison;
+   also see original post for ZFS setup), and the final 4GB is swap.
+
+   I’m going to present all these commands as if it were a script, but I did
+   it all interactively.
+
+ wipefs -a /dev/sda
+
+ parted /dev/sda -- mklabel msdos
+ parted /dev/sda -- mkpart primary 1MiB 512MiB # /dev/sda1 is /boot
+ parted /dev/sda -- mkpart primary 512MiB -8GiB # This is the root partition
+ parted /dev/sda -- mkpart primary linux-swap -8GiB 100% # Swap
+
+ mkfs.ext4 -L boot /dev/sda1
+ mkfs.btrfs -L nixos /dev/sda2
+ mkswap -L swap /dev/sda3
+
+ mount /dev/disk/by-label/root /mnt
+ mkdir /mnt/boot
+ mount /dev/disk/by-label/boot /mnt/boot
+
+   Now the partition layout is complete. We can move on to the NixOS parts.
+
+  Getting Nix
+
+   We need an existing installation of Nix for `nixos-install`. There are
+   some prerequisites needed before we can install & use Nix in the rescue
+   system.
+
+ # Create a user for the install process
+ useradd -m setupuser
+
+ # Create a user for the Nix daemon
+ groupadd -g 30000 nixbld
+ useradd -u 30000 -g nixbld -G nixbld nixbld
+
+ # Set this to something you will remember, you'll need it in a moment
+ passwd setupuser
+
+ # Give sudo rights to your user
+ echo "setupuser    ALL=(ALL) NOPASSWD: ALL" >/etc/sudoers.d/setupuser
+ su setupuser -s /bin/bash -l
+
+ # Disable sandboxing as it doesn't work in tmpfs mounted systems
+ # see: https://github.com/NixOS/nix/issues/5934
+ sudo mkdir -p /etc/nix/
+ echo "sandbox = false" | sudo tee -a /etc/nix/nix.conf
+
+  # Install Nix
+ curl -L https://nixos.org/nix/install | sh
+
+ # This next line makes the Nix tools available in our shell
+ source $HOME/.nix-profile/etc/profile.d/nix.sh
+
+ # The default channel is `nixpkgs-unstable`, let's switch to a stable NixOS channel
+ nix-channel --add https://nixos.org/channels/nixos-22.11 nixpkgs
+ nix-channel --update
+
+ nix-shell -p nixos-install-tools
+ sudo `which nixos-generate-config` --root /mnt
+
+   This will place the usual configuration in
+   /mnt/etc/nixos/configuration.nix and
+   /mnt/etc/nixos/hardware-configuration.nix. I only changed the former file.
+   I’m not going to paste the entire config in here, but I will call out the
+   key parts that were needed for this to work.
+
+ # This machine is very insistent on BIOS boot, so configure that
+ boot.loader.grub.enable = true;
+ boot.loader.grub.version = 2;
+ boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+
+ networking.hostName = "metis";
+
+ # Check what the rescue system's IP, route and optionally nameservers are
+ # (or just use 8.8.8.8 for DNS if you like)
+
+ networking.usePredictableInterfaceNames = false;
+ networking.interfaces.eth0.ipv4.addresses = [{
+     address = "192.0.2.1";
+     prefixLength = 24;
+ }];
+
+ networking.defaultGateway = "192.0.2.254";
+ networking.nameservers = [ "8.8.8.8" ];
+
+ services.openssh.enable = true;
+
+ # You can enable this once you've proved the machine boots
+ networking.firewall.enable = false;
+
+ users.users = {
+     # Usual user config goes here. Be sure to include an SSH public key for root
+     # (`users.users.root.openssh.authorizedKeys.keys`; password login per SSH is disabled
+     # by default for root) or some other way to log in & get root, e.g. a user in group `wheel`
+     # with a hashed password (an SSH public key alone won't help you with `sudo`!).
+ }
+
+  Installing NixOS
+
+ sudo PATH="$PATH" NIX_PATH="${NIX_PATH:-$HOME/.nix-defexpr/channels}" `which nixos-install` --root /mnt
+
+   If all goes well, you should be asked to set a root password. You may
+   encounter quite a lot of errors about locales being missing–I ignored
+   these as they didn’t seem to matter.
+
+   At this point, you should have a NixOS system ready to go on the machine’s
+   internal disk. You’ll need to use the Kimsufi control panel to set the
+   machine back to boot from its own hard disk, using the menu option marked
+   Netboot.
+
+   You will probably encounter an error when you connect because the SSH host
+   key will have changed. You can fix this with ssh-keygen -R 192.0.2.1
+   (replacing the IP with the one for your machine), and then try again.
+   Hopefully you’ve now got a new NixOS machine up and running and ready to
+   do whatever you need it to do.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Install_NixOS_on_Kimsufi&oldid=9649"
+     * This page was last edited on 29 November 2022, at 11:36.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

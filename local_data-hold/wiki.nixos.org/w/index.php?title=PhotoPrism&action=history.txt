@@ -1,0 +1,131 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          PhotoPrism: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    17 April 2024
+
+     * curprev [ ] [ ] 19:1919:19, 17 April 2024‎ NOTtheMessiah talk
+       contribs‎ 6,906 bytes +121‎ current channel
+
+    11 June 2023
+
+     * curprev [ ] [ ] 03:3603:36, 11 June 2023‎ imported>Mic92‎ 6,785 bytes
+       −28‎ switch to proxyWebsockets option for nginx
+
+    8 June 2023
+
+     * curprev [ ] [ ] 19:3519:35, 8 June 2023‎ imported>Flyfloh‎ 6,813 bytes
+       +122‎ No edit summary
+
+    3 March 2023
+
+     * curprev [ ] [ ] 09:2809:28, 3 March 2023‎ imported>Sjau‎ 6,691 bytes
+       +6,691‎ Created page with "==What is PhotoPrism ==
+       [https://www.photoprism.app/ PhotoPrism] is an AI-Powered Photos App
+       for the Decentralized Web. It makes use of the latest technologies to
+       tag and find..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/PhotoPrism"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

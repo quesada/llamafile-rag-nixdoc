@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Wayland
+       1 comment
+   [ ] Toggle the table of contents
+
+                               Talk:Virt-manager
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 20 April by Nebu in topic Wayland
+
+   {
+
+  users.users.<myuser>.extraGroups = [ "libvirtd" ];
+
+   }
+
+   isn't the group libvirt not libvirtd?
+
+Wayland
+
+   Latest comment: 20 April1 comment1 person in discussion
+
+   You have to run under XWayland with `$ GDK_BACKEND=x11 virt-manager` or
+   set a gdk cursor like so with home-manager,
+
+  home.pointerCursor = {
+     gtk.enable = true;
+     package = pkgs.vanilla-dmz;
+     name = "Vanilla-DMZ";
+  };
+
+   Otherwise you will get an error like the following:
+
+   Error launching details: 'NoneType' object has no attribute 'conn'  Traceback (most recent call last):   File "/   nix/store/kg0k9xb64dziq1zbbjiyxd81nbqs9j7p-virt-manager-4.1.0/share/virt-manager/virtManager/vmwindow.py", line 36, in get_instance     key = "%s+%s" % (vm.conn.get_uri(), vm.get_uuid())                      ^^^^^^^ AttributeError: 'NoneType' object has no attribute 'conn' Nebu (talk) 10:34, 20 April 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Virt-manager&oldid=12340"
+     * This page was last edited on 20 April 2024, at 10:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

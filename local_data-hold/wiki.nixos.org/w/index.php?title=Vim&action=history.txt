@@ -1,0 +1,343 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Vim: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    4 September 2024
+
+     * curprev [ ] [ ] 07:2407:24, 4 September 2024‎ Mic92 talk contribs‎
+       16,439 bytes −860‎ imported from old wiki (Remove outdated docs about
+       adding new plugins and point to corresponding section in nixpkgs)
+
+    30 July 2024
+
+     * curprev [ ] [ ] 12:0212:02, 30 July 2024‎ Jopejoe1 talk contribs‎
+       17,299 bytes +97‎ Marked this version for translation
+     * curprev [ ] [ ] 12:0112:01, 30 July 2024‎ Jopejoe1 talk contribs‎ m
+       17,202 bytes +8‎ put new line in between lines for better translation
+       expirience
+     * curprev [ ] [ ] 09:4909:49, 30 July 2024‎ Jopejoe1 talk contribs‎ m
+       17,194 bytes +1‎ miss deleted closing >
+     * curprev [ ] [ ] 09:4509:45, 30 July 2024‎ Jopejoe1 talk contribs‎
+       17,193 bytes +240‎ Marked this version for translation
+     * curprev [ ] [ ] 09:4309:43, 30 July 2024‎ Jopejoe1 talk contribs‎
+       16,953 bytes +693‎ Improve translation support
+     * curprev [ ] [ ] 09:2709:27, 30 July 2024‎ Jopejoe1 talk contribs‎ m
+       16,260 bytes −10‎ No edit summary
+     * curprev [ ] [ ] 09:2009:20, 30 July 2024‎ Jopejoe1 talk contribs‎
+       16,270 bytes +840‎ Use dedicated NixOS options instead of
+       systemPackages
+
+    28 July 2024
+
+     * curprev [ ] [ ] 20:1120:11, 28 July 2024‎ Tea talk contribs‎ 15,430
+       bytes −80‎ Use shorter syntax for setting xdg config files Tag: Visual
+       edit: Switched
+
+    21 July 2024
+
+     * curprev [ ] [ ] 02:4102:41, 21 July 2024‎ Haruki7049 talk contribs‎
+       15,510 bytes +855‎ Marked this version for translation
+     * curprev [ ] [ ] 02:4002:40, 21 July 2024‎ Haruki7049 talk contribs‎
+       14,655 bytes −24‎ No edit summary
+     * curprev [ ] [ ] 02:3602:36, 21 July 2024‎ Haruki7049 talk contribs‎
+       14,679 bytes +118‎ Prepared the page for translation
+
+    8 July 2024
+
+     * curprev [ ] [ ] 05:1105:11, 8 July 2024‎ Bleetube talk contribs‎
+       14,561 bytes −39‎ Wow, what? Citation needed. Tag: Visual edit
+
+    21 June 2024
+
+     * curprev [ ] [ ] 03:3403:34, 21 June 2024‎ Tomodachi94 talk contribs‎
+       14,600 bytes −74‎ →‎Tree-sitter grammars in Neovim: Remove section,
+       this appears to be out of scope for this page
+
+    20 June 2024
+
+     * curprev [ ] [ ] 14:3914:39, 20 June 2024‎ Klinger talk contribs‎ m
+       14,674 bytes +25‎ Category:Text Editor
+
+    22 May 2024
+
+     * curprev [ ] [ ] 18:2018:20, 22 May 2024‎ Klinger talk contribs‎ 14,649
+       bytes +152‎ link to vim. Sentence explaining what vim is. Link to
+       Neovim. Tag: Visual edit
+
+    26 October 2023
+
+     * curprev [ ] [ ] 05:5605:56, 26 October 2023‎ imported>Presto8‎ 14,497
+       bytes −9‎ programs.neovim.configure is deprecated; configure.customRC
+       -> programs.neovim.extraConfig
+
+    27 September 2023
+
+     * curprev [ ] [ ] 11:0311:03, 27 September 2023‎ imported>IgorM‎ m
+       14,506 bytes +27‎ Added category
+
+    17 April 2023
+
+     * curprev [ ] [ ] 01:0801:08, 17 April 2023‎ imported>Cdmistman‎ m
+       14,479 bytes 0‎ correct command for searching for vimPlugins
+
+    15 November 2022
+
+     * curprev [ ] [ ] 04:2604:26, 15 November 2022‎ imported>Gkb‎ m 14,479
+       bytes +62‎ →‎Notes Regarding Plugins: Replace a broken link with an
+       intact one.
+
+    5 August 2022
+
+     * curprev [ ] [ ] 10:3010:30, 5 August 2022‎ imported>Harärmat‎ 14,417
+       bytes +67‎ Move section about system-wide configuration higher up and
+       make it work
+
+    20 July 2022
+
+     * curprev [ ] [ ] 02:1002:10, 20 July 2022‎ imported>Aabccd021‎ 14,350
+       bytes +1,227‎ No edit summary
+
+    19 April 2022
+
+     * curprev [ ] [ ] 23:1823:18, 19 April 2022‎ imported>Edrex‎ m 13,123
+       bytes +2‎ fix broken link to vim-utils.nix
+
+    14 December 2021
+
+     * curprev [ ] [ ] 12:1612:16, 14 December 2021‎ imported>Mic92‎ 13,121
+       bytes +74‎ link to tree sitters
+
+    29 October 2021
+
+     * curprev [ ] [ ] 08:4808:48, 29 October 2021‎ imported>Lassulus‎ m
+       13,047 bytes +12‎ No edit summary
+     * curprev [ ] [ ] 08:4508:45, 29 October 2021‎ imported>Lassulus‎ m
+       13,035 bytes −1‎ No edit summary
+     * curprev [ ] [ ] 08:4508:45, 29 October 2021‎ imported>Lassulus‎ m
+       13,036 bytes +5‎ No edit summary
+
+    19 October 2021
+
+     * curprev [ ] [ ] 11:4411:44, 19 October 2021‎ imported>Gbtb‎ m 13,031
+       bytes 0‎ youcompleteme was renamed to YouCompleteMe on 2020-03-27.
+       Please update to YouCompleteMe.
+
+    23 August 2021
+
+     * curprev [ ] [ ] 18:4618:46, 23 August 2021‎ imported>Sorrel‎ 13,031
+       bytes +507‎ →‎Apply custom vimrc configuration: note that ~/.vimrc
+       won't work, document vimrcConfig.beforePlugins
+
+    22 August 2021
+
+     * curprev [ ] [ ] 08:4608:46, 22 August 2021‎ imported>Sorrel‎ 12,524
+       bytes +313‎ →‎gvim and gview: document wrapGui
+
+    21 June 2021
+
+     * curprev [ ] [ ] 14:0114:01, 21 June 2021‎ imported>Dmayle‎ 12,211
+       bytes +1,456‎ Show how to manage spell fils
+
+    17 March 2021
+
+     * curprev [ ] [ ] 18:3518:35, 17 March 2021‎ imported>Alttttt39933‎ m
+       10,755 bytes −1‎ Removed a unnecessary space.
+
+    29 January 2021
+
+     * curprev [ ] [ ] 05:1405:14, 29 January 2021‎ imported>Aaron C Hall‎ m
+       10,756 bytes +1‎ No edit summary
+
+    28 January 2021
+
+     * curprev [ ] [ ] 22:4522:45, 28 January 2021‎ imported>Aaron C Hall‎
+       10,755 bytes +141‎ add small warning recommending start instead of
+       opt, see conversations e.g. here:
+       https://chat.stackexchange.com/transcript/message/56893141#56893141 -
+       and also in elm slack's #vim room...
+
+    26 January 2021
+
+     * curprev [ ] [ ] 14:5614:56, 26 January 2021‎ imported>Mickours‎ 10,614
+       bytes +182‎ Add link to a working Home manager NeoVim config for
+       Python
+
+    21 January 2021
+
+     * curprev [ ] [ ] 16:3516:35, 21 January 2021‎ imported>CideM‎ 10,432
+       bytes +116‎ Add a note about customizing the Git branch
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:3921:39, 24 September 2020‎ imported>Garbas‎ m
+       10,316 bytes +6‎ No edit summary
+
+    7 September 2020
+
+     * curprev [ ] [ ] 11:3911:39, 7 September 2020‎ imported>Makefu‎ m
+       10,310 bytes +20‎ strings for vim plugins are deprecated in
+       home-manager
+
+    10 August 2020
+
+     * curprev [ ] [ ] 17:2617:26, 10 August 2020‎ imported>Symphorien‎
+       10,290 bytes −129‎ don't use vam as example for custom vim plugins as
+       it does not work with neovim
+
+    7 June 2020
+
+     * curprev [ ] [ ] 21:4621:46, 7 June 2020‎ imported>Louwers‎ 10,419
+       bytes −783‎ Delete VAM section (abandoned)
+
+    3 April 2020
+
+     * curprev [ ] [ ] 06:0706:07, 3 April 2020‎ imported>Leonardp‎ m 11,202
+       bytes +1,418‎ added examples for global vim/nvim
+
+    11 March 2020
+
+     * curprev [ ] [ ] 21:3321:33, 11 March 2020‎ imported>Equirosa‎ 9,784
+       bytes +524‎ No edit summary
+
+    6 January 2020
+
+     * curprev [ ] [ ] 21:5121:51, 6 January 2020‎ imported>Trusktr‎ 9,260
+       bytes +260‎ Add basic install, which is useful for beginners.
+
+    15 February 2019
+
+     * curprev [ ] [ ] 04:4704:47, 15 February 2019‎ imported>Hhm‎ m 9,000
+       bytes +57‎ gvim and gview: link vim_configurable too
+     * curprev [ ] [ ] 04:4504:45, 15 February 2019‎ imported>Hhm‎ 8,943
+       bytes +299‎ add gvim part
+
+    11 February 2019
+
+     * curprev [ ] [ ] 00:3400:34, 11 February 2019‎ imported>Mschonfinkel‎
+       8,644 bytes +88‎ Added a vim-plug section and updated the Adding new
+       plugins one
+
+    12 December 2018
+
+     * curprev [ ] [ ] 15:4215:42, 12 December 2018‎ imported>Mickours‎ 8,556
+       bytes +651‎ Add python3 vim support
+
+    21 November 2018
+
+     * curprev [ ] [ ] 10:1910:19, 21 November 2018‎ imported>Wagnerf42‎
+       7,905 bytes +120‎ No edit summary
+
+    9 September 2018
+
+     * curprev [ ] [ ] 08:1808:18, 9 September 2018‎ imported>Mic92‎ 7,785
+       bytes +553‎ add black language server + better language client short
+       keys
+     * curprev [ ] [ ] 08:1508:15, 9 September 2018‎ imported>Mic92‎ 7,232
+       bytes −3‎ →‎Customizations
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Vim"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

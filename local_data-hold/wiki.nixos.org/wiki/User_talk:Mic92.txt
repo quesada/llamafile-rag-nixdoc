@@ -1,0 +1,121 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 MPV Page Contributions
+       2 comments
+   [ ] Toggle the table of contents
+
+                                User talk:Mic92
+
+     * User page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * User contributions
+     * Logs
+     * View user groups
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 19 June by Mic92 in topic MPV Page Contributions
+
+   - Hey Mic92, thank you for your work in the NixOS wiki! I saw that you
+   removed the page "Nix command/run" because it is now part of the NixOS
+   manual. I really was used to look up these information on the wiki while
+   continuously improving the pages etc. I know the NixOS manual is the main
+   resource for up to date documentation but personally I have my
+   difficulties using and accessing it. I wasn't able to find the entry about
+   nix run there. I somehow prefer the Wiki and in my opinion it is the
+   resource which is easier to access for most users. For example the pages
+   on Dokuwiki, Nextcloud and Wordpress improved a lot. Do you think it could
+   be possible to have documentation on both sides, manual and wiki while
+   risking duplication and contradicting doc? - onny
+
+   - I was deleting those on request on the documentation team. Maybe it's
+   best to discuss this with them. You can participating in their meetings or
+   reach out to fricklerhandwerk in matrix in #nixos-wiki:matrix.org
+
+MPV Page Contributions
+
+   Latest comment: 19 June2 comments2 people in discussion
+
+   Hello Mic92,
+
+   I've noticed your excellent contributions to the MPV page and I fully
+   acknowledge that the nix-env section was an oversight on my part. Your
+   efforts in organizing the page and improving its readability are greatly
+   appreciated.
+
+   However, I have concerns about merging the "mpv scripts" section. I'm not
+   sure if you are using the latest channel, but it appears that I cannot
+   build it on my system, and I wonder if this issue is related to the
+   channel you're using. Layer-09 (talk) 11:27, 19 June 2024 (UTC)Reply
+
+           Addressed the issue in
+           https://wiki.nixos.org/w/index.php?title=MPV&diff=13230&oldid=13221
+           Mic92 (talk) 11:56, 19 June 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=User_talk:Mic92&oldid=13231"
+     * This page was last edited on 19 June 2024, at 11:56.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

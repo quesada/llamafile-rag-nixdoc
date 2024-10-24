@@ -1,0 +1,88 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #02 - NixOS Weekly
+
+   Published on Thu Feb 06 2020
+
+                               #02 - NixOS Weekly
+
+                                      News
+
+     * nix-simple-deploy
+
+       A Rust rewrite of unmaintained nix-deploy. Any feedback appreciated!
+
+     * cached-nix-shell: Instant startup time for nix-shell
+
+       Caching layer for nix-shell featuring instant startup time on
+       subsequent runs. It supports NixOS and Linux.
+
+     * structured-attrs
+
+       An explanation of __structuredAttrs in stdenv and why enabling it
+       would be desirable.
+
+     * nix-bisect: Bisect Nix Builds
+
+       A small command-line tool and python library that makes bisecting nix
+       builds much more convenient. It prevents common pitfalls in simple
+       cases and saves a lot of time in more complicated ones.
+
+     * Job: ShowSeeker is looking for DevOps and SRE engineers
+
+     * Cachix: CDN and double storage
+
+       Cachix infrastructure has been revamped to scale with recent growth in
+       traffic.
+
+     * NixOS: For developers
+
+     * Oslo NixOS MiniCon 2020
+
+     * Running NixOS on a consumer NAS
+
+     * How I Work From Anywhere in the World
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

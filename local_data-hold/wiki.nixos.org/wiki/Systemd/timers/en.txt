@@ -1,0 +1,178 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration
+          * 1.1 Using the systemd.services.<name>.startAt shorthand
+          * 1.2 Running timer on a schedule
+     * 2 Usage
+   [ ] Toggle the table of contents
+
+                                 Systemd/timers
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Translate this page
+   ← Back to systemd
+
+   Timers are systemd unit files whose name ends in .timer that control
+   .service files or events. Timers can be used as an alternative to cron.
+   Timers have built-in support for calendar-based events and monotonic time
+   events, and can be run asynchronously.
+
+Configuration
+
+   The following example timer runs a systemd unit every 5 minutes which
+   invokes a bash script.
+
+ systemd.timers."hello-world" = {
+   wantedBy = [ "timers.target" ];
+     timerConfig = {
+       OnBootSec = "5m";
+       OnUnitActiveSec = "5m";
+       Unit = "hello-world.service";
+     };
+ };
+
+ systemd.services."hello-world" = {
+   script = ''
+     set -eu
+     ${pkgs.coreutils}/bin/echo "Hello World"
+   '';
+   serviceConfig = {
+     Type = "oneshot";
+     User = "root";
+   };
+ };
+
+   Alternatively here, avoid quotes when calling for the binary and its
+   command options:
+
+ ${pkgs.foo}/bin/foo command-options
+
+   This will yield the same result as running
+
+ foo command-options
+
+   in your terminal.
+
+    Using the systemd.services.<name>.startAt shorthand
+
+   If you only want a service to execute at an interval and don't plan to
+   configure the timer much more, you can use the
+   systemd.services.<name>.startAt option. This will have the underlying
+   systemd module in nixpkgs create the timer for you, and set its OnCalendar
+   field. Note that the semantics for OnCalendar are different to
+   OnUnitActiveSec.
+
+   This example shows the previous hello-world service configured with
+   startAt, running every 5 minutes.
+
+ systemd.services."hello-world" = {
+   script = ''
+     set -eu
+     ${pkgs.coreutils}/bin/echo "Hello World"
+   '';
+   serviceConfig = {
+     Type = "oneshot";
+     User = "root";
+   };
+   startAt = "*:0/5";
+ };
+
+    Running timer on a schedule
+
+   The following example starts once a day (at 12:00am). When activated, it
+   triggers the service immediately if it missed the last start time (option
+   Persistent=true), for example due to the system being powered off.
+
+ ...
+   timerConfig = {
+       OnCalendar = "daily";
+       Persistent = true;
+   };
+ };
+
+   More examples can be found at the Arch Wiki and at the systemd.timer
+   manpage.
+
+Usage
+
+   List active timers and their current state:
+
+ systemctl list-timers
+
+   Manually run a service once for testing purposes:
+
+ systemctl start hello-world
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Systemd/timers/en&oldid=17520"
+   Category:
+     * Systemd
+     * This page was last edited on 17 September 2024, at 09:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

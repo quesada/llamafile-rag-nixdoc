@@ -1,0 +1,151 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Enabling the nix command
+     * 2 Switching between nix-env and nix profile
+     * 3 New equivalents to old commands
+   [ ] Toggle the table of contents
+
+                                  Nix command
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 18:06, 1 April 2024 by Admin (talk | contribs) (import from
+   old wiki)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   This article is about the new nix command and all of its subcommands. The
+   new nix command is intended to unify many different Nix package manager
+   utilities that exist currently as many separate commands, eg. nix-build,
+   nix-shell, etc.
+
+   See the Nix manual for a complete reference.
+
+Enabling the nix command
+
+   In nix 2.4 the nix command must be enabled explicitly set. You can do this
+   in a few different ways.
+
+   For an individual invocation, eg.
+
+ nix --experimental-features nix-command build ...
+
+   Or by setting a user-specific configuration,
+
+ # ~/.config/nix/nix.conf
+ experimental-features = nix-command
+
+   in ~/.config/nix/nix.conf.
+
+   On NixOS you can't edit /etc/nix/nix.conf directly, but you can enable
+   this feature by editing /etc/nixos/configuration.nix:
+
+ #
+ { pkgs, ... }: {
+   …
+   nix.settings.experimental-features = [ "nix-command" ];
+   …
+ }
+
+   and then run sudo nixos-rebuild switch as always.
+
+Switching between nix-env and nix profile
+
+   Warning: Be careful when testing. Once you have used nix profile you can
+   no longer use nix-env without first deleting
+   /nix/var/nix/profiles/per-user/$USER/profile
+
+   Once you installed a package with nix profile, you get the following error
+   message when using nix-env:
+
+ $ nix-env -f '<nixpkgs>' -iA 'hello'
+ error: --- Error ----------------------------------------------------------------------------------------------------------------- nix-env
+ profile '/nix/var/nix/profiles/per-user/joerg/profile' is incompatible with 'nix-env'; please use 'nix profile' instead
+
+   To migrate back to nix-env you can delete your current profile:
+
+   Warning: This will delete packages that have been installed before, so you
+   may want to back this information before running the command.
+
+ $ rm -rf /nix/var/nix/profiles/per-user/$USER/profile
+
+New equivalents to old commands
+
+ # create a store derivation for a package defined in the current directory's default.nix
+ old$ nix-instantiate -A somepackage
+ # assumes you are now using flakes
+ new$ nix eval .#somepackage.drvPath
+ # alternative option
+ new$ nix derivation show .#somepackage | jq '.[keys[0]]' | nix derivation add
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_command&oldid=11246"
+   Category:
+     * Nix
+     * This page was last edited on 1 April 2024, at 18:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

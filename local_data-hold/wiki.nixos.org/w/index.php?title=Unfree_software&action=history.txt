@@ -1,0 +1,246 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Unfree software: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    18 October 2024
+
+     * curprev [ ] [ ] 01:0701:07, 18 October 2024‎ Frontear talk contribs‎ m
+       2,659 bytes +45‎ clarify description about configuring nixpkgs Tag:
+       Visual edit
+     * curprev [ ] [ ] 01:0601:06, 18 October 2024‎ Frontear talk contribs‎ m
+       2,614 bytes −25‎ remove bit about tips and tricks Tag: Visual edit
+     * curprev [ ] [ ] 01:0501:05, 18 October 2024‎ Frontear talk contribs‎
+       2,639 bytes +986‎ rewrite this page with better formatting Tag: Visual
+       edit
+
+    1 October 2024
+
+     * curprev [ ] [ ] 20:4020:40, 1 October 2024‎ Klinger talk contribs‎ m
+       1,653 bytes +21‎ Category:Nixpkgs added Tags: Mobile edit Mobile web
+       edit
+
+    21 June 2024
+
+     * curprev [ ] [ ] 05:5905:59, 21 June 2024‎ Tomodachi94 talk contribs‎ m
+       1,632 bytes 0‎ Tomodachi94 moved page Unfree Software to Unfree
+       software: use sentance case
+     * curprev [ ] [ ] 05:5805:58, 21 June 2024‎ Tomodachi94 talk contribs‎ m
+       1,632 bytes +287‎ Copyedit
+     * curprev [ ] [ ] 05:4605:46, 21 June 2024‎ Tomodachi94 talk contribs‎ m
+       1,345 bytes −7‎ fix heading levels
+
+    17 June 2024
+
+     * curprev [ ] [ ] 11:4011:40, 17 June 2024‎ Razushi talk contribs‎ 1,352
+       bytes +15‎ Added missing `nixpkgs.config.` prefix for proper scoping.
+       Tag: Visual edit
+
+    14 June 2024
+
+     * curprev [ ] [ ] 02:3202:32, 14 June 2024‎ Gerg-L talk contribs‎ 1,337
+       bytes +15‎ allowUnfree works in home-manager post issue #2942 Tag:
+       Visual edit
+
+    17 May 2024
+
+     * curprev [ ] [ ] 01:3601:36, 17 May 2024‎ Gerg-L talk contribs‎ 1,322
+       bytes −17‎ Fix ~/.config/nixpkgs/config.nix example Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:0119:01, 24 April 2024‎ Klinger talk contribs‎ m
+       1,339 bytes +23‎ Category:Software Tag: Visual edit: Switched
+
+    6 April 2024
+
+     * curprev [ ] [ ] 18:5318:53, 6 April 2024‎ Sdht0 talk contribs‎ 1,316
+       bytes −4‎ Remove blank lines. Annoying.
+     * curprev [ ] [ ] 18:3618:36, 6 April 2024‎ Sdht0 talk contribs‎ 1,320
+       bytes −59‎ Update code
+     * curprev [ ] [ ] 18:2818:28, 6 April 2024‎ Sdht0 talk contribs‎ 1,379
+       bytes −83‎ "See also" section
+     * curprev [ ] [ ] 18:2518:25, 6 April 2024‎ Sdht0 talk contribs‎ 1,462
+       bytes −336‎ General improvements
+
+    20 October 2023
+
+     * curprev [ ] [ ] 04:5504:55, 20 October 2023‎ imported>GetPsyched‎ m
+       1,798 bytes −1‎ Typo in commit
+
+    9 October 2023
+
+     * curprev [ ] [ ] 22:0922:09, 9 October 2023‎ imported>Hypnosis2839‎ m
+       1,799 bytes 0‎ →‎For all packages: spelling
+     * curprev [ ] [ ] 22:0422:04, 9 October 2023‎ imported>Hypnosis2839‎ m
+       1,799 bytes −26‎ →‎For all packages: formatting, grammar
+     * curprev [ ] [ ] 22:0122:01, 9 October 2023‎ imported>Gerg-L‎ 1,825
+       bytes +59‎ No edit summary
+
+    6 August 2023
+
+     * curprev [ ] [ ] 17:1217:12, 6 August 2023‎ imported>Hypnosis2839‎ m
+       1,766 bytes +19‎ formatting
+
+    20 July 2023
+
+     * curprev [ ] [ ] 22:1522:15, 20 July 2023‎ imported>Gerg-L‎ m 1,747
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 21:5221:52, 20 July 2023‎ imported>Gerg-L‎ m 1,748
+       bytes −2‎ No edit summary
+     * curprev [ ] [ ] 21:5221:52, 20 July 2023‎ imported>Gerg-L‎ 1,750 bytes
+       +55‎ No edit summary
+     * curprev [ ] [ ] 21:3421:34, 20 July 2023‎ imported>Gerg-L‎ m 1,695
+       bytes 0‎ Gerg-L moved page How can I install a proprietary or unfree
+       package? to Unfree Software: forgot to change title oops
+     * curprev [ ] [ ] 21:3321:33, 20 July 2023‎ imported>Gerg-L‎ m 1,695
+       bytes 0‎ Gerg-L moved page FAQ/How can I install a proprietary or
+       unfree package? to How can I install a proprietary or unfree package?:
+       This Should be it's own page really
+
+    14 January 2019
+
+     * curprev [ ] [ ] 21:1321:13, 14 January 2019‎ imported>Makefu‎ 1,695
+       bytes +145‎ no reboot required for nixpkgs.config.allowUnfree = true;
+     * curprev [ ] [ ] 21:0121:01, 14 January 2019‎ imported>Janat08‎ 1,550
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 21:0021:00, 14 January 2019‎ imported>Janat08‎ 1,550
+       bytes +69‎ warning, clarify
+
+    16 August 2018
+
+     * curprev [ ] [ ] 20:3920:39, 16 August 2018‎ imported>Samueldr‎ m 1,481
+       bytes +156‎ Adds titles to this FAQ entry.
+
+    2 August 2018
+
+     * curprev [ ] [ ] 12:2012:20, 2 August 2018‎ imported>Srhb‎ m 1,325
+       bytes +45‎ system-wide is confusing, refer to
+       environment.systemPackages
+
+    26 May 2018
+
+     * curprev [ ] [ ] 09:5009:50, 26 May 2018‎ imported>Das-g‎ 1,280 bytes
+       +194‎ Mention possibility to whitelist unfree packages or licenses and
+       link to further information in the Nixpkgs manual
+
+    7 January 2018
+
+     * curprev [ ] [ ] 04:1504:15, 7 January 2018‎ imported>Samueldr‎ m 1,086
+       bytes +28‎ No edit summary
+     * curprev [ ] [ ] 04:1004:10, 7 January 2018‎ imported>Samueldr‎ m 1,058
+       bytes −19‎ Adds the new breadcrumb
+     * curprev [ ] [ ] 04:0504:05, 7 January 2018‎ imported>Samueldr‎ m 1,077
+       bytes 0‎ Samueldr moved page FAQ/unfree to FAQ/How can I install a
+       proprietary or unfree package?: To make the <title> of the page more
+       friendly
+     * curprev [ ] [ ] 04:0404:04, 7 January 2018‎ imported>Samueldr‎ m 1,077
+       bytes +74‎ Updates text to specify NixOS specifics.
+     * curprev [ ] [ ] 04:0004:00, 7 January 2018‎ imported>Samueldr‎ m 1,003
+       bytes +66‎ Minor nitpicks
+     * curprev [ ] [ ] 03:5603:56, 7 January 2018‎ imported>Samueldr‎ 937
+       bytes +937‎ Splits part of the FAQ for easier linking
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Unfree_software"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

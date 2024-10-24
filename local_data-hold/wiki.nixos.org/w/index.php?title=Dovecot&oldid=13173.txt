@@ -1,0 +1,102 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Troubleshooting
+          * 1.1 sievec fails to compile basic sieve scripts in 24.05
+   [ ] Toggle the table of contents
+
+                                    Dovecot
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 13:58, 14 June 2024 by Klinger (talk | contribs)
+   (Category:Mail Server Category:Server)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   This article is about dovecot, a secure imap server.
+
+Troubleshooting
+
+  sievec fails to compile basic sieve scripts in 24.05
+
+   Since NixOS 24.05 even basic sieve commands such as fileinto need to be
+   enabled explicitly with:
+
+ services.dovecot2.sieve.globalExtensions = ["fileinto"];
+
+   Otherwise, the sievec command will fail to compile sieve scripts with
+   fileinto statements and as a result the Dovecot service itself will fail
+   to start if the configuration contains services.dovecot2.sieve.scripts.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Dovecot&oldid=13173"
+   Categories:
+     * Mail Server
+     * Server
+     * This page was last edited on 14 June 2024, at 13:58.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

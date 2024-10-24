@@ -1,0 +1,83 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Talk:Overview of the Nix Language
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 08:16, 4 August 2022 by imported>Fricklerhandwerk
+   (Fricklerhandwerk moved page Talk:Overview of the Nix Expression Language
+   to Talk:Overview of the Nix Language)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   The overview part of this page should be merged with the Nix language
+   chapter of the Nix manual.
+
+   -- Fricklerhandwerk
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Overview_of_the_Nix_Language&oldid=10010"
+     * This page was last edited on 4 August 2022, at 08:16.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

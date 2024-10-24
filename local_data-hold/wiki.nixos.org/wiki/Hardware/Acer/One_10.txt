@@ -1,0 +1,104 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Known issues
+          * 2.1 Booting
+   [ ] Toggle the table of contents
+
+                                  Acer One 10
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to Hardware Hub
+
+   Acer One 10  
+   A Pinebook 11".
+   Manufacturer Acer        
+   Architecture x86_64      
+   Bootloader   32-bit GRUB 
+   Maintainer   KREYREN     
+
+   Work in progress page on documenting NixOS compatibility with the device
+   with additional useful informations
+
+Status
+
+   The device boots NixOS, but sometimes freezes and the WiFi doesn't work
+
+Known issues
+
+  Booting
+
+   The device is capable of running a 64-bit operating system, but it's
+   bootloader can only be 32-bit...
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/Acer/One_10&oldid=12058"
+     * This page was last edited on 12 April 2024, at 13:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,156 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Serial console
+     * 4 Compatibility notes
+     * 5 Resources
+   [ ] Toggle the table of contents
+
+                           NixOS on ARM/Orange Pi One
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   The Orange Pi One is an Xunlong SoC based on the Allwinner H3. As the
+   board is on the market for quite some time and the device is relatively
+   cheap, the community effort resulted in a better than average mainline
+   support with the current kernel (5.0). Refer to the H3 column in the SunXI
+   Mainline Status Matrix.
+
+   Orange Pi One
+   Orange Pi One.
+   Manufacturer Xunlong / Orange Pi 
+   Architecture ARMv7               
+   Bootloader   Upstream u-boot     
+   Maintainer   makefu              
+   URL          Sunxi Wiki          
+
+Status
+
+     This article or section is out of date.                                  
+     Reason: Section refers to old user-provided images. Should be reviewed   
+     with cross-compilation, or native compilation through userspace          
+     emulation. (Discuss in Talk:NixOS on ARM/Orange Pi One)                  
+     Once the page has been updated this notice can be removed.               
+
+   @dezgeg's porting efforts to ARMv7 works on the Orange Pi One, using the
+   proper upstream u-boot.
+
+   Even though the upstream uboot does support the Orange Pi One, it is not
+   part of nixpkgs. However with the new cross-compiler toolchain added with
+   nixpkgs-18.09 it is straight forward to build the bootloader yourself.
+
+Board-specific installation notes
+
+   First follow the generic installation steps to get the installer image on
+   an SD card.
+
+   U-Boot needs to be copied to specific sectors on the microSD card with dd.
+   At first, build the u-boot for the device, then copy it to the correct
+   location with (again, replace /dev/sdX with the correct path to the SD
+   card device):
+
+ nix-build -E 'let plat = ((import <nixpkgs> ){}).pkgsCross.armv7l-hf-multiplatform; in plat.buildUBoot{defconfig = "orangepi_one_defconfig"; extraMeta.platforms = ["armv7l-linux"]; filesToInstall = ["u-boot-sunxi-with-spl.bin"];}'
+ sudo dd if=result/uboot-orangepi_pc_defconfig-2017.11.nixpkgs.*.u-boot-sunxi-with-spl.bin of=/dev/sdX bs=1024 seek=8
+
+   Then, install using the installation and configuration steps.
+
+Serial console
+
+   Your configuration.nix will need to add console=ttyS0,115200n8 to the
+   boot.kernelParams configuration to use the serial console.
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, lib, ... }:
+ {
+   boot.kernelParams = [
+     "console=ttyS0,115200n8"
+   ];
+ }
+
+Compatibility notes
+
+     * Ethernet works with 4.19 kernel
+     * HDMI should work since kernel 4.17 (untested)
+
+Resources
+
+     * Official product page
+     * linux-sunxi wiki page
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Orange_Pi_One&oldid=17426"
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 14 September 2024, at 09:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,174 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        NixOS VM tests: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    26 July 2024
+
+     * curprev [ ] [ ] 19:4819:48, 26 July 2024‎ Hexa talk contribs‎ 14,785
+       bytes +13‎ →‎I don't see any prompt ? (qemu window pitch black) Tag:
+       Visual edit
+
+    30 June 2024
+
+     * curprev [ ] [ ] 20:2820:28, 30 June 2024‎ Klinger talk contribs‎ m
+       14,772 bytes +22‎ Category:NixOS
+
+    22 June 2024
+
+     * curprev [ ] [ ] 06:3406:34, 22 June 2024‎ Tomodachi94 talk contribs‎ m
+       14,750 bytes 0‎ Tomodachi94 moved page NixOS Testing library to NixOS
+       VM tests: title is clearer, "VM tests" is fairly common
+
+    29 May 2024
+
+     * curprev [ ] [ ] 15:5615:56, 29 May 2024‎ Nikstur talk contribs‎ m
+       14,750 bytes 0‎ →‎Connecting to an interactive VM via SSH Tag: Visual
+       edit
+     * curprev [ ] [ ] 15:5215:52, 29 May 2024‎ Nikstur talk contribs‎ 14,750
+       bytes +500‎ Add section on connecting to an interactive VM via SSH
+       Tag: Visual edit
+
+    12 September 2023
+
+     * curprev [ ] [ ] 14:2514:25, 12 September 2023‎ imported>Olafklingt‎
+       14,250 bytes +5,243‎ move haskellforall example from nix.dev here
+
+    11 September 2023
+
+     * curprev [ ] [ ] 10:1010:10, 11 September 2023‎ imported>Olafklingt‎
+       9,007 bytes +6,461‎ add examples
+
+    5 November 2021
+
+     * curprev [ ] [ ] 00:2900:29, 5 November 2021‎ imported>Roberth‎ 2,546
+       bytes +396‎ Link to docs and add nixosTest
+
+    6 February 2021
+
+     * curprev [ ] [ ] 22:2122:21, 6 February 2021‎ imported>Teto‎ 2,150
+       bytes +78‎ updated it to reflect some python changes
+
+    10 August 2020
+
+     * curprev [ ] [ ] 18:0318:03, 10 August 2020‎ imported>Asdf8dfafjk‎ m
+       2,072 bytes +65‎ link to keys
+
+    12 July 2019
+
+     * curprev [ ] [ ] 08:1608:16, 12 July 2019‎ imported>Teto‎ m 2,007 bytes
+       +368‎ adding some issues I met while working on multihoming issues:
+
+    8 July 2019
+
+     * curprev [ ] [ ] 10:4110:41, 8 July 2019‎ imported>Teto‎ 1,639 bytes
+       +359‎ adding clever's trick to fix some failing tests
+     * curprev [ ] [ ] 10:0410:04, 8 July 2019‎ imported>Teto‎ m 1,280 bytes
+       +165‎ cleanup
+     * curprev [ ] [ ] 09:5909:59, 8 July 2019‎ imported>Teto‎ 1,115 bytes
+       +1,115‎ random notes as I was trying to reuse the nixos test infra
+       (especially the VDE logic) within nixos-shell
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_VM_tests"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

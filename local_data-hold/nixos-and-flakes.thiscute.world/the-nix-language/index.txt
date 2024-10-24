@@ -1,0 +1,179 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS & Flakes Book
+   SearchK
+   Main NavigationHomePrefaceGet StartedBest Practices
+
+   English
+
+   简体中文
+
+   English
+
+   简体中文
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+Preface
+
+   Preface
+
+Get Started
+
+   Introduction
+
+   Advantages and Disadvantages
+
+   Installation
+
+The Nix Language
+
+   Basics
+
+NixOS with Flakes
+
+   Get Started with NixOS
+
+   Introduction to Flakes
+
+   NixOS with Flakes Enabled
+
+   NixOS's flake.nix Explained
+
+   The combination ability of Flakes and Nixpkgs module system
+
+   Getting Started with Home Manager
+
+   Modularize the Configuration
+
+   Updating the System
+
+   Downgrading or Upgrading Packages
+
+   Other useful Tips
+
+Nixpkgs's Advanced Usage
+
+   Introduction
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   Multiple Nixpkgs Instances
+
+Nix Store & Binary Cache
+
+   Introduction
+
+   Add Binary Cache Servers
+
+   Host Your Own Binary Cache Server
+
+Best Practices
+
+   Introduction
+
+   Run downloaded binaries on NixOS
+
+   Simplify NixOS-related Commands
+
+   Accelerating Dotfiles Debugging
+
+   Custom NIX_PATH and Flake Registry
+
+   Remote Deployment
+
+   Debugging Derivations and Nix Expressions
+
+Other Usage of Flakes
+
+   Introduction
+
+   Flake Inputs
+
+   Flake Outputs
+
+   The New CLI
+
+   Module System & Custom Options
+
+   [WIP]Testing
+
+Dev Environments on NixOS
+
+   nix shell, nix develop & pkgs.runCommand
+
+   Dev Environments
+
+   [WIP]Packaging 101
+
+   Cross-platform Compilation
+
+   Distributed Building
+
+   [WIP]Kernel Development
+
+Advanced Topics
+
+   Advanced Topics
+
+Frequently Asked Questions
+
+   Frequently Asked Questions
+
+   On this page
+
+                          Basics of the Nix Language ​
+
+   The Nix language is essential for declaring configurations to be built by
+   Nix. To fully enjoy the benefits of NixOS and Flakes, it is necessary to
+   grasp the fundamentals of this language.
+
+   The Nix language is a straightforward functional language. If you have
+   some programming experience, it should take you less than 2 hours to grasp
+   its basics.
+
+   The community already has a lot of good Nix language tutorials, so I won't
+   reinvent the wheel. To get started, I recommend reading the following
+   resources for a quick introduction to the Nix language:
+
+    1. Nix Language Basics - nix.dev: This tutorial provides a comprehensive
+       overview of the basics of the Nix language, recommended for beginners.
+    2. A tour of Nix: An online interactive tutorial focuses on programming
+       language constructs and how Nix can be algorithmically used to solve
+       problems.
+    3. Nix Language - Nix Reference Manual: The official documentation of the
+       Nix language.
+         1. nix.dev and other user-friendly tutorials are suitable for
+            starter reading only, and neither of them fully introduces the
+            full syntax of Nix. If you encounter a new syntax that you have
+            not come across before, please refer to this official document.
+    4. https://noogle.dev/ is a Nix function library search engine that can
+       help you quickly find the functions you need and their usage, which is
+       very practical.
+
+   It's okay to have a rough impression of the syntax for now. You can come
+   back to review the syntax when you find something you don't understand
+   later.
+
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous pageInstallation
+   Next pageGet Started with NixOS
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

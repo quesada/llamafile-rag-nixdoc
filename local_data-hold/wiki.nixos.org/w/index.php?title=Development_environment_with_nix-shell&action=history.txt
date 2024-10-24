@@ -1,0 +1,226 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+            Development environment with nix-shell: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    29 September 2024
+
+     * curprev [ ] [ ] 12:5312:53, 29 September 2024‎ Anna Aurora talk
+       contribs‎ m 8,860 bytes −4‎ Fixed indentation in code block. Tag:
+       Visual edit
+
+    11 June 2024
+
+     * curprev [ ] [ ] 21:1021:10, 11 June 2024‎ Ugly talk contribs‎ 8,864
+       bytes +3‎ TYPO Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:5019:50, 24 April 2024‎ Klinger talk contribs‎ m
+       8,861 bytes +42‎ Category:Development Category:nix
+
+    11 June 2023
+
+     * curprev [ ] [ ] 12:5712:57, 11 June 2023‎ imported>Fliiiix‎ m 8,819
+       bytes +22‎ Update ruby version to something recent and make the text
+       match the example
+
+    26 March 2023
+
+     * curprev [ ] [ ] 16:2116:21, 26 March 2023‎ imported>Kendofriendo‎ m
+       8,797 bytes −2‎ fix grammar
+
+    16 February 2023
+
+     * curprev [ ] [ ] 11:1311:13, 16 February 2023‎ imported>Seam345‎ 8,799
+       bytes +7‎ add export for gtk XDG env variable
+
+    7 December 2022
+
+     * curprev [ ] [ ] 21:2321:23, 7 December 2022‎ imported>Henrik-ch‎ m
+       8,792 bytes 0‎ increasing Ruby version to one that exists on pkgs
+
+    6 November 2021
+
+     * curprev [ ] [ ] 20:0620:06, 6 November 2021‎ imported>Milahu‎ 8,792
+       bytes +1,216‎ + nix develop
+
+    7 September 2021
+
+     * curprev [ ] [ ] 20:1820:18, 7 September 2021‎ imported>Milahu‎ 7,576
+       bytes +343‎ add "dirty build" to stdenv.mkDerivation
+     * curprev [ ] [ ] 19:4019:40, 7 September 2021‎ imported>Milahu‎ 7,233
+       bytes +667‎ add stdenv.mkDerivation
+
+    15 June 2021
+
+     * curprev [ ] [ ] 10:5510:55, 15 June 2021‎ imported>Ncfavier‎ m 6,566
+       bytes −1‎ fix typo 'pendantic'
+
+    11 April 2021
+
+     * curprev [ ] [ ] 21:3521:35, 11 April 2021‎ imported>Bionicles‎ m 6,567
+       bytes −1‎ fix extremely minor typo
+
+    5 April 2021
+
+     * curprev [ ] [ ] 16:2216:22, 5 April 2021‎ imported>Tobias.bora‎ 6,568
+       bytes +201‎ No edit summary
+
+    26 January 2021
+
+     * curprev [ ] [ ] 11:2311:23, 26 January 2021‎ imported>Stunkymonkey‎
+       6,367 bytes +67‎ add note about plural of schemas
+     * curprev [ ] [ ] 09:5209:52, 26 January 2021‎ imported>Stunkymonkey‎
+       6,300 bytes 0‎ fix location for `}` in hicolor-icons
+     * curprev [ ] [ ] 09:5109:51, 26 January 2021‎ imported>Stunkymonkey‎
+       6,300 bytes +1‎ add missing `}` for hicolor-icons
+     * curprev [ ] [ ] 09:4909:49, 26 January 2021‎ imported>Stunkymonkey‎
+       6,299 bytes −2‎ fix syntax higlighting for nix
+
+    24 November 2020
+
+     * curprev [ ] [ ] 21:0621:06, 24 November 2020‎ imported>Ericson2314‎
+       6,301 bytes +1,104‎ Tweak examples to be "cross compliant" and add a
+       few notes why.
+
+    17 July 2020
+
+     * curprev [ ] [ ] 07:0907:09, 17 July 2020‎ imported>Bensleveritt‎ m
+       5,197 bytes 0‎ Fixes minor typos, and edits for readablilty
+
+    18 June 2020
+
+     * curprev [ ] [ ] 12:4112:41, 18 June 2020‎ imported>Makefu‎ 5,197 bytes
+       +811‎ No edit summary
+
+    3 March 2020
+
+     * curprev [ ] [ ] 14:0714:07, 3 March 2020‎ imported>Ilmu‎ m 4,386 bytes
+       +289‎ Added an example of how to load a local expression (not in pkgs
+       namespace)
+
+    18 February 2020
+
+     * curprev [ ] [ ] 20:3220:32, 18 February 2020‎ imported>Amanjeev‎ m
+       4,097 bytes +17‎ Some grammatical fixes and sentence formations
+
+    27 June 2019
+
+     * curprev [ ] [ ] 07:4407:44, 27 June 2019‎ imported>Wucke13‎ 4,080
+       bytes +641‎ Added note about Building locally in a nix-shell
+
+    18 May 2018
+
+     * curprev [ ] [ ] 08:2108:21, 18 May 2018‎ imported>Mickours‎ 3,439
+       bytes +118‎ Add direnv wiki link
+
+    17 May 2018
+
+     * curprev [ ] [ ] 16:2316:23, 17 May 2018‎ imported>Mickours‎ 3,321
+       bytes +3,321‎ Add shell.nix + direnv setup
+   [ Compare selected revisions ]
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Development_environment_with_nix-shell"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

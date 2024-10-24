@@ -1,0 +1,102 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            File:Haskell choice.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+   File:Haskell choice.png
+   No higher resolution available.
+
+   Haskell_choice.png ‎(601 × 436 pixels, file size: 33 KB, MIME type:
+   image/png)
+
+   How to make a choice of haskell toolchain.
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail    Dimensions User                 Comment     
+                     Thumbnail                                    How to make 
+           16:43, 4  for version  601 × 436                       a choice of 
+   current October   as of 16:43, (33 KB)    Imported>Tobias.bora haskell     
+           2022      4 October                                    toolchain.  
+                     2022         
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * Haskell
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Haskell_choice.png&oldid=10172"
+     * This page was last edited on 1 April 2024, at 11:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

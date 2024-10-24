@@ -1,0 +1,219 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Chromium: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    26 September 2024
+
+     * curprev [ ] [ ] 20:4320:43, 26 September 2024‎ Klinger talk contribs‎
+       m 1,387 bytes +25‎ Category:Web Browser added
+
+    10 May 2024
+
+     * curprev [ ] [ ] 18:5318:53, 10 May 2024‎ Klinger talk contribs‎ m
+       1,362 bytes +6‎ No edit summary
+     * curprev [ ] [ ] 15:4215:42, 10 May 2024‎ NetworkException talk
+       contribs‎ 1,356 bytes +369‎ Add widevine docs Tag: Visual edit:
+       Switched
+
+    2 May 2024
+
+     * curprev [ ] [ ] 12:1712:17, 2 May 2024‎ Sdht0 talk contribs‎ 987 bytes
+       +6‎ Unclear why template:ic is not working, revert for now
+     * curprev [ ] [ ] 12:1412:14, 2 May 2024‎ Sdht0 talk contribs‎ 981 bytes
+       −1,039‎ Cleanup and remove old information
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:0120:01, 19 April 2024‎ Klinger talk contribs‎ m
+       2,020 bytes −27‎ Category:Applications
+
+    8 April 2024
+
+     * curprev [ ] [ ] 04:3104:31, 8 April 2024‎ Sdht0 talk contribs‎ 2,047
+       bytes +194‎ →‎Enable GPU accelerated video decoding (VA-API): Copy
+       edit, add working configuration
+     * curprev [ ] [ ] 03:0503:05, 8 April 2024‎ Sdht0 talk contribs‎ 1,853
+       bytes +3‎ →‎Installation: use manual template, make it NixOS specific
+     * curprev [ ] [ ] 02:5502:55, 8 April 2024‎ Sdht0 talk contribs‎ 1,850
+       bytes +134‎ Add installation instructions
+
+    6 April 2024
+
+     * curprev [ ] [ ] 17:5617:56, 6 April 2024‎ Sdht0 talk contribs‎ 1,716
+       bytes −2,476‎ Remove outdated code about googletalk and flash
+
+    21 November 2022
+
+     * curprev [ ] [ ] 21:0321:03, 21 November 2022‎ imported>Pogobanane‎
+       4,192 bytes +279‎ mention new way to enable wayland
+
+    5 July 2022
+
+     * curprev [ ] [ ] 16:3016:30, 5 July 2022‎ imported>Rapenne-s‎ 3,913
+       bytes −30‎ flash has been deprecated for a while
+
+    11 December 2021
+
+     * curprev [ ] [ ] 22:0822:08, 11 December 2021‎ imported>Anpandey‎ 3,943
+       bytes +324‎ Add section about setting wayland-related flags
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4205:42, 20 September 2021‎ imported>Nix‎ m 3,619
+       bytes +26‎ add Software/Applications subcategory
+
+    28 August 2021
+
+     * curprev [ ] [ ] 10:0810:08, 28 August 2021‎ imported>Primeos dev‎
+       3,593 bytes +453‎ Start documenting how to override Chromium (a
+       frequently asked question)
+
+    7 June 2021
+
+     * curprev [ ] [ ] 20:2720:27, 7 June 2021‎ imported>Primeos dev‎ 3,140
+       bytes −868‎ →‎Java: Drop the whole section (not supported anymore, s.
+       https://www.java.com/en/download/help/chrome.html)
+
+    14 May 2021
+
+     * curprev [ ] [ ] 19:0119:01, 14 May 2021‎ imported>Yvesh‎ 4,008 bytes
+       +18‎ Update GPU acceleration in chromium (pkg flag has been removed)
+
+    18 April 2020
+
+     * curprev [ ] [ ] 12:3412:34, 18 April 2020‎ imported>Primeos‎ m 3,990
+       bytes +92‎ →‎Enable GPU accelerated video decoding (VA-API): Add test
+       instructions
+     * curprev [ ] [ ] 12:2912:29, 18 April 2020‎ imported>Primeos‎ 3,898
+       bytes +20‎ →‎Enable GPU support: Update since #85253 is merged now
+
+    10 April 2020
+
+     * curprev [ ] [ ] 14:3114:31, 10 April 2020‎ imported>Nh2‎ 3,878 bytes
+       +163‎ Link to Java issue
+
+    21 May 2019
+
+     * curprev [ ] [ ] 17:4617:46, 21 May 2019‎ imported>Evanjs‎ 3,715 bytes
+       −58‎ The enablePepperPDF option was removed in
+       https://github.com/NixOS/nixpkgs/commit/392a4c0a269f725226aec812892acacbdfcaf0f8
+     * curprev [ ] [ ] 17:4217:42, 21 May 2019‎ imported>Evanjs‎ m 3,773
+       bytes +144‎ →‎Enable GPU support: : Rename
+       `services.xserver.vaapiDrivers' to `hardware.opengl.extraPackages'.
+
+    27 August 2017
+
+     * curprev [ ] [ ] 08:5708:57, 27 August 2017‎ imported>Fadenb‎ m 3,629
+       bytes +179‎ Syntaxhighlight
+
+    30 June 2017
+
+     * curprev [ ] [ ] 17:1517:15, 30 June 2017‎ imported>Fadenb‎ 3,450 bytes
+       +3,450‎ Created page with "'''Note''': Firefox requires the Google
+       Hangouts Video plugin but Chromium (37+) doesn't require any plugin to
+       use Google Hangouts. == Per User == It is possible to configur..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Chromium"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,1121 @@
+    1. 1. Introduction
+    2. 2. Quick Start
+    3. 3. Installation
+    4.   1. 3.1. Supported Platforms
+         2. 3.2. Installing a Binary Distribution
+         3. 3.3. Installing Nix from Source
+         4.   1. 3.3.1. Prerequisites
+              2. 3.3.2. Obtaining a Source Distribution
+              3. 3.3.3. Building Nix from Source
+         5. 3.4. Using Nix within Docker
+         6. 3.5. Security
+         7.   1. 3.5.1. Single-User Mode
+              2. 3.5.2. Multi-User Mode
+         8. 3.6. Environment Variables
+         9. 3.7. Upgrading Nix
+        10. 3.8. Uninstalling Nix
+    5. 4. Package Management
+    6.   1. 4.1. Basic Package Management
+         2. 4.2. Profiles
+         3. 4.3. Garbage Collection
+         4.   1. 4.3.1. Garbage Collector Roots
+         5. 4.4. Sharing Packages Between Machines
+         6.   1. 4.4.1. Serving a Nix store via HTTP
+              2. 4.4.2. Copying Closures via SSH
+              3. 4.4.3. Serving a Nix store via SSH
+              4. 4.4.4. Serving a Nix store via S3
+    7. 5. Nix Language
+    8.   1. 5.1. Data Types
+         2. 5.2. Language Constructs
+         3.   1. 5.2.1. String interpolation
+         4. 5.3. Operators
+         5. 5.4. Derivations
+         6.   1. 5.4.1. Advanced Attributes
+         7. 5.5. Built-in Constants
+         8. 5.6. Built-in Functions
+    9. 6. Advanced Topics
+   10.   1. 6.1. Remote Builds
+         2. 6.2. Tuning Cores and Jobs
+         3. 6.3. Verifying Build Reproducibility
+         4. 6.4. Using the post-build-hook
+   11. 7. Command Reference
+   12.   1. 7.1. Common Options
+         2. 7.2. Common Environment Variables
+         3. 7.3. Main Commands
+         4.   1. 7.3.1. nix-build
+              2. 7.3.2. nix-shell
+              3. 7.3.3. nix-store
+              4.   1. 7.3.3.1. nix-store --add-fixed
+                   2. 7.3.3.2. nix-store --add
+                   3. 7.3.3.3. nix-store --delete
+                   4. 7.3.3.4. nix-store --dump-db
+                   5. 7.3.3.5. nix-store --dump
+                   6. 7.3.3.6. nix-store --export
+                   7. 7.3.3.7. nix-store --gc
+                   8. 7.3.3.8. nix-store --generate-binary-cache-key
+                   9. 7.3.3.9. nix-store --import
+                  10. 7.3.3.10. nix-store --load-db
+                  11. 7.3.3.11. nix-store --optimise
+                  12. 7.3.3.12. nix-store --print-env
+                  13. 7.3.3.13. nix-store --query
+                  14. 7.3.3.14. nix-store --read-log
+                  15. 7.3.3.15. nix-store --realise
+                  16. 7.3.3.16. nix-store --repair-path
+                  17. 7.3.3.17. nix-store --restore
+                  18. 7.3.3.18. nix-store --serve
+                  19. 7.3.3.19. nix-store --verify-path
+                  20. 7.3.3.20. nix-store --verify
+              5. 7.3.4. nix-env
+              6.   1. 7.3.4.1. nix-env --delete-generations
+                   2. 7.3.4.2. nix-env --install
+                   3. 7.3.4.3. nix-env --list-generations
+                   4. 7.3.4.4. nix-env --query
+                   5. 7.3.4.5. nix-env --rollback
+                   6. 7.3.4.6. nix-env --set-flag
+                   7. 7.3.4.7. nix-env --set
+                   8. 7.3.4.8. nix-env --switch-generation
+                   9. 7.3.4.9. nix-env --switch-profile
+                  10. 7.3.4.10. nix-env --uninstall
+                  11. 7.3.4.11. nix-env --upgrade
+         5. 7.4. Utilities
+         6.   1. 7.4.1. nix-channel
+              2. 7.4.2. nix-collect-garbage
+              3. 7.4.3. nix-copy-closure
+              4. 7.4.4. nix-daemon
+              5. 7.4.5. nix-hash
+              6. 7.4.6. nix-instantiate
+              7. 7.4.7. nix-prefetch-url
+         7. 7.5. Experimental Commands
+         8.   1. 7.5.1. nix
+              2. 7.5.2. nix build
+              3. 7.5.3. nix bundle
+              4. 7.5.4. nix copy
+              5. 7.5.5. nix daemon
+              6. 7.5.6. nix derivation
+              7. 7.5.7. nix derivation add
+              8. 7.5.8. nix derivation show
+              9. 7.5.9. nix develop
+             10. 7.5.10. nix doctor
+             11. 7.5.11. nix edit
+             12. 7.5.12. nix eval
+             13. 7.5.13. nix flake
+             14. 7.5.14. nix flake archive
+             15. 7.5.15. nix flake check
+             16. 7.5.16. nix flake clone
+             17. 7.5.17. nix flake info
+             18. 7.5.18. nix flake init
+             19. 7.5.19. nix flake lock
+             20. 7.5.20. nix flake metadata
+             21. 7.5.21. nix flake new
+             22. 7.5.22. nix flake prefetch
+             23. 7.5.23. nix flake show
+             24. 7.5.24. nix flake update
+             25. 7.5.25. nix fmt
+             26. 7.5.26. nix hash
+             27. 7.5.27. nix hash file
+             28. 7.5.28. nix hash path
+             29. 7.5.29. nix hash to-base16
+             30. 7.5.30. nix hash to-base32
+             31. 7.5.31. nix hash to-base64
+             32. 7.5.32. nix hash to-sri
+             33. 7.5.33. nix help
+             34. 7.5.34. nix help-stores
+             35. 7.5.35. nix key
+             36. 7.5.36. nix key convert-secret-to-public
+             37. 7.5.37. nix key generate-secret
+             38. 7.5.38. nix log
+             39. 7.5.39. nix nar
+             40. 7.5.40. nix nar cat
+             41. 7.5.41. nix nar dump-path
+             42. 7.5.42. nix nar ls
+             43. 7.5.43. nix path-info
+             44. 7.5.44. nix print-dev-env
+             45. 7.5.45. nix profile
+             46. 7.5.46. nix profile diff-closures
+             47. 7.5.47. nix profile history
+             48. 7.5.48. nix profile install
+             49. 7.5.49. nix profile list
+             50. 7.5.50. nix profile remove
+             51. 7.5.51. nix profile rollback
+             52. 7.5.52. nix profile upgrade
+             53. 7.5.53. nix profile wipe-history
+             54. 7.5.54. nix realisation
+             55. 7.5.55. nix realisation info
+             56. 7.5.56. nix registry
+             57. 7.5.57. nix registry add
+             58. 7.5.58. nix registry list
+             59. 7.5.59. nix registry pin
+             60. 7.5.60. nix registry remove
+             61. 7.5.61. nix repl
+             62. 7.5.62. nix run
+             63. 7.5.63. nix search
+             64. 7.5.64. nix shell
+             65. 7.5.65. nix show-config
+             66. 7.5.66. nix store
+             67. 7.5.67. nix store add-file
+             68. 7.5.68. nix store add-path
+             69. 7.5.69. nix store cat
+             70. 7.5.70. nix store copy-log
+             71. 7.5.71. nix store copy-sigs
+             72. 7.5.72. nix store delete
+             73. 7.5.73. nix store diff-closures
+             74. 7.5.74. nix store dump-path
+             75. 7.5.75. nix store gc
+             76. 7.5.76. nix store ls
+             77. 7.5.77. nix store make-content-addressed
+             78. 7.5.78. nix store optimise
+             79. 7.5.79. nix store path-from-hash-part
+             80. 7.5.80. nix store ping
+             81. 7.5.81. nix store prefetch-file
+             82. 7.5.82. nix store repair
+             83. 7.5.83. nix store sign
+             84. 7.5.84. nix store verify
+             85. 7.5.85. nix upgrade-nix
+             86. 7.5.86. nix why-depends
+         9. 7.6. Files
+        10.   1. 7.6.1. nix.conf
+              2. 7.6.2. Profiles
+              3.   1. 7.6.2.1. manifest.nix
+                   2. 7.6.2.2. manifest.json
+              4. 7.6.3. Channels
+              5. 7.6.4. Default Nix expression
+   13. 8. Architecture and Design
+   14.   1. 8.1. File System Object
+   15. 9. Protocols
+   16.   1. 9.1. Serving Tarball Flakes
+         2. 9.2. Derivation "ATerm" file format
+   17. 10. Glossary
+   18. 11. Contributing
+   19.   1. 11.1. Hacking
+         2. 11.2. Testing
+         3. 11.3. Experimental Features
+         4. 11.4. CLI guideline
+         5. 11.5. C++ style guide
+   20. 12. Release Notes
+   21.   1. 12.1. Release 2.18 (2023-09-20)
+         2. 12.2. Release 2.17 (2023-07-24)
+         3. 12.3. Release 2.16 (2023-05-31)
+         4. 12.4. Release 2.15 (2023-04-11)
+         5. 12.5. Release 2.14 (2023-02-28)
+         6. 12.6. Release 2.13 (2023-01-17)
+         7. 12.7. Release 2.12 (2022-12-06)
+         8. 12.8. Release 2.11 (2022-08-25)
+         9. 12.9. Release 2.10 (2022-07-11)
+        10. 12.10. Release 2.9 (2022-05-30)
+        11. 12.11. Release 2.8 (2022-04-19)
+        12. 12.12. Release 2.7 (2022-03-07)
+        13. 12.13. Release 2.6 (2022-01-24)
+        14. 12.14. Release 2.5 (2021-12-13)
+        15. 12.15. Release 2.4 (2021-11-01)
+        16. 12.16. Release 2.3 (2019-09-04)
+        17. 12.17. Release 2.2 (2019-01-11)
+        18. 12.18. Release 2.1 (2018-09-02)
+        19. 12.19. Release 2.0 (2018-02-22)
+        20. 12.20. Release 1.11.10 (2017-06-12)
+        21. 12.21. Release 1.11 (2016-01-19)
+        22. 12.22. Release 1.10 (2015-09-03)
+        23. 12.23. Release 1.9 (2015-06-12)
+        24. 12.24. Release 1.8 (2014-12-14)
+        25. 12.25. Release 1.7 (2014-04-11)
+        26. 12.26. Release 1.6.1 (2013-10-28)
+        27. 12.27. Release 1.6 (2013-09-10)
+        28. 12.28. Release 1.5.2 (2013-05-13)
+        29. 12.29. Release 1.5 (2013-02-27)
+        30. 12.30. Release 1.4 (2013-02-26)
+        31. 12.31. Release 1.3 (2013-01-04)
+        32. 12.32. Release 1.2 (2012-12-06)
+        33. 12.33. Release 1.1 (2012-07-18)
+        34. 12.34. Release 1.0 (2012-05-11)
+        35. 12.35. Release 0.16 (2010-08-17)
+        36. 12.36. Release 0.15 (2010-03-17)
+        37. 12.37. Release 0.14 (2010-02-04)
+        38. 12.38. Release 0.13 (2009-11-05)
+        39. 12.39. Release 0.12 (2008-11-20)
+        40. 12.40. Release 0.11 (2007-12-31)
+        41. 12.41. Release 0.10.1 (2006-10-11)
+        42. 12.42. Release 0.10 (2006-10-06)
+        43. 12.43. Release 0.9.2 (2005-09-21)
+        44. 12.44. Release 0.9.1 (2005-09-20)
+        45. 12.45. Release 0.9 (2005-09-16)
+        46. 12.46. Release 0.8.1 (2005-04-13)
+        47. 12.47. Release 0.8 (2005-04-11)
+        48. 12.48. Release 0.7 (2005-01-12)
+        49. 12.49. Release 0.6 (2004-11-14)
+        50. 12.50. Release 0.5 and earlier
+     * Light
+     * Rust
+     * Coal
+     * Navy
+     * Ayu
+
+                              Nix Reference Manual
+
+   _____________________
+
+     Warning
+     This program is experimental and its interface is subject to change.
+
+                                      Name
+
+   nix help-stores - show help about store types and their settings
+
+                                    Synopsis
+
+   nix help-stores [option...]
+
+   Nix supports different types of stores. These are described below.
+
+Store URL format
+
+   Stores are specified using a URL-like syntax. For example, the command
+
+ # nix path-info --store https://cache.nixos.org/ --json \
+   /nix/store/a7gvj343m05j2s32xcnwr35v31ynlypr-coreutils-9.1
+
+   fetches information about a store path in the HTTP binary cache located at
+   https://cache.nixos.org/, which is a type of store.
+
+   Store URLs can specify store settings using URL query strings, i.e. by
+   appending ?name1=value1&name2=value2&... to the URL. For instance,
+
+ --store ssh://machine.example.org?ssh-key=/path/to/my/key
+
+   tells Nix to access the store on a remote machine via the SSH protocol,
+   using /path/to/my/key as the SSH private key. The supported settings for
+   each store type are documented below.
+
+   The special store URL auto causes Nix to automatically select a store as
+   follows:
+
+     * Use the local store /nix/store if /nix/var/nix is writable by the
+       current user.
+
+     * Otherwise, if /nix/var/nix/daemon-socket/socket exists, connect to the
+       Nix daemon listening on that socket.
+
+     * Otherwise, on Linux only, use the local chroot store
+       ~/.local/share/nix/root, which will be created automatically if it
+       does not exist.
+
+     * Otherwise, use the local store /nix/store.
+
+Dummy Store
+
+   Store URL format: dummy://
+
+   This store type represents a store that contains no store paths and cannot
+   be written to. It's useful when you want to use the Nix evaluator when no
+   actual Nix store exists, e.g.
+
+ # nix eval --store dummy:// --expr '1 + 2'
+
+   Settings:
+
+     * path-info-cache-size
+
+       Size of the in-memory store path metadata cache.
+
+       Default: 65536
+
+     * priority
+
+       Priority of this store when used as a substituter. A lower value means
+       a higher priority.
+
+       Default: 0
+
+     * store
+
+       Logical location of the Nix store, usually /nix/store. Note that you
+       can only copy store paths between stores if they have the same store
+       setting.
+
+       Default: /nix/store
+
+     * system-features
+
+       Optional features that the system this store builds on implements
+       (like "kvm").
+
+       Default: benchmark big-parallel kvm nixos-test uid-range
+
+     * trusted
+
+       Whether paths from this store can be used as substitutes even if they
+       are not signed by a key listed in the trusted-public-keys setting.
+
+       Default: false
+
+     * want-mass-query
+
+       Whether this store (when used as a substituter) can be queried
+       efficiently for path validity.
+
+       Default: false
+
+Experimental SSH Store
+
+   Store URL format: ssh-ng://[username@]hostname
+
+   Experimental store type that allows full access to a Nix store on a remote
+   machine.
+
+   Settings:
+
+     * base64-ssh-public-host-key
+
+       The public host key of the remote machine.
+
+       Default: empty
+
+     * compress
+
+       Whether to enable SSH compression.
+
+       Default: false
+
+     * max-connection-age
+
+       Maximum age of a connection before it is closed.
+
+       Default: 4294967295
+
+     * max-connections
+
+       Maximum number of concurrent connections to the Nix daemon.
+
+       Default: 1
+
+     * path-info-cache-size
+
+       Size of the in-memory store path metadata cache.
+
+       Default: 65536
+
+     * priority
+
+       Priority of this store when used as a substituter. A lower value means
+       a higher priority.
+
+       Default: 0
+
+     * remote-program
+
+       Path to the nix-daemon executable on the remote machine.
+
+       Default: nix-daemon
+
+     * remote-store
+
+       Store URL to be used on the remote machine. The default is auto (i.e.
+       use the Nix daemon or /nix/store directly).
+
+       Default: empty
+
+     * ssh-key
+
+       Path to the SSH private key used to authenticate to the remote
+       machine.
+
+       Default: empty
+
+     * store
+
+       Logical location of the Nix store, usually /nix/store. Note that you
+       can only copy store paths between stores if they have the same store
+       setting.
+
+       Default: /nix/store
+
+     * system-features
+
+       Optional features that the system this store builds on implements
+       (like "kvm").
+
+       Default: benchmark big-parallel kvm nixos-test uid-range
+
+     * trusted
+
+       Whether paths from this store can be used as substitutes even if they
+       are not signed by a key listed in the trusted-public-keys setting.
+
+       Default: false
+
+     * want-mass-query
+
+       Whether this store (when used as a substituter) can be queried
+       efficiently for path validity.
+
+       Default: false
+
+HTTP Binary Cache Store
+
+   Store URL format: http://..., https://...
+
+   This store allows a binary cache to be accessed via the HTTP protocol.
+
+   Settings:
+
+     * compression
+
+       NAR compression method (xz, bzip2, gzip, zstd, or none).
+
+       Default: xz
+
+     * compression-level
+
+       The preset level to be used when compressing NARs. The meaning and
+       accepted values depend on the compression method selected. -1
+       specifies that the default compression level should be used.
+
+       Default: -1
+
+     * index-debug-info
+
+       Whether to index DWARF debug info files by build ID. This allows
+       dwarffs to fetch debug info on demand
+
+       Default: false
+
+     * local-nar-cache
+
+       Path to a local cache of NARs fetched from this binary cache, used by
+       commands such as nix store cat.
+
+       Default: empty
+
+     * parallel-compression
+
+       Enable multi-threaded compression of NARs. This is currently only
+       available for xz and zstd.
+
+       Default: false
+
+     * path-info-cache-size
+
+       Size of the in-memory store path metadata cache.
+
+       Default: 65536
+
+     * priority
+
+       Priority of this store when used as a substituter. A lower value means
+       a higher priority.
+
+       Default: 0
+
+     * secret-key
+
+       Path to the secret key used to sign the binary cache.
+
+       Default: empty
+
+     * store
+
+       Logical location of the Nix store, usually /nix/store. Note that you
+       can only copy store paths between stores if they have the same store
+       setting.
+
+       Default: /nix/store
+
+     * system-features
+
+       Optional features that the system this store builds on implements
+       (like "kvm").
+
+       Default: benchmark big-parallel kvm nixos-test uid-range
+
+     * trusted
+
+       Whether paths from this store can be used as substitutes even if they
+       are not signed by a key listed in the trusted-public-keys setting.
+
+       Default: false
+
+     * want-mass-query
+
+       Whether this store (when used as a substituter) can be queried
+       efficiently for path validity.
+
+       Default: false
+
+     * write-nar-listing
+
+       Whether to write a JSON file that lists the files in each NAR.
+
+       Default: false
+
+Local Binary Cache Store
+
+   Store URL format: file://path
+
+   This store allows reading and writing a binary cache stored in path in the
+   local filesystem. If path does not exist, it will be created.
+
+   For example, the following builds or downloads nixpkgs#hello into the
+   local store and then copies it to the binary cache in /tmp/binary-cache:
+
+ # nix copy --to file:///tmp/binary-cache nixpkgs#hello
+
+   Settings:
+
+     * compression
+
+       NAR compression method (xz, bzip2, gzip, zstd, or none).
+
+       Default: xz
+
+     * compression-level
+
+       The preset level to be used when compressing NARs. The meaning and
+       accepted values depend on the compression method selected. -1
+       specifies that the default compression level should be used.
+
+       Default: -1
+
+     * index-debug-info
+
+       Whether to index DWARF debug info files by build ID. This allows
+       dwarffs to fetch debug info on demand
+
+       Default: false
+
+     * local-nar-cache
+
+       Path to a local cache of NARs fetched from this binary cache, used by
+       commands such as nix store cat.
+
+       Default: empty
+
+     * parallel-compression
+
+       Enable multi-threaded compression of NARs. This is currently only
+       available for xz and zstd.
+
+       Default: false
+
+     * path-info-cache-size
+
+       Size of the in-memory store path metadata cache.
+
+       Default: 65536
+
+     * priority
+
+       Priority of this store when used as a substituter. A lower value means
+       a higher priority.
+
+       Default: 0
+
+     * secret-key
+
+       Path to the secret key used to sign the binary cache.
+
+       Default: empty
+
+     * store
+
+       Logical location of the Nix store, usually /nix/store. Note that you
+       can only copy store paths between stores if they have the same store
+       setting.
+
+       Default: /nix/store
+
+     * system-features
+
+       Optional features that the system this store builds on implements
+       (like "kvm").
+
+       Default: benchmark big-parallel kvm nixos-test uid-range
+
+     * trusted
+
+       Whether paths from this store can be used as substitutes even if they
+       are not signed by a key listed in the trusted-public-keys setting.
+
+       Default: false
+
+     * want-mass-query
+
+       Whether this store (when used as a substituter) can be queried
+       efficiently for path validity.
+
+       Default: false
+
+     * write-nar-listing
+
+       Whether to write a JSON file that lists the files in each NAR.
+
+       Default: false
+
+Local Daemon Store
+
+   Store URL format: daemon, unix://path
+
+   This store type accesses a Nix store by talking to a Nix daemon listening
+   on the Unix domain socket path. The store pseudo-URL daemon is equivalent
+   to unix:///nix/var/nix/daemon-socket/socket.
+
+   Settings:
+
+     * log
+
+       directory where Nix will store log files.
+
+       Default: /nix/var/log/nix
+
+     * max-connection-age
+
+       Maximum age of a connection before it is closed.
+
+       Default: 4294967295
+
+     * max-connections
+
+       Maximum number of concurrent connections to the Nix daemon.
+
+       Default: 1
+
+     * path-info-cache-size
+
+       Size of the in-memory store path metadata cache.
+
+       Default: 65536
+
+     * priority
+
+       Priority of this store when used as a substituter. A lower value means
+       a higher priority.
+
+       Default: 0
+
+     * real
+
+       Physical path of the Nix store.
+
+       Default: /nix/store
+
+     * root
+
+       Directory prefixed to all other paths.
+
+       Default: ``
+
+     * state
+
+       Directory where Nix will store state.
+
+       Default: /dummy
+
+     * store
+
+       Logical location of the Nix store, usually /nix/store. Note that you
+       can only copy store paths between stores if they have the same store
+       setting.
+
+       Default: /nix/store
+
+     * system-features
+
+       Optional features that the system this store builds on implements
+       (like "kvm").
+
+       Default: benchmark big-parallel kvm nixos-test uid-range
+
+     * trusted
+
+       Whether paths from this store can be used as substitutes even if they
+       are not signed by a key listed in the trusted-public-keys setting.
+
+       Default: false
+
+     * want-mass-query
+
+       Whether this store (when used as a substituter) can be queried
+       efficiently for path validity.
+
+       Default: false
+
+Local Store
+
+   Store URL format: local, root
+
+   This store type accesses a Nix store in the local filesystem directly
+   (i.e. not via the Nix daemon). root is an absolute path that is prefixed
+   to other directories such as the Nix store directory. The store pseudo-URL
+   local denotes a store that uses / as its root directory.
+
+   A store that uses a root other than / is called a chroot store. With such
+   stores, the store directory is "logically" still /nix/store, so programs
+   stored in them can only be built and executed by chroot-ing into root.
+   Chroot stores only support building and running on Linux when mount
+   namespaces and user namespaces are enabled.
+
+   For example, the following uses /tmp/root as the chroot environment to
+   build or download nixpkgs#hello and then execute it:
+
+ # nix run --store /tmp/root nixpkgs#hello
+ Hello, world!
+
+   Here, the "physical" store location is /tmp/root/nix/store, and Nix's
+   store metadata is in /tmp/root/nix/var/nix/db.
+
+   It is also possible, but not recommended, to change the "logical" location
+   of the Nix store from its default of /nix/store. This makes it impossible
+   to use default substituters such as https://cache.nixos.org/, and thus you
+   may have to build everything locally. Here is an example:
+
+ # nix build --store 'local?store=/tmp/my-nix/store&state=/tmp/my-nix/state&log=/tmp/my-nix/log' nixpkgs#hello
+
+   Settings:
+
+     * log
+
+       directory where Nix will store log files.
+
+       Default: /nix/var/log/nix
+
+     * path-info-cache-size
+
+       Size of the in-memory store path metadata cache.
+
+       Default: 65536
+
+     * priority
+
+       Priority of this store when used as a substituter. A lower value means
+       a higher priority.
+
+       Default: 0
+
+     * read-only
+
+       Allow this store to be opened when its database is on a read-only
+       filesystem.
+
+       Normally Nix will attempt to open the store database in read-write
+       mode, even for querying (when write access is not needed), causing it
+       to fail if the database is on a read-only filesystem.
+
+       Enable read-only mode to disable locking and open the SQLite database
+       with the immutable parameter set.
+
+         Warning Do not use this unless the filesystem is read-only.
+
+         Using it when the filesystem is writable can cause incorrect query
+         results or corruption errors if the database is changed by another
+         process. While the filesystem the database resides on might appear
+         to be read-only, consider whether another user or system might have
+         write access to it.
+
+       Default: false
+
+     * real
+
+       Physical path of the Nix store.
+
+       Default: /nix/store
+
+     * require-sigs
+
+       Whether store paths copied into this store should have a trusted
+       signature.
+
+       Default: true
+
+     * root
+
+       Directory prefixed to all other paths.
+
+       Default: ``
+
+     * state
+
+       Directory where Nix will store state.
+
+       Default: /dummy
+
+     * store
+
+       Logical location of the Nix store, usually /nix/store. Note that you
+       can only copy store paths between stores if they have the same store
+       setting.
+
+       Default: /nix/store
+
+     * system-features
+
+       Optional features that the system this store builds on implements
+       (like "kvm").
+
+       Default: benchmark big-parallel kvm nixos-test uid-range
+
+     * trusted
+
+       Whether paths from this store can be used as substitutes even if they
+       are not signed by a key listed in the trusted-public-keys setting.
+
+       Default: false
+
+     * want-mass-query
+
+       Whether this store (when used as a substituter) can be queried
+       efficiently for path validity.
+
+       Default: false
+
+S3 Binary Cache Store
+
+   Store URL format: s3://bucket-name
+
+   This store allows reading and writing a binary cache stored in an AWS S3
+   bucket.
+
+   Settings:
+
+     * buffer-size
+
+       Size (in bytes) of each part in multi-part uploads.
+
+       Default: 5242880
+
+     * compression
+
+       NAR compression method (xz, bzip2, gzip, zstd, or none).
+
+       Default: xz
+
+     * compression-level
+
+       The preset level to be used when compressing NARs. The meaning and
+       accepted values depend on the compression method selected. -1
+       specifies that the default compression level should be used.
+
+       Default: -1
+
+     * endpoint
+
+       The URL of the endpoint of an S3-compatible service such as MinIO. Do
+       not specify this setting if you're using Amazon S3.
+
+         Note
+
+         This endpoint must support HTTPS and will use path-based addressing
+         instead of virtual host based addressing.
+
+       Default: empty
+
+     * index-debug-info
+
+       Whether to index DWARF debug info files by build ID. This allows
+       dwarffs to fetch debug info on demand
+
+       Default: false
+
+     * local-nar-cache
+
+       Path to a local cache of NARs fetched from this binary cache, used by
+       commands such as nix store cat.
+
+       Default: empty
+
+     * log-compression
+
+       Compression method for log/* files. It is recommended to use a
+       compression method supported by most web browsers (e.g. brotli).
+
+       Default: empty
+
+     * ls-compression
+
+       Compression method for .ls files.
+
+       Default: empty
+
+     * multipart-upload
+
+       Whether to use multi-part uploads.
+
+       Default: false
+
+     * narinfo-compression
+
+       Compression method for .narinfo files.
+
+       Default: empty
+
+     * parallel-compression
+
+       Enable multi-threaded compression of NARs. This is currently only
+       available for xz and zstd.
+
+       Default: false
+
+     * path-info-cache-size
+
+       Size of the in-memory store path metadata cache.
+
+       Default: 65536
+
+     * priority
+
+       Priority of this store when used as a substituter. A lower value means
+       a higher priority.
+
+       Default: 0
+
+     * profile
+
+       The name of the AWS configuration profile to use. By default Nix will
+       use the default profile.
+
+       Default: empty
+
+     * region
+
+       The region of the S3 bucket. If your bucket is not in us–east-1, you
+       should always explicitly specify the region parameter.
+
+       Default: us-east-1
+
+     * scheme
+
+       The scheme used for S3 requests, https (default) or http. This option
+       allows you to disable HTTPS for binary caches which don't support it.
+
+         Note
+
+         HTTPS should be used if the cache might contain sensitive
+         information.
+
+       Default: empty
+
+     * secret-key
+
+       Path to the secret key used to sign the binary cache.
+
+       Default: empty
+
+     * store
+
+       Logical location of the Nix store, usually /nix/store. Note that you
+       can only copy store paths between stores if they have the same store
+       setting.
+
+       Default: /nix/store
+
+     * system-features
+
+       Optional features that the system this store builds on implements
+       (like "kvm").
+
+       Default: benchmark big-parallel kvm nixos-test uid-range
+
+     * trusted
+
+       Whether paths from this store can be used as substitutes even if they
+       are not signed by a key listed in the trusted-public-keys setting.
+
+       Default: false
+
+     * want-mass-query
+
+       Whether this store (when used as a substituter) can be queried
+       efficiently for path validity.
+
+       Default: false
+
+     * write-nar-listing
+
+       Whether to write a JSON file that lists the files in each NAR.
+
+       Default: false
+
+SSH Store
+
+   Store URL format: ssh://[username@]hostname
+
+   This store type allows limited access to a remote store on another machine
+   via SSH.
+
+   Settings:
+
+     * base64-ssh-public-host-key
+
+       The public host key of the remote machine.
+
+       Default: empty
+
+     * compress
+
+       Whether to enable SSH compression.
+
+       Default: false
+
+     * max-connections
+
+       Maximum number of concurrent SSH connections.
+
+       Default: 1
+
+     * path-info-cache-size
+
+       Size of the in-memory store path metadata cache.
+
+       Default: 65536
+
+     * priority
+
+       Priority of this store when used as a substituter. A lower value means
+       a higher priority.
+
+       Default: 0
+
+     * remote-program
+
+       Path to the nix-store executable on the remote machine.
+
+       Default: nix-store
+
+     * remote-store
+
+       Store URL to be used on the remote machine. The default is auto (i.e.
+       use the Nix daemon or /nix/store directly).
+
+       Default: empty
+
+     * ssh-key
+
+       Path to the SSH private key used to authenticate to the remote
+       machine.
+
+       Default: empty
+
+     * store
+
+       Logical location of the Nix store, usually /nix/store. Note that you
+       can only copy store paths between stores if they have the same store
+       setting.
+
+       Default: /nix/store
+
+     * system-features
+
+       Optional features that the system this store builds on implements
+       (like "kvm").
+
+       Default: benchmark big-parallel kvm nixos-test uid-range
+
+     * trusted
+
+       Whether paths from this store can be used as substitutes even if they
+       are not signed by a key listed in the trusted-public-keys setting.
+
+       Default: false
+
+     * want-mass-query
+
+       Whether this store (when used as a substituter) can be queried
+       efficiently for path validity.
+
+       Default: false

@@ -1,0 +1,136 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Forgejo: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 September 2024
+
+     * curprev [ ] [ ] 21:5521:55, 6 September 2024‎ Makefu talk contribs‎
+       5,100 bytes +220‎ ensure users: add snippet for changing password of
+       existing users Tag: Visual edit
+
+    7 August 2024
+
+     * curprev [ ] [ ] 02:5502:55, 7 August 2024‎ Dave talk contribs‎ 4,880
+       bytes +691‎ Add way to create/ensure users without wizard/webpage Tag:
+       Visual edit: Switched
+
+    15 May 2024
+
+     * curprev [ ] [ ] 19:1319:13, 15 May 2024‎ Klinger talk contribs‎ 4,189
+       bytes +167‎ link to manual Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 15:5415:54, 19 April 2024‎ Klinger talk contribs‎ m
+       4,022 bytes +27‎ added to Category:Applications
+
+    7 April 2024
+
+     * curprev [ ] [ ] 04:0704:07, 7 April 2024‎ Lelgenio talk contribs‎
+       3,995 bytes +3,995‎ Create page with typical real-world usage example
+       Tag: Visual edit
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Forgejo"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

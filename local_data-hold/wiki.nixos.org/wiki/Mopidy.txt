@@ -1,0 +1,115 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Extensions
+          * 1.1 mopidy-youtube
+   [ ] Toggle the table of contents
+
+                                     Mopidy
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Mopidy is an MPD-compatible music server written in Python.
+
+   On NixOS, Mopidy is configured via the services.mopidy options.
+
+Extensions
+
+   Mopidy extensions are installed by adding their package to
+   services.mopidy.extensionPackages.
+
+  mopidy-youtube
+
+   By default, the mopidy-youtube extension relies on youtube-dl as the
+   backend for downloading from YouTube, but it can be configured to use a
+   compatible alternative backend such as yt-dlp. Due to the way Mopidy
+   extensions are implemented in nixpkgs, to add another module to the Python
+   environment of mopidy-youtube, the mopidy package set must be overridden
+   like so:
+
+ services.mopidy = let
+   mopidyPackagesOverride = pkgs.mopidyPackages.overrideScope (prev: final: {
+     extraPkgs = pkgs: [ pkgs.yt-dlp ];
+   });
+ in {
+   extensionPackages = with mopidyPackagesOverride; [
+     mopidy-youtube
+   ];
+   configuration = ''
+     [youtube]
+     youtube_dl_package = yt_dlp
+   '';
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Mopidy&oldid=17373"
+   Category:
+     * Server
+     * This page was last edited on 12 September 2024, at 10:15.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

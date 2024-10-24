@@ -1,0 +1,128 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  File:Firefly AIO-3399C.png: Revision history
+
+   Help
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    8 April 2024
+
+     * curprev [ ] [ ] 05:2005:20, 8 April 2024‎ Samueldr talk contribs‎ m 25
+       bytes +25‎ No edit summary
+
+    1 April 2024
+
+     * curprev [ ] [ ] 11:4811:48, 1 April 2024‎ Imported>Makefu‎ empty 0‎
+       Imported>Makefu uploaded File:Firefly AIO-3399C.png
+
+    29 January 2019
+
+     * curprev [ ] [ ] 23:1023:10, 29 January 2019‎ imported>Makefu‎ empty 0‎
+       Makefu uploaded a new version of File:Firefly AIO-3399C.png
+
+    19 January 2019
+
+     * curprev [ ] [ ] 21:4821:48, 19 January 2019‎ imported>Makefu‎ empty 0‎
+       No edit summary
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/File:Firefly_AIO-3399C.png"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,95 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                   Talk:Samba
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 23 February by Freelancer42
+
+   The "mount as user" section on this page suggests the following to pull
+   the uid and gid from the configuration:
+
+ ["${automount_opts},credentials=/etc/nixos/smb-secrets,${config.users.users.<username>.uid},gid=${config.users.groups.<group>.gid}"];
+
+   Two issues with this:
+
+    1. It's missing "uid="
+    2. The uid and gid attributes are integers, and nix refuses to coerce
+       them to strings
+
+   It should probably read something like this (which is working for me):
+
+ ["${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.<username>.uid},gid=${toString config.users.groups.<group>.gid}"];
+
+   I'm very new to NixOS though so I don't want to update the page in case
+   I've missed something.
+
+   --Freelancer42 (talk) 15:10, 23 February 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Samba&oldid=11113"
+     * This page was last edited on 23 February 2024, at 15:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,726 @@
+   [ ]
+    1. 1. Introduction
+    2. 2. Quick Start
+    3. 3. Installation
+    4.   1. 3.1. Supported Platforms
+         2. 3.2. Installing a Binary Distribution
+         3. 3.3. Installing Nix from Source
+         4.   1. 3.3.1. Prerequisites
+              2. 3.3.2. Obtaining a Source Distribution
+              3. 3.3.3. Building Nix from Source
+         5. 3.4. Using Nix within Docker
+         6. 3.5. Security
+         7.   1. 3.5.1. Single-User Mode
+              2. 3.5.2. Multi-User Mode
+         8. 3.6. Environment Variables
+         9. 3.7. Upgrading Nix
+        10. 3.8. Uninstalling Nix
+    5. 4. Nix Store
+    6.   1. 4.1. File System Object
+         2. 4.2. Store Object
+         3. 4.3. Store Path
+         4. 4.4. Store Types
+         5.   1. 4.4.1. Dummy Store
+              2. 4.4.2. Experimental Local Overlay Store
+              3. 4.4.3. Experimental SSH Store
+              4. 4.4.4. Experimental SSH Store with filesytem mounted
+              5. 4.4.5. HTTP Binary Cache Store
+              6. 4.4.6. Local Binary Cache Store
+              7. 4.4.7. Local Daemon Store
+              8. 4.4.8. Local Store
+              9. 4.4.9. S3 Binary Cache Store
+             10. 4.4.10. SSH Store
+    7. 5. Nix Language
+    8.   1. 5.1. Data Types
+         2. 5.2. Language Constructs
+         3.   1. 5.2.1. String interpolation
+              2. 5.2.2. Lookup path
+         4. 5.3. Operators
+         5. 5.4. Derivations
+         6.   1. 5.4.1. Advanced Attributes
+              2. 5.4.2. Import From Derivation
+         7. 5.5. Built-in Constants
+         8. 5.6. Built-in Functions
+    9. 6. Package Management
+   10.   1. 6.1. Profiles
+         2. 6.2. Garbage Collection
+         3.   1. 6.2.1. Garbage Collector Roots
+   11. 7. Advanced Topics
+   12.   1. 7.1. Sharing Packages Between Machines
+         2.   1. 7.1.1. Serving a Nix store via HTTP
+              2. 7.1.2. Copying Closures via SSH
+              3. 7.1.3. Serving a Nix store via SSH
+         3. 7.2. Remote Builds
+         4. 7.3. Tuning Cores and Jobs
+         5. 7.4. Verifying Build Reproducibility
+         6. 7.5. Using the post-build-hook
+   13. 8. Command Reference
+   14.   1. 8.1. Common Options
+         2. 8.2. Common Environment Variables
+         3. 8.3. Main Commands
+         4.   1. 8.3.1. nix-build
+              2. 8.3.2. nix-shell
+              3. 8.3.3. nix-store
+              4.   1. 8.3.3.1. nix-store --add-fixed
+                   2. 8.3.3.2. nix-store --add
+                   3. 8.3.3.3. nix-store --delete
+                   4. 8.3.3.4. nix-store --dump-db
+                   5. 8.3.3.5. nix-store --dump
+                   6. 8.3.3.6. nix-store --export
+                   7. 8.3.3.7. nix-store --gc
+                   8. 8.3.3.8. nix-store --generate-binary-cache-key
+                   9. 8.3.3.9. nix-store --import
+                  10. 8.3.3.10. nix-store --load-db
+                  11. 8.3.3.11. nix-store --optimise
+                  12. 8.3.3.12. nix-store --print-env
+                  13. 8.3.3.13. nix-store --query
+                  14. 8.3.3.14. nix-store --read-log
+                  15. 8.3.3.15. nix-store --realise
+                  16. 8.3.3.16. nix-store --repair-path
+                  17. 8.3.3.17. nix-store --restore
+                  18. 8.3.3.18. nix-store --serve
+                  19. 8.3.3.19. nix-store --verify-path
+                  20. 8.3.3.20. nix-store --verify
+              5. 8.3.4. nix-env
+              6.   1. 8.3.4.1. nix-env --delete-generations
+                   2. 8.3.4.2. nix-env --install
+                   3. 8.3.4.3. nix-env --list-generations
+                   4. 8.3.4.4. nix-env --query
+                   5. 8.3.4.5. nix-env --rollback
+                   6. 8.3.4.6. nix-env --set-flag
+                   7. 8.3.4.7. nix-env --set
+                   8. 8.3.4.8. nix-env --switch-generation
+                   9. 8.3.4.9. nix-env --switch-profile
+                  10. 8.3.4.10. nix-env --uninstall
+                  11. 8.3.4.11. nix-env --upgrade
+         5. 8.4. Utilities
+         6.   1. 8.4.1. nix-channel
+              2. 8.4.2. nix-collect-garbage
+              3. 8.4.3. nix-copy-closure
+              4. 8.4.4. nix-daemon
+              5. 8.4.5. nix-hash
+              6. 8.4.6. nix-instantiate
+              7. 8.4.7. nix-prefetch-url
+         7. 8.5. Experimental Commands
+         8.   1. 8.5.1. nix
+              2. 8.5.2. nix build
+              3. 8.5.3. nix bundle
+              4. 8.5.4. nix config
+              5. 8.5.5. nix config check
+              6. 8.5.6. nix config show
+              7. 8.5.7. nix copy
+              8. 8.5.8. nix daemon
+              9. 8.5.9. nix derivation
+             10. 8.5.10. nix derivation add
+             11. 8.5.11. nix derivation show
+             12. 8.5.12. nix develop
+             13. 8.5.13. nix edit
+             14. 8.5.14. nix eval
+             15. 8.5.15. nix flake
+             16. 8.5.16. nix flake archive
+             17. 8.5.17. nix flake check
+             18. 8.5.18. nix flake clone
+             19. 8.5.19. nix flake info
+             20. 8.5.20. nix flake init
+             21. 8.5.21. nix flake lock
+             22. 8.5.22. nix flake metadata
+             23. 8.5.23. nix flake new
+             24. 8.5.24. nix flake prefetch
+             25. 8.5.25. nix flake show
+             26. 8.5.26. nix flake update
+             27. 8.5.27. nix fmt
+             28. 8.5.28. nix hash
+             29. 8.5.29. nix hash convert
+             30. 8.5.30. nix hash file
+             31. 8.5.31. nix hash path
+             32. 8.5.32. nix hash to-base16
+             33. 8.5.33. nix hash to-base32
+             34. 8.5.34. nix hash to-base64
+             35. 8.5.35. nix hash to-sri
+             36. 8.5.36. nix help
+             37. 8.5.37. nix help-stores
+             38. 8.5.38. nix key
+             39. 8.5.39. nix key convert-secret-to-public
+             40. 8.5.40. nix key generate-secret
+             41. 8.5.41. nix log
+             42. 8.5.42. nix nar
+             43. 8.5.43. nix nar cat
+             44. 8.5.44. nix nar dump-path
+             45. 8.5.45. nix nar ls
+             46. 8.5.46. nix nar pack
+             47. 8.5.47. nix path-info
+             48. 8.5.48. nix print-dev-env
+             49. 8.5.49. nix profile
+             50. 8.5.50. nix profile diff-closures
+             51. 8.5.51. nix profile history
+             52. 8.5.52. nix profile install
+             53. 8.5.53. nix profile list
+             54. 8.5.54. nix profile remove
+             55. 8.5.55. nix profile rollback
+             56. 8.5.56. nix profile upgrade
+             57. 8.5.57. nix profile wipe-history
+             58. 8.5.58. nix realisation
+             59. 8.5.59. nix realisation info
+             60. 8.5.60. nix registry
+             61. 8.5.61. nix registry add
+             62. 8.5.62. nix registry list
+             63. 8.5.63. nix registry pin
+             64. 8.5.64. nix registry remove
+             65. 8.5.65. nix repl
+             66. 8.5.66. nix run
+             67. 8.5.67. nix search
+             68. 8.5.68. nix shell
+             69. 8.5.69. nix store
+             70. 8.5.70. nix store add
+             71. 8.5.71. nix store add-file
+             72. 8.5.72. nix store add-path
+             73. 8.5.73. nix store cat
+             74. 8.5.74. nix store copy-log
+             75. 8.5.75. nix store copy-sigs
+             76. 8.5.76. nix store delete
+             77. 8.5.77. nix store diff-closures
+             78. 8.5.78. nix store dump-path
+             79. 8.5.79. nix store gc
+             80. 8.5.80. nix store info
+             81. 8.5.81. nix store ls
+             82. 8.5.82. nix store make-content-addressed
+             83. 8.5.83. nix store optimise
+             84. 8.5.84. nix store path-from-hash-part
+             85. 8.5.85. nix store ping
+             86. 8.5.86. nix store prefetch-file
+             87. 8.5.87. nix store repair
+             88. 8.5.88. nix store sign
+             89. 8.5.89. nix store verify
+             90. 8.5.90. nix upgrade-nix
+             91. 8.5.91. nix why-depends
+         9. 8.6. Files
+        10.   1. 8.6.1. nix.conf
+              2. 8.6.2. Profiles
+              3.   1. 8.6.2.1. manifest.nix
+                   2. 8.6.2.2. manifest.json
+              4. 8.6.3. Channels
+              5. 8.6.4. Default Nix expression
+   15. 9. Architecture and Design
+   16. 10. Formats and Protocols
+   17.   1. 10.1. JSON Formats
+         2.   1. 10.1.1. Store Object Info
+              2. 10.1.2. Derivation
+         3. 10.2. Serving Tarball Flakes
+         4. 10.3. Store Path Specification
+         5. 10.4. Nix Archive (NAR) Format
+         6. 10.5. Derivation "ATerm" file format
+   18. 11. Glossary
+   19. 12. Contributing
+   20.   1. 12.1. Hacking
+         2. 12.2. Testing
+         3. 12.3. Documentation
+         4. 12.4. Experimental Features
+         5. 12.5. CLI guideline
+         6. 12.6. C++ style guide
+   21. 13. Releases
+   22.   1. 13.1. Release 2.22 (2024-04-23)
+         2. 13.2. Release 2.21 (2024-03-11)
+         3. 13.3. Release 2.20 (2024-01-29)
+         4. 13.4. Release 2.19 (2023-11-17)
+         5. 13.5. Release 2.18 (2023-09-20)
+         6. 13.6. Release 2.17 (2023-07-24)
+         7. 13.7. Release 2.16 (2023-05-31)
+         8. 13.8. Release 2.15 (2023-04-11)
+         9. 13.9. Release 2.14 (2023-02-28)
+        10. 13.10. Release 2.13 (2023-01-17)
+        11. 13.11. Release 2.12 (2022-12-06)
+        12. 13.12. Release 2.11 (2022-08-25)
+        13. 13.13. Release 2.10 (2022-07-11)
+        14. 13.14. Release 2.9 (2022-05-30)
+        15. 13.15. Release 2.8 (2022-04-19)
+        16. 13.16. Release 2.7 (2022-03-07)
+        17. 13.17. Release 2.6 (2022-01-24)
+        18. 13.18. Release 2.5 (2021-12-13)
+        19. 13.19. Release 2.4 (2021-11-01)
+        20. 13.20. Release 2.3 (2019-09-04)
+        21. 13.21. Release 2.2 (2019-01-11)
+        22. 13.22. Release 2.1 (2018-09-02)
+        23. 13.23. Release 2.0 (2018-02-22)
+        24. 13.24. Release 1.11.10 (2017-06-12)
+        25. 13.25. Release 1.11 (2016-01-19)
+        26. 13.26. Release 1.10 (2015-09-03)
+        27. 13.27. Release 1.9 (2015-06-12)
+        28. 13.28. Release 1.8 (2014-12-14)
+        29. 13.29. Release 1.7 (2014-04-11)
+        30. 13.30. Release 1.6.1 (2013-10-28)
+        31. 13.31. Release 1.6 (2013-09-10)
+        32. 13.32. Release 1.5.2 (2013-05-13)
+        33. 13.33. Release 1.5 (2013-02-27)
+        34. 13.34. Release 1.4 (2013-02-26)
+        35. 13.35. Release 1.3 (2013-01-04)
+        36. 13.36. Release 1.2 (2012-12-06)
+        37. 13.37. Release 1.1 (2012-07-18)
+        38. 13.38. Release 1.0 (2012-05-11)
+        39. 13.39. Release 0.16 (2010-08-17)
+        40. 13.40. Release 0.15 (2010-03-17)
+        41. 13.41. Release 0.14 (2010-02-04)
+        42. 13.42. Release 0.13 (2009-11-05)
+        43. 13.43. Release 0.12 (2008-11-20)
+        44. 13.44. Release 0.11 (2007-12-31)
+        45. 13.45. Release 0.10.1 (2006-10-11)
+        46. 13.46. Release 0.10 (2006-10-06)
+        47. 13.47. Release 0.9.2 (2005-09-21)
+        48. 13.48. Release 0.9.1 (2005-09-20)
+        49. 13.49. Release 0.9 (2005-09-16)
+        50. 13.50. Release 0.8.1 (2005-04-13)
+        51. 13.51. Release 0.8 (2005-04-11)
+        52. 13.52. Release 0.7 (2005-01-12)
+        53. 13.53. Release 0.6 (2004-11-14)
+        54. 13.54. Release 0.5 and earlier
+     * Light
+     * Rust
+     * Coal
+     * Navy
+     * Ayu
+
+                              Nix Reference Manual
+
+   _____________________
+
+                                      Name
+
+   nix-store --serve - serve local Nix store over SSH
+
+                                    Synopsis
+
+   nix-store --serve [--write]
+
+                                  Description
+
+   The operation --serve provides access to the Nix store over stdin and
+   stdout, and is intended to be used as a means of providing Nix store
+   access to a restricted ssh user.
+
+   The following flags are available:
+
+     * --write
+       Allow the connected client to request the realization of derivations.
+       In effect, this can be used to make the host act as a remote builder.
+
+                                    Options
+
+   The following options are allowed for all nix-store operations, but may
+   not always have an effect.
+
+     * --add-root path
+
+       Causes the result of a realisation (--realise and --force-realise) to
+       be registered as a root of the garbage collector. path will be created
+       as a symlink to the resulting store path. In addition, a uniquely
+       named symlink to path will be created in /nix/var/nix/gcroots/auto/.
+       For instance,
+
+ $ nix-store --add-root /home/eelco/bla/result --realise ...
+
+ $ ls -l /nix/var/nix/gcroots/auto
+ lrwxrwxrwx    1 ... 2005-03-13 21:10 dn54lcypm8f8... -> /home/eelco/bla/result
+
+ $ ls -l /home/eelco/bla/result
+ lrwxrwxrwx    1 ... 2005-03-13 21:10 /home/eelco/bla/result -> /nix/store/1r11343n6qd4...-f-spot-0.0.10
+
+       Thus, when /home/eelco/bla/result is removed, the GC root in the auto
+       directory becomes a dangling symlink and will be ignored by the
+       collector.
+
+         Warning
+
+         Note that it is not possible to move or rename GC roots, since the
+         symlink in the auto directory will still point to the old location.
+
+       If there are multiple results, then multiple symlinks will be created
+       by sequentially numbering symlinks beyond the first one (e.g., foo,
+       foo-2, foo-3, and so on).
+
+                                 Common Options
+
+   Most Nix commands accept the following command-line options:
+
+     * --help
+
+       Prints out a summary of the command syntax and exits.
+
+     * --version
+
+       Prints out the Nix version number on standard output and exits.
+
+     * --verbose / -v
+
+       Increases the level of verbosity of diagnostic messages printed on
+       standard error. For each Nix operation, the information printed on
+       standard output is well-defined; any diagnostic information is printed
+       on standard error, never on standard output.
+
+       This option may be specified repeatedly. Currently, the following
+       verbosity levels exist:
+
+          * 0 “Errors only”
+
+            Only print messages explaining why the Nix invocation failed.
+
+          * 1 “Informational”
+
+            Print useful messages about what Nix is doing. This is the
+            default.
+
+          * 2 “Talkative”
+
+            Print more informational messages.
+
+          * 3 “Chatty”
+
+            Print even more informational messages.
+
+          * 4 “Debug”
+
+            Print debug information.
+
+          * 5 “Vomit”
+
+            Print vast amounts of debug information.
+
+     * --quiet
+
+       Decreases the level of verbosity of diagnostic messages printed on
+       standard error. This is the inverse option to -v / --verbose.
+
+       This option may be specified repeatedly. See the previous verbosity
+       levels list.
+
+     * --log-format format
+
+       This option can be used to change the output of the log format, with
+       format being one of:
+
+          * raw
+
+            This is the raw format, as outputted by nix-build.
+
+          * internal-json
+
+            Outputs the logs in a structured manner.
+
+              Warning
+
+              While the schema itself is relatively stable, the format of the
+              error-messages (namely of the msg-field) can change between
+              releases.
+
+          * bar
+
+            Only display a progress bar during the builds.
+
+          * bar-with-logs
+
+            Display the raw logs, with the progress bar at the bottom.
+
+     * --no-build-output / -Q
+
+       By default, output written by builders to standard output and standard
+       error is echoed to the Nix command's standard error. This option
+       suppresses this behaviour. Note that the builder's standard output and
+       error are always written to a log file in prefix/nix/var/log/nix.
+
+     * --max-jobs / -j number
+
+       Sets the maximum number of build jobs that Nix will perform in
+       parallel to the specified number. Specify auto to use the number of
+       CPUs in the system. The default is specified by the max-jobs
+       configuration setting, which itself defaults to 1. A higher value is
+       useful on SMP systems or to exploit I/O latency.
+
+       Setting it to 0 disallows building on the local machine, which is
+       useful when you want builds to happen only on remote builders.
+
+     * --cores
+
+       Sets the value of the NIX_BUILD_CORES environment variable in the
+       invocation of builders. Builders can use this variable at their
+       discretion to control the maximum amount of parallelism. For instance,
+       in Nixpkgs, if the derivation attribute enableParallelBuilding is set
+       to true, the builder passes the -jN flag to GNU Make. It defaults to
+       the value of the cores configuration setting, if set, or 1 otherwise.
+       The value 0 means that the builder should use all available CPU cores
+       in the system.
+
+     * --max-silent-time
+
+       Sets the maximum number of seconds that a builder can go without
+       producing any data on standard output or standard error. The default
+       is specified by the max-silent-time configuration setting. 0 means no
+       time-out.
+
+     * --timeout
+
+       Sets the maximum number of seconds that a builder can run. The default
+       is specified by the timeout configuration setting. 0 means no timeout.
+
+     * --keep-going / -k
+
+       Keep going in case of failed builds, to the greatest extent possible.
+       That is, if building an input of some derivation fails, Nix will still
+       build the other inputs, but not the derivation itself. Without this
+       option, Nix stops if any build fails (except for builds of
+       substitutes), possibly killing builds in progress (in case of parallel
+       or distributed builds).
+
+     * --keep-failed / -K
+
+       Specifies that in case of a build failure, the temporary directory
+       (usually in /tmp) in which the build takes place should not be
+       deleted. The path of the build directory is printed as an
+       informational message.
+
+     * --fallback
+
+       Whenever Nix attempts to build a derivation for which substitutes are
+       known for each output path, but realising the output paths through the
+       substitutes fails, fall back on building the derivation.
+
+       The most common scenario in which this is useful is when we have
+       registered substitutes in order to perform binary distribution from,
+       say, a network repository. If the repository is down, the realisation
+       of the derivation will fail. When this option is specified, Nix will
+       build the derivation instead. Thus, installation from binaries falls
+       back on installation from source. This option is not the default since
+       it is generally not desirable for a transient failure in obtaining the
+       substitutes to lead to a full build from source (with the related
+       consumption of resources).
+
+     * --readonly-mode
+
+       When this option is used, no attempt is made to open the Nix database.
+       Most Nix operations do need database access, so those operations will
+       fail.
+
+     * --arg name value
+
+       This option is accepted by nix-env, nix-instantiate, nix-shell and
+       nix-build. When evaluating Nix expressions, the expression evaluator
+       will automatically try to call functions that it encounters. It can
+       automatically call functions for which every argument has a default
+       value (e.g., { argName ? defaultValue }: ...).
+
+       With --arg, you can also call functions that have arguments without a
+       default value (or override a default value). That is, if the evaluator
+       encounters a function with an argument named name, it will call it
+       with value value.
+
+       For instance, the top-level default.nix in Nixpkgs is actually a
+       function:
+
+ { # The system (e.g., `i686-linux') for which to build the packages.
+   system ? builtins.currentSystem
+   ...
+ }: ...
+
+       So if you call this Nix expression (e.g., when you do nix-env
+       --install --attr pkgname), the function will be called automatically
+       using the value builtins.currentSystem for the system argument. You
+       can override this using --arg, e.g., nix-env --install --attr pkgname
+       --arg system \"i686-freebsd\". (Note that since the argument is a Nix
+       string literal, you have to escape the quotes.)
+
+     * --argstr name value
+
+       This option is like --arg, only the value is not a Nix expression but
+       a string. So instead of --arg system \"i686-linux\" (the outer quotes
+       are to keep the shell happy) you can say --argstr system i686-linux.
+
+     * --attr / -A attrPath
+
+       Select an attribute from the top-level Nix expression being evaluated.
+       (nix-env, nix-instantiate, nix-build and nix-shell only.) The
+       attribute path attrPath is a sequence of attribute names separated by
+       dots. For instance, given a top-level Nix expression e, the attribute
+       path xorg.xorgserver would cause the expression e.xorg.xorgserver to
+       be used. See nix-env --install for some concrete examples.
+
+       In addition to attribute names, you can also specify array indices.
+       For instance, the attribute path foo.3.bar selects the bar attribute
+       of the fourth element of the array in the foo attribute of the
+       top-level expression.
+
+     * --expr / -E
+
+       Interpret the command line arguments as a list of Nix expressions to
+       be parsed and evaluated, rather than as a list of file names of Nix
+       expressions. (nix-instantiate, nix-build and nix-shell only.)
+
+       For nix-shell, this option is commonly used to give you a shell in
+       which you can build the packages returned by the expression. If you
+       want to get a shell which contain the built packages ready for use,
+       give your expression to the nix-shell --packages convenience flag
+       instead.
+
+     * -I path
+
+       Add an entry to the Nix expression search path. This option may be
+       given multiple times. Paths added through -I take precedence over
+       NIX_PATH.
+
+     * --option name value
+
+       Set the Nix configuration option name to value. This overrides
+       settings in the Nix configuration file (see nix.conf5).
+
+     * --repair
+
+       Fix corrupted or missing store paths by redownloading or rebuilding
+       them. Note that this is slow because it requires computing a
+       cryptographic hash of the contents of every path in the closure of the
+       build. Also note the warning under nix-store --repair-path.
+
+     Note
+
+     See man nix.conf for overriding configuration settings with command line
+     flags.
+
+                          Common Environment Variables
+
+   Most Nix commands interpret the following environment variables:
+
+     * IN_NIX_SHELL
+
+       Indicator that tells if the current environment was set up by
+       nix-shell. It can have the values pure or impure.
+
+     * NIX_PATH
+
+       A colon-separated list of directories used to look up the location of
+       Nix expressions using paths enclosed in angle brackets (i.e., <path>),
+       e.g. /home/eelco/Dev:/etc/nixos. It can be extended using the -I
+       option.
+
+       If NIX_PATH is not set at all, Nix will fall back to the following
+       list in impure and unrestricted evaluation mode:
+
+         1. $HOME/.nix-defexpr/channels
+         2. nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixpkgs
+         3. /nix/var/nix/profiles/per-user/root/channels
+
+       If NIX_PATH is set to an empty string, resolving search paths will
+       always fail. For example, attempting to use <nixpkgs> will produce:
+
+ error: file 'nixpkgs' was not found in the Nix search path
+
+     * NIX_IGNORE_SYMLINK_STORE
+
+       Normally, the Nix store directory (typically /nix/store) is not
+       allowed to contain any symlink components. This is to prevent “impure”
+       builds. Builders sometimes “canonicalise” paths by resolving all
+       symlink components. Thus, builds on different machines (with
+       /nix/store resolving to different locations) could yield different
+       results. This is generally not a problem, except when builds are
+       deployed to machines where /nix/store resolves differently. If you are
+       sure that you’re not going to do that, you can set
+       NIX_IGNORE_SYMLINK_STORE to 1.
+
+       Note that if you’re symlinking the Nix store so that you can put it on
+       another file system than the root file system, on Linux you’re better
+       off using bind mount points, e.g.,
+
+ $ mkdir /nix
+ $ mount -o bind /mnt/otherdisk/nix /nix
+
+       Consult the mount 8 manual page for details.
+
+     * NIX_STORE_DIR
+
+       Overrides the location of the Nix store (default prefix/store).
+
+     * NIX_DATA_DIR
+
+       Overrides the location of the Nix static data directory (default
+       prefix/share).
+
+     * NIX_LOG_DIR
+
+       Overrides the location of the Nix log directory (default
+       prefix/var/log/nix).
+
+     * NIX_STATE_DIR
+
+       Overrides the location of the Nix state directory (default
+       prefix/var/nix).
+
+     * NIX_CONF_DIR
+
+       Overrides the location of the system Nix configuration directory
+       (default prefix/etc/nix).
+
+     * NIX_CONFIG
+
+       Applies settings from Nix configuration from the environment. The
+       content is treated as if it was read from a Nix configuration file.
+       Settings are separated by the newline character.
+
+     * NIX_USER_CONF_FILES
+
+       Overrides the location of the Nix user configuration files to load
+       from.
+
+       The default are the locations according to the XDG Base Directory
+       Specification. See the XDG Base Directories sub-section for details.
+
+       The variable is treated as a list separated by the : token.
+
+     * TMPDIR
+
+       Use the specified directory to store temporary files. In particular,
+       this includes temporary build directories; these can take up
+       substantial amounts of disk space. The default is /tmp.
+
+     * NIX_REMOTE
+
+       This variable should be set to daemon if you want to use the Nix
+       daemon to execute Nix operations. This is necessary in multi-user Nix
+       installations. If the Nix daemon's Unix socket is at some non-standard
+       path, this variable should be set to unix://path/to/socket. Otherwise,
+       it should be left unset.
+
+     * NIX_SHOW_STATS
+
+       If set to 1, Nix will print some evaluation statistics, such as the
+       number of values allocated.
+
+     * NIX_COUNT_CALLS
+
+       If set to 1, Nix will print how often functions were called during Nix
+       expression evaluation. This is useful for profiling your Nix
+       expressions.
+
+     * GC_INITIAL_HEAP_SIZE
+
+       If Nix has been configured to use the Boehm garbage collector, this
+       variable sets the initial size of the heap in bytes. It defaults to
+       384 MiB. Setting it to a low value reduces memory consumption, but
+       will increase runtime due to the overhead of garbage collection.
+
+XDG Base Directories
+
+   Nix follows the XDG Base Directory Specification.
+
+   For backwards compatibility, Nix commands will follow the standard only
+   when use-xdg-base-directories is enabled. New Nix commands (experimental)
+   conform to the standard by default.
+
+   The following environment variables are used to determine locations of
+   various state and configuration files:
+
+     * XDG_CONFIG_HOME (default ~/.config)
+     * XDG_STATE_HOME (default ~/.local/state)
+     * XDG_CACHE_HOME (default ~/.cache)
+
+                                    Examples
+
+   To turn a host into a build server, the authorized_keys file can be used
+   to provide build access to a given SSH public key:
+
+ $ cat <<EOF >>/root/.ssh/authorized_keys
+ command="nice -n20 nix-store --serve --write" ssh-rsa AAAAB3NzaC1yc2EAAAA...
+ EOF

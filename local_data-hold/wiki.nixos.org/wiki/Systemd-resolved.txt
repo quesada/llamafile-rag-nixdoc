@@ -1,0 +1,113 @@
+   Link: canonical
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration
+   [ ] Toggle the table of contents
+
+                                systemd-resolved
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   (Redirected from Systemd-resolved)
+   ← Back to systemd
+
+   systemd-resolved is a systemd service that provides network name
+   resolution to local applications via a D-Bus interface, the resolve NSS
+   service (nss-resolve(8)), and a local DNS stub listener on 127.0.0.53. See
+   systemd-resolved(8) for the usage.
+
+Configuration
+
+   The following configuration configures resolved daemon to use the public
+   DNS resolver provided by Cloudflare. DNSSEC and DNS-over-TLS is enabled
+   for authenticity and encryption.
+
+ networking.nameservers = [
+   "1.1.1.1"
+   "1.0.0.1"
+ ];
+
+ services.resolved = {
+   enable = true;
+   dnssec = "true";
+   domains = [ "~." ];
+   fallbackDns = [
+     "1.1.1.1"
+     "1.0.0.1"
+   ];
+   dnsovertls = "true";
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Systemd/resolved&oldid=12768"
+   Categories:
+     * Systemd
+     * Networking
+     * This page was last edited on 14 May 2024, at 18:53.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

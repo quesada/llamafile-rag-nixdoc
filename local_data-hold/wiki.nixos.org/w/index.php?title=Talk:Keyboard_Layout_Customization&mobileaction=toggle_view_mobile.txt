@@ -1,0 +1,91 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Key symbols reference broken
+       1 comment
+   [ ] Toggle the table of contents
+
+                       Talk:Keyboard Layout Customization
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 9 January 2023 by Itium in topic Key symbols reference
+   broken
+
+Key symbols reference broken
+
+   Latest comment: 9 January 20231 comment1 person in discussion
+
+   xorg.xproto seems not to exist anymore, so the command with nix-build
+   --no-out-link '<nixpkgs>' -A xorg.xproto does not work anymore. Whats the
+   correct replacement? --Itium (talk) 23:21, 9 January 2023 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Keyboard_Layout_Customization&oldid=10393"
+     * This page was last edited on 9 January 2023, at 23:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

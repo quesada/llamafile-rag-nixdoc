@@ -1,0 +1,142 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Dolphin Emulator: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:4021:40, 24 April 2024‎ Klinger talk contribs‎ m
+       1,061 bytes +20‎ Category:Applications Category:Gaming
+
+    3 April 2024
+
+     * curprev [ ] [ ] 15:0615:06, 3 April 2024‎ Weijia talk contribs‎ 1,041
+       bytes +1‎ Replace dolphinEmu with dolphin-emu
+
+    7 December 2022
+
+     * curprev [ ] [ ] 07:2907:29, 7 December 2022‎ imported>R-burns‎ 1,040
+       bytes +83‎ Improve adapter overclocking instructions
+     * curprev [ ] [ ] 07:2707:27, 7 December 2022‎ imported>R-burns‎ 957
+       bytes +371‎ Add instructions for GCC adapter overclocking
+
+    9 August 2022
+
+     * curprev [ ] [ ] 20:2820:28, 9 August 2022‎ imported>Fufexan‎ m 586
+       bytes −22‎ Remove redundant heading
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4405:44, 20 September 2021‎ imported>Nix‎ m 608
+       bytes +27‎ add Software/Applications subcategory
+
+    3 December 2020
+
+     * curprev [ ] [ ] 13:0613:06, 3 December 2020‎ imported>Mic92‎ 581 bytes
+       +581‎ Created page with "= Dolphin Emulator = Dolphin is a Nintendo
+       GameCube and Wii emulator, currently supporting the x86_64 and AArch64
+       architectures. Dolphin is available for Linux, macOS, Window..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Dolphin_Emulator"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

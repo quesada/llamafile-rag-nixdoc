@@ -1,0 +1,403 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Configuration
+          * 2.1 UEFI with OVMF
+          * 2.2 Nested virtualization
+          * 2.3 Bridge networking
+          * 2.4 File sharing
+     * 3 Clients
+          * 3.1 libguestfs
+               * 3.1.1 error: cannot find any suitable libguestfs supermin
+          * 3.2 guestfs-tools
+               * 3.2.1 virt-builder
+          * 3.3 NixVirt
+          * 3.4 Accessing QEMU VMs through Webbrowser
+               * 3.4.1 Make VM SPICE accessible
+               * 3.4.2 Add Websockify
+               * 3.4.3 Get EyeOS Spice Web Client
+               * 3.4.4 Setup nginx for access
+               * 3.4.5 Access the VM through the browser
+   [ ] Toggle the table of contents
+
+                                    Libvirt
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   libvirt is a toolkit to interact with the virtualization capabilities of
+   recent versions of Linux (and other OSes). It does so by providing a
+   common API to different virtualization backends.
+
+Setup
+
+   Enable libvirt daemon
+
+    
+
+ /etc/nixos/configuration.nix
+
+ virtualisation.libvirtd.enable = true;
+
+ # Enable TPM emulation (optional)
+ virtualisation.libvirtd.qemu = {
+   swtpm.enable = true;
+   ovmf.packages = [ pkgs.OVMFFull.fd ];
+ };
+
+ # Enable USB redirection (optional)
+ virtualisation.spiceUSBRedirection.enable = true;
+
+   To enable local user access to libvirt, for example by using virt-manager
+   or gnome-boxes, add yourself to the libvirtd group
+
+    
+
+ /etc/nixos/configuration.nix
+
+ users.users.myuser = {
+   extraGroups = [ "libvirtd" ];
+ };
+
+Configuration
+
+  UEFI with OVMF
+
+   See this tutorial on how to run a guest machine in UEFI mode using
+   virt-manager.
+
+  Nested virtualization
+
+   If you would like to enable nested virtualization for your guests to run
+   KVM hypervisors inside them, you should enable it as follows:
+   boot.extraModprobeConfig, for example:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ boot.extraModprobeConfig = "options kvm_intel nested=1";
+
+  Bridge networking
+
+   Create a XML file called virbr0.xml with the definition of the bridge
+   interface
+
+ <network>
+   <name>virbr0</name>
+   <forward mode='bridge'/>
+   <bridge name='virbr0'/>
+ </network>
+
+   Add and enable bridge interface
+
+ virsh net-define virbr0.xml
+ virsh net-start virbr0
+ ip link add virbr0 type bridge
+ ip address ad dev virbr0 10.25.0.1/24
+ ip link set dev virbr0 up
+
+   Edit the libvirt guest my_guest XML file and add the bridge interface to
+   it
+
+ virsh edit my_guest
+
+   Add
+
+   <devices>
+     [...]
+     <interface type='bridge'>
+       <mac address='52:54:00:12:34:56'/>
+       <source bridge='virbr0'/>
+       <model type='virtio'/>
+       <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
+     </interface>
+     [...]
+   </devices>
+
+   Inside the guest configure networking for the interface enp1s0 (name might
+   differ)
+
+    
+
+ /etc/nixos/configuration.nix
+
+ networking.interfaces.enp1s0.ipv4.addresses = [{
+   address = "10.25.0.2";
+   prefixLength = 24;
+ }];
+
+   The host should now be able to reach the guest via the bridge interface
+   and vice versa.
+
+  File sharing
+
+   In order to share files between host and guest, one recommended way of
+   doing this is to use spice-webdavd.
+
+   Shutdown the client, in this example named my_guest, and edit the libvirt
+   XML file.
+
+ virsh edit my_guest
+
+   Add the following snippet after <channel type='unix'>[...]</channel> part
+   inside the devices subsection:
+
+     <channel type='spiceport'>
+       <source channel='org.spice-space.webdav.0'/>
+       <target type='virtio' name='org.spice-space.webdav.0'/>
+       <address type='virtio-serial' controller='0' bus='0' port='3'/>
+     </channel>
+
+   Start the guest machine. Inside the guest, add following part to your
+   system configuration and apply it
+
+    
+
+ /etc/nixos/configuration.nix
+
+ services.spice-webdavd.enable = true;
+
+   List available shares for the guest
+
+ curl localhost:9843
+
+   Mount an example share called myshare to the mountpoint myshare
+
+    
+
+ /etc/nixos/configuration.nix
+
+ services.davfs2 = {
+   enable = true;
+   settings.globalSection.ask_auth = 0;
+ };
+
+ fileSystems = {
+   "/root/myshare" = {
+     device = "http://localhost:9843/myshare";
+     fsType = "davfs";
+     options = [ "nofail" ];
+   };
+ };
+
+Clients
+
+   NixOS provides some packages that can make use of libvirt or are useful
+   with libvirt.
+
+  libguestfs
+
+   libguestfs is a set of tools for accessing and modifying virtual machines
+   disk images.
+
+   Following are notes regarding the use of some of those tools
+
+    error: cannot find any suitable libguestfs supermin
+
+   Use use the package libguestfs-with-appliance. See
+   https://github.com/NixOS/nixpkgs/issues/37540
+
+  guestfs-tools
+
+   Includes virt-sysprep, used to prepare a VM image for use. Review the
+   manpage of virt-sysprep, virt-clone, and virt-builder.
+
+    virt-builder
+
+   virt-builder is installed with guestfs-tools, but has some issues from its
+   packaging.
+
+   It is possible to work around those issues without modifying the package
+   (when a pristine nixpkgs is needed).
+
+ $ mkdir -p ~/.config/virt-builder
+ $ cd ~/.config/virt-builder
+ $ ln -s /run/current-system/sw/etc/xdg/virt-builder/repos.d
+ $ cd ~/.config
+ $ ln -s virt-builder/ .virt-builder-wrapped
+
+   This will make your user use the shipped repo configurations, and works
+   around the fact that virt-builder reads its executable name to build its
+   configuration path. The executable being wrapped, it is named differently.
+
+  NixVirt
+
+   NixVirt is a flake that provides NixOS and Home Manager modules for
+   setting up libvirt domains, networks and pools declaratively.
+
+  Accessing QEMU VMs through Webbrowser
+
+   I have a need that I can access some created VMs through a web browser.
+   There's several SPICE html5 clients out there one from EyeOS works the
+   best in my opinon.
+
+   In order to access the VM in a browser, we need to do several things.
+
+    Make VM SPICE accessible
+
+   In virt-manager (or whatever tool you use) you can add the Spice server as
+   display. In virt-manager it's the Graphics new hardware. However - at
+   least in virt-manager - you can't set everything as it needs to be. So
+   after adding the Spice server through virt-manager, fire up your console
+   and edit the xml file using virsh edit {vmname}.
+
+   Go to the graphics section and edit your you entry to something like this:
+
+ <graphics type='spice' port='5900' autoport='no' listen='0.0.0.0' keymap='de-ch' defaultMode='insecure'>
+   <listen type='address' address='0.0.0.0'/>
+   <image compression='auto_lz'/>
+ </graphics>
+
+    Add Websockify
+
+   Since libvirt doesn't support websockets on its own, we'll need to add
+   websockify to your configuration.nix
+
+ services.networking.websockify = {
+   enable = true;
+   sslCert = "/https-cert.pem";
+   sslKey = "/https-key.pem";
+   portMap = {
+     "5959" = 5900;
+   };
+ };
+
+   The port mapping 5959 -> 5900 is the websocket forward from nginx 5959 to
+   the spice server. If you used another port for the spice server, then
+   adjust accordingly.
+
+   Also, I use letsencrypt dns mode to get https cert and key. Nginx i nixos
+   can get the certs on its own. Since I use the same certs also for other
+   things, I just put them in the root (/) folder. Use what is best for you.
+
+    Get EyeOS Spice Web Client
+
+   As said, the experience with the EyeOS Spice Web Client has been the best
+   so far. Another client would be the spice-html5 from freedesktop.org.
+
+   1. Download the EyeOS Spice Web Client and unpack it (if necessary) or ,
+   as example, just git clone https://github.com/eyeos/spice-web-client/
+   /var/www/spice
+
+   2. Once downloaded (and unpacked), edit the run.js file and search for
+   'ws' (around line 213) and change it to 'wss'
+
+    Setup nginx for access
+
+   As last part, you'll need to setup nginx so serve files from the EyeOS
+   Spice Web Client and use websockify to communicate with the VM.
+
+ services.nginx = {
+   enable = true;
+   virtualHosts."mydomain.tld" = {
+     forceSSL = true;
+     root = "/var/www/";
+     locations."/spice/" = {
+       index = "index.html index.htm";
+     };
+     locations."/websockify/" = {
+       proxyWebsockets = true;
+       proxyPass = "https://127.0.0.1:5959";
+       extraConfig = ''
+         proxy_read_timeout 61s;
+         proxy_buffering off;
+       '';
+     };
+     sslCertificate = "/https-cert.pem";
+     sslCertificateKey = "/https-key.pem";
+     listen = [ { addr = "*"; port = 45000; ssl = true; } ];
+   };
+ };
+
+   So, in the above example we access the nginx installation on port 45000
+   (use whatever you want, you could also just use normal ports like 80/445).
+   We tell it to use port 5959 for websockify which is mapped to port 5900.
+   And we tell it to access the mydomain.tld/spice folder as /var/www/spice
+   (where we did download the EyeOS Spice Web Client to).
+
+    Access the VM through the browser
+
+   In order to access the VM through the browser, you'll also need to open
+   ports in your firewall (port for nginx, websockify and spice; 4500, 5959,
+   5900 in the example).
+
+   Then you'll need to start the vm, you can do it by sshing into the
+   computer and run virsh start {vmname}.
+
+   And finally you can access the VMs GUI through
+   https://mydomain.tld:4500/spice/index.html?host=mydomain.tld&port=5959
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Libvirt&oldid=17410"
+   Categories:
+     * Virtualization
+     * Applications
+     * This page was last edited on 14 September 2024, at 06:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

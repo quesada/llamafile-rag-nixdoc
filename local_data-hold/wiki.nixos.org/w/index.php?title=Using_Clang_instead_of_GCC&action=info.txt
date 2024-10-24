@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  Information for "Using Clang instead of GCC"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Using Clang instead of GCC 
+   Default sort key                 Using Clang instead of GCC 
+   Page length (in bytes)           3,184                      
+   Namespace ID                     0                          
+   Page ID                          392                        
+   Page content language            en - English               
+   Page content model               wikitext                   
+   Indexing by robots               Allowed                    
+   Number of redirects to this page 0                          
+   Counted as a content page        Yes                        
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>Mickours      
+   Date of page creation                        15:03, 2 May 2018      
+   Latest editor                                imported>Artturin      
+   Date of latest edit                          03:08, 15 October 2023 
+   Total number of edits                        10                     
+   Total number of distinct authors             5                      
+   Recent number of edits (within past 90 days) 0                      
+   Recent number of distinct authors            0                      
+
+Page properties
+
+                       This page is a member of a hidden category:          
+   Hidden category (1)                                                      
+                         * Category:Pages with syntax highlighting errors   
+
+   Retrieved from "https://wiki.nixos.org/wiki/Using_Clang_instead_of_GCC"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

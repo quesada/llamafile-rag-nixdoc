@@ -1,0 +1,111 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Information for "Linux kernel"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Linux kernel 
+   Default sort key                 Linux kernel 
+   Page length (in bytes)           23,092       
+   Namespace ID                     0            
+   Page ID                          240          
+   Page content language            en - English 
+   Page content model               wikitext     
+   Indexing by robots               Allowed      
+   Number of redirects to this page 2            
+   Counted as a content page        Yes          
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>Makefu         
+   Date of page creation                        14:19, 7 November 2017  
+   Latest editor                                Mic92 (talk | contribs) 
+   Date of latest edit                          11:03, 12 October 2024  
+   Total number of edits                        100                     
+   Total number of distinct authors             47                      
+   Recent number of edits (within past 90 days) 10                      
+   Recent number of distinct authors            6                       
+
+Page properties
+
+                             Templates used on this page:              
+                                                                       
+                               * Template:Bc (view source)             
+   Transcluded templates (5)   * Template:File (view source)           
+                               * Template:Ic (view source)             
+                               * Template:Manual:nixos (view source)   
+                               * Template:Nixos:option (view source)   
+
+   Retrieved from "https://wiki.nixos.org/wiki/Linux_kernel"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

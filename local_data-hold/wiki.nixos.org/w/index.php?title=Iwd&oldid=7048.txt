@@ -1,0 +1,174 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+     * 3 Configuration
+          * 3.1 iwd as backend for NetworkManager
+          * 3.2 iwd as backend for Connman
+     * 4 Troubleshooting
+          * 4.1 org.freedesktop.service failed
+          * 4.2 rfkill blocks wireless device
+   [ ] Toggle the table of contents
+
+                                      Iwd
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 20:18, 4 March 2024 by imported>Hucksy (Add details on how
+   to configure iwd)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   iwd (iNet wireless daemon) is a Linux-only wireless daemon aiming to
+   decrease the time spent making connections.
+
+Installation
+
+   iwd can be enabled with the following snippet.
+
+ networking.wireless.iwd.enable = true;
+
+Usage
+
+   Connections can be managed using the provided iwctl tool.
+
+Configuration
+
+   To configure iwd, you should use networking.wireless.iwd.settings option.
+   An example configuration, which enables IPv6 and automatic connection to
+   known networks, would be similar to:
+
+ {
+   networking.wireless.iwd.settings = {
+     IPv6 = {
+       Enabled = true;
+     };
+     Settings = {
+       AutoConnect = true;
+     };
+   };
+ }
+
+   For a detailed and up-to-date list of available settings, please reference
+   the network daemon configuration docummentation, from kernel Git repo.
+
+  iwd as backend for NetworkManager
+
+   If iwd is present, it can be used as a backend for NetworkManager through
+   the following snippet.
+
+ networking.networkmanager.wifi.backend = "iwd";
+
+  iwd as backend for Connman
+
+   Iwd could be use as a backend for Connman too.
+
+ services.connman.wifi.backend = "iwd";
+
+   Note that iwd is experimental and it does not have feature parity with the
+   default backend, wpa_supplicant.
+
+Troubleshooting
+
+  org.freedesktop.service failed
+
+   When connecting to a protected network it could happen that no password
+   window appears and the following message is written in the journal:
+
+ dbus-daemon[1732]: [session uid=9001 pid=1730] Activated service 'org.freedesktop.secrets' failed: Failed to execute program org.freedesktop.secrets: No such file or directory
+
+   Your desktop manager may not enable some secrets management service you
+   may need to enable one:
+
+ {
+   services.gnome3.gnome-keyring.enable = true;
+ }
+
+  rfkill blocks wireless device
+
+   If the wi-fi connection is blocked by rf-kill, it it is needed to unblock
+   the the wireless device. A way to do that with Nix is by using
+   system.activationScripts.
+
+ {
+   system.activationScripts = {
+     rfkillUnblockWlan = {
+       text = ''
+       rfkill unblock wlan
+       '';
+       deps = [];
+     };
+   };
+ }
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Iwd&oldid=7048"
+   Categories:
+     * Applications
+     * Networking
+     * This page was last edited on 4 March 2024, at 20:18.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

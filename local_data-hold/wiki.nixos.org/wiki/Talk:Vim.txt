@@ -1,0 +1,125 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Plugin Names
+     * 2 Popularity
+       2 comments
+   [ ] Toggle the table of contents
+
+                                    Talk:Vim
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 9 July by Mic92 in topic Popularity
+
+Plugin Names
+
+   It'd be great to make it easier for users to find the name of the plugin
+   they want. When I just now tried doing this, I initially thought I could
+   use the "names" listed in vim-plugin-names, so I tried this:
+
+    vimrcConfig.vam.pluginDictionaries = [
+        { names = [
+            # Here you can place all your vim plugins
+            # They are installed managed by `vam` (a vim plugin manager)
+            "github:sbdchd/neoformat"
+        ]; }
+    ];
+
+   But that didn't work, because vam didn't accept "github:sbdchd/neoformat"
+   as a name. It took some trial and error to find that I instead needed to
+   use "neoformat", which is the name as specified in default.nix.
+
+   Should this page tell users to just check default.nix, or maybe they
+   should search nix packages or use "nix-env -qaP .*neoformat.*" and use
+   whatever is after "nixos.vimPlugins."?
+
+Popularity
+
+   Latest comment: 9 July2 comments2 people in discussion
+
+   True, there is currently no way to say whether neovim is nowayays used
+   more than vim, while maybe a poll in r/vim reveals more usage of neovim,
+   this is not enough to write it here. I added the „category:Text Editor“
+   page to achieve what I originally wanted: Readers should see the
+   possibilities and decide what is right for them. Adoption of new text
+   editors is slow, according to Arch package statistics vim more often
+   installed than vi starting from the year 2023... Klinger (talk) 15:18, 8
+   July 2024 (UTC)Reply
+
+           According to the stackoverflow survey in 2023, vim is still more
+           popular:
+           https://survey.stackoverflow.co/2023/#section-most-popular-technologies-integrated-development-environment
+           I would expect Nix users to be a bit different in adoption because
+           they were also early adopter in other areas like Wayland/Pipewire
+           vs X11/Pulseaudio. Mic92 (talk) 08:18, 9 July 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Vim&oldid=13877"
+     * This page was last edited on 9 July 2024, at 08:18.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

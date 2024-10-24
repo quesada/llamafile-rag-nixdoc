@@ -1,0 +1,380 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Single-user install
+          * 1.1 Stable Nix
+               * 1.1.1 Troubleshooting
+                    * 1.1.1.1 User namespaces
+          * 1.2 Unstable Nix
+     * 2 Nix store on an unusual filesystem
+          * 2.1 Case insensitive filesystem on Linux
+          * 2.2 NFS
+     * 3 Installing without root permissions
+          * 3.1 nix-user-chroot
+          * 3.2 PRoot
+               * 3.2.1 Obtaining PRoot
+               * 3.2.2 Installing nix
+               * 3.2.3 Troubleshooting
+          * 3.3 nix 2.0's native method
+     * 4 Installing on Debian Using APT
+     * 5 Windows Subsystem for Linux (WSL)
+          * 5.1 WSL1 (pre-Windows 10 2004 build 19041)
+     * 6 ARMv7l
+   [ ] Toggle the table of contents
+
+                             Nix Installation Guide
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 21:07, 9 July 2024 by Msgilligan (talk | contribs) (Add
+   missing `[`)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   This guide describes various more advanced methods for installing Nix on
+   an existing operating system. For installation of NixOS, see NixOS
+   Installation Guide.
+
+   Please take a look at https://nixos.org/download.html first for basic
+   installation instructions and read the relevant section in the Nix manual
+   if you want to know more about how the install process works:
+   https://nixos.org/manual/nix/stable/#ch-installing-binary.
+
+Single-user install
+
+  Stable Nix
+
+   To install stable Nix from any Linux distribution, use the following two
+   commands. (Note: This assumes you have the permission to use sudo, and you
+   are logged in as the user you want to install Nix for.)
+
+ $ sudo install -d -m755 -o $(id -u) -g $(id -g) /nix
+ $ curl -L https://nixos.org/nix/install | sh
+
+   Then don't forget to reboot or run the command provided at the end of the
+   installation script to make nix available in your system:
+
+ $ source $HOME/.nix-profile/etc/profile.d/nix.sh
+
+   You may want to put this file directly in your ~/.bashrc or similar, so
+   Nix would be available in any newly created shell.
+
+   When using another shell like Fish, you should ignore the previous
+   procedure and use the Fisher plugin Nix-env.
+
+   After that being done, you can use all Nix commands as a normal user
+   without any special permissions (for example by using sudo).
+
+    Troubleshooting
+
+      User namespaces
+
+   If the installation fails with the following error:
+
+ installing 'nix-2.2.2'
+ error: cloning builder process: Invalid argument
+ error: unable to start build process
+
+   it is possible that user namepaces are disabled by your distribution.
+   Since Nix 2.2, the sandbox is enabled by default on Linux which requires
+   user namespaces. If possible enable them; the procedure depends on the
+   distribution. In last resort, you can disable the sandbox: create the file
+   ~/.config/nix/nix.conf and include the line sandbox = false.
+
+  Unstable Nix
+
+   To install unstable Nix, you can use the unofficial installer by @numtide.
+   Instructions are available in the README of the repository.
+
+Nix store on an unusual filesystem
+
+  Case insensitive filesystem on Linux
+
+   Most Linux filesystems are case sensitive. If your nix store is on a case
+   insensitive filesystem like CIFS on Linux, derivation outputs cannot
+   contain two files differing only in case in the same directory. Nix can
+   work around this by adding use-case-hack = true to your nix configuration
+   (/etc/nix/nix.conf for a multi-user-install or ~/.config/nix/nix.conf
+   otherwise). Unfortunately, this will change the hash of some derivations
+   and thus make the binary cache useless.
+
+  NFS
+
+   With a Nix store residing on an NFS filesystem, concurrent use of Nix may
+   corrupt Nix's sqlite database. To prevent this, set use-sqlite-wal =
+   false. Since nix/pull/5475 nix/pull/5475 and it's backports to the stable
+   branches, a patch that was previously described in this wiki is no longer
+   needed for using Nix on WSL (Windows' Subsystem for Linux) and NFS
+   filesystems.
+
+Installing without root permissions
+
+   By using nix-user-chroot or PRoot, you can use Nix on systems where you
+   have no permission to create the `/nix` directory. nix-user-chroot is the
+   preferred option. However, it might not run on older Linux kernels, or
+   kernels without user namespace support. With the following command, you
+   can test whether your system supports user namespaces for unprivileged
+   users:
+
+ $ unshare --user --pid echo YES
+ YES
+
+   The output should be YES. If the command is absent, an alternative is to
+   check the kernel compile options:
+
+ $ zgrep CONFIG_USER_NS /proc/config.gz
+ CONFIG_USER_NS=y
+
+   On some systems, like Debian or Ubuntu, the kernel configuration is in a
+   different place, so instead use:
+
+ $ grep CONFIG_USER_NS /boot/config-$(uname -r)
+ CONFIG_USER_NS=y
+
+   If the output of this command is CONFIG_USER_NS=y, then your system
+   supports user namespaces.
+
+  nix-user-chroot
+
+   nix-user-chroot is the preferred method to install use nix on systems
+   without /nix. It also requires user namespaces to be enabled on the
+   system. nix-user-chroot will create an environment in which you can bind
+   mount a directory to /nix. The mountpoint will be only visible within this
+   environment.
+
+   There are pre-build static binaries and the readme also contains the
+   instructions to build from source (assuming rustc and cargo to be
+   installed).
+
+   In this example, the Nix store will be installed to ~/.nix.
+
+ $ mkdir -m 0755 ~/.nix
+ $ nix-user-chroot ~/.nix bash -c 'curl -L https://nixos.org/nix/install | sh'
+
+   Note that you can only use Nix and the installed programs within the shell
+   started by nix-user-chroot:
+
+ $ nix-user-chroot ~/.nix bash
+
+  PRoot
+
+    Obtaining PRoot
+
+   Precompiled PRoot binaries for every commit can be downloaded from here
+   under the job artifacts. Make sure you set the executable bit of binaries
+   you download.
+
+   Alternatively, if you have another machine with nix installed, you can
+   build static binaries as follows:
+
+     * create a file proot.nix:
+
+ with import <nixpkgs> {};
+ pkgsStatic.proot.override { enablePython = false; }
+
+     * build it:
+
+ $ nix-build proot.nix
+
+   The executable is to be found in result/bin/proot.
+
+   If nix builds within proot fail with something like "no such file or
+   directory" while the files referenced do exist, you can set
+   PROOT_NO_SECCOMP=1 in your environment or try termux's fork of PRoot.
+
+    Installing nix
+
+     * If you have user namespaces enabled, you should prefer using
+       nix-user-choot to PRoot. So we can safely assume that if you got to
+       this point in the page, you don't have user namespaces. Therefore you
+       must disable the sandbox. Add the line
+
+ sandbox = false
+
+   to ~/.config/nix/nix.conf.
+
+     * Create the folder where the nix store is to be located: in this
+       example ~/.nix:
+
+ $ mkdir ~/.nix
+
+     * Make sure PRoot is in PATH and use is to obtain a shell where /nix
+       exists:
+
+ $ proot -b ~/.nix:/nix
+
+     * In this new shell, Nix can be installed:
+
+ $ curl -L https://nixos.org/nix/install | sh
+
+   Note that you can only use Nix and the installed programs within the shell
+   started by PRoot.
+
+    Troubleshooting
+
+   PRoot uses ptrace to capture and modify system calls. It happens that new
+   system calls are created which proot does not shim yet. If you run into
+   issues, check if:
+
+     * you have the latest proot
+     * the system calls being used are supported by proot (TODO: how to list
+       and diff with sysnums.list?)
+
+   Since ptrace only allows one tracer to attach to a process at a time, you
+   cant strace your process while in proot. One suggestion is to strace your
+   application outside of proot to find what system calls are used.
+   Alternatives may be tracing with bpftrace or trace-cmd/ftrace. (This is
+   not elaborated on here because the author doesn't know how to do it.)
+
+   A table of system calls supported by proot-rs, which is not the same as
+   proot, can be found at
+   https://github.com/proot-me/proot-rs/wiki/Translation-of-system-calls .
+
+   As of PRoot 5.3.1 and 2022-Oct-24, PRoot doesn't support faccess2, which
+   is invoked in glibc by bash through coreutils test. This makes the `[ -w
+   /nix ]` expression fail incorrectly in the nix installer script. This can
+   be worked around with this patch:
+   https://github.com/proot-me/proot/pull/338 or nix-shell -I
+   nixpkgs=channel:nixos-unstable -p '(proot.overrideAttrs (o: { patches = [
+   (builtins.fetchurl
+   "https://patch-diff.githubusercontent.com/raw/proot-me/proot/pull/338.patch"
+   ) ]; }))'
+
+  nix 2.0's native method
+
+   If nix is already installed on the system i.e. a self-compiled nix itself
+   can also create a nix store in an alternative user-writable locations. The
+   following command will create a nix store in ~/my-nix and spawn a shell,
+   where ~/my-nix be mounted to /nix.
+
+ $ nix run --store ~/my-nix nixpkgs.nix nixpkgs.bashInteractive
+
+   You can make all nix commands use the alternate store by specifying it in
+   `~/.config/nix/nix.conf` as store = /home/USERNAME/my-nix.
+
+Installing on Debian Using APT
+
+   If you are using Debian (or a Debian-based distro) you can install Nix
+   with the APT package manager. Some users may prefer using APT when
+   modifying their system. The package named nix-setup-systemd will set up a
+   multi-user Nix installation and run nix-daemon via systemd. To install:
+
+ $ sudo apt install nix-setup-systemd
+
+   After installing, you should read /usr/share/doc/nix-bin/README.Debian. In
+   particular, you will need to add your user to the nix-users group in order
+   to use the daemon:
+
+ $ sudo /sbin/adduser $USER nix-users
+
+   Note that in Debian Bookworm /etc/nix/nix.conf will contain sandbox =
+   false, but in Debian Trixie, sandbox mode is enabled by default. (See the
+   Changelog for details.)
+
+Windows Subsystem for Linux (WSL)
+
+   As of Windows 10, Microsoft supports running Linux and Linux programs on
+   the Windows OS. Installation instructions can be found at
+   https://docs.microsoft.com/en-us/windows/wsl/install-win10. If you follow
+   those instructions for using WSL2 (post-Windows 10 2004 build 19041), you
+   can install Nix normally as described in Single-user install. You can
+   check what version of WSL you are using by running wsl --list --verbose
+   from the Windows command line.
+
+  WSL1 (pre-Windows 10 2004 build 19041)
+
+   Running Nix is much simpler on WSL2, so we recommend that if at all
+   possible. If WSL2 is not available, then Nix can be installed and run from
+   WSL1 with a few workarounds.
+
+   If you perform no workarounds, you will see that busybox doesn't work in
+   Nix due to WSL1 not handling 32-bit binaries. This can be remedied by
+   following the solution laid out in nixpkgs issue#24954:
+
+     * Install and configure QEMU and binfmt-support
+
+ $ sudo apt install qemu-user-static
+ $ sudo update-binfmts --install i386 /usr/bin/qemu-i386-static --magic '\x7fELF\x01\x01\x01\x03\x00\x00\x00\x00\x00\x00\x00\x00\x03\x00\x03\x00\x01\x00\x00\x00' --mask '\xff\xff\xff\xff\xff\xff\xff\xfc\xff\xff\xff\xff\xff\xff\xff\xff\xf8\xff\xff\xff\xff\xff\xff\xff'
+
+     * Start the binfmt-support service every WSL1 login:
+
+ $ sudo service binfmt-support start
+
+     * Continue installing Nix as described in Single-user install
+
+ARMv7l
+
+   Because there is no officially produced ARMv7l installer, this page
+   describes how to build your own: Nix_on_ARM.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_Installation_Guide&oldid=13889"
+   Categories:
+     * Nix
+     * Cookbook
+     * This page was last edited on 9 July 2024, at 21:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

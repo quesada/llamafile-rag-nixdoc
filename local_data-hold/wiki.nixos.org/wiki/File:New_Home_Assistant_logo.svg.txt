@@ -1,0 +1,164 @@
+   Link: canonical
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        File:New Home Assistant logo.svg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View on Wikimedia Commons
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View on Wikimedia Commons
+   General
+     * What links here
+     * Special pages
+     * Printable version
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:New Home Assistant logo.svg
+   Size of this PNG preview of this SVG file: 400 × 400 pixels. Other
+   resolutions: 240 × 240 pixels | 480 × 480 pixels | 768 × 768 pixels |
+   1,024 × 1,024 pixels | 2,048 × 2,048 pixels.
+
+   Original file ‎(SVG file, nominally 400 × 400 pixels, file size: 1 KB)
+
+   This file is from Wikimedia Commons and may be used by other projects. The
+   description on its file description page there is shown below.
+
+Summary
+
+   Description English: new Home Assistant Logo                          
+   Date        1 October 2023                                            
+   Source      https://github.com/home-assistant/assets/tree/master/logo 
+   Author      Home Assistant                                            
+
+Licensing
+
+   w:en:Creative Commons
+   attribution share alike
+   This file is licensed under the Creative Commons Attribution-Share Alike
+   4.0 International license.
+
+           You are free:
+              * to share – to copy, distribute and transmit the work
+              * to remix – to adapt the work
+           Under the following conditions:
+              * attribution – You must give appropriate credit, provide a
+                link to the license, and indicate if changes were made. You
+                may do so in any reasonable manner, but not in any way that
+                suggests the licensor endorses you or your use.
+              * share alike – If you remix, transform, or build upon the
+                material, you must distribute your contributions under the
+                same or compatible license as the original.
+
+  Captions
+
+   English
+   new Home Assistant Logo
+
+  Items portrayed in this file
+
+    depicts
+
+    copyright status
+
+    copyrighted
+
+    copyright license
+
+    Creative Commons Attribution-ShareAlike 4.0 International
+
+    inception
+
+    1 October 2023
+
+    media type
+
+    image/svg+xml
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+        Date/Time Thumbnail Dimensions User                     Comment                                                   
+                  Thumbnail                                                                                               
+                  for                                                                                                     
+        03:11, 13 version   400 × 400                           Uploaded a work by Home Assistant from                    
+current November  as of     (1 KB)     wikimediacommons>Mat4444 https://github.com/home-assistant/assets/tree/master/logo
+        2023      03:11, 13                                     with UploadWizard
+                  November  
+                  2023      
+
+File usage
+
+   The following page uses this file:
+
+     * Home Assistant
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Width  400 
+   Height 400 
+
+   Retrieved from
+   "https://wiki.nixos.org/wiki/File:New_Home_Assistant_logo.svg"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

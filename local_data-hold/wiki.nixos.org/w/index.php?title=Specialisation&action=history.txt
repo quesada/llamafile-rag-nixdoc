@@ -1,0 +1,160 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Specialisation: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    20 October 2024
+
+     * curprev [ ] [ ] 09:4809:48, 20 October 2024‎ Patryk27 talk contribs‎ m
+       3,713 bytes +2‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 09:4309:43, 20 October 2024‎ Patryk27 talk contribs‎
+       3,711 bytes −224‎ →‎Runtime activation Tag: Visual edit: Switched
+
+    9 July 2024
+
+     * curprev [ ] [ ] 14:3114:31, 9 July 2024‎ Sandro talk contribs‎ 3,935
+       bytes −15‎ →‎Special case: the default non-specialized entry
+
+    2 May 2024
+
+     * curprev [ ] [ ] 04:4004:40, 2 May 2024‎ Mic92 talk contribs‎ 3,950
+       bytes +24‎ imported from old wiki
+
+    20 November 2023
+
+     * curprev [ ] [ ] 14:4014:40, 20 November 2023‎ imported>PhilTaken‎
+       3,926 bytes −9‎ fix an incorrect path to the specialisation switch
+
+    16 October 2023
+
+     * curprev [ ] [ ] 15:5515:55, 16 October 2023‎ imported>Skylark‎ m 3,935
+       bytes −3‎ →‎intro: punctuation
+
+    14 October 2023
+
+     * curprev [ ] [ ] 21:0121:01, 14 October 2023‎ imported>Keksgesicht‎ m
+       3,938 bytes +1‎ No edit summary
+
+    21 September 2023
+
+     * curprev [ ] [ ] 03:3403:34, 21 September 2023‎ imported>Benjaminl‎
+       3,937 bytes +171‎ Mention the --specialisation flag for nixos-rebuild
+
+    2 November 2022
+
+     * curprev [ ] [ ] 22:1322:13, 2 November 2022‎ imported>Anoadragon453‎ m
+       3,766 bytes −1‎ fix typo in Previously
+
+    19 August 2022
+
+     * curprev [ ] [ ] 19:3619:36, 19 August 2022‎ imported>Rapenne-s‎ 3,767
+       bytes +825‎ add the non-specialized case
+
+    18 August 2022
+
+     * curprev [ ] [ ] 21:2621:26, 18 August 2022‎ imported>Pogobanane‎ 2,942
+       bytes +2,942‎ init
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Specialisation"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

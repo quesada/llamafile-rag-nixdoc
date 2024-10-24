@@ -1,0 +1,160 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Talk:NixOS Wiki: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    4 April 2024
+
+     * curprev [ ] [ ] 22:5122:51, 4 April 2024‎ Samueldr talk contribs‎ m
+       empty −2,550‎ Blanked the page Tag: Blanking
+
+    3 April 2024
+
+     * curprev [ ] [ ] 06:0606:06, 3 April 2024‎ Mic92 talk contribs‎ m 2,550
+       bytes 0‎ Mic92 moved page Talk:NixOS wiki to Talk:NixOS Wiki over
+       redirect
+     * curprev [ ] [ ] 06:0306:03, 3 April 2024‎ Mic92 talk contribs‎ m 2,550
+       bytes 0‎ Mic92 moved page Talk:NixOS Wiki to Talk:NixOS wiki over
+       redirect
+     * curprev [ ] [ ] 06:0206:02, 3 April 2024‎ Mic92 talk contribs‎ m 2,550
+       bytes 0‎ Mic92 moved page Talk:NixOS wiki to Talk:NixOS Wiki:
+       Cosmetics
+     * curprev [ ] [ ] 06:0206:02, 3 April 2024‎ Mic92 talk contribs‎ m 2,550
+       bytes 0‎ Mic92 moved page Talk:Main Page to Talk:NixOS wiki: Cosmetics
+
+    16 May 2021
+
+     * curprev [ ] [ ] 13:1613:16, 16 May 2021‎ imported>Narice‎ 2,550 bytes
+       +162‎ →‎Commented out NixOS Installation Guide in how to install NixOS
+       section: new section
+
+    19 October 2017
+
+     * curprev [ ] [ ] 13:1513:15, 19 October 2017‎ imported>Vater‎ 2,388
+       bytes +984‎ →‎suggestion for the (main page) text: new section
+     * curprev [ ] [ ] 12:2512:25, 19 October 2017‎ imported>Vater‎ m 1,404
+       bytes +13‎ [[{{ns:4}}:Contributing#Syntax]]
+
+    24 August 2017
+
+     * curprev [ ] [ ] 12:0412:04, 24 August 2017‎ imported>Fadenb‎ 1,391
+       bytes +253‎ →‎Favicon
+
+    23 August 2017
+
+     * curprev [ ] [ ] 17:5317:53, 23 August 2017‎ imported>Ixxie‎ 1,138
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 17:5317:53, 23 August 2017‎ imported>Ixxie‎ m 1,139
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 17:5117:51, 23 August 2017‎ imported>Ixxie‎ m 1,140
+       bytes −3‎ Fixed list.
+     * curprev [ ] [ ] 17:5017:50, 23 August 2017‎ imported>Ixxie‎ 1,143
+       bytes +2‎ Fixed internal links.
+     * curprev [ ] [ ] 17:4917:49, 23 August 2017‎ imported>Ixxie‎ m 1,141
+       bytes 0‎ Fixed external links.
+     * curprev [ ] [ ] 17:4817:48, 23 August 2017‎ imported>Ixxie‎ 1,141
+       bytes +1,141‎ Added User Interface section.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Talk:NixOS_Wiki"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

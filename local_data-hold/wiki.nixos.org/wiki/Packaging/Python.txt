@@ -1,0 +1,370 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Prepare Packaging
+     * 2 Pip and Virtualenv enabled nix-shell
+     * 3 Caveats
+          * 3.1 ModuleNotFoundError: No module named 'pkg_resources'
+          * 3.2 HTTP 404 with fetchPypi
+               * 3.2.1 build from source
+               * 3.2.2 install binary release
+     * 4 Fix Missing setup.py
+          * 4.1 requirements.txt
+     * 5 Automatic packaging
+     * 6 Testing via this command is deprecated
+     * 7 See also
+     * 8 References
+   [ ] Toggle the table of contents
+
+                                Packaging/Python
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   See Language-specific package helpers for a list of tools to package
+   python packages.
+
+Prepare Packaging
+
+   When you want to package a new software from a local checkout with the
+   inputs coming from nixpkgs (and not virtualenv+pip) you can use the
+   following shell.nix ^[1]:
+
+ with import <nixpkgs> {};
+ with pkgs.python3Packages;
+
+ buildPythonPackage rec {
+   name = "mypackage";
+   src = ./path/to/source;
+   propagatedBuildInputs = [ pytest numpy pkgs.libsndfile ];
+ }
+
+   You can now run nix-shell and it will drop you in a shell similar to the
+   python setup.py develop mode which uses the local code in ./path/to/source
+   as input. propagatedBuildInputs will contain the packages you need in your
+   project. After you've finished developing you can replace the relative
+   path with fetchFromGitHub { ... } or fetchPypi { ... }.
+
+Pip and Virtualenv enabled nix-shell
+
+   It might be the case that you simply need to prototype fast small projects
+   with pip and virtualenv without the need for relying on the dependencies
+   being already packaged in nixpkgs. {{Notice|Keep in mind that the
+   virtualenv symlinks will be invalidated if you update your system!||
+
+   For a local working python environment you can use the following
+   shell.nix^[2].
+
+ { pkgs ? import <nixpkgs> { } }:
+
+ let
+   pythonEnv = pkgs.python3.withPackages(ps: [ ]);
+
+ in
+ pkgs.mkShell {
+   packages = [
+     pythonEnv
+   ];
+ }
+
+   When invoked with nix-shell, this environment gives you a readline-enabled
+   Python, plus virtualenv and pip, from which you can create a virtual
+   environment and then proceed to fill it with pip-installed packages from
+   requirements.txt or any other source of packages.
+
+   And the only other thing you need to do is figure out which non-Python
+   packages your pip-installable packages will need, and include them in
+   buildInputs.
+
+Caveats
+
+  ModuleNotFoundError: No module named 'pkg_resources'
+
+   If you see this runtime error
+
+ ModuleNotFoundError: No module named 'pkg_resources'
+
+   add setuptools to your derivation
+
+ buildPythonPackage {
+   # ...
+   propagatedBuildInputs = [
+     # ...
+     setuptools
+   ];
+ }
+
+   Please report such issues at https://github.com/NixOS/nixpkgs/issues
+
+  HTTP 404 with fetchPypi
+
+   example error:
+
+     curl: (22) The requested URL returned error: 404
+     error: cannot download stt-1.2.0.tar.gz from any mirror
+
+   when we look at https://pypi.org/project/stt/#files we see only *.whl
+   files:
+
+     * stt-1.2.0-cp310-cp310-win_amd64.whl
+     * stt-1.2.0-cp310-cp310-manylinux_2_24_x86_64.whl
+     * stt-1.2.0-cp310-cp310-macosx_10_10_universal2.whl
+     * ...
+
+   this means, this is a binary release, so we have two options:
+
+    1. build from source
+    2. install binary release
+
+    build from source
+
+   replace this
+
+     buildPythonPackage {
+       pname = "TODO";
+       version = "TODO";
+       src = fetchPypi {
+         inherit pname version;
+         sha256 = ""; # TODO
+       };
+
+   with this
+
+     buildPythonPackage {
+       pname = "TODO";
+       version = "TODO";
+       src = fetchFromGitHub {
+         owner = "TODO";
+         repo = "TODO";
+         rev = "v${version}";
+         sha256 = ""; # TODO
+       };
+
+    install binary release
+
+   replace this
+
+     buildPythonPackage {
+       pname = "TODO";
+       version = "TODO";
+       src = fetchPypi {
+         inherit pname version;
+         sha256 = ""; # TODO
+       };
+
+   with this
+
+     buildPythonPackage {
+       pname = "TODO";
+       version = "TODO";
+       format = "wheel";
+       src = fetchPypi rec {
+         inherit pname version format;
+         sha256 = ""; # TODO
+         dist = python;
+         python = "py3";
+         #abi = "none";
+         #platform = "any";
+       };
+
+   ... or use fetchurl to download the *.whl file directly.
+
+   reference: fetchPypi implementation
+
+Fix Missing setup.py
+
+   The setup.py file is required for buildPythonPackage, but it's missing in
+   some packages. If you get the following error, you need to one of the
+   workarounds below.
+
+ FileNotFoundError: [Errno 2] No such file or directory: 'setup.py'
+
+   If the package has a pyproject.toml file, set
+
+ buildPythonPackage {
+   format = "pyproject";
+ }
+
+   If both setup.py and pyproject.toml are missing, you have to add one of
+   these files.
+
+   Note: sometimes you will be able to find pyproject.toml in the source for
+   a package despite it not being present in a .whl file. You can inspect the
+   contents of a .whl file by downloading it from PyPi and then extracting it
+   with nix-shell -p python311Packages.wheel --command wheel unpack
+   path/to/package.whl.
+
+   For example, you can create the setup.py in the preBuild phase.
+
+ buildPythonPackage {
+   preBuild = ''
+     cat > setup.py << EOF
+ from setuptools import setup
+
+ with open('requirements.txt') as f:
+     install_requires = f.read().splitlines()
+
+ setup(
+   name='someprogram',
+   #packages=['someprogram'],
+   version='0.1.0',
+   #author='...',
+   #description='...',
+   install_requires=install_requires,
+   scripts=[
+     'someprogram.py',
+   ],
+   entry_points={
+     # example: file some_module.py -> function main
+     #'console_scripts': ['someprogram=some_module:main']
+   },
+ )
+     EOF
+   '';
+ }
+
+   More info about the setup.py can be found here. (note: from python 3.12
+   onwards, distutils is deprecated see
+   https://docs.python.org/3.11/distutils/index.html)
+
+   scripts is useful for self-contained python scripts with no local imports.
+
+   If a python script has local imports, for example from .some_module import
+   some_function, either include all files in the scripts array, or add only
+   the entry function to entry_points.
+
+   In this example, someprogram.py would be installed as
+   $out/bin/someprogram.py.
+   To rename the binary, for example to remove the .py file extension, you
+   can use postInstall
+
+ buildPythonPackage {
+   # ...
+   postInstall = ''
+     mv -v $out/bin/someprogram.py $out/bin/someprogram
+   '';
+ }
+
+  requirements.txt
+
+   requirements.txt in it's simplest form is a list of python packages
+
+ numpy
+ Requests
+ Pillow
+
+   buildPythonPackage will check these dependencies, but you still must
+   declare the nix dependencies in buildInputs, propagatedBuildInputs,
+   checkInputs, ...
+
+Automatic packaging
+
+   TODO https://github.com/nix-community/poetry2nix - 400 stars
+
+   TODO https://github.com/nix-community/pip2nix - 100 stars
+
+   TODO https://github.com/nix-community/pypi2nix - 200 stars - archived
+
+Testing via this command is deprecated
+
+   In most cases, tests will pass anyway and you can ignore the warning.
+
+   In some cases, tests will fail, for example:
+
+     running test
+     WARNING: Testing via this command is deprecated and will be removed in a
+     future version. Users looking for a generic test entry point independent
+     of test runner are encouraged to use tox.
+     [ ... ]
+     TypeError: some_function() missing 1 required positional argument:
+     'some_argument'
+
+   quick fix: run tests with python's unittest module
+
+   checkPhase = ''
+     runHook preCheck
+     ${python3.interpreter} -m unittest
+     runHook postCheck
+   '';
+
+See also
+
+     * buildPythonPackage implementation
+     * Python in the nixpkgs manual
+     * Python on Nix is an "Extensive collection of Python projects from
+       PyPI"
+     * Rust section of Nixpkgs manual - build Rust code in Python projects
+
+References
+
+    1. ↑ nixpkgs manual
+    2. ↑ https://groups.google.com/forum/#!topic/nix-devel/3qPfwCAV3GE
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Packaging/Python&oldid=17485"
+     * This page was last edited on 15 September 2024, at 09:15.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

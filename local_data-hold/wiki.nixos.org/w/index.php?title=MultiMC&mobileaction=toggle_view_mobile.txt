@@ -1,0 +1,120 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NOTE
+          * 1.1 Using a Microsoft account
+   [ ] Toggle the table of contents
+
+                                    MultiMC
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+NOTE
+
+   Nixpkgs currently packages PrismLauncher, a fork of MultiMC, which
+   currently does not require you, but does allow you, to obtain your own
+   client ID. This information is provided mainly for historical interest.
+
+  Using a Microsoft account
+
+   Microsoft authentication requires a client ID, which the package in
+   Nixpkgs does not currently contain.
+
+   The MultiMC source contains instructions to create one:
+
+    1. Register an app, following the instructions at
+       https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
+       (make sure that you've set up a tenant as mentioned in the
+       prerequisites)
+    2. Restrict it to personal accounts
+    3. Do *not* add a redirect URI, platform, credentials, certificates, or
+       client secrets
+    4. Enable public client flows
+    5. Enable Live SDK support (under authentication)
+
+   You can then override the MultiMC package to include your client ID:
+
+ (multimc.override { msaClientID = "00000000-0000-0000-0000-000000000000"; })
+
+   If you use home-manager, you can use the following snippet in your
+   home-manager config:
+
+   nixpkgs.overlays = [ (self: super: {
+     multimc = super.multimc.override {
+       msaClientID = "<your application id>";
+    };
+  }
+  ) ];
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=MultiMC&oldid=9202"
+   Category:
+     * Applications
+     * This page was last edited on 19 October 2022, at 23:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

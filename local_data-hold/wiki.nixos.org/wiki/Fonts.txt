@@ -1,0 +1,405 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installing fonts on NixOS
+          * 1.1 Shorthands for fonts
+          * 1.2 Installing specific fonts from nerdfonts
+          * 1.3 Imperative installation of user fonts
+     * 2 Configuring fonts
+          * 2.1 Set multiple fonts for different languages
+          * 2.2 Use custom font substitutions
+     * 3 Troubleshooting
+          * 3.1 What font names can be used in
+            fonts.fontconfig.defaultFonts.monospace?
+          * 3.2 Adding personal fonts to ~/.fonts doesn't work
+          * 3.3 Flatpak applications can't find system fonts
+               * 3.3.1 Best Solution: Just copy necessary fonts to
+                 $HOME/.local/share/fonts
+               * 3.3.2 Another Method: Create symlink to system fonts at
+                 $HOME/.local/share/fonts
+                    * 3.3.2.1 Option 1: allow the Flatpaks to access the font
+                      folder and /nix/store
+                    * 3.3.2.2 Option 2: allow the Flatpaks to access the
+                      WHOLE filesystem
+          * 3.4 Using bindfs for font support
+   [ ] Toggle the table of contents
+
+                                     Fonts
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   NixOS handles fonts like it handles many different parts of the system:
+   they are not in an environment unless explicitly marked to be part of it.
+   This guide covers the installation, configuration and troubleshooting of
+   fonts.
+
+Installing fonts on NixOS
+
+   NixOS has many font packages available, and you can easily search for your
+   favourites on the NixOS packages site.
+
+   Despite looking like normal packages, simply adding these font packages to
+   your environment.systemPackages won't make the fonts accessible to
+   applications. To achieve that, put these packages in the fonts.packages
+   NixOS options list instead.
+
+   Note: for 23.05 or older, fonts.packages is called fonts.fonts instead.
+
+   For example:
+
+ fonts.packages = with pkgs; [
+   noto-fonts
+   noto-fonts-cjk
+   noto-fonts-emoji
+   liberation_ttf
+   fira-code
+   fira-code-symbols
+   mplus-outline-fonts.githubRelease
+   dina-font
+   proggyfonts
+ ];
+
+   Be aware that sometimes font names and packages name differ and there is
+   no universal convention in NixOS. See Guidelines for font packaging
+
+  Shorthands for fonts
+
+     * fonts.enableDefaultPackages: when set to true, causes some "basic"
+       fonts to be installed for reasonable Unicode coverage. Set to true if
+       you are unsure about what languages you might end up reading.
+     * fonts.enableGhostscriptFonts: affects the ghostscript package.
+       Ghostscript packages some URW fonts for the standard PostScript
+       typefaces. If true, these fonts will be visible to GUI applications.
+       You could set it to true if you want these fonts, but gyre-fonts (part
+       of fonts.enableDefaultPackages) might be higher-quality depending on
+       your judgement.
+
+  Installing specific fonts from nerdfonts
+
+   The nerdfonts package, which contains all fonts from the nerdfonts
+   repository is quite large and contains a large number of fonts which take
+   some time to install. If you only need a selection of fonts from the
+   package, you can overwrite the font selection on Stable 20.09 like so:
+
+ fonts.packages = with pkgs; [
+   (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+ ];
+
+   This will cause NixOS to download only the Fira Code and Droid Sans Mono
+   fonts from nerd-fonts instead of the whole package. The relevant names can
+   be found by looking at the file name for your relevant font on the
+   official release page assets.
+
+  Imperative installation of user fonts
+
+   This is useful for quick font experiments.
+
+   Example: Install SourceCodePro-Regular.
+
+ font=$(nix-build --no-out-link '<nixpkgs>' -A source-code-pro)/share/fonts/opentype/SourceCodePro-Regular.otf
+ cp $font ~/.local/share/fonts
+ fc-cache
+ # Verify that the font has been installed
+ fc-list -v | grep -i source
+
+Configuring fonts
+
+   The nixos key fonts.fontconfig (click to see the full list!) handles the
+   fontconfig options. Some options are nicely wrapped in nix; there's always
+   localConf to go straight to the XML.
+
+  Set multiple fonts for different languages
+
+   If you want to use other languages alongside English, you may want to set
+   appropriate fonts for each language in your whole OS. For example, a
+   Persian speaker might want to use the Vazirmatn font for Persian texts,
+   but Ubuntu and Liberation Serif fonts for English texts. Just put these
+   lines into your configuration.nix:
+
+ #----=[ Fonts ]=----#
+ fonts = {
+   enableDefaultPackages = true;
+   packages = with pkgs; [
+     ubuntu_font_family
+     liberation_ttf
+     # Persian Font
+     vazir-fonts
+   ];
+
+   fontconfig = {
+     defaultFonts = {
+       serif = [  "Liberation Serif" "Vazirmatn" ];
+       sansSerif = [ "Ubuntu" "Vazirmatn" ];
+       monospace = [ "Ubuntu Mono" ];
+     };
+   };
+ };
+
+   NB:
+
+     * This actually just sets the font fallback order so that fontconfig
+       tries using the English font first, then falls back to another font if
+       the character set is not covered. You usually want to write the
+       English font before the other-language font, because the
+       other-language font might cover Latin characters too, preventing the
+       English font from showing up.
+     * defaultFonts translates to <prefer> in the actual fontconfig file. See
+       https://github.com/NixOS/nixpkgs/blob/nixos-23.11/nixos/modules/config/fonts/fontconfig.nix
+       for how NixOS does it, and the links below for how fontconfig
+       interpret it.
+     * Vazirmatn is actually a "sans-serif" font; using it for serif is not a
+       good visual match. You might need not one, but two (or if you count
+       monospace, three!) font packages for a language.
+
+  Use custom font substitutions
+
+   Sometimes, documents may appear to have bad kerning or hard-to-read letter
+   spacing, due to a bad substitution. For example, Okular may show in the
+   Document Properties dialog that it has substituted DejaVu Sans Mono (a
+   sans-serif font) in place of "NewCenturySchlbk". fc-match NewCenturySchlbk
+   would display similiar info.
+
+   Adding this to your /etc/nixos/configuration.nix should prompt it to use
+   the more similar (and nicer) serif Schola font instead:
+
+ fonts = {
+   packages = with pkgs; [ gyre-fonts ];
+   fontconfig = {
+     localConf = ''
+       <!-- use a less horrible font substition for pdfs such as https://www.bkent.net/Doc/mdarchiv.pdf -->
+       <match target="pattern">
+         <test qual="any" name="family"><string>NewCenturySchlbk</string></test>
+         <edit name="family" mode="assign" binding="same"><string>TeX Gyre Schola</string></edit>
+       </match>
+     '';
+   };
+ };
+
+   For more information and examples on the xml configuration language:
+
+     * https://www.mankier.com/5/fonts-conf
+     * https://wiki.archlinux.org/index.php/Font_configuration
+     * https://wiki.archlinux.org/index.php/Font_configuration/Examples
+
+   For a list of suitable replacement fonts:
+
+     * https://wiki.archlinux.org/title/Metric-compatible_fonts
+
+Troubleshooting
+
+  What font names can be used in fonts.fontconfig.defaultFonts.monospace?
+
+   Those that fontconfig will understand. This can be queried from a font
+   file using fc-query.
+
+ $ cd /nix/var/nix/profiles/system/sw/share/X11/fonts
+ $ fc-query DejaVuSans.ttf | grep '^\s\+family:' | cut -d'"' -f2
+
+   Note that you may need to set fonts.fontDir.enable = true; for that
+   X11/fonts directory to exist.
+
+  Adding personal fonts to ~/.fonts doesn't work
+
+   The ~/.fonts directory is being deprecated upstream^[1]. It already
+   doesn't work in NixOS.
+
+   The new preferred location is in $XDG_DATA_HOME/fonts, which for most
+   users will resolve to ~/.local/share/fonts^[2]
+
+  Flatpak applications can't find system fonts
+
+   First, enable fontDir in your NixOS configuration:
+
+ fonts.fontDir.enable = true;
+
+    Best Solution: Just copy necessary fonts to $HOME/.local/share/fonts
+
+   Create fonts directory $HOME/.local/share/fonts and copy system fonts with
+   option -L, --dereference .
+
+ mkdir $HOME/.local/share/fonts && cp -L /run/current-system/sw/share/X11/fonts/* $HOME/.local/share/fonts/
+
+   Note: There is no need to grant flatpak applications access to
+   $HOME/.local/share/fonts. Instead, if you do that, some applications (for
+   example, steam) won't work.
+
+     Internals: How it works?
+
+     Flatpak applications run in sandboxes. When you start a flatpak
+     application, flatpak builds a rootfs for it with bubblewrap.
+
+     With findmnt --task {PID of flatpak app} , you can explore the details
+     of its rootfs.
+
+     By default, flatpak mounts $HOME/.local/share/fonts to
+     /run/host/user-fonts in rootfs of an flatpak application.
+
+ {
+   "target": "/run/host/user-fonts",
+   "source": "/dev/disk/by-uuid/b2e1e6b5-738b-410b-b736-6d5c3dbbe31f[/home/username/.local/share/fonts]",
+   "fstype": "ext4",
+   "options": "ro,nosuid,nodev,relatime"
+ }
+
+     Then flatpak application can read fonts from that to display contents
+     correctly.
+
+    Another Method: Create symlink to system fonts at $HOME/.local/share/fonts
+
+     Note: this method doesn't work for some flatpak applications (for
+     example, steam)! Error:
+
+ $ flatpak run com.valvesoftware.Steam
+ bwrap: Can't make symlink at /home/username/.local/share/fonts: File exists
+
+   Create a symlink in XDG_DATA_HOME/fonts pointing to
+   /run/current-system/sw/share/X11/fonts, e. g.
+
+ mkdir $HOME/.local/share/fonts && ln -s /run/current-system/sw/share/X11/fonts ~/.local/share/fonts/
+
+   Now you have two options.
+
+      Option 1: allow the Flatpaks to access the font folder and /nix/store
+
+   By using the Flatpak CLI or the Flatseal Flatpak make the following
+   directory available to all Flatpaks $HOME/.local/share/fonts and
+   $HOME/.icons the appropriate commands for this are:
+
+ flatpak --user override --filesystem=$HOME/.local/share/fonts:ro
+ flatpak --user override --filesystem=$HOME/.icons:ro
+
+   And, because ~/.local/share/fonts is linked to
+   /run/current-system/sw/share/X11/fonts, which in turn is linked to content
+   in /nix/store. You need to grant flatpak applications access to the
+   /nix/store directory, so that they can load fonts correctly. You may need
+   to reboot for this to fully take effect.
+
+ flatpak --user override --filesystem=/nix/store:ro
+ flatpak --user override --filesystem=/run/current-system/sw/share/X11/fonts:ro
+
+      Option 2: allow the Flatpaks to access the WHOLE filesystem
+
+   Allow them access the WHOLE filesystem of yours: All system files in
+   Flatseal or equivalently filesystem=host available to your application,
+   the command for this is:
+
+ flatpak --user override --filesystem=host
+
+   It is important to keep in mind that some flatpak apps may refuse to
+   launch if given certain permissions, such as the Steam flatpak.
+
+  Using bindfs for font support
+
+   system.fsPackages = [ pkgs.bindfs ];
+   fileSystems = let
+     mkRoSymBind = path: {
+       device = path;
+       fsType = "fuse.bindfs";
+       options = [ "ro" "resolve-symlinks" "x-gvfs-hide" ];
+     };
+     aggregatedIcons = pkgs.buildEnv {
+       name = "system-icons";
+       paths = with pkgs; [
+         #libsForQt5.breeze-qt5  # for plasma
+         gnome.gnome-themes-extra
+       ];
+       pathsToLink = [ "/share/icons" ];
+     };
+     aggregatedFonts = pkgs.buildEnv {
+       name = "system-fonts";
+       paths = config.fonts.packages;
+       pathsToLink = [ "/share/fonts" ];
+     };
+   in {
+     "/usr/share/icons" = mkRoSymBind "${aggregatedIcons}/share/icons";
+     "/usr/local/share/fonts" = mkRoSymBind "${aggregatedFonts}/share/fonts";
+   };
+
+   fonts = {
+     fontDir.enable = true;
+     packages = with pkgs; [
+       noto-fonts
+       noto-fonts-emoji
+       noto-fonts-cjk
+     ];
+   };
+
+     ----------------------------------------------------------------------
+
+    1. ↑
+       https://lists.freedesktop.org/archives/fontconfig/2014-July/005269.html
+    2. ↑
+       https://lists.freedesktop.org/archives/fontconfig/2014-July/005270.html
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Fonts&oldid=16575"
+   Categories:
+     * Configuration
+     * Desktop
+     * This page was last edited on 10 August 2024, at 06:27.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

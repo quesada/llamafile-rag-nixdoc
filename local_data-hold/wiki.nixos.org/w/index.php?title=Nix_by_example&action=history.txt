@@ -1,0 +1,152 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Nix by example: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    12 June 2024
+
+     * curprev [ ] [ ] 01:1001:10, 12 June 2024‎ AndersonTorres talk
+       contribs‎ m 38,777 bytes +44‎ Change the link to the most recent blog
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:4620:46, 24 April 2024‎ Klinger talk contribs‎ m
+       38,733 bytes +18‎ No edit summary
+
+    10 March 2024
+
+     * curprev [ ] [ ] 06:5806:58, 10 March 2024‎ imported>K3yss‎ 38,715
+       bytes +218‎ No edit summary
+     * curprev [ ] [ ] 06:5106:51, 10 March 2024‎ imported>K3yss‎ 38,497
+       bytes +47‎ Add missing AST image
+
+    9 August 2022
+
+     * curprev [ ] [ ] 21:4221:42, 9 August 2022‎ imported>Fricklerhandwerk‎
+       38,450 bytes +15‎ add original publication date
+     * curprev [ ] [ ] 21:4221:42, 9 August 2022‎ imported>Fricklerhandwerk‎
+       38,435 bytes +23‎ put attribution up front for clarification
+     * curprev [ ] [ ] 21:3921:39, 9 August 2022‎ imported>Fricklerhandwerk‎
+       38,412 bytes −43‎ remove "part 1" as there is no "part 2"
+
+    4 October 2020
+
+     * curprev [ ] [ ] 09:3909:39, 4 October 2020‎ imported>Mic92‎ 38,455
+       bytes −37‎ →‎REPL
+
+    3 October 2020
+
+     * curprev [ ] [ ] 04:4504:45, 3 October 2020‎ imported>AndersonTorres‎
+       38,492 bytes −1‎ No edit summary
+     * curprev [ ] [ ] 04:4504:45, 3 October 2020‎ imported>AndersonTorres‎
+       38,493 bytes +6‎ No edit summary
+     * curprev [ ] [ ] 04:4404:44, 3 October 2020‎ imported>AndersonTorres‎
+       38,487 bytes +2‎ No edit summary
+     * curprev [ ] [ ] 04:4404:44, 3 October 2020‎ imported>AndersonTorres‎
+       38,485 bytes +28,382‎ No edit summary
+     * curprev [ ] [ ] 02:5102:51, 3 October 2020‎ imported>AndersonTorres‎
+       10,103 bytes +10,103‎ Work In Progress
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nix_by_example"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,141 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Godot: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    26 September 2024
+
+     * curprev [ ] [ ] 20:2520:25, 26 September 2024‎ Klinger talk contribs‎
+       m 364 bytes +54‎ Link to website. Category Applications (its an GUI
+       editor to create games) Tag: Visual edit: Switched
+
+    25 September 2024
+
+     * curprev [ ] [ ] 13:4513:45, 25 September 2024‎ Davidak talk contribs‎
+       m 310 bytes +10‎ improve style Tag: Visual edit: Switched
+
+    19 June 2024
+
+     * curprev [ ] [ ] 05:3305:33, 19 June 2024‎ Mic92 talk contribs‎ 300
+       bytes +103‎ adapted from old wiki
+
+    25 March 2024
+
+     * curprev [ ] [ ] 16:5016:50, 25 March 2024‎ imported>SIGSTKFLT‎ 197
+       bytes +2‎ →‎Installation
+     * curprev [ ] [ ] 16:4616:46, 25 March 2024‎ imported>SIGSTKFLT‎ 195
+       bytes +93‎ add installation instructions
+
+    29 September 2023
+
+     * curprev [ ] [ ] 09:2309:23, 29 September 2023‎ imported>IgorM‎ 102
+       bytes +14‎ Added "stub" template
+
+    27 September 2023
+
+     * curprev [ ] [ ] 22:2522:25, 27 September 2023‎ imported>Superherointj‎
+       88 bytes +88‎ steam-run tip
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Godot"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

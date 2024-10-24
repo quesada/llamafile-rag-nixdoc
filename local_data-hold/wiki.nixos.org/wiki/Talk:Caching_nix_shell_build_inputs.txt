@@ -1,0 +1,93 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 How to use in GitLab CI?
+       1 comment
+   [ ] Toggle the table of contents
+
+                      Talk:Caching nix shell build inputs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 24 August 2021 by L0b0 in topic How to use in GitLab CI?
+
+How to use in GitLab CI?
+
+   Latest comment: 24 August 20211 comment1 person in discussion
+
+   Any idea how I'd use this with the standard `cache` construct in GitLab
+   CI?
+
+   (Cross-posted on GitLab CI forum.)
+
+   L0b0 (talk) 03:42, 24 August 2021 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Caching_nix_shell_build_inputs&oldid=9162"
+     * This page was last edited on 24 August 2021, at 03:42.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

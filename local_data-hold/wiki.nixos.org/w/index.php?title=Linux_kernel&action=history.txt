@@ -1,0 +1,324 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Linux kernel: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    12 October 2024
+
+     * curprev [ ] [ ] 11:0311:03, 12 October 2024‎ Mic92 talk contribs‎
+       23,092 bytes +152‎ imported from old wiki
+     * curprev [ ] [ ] 11:0011:00, 12 October 2024‎ Mic92 talk contribs‎
+       22,940 bytes +2‎ code is better then pre tag for inline options
+     * curprev [ ] [ ] 11:0011:00, 12 October 2024‎ Mic92 talk contribs‎
+       22,938 bytes +9‎ Remove markdown-ishm
+
+    25 September 2024
+
+     * curprev [ ] [ ] 16:5116:51, 25 September 2024‎ Racketeer talk
+       contribs‎ m 22,929 bytes −26‎ Update Nix code for out-of-tree kernel
+       modules according to changes made during a PR review by Aleksanaa in
+       https://github.com/NixOS/nixpkgs/pull/334445 Tag: Visual edit
+
+    24 September 2024
+
+     * curprev [ ] [ ] 04:2204:22, 24 September 2024‎ Jhollowe talk contribs‎
+       m 22,955 bytes +1‎ No edit summary Tag: Visual edit
+
+    22 September 2024
+
+     * curprev [ ] [ ] 12:4612:46, 22 September 2024‎ JakeHillion talk
+       contribs‎ m 22,954 bytes −2‎ update indentation in "Pinning a kernel
+       version" Tag: Visual edit
+     * curprev [ ] [ ] 05:4605:46, 22 September 2024‎ Mic92 talk contribs‎
+       22,956 bytes +12‎ imported from old wiki
+     * curprev [ ] [ ] 05:4605:46, 22 September 2024‎ Mic92 talk contribs‎
+       22,944 bytes −12‎ imported from old wiki
+
+    15 September 2024
+
+     * curprev [ ] [ ] 14:1614:16, 15 September 2024‎ Nyx talk contribs‎ m
+       22,956 bytes +3‎ `fix`: Fixed typo of missing closing parenthesis Tag:
+       Visual edit
+
+    4 September 2024
+
+     * curprev [ ] [ ] 18:3418:34, 4 September 2024‎ CORAAL talk contribs‎ m
+       22,953 bytes +3‎ →‎Cross-compiling Linux from source: A parenthesis
+       was missing. Tag: Visual edit
+
+    14 May 2024
+
+     * curprev [ ] [ ] 22:4022:40, 14 May 2024‎ Samueldr talk contribs‎ m
+       22,950 bytes 0‎ Fix usage of template
+     * curprev [ ] [ ] 22:3922:39, 14 May 2024‎ Samueldr talk contribs‎ m
+       22,950 bytes +9‎ Fix (assumed) wrong use of a template. Tag: Visual
+       edit
+
+    4 May 2024
+
+     * curprev [ ] [ ] 12:1512:15, 4 May 2024‎ Cdro talk contribs‎ m 22,941
+       bytes −17‎ →‎Embedded Linux Cross-compile: Remove <nowiki>, as it
+       breaks '<' and '>' characters Tag: Visual edit
+
+    22 April 2024
+
+     * curprev [ ] [ ] 11:3111:31, 22 April 2024‎ Rrdpad talk contribs‎
+       22,958 bytes +685‎ update list available kernels Tag: Visual edit
+
+    13 April 2024
+
+     * curprev [ ] [ ] 17:1917:19, 13 April 2024‎ Sdht0 talk contribs‎ m
+       22,273 bytes 0‎ →‎Enable SysRq: Fix key
+     * curprev [ ] [ ] 17:1917:19, 13 April 2024‎ Sdht0 talk contribs‎ 22,273
+       bytes +73‎ →‎Enable SysRq: reboot key
+     * curprev [ ] [ ] 17:1717:17, 13 April 2024‎ Sdht0 talk contribs‎ 22,200
+       bytes +1,065‎ →‎Configuration: Add info about SysRq
+
+    8 April 2024
+
+     * curprev [ ] [ ] 13:0913:09, 8 April 2024‎ Sdht0 talk contribs‎ 21,135
+       bytes −182‎ →‎Embedded Linux Cross-compile xconfig and menuconfig:
+       Copy edit
+     * curprev [ ] [ ] 12:5412:54, 8 April 2024‎ Sdht0 talk contribs‎ 21,317
+       bytes −284‎ Copy edit
+
+    5 April 2024
+
+     * curprev [ ] [ ] 23:0323:03, 5 April 2024‎ Alyxbb talk contribs‎ 21,601
+       bytes −21‎ fix: example Tag: Visual edit: Switched
+
+    3 April 2024
+
+     * curprev [ ] [ ] 08:1808:18, 3 April 2024‎ Yinfeng talk contribs‎ m
+       21,622 bytes −2‎ Remove empty lines Tag: Visual edit
+     * curprev [ ] [ ] 08:1508:15, 3 April 2024‎ Yinfeng talk contribs‎ m
+       21,624 bytes −14‎ Fix typos in example code Tag: Visual edit
+
+    2 April 2024
+
+     * curprev [ ] [ ] 03:0603:06, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       21,638 bytes +21‎ added linuxKernel.packages to configuration Tag:
+       Visual edit
+
+    1 April 2024
+
+     * curprev [ ] [ ] 19:3219:32, 1 April 2024‎ Sdht0 talk contribs‎ 21,617
+       bytes −171‎ →‎Custom kernel modules: Use better example that doesn't
+       need an extra explanation
+
+    27 February 2024
+
+     * curprev [ ] [ ] 23:3523:35, 27 February 2024‎
+       imported>Jmarmstrong1207‎ 21,788 bytes +718‎ Modify "Custom kernel
+       commandline" to "Customizing kernel module parameters". Adds a guide
+       for setting modprobe conf settings and clarifies things
+
+    19 February 2024
+
+     * curprev [ ] [ ] 12:2912:29, 19 February 2024‎ imported>Pcboy‎ m 21,070
+       bytes +7‎ pkgs.linux_zen.override is incorrect. Should be
+       kernel.override.
+
+    11 December 2023
+
+     * curprev [ ] [ ] 21:3421:34, 11 December 2023‎ imported>SuperSamus‎
+       21,063 bytes −367‎ Don't repeat example
+     * curprev [ ] [ ] 21:3221:32, 11 December 2023‎ imported>SuperSamus‎
+       21,430 bytes +270‎ Extracting Module.symvers
+
+    18 November 2023
+
+     * curprev [ ] [ ] 14:4714:47, 18 November 2023‎ imported>Wpiekutowski‎ m
+       21,160 bytes +104‎ Explain how to get the proper hash for a custom
+       kernel. Switch from sha256 to hash attr.
+
+    21 August 2023
+
+     * curprev [ ] [ ] 14:5514:55, 21 August 2023‎ imported>Mateusauler‎ m
+       21,056 bytes 0‎ than -> then
+
+    20 August 2023
+
+     * curprev [ ] [ ] 18:4518:45, 20 August 2023‎ imported>Lelgenio‎ 21,056
+       bytes +1,862‎ Add instructions for patching In-tree kernel modules
+       without rebuilding the entire kernel
+
+    16 March 2023
+
+     * curprev [ ] [ ] 01:5301:53, 16 March 2023‎ imported>Khoi‎ 19,194 bytes
+       +133‎ →‎Embedded Linux Cross-compile xconfig and menuconfig
+
+    9 March 2023
+
+     * curprev [ ] [ ] 02:4302:43, 9 March 2023‎ imported>MakiseKurisu‎
+       19,061 bytes +8‎ →‎Loading out-of-tree kernel modules
+     * curprev [ ] [ ] 02:4102:41, 9 March 2023‎ imported>MakiseKurisu‎
+       19,053 bytes +740‎ →‎Loading out-of-tree kernel modules
+
+    19 January 2023
+
+     * curprev [ ] [ ] 02:5202:52, 19 January 2023‎ imported>Khoi‎ 18,313
+       bytes −116‎ No edit summary
+     * curprev [ ] [ ] 02:5002:50, 19 January 2023‎ imported>Khoi‎ 18,429
+       bytes +475‎ No edit summary
+     * curprev [ ] [ ] 02:0202:02, 19 January 2023‎ imported>Khoi‎ 17,954
+       bytes 0‎ Fixed ordering of section
+     * curprev [ ] [ ] 02:0102:01, 19 January 2023‎ imported>Khoi‎ m 17,954
+       bytes +859‎ add shell.nix for menuconfig and xconfig for cross compile
+       page
+
+    30 November 2022
+
+     * curprev [ ] [ ] 20:4120:41, 30 November 2022‎ imported>Tobias.bora‎
+       17,095 bytes +210‎ →‎Packaging out-of-tree kernel modules
+     * curprev [ ] [ ] 20:2920:29, 30 November 2022‎ imported>Tobias.bora‎
+       16,885 bytes +257‎ →‎Packaging out-of-tree kernel modules
+
+    3 August 2022
+
+     * curprev [ ] [ ] 00:4500:45, 3 August 2022‎ imported>Toraritte‎ m
+       16,628 bytes +19‎ Add NixOS category
+
+    25 April 2022
+
+     * curprev [ ] [ ] 15:1115:11, 25 April 2022‎ imported>Lucus16‎ 16,609
+       bytes −3‎ Fix arch linux kernel config link
+
+    3 April 2022
+
+     * curprev [ ] [ ] 17:5017:50, 3 April 2022‎ imported>Binary-Eater‎
+       16,612 bytes +612‎ Added instructions for developing kernel modules
+       for different kernel packages provided by NixOS
+
+    16 November 2021
+
+     * curprev [ ] [ ] 19:0619:06, 16 November 2021‎ imported>Lillecarl‎
+       16,000 bytes +170‎ Wireguard is no longer a great example since it's
+       been mainlined, note this to readers.
+
+    8 November 2021
+
+     * curprev [ ] [ ] 13:2713:27, 8 November 2021‎ imported>Artturin‎ 15,830
+       bytes +99‎ No edit summary
+
+    20 September 2021
+
+     * curprev [ ] [ ] 14:4114:41, 20 September 2021‎ imported>Nix‎ m 15,731
+       bytes +45‎ add to Software and Cookbook categories
+
+    24 July 2021
+
+     * curprev [ ] [ ] 05:2405:24, 24 July 2021‎ imported>Mic92‎ 15,686 bytes
+       −1‎ →‎Compiling Linux with clang
+     * curprev [ ] [ ] 05:2405:24, 24 July 2021‎ imported>Mic92‎ 15,687 bytes
+       +4‎ →‎Compiling Linux with clang
+     * curprev [ ] [ ] 05:2305:23, 24 July 2021‎ imported>Mic92‎ 15,683 bytes
+       +3‎ →‎Cross-compiling Linux from source
+     * curprev [ ] [ ] 05:2305:23, 24 July 2021‎ imported>Mic92‎ 15,680 bytes
+       −2‎ →‎Compiling Linux with clang
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Linux_kernel"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

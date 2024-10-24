@@ -1,0 +1,101 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              NixOS 21.05 released
+
+   Published on Tue Jun 01 2021
+
+                              NixOS 21.05 released
+
+   21.05 Okapi logo
+
+   Hey everyone, I’m Jonathan Ringer, the release manager for 21.05. As
+   promised, the latest stable release is here: NixOS 21.05 “Okapi”.
+
+     * Release manual
+          * Highlights
+          * New Services
+          * Backward Incompatibilities
+          * Other Notable Changes
+     * Upgrade Instructions
+     * Image downloads
+
+   The 21.05 release was possible due to the efforts of 1745 contributors in
+   33474 commits. We would especially like to thank our top 10 contributors:
+   Fabian Affolter, Frederik Rietdijk, Sandro Jäckel, Tim Steinbach, Jonathan
+   Ringer, Martin Weinelt, Mario Rodas, Robert Schütz, Jan Tojnar, Sterni.
+
+   NixOS is already known as the most up to date distribution and is in the
+   top three by total number of packages.
+
+   This didn’t stop us. In the last six months:
+
+     * 12985 packages were added
+     * 14109 packages were removed
+     * 16768 packages were updated
+
+   Likewise, our NixOS module system got bigger and better:
+
+     * 1527 options were added
+     * 290 options removed
+     * 400 options were updated
+
+  Stabilization Contributors
+
+   Stabilization of the NixOS happens a month before the planned release. The
+   goal is to have as little as possible continuous integration (Hydra) jobs
+   failing before the release is cut.
+
+   Individuals who contributed to stabilizing this release: Fabian Affolter,
+   Sterni, Stéphan Kochen, Robert Schütz, Martin Weinelt, Jonathan Ringer,
+   Alyssa Ross, Andrew Childs, Thomas Tuegel, Malte Brandy, and 431 others!
+
+  Special Thanks
+
+   I would like to give a special thanks to Jan Tojnar and others for the
+   Gnome 40 stabilization effort. Another special thanks should be given to
+   Thomas Tuegel and many others for bringing Plasma 5.21 to NixOS.
+
+  Reflections and Closing
+
+   I think the RFC80 and RFC85 changes to the release process were successful
+   in limiting risk and making the release more deterministic. This is the
+   first release since 17.03 to have released in the intended month, although
+   the rendered manual and official announcement were delayed a day. In the
+   future, I hope to make the release as “boring” as possible, and have it be
+   a time to improve the quality of nixpkgs’ unstable and stable channels.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

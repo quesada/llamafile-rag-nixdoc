@@ -1,0 +1,158 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS configuration
+     * 2 Using a TPM2 with OpenSSH
+     * 3 Frequently Asked Questions
+          * 3.1 How does the PIN-code bruteforce protection work?
+          * 3.2 How to get TPM model information?
+     * 4 References
+   [ ] Toggle the table of contents
+
+                                      TPM
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   TPM (Trusted Platform Module) is a secure microprocessor commonly embedded
+   in modern computers. It can be used for boot chain audit, key storage and
+   random number generation.
+
+NixOS configuration
+
+   A minimal NixOS configuration to be able to use the TPM from userspace can
+   be:
+
+ security.tpm2.enable = true;
+ security.tpm2.pkcs11.enable = true;  # expose /run/current-system/sw/lib/libtpm2_pkcs11.so
+ security.tpm2.tctiEnvironment.enable = true;  # TPM2TOOLS_TCTI and TPM2_PKCS11_TCTI env variables
+ users.users.YOUR_USER.extraGroups = [ "tss" ];  # tss group has access to TPM devices
+
+   After rebooting with this configuration, TPM2TOOLS_TCTI and
+   TPM2_PKCS11_TCTI should point to device:/dev/tpmrm0 and your user should
+   be able to read and write to /dev/tpmrm0.
+
+Using a TPM2 with OpenSSH
+
+   For example, the following commands create a new token associated with
+   PIN-code YOUR_PIN (Personal Identification Number) and a recovery
+   SOPIN-code YOUR_SOPIN (Security Officer Personal Identification Number)
+   and then a new secp256r1 key:
+
+ tpm2_ptool init
+ tpm2_ptool addtoken --pid=1 --label=ssh --userpin=YOUR_PIN --sopin=YOUR_SOPIN
+ tpm2_ptool addkey --label=ssh --userpin=YOUR_PIN --algorithm=ecc256
+
+   Now you may show your public key:
+
+ ssh-keygen -D /run/current-system/sw/lib/libtpm2_pkcs11.so
+
+   To tell OpenSSH to use the TPM2 during login, you may add the following
+   line to your ~/.ssh/config:
+
+ PKCS11Provider /run/current-system/sw/lib/libtpm2_pkcs11.so
+
+Frequently Asked Questions
+
+  How does the PIN-code bruteforce protection work?
+
+   You may run the following command to query the variable properties of your
+   TPM:
+
+ nix-shell -p tpm2-tools --run "tpm2_getcap properties-variable"
+
+     * TPM2_PT_LOCKOUT_COUNTER is the current number of failed attempts,
+     * TPM2_PT_MAX_AUTH_FAIL is the maximum number of failed attempts before
+       lockdown,
+     * TPM2_PT_LOCKOUT_INTERVAL and TPM2_PT_LOCKOUT_RECOVERY are durations in
+       seconds for recovery.
+
+  How to get TPM model information?
+
+   The following command will dump found strings from the raw TPM2
+   certificates:
+
+ nix-shell -p tpm2-tools --run "tpm2_getekcertificate" | strings
+
+   Usually, you may find a vendor such as STMicroelectronics or Infineon
+   Technologies and a model such as ST33HTPxAHB61.
+
+   To get firmware version information, you might want to look at:
+
+ nix-shell -p tpm2-tools --run "tpm2_getcap properties-fixed"
+
+References
+
+     * https://wiki.archlinux.org/title/Trusted_Platform_Module
+     * https://learn.microsoft.com/en-us/windows/security/information-protection/tpm/change-the-tpm-owner-password
+     * https://blog.ledger.com/ssh-with-tpm/
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=TPM&oldid=10145"
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 24 September 2022, at 15:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

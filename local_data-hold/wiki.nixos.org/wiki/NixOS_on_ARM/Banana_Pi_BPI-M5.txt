@@ -1,0 +1,144 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Building Amlogic-compatible U-Boot
+          * 2.1 Building U-Boot
+          * 2.2 Creating Amlogic Package
+     * 3 Board-specific installation notes
+     * 4 Resources
+   [ ] Toggle the table of contents
+
+                         NixOS on ARM/Banana Pi BPI-M5
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+Status
+
+   Work in progress
+
+Building Amlogic-compatible U-Boot
+
+  Building U-Boot
+
+   Note: Do not use the severely outdated BPI-M5-bsp or Amlogic-u-boot to
+   build u-boot.
+
+ $ git clone git://git.denx.de/u-boot.git
+ $ cd u-boot
+ $ nix-shell -p ubootTools gcc-arm-embedded dtc flex bison python swig
+ $ make -j$(nproc) ARCH=arm CROSS_COMPILE=aarch64-unknown-linux-gnu- bananapi-m5_defconfig
+ $ make -j$(nproc) ARCH=arm CROSS_COMPILE=aarch64-unknown-linux-gnu-
+ $ cd ..
+
+  Creating Amlogic Package
+
+   Note: The following steps require an AMD64 platform.
+
+ $ git clone https://github.com/LibreELEC/amlogic-boot-fip
+ $ cd amlogic-boot-fip
+ $ mkdir -p output-bananapim5/
+ $ ./build-fip.sh bananapi-m5 ../u-boot/u-boot.bin output-bananapim5
+ $ hexdump -C -n 32 output-bananapim5/u-boot.bin | grep "40 41 4d 4c"
+ $ cd ..
+
+   Verify that the new u-boot.bin contains 40 41 4d 4c (@AML) at 0x10
+   onwards.
+
+Board-specific installation notes
+
+   First follow the NixOS_on_ARM instructions to get the SD card image and
+   decompress it.
+
+   Once the image has been decompressed, the Amlogic U-Boot package needs to
+   be copied to byte 512+ inside the image (replace the image with the name
+   downloaded and decompressed image):
+
+ $ sudo dd if=amlogic-boot-fip/output-bananapim5/u-boot.bin of=nixos-sd-image-22.11.2620.de5448dab58-aarch64-linux.img conv=fsync,notrunc bs=512 seek=1
+
+   Then, copy the image onto the eMMC or sdcard using the the installation
+   steps.
+
+   In order to get a serial console output, it is required to replace ttyAMA0
+   with ttyAML0 in the /boot/extlinux/extlinux.conf file inside the image.
+   The easiest way is to just mount the respective folder after the image has
+   been flashed on the SD-card
+
+ $ sudo mount /dev/sdX /mnt/
+ $ sudo sed -i 's/ttyAMA0/ttyAML0/g' /mnt/boot/extlinux/extlinux.conf
+
+Resources
+
+     * Official product page
+     * Installation here is based on the U-Boot for Odroid C4 documentation
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Banana_Pi_BPI-M5&oldid=11572"
+     * This page was last edited on 4 April 2024, at 23:25.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

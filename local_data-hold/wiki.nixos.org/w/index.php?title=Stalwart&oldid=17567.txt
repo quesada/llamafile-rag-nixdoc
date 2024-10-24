@@ -1,0 +1,343 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Configuration
+          * 2.1 DNS records
+          * 2.2 DNSSEC
+     * 3 Tips and tricks
+          * 3.1 Test mail server
+          * 3.2 Unsecure setup for testing environments
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                    Stalwart
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 12:13, 19 September 2024 by Onny (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Stalwart is an open-source, all-in-one mail server solution that supports
+   JMAP, IMAP4, and SMTP protocols. It's designed to be secure, fast, robust,
+   and scalable, with features like built-in DMARC, DKIM, SPF, and ARC
+   support for message authentication. It also provides strong transport
+   security through DANE, MTA-STS, and SMTP TLS reporting. Stalwart is
+   written in Rust, ensuring high performance and memory safety.
+
+Setup
+
+   The following example enables the Stalwart mail server for the domain
+   example.org, listening on mail delivery SMTP/Submission (25, 465), IMAPS
+   (993) and JMAP ports (8080/443) for mail clients to connect to. Mailboxes
+   for the accounts postmaster@example.org and user1@example.org get created
+   if they don't exist yet.
+
+   Note: Parts of this module are not yet stable will be available with the
+   upcoming NixOS release 24.11.
+
+ /etc/nixos/configuration.nix
+
+ environment.etc = {
+   "stalwart/mail-pw1".text = "foobar";
+   "stalwart/mail-pw2".text = "foobar";
+   "stalwart/admin-pw".text = "foobar";
+   "stalwart/acme-secret".text = "secret123";
+ };
+
+ services.stalwart-mail = {
+   enable = true;
+   # Required before < NixOS 24.11 to use the latest Stalwart release
+   package = pkgs.stalwart-mail;
+   openFirewall = true;
+   settings = {
+     server = {
+       hostname = "mx1.example.org";
+       tls = {
+         enable = true;
+         implicit = true;
+       };
+       listener = {
+         smtp = {
+           protocol = "smtp";
+           bind = "[::]:25";
+         };
+         submissions = {
+           bind = "[::]:465";
+           protocol = "smtp";
+         };
+         imaps = {
+           bind = "[::]:993";
+           protocol = "imap";
+         };
+         jmap = {
+           bind = "[::]:8080";
+           url = "https://mail.example.org";
+           protocol = "jmap";
+         };
+         management = {
+           bind = [ "127.0.0.1:8080" ];
+           protocol = "http";
+         };
+       };
+     };
+     lookup.default = {
+       hostname = "mx1.example.org";
+       domain = "example.org";
+     };
+     acme."letsencrypt" = {
+       directory = "https://acme-v02.api.letsencrypt.org/directory";
+       challenge = "dns-01";
+       contact = "user1@example.org";
+       domains = [ "example.org" "mx1.example.org" ];
+       provider = "cloudflare";
+       secret = "%{file:/etc/stalwart/acme-secret}%";
+     };
+     session.auth = {
+       mechanisms = "[plain]";
+       directory = "'in-memory'";
+     };
+     storage.directory = "in-memory";
+     session.rcpt.directory = "'in-memory'";
+     queue.outbound.next-hop = "'local'";
+     directory."imap".lookup.domains = [ "example.org" ];
+     directory."in-memory" = {
+       type = "memory";
+       principals = [
+         {
+           class = "individual";
+           name = "User 1";
+           secret = "%{file:/etc/stalwart/mail-pw1}%";
+           email = [ "user1@example.org" ];
+         }
+         {
+           class = "individual";
+           name = "postmaster";
+           secret = "%{file:/etc/stalwart/mail-pw1}%";
+           email = [ "postmaster@example.org" ];
+         }
+       ];
+     };
+     authentication.fallback-admin = {
+       user = "admin";
+       secret = "%{file:/etc/stalwart/admin-pw}%";
+     };
+   };
+ };
+
+ services.caddy = {
+   enable = true;
+   virtualHosts = {
+     "webadmin.example.org" = {
+       extraConfig = ''
+         reverse_proxy http://127.0.01:8080
+       '';
+       serverAliases = [
+         "mta-sts.example.org"
+         "autoconfig.example.org"
+         "autodiscover.example.org"
+         "mail.example.org"
+       ];
+     };
+   };
+ };
+
+   TLS key generation is done using DNS-01 challenge through Cloudflare
+   domain provider, see dns-update library for further providers or configure
+   manual certificates.
+
+Configuration
+
+  DNS records
+
+   Before adding required records to the example domain example.org, we need
+   to register the domain on the Stalwart server.
+
+ stalwart-cli --url https://webadmin.example.org domain create example.org
+
+   Authenticate using the fallback-admin password.
+
+   Review the list of which DNS records are required including their values
+   for the mail server to work at
+   https://webadmin.example.org/manage/directory/domains/tuxtux.com.co/view.
+   Especially following records are essential:
+
+     * Record type: A, Name: example.org
+     * Record type: AAAA, Name: example.org
+     * Record type: CNAME, Name: autoconfig Value: example.org
+     * Record type: CNAME, Name: autodiscover, Value: example.org
+     * Record type: CNAME, Name: mail, Value: example.org
+     * Record type: CNAME, Name: mta-sts, Value: example.org
+     * Record type: CNAME, Name: mail, Value: example.org
+     * Record type: CNAME, Name: webadmin, Value: example.org
+     * Record type: MX, Name: example.org, Value: mx1.example.org
+     * Record type: SRV, Name: _imaps._tcp
+     * Record type: SRV, Name: _submissions._tcp
+     * Record type: TLSA, Name: _25._tcp.example.org., Value: Only the one
+       starting with "3 1 1" required
+     * Record type: TLSA, Name: _25._tcp.mx1.example.org., Value: Only the
+       one starting with "3 1 1" required
+     * Record type: TXT, Name: 202409e._domainkey
+     * Record type: TXT, Name: 202409r._domainkey
+     * Record type: TXT, Name: _dmarc
+     * Record type: TXT, Name: mx1
+     * Record type: TXT, Name: _smtp._tls
+     * Record type: TXT, Name: example.org
+
+  DNSSEC
+
+   Ensure that DNSSEC is enabled for your primary and mail server domain. It
+   can be enabled by your domain provider.
+
+   For example, check if DNSSEC is working correctly for your new TLSA record
+
+ # nix shell nixpkgs#dnsutils --command delv _25._tcp.mx1.example.org TLSA @1.1.1.1
+ ; fully validated
+ _25._tcp.mx1.example.org. 10800 IN TLSA 3 1 1 7f59d873a70e224b184c95a4eb54caa9621e47d48b4a25d312d83d96 e3498238
+ _25._tcp.mx1.example.org. 10800 IN RRSIG        TLSA 13 5 10800 20230601000000 20230511000000 39688 example.org. He9VYZ35xTC3fNo8GJa6swPrZodSnjjIWPG6Th2YbsOEKTV1E8eGtJ2A +eyBd9jgG+B3cA/jw8EJHmpvy/buCw==
+
+Tips and tricks
+
+  Test mail server
+
+   You can use several online tools to test your mail server configuration:
+
+     * en.internet.nl/test-mail: Test your mail server configuration for
+       validity and security.
+     * mail-tester.com: Send a mail to this service and get a rating about
+       the "spaminess" of your mail server.
+     * Send a mail to the echo server echo@univie.ac.at. You should receive a
+       response containing your message in several seconds.
+
+  Unsecure setup for testing environments
+
+   The following minimal configuration example is unsecure and for testing
+   purpose only. It will run the Stalwart mail server on localhost, listening
+   on port 143 (IMAP) and 587 (Submission). Users alice and bob are
+   configured with the password foobar.
+
+ /etc/nixos/configuration.nix
+
+ services.stalwart-mail = {
+   enable = true;
+   # Use newer, latest version in NixOS 24.05
+   package = pkgs.stalwart-mail;
+   settings = {
+     server = {
+       hostname = "localhost";
+       tls.enable = false;
+       listener = {
+         "smtp-submission" = {
+           bind = [ "[::]:587" ];
+           protocol = "smtp";
+         };
+         "imap" = {
+           bind = [ "[::]:143" ];
+           protocol = "imap";
+         };
+       };
+     };
+     imap.auth.allow-plain-text = true;
+     session.auth = {
+       mechanisms = "[plain, auth]";
+       directory = "'in-memory'";
+     };
+     storage.directory = "in-memory";
+     session.rcpt.directory = "'in-memory'";
+     queue.outbound.next-hop = "'local'";
+     directory."in-memory" = {
+       type = "memory";
+       principals = [
+         {
+           class = "individual";
+           name = "alice";
+           secret = "foobar";
+           email = [ "alice@localhost" ];
+         }
+         {
+           class = "individual";
+           name = "bob";
+           secret = "foobar";
+           email = [ "bob@$localhost" ];
+         }
+       ];
+     };
+   };
+ };
+
+See also
+
+     * Maddy, a composable, modern mail server written in Go.
+     * Simple NixOS Mailserver
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Stalwart&oldid=17567"
+   Categories:
+     * Mail Server
+     * Server
+     * This page was last edited on 19 September 2024, at 12:13.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,346 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Steam: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    20 October 2024
+
+     * curprev [ ] [ ] 08:4708:47, 20 October 2024‎ Fidgetingbits talk
+       contribs‎ 11,894 bytes −10‎ →‎NixOS 21.11: clarify wording Tags:
+       Mobile edit Mobile web edit
+
+    16 October 2024
+
+     * curprev [ ] [ ] 19:0819:08, 16 October 2024‎ Jorik talk contribs‎ m
+       11,904 bytes +5‎ Fix typo in gamescope tty config Tag: Visual edit
+
+    10 October 2024
+
+     * curprev [ ] [ ] 12:4212:42, 10 October 2024‎ Fidgetingbits talk
+       contribs‎ 11,899 bytes +53‎ grammar and proton link Tags: Mobile edit
+       Mobile web edit
+
+    8 October 2024
+
+     * curprev [ ] [ ] 15:4215:42, 8 October 2024‎ Klinger talk contribs‎ m
+       11,846 bytes +155‎ →‎Install Proton versions by GUI: It _may_ be
+       better to use GUI compared to just install a package from nixpkgs.
+       Tag: Visual edit
+
+    7 October 2024
+
+     * curprev [ ] [ ] 22:0122:01, 7 October 2024‎ ExRyuske talk contribs‎ m
+       11,691 bytes +114‎ Add details on proton-ge
+
+    22 September 2024
+
+     * curprev [ ] [ ] 05:5605:56, 22 September 2024‎ Mic92 talk contribs‎
+       11,577 bytes +73‎ imported from old wiki
+
+    15 September 2024
+
+     * curprev [ ] [ ] 06:5406:54, 15 September 2024‎ Hughobrien talk
+       contribs‎ m 11,504 bytes +95‎ add note about kernel versions Tag:
+       Visual edit
+
+    1 September 2024
+
+     * curprev [ ] [ ] 22:2422:24, 1 September 2024‎ Hughobrien talk
+       contribs‎ 11,409 bytes +1,169‎ Add details on booting to gamescope
+       Tag: Visual edit: Switched
+
+    27 June 2024
+
+     * curprev [ ] [ ] 05:5805:58, 27 June 2024‎ Mic92 talk contribs‎ 10,240
+       bytes +31‎ hardware.graphics -> hardware.opengl
+
+    23 June 2024
+
+     * curprev [ ] [ ] 01:0901:09, 23 June 2024‎ Tomodachi94 talk contribs‎ m
+       10,209 bytes 0‎ "Gamemode" -> "GameMode"
+
+    6 June 2024
+
+     * curprev [ ] [ ] 16:2916:29, 6 June 2024‎ Klinger talk contribs‎ m
+       10,209 bytes 0‎ extraPkgs does not exist in 24.05 Tag: Visual edit
+
+    12 May 2024
+
+     * curprev [ ] [ ] 09:4209:42, 12 May 2024‎ Zimward talk contribs‎ 10,209
+       bytes +561‎ added paragraph in troubleshooting for a bug where
+       gamescope fails to launch when used within steam Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 16:2716:27, 19 April 2024‎ Klinger talk contribs‎ m
+       9,648 bytes +49‎ Added link to Gamemode article Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 16:2416:24, 19 April 2024‎ Klinger talk contribs‎
+       9,599 bytes +22‎ added to category:gaming
+
+    18 April 2024
+
+     * curprev [ ] [ ] 16:5816:58, 18 April 2024‎ Klinger talk contribs‎
+       9,577 bytes +682‎ A litte bit expanded Beginning. Added instructions
+       for protonup-qt. Tag: Visual edit: Switched
+
+    8 April 2024
+
+     * curprev [ ] [ ] 09:0109:01, 8 April 2024‎ Scrumplex talk contribs‎ m
+       8,895 bytes +8‎ Add link to VR page in See also Tag: Visual edit
+
+    7 April 2024
+
+     * curprev [ ] [ ] 05:5305:53, 7 April 2024‎ Sen talk contribs‎ m 8,887
+       bytes +56‎ Added links to the word "steam"
+     * curprev [ ] [ ] 05:4905:49, 7 April 2024‎ Sen talk contribs‎ 8,831
+       bytes +4‎ →‎Steam fails to start. What do I do? Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 05:3405:34, 7 April 2024‎ Sen talk contribs‎ m 8,827
+       bytes +8‎ →‎Changing the driver on AMD GPUs: Improved the note
+       sentence Tag: Visual edit
+     * curprev [ ] [ ] 05:3305:33, 7 April 2024‎ Sen talk contribs‎ m 8,819
+       bytes +112‎ →‎Game fails to start: radv is better than amdvlk due to
+       better optimizations Tag: Visual edit: Switched
+     * curprev [ ] [ ] 05:1905:19, 7 April 2024‎ Sen talk contribs‎ 8,707
+       bytes +219‎ →‎Changing the driver on AMD GPUs: I think this section
+       can be removed Tag: Visual edit
+     * curprev [ ] [ ] 05:1305:13, 7 April 2024‎ Sen talk contribs‎ 8,488
+       bytes +260‎ →‎Steam is not updated: Clarified "Steam is not updated"
+       section Tag: Visual edit
+     * curprev [ ] [ ] 05:0505:05, 7 April 2024‎ Sen talk contribs‎ 8,228
+       bytes +260‎ →‎Troubleshooting: Clarified the "Steams fails to start.
+       What do to?" section Tag: Visual edit
+
+    5 April 2024
+
+     * curprev [ ] [ ] 15:1115:11, 5 April 2024‎ Sen talk contribs‎ m 7,968
+       bytes +27‎ →‎Troubleshooting: Steam outputs more logs if -dev is
+       defined and -console is sometimes useful Tag: Visual edit
+     * curprev [ ] [ ] 15:0815:08, 5 April 2024‎ Sen talk contribs‎ m 7,941
+       bytes +11‎ Broken formatting fixed at steam-tui. Tag: Visual edit
+
+    11 February 2024
+
+     * curprev [ ] [ ] 14:4914:49, 11 February 2024‎ imported>Denperidge‎ m
+       7,930 bytes +6‎ Updated configuration.nix path
+
+    8 February 2024
+
+     * curprev [ ] [ ] 22:1622:16, 8 February 2024‎ imported>NeoUmbreon‎ m
+       7,924 bytes +1‎ "missing" was "issing" an m
+
+    7 January 2024
+
+     * curprev [ ] [ ] 05:0205:02, 7 January 2024‎ imported>Hypnosis2839‎
+       7,923 bytes −349‎ →‎Adding missing dependencies: use
+       programs.steam.package option instead of environment.systemPackages
+     * curprev [ ] [ ] 04:5304:53, 7 January 2024‎ imported>Hypnosis2839‎
+       8,272 bytes −607‎ →‎gamescope: update gamescope instructions
+
+    9 December 2023
+
+     * curprev [ ] [ ] 22:0822:08, 9 December 2023‎ imported>Tpwrules‎ 8,879
+       bytes −89‎ No edit summary
+     * curprev [ ] [ ] 03:5803:58, 9 December 2023‎ imported>Jhvst‎ 8,968
+       bytes +1,373‎ troubleshooting: add section about changing AMD GPUs
+       driver
+     * curprev [ ] [ ] 03:2503:25, 9 December 2023‎ imported>Jhvst‎ 7,595
+       bytes +894‎ add gamescope subsection with relevant information under
+       "Adding missing dependencies"
+
+    5 November 2023
+
+     * curprev [ ] [ ] 00:2100:21, 5 November 2023‎ imported>ThanePatrol‎ m
+       6,701 bytes +89‎ Added note to allow use of 32bit libraries as steam
+       depends on them. See
+       https://github.com/NixOS/nixpkgs/pull/45030#issuecomment-429654106
+
+    19 September 2023
+
+     * curprev [ ] [ ] 10:1610:16, 19 September 2023‎ imported>Ziasquinn‎ m
+       6,612 bytes +135‎ small note for a bug i encounter sometimes on dx
+       install
+
+    26 July 2023
+
+     * curprev [ ] [ ] 19:2819:28, 26 July 2023‎ imported>NateEag‎ 6,477
+       bytes +262‎ Note an issue I hit using Steam
+
+    28 June 2023
+
+     * curprev [ ] [ ] 20:1920:19, 28 June 2023‎ imported>KiaraGrouwstra‎
+       6,215 bytes −4‎ adjust predicate from steam-runtime to steam-run
+
+    22 June 2023
+
+     * curprev [ ] [ ] 16:4316:43, 22 June 2023‎ imported>Das-g‎ m 6,219
+       bytes −20‎ wikify internal link
+     * curprev [ ] [ ] 12:5712:57, 22 June 2023‎ imported>Zylanx‎ m 6,239
+       bytes 0‎ There was a typo in "Adding missing dependencies"
+
+    2 May 2023
+
+     * curprev [ ] [ ] 09:0909:09, 2 May 2023‎ imported>Aidalgol‎ m 6,239
+       bytes −418‎ →‎Custom Proton versions: Remove obsolete note. protonup
+       from nixpkgs is working again.
+
+    27 March 2023
+
+     * curprev [ ] [ ] 22:1922:19, 27 March 2023‎ imported>Schnusch‎ 6,657
+       bytes +75‎ use nixpkgs overlay and do not drop previous extraPkgs when
+       overriding
+
+    14 February 2023
+
+     * curprev [ ] [ ] 22:2922:29, 14 February 2023‎ imported>Hw-lunemann‎ m
+       6,582 bytes −157‎ Setting STEAM_EXTRA_COMPAT_TOOLS_PATHS to what is
+       it's default anyways is superfluous. Additionally this is relevant for
+       any custom proton version, therefore the renaming of the heading.
+     * curprev [ ] [ ] 21:5321:53, 14 February 2023‎ imported>K900‎ 6,739
+       bytes −10‎ →‎GE-Proton (GloriousEggroll): Unnote
+     * curprev [ ] [ ] 21:5321:53, 14 February 2023‎ imported>K900‎ 6,749
+       bytes −665‎ →‎GE-Proton (GloriousEggroll): Remove extremely misleading
+       environment variable config
+
+    3 February 2023
+
+     * curprev [ ] [ ] 10:1410:14, 3 February 2023‎ imported>Davidak‎ 7,414
+       bytes +276‎ Add workaround for "Steam is not updated"
+
+    14 November 2022
+
+     * curprev [ ] [ ] 22:3522:35, 14 November 2022‎ imported>Raindev‎ 7,138
+       bytes −361‎ Simplify installation instructions: enabling the module is
+       sufficient without the package
+
+    7 November 2022
+
+     * curprev [ ] [ ] 14:3914:39, 7 November 2022‎ imported>Appetrosyan‎
+       7,499 bytes +281‎ Clarify installation instructions
+
+    22 September 2022
+
+     * curprev [ ] [ ] 02:3302:33, 22 September 2022‎ imported>Polypoyo‎ m
+       7,218 bytes 0‎ →‎steam-tui: change "f2a" to "2fa"
+
+    24 August 2022
+
+     * curprev [ ] [ ] 21:4221:42, 24 August 2022‎ imported>Pmarreck‎ 7,218
+       bytes +1,576‎ No edit summary
+
+    9 August 2022
+
+     * curprev [ ] [ ] 21:0921:09, 9 August 2022‎ imported>Fufexan‎ m 5,642
+       bytes +83‎ Add link to page explaining the steam build
+
+    6 August 2022
+
+     * curprev [ ] [ ] 19:0019:00, 6 August 2022‎ imported>Toraritte‎ m 5,559
+       bytes +22‎ Add incomplete flag (i.e., Expansion template)
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Steam"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

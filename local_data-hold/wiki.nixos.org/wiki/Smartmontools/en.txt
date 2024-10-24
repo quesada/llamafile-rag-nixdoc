@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Example
+   [ ] Toggle the table of contents
+
+                                 smartmontools
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Translate this page
+
+   Warning: Display title "smartmontools" overrides earlier display title
+   "Smartmontools". smartmontools is a package which provides tools for
+   monitoring drives which support the S.M.A.R.T. system for monitoring hard
+   drive health. It includes the smartd and smartctl programs. smartd can be
+   enabled on NixOS systems with the services.smartd module.
+
+Example
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   services.smartd = {
+     enable = true;
+     devices = [
+       {
+         device = "/dev/sda"; # FIXME: Change this to your actual disk; use lsblk to find the appropriate value
+       }
+     ];
+   };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Smartmontools/en&oldid=16117"
+   Categories:
+     * Hardware
+     * Software
+     * This page was last edited on 1 August 2024, at 04:08.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

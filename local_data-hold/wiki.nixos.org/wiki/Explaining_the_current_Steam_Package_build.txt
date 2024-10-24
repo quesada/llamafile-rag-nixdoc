@@ -1,0 +1,161 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Description of the package
+     * 2 Nix problems and constraints
+     * 3 Approaches
+          * 3.1 chroot
+          * 3.2 Link bash to /bin and glibc/lib to /lib and be happy
+          * 3.3 Workaround the scripts and launch steam directly
+          * 3.4 Intercept Steam's calls with LD_PRELOAD or the like
+          * 3.5 But what about the games?
+   [ ] Toggle the table of contents
+
+                   Explaining the current Steam Package build
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This article should give insight about how steam is currently packaged and
+   how and why it works like this. It also discusses what the problems are in
+   packaging it and how we can approach solving them.
+
+Description of the package
+
+   Steam is distributed as a .deb file, for now only as an i686 package (the
+   amd64 package only has documentation). When unpacked, it has a script
+   called steam that in ubuntu (their target distro) would go to /usr/bin.
+   When run for the first time, this script copies some files to the user's
+   home, which include another script that is the ultimate responsible for
+   launching the steam binary, which is also in $HOME.
+
+Nix problems and constraints
+
+     * We don't have /bin/bash and many scripts point there. Similarly for
+       /usr/bin/python, for some functionality.
+     * We don't have the dynamic loader in /lib
+     * The steam.sh script in $HOME could not be patched the last time an
+       attempt was made, as it is always checked and rewritten by the Steam
+       client.
+     * The steam binary cannot be patched, as this is also checked by the
+       Steam client.
+
+Approaches
+
+  chroot
+
+   This is the current approach, documented here:
+   http://sandervanderburg.blogspot.nl/2013/09/composing-fhs-compatible-chroot.html
+
+     * Pros:
+          * this method would allow us to have binaries in the expected paths
+            without disrupting the system.
+          * Steam itself, as well as Valve games and perhaps others like to
+            checksum their executables, so patching does not work.
+     * Cons: Performance might suffer from this, but we are not sure.
+
+  Link bash to /bin and glibc/lib to /lib and be happy
+
+     * Pros: easy, works
+     * Cons: not very nix-compliant
+
+  Workaround the scripts and launch steam directly
+
+     * Pros: not so hard
+     * Cons: this only solves the part concerned with running steam. What
+       about the games? We can patch some of them, but at least Team Fortress
+       is checked and rewritten if modified
+
+   This is the approach that I (page) took in my GitHub branch:
+   https://github.com/cpages/nixpkgs/tree/steam
+
+  Intercept Steam's calls with LD_PRELOAD or the like
+
+     * Pros: more robust
+     * Cons: difficult to achieve and may be broken by changes in the binary
+
+   aszlig started working in this in his branch:
+   https://github.com/aszlig/nixpkgs/tree/steam
+
+  But what about the games?
+
+   You can install any of the games normally, but they will fail to start.
+   From this step on, you're in the unsupported realm. Some games can be
+   patchelfed:
+
+ patchelf --set-interpreter /path/to/ld.so game_binary (you can get the path to an x86 ld.so looking at the steam script in the store, for me /nix/store/xh0q23rgqbjfrh3zfv4jyxvcvjnxqh64-glibc-2.15.0/lib/ld-linux.so.2)
+
+   You might also need patching some scripts. That all depends on each one.
+   You can then press play from steam and if you're lucky that'll be it!
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Explaining_the_current_Steam_Package_build&oldid=11867"
+   Category:
+     * Applications
+     * This page was last edited on 7 April 2024, at 05:30.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

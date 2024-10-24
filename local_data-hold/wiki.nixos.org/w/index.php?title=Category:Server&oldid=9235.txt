@@ -1,0 +1,331 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                Category:Server
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Revision as of 05:05, 20 September 2021 by imported>Nix (describe category
+   scope)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Pages in this category include:
+
+     * Setting up server applications (e.g. Apache httpd)
+     * Configuring or deploying NixOS as a server
+     * Using the Nix ecosystem to manage servers
+
+Subcategories
+
+   This category has the following 13 subcategories, out of 13 total.
+
+  B
+
+     * Backup
+     * Booting
+
+  D
+
+     * Database
+
+  F
+
+     * Filesystem
+     * Flakes
+
+  H
+
+     * Hydra
+
+  M
+
+     * Mail Server
+
+  N
+
+     * Networking
+
+  S
+
+     * Security
+     * Shell
+     * Systemd
+
+  V
+
+     * Virtualization
+
+  W
+
+     * Web Applications
+
+Pages in category "Server"
+
+   The following 131 pages are in this category, out of 131 total.
+
+  3
+
+     * 3proxy
+
+  A
+
+     * ACME
+     * Adguard Home
+     * Akkoma
+     * Apache Kafka
+
+  B
+
+     * Bind
+     * Blocky
+
+  C
+
+     * C2FmZQ
+     * Caddy
+     * Castopod
+     * Certbot
+     * Cert Spotter
+     * Chrony
+     * Continuous Integration (CI)
+     * Crater
+     * CUDA
+
+  D
+
+     * Discourse
+     * Docker
+     * Dokuwiki
+     * Dolibarr ERP & CRM
+     * Dovecot
+
+  E
+
+     * Eintopf
+     * Ente Photos
+     * Etebase
+     * Ethercalc
+
+  F
+
+     * Factorio
+     * Fail2ban
+     * Firefox Sync Server
+     * Firewall
+     * Forgejo
+     * Foundation DB
+     * Full Disk Encryption
+     * Fwupd
+
+  G
+
+     * Garage
+     * Gitlab
+     * Gitlab runner
+     * Goss
+     * GoToSocial
+     * Grafana
+     * Grocy
+
+  H
+
+     * Hedgedoc
+     * Helm and Helmfile
+     * Honk
+     * Honk/en
+     * Honk/ja
+     * Honk/ru
+     * Hydra
+     * Hydra/de
+     * Hydra/en
+     * Hydra/ru
+
+  I
+
+     * Imapsync
+     * Immich
+     * Incus
+     * Install NixOS on Amazon EC2
+     * Install NixOS on a Server With a Different Filesystem
+     * Install NixOS on GCE
+     * Install NixOS on Hetzner Online
+     * Install NixOS on Online.Net
+     * Install NixOS on Rackspace Cloud Servers
+     * Install NixOS on Scaleway X86 Virtual Cloud Server
+     * Invoiceplane
+     * IRC
+
+  J
+
+     * Jellyfin
+     * Jenkins
+     * Jitsi Meet
+
+  K
+
+     * Keycloak
+     * Kodi
+     * Kubernetes
+
+  L
+
+     * Lemmy
+     * Litestream
+     * Livebook
+     * LXD
+
+  M
+
+     * Maddy
+     * Mailman
+     * Mastodon
+     * Matomo
+     * Matrix
+     * Mattermost
+     * MediaWiki
+     * Meilisearch
+     * Minetest Server
+     * Mirroring repos
+     * Mjolnir
+     * MongoDB
+     * Mopidy
+     * Morph
+     * Mumble
+
+  N
+
+     * Nextcloud
+     * Nginx
+     * NixOps
+     * NixOps/Virtualization
+     * NixOS Containers
+     * NixOS friendly hosters
+     * NTP
+
+  O
+
+     * OCS Inventory
+     * Octodns
+     * Ollama
+     * ONLYOFFICE DocumentServer
+     * OpenLDAP
+     * OpenSMTPD
+     * Outline
+
+  P
+
+     * Paperless
+     * Parsedmarc
+     * PeerTube
+     * Pict-rs
+     * Plausible
+     * Pleroma
+     * Pocketbase
+     * Podman
+     * Postfix for Gmail
+     * Prometheus
+     * Prosody
+
+  Q
+
+     * QuakeJS
+
+  R
+
+     * Radicale
+     * Remote Desktop
+     * Remote disk unlocking
+     * Rspamd
+
+  S
+
+     * Samba
+     * Sonarr
+     * Sourcehut
+     * Stalwart
+     * Static Web Server
+     * Subversion
+
+  T
+
+     * Taskserver
+     * Teamspeak
+     * Tor
+     * Tt-rss
+
+  U
+
+     * Unbound
+
+  W
+
+     * Wiki-js
+     * WordPress
+     * WriteFreely
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Server&oldid=9235"
+     * This page was last edited on 20 September 2021, at 05:05.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

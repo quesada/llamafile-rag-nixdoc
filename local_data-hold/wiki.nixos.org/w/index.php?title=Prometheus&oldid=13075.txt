@@ -1,0 +1,141 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Client/Agent: Prometheus exporter
+     * 2 Client example
+     * 3 Server
+   [ ] Toggle the table of contents
+
+                                   Prometheus
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 20:59, 5 June 2024 by Randomizedcoder (talk | contribs)
+   (Additional examples)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Prometheus is a free software application used for event monitoring and
+   alerting. It records metrics in a time series database built using an HTTP
+   pull model, with flexible queries and real-time alerting.
+
+Client/Agent: Prometheus exporter
+
+   It is documented in the NixOS manual.
+
+Client example
+
+   Example of prometheus node_exporter with additional collectors enabled:
+
+ { config, pkgs, ... }:
+ {
+   # https://nixos.org/manual/nixos/stable/#module-services-prometheus-exporters
+   services.prometheus.exporters.node = {
+     enable = true;
+     port = 9000;
+     # https://github.com/NixOS/nixpkgs/blob/nixos-24.05/nixos/modules/services/monitoring/prometheus/exporters.nix
+     enabledCollectors = [ "systemd" ];
+     # /nix/store/zgsw0yx18v10xa58psanfabmg95nl2bb-node_exporter-1.8.1/bin/node_exporter  --help
+     extraFlags = [ "--collector.ethtool" "--collector.softirqs" "--collector.tcpstat" "--collector.wifi" ];
+   };
+ }
+
+Server
+
+   The Prometheus service daemon can be enabled and configured by further
+   options.
+
+ services.prometheus.enable = true;
+
+   Another example:
+
+ { config, pkgs, ... }:
+ {
+   # https://wiki.nixos.org/wiki/Prometheus
+   # https://nixos.org/manual/nixos/stable/#module-services-prometheus-exporters-configuration
+   # https://github.com/NixOS/nixpkgs/blob/nixos-24.05/nixos/modules/services/monitoring/prometheus/default.nix
+   services.prometheus = {
+     enable = true;
+     globalConfig.scrape_interval = "10s"; # "1m"
+     scrapeConfigs = [
+     {
+       job_name = "node";
+       static_configs = [{
+         targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" ];
+       }];
+     }
+     ];
+   };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Prometheus&oldid=13075"
+   Categories:
+     * Server
+     * NixOS Manual
+     * This page was last edited on 5 June 2024, at 20:59.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

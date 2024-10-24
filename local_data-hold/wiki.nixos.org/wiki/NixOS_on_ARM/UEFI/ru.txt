@@ -1,0 +1,291 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 The Basics First
+          * 1.1 Target Support
+          * 1.2 Platform Firmware
+          * 1.3 UEFI
+               * 1.3.1 SBBR? EBBR?
+     * 2 UEFI, on my SBC???
+          * 2.1 Getting a Platform Firmware
+          * 2.2 Получение установочного ISO-образа
+          * 2.3 Установка
+               * 2.3.1 Shared Firmware Storage
+               * 2.3.2 Настройка загрузчика
+          * 2.4 Основные Советы
+     * 3 Известные проблемы
+          * 3.1 Device Trees
+   [ ] Toggle the table of contents
+
+                               NixOS на ARM/UEFI
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page NixOS on ARM/UEFI and the
+   translation is 35% complete.
+   Other languages:
+     * English
+     * français
+     * русский
+   ← Back to NixOS on ARM
+   Note: This page is written assuming AArch64. Following most of these
+   instructions for armv7l will work just as well (as of 2022-07-19), but
+   armv7l support in NixOS is not at a point where doing so will be nice.
+
+   This section of the NixOS on ARM documentation aims to document as much as
+   possible about booting any ARM boards using UEFI. This will be written
+   with a heavy bias about Single Board Computers (SBCs), as this is where
+   booting is seen as complicated, cumbersome, when not described as
+   impossible.
+
+The Basics First
+
+  Target Support
+
+   Некоторые вещи не будут специфичны для UEFI. Например, поддержка плат
+   используемым ядром. Это написано в предположении, что основной Linux
+   работает на целевой системе настолько, что вы можете установить его из
+   общего образа iso.
+
+   Just as you could on x86_64 if your platform required it, you can build a
+   customized iso image. Explaining this is out of scope for this article.
+   The same pitfalls apply. For example, the generated configuration will not
+   take into account configuring the customized kernel.
+
+  Platform Firmware
+
+   Let's define what a Platform Firmware is. It is a generic term I'm using
+   to describe the first thing the CPU starts at boot time. On your typical
+   x86_64 system, it would be what was previously called the BIOS. Now often
+   diminutively called by the name EFI. This is what initializes enough of
+   the hardware so that the operating system can start. Additionally, it
+   often provides facilities for the user to do basic configuration, and
+   manage boot options.
+
+   In the ARM with SBCs landscape, U-Boot is the de facto solution for the
+   Platform Firmware. Though U-Boot is confusingly, but rightly, often
+   referred to as a Boot Loader. U-Boot plays double duties often. It is
+   tasked with initializing the hardware, and often also used to handle
+   loading and booting the operating system.
+
+  UEFI
+
+   The Unified Extensible Firmware Interface it not in itself a tangible
+   thing. Wrongly abstracted, it is a specification used to provide an
+   interface to describe a standard boot process, including an environment
+   before the operating system starts, and protocols for operating systems.
+
+   There are multiple implementations of UEFI. Vendors like American
+   Megatrends, Phoenix Technologies and Insyde Software may have produced the
+   one on your personal x86_64 machine. TianoCore is the reference UEFI
+   implementation, and Open Source. Luckily enough, U-Boot implements enough
+   (and a bit more) of the UEFI spec.
+
+    SBBR? EBBR?
+
+   Other than letter salads, they are Server Base Boot Requirements and
+   Embedded Base Boot Requirements. Two specifications for ARM. If your
+   target is in compliance with either, booting with UEFI should already be
+   supported. With the minimal UEFI support in U-Boot, targets that were not
+   made to be EBBR compliant can be made compliant, or be close enough for
+   what it matters.
+
+UEFI, on my SBC???
+
+   Believe me or not, it's more likely that you can, if your SBC is well
+   supported by mainline U-Boot. U-Boot provides enough UEFI to comply with
+   EBBR, which in turn is enough to allow us to boot the AArch64 UEFI NixOS
+   iso, and with almost no differences compared to the x86_64 guide, simply
+   follow the installation instruction to boot into an installed system.
+
+  Getting a Platform Firmware
+
+    This article or section needs expansion.                                  
+    Reason: More details and alternative ways to go would be desirable        
+    (Discuss in Talk:NixOS on ARM/UEFI/ru#)                                   
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   As an opinionated example, you can get started with Tow-Boot, a U-Boot
+   distribution, which is intended to make the initial setup a bit easier by
+   abstracting the platform differences so that they do not matter.
+
+   Any other UEFI compliant Platform Firmware can be used.
+
+  Получение установочного ISO-образа
+
+   Choose one of the images (in rough order of preference):
+
+     * NixOS unstable, new kernel – rolling release, latest mainline kernel,
+       does not build with ZFS as it would often lag behind.
+     * NixOS unstable, LTS kernel – may be less compatible with specific
+       hardware, but tracks a more recent Nixpkgs
+     * NixOS stable – release branch, LTS kernel, generally not recommended
+       unless you are confident your hardware is well-supported upstream
+
+   Графические ISO также доступны в оболочках GNOME и KDE.
+
+   Этот образ установщика должен быть записан на USB-накопитель, как обычно.
+   В крайнем случае, его можно записать и на SD-образ, если прошивка целевой
+   платформы не требует записи на этот же SD-образ
+
+  Установка
+
+   Following the usual installation steps for UEFI is almost enough. Here's
+   what you need to be mindful about.
+
+   Sidenote: As the introduction stated, this guide assumes that the kernel
+   in use fully supports your target board. If there are issues that comes
+   from lack of hardware support, it is not a bug in this documentation.
+
+    Shared Firmware Storage
+
+   Note: This will make more sense when Getting a Platform Firmware is
+   finished...
+
+   If your Platform Firmware lives on the target installation storage, e.g.
+   written to an SD card and you install to the same SD card, you will need
+   need to make sure that:
+
+     * You are not overwriting the firmware, if it is not protected by a
+       partition.
+     * The partition table is not rewritten from scratch / zero.
+     * To not delete required existing firmware partitions.
+   Note: If your Platform Firmware is not protected by a partition, consider
+   choosing an alternative Platform Firmware installation method or
+   distribution that protects it.
+
+   В противном случае вы можете поступить как обычно: создать раздел ESP,
+   FAT32, который будет монтироваться по адресу /boot/, предпочтительный
+   раздел rootfs, своп, если хотите, и т. д.
+
+    Настройка загрузчика
+
+   Know if your Platform Firmware's UEFI implementation has writable EFI
+   vars. This is not true for all UEFI implementations on ARM, but is
+   something to be mindful about. If it does not,
+   boot.loader.efi.canTouchEfiVariables has to be set to false.
+
+ /etc/nixos/configuration.nix
+
+ {
+   boot.loader.efi.canTouchEfiVariables = false;
+ }
+
+    Tip                                                                       
+    Just like on x86_64 rEFInd installed to the fallback location             
+    (/EFI/BOOT/BOOTAA64.EFI) may be helpful.                                  
+
+   This sample uses GRUB2, but systemd-boot was also verified to work. Since
+   EFI variables cannot be manipulated, using efiInstallAsRemovable handles
+   installing GRUB2 to the default fallback location.
+
+ /etc/nixos/configuration.nix
+
+ {
+   boot.loader.grub.enable = true;
+   boot.loader.grub.efiSupport = true;
+   boot.loader.grub.efiInstallAsRemovable = true;
+   boot.loader.grub.device = "nodev";
+ }
+
+  Основные Советы
+
+   Использование последней версии ядра, вероятно, является хорошей идеей.
+   Аппаратная поддержка платформ ARM постоянно улучшается, и использование
+   последней версии ядра, а не "последней LTS", может быть достаточно, чтобы
+   сломать или сделать его.
+
+ /etc/nixos/configuration.nix
+
+ {
+   boot.kernelPackages = pkgs.linuxPackages_latest;
+ }
+
+Известные проблемы
+
+  Device Trees
+
+   As of right now, there is no consensus within Linux distros about the
+   topic of managing device trees for the boot process with UEFI.
+
+   This current setup relies on the platform firmware providing an
+   appropriate device tree for the kernel that will run.
+
+   With U-Boot, it is possible to make it load a device tree, for example a
+   more up-to-date one, by placing the dtb folder from a kernel build output
+   at the /dtb location in the ESP. U-Boot will automatically load a device
+   tree according to heuristics, which should be the right one.
+
+   Неизвестно, насколько это актуально на практике.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/UEFI/ru&oldid=16539"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 8 August 2024, at 17:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

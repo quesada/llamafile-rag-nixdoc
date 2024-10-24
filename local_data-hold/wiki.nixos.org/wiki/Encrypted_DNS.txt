@@ -1,0 +1,267 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setting nameservers
+     * 2 dnscrypt-proxy2
+          * 2.1 Example configuration
+               * 2.1.1 Local network - Forwarding rules
+          * 2.2 Using alongside another DNS server
+     * 3 Stubby
+   [ ] Toggle the table of contents
+
+                                 Encrypted DNS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   By default, DNS traffic is sent in plain text over the internet; it can be
+   monitored or spoofed by any party along the path, including your ISP.
+   DNSSEC authenticates the DNS records themselves, but can't stop your ISP
+   monitoring domains or dropping queries.
+
+   Encrypted DNS protocols aim to address this hole by encrypting queries and
+   responses in transit between DNS resolvers and clients; the most widely
+   deployed ones are DNS over HTTPS (DoH), DNS over TLS (DoT), and DNSCrypt.
+
+   NixOS has modules for multiple encrypted DNS proxies, including
+   dnscrypt-proxy 2 and Stubby. services.dnscrypt-proxy2 is generally
+   recommended, as it has the widest protocol and feature support, and is
+   written in a memory-safe language.
+
+Setting nameservers
+
+   No matter what proxy you use, you should set your DNS nameservers
+   statically and make sure that your network manager won't override your
+   carefully set nameservers with some random settings it received over DHCP.
+
+ {
+   networking = {
+     nameservers = [ "127.0.0.1" "::1" ];
+     # If using dhcpcd:
+     dhcpcd.extraConfig = "nohook resolv.conf";
+     # If using NetworkManager:
+     networkmanager.dns = "none";
+   }
+
+   # Make sure you don't have services.resolved.enable on.
+ }
+
+   If you'd prefer to keep using resolvconf then you can set
+   networking.resolvconf.useLocalResolver instead. Note that it uses the IPv4
+   loopback address only.
+
+dnscrypt-proxy2
+
+  Example configuration
+
+ let
+   hasIPv6Internet = true;
+ in
+ {
+   services.dnscrypt-proxy2 = {
+     enable = true;
+     settings = {
+       # Use servers reachable over IPv6 -- Do not enable if you don't have IPv6 connectivity
+       ipv6_servers = hasIPv6Internet;
+       block_ipv6 = ! hasIPv6Internet;
+
+       require_dnssec = true;
+       sources.public-resolvers = {
+         urls = [
+           "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
+           "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
+         ];
+         cache_file = "/var/lib/dnscrypt-proxy/public-resolvers.md";
+         minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+       };
+
+       # If you want, choose a specific set of servers that come from your sources.
+       # Here it's from https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
+       # If you don't specify any, dnscrypt-proxy will automatically rank servers
+       # that match your criteria and choose the best one.
+       # server_names = [ ... ];
+     };
+   };
+
+   systemd.services.dnscrypt-proxy2.serviceConfig = {
+     StateDirectory = "dnscrypt-proxy";
+     # If you're trying to set up persistence with dnscrypt-proxy2 and it isn't working
+     # because of permission issues, try the following:
+     # StateDirectory = lib.mkForce "";
+     # ReadWritePaths = "/var/lib/dnscrypt-proxy"; # Cache directory for dnscrypt-proxy2, persist this
+   };
+ }
+
+   See the upstream example configuration file for more configuration
+   options.
+
+    Local network - Forwarding rules
+
+   Maybe you'd like queries for your local domain to go to your router, and
+   not to an upstream DNS resolver. By doing so, names of your local online
+   devices can be found. For this you have to create a file with forwarding
+   rules which you then include in your config:
+
+ {
+   services.dnscrypt-proxy2 = {
+     enable = true;
+     settings = {
+       ...
+       forwarding_rules = "/etc/nixos/services/networking/forwarding-rules.txt";
+       ...
+     };
+   };
+
+   ....
+ }
+
+  Using alongside another DNS server
+
+   DNS authoritative nameservers are tied to port 53, and the Linux
+   /etc/resolv.conf doesn't allow specifying a different port for resolvers
+   either. This leads to conflicts if you have another DNS server you need to
+   expose externally on port 53 (e.g. an authoritative DNS server for your
+   domains, or acme-dns), and can't easily run it on a separate IP to
+   dnscrypt-proxy2 (e.g. your authoritative DNS server listens on
+   ::/0.0.0.0). You can resolve this by running the proxy on a different port
+   and forwarding loopback traffic on port 53 to it:
+
+ {
+   networking.nameservers = [ "::1" ];
+
+   services.dnscrypt-proxy2 = {
+     enable = true;
+     settings = {
+       listen_addresses = [ "[::1]:51" ];
+       # ...
+     };
+   };
+
+   # Forward loopback traffic on port 53 to dnscrypt-proxy2.
+   networking.firewall.extraCommands = ''
+     ip6tables --table nat --flush OUTPUT
+     ${lib.flip (lib.concatMapStringsSep "\n") [ "udp" "tcp" ] (proto: ''
+       ip6tables --table nat --append OUTPUT \
+         --protocol ${proto} --destination ::1 --destination-port 53 \
+         --jump REDIRECT --to-ports 51
+     '')}
+   '';
+ }
+
+   Note that you can still access the other DNS server locally through the
+   non-loopback interface (e.g. by using your server's external IP).
+
+Stubby
+
+   Stubby is a very lightweight resolver (40kb binary) that performs
+   DNS-over-TLS, and nothing else. While stubby can be used as a system
+   resolver on its own, it is typically combined with another resolver (such
+   as unbound) to add caching and forwarding rules for local domains. See the
+   options documentation for services.stubby.* for configuration.
+
+   Example configuration for Cloudflare. Note that digests change and need to
+   be updated:
+
+ {
+     services.stubby = {
+       enable = true;
+       settings = pkgs.stubby.passthru.settingsExample // {
+         upstream_recursive_servers = [{
+           address_data = "1.1.1.1";
+           tls_auth_name = "cloudflare-dns.com";
+           tls_pubkey_pinset = [{
+             digest = "sha256";
+             value = "GP8Knf7qBae+aIfythytMbYnL+yowaWVeD6MoLHkVRg=";
+           }];
+         } {
+           address_data = "1.0.0.1";
+           tls_auth_name = "cloudflare-dns.com";
+           tls_pubkey_pinset = [{
+             digest = "sha256";
+             value = "GP8Knf7qBae+aIfythytMbYnL+yowaWVeD6MoLHkVRg=";
+           }];
+         }];
+       };
+     };
+ }
+
+   To update digests get the TLS certificate that signs the responses and
+   calculate the digest:
+
+ echo | openssl s_client -connect '1.1.1.1:853' 2>/dev/null | openssl x509 -pubkey -noout | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
+
+   Or using kdig from knot-dns
+
+ kdig -d @1.1.1.1 +tls-ca +tls-host=one.one.one.one example.com
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Encrypted_DNS&oldid=16874"
+   Category:
+     * Networking
+     * This page was last edited on 22 August 2024, at 10:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

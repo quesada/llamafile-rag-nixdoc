@@ -1,0 +1,128 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Tipps and tricks
+   [ ] Toggle the table of contents
+
+                                  Ente Photos
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Warning: This page is work-in-progress! Packages and modules for ente are
+   still being written. This warning will be removed when they have been
+   merged and are ready to use.
+
+   Ente is a self-hostable Google Photos alternative with S3 support and
+   client for web and all major platforms.
+
+   The server API server (museum) and the web frontend (ente-web) can be
+   deployed independently and are provided as two separate packages in
+   nixpkgs. It is also possible to deploy only the API server and use a
+   desktop or mobile client only, the frontend is not mandatory.
+
+                                     Setup
+
+   Following configuration will enable a basic API server instance.
+
+ services.museum = {
+   enable = true;
+   settings = {
+   # TODO add example
+   };
+   credentialsFile = "/path/to/secrets/creds.yaml";
+   environmentFile = "/path/to/env";
+ };
+
+   To host the web client as well, the files from the frotend package
+   (ente-web) can be directly served using a webserver like nginx or caddy.
+
+ services.nginx = {
+   enable = true;
+   virtualHosts."photos.example.com" = {
+     enableACME = true;
+     forceSSL = true;
+     root = pkgs.ente-web;
+   };
+ };
+
+                                Tipps and tricks
+
+   The web-client, the desktop-client and the mobile clients (iOS, Android)
+   all allow using custom, self-hosted servers. To create an account or log
+   into your own server Tap or click the logo in the welcome screen 7 times.
+   This will bring up a setting where you can specify a non-official ente API
+   server.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Ente_Photos&oldid=16948"
+   Categories:
+     * Server
+     * Web Applications
+     * This page was last edited on 25 August 2024, at 19:03.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,81 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+      #13 - Cross compilation for Go and Rust, home-manager email support
+
+   Published on Tue Dec 04 2018
+
+      #13 - Cross compilation for Go and Rust, home-manager email support
+
+                                      News
+
+     * NixOS 19.03 will leverage multiple cores automatically by default for
+       builds and Nix 2.2 will have the sandbox enabled by default on Linux
+
+     * Deploy a C++ web app on Heroku using Docker and Nix
+
+     * Meson 0.48 landed in staging again
+
+     * Declarative client mail configuration
+
+       In the past few months, some work went into home-manager to abstract
+       mail configuration and generate configs for a variety of client-side
+       software. Declare your username/password once and generate configs for
+       afew/alot/astroid/mbsync/offlineimap.
+
+     * Go cross-compilation landed in staging
+
+       This includes support for Cgo and buildGoPackage. Rust
+       cross-compilation could follow soon.
+
+     * RFC on improving RFC process
+
+     * Released cachix 0.1.3
+
+     * Call for new stickers design for events
+
+     * OfBorg now uses checks for build status reports, greatly reducing
+       Nixpkgs reviewers’ email load.
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

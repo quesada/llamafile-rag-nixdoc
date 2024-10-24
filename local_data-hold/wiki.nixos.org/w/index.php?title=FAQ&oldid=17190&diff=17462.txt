@@ -1,0 +1,88 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       FAQ: Difference between revisions
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+   ← Older edit
+   VisualWikitext
+
+Revision as of 03:43, 9 September 2024 view source                                                  Latest revision as of 20:01, 14 September 2024 view source
+MorningstarSunset (talk | contribs)                                                                 Phanirithvij (talk | contribs)
+94 edits                                                                                            86 edits
+Marked this version for translation                                                                 m fix the broken wiki link
+← Older edit                                                                                         
+(One intermediate revision by the same user not shown)
+Line 373:                                                                                           Line 373:
+ <!--T:89-->                                                                                         <!--T:89-->                                                                    
+ If that fails you can update the url in the nix expression yourself.                                If that fails you can update the url in the nix expression yourself.           
+ [https://nixos.org/wiki/FAQ#How_do_I_know_where.27s_nixpkgs_channel_located_and_at_which_commit.3F  [[#How_do_I_know_where's_nixpkgs_channel_located_and_at_which_commit?|Navigate 
+ Navigate to your channel's expressions] and find the package in one of the subdirectories. Edit     to your channel's expressions]] and find the package in one of the             
+ the respective ''default.nix'' file by altering the ''url'' and ''sha256''. You can use             subdirectories. Edit the respective ''default.nix'' file by altering the       
+ <code>nix-prefetch-url url</code> to get the SHA-256 hash of source distributions.                  ''url'' and ''sha256''. You can use <code>nix-prefetch-url url</code> to get   
+                                                                                                     the SHA-256 hash of source distributions.                                      
+ <!--T:90-->                                                                                         <!--T:90-->                                                                    
+
+   Retrieved from "https://wiki.nixos.org/wiki/FAQ"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

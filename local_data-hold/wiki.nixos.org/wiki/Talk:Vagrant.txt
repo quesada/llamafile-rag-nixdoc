@@ -1,0 +1,81 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                  Talk:Vagrant
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 19 October 2019 by Coreyoconnor
+
+   --Coreyoconnor (talk) 19:27, 19 October 2019 (UTC) The firewall extra
+   command I changed to `ip46tables -I INPUT 1 -i virbir+ -p tcp -m tcp
+   --dport 2049 -j ACCEPT` as `vboxnet` seemed specific to VirtualBox not
+   libvirt. That corrected the NFS mounts but I'm still having network issues
+   that may be related.Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Vagrant&oldid=7049"
+     * This page was last edited on 19 October 2019, at 19:27.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

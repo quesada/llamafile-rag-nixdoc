@@ -1,0 +1,183 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Example Configuration
+          * 1.1 Invocation
+     * 2 External links
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                     NixOps
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   NixOps is a tool for deploying NixOS systems in a reproducible and
+   declarative manner. It allows users to manage and deploy entire
+   NixOS-based infrastructures, whether to cloud platforms, virtual machines,
+   or physical hardware.
+
+   Warning: at this time NixOps is not actively recommended for new projects
+   or users. The tool is undergoing a significant transition between major
+   versions, which has led to some instability and increased complexity in
+   getting it up and running. As of August 2024, it requires extra effort to
+   set up and maintain, and it might not offer the smooth experience users
+   typically expect from NixOS tools. See nixops #1574 for updates and
+   details or check out the nixops4 project.
+
+   NixOps allows users to declaratively specify the desired configuration of
+   their systems and then automatically performs all necessary actions to
+   realize that configuration. This includes tasks such as instantiating
+   cloud machines, managing dependencies, and provisioning resources. NixOps
+   is meant to be fully automated and to create reproducible deployments that
+   leverage the Nix package manager’s purely functional model, creating
+   consistency in the configuration and providing reliability across various
+   environments.
+
+   For further details, please refer to the NixOps manual, which provides an
+   overview of its functionality and features, as well as an up-to-date
+   installation guide.
+
+Example Configuration
+
+   This example demonstrates a basic NixOps configuration that sets up a
+   staging environment with two machines: a reverse proxy and an application
+   server running a git server (Forgejo). This example assumes that both
+   machines already exist, that SSH in the operator's machine is well
+   configured to reach them, and that both machines are running NixOS. The
+   nix language allows referencing the configuration of other machines using
+   the nodes argument, making it easy to link services across the network.
+
+ # network-staging.nix file
+ let
+   proxyHostname = "proxy.example.com";
+   gitHostname = "10.0.0.2";
+ in {
+   network.description = "Staging environment for our git setup";
+   defaults.imports = [ ./common.nix ];
+  
+   reverse-proxy = { nodes, ... }: {
+     deployment.targetHost = proxyHostname;
+     services.nginx = {
+       enable = true;
+       virtualHosts."example.com".locations."/" = {
+         proxyPass = "http://${gitHostname}:${nodes.gitServer.config.services.forgejo.port}";
+       };
+     };
+     # the rest of reverse-proxy's configuration can be added here
+   };
+  
+   gitServer = _: {
+     deployment.targetHost = gitHostname;
+     services.forgejo.enable = true;
+     # additional git server configuration can be added here
+   };
+ }
+
+  Invocation
+
+   To apply this configuration on both nodes, one must first create a
+   deployment with the nixops create command, and then apply the new
+   configuration with nixops deploy.
+
+ nixops create network-staging.nix -d staging
+ > created deployment ‘32b06868-d27c-11e2-a055-81d7beb7925e’
+
+ nixops deploy -d staging
+
+External links
+
+     * The NixOps Manual
+     * A presentation on NixOps by Kim Lindberger (talyz) - Oslo NixOS
+       MiniCon, March 2020
+     * An example of cross-building for ARM and x86_64 using nixops
+
+See also
+
+     * krops
+     * morph
+     * nix-deploy
+     * Colmena
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:NixOps#)                 
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOps&oldid=17415"
+   Categories:
+     * Pedias
+     * NixOps
+     * Deployment
+     * Server
+     * Incomplete
+     * Software
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 14 September 2024, at 08:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

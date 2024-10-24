@@ -1,0 +1,123 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 1. Check the documentation
+     * 2 2. Have a chat
+     * 3 3. Post your issue
+     * 4 4. Hire a pro
+   [ ] Toggle the table of contents
+
+                                    Support
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 15:46, 6 October 2024 by Erikarvstedt (talk | contribs)
+   (Update matrix link)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   This article outlines how to best go about getting support. It is
+   recommended to make sure you try these measures in this order, moving on
+   to the next measure only when the previous has been exhausted.
+
+  1. Check the documentation
+
+   In addition to the reference documentation and introductory materials on
+   nix.dev, and NixOS user documentation in this Wiki, there is a wealth of
+   unofficial documentation available. For an overview of all these
+   resources, see our resource overview article. It is a good idea to look
+   into the manual(s) too:
+
+     * NixOS manual
+     * Nix manual
+     * Nixpkgs manual
+     * Hydra manual
+
+  2. Have a chat
+
+   The #users:nixos.org channel on the Matrix network is very active, and is
+   one of your best shots at getting live support; if you don't have an
+   Matrix client you can check out our Get In Touch page for alternatives.
+
+  3. Post your issue
+
+   If your issue is technical and possibly a bug, you can report the issue on
+   the Nixpkgs GitHub repository. For other questions, you could try the
+   official discourse instance, stack overflow, or the NixOS Reddit channel.
+
+  4. Hire a pro
+
+   If all else fails, you can hire a professional Nix consultant; see the
+   list of Nix consultants
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Support&oldid=17723"
+   Categories:
+     * Guide
+     * Community
+     * This page was last edited on 6 October 2024, at 15:46.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

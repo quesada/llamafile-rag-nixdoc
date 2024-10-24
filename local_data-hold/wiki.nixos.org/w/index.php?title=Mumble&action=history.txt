@@ -1,0 +1,133 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Mumble: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    15 May 2024
+
+     * curprev [ ] [ ] 17:5517:55, 15 May 2024‎ Klinger talk contribs‎ m
+       1,069 bytes +40‎ added link to https://www.mumble.info/ Tag: Visual
+       edit
+     * curprev [ ] [ ] 17:0217:02, 15 May 2024‎ Klinger talk contribs‎ 1,029
+       bytes +528‎ added Murmur server for mumble Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 16:3216:32, 19 April 2024‎ Klinger talk contribs‎ 501
+       bytes +176‎ added beginning sentence. Added to Gaming Category
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:1106:11, 20 September 2021‎ imported>Nix‎ m 325
+       bytes +27‎ add Software/Applications subcategory
+
+    25 March 2020
+
+     * curprev [ ] [ ] 14:4514:45, 25 March 2020‎ imported>Mic92‎ 298 bytes
+       −167‎ simplify pulse override code
+     * curprev [ ] [ ] 12:4612:46, 25 March 2020‎ imported>Vdot0x23‎ 465
+       bytes +465‎ added how to have pulseaudio support for mumble
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Mumble"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

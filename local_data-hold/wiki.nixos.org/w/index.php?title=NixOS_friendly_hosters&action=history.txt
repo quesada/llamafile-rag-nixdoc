@@ -1,0 +1,326 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                    NixOS friendly hosters: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    30 May 2024
+
+     * curprev [ ] [ ] 07:0107:01, 30 May 2024‎ Mic92 talk contribs‎ 9,905
+       bytes +715‎ imported from old wiki
+     * curprev [ ] [ ] 06:5806:58, 30 May 2024‎ Mic92 talk contribs‎ 9,190
+       bytes +137‎ imported from old wiki
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:3920:39, 24 April 2024‎ Klinger talk contribs‎ m
+       9,053 bytes +43‎ Category:Server Category:Community
+
+    23 February 2024
+
+     * curprev [ ] [ ] 23:0023:00, 23 February 2024‎ imported>Hugo-Heagren‎ m
+       9,010 bytes −22‎ guide is now finished
+
+    21 January 2024
+
+     * curprev [ ] [ ] 18:0718:07, 21 January 2024‎ imported>KiaraGrouwstra‎
+       9,032 bytes +76‎ hetzner cloud: see dedicated page
+
+    16 January 2024
+
+     * curprev [ ] [ ] 09:0809:08, 16 January 2024‎ imported>Mic92‎ 8,956
+       bytes +290‎ Hetzner cloud: expand on nixos-anywhere
+     * curprev [ ] [ ] 08:5508:55, 16 January 2024‎ imported>Mic92‎ 8,666
+       bytes −106‎ No edit summary
+
+    11 January 2024
+
+     * curprev [ ] [ ] 20:3120:31, 11 January 2024‎ imported>Hugo-Heagren‎
+       8,772 bytes +92‎ Add link to guide for installation on liteserver
+
+    29 December 2023
+
+     * curprev [ ] [ ] 06:3406:34, 29 December 2023‎ imported>Sedlund‎ 8,680
+       bytes −43‎ replaced build your own kexec with
+       nix-community/nixos-anywhere
+
+    27 January 2023
+
+     * curprev [ ] [ ] 18:3418:34, 27 January 2023‎ imported>Ahoneybun‎ 8,723
+       bytes +88‎ Add Linode
+
+    17 April 2022
+
+     * curprev [ ] [ ] 08:1508:15, 17 April 2022‎ imported>Jojosch‎ 8,635
+       bytes +90‎ add PHP-Friends to the list
+
+    10 April 2022
+
+     * curprev [ ] [ ] 17:2417:24, 10 April 2022‎ imported>Ngiger‎ 8,545
+       bytes +130‎ Link to vpsfree example nixops setup
+
+    1 April 2022
+
+     * curprev [ ] [ ] 09:0809:08, 1 April 2022‎ imported>Alebon‎ 8,415 bytes
+       +23‎ Moved article from medium to own domain
+
+    21 March 2022
+
+     * curprev [ ] [ ] 09:3909:39, 21 March 2022‎ imported>Lewo‎ 8,392 bytes
+       +178‎ No edit summary
+
+    5 March 2022
+
+     * curprev [ ] [ ] 13:4513:45, 5 March 2022‎ imported>Aither64‎ 8,214
+       bytes +108‎ Move vpsFree.cz to 1st class
+
+    10 October 2021
+
+     * curprev [ ] [ ] 01:2801:28, 10 October 2021‎ imported>Poscat0x04‎
+       8,106 bytes +95‎ add bandwagonhost to the list
+
+    21 June 2021
+
+     * curprev [ ] [ ] 21:5121:51, 21 June 2021‎ imported>SebTM‎ m 8,011
+       bytes +43‎ Substitute broken link with archive.org-result
+
+    21 March 2021
+
+     * curprev [ ] [ ] 09:5009:50, 21 March 2021‎ imported>Fadenb‎ 7,968
+       bytes +499‎ NixOS on Genesis Cloud
+
+    20 January 2021
+
+     * curprev [ ] [ ] 19:4019:40, 20 January 2021‎ imported>Alebon‎ m 7,469
+       bytes +15‎ No edit summary
+     * curprev [ ] [ ] 19:3919:39, 20 January 2021‎ imported>Alebon‎ m 7,454
+       bytes +153‎ No edit summary
+
+    23 October 2020
+
+     * curprev [ ] [ ] 11:4211:42, 23 October 2020‎ imported>Happysalada‎
+       7,301 bytes +5‎ Remove providers who don't have 1st class support
+       anymore
+
+    21 September 2020
+
+     * curprev [ ] [ ] 03:2803:28, 21 September 2020‎ imported>Ju1m‎ m 7,296
+       bytes −1‎ Fix vpsFree.cz URL
+
+    15 September 2020
+
+     * curprev [ ] [ ] 17:4017:40, 15 September 2020‎ imported>Kimat‎ m 7,297
+       bytes +6‎ the latest version available in their public library wasn't
+       obvious
+
+    23 July 2020
+
+     * curprev [ ] [ ] 12:4012:40, 23 July 2020‎ imported>Devdork‎ 7,291
+       bytes +115‎ BuyVM no longer includes NixOS first-party. From
+       experience (my recent install), this edit is fair.
+
+    27 May 2020
+
+     * curprev [ ] [ ] 03:0203:02, 27 May 2020‎ imported>Srid‎ m 7,176 bytes
+       +4‎ No edit summary
+     * curprev [ ] [ ] 03:0203:02, 27 May 2020‎ imported>Srid‎ 7,172 bytes
+       +30‎ OVH post
+
+    18 April 2020
+
+     * curprev [ ] [ ] 09:4109:41, 18 April 2020‎ imported>Sleeping‎ 7,142
+       bytes −9‎ Fix URL Ramnode
+
+    18 March 2019
+
+     * curprev [ ] [ ] 11:5411:54, 18 March 2019‎ imported>Grahamc‎ 7,151
+       bytes 0‎ Update packet.net link to packet.com.
+
+    31 January 2019
+
+     * curprev [ ] [ ] 20:5820:58, 31 January 2019‎ imported>Joepie91‎ 7,151
+       bytes −272‎ BuyVM updated
+
+    14 January 2019
+
+     * curprev [ ] [ ] 13:0013:00, 14 January 2019‎ imported>Mic92‎ 7,423
+       bytes +97‎ update hetzner example
+     * curprev [ ] [ ] 12:1812:18, 14 January 2019‎ imported>Mic92‎ 7,326
+       bytes +365‎ Hetzner: extend documentation
+     * curprev [ ] [ ] 12:1312:13, 14 January 2019‎ imported>Parthenon‎ m
+       6,961 bytes +20‎ No edit summary
+     * curprev [ ] [ ] 12:1212:12, 14 January 2019‎ imported>Parthenon‎ m
+       6,941 bytes −23‎ No edit summary
+     * curprev [ ] [ ] 12:0412:04, 14 January 2019‎ imported>Parthenon‎ 6,964
+       bytes +211‎ added RamNode
+     * curprev [ ] [ ] 10:3010:30, 14 January 2019‎ imported>Joepie91‎ 6,753
+       bytes +128‎ No edit summary
+
+    27 October 2018
+
+     * curprev [ ] [ ] 10:4910:49, 27 October 2018‎ imported>Sorki‎ 6,625
+       bytes +192‎ add vpsFree
+
+    11 September 2018
+
+     * curprev [ ] [ ] 20:0220:02, 11 September 2018‎ imported>Petersjt014‎
+       6,433 bytes +245‎ note about buyvm iso availability
+
+    28 June 2018
+
+     * curprev [ ] [ ] 23:0923:09, 28 June 2018‎ imported>Samueldr‎ m 6,188
+       bytes −1‎ removes stray exclamation mark
+     * curprev [ ] [ ] 08:1908:19, 28 June 2018‎ imported>Fgaz‎ 6,189 bytes
+       +110‎ Add link to scaleway nixos image proposal and alternative method
+
+    19 April 2018
+
+     * curprev [ ] [ ] 19:0219:02, 19 April 2018‎ imported>Alexanderkjeldaas‎
+       m 6,079 bytes +212‎ Hetzner Cloud has ISOs easily available.
+
+    18 April 2018
+
+     * curprev [ ] [ ] 07:2907:29, 18 April 2018‎ imported>Mic92‎ 5,867 bytes
+       +1‎ vultr++
+     * curprev [ ] [ ] 02:0302:03, 18 April 2018‎ imported>Lihop‎ 5,866 bytes
+       +92‎ Vultr recently added a NixOS ISO to its public ISO library
+
+    13 April 2018
+
+     * curprev [ ] [ ] 20:1920:19, 13 April 2018‎ imported>Samueldr‎ 5,774
+       bytes +135‎ Adds note about a reported issue
+
+    24 December 2017
+
+     * curprev [ ] [ ] 15:4315:43, 24 December 2017‎ imported>Apeyroux‎ 5,639
+       bytes +368‎ Add Online usage with drac and iso
+
+    1 December 2017
+
+     * curprev [ ] [ ] 17:3617:36, 1 December 2017‎ imported>Fadenb‎ m 5,271
+       bytes +62‎ link to scaleway kexec install article
+
+    26 November 2017
+
+     * curprev [ ] [ ] 19:3119:31, 26 November 2017‎ imported>Samueldr‎ 5,209
+       bytes +83‎ Re-orders names alphabetically
+     * curprev [ ] [ ] 19:2619:26, 26 November 2017‎ imported>Samueldr‎ m
+       5,126 bytes +1,110‎ Adds instructions as in-lined comment to hopefully
+       keep this page clean.
+
+    25 November 2017
+
+     * curprev [ ] [ ] 22:0822:08, 25 November 2017‎ imported>Infinisil‎ m
+       4,016 bytes +114‎ add reference to Install NixOS on a Server With a
+       Different Filesystem article
+     * curprev [ ] [ ] 20:4420:44, 25 November 2017‎ imported>Samueldr‎ m
+       3,902 bytes +1,029‎ Adds missing cloud provider notes from
+       Installation Guide
+     * curprev [ ] [ ] 20:2820:28, 25 November 2017‎ imported>Samueldr‎ m
+       2,873 bytes +505‎ Moves intro paragraph from Installation guide to
+       here.
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_friendly_hosters"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

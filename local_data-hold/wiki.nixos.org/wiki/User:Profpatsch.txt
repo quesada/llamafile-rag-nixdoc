@@ -1,0 +1,148 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Projects
+     * 2 Ideas
+          * 2.1 nixpkgs support matrix
+   [ ] Toggle the table of contents
+
+                                User:Profpatsch
+
+     * User page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * IRC: Profpatsch (freenode, oftc, …)
+     * Github: https://github.com/Profpatsch
+
+  Projects
+
+     * yarn2nix: converting yarn.lock files to build npm projects with nix
+     * Package testing: an infrastructure to test nix derivations (without
+       the need of VM tests)
+          * I gave a talk about that on the 2017 NixCon
+     * Building minimal OCI/docker containers from nixpkgs, see
+       Workgroup:Container
+
+  Ideas
+
+    nixpkgs support matrix
+
+   Note: grahamc mentioned (via peti) that SUSE uses a ring-0, ring-1, …
+   naming for the different support levels, which we should adopt to not
+   introduce any more confusion in nix(pkgs/OS) naming.
+
+                 x86_64  glibc   darwin  armv7   musl    
+   Core          full    full    full    full    support 
+   Extended Core full    full    support support ask     
+   Supported     support support support support ask     
+   Maintained    support ask     ask     ask     ask     
+   Unmaintained  none    none    none    none    none    
+
+   Support Levels:
+
+     * full: always tested, up-to-date, backported and release blocker
+     * support: tested and actively maintained, backported
+     * ask: guarantees given depend on the maintainer and package
+          * adding/re-purposing meta attributes to indicate guarantees might
+            be a good idea
+     * none: not maintained (but might still be useful and is therefore not
+       deleted)
+
+   Support Tiers:
+
+     * Core: Small (low three-digit) number of packages maintained by active
+       core team
+     * Extended Core: less vital packages maintained by active maintainers
+          * About the same level as Archlinux core packages
+          * Stuff like e.g. KDE goes here
+     * Supported: actively maintained by wider community, (automatically)
+       tested on core systems [, backported]
+     * Maintained: maintained, probably only manually tested on the
+       maintainer’s system
+     * Unmaintained: no maintainer, might not be on the newest version or
+       broken because of updated dependencies
+
+   The MAINTAINERS file of the Linux kernel has the following categories:
+
+ S: Status, one of the following:
+   Supported:    Someone is actually paid to look after this.
+   Maintained:   Someone actually looks after it.
+   Odd Fixes:    It has a maintainer but they don't have time to do
+   much other than throw the odd patch in. See below..
+   Orphan:       No current maintainer [but maybe you could take the
+   role as you write your new code].
+   Obsolete:     Old code. Something tagged obsolete generally means
+   it has been replaced by a better system and you
+   should be using that.
+
+   Especially the “there’s somebody paid to maintain this subsystem” label is
+   an idea we should incorporate.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=User:Profpatsch&oldid=5107"
+     * This page was last edited on 31 March 2019, at 16:25.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

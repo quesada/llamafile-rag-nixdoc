@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Faust in NixOS 22.05
+   [ ] Toggle the table of contents
+
+                                     Faust
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Faust (Functional Audio Stream) is a functional programming language
+   specifically designed for real-time signal processing and synthesis.
+
+Faust in NixOS 22.05
+
+   NixOS 22.05 contains Faust version 2.40.0.
+
+   If you want to use the alsa-qt architecture, you need to apply an upstream
+   patch, because the architecture file as provided in this version does not
+   compile.
+
+   Simply add the following overlay:
+
+    (self: super: {
+        faust = super.faust.overrideAttrs (old: {
+          patches = (old.patches or [ ]) ++ [
+            (super.fetchpatch {
+              url =
+                "https://github.com/grame-cncm/faust/commit/cf80f4c94ac979922892a7f594121358cd178708.patch";
+              sha256 = "sha256-MMFgCzAT33kwnBGvydyoqxJmMjWpxyF9Okjk1rMmrcw=";
+            })
+          ];
+        });
+      })
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Faust&oldid=12537"
+   Category:
+     * Languages
+     * This page was last edited on 24 April 2024, at 21:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

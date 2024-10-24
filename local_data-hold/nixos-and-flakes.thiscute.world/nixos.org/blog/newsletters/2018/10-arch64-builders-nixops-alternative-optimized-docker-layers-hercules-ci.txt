@@ -1,0 +1,98 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+#10 - AArch64 builders, NixOps alternative, optimised docker layers, Hercules CI
+
+   Published on Wed Oct 03 2018
+
+#10 - AArch64 builders, NixOps alternative, optimised docker layers, Hercules CI
+
+                                      News
+
+     * Exploring Nix & Haskell Part 1: Project Setup
+
+       This is the first of a series of posts, with the overarching goal of
+       building up a deterministic Haskell development environment using Nix,
+       including a modern IDE experience and any tooling built-in.
+
+     * New Aarch64 (and armv7l-linux omg!) builders
+
+     * New shirt and logo for 18.09 release
+
+     * krops as an alternative to NixOps
+
+       NixOps, the official DevOps tool of NixOS, is nice but it has some
+       flaws. krops is an alternative to NixOps trying to solve some of these
+       flaws.
+
+     * Developer friendly backdoor to VM tests infrastructure
+
+     * Optimising Docker Layers for Better Caching with Nix
+
+       Check out how Graham created Nix tooling to automatically build Docker
+       images with great cache characteristics by using Nix’s reference graph
+       to separate out important layers.
+
+     * Announcing Hercules CI - Continuous Integration service for Nix users
+       launching beta in November
+
+       Some distinguishing features:
+
+       : - Great integration with Nix - Host build agents wherever you want -
+       Free plan for open source!
+
+     * Cachix (binary cache as a service) client 0.1.2 released
+
+     * nix repl ‘<nixpkgs/nixos>’ will let you check out your configuration
+       results
+
+     * Snowflake (language-agnostic, toolchain-agnostic build system built on
+       top of Nix) v0.0.2 released
+
+     * Japanese on NixOS
+
+       An explanation of how to setup an environment for reading and writing
+       Japanese on NixOS
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

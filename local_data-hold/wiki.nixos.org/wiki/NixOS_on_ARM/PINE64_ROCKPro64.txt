@@ -1,0 +1,182 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Serial console
+     * 4 Resources
+   [ ] Toggle the table of contents
+
+                         NixOS on ARM/PINE64 ROCKPro64
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   The ROCKPro64 is a powerful single board computer built around the
+   Rockchip RK3399 SoC.
+
+   PINE64 ROCKPro64
+   A PINE64 ROCKPro64.
+   Manufacturer PINE64 (Pine Microsystems Inc.) 
+   Architecture AArch64                         
+   Bootloader   Upstream U-Boot                 
+   Boot options microSD, eMMC, SPI NOR Flash    
+
+   There are two models of the board, with 2 or 4 GB of RAM. It can boot from
+   an microSD card or an eMMC. It also has a 128 Mbit SPI flash that can be
+   used to store the bootloader.
+
+Status
+
+   This board has upstream U-Boot and kernel support, although the mainline
+   kernel may still be missing some features. NixOS can be installed using
+   manual partitioning and nixos-install or by modifying the aarch64
+   installation image as described in the next section.
+
+   U-Boot for this board is packaged in nixpkgs, and Hydra builds can be
+   found here:
+   https://hydra.nixos.org/job/nixpkgs/trunk/ubootRockPro64.aarch64-linux
+
+   It can also be cross compiled with
+
+ nix-build '<nixpkgs>' --argstr system aarch64-linux -A ubootRockPro64 --out-link ubootRockPro64
+
+Board-specific installation notes
+
+   You can use nixos-aarch64-images to get an rockpro64 compatible disk image
+   or running the commands manually as described below:
+
+   U-Boot needs to be copied to specific sectors on the microSD card, eMMC or
+   image with dd. Download/build U-Boot for the board, and write
+   idbloader.img and u-boot.itb to the correct locations with (replace
+   /dev/mmcblkX with the correct path to the card or image):
+
+ dd if=idbloader.img of=/dev/mmcblkX conv=fsync,notrunc bs=512 seek=64
+ dd if=u-boot.itb of=/dev/mmcblkX conv=fsync,notrunc bs=512 seek=16384
+
+   Note: Prior to NixOS 20.03, a downstream version of U-Boot 2017.09 was
+   packaged, which placed U-Boot in a single idbloader.img file. If that
+   version is used, simply disregard the second command above.
+
+   On many kernels, the ethernet driver cannot handle hardware check-summing
+   of large packets, therefore this feature must be disabled for the ethernet
+   to be stable. This can be done with the following NixOS configuration:
+
+ networking.localCommands = ''
+   ${pkgs.ethtool}/bin/ethtool -K eth0 rx off tx off
+ '';
+
+Serial console
+
+   Note: Do not connect RxD (pin 10) until the U-Boot SPL is running (see
+   [RK3399 boot sequence
+
+   The ROCKPro64 uses a GPIO pinout compatible with the Raspberry Pi 2 and
+   newer. This means that the following pins can be used to connect a serial
+   adapter:
+
+   Pi-2 Bus
+   Pin Function 
+   6   GND      
+   8   UART0_TX 
+   10  UART0_RX 
+
+   See https://wiki.pine64.org/wiki/ROCKPro64#GPIO_Pins for list of all pins
+
+   The serial console runs at 1500000 baud in the bootloader.
+
+   To connect check your dmesg for an identifier of the serial console:
+
+ [78635.965459] usb 2-1: new full-speed USB device number 8 using xhci_hcd
+ [78636.119008] usb 2-1: New USB device found, idVendor=1a86, idProduct=7523, bcdDevice= 2.63
+ [78636.119017] usb 2-1: New USB device strings: Mfr=0, Product=2, SerialNumber=0
+ [78636.119022] usb 2-1: Product: USB2.0-Serial
+ [78636.127103] ch341 2-1:1.0: ch341-uart converter detected
+ [78636.142043] usb 2-1: ch341-uart converter now attached to ttyUSB0
+
+   In our example that coresponds to the ttyUSB0 which makes a new device
+   available at /dev/ttyUSB0 to which you can connect using for (example)
+   picocom:
+
+ # Connect to /dev/ttyUSB0 at baud 1500000
+ $ nix-shell -p picocom --run "picocom /dev/ttyUSB0 -b 1500000"
+
+   See
+   https://wiki.pine64.org/wiki/ROCKPro64#Setup_a_Serial_Console_.28UART.29
+   for more information on setting up the serial console
+
+Resources
+
+     * Official product page
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/PINE64_ROCKPro64&oldid=11194"
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 1 April 2024, at 14:02.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

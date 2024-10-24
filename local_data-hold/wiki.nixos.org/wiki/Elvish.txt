@@ -1,0 +1,95 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Usage
+   [ ] Toggle the table of contents
+
+                                     Elvish
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Elvish is a cross-platform shell suitable for both interactive use and
+   scripting. It features a full-fledged, non-POSIX-shell programming
+   language with advanced features like namespacing and anonymous functions,
+   and a powerful, fully programmable user interface that works well out of
+   the box.
+
+Usage
+
+   There is an elvish module, that can be stored in
+   $HOME/.elvish/lib/nix.elv. After that it can loaded by adding use nix in
+   $HOME/.elvish/rc.elv.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Elvish&oldid=12640"
+   Categories:
+     * Shell
+     * Languages
+     * This page was last edited on 4 May 2024, at 10:56.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

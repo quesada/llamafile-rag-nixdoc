@@ -1,0 +1,151 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Serial console
+     * 4 Compatibility notes
+     * 5 Resources
+   [ ] Toggle the table of contents
+
+                           NixOS on ARM/Orange Pi PC
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   Orange Pi PC 
+   Manufacturer Xunlong / Orange Pi 
+   Architecture ARMv7               
+   Bootloader   Upstream u-boot     
+   Maintainer   
+
+Status
+
+     This article or section is out of date.                                  
+     Reason: Section refers to old user-provided images. Should be reviewed   
+     with cross-compilation, or native compilation through userspace          
+     emulation. (Discuss in Talk:NixOS on ARM/Orange Pi PC)                   
+     Once the page has been updated this notice can be removed.               
+
+   @dezgeg's porting efforts to ARMv7 works on the Orange Pi PC, using the
+   proper upstream u-boot.
+
+   U-boot support has been merged 2017-12-11.
+
+Board-specific installation notes
+
+   First follow the generic installation steps to get the installer image on
+   an SD card.
+
+   U-Boot needs to be copied to specific sectors on the microSD card with dd.
+   Download u-boot for the board
+   (uboot-orangepi_pc_defconfig-2017.11.nixpkgs.*.u-boot-sunxi-with-spl.bin),
+   and copy it to the correct location with (again, replace /dev/sdX with the
+   correct path to the SD card device):
+
+ sudo dd if=uboot-orangepi_pc_defconfig-2017.11.nixpkgs.*.u-boot-sunxi-with-spl.bin of=/dev/sdX bs=1024 seek=8
+
+   Then, install using the installation and configuration steps.
+
+Serial console
+
+   Your configuration.nix will need to add console=ttyS0,115200n8 to the
+   boot.kernelParams configuration to use the serial console.
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, lib, ... }:
+ {
+   boot.kernelParams = [
+     "console=ttyS0,115200n8"
+   ];
+ }
+
+Compatibility notes
+
+     * Using the upstream kernel at 4.13, neither HDMI nor Ethernet will
+       work.
+          * #29569 has a comment with a compatible linux kernel overlay
+            derivation.
+          * Support for ethernet may land in 4.15.
+          * HDMI support isn't in the maintainer's requirements, it may start
+            working in the future.
+
+Resources
+
+     * Official product page
+     * linux-sunxi wiki page
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Orange_Pi_PC&oldid=17425"
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 14 September 2024, at 09:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

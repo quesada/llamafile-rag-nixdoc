@@ -1,0 +1,234 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 JupyterLab
+     * 2 Channels
+     * 3 People
+   [ ] Toggle the table of contents
+
+                             Workgroup:DataScience
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section is out of date.                                   
+    Reason: Other than site-wide fixes, this page has not seen recent         
+    updates. (Discuss in Talk:Workgroup:DataScience)                          
+    Once the page has been updated this notice can be removed.                
+
+   This workgroup is dedicated towards improving the state of the data
+   science stack in Nixpkgs. This includes work on packages and modules for
+   scientific computation, artificial intelligence and data processing, as
+   well as data science IDEs.
+
+  JupyterLab
+
+   The JupyterWith repo "provides a Nix-based framework for the definition of
+   declarative and reproducible Jupyter environments. These environments
+   include JupyterLab - configurable with extensions - the classic notebook,
+   and configurable Jupyter kernels."
+
+   Alternatively, there is an unmerged pull request with work to easily
+   deploy arbitrary kernels and jupyter extensions with nix. There are some
+   limitations due to jupyterlab extensions relying heavily on npm and
+   webpack to compile the javascript modules. Thus an unpure setup was
+   considered easiest to get it working. If the pull request were merged, the
+   following `default.nix` shell would install 20 jupyerlab extension + 4
+   kernels (c, python, go, and ansible). All that would need to be edited by
+   user would be kernels, additionalExtensions, and buildInputs. The rest
+   would be automatic and would launch a jupyterlab instance for you.
+
+ { pkgs ? import <nixpkgs> {}, pythonPackages ? pkgs.python36Packages }:
+
+ let kernels = [
+       pkgs.python36Packages.ansible-kernel
+       pythonPackages.jupyter-c-kernel
+       pkgs.gophernotes
+     ];
+
+     additionalExtensions = [
+       "@jupyterlab/toc"
+       "@jupyterlab/fasta-extension"
+       "@jupyterlab/geojson-extension"
+       "@jupyterlab/katex-extension"
+       "@jupyterlab/mathjax3-extension"
+       "@jupyterlab/plotly-extension"
+       "@jupyterlab/vega2-extension"
+       "@jupyterlab/vega3-extension"
+       "@jupyterlab/xkcd-extension"
+       "jupyterlab-drawio"
+       "@jupyterlab/hub-extension"
+       "jupyterlab_bokeh"
+     ];
+ in
+ pkgs.mkShell rec {
+   buildInputs = [
+     ### Base Packages
+     pythonPackages.jupyterlab pkgs.nodejs
+
+     ### Extensions
+     pythonPackages.ipywidgets
+     pythonPackages.ipydatawidgets
+     pythonPackages.ipywebrtc
+     pythonPackages.pythreejs
+     pythonPackages.ipyvolume
+     pythonPackages.jupyterlab-git
+     pythonPackages.jupyterlab-latex
+     pythonPackages.ipyleaflet
+     pythonPackages.ipympl
+   ] ++ kernels;
+
+   shellHook = ''
+     TEMPDIR=$(mktemp -d -p /tmp)
+     mkdir -p $TEMPDIR
+     cp -r ${pkgs.python36Packages.jupyterlab}/share/jupyter/lab/* $TEMPDIR
+     chmod -R 755 $TEMPDIR
+     echo "$TEMPDIR is the app directory"
+
+     # kernels
+     export JUPYTER_PATH="${pkgs.lib.concatMapStringsSep ":" (p: "${p}/share/jupyter/") kernels}"
+
+ # labextensions
+ ${pkgs.lib.concatMapStrings
+      (s: "jupyter labextension install --no-build --app-dir=$TEMPDIR ${s}; ")
+      (pkgs.lib.unique
+        ((pkgs.lib.concatMap
+            (d: pkgs.lib.attrByPath ["passthru" "jupyterlabExtensions"] [] d)
+            buildInputs) ++ additionalExtensions))  }
+ jupyter lab build --app-dir=$TEMPDIR
+
+ # start jupyterlab
+ jupyter lab --app-dir=$TEMPDIR
+   '';
+
+ }
+
+   Some recent examples of work done on libraries:
+
+     * nlp
+     * scikit-learn
+     * tensorflow
+
+   There has also been notable work on the data science infra :
+
+     * Jupyter
+     * Jupyterlab package
+     * Jupyterhub
+
+   with such highlights as Jupyter kernels written in Nix:
+
+ ./modules/datasci.nix
+
+ ...
+   python3kernel = let
+
+    env = (pkgs.python3.withPackages
+      (pythonPackages: with pythonPackages; [
+        ipykernel
+        pandas
+        scikitlearn
+        ]));
+  
+   in {
+
+     displayName = "Python 3 for machine learning";
+
+     argv = [
+       "$ {env.interpreter}"
+       "-m"
+       "ipykernel_launcher"
+       "-f"
+       "{connection_file}"
+     ];
+     language = "python";
+     logo32 = "$ {env.sitePackages}/ipykernel/resources/logo-32x32.png";
+     logo64 = "$ {env.sitePackages}/ipykernel/resources/logo-64x64.png";
+   };
+ ...
+
+   It looks like NixOS is well on its way to becoming a solid data science
+   platform; the reproducible and language agnostic approach is a natural
+   match to the task. But perhaps a coordinated effort be fruitful step up
+   the game?
+
+   Lets continue the discussion here and at #nixos-data.
+
+Channels
+
+   #datascience:nixos.org on Matrix
+
+People
+
+   Ixxie
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Workgroup:DataScience&oldid=17472"
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 15 September 2024, at 06:08.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

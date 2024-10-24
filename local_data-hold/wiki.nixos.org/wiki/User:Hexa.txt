@@ -1,0 +1,104 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Teams
+     * 2 Maintenance
+   [ ] Toggle the table of contents
+
+                                   User:hexa
+
+     * User page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * User contributions
+     * Logs
+     * View user groups
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   I'm hexa, also known as mweinelt on GitHub.
+
+  Teams
+
+   As of 2024-04 I am part the following teams:
+
+     * Security
+     * Build Infrastructure
+     * Moderation
+
+   Feel free to contact me directly for security issues.
+
+  Maintenance
+
+   In nixpkgs I am one of the maintainers of the Python ecosystem
+
+   and I sometimes take care of the Staging process.
+
+   Further areas of interest are networking and home automation.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=User:Hexa&oldid=11189"
+     * This page was last edited on 1 April 2024, at 13:58.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

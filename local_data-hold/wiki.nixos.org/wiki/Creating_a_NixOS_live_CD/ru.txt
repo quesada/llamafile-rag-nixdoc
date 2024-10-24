@@ -1,0 +1,241 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Мотивация
+     * 2 Сборка
+          * 2.1 Тестирование образа
+          * 2.2 SSH
+          * 2.3 Статический IP-адрес
+          * 2.4 Ускорение сборки
+     * 3 См. Также
+   [ ] Toggle the table of contents
+
+                         Создание Live CD образа NixOS
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Creating a NixOS live CD and
+   the translation is 81% complete.
+
+Мотивация
+
+   Создвние модифицированного образа NixOS из имеюшийся системы имеет
+   множество преимуществ:
+
+     * Ensures authenticity.
+     * Нет необходимости в интернет доступе.
+     * В собстенный образ легко добавить пакеты и изменять конфигурацию.
+
+Сборка
+
+   Building minimal NixOS installation CD with the nix-build command by
+   creating this iso.nix-file. In this example with Neovim preinstalled.
+
+ { config, pkgs, ... }:
+ {
+   imports = [
+     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
+
+     # Provide an initial copy of the NixOS channel so that the user
+     # doesn't need to run "nix-channel --update" first.
+     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
+   ];
+   environment.systemPackages = [ pkgs.neovim ];
+ }
+
+   Сборка образа с помощью:
+
+ nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=iso.nix
+
+   В качестве альтернативы используйте Nix Flakes для создания установочного
+   образа ISO, используя ветку nixos-24.05 в качестве источника nixpkgs:
+
+    
+
+ flake.nix
+
+ {
+   description = "Minimal NixOS installation media";
+   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+   outputs = { self, nixpkgs }: {
+     nixosConfigurations = {
+       exampleIso = nixpkgs.lib.nixosSystem {
+         system = "x86_64-linux";
+         modules = [
+           ({ pkgs, modulesPath, ... }: {
+             imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+             environment.systemPackages = [ pkgs.neovim ];
+           })
+         ];
+       };
+     };
+   };
+ }
+
+   Следующие команды создадут ISO-образ:
+
+ # git init
+ # git add flake.nix
+ # nix build .#nixosConfigurations.exampleIso.config.system.build.isoImage
+
+   Готовый образ может быть найден а result:
+
+ $ ls result/iso/
+ nixos-24.05.20240721.63d37cc-x86_64-linux.iso
+
+  Тестирование образа
+
+   Чтобы просмотреть содержимое образа ISO, выполните следующие действия:
+
+   To inspect the contents of the ISO image:
+
+ $ mkdir mnt
+ $ sudo mount -o loop result/iso/nixos-*.iso mnt
+ $ ls mnt
+ boot  EFI  isolinux  nix-store.squashfs  version.txt
+ $ umount mnt
+
+   Чтобы загрузить образ ISO в эмуляторе:
+
+ $ nix-shell -p qemu
+ $ qemu-system-x86_64 -enable-kvm -m 256 -cdrom result/iso/nixos-*.iso
+
+  SSH
+
+   В вашем iso.nix:
+
+   В вашем iso.nix
+
+ {
+   ...
+   # Enable SSH in the boot process.
+   systemd.services.sshd.wantedBy = pkgs.lib.mkForce [ "multi-user.target" ];
+   users.users.root.openssh.authorizedKeys.keys = [
+     "ssh-ed25519 AaAeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee username@host"
+   ];
+   ...
+ }
+
+  Статический IP-адрес
+
+   Статические IP-адреса можно задать в самом образе. Это может быть полезно
+   при установке VPS.
+
+   Статический IP-адрес может бвть установлен в образе. Это может быть
+   полехно для установки на VPS.
+
+ {
+   ...
+   networking = {
+     usePredictableInterfaceNames = false;
+     interfaces.eth0.ip4 = [{
+       address = "64.137.201.46";
+       prefixLength = 24;
+     }];
+     defaultGateway = "64.137.201.1";
+     nameservers = [ "8.8.8.8" ];
+   };
+   ...
+ }
+
+  Ускорение сборки
+
+   Процесс сборки может быть медленным из-за сжатия.
+
+   Процессс сборки медленный из-за сжатия.
+
+   Вот некоторые значения времени для nix-build:
+
+                               Результаты сжатия
+   squashfsCompression                Время Размер 
+   lz4                                100s  59%    
+   gzip -Xcompression-level 1         105s  52%    
+   gzip                               210s  49%    
+   xz -Xdict-size 100% (По умолчанию) 450s  43%    
+
+   See also: mksquashfs benchmarks
+
+   Если вам не важен размер файла, вы можете использовать более быстрое
+   сжатие, добавив этот параметр к вашему iso.nix:
+
+ {
+   isoImage.squashfsCompression = "gzip -Xcompression-level 1";
+ }
+
+См. Также
+
+     * NixOS Manual: Сборка Live-образа NixOS.
+     * NixOS Manual: Building a NixOS (Live) ISO.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Creating_a_NixOS_live_CD/ru&oldid=16556"
+   Categories:
+     * NixOS
+     * Deployment
+     * Cookbook
+     * This page was last edited on 9 August 2024, at 04:02.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

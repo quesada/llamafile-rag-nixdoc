@@ -1,0 +1,181 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Nix
+     * 2 nixpkgs
+     * 3 NixOS
+     * 4 Debugging
+     * 5 References
+   [ ] Toggle the table of contents
+
+                                 Error handling
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This page is a collection of facilities and tools from nix, nixpkgs and
+   NixOS for error handling and debugging. You can use them to convey
+   configuration errors to users or to debug nix expressions trough
+   interactive or print debugging.
+
+   In most cases you will want to stick to the highest level abstraction:
+   config.warnings or lib.warn and its relatives.
+
+ { config, lib, ... }:
+ # in any nix code:
+ lib.warn "This is a sample warning message."
+ {
+     config.warnings = (
+       # Some NixOS module: throw error, if services.foo.bar == true
+       lib.optionals config.services.foo.bar "This is also a sample warning message, but invoked differently."
+     );
+ }
+
+Nix
+
+   The nix language has a construct to help with printing messages.
+
+     * assert: throw an error (see Nix manual: Assertions)
+
+   The nix language also comes with some related builtin functions:
+
+     * throw: throw an error with a message
+     * abort: same as throw, but always stop evaluation
+     * trace: print to stderr
+     * traceVerbose: print, but only when in --trace-verbose mode
+     * break: breakpoint when in --debugger mode
+     * tryEval: catch throws and asserts
+
+   Most of those functions (nix builtins as well as nixpkgs lib functions)
+   take an expression e as their last argument which they return unmodified.
+   Thus they are chained in front of some expression:
+
+ a = builtins.trace "trace message" {
+    # what should be assigned to a
+ };
+
+   Commonly, assert is combined with throw to generate meaningful error
+   messages: assert condition || throw "message";. This pattern is
+   essentially how lib.assertMsg works (see Sec. nixpkgs). ^[1]
+
+nixpkgs
+
+   There are three main facilities for printing errors and do print debugging
+   in nixpkgs:
+
+     * lib.trivial.* (see nixpkgs manual: lib.trivial)
+          * lib.throwIf and throwIfNot
+          * lib.warn, warnIf and warnIfNot
+     * lib.debug.*: tracing functions with some pretty printing (e.g.
+       lib.debug.traceIf) ^[2]
+     * lib.asserts.*: assert functions (e.g. lib.asserts.assertMsg)
+
+   These facilities also expose their attributes directly via lib.* (e.g.
+   lib.throwIf).
+
+   Nixpkgs also has a debugging facility like nix's break: the
+   breakpointHook.
+
+NixOS
+
+   The NixOS module system again wraps these library functions and makes them
+   available via module options (see NixOS manual: Assertions/Warnings): ^[3]
+
+     * config.warnings = [];
+     * config.assertions = [];
+
+   An example for a debugging facility in NixOS is running NixOS tests
+   interactively.
+
+Debugging
+
+   To summarise debugging approaches discussed in this article, you can use
+   break to debug nix code, breakpointHook to debug nix builds and
+   interactive tools to debug NixOS tests.
+
+   To find the location where variables get defined, you can use the
+   following tools:
+
+   For bare nix code, use builtins.unsafeGetAttrPos (example) which returns
+   the line and column of where an attribute is defined. It is undocumented
+   and considered bad practice.
+
+   (soon to come github PR): For NixOS options unsafeGetAttrPos doesn't work,
+   but the module system itself records that information: to find the
+   location of config.networking.hostName, use :p
+   options.networking.hostName.declarationPositions.
+
+References
+
+    1. ↑ throw vs assert discussion
+    2. ↑ Nixpkgs/docs: lib.debug
+    3. ↑ Nixpkgs/docs: Assertions
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Error_handling&oldid=10674"
+     * This page was last edited on 19 January 2024, at 12:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

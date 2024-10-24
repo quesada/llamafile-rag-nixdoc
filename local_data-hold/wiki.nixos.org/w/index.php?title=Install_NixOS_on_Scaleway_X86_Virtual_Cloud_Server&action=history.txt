@@ -1,0 +1,199 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+      Install NixOS on Scaleway X86 Virtual Cloud Server: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    26 March 2024
+
+     * curprev [ ] [ ] 17:2917:29, 26 March 2024‎ imported>Kallisti‎ 8,682
+       bytes +173‎ Added a way to use the virtual console, that scaleway
+       provides.
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:0005:00, 20 September 2021‎ imported>Nix‎ m 8,509
+       bytes +21‎ add Server category
+
+    28 November 2020
+
+     * curprev [ ] [ ] 14:1314:13, 28 November 2020‎ imported>Axelsimon‎
+       8,488 bytes +939‎ Add a new, simpler method using cloud-init and
+       nixos-infect
+
+    28 March 2019
+
+     * curprev [ ] [ ] 10:2710:27, 28 March 2019‎ imported>Leonidas-from-XIV‎
+       m 7,549 bytes 0‎ 17.09
+     * curprev [ ] [ ] 10:2210:22, 28 March 2019‎ imported>Leonidas-from-XIV‎
+       7,549 bytes −183‎ Update to how current instances on Scaleway behave
+     * curprev [ ] [ ] 10:1110:11, 28 March 2019‎ imported>Leonidas-from-XIV‎
+       m 7,732 bytes −58‎ Debian Stretch works too
+
+    27 March 2019
+
+     * curprev [ ] [ ] 19:3419:34, 27 March 2019‎ imported>Fadenb‎ 7,790
+       bytes +88‎ Add warning that guide is outdated
+
+    5 October 2018
+
+     * curprev [ ] [ ] 18:5518:55, 5 October 2018‎ imported>Volth‎ m 7,702
+       bytes +77‎ →‎Scaleway Aarch64 peculiarities: fix script
+
+    3 October 2018
+
+     * curprev [ ] [ ] 21:4921:49, 3 October 2018‎ imported>Volth‎ m 7,625
+       bytes +41‎ →‎Scaleway peculiarities
+     * curprev [ ] [ ] 21:3721:37, 3 October 2018‎ imported>Volth‎ 7,584
+       bytes +1,004‎ →‎Scaleway peculiarities: about aarch64 specific
+
+    19 April 2018
+
+     * curprev [ ] [ ] 08:4608:46, 19 April 2018‎ imported>Excogitation‎
+       6,580 bytes −33‎ reordered
+     * curprev [ ] [ ] 08:3508:35, 19 April 2018‎ imported>Makefu‎ 6,613
+       bytes −24‎ remove hashes
+     * curprev [ ] [ ] 08:3208:32, 19 April 2018‎ imported>Excogitation‎
+       6,637 bytes +764‎ added instructions for local build
+
+    23 March 2018
+
+     * curprev [ ] [ ] 09:1209:12, 23 March 2018‎ imported>Mic92‎ 5,873 bytes
+       +6‎ make the warning bigger for makefu :)
+
+    21 December 2017
+
+     * curprev [ ] [ ] 11:1411:14, 21 December 2017‎ imported>Fadenb‎ m 5,867
+       bytes 0‎ →‎Scaleway peculiarities: typo
+     * curprev [ ] [ ] 11:1311:13, 21 December 2017‎ imported>Fadenb‎ m 5,867
+       bytes +24‎ →‎Scaleway peculiarities
+     * curprev [ ] [ ] 11:1211:12, 21 December 2017‎ imported>Fadenb‎ m 5,843
+       bytes 0‎ →‎Scaleway peculiarities: make article coherent after recent
+       changes
+
+    5 December 2017
+
+     * curprev [ ] [ ] 06:2906:29, 5 December 2017‎ imported>Volth‎ 5,843
+       bytes −294‎ simplify
+     * curprev [ ] [ ] 06:2806:28, 5 December 2017‎ imported>Volth‎ m 6,137
+       bytes +27‎ the must be no double quotes in KEXEC_APPEND
+     * curprev [ ] [ ] 06:1506:15, 5 December 2017‎ imported>Volth‎ m 6,110
+       bytes +102‎ KEXEC_APPEND
+
+    1 December 2017
+
+     * curprev [ ] [ ] 12:3012:30, 1 December 2017‎ imported>Fadenb‎ 6,008
+       bytes +799‎ No edit summary
+     * curprev [ ] [ ] 11:5711:57, 1 December 2017‎ imported>Fadenb‎ 5,209
+       bytes +688‎ No edit summary
+     * curprev [ ] [ ] 10:4810:48, 1 December 2017‎ imported>Fadenb‎ 4,521
+       bytes +1,188‎ No edit summary
+     * curprev [ ] [ ] 10:3210:32, 1 December 2017‎ imported>Fadenb‎ 3,333
+       bytes +3,333‎ Created page with " == Preparation == === Build NixOS
+       kexec package === * git clone
+       https://github.com/cleverca22/nix-tests.git * cd nix-tests/kexec/ *
+       Edit configuration.nix according to your n..."
+   [ Compare selected revisions ]
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Install_NixOS_on_Scaleway_X86_Virtual_Cloud_Server"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

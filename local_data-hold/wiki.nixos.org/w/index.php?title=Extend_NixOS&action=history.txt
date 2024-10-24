@@ -1,0 +1,216 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Extend NixOS: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 April 2024
+
+     * curprev [ ] [ ] 08:5108:51, 7 April 2024‎ Claes talk contribs‎ 12,133
+       bytes +13‎ Change spelling Tag: Visual edit
+     * curprev [ ] [ ] 01:5601:56, 7 April 2024‎ Samueldr talk contribs‎ m
+       12,120 bytes 0‎ Fix accidental template transclusion (??)
+
+    5 April 2024
+
+     * curprev [ ] [ ] 01:1201:12, 5 April 2024‎ Samueldr talk contribs‎ m
+       12,120 bytes 0‎ Fixed casing
+
+    3 November 2023
+
+     * curprev [ ] [ ] 23:4523:45, 3 November 2023‎ imported>Bzm3r‎ m 12,120
+       bytes +1,976‎ Various small fixes to my initial edit.
+     * curprev [ ] [ ] 20:1720:17, 3 November 2023‎ imported>Bzm3r‎ m 10,144
+       bytes +39‎ No edit summary
+     * curprev [ ] [ ] 20:1420:14, 3 November 2023‎ imported>Bzm3r‎ 10,105
+       bytes −125‎ Simplifying language, focusing purpose.
+
+    31 August 2022
+
+     * curprev [ ] [ ] 16:2316:23, 31 August 2022‎ imported>Qm3ster‎ m 10,230
+       bytes −6‎ 1. imports is a config attribute, not to be confused with
+       the import keyword 2. Fixed code to correspond to description
+
+    4 August 2022
+
+     * curprev [ ] [ ] 08:2708:27, 4 August 2022‎ imported>Fricklerhandwerk‎
+       m 10,236 bytes 0‎ Fricklerhandwerk moved page NixOS:extend NixOS to
+       Extend NixOS: do not use category name in title
+     * curprev [ ] [ ] 08:2708:27, 4 August 2022‎ imported>Fricklerhandwerk‎
+       10,236 bytes +42‎ add categories: Tutorial, NixOS
+
+    6 April 2022
+
+     * curprev [ ] [ ] 07:5507:55, 6 April 2022‎ imported>Tim-uni‎ m 10,194
+       bytes +8‎ correct configuration of imported module
+
+    24 September 2020
+
+     * curprev [ ] [ ] 20:3820:38, 24 September 2020‎ imported>Garbas‎ m
+       10,186 bytes −4‎ use search.nixos.org
+
+    3 September 2020
+
+     * curprev [ ] [ ] 03:2003:20, 3 September 2020‎ imported>Workflow‎ m
+       10,190 bytes 0‎ config.networking.hostname is now
+       config.networking.hostName
+
+    20 November 2019
+
+     * curprev [ ] [ ] 13:4513:45, 20 November 2019‎ imported>Adrian
+       gierakowski‎ m 10,190 bytes −8‎ file name used in vm test command is
+       vmtest.nix
+
+    26 December 2017
+
+     * curprev [ ] [ ] 13:3613:36, 26 December 2017‎ imported>Ixxie‎ 10,198
+       bytes −5‎ No edit summary
+     * curprev [ ] [ ] 13:3513:35, 26 December 2017‎ imported>Ixxie‎ 10,203
+       bytes 0‎ update pkgs.lib to lib to bring this up to date.
+
+    14 October 2017
+
+     * curprev [ ] [ ] 17:2317:23, 14 October 2017‎ imported>Eisfreak7‎ m
+       10,203 bytes +3‎ The user configuration was introduced, but not used.
+       This replaces the hardcoded username with the configured one.
+     * curprev [ ] [ ] 17:2117:21, 14 October 2017‎ imported>Eisfreak7‎ m
+       10,200 bytes +54‎ The old link didn't exist anymore, replacing with a
+       link to the internet archive. Might consider just removing it, as I
+       don't think it really adds any new information.
+
+    31 August 2017
+
+     * curprev [ ] [ ] 20:5620:56, 31 August 2017‎ imported>Mic92‎ 10,146
+       bytes −2,203‎ Remove multiple daemons (I don't know how the systemd
+       variant would look like)
+     * curprev [ ] [ ] 20:5320:53, 31 August 2017‎ imported>Mic92‎ 12,349
+       bytes +7‎ →‎Implementations
+     * curprev [ ] [ ] 20:4620:46, 31 August 2017‎ imported>Mic92‎ 12,342
+       bytes −408‎ →‎Quick Implementation
+
+    27 August 2017
+
+     * curprev [ ] [ ] 13:2913:29, 27 August 2017‎ imported>Fadenb‎ m 12,750
+       bytes +379‎ Syntax highlighting
+
+    1 July 2017
+
+     * curprev [ ] [ ] 19:4019:40, 1 July 2017‎ imported>Fadenb‎ 12,371 bytes
+       +310‎ No edit summary
+
+    28 June 2017
+
+     * curprev [ ] [ ] 20:3320:33, 28 June 2017‎ imported>Fadenb‎ 12,061
+       bytes +16‎ →‎Modular Configuration
+     * curprev [ ] [ ] 20:3220:32, 28 June 2017‎ imported>Fadenb‎ 12,045
+       bytes +68‎ →‎Quick Implementation
+     * curprev [ ] [ ] 20:3120:31, 28 June 2017‎ imported>Fadenb‎ 11,977
+       bytes +2‎ →‎Quick Implementation
+     * curprev [ ] [ ] 20:3020:30, 28 June 2017‎ imported>Fadenb‎ 11,975
+       bytes +11,975‎ Created page with "This tutorial covers the major
+       points of NixOS configuration. In this tutorial, we configure NixOS to
+       start an IRC client every time the OS starts. This tutorial will start
+       b..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Extend_NixOS"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

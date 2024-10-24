@@ -1,0 +1,135 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Global configuration
+          * 1.1 Using Plugins
+     * 2 Per-user configuration
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                      Tmux
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   tmux is a "terminal multiplexer: it enables a number of terminals (or
+   windows), each running a separate program, to be created, accessed, and
+   controlled from a single screen. tmux may be detached from a screen and
+   continue running in the background, then later reattached."
+
+Global configuration
+
+   tmux can be configured globally from /etc/nixos/configuration.nix.
+
+   As an example:
+
+ programs.tmux = {
+   enable = true;
+   clock24 = true;
+   extraConfig = '' # used for less common options, intelligently combines if defined in multiple places.
+     ...
+   '';
+ }
+
+   Note that extraConfig writes directly to /etc/tmux.conf
+
+   There is a good example of tmux configuration here.
+
+  Using Plugins
+
+   Tmux plugins can be also configured using programs.tmux.plugins. They can
+   be found as NixOS packages: tmuxPlugins. Each of the tmux plugin is run
+   via run-shell automatically. Some plugins need to be run after having had
+   some custom configuration done>, but extraConfig gets executed after. For
+   example tmuxPlugins.cpu needs the status line be declared before the
+   plugin is run. For that scenario, run-shell can be added within
+   extraConfig:
+
+ programs.tmux = {
+   enable = true;
+   extraConfig = ''
+     ...
+     set -g status-right '#[fg=black,bg=color15] #{cpu_percentage}  %H:%M '
+     run-shell ${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/cpu.tmux
+   '';
+ }
+
+Per-user configuration
+
+   However, if you want to configure per user, you could use Home Manager.
+   This also grants you with more options available directly through nix, as
+   opposed to through an extra config option. Though it should be noted that
+   a few of the options have different names.
+
+See also
+
+     * Arch Wiki page on tmux
+     * tmux repository
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Tmux&oldid=6980"
+     * This page was last edited on 15 May 2023, at 15:38.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

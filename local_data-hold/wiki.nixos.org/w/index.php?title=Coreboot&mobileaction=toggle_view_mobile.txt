@@ -1,0 +1,181 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Building as Nix Derivation
+     * 2 Building in nix-shell
+     * 3 Skip building toolchain
+     * 4 Building as derivation
+     * 5 See also
+   [ ] Toggle the table of contents
+
+                                    Coreboot
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Building as Nix Derivation
+
+   There is a commented example of building Coreboot as Nix derivation at
+   blitz/nix-coreboot on Github.
+
+Building in nix-shell
+
+   Note: the following was tested and working on NixOS 21.11 (Porcupine)
+   while compiling the QEMU target for Coreboot v4.15 as well as Coreboot
+   master (7b168c92f6).
+
+   To build your own coreboot bios:
+
+   Create a shell.nix, and run nix-shell
+
+ # shell.nix
+
+ # NOTE we need mkShellNoCC
+ # mkShell would add the regular gcc, which has no ada (gnat)
+ # https://github.com/NixOS/nixpkgs/issues/142943
+
+ with import <nixpkgs> { };
+ mkShellNoCC {
+   buildInputs = [
+     gnat11 # gcc with ada
+     #gnatboot # gnat1
+     ncurses # make menuconfig
+     m4 flex bison # Generate flashmap descriptor parser
+     #clang
+     zlib
+     #acpica-tools # iasl
+     pkgconfig
+     qemu # test the image
+   ];
+   shellHook = ''
+     # TODO remove?
+     NIX_LDFLAGS="$NIX_LDFLAGS -lncurses"
+   '';
+ }
+
+   Now we can build coreboot:
+
+ # clone coreboot git repository (latest master)
+ git clone https://review.coreboot.org/coreboot.git --depth 1
+ # or for a specific coreboot version (I.E. version 4.15)
+ git clone --branch 4.15 https://review.coreboot.org/coreboot.git --depth 1
+
+ # get 3rd party submodules in coreboot repository
+ cd coreboot
+ du -sh . # ~200 MByte
+ git submodule update --init --checkout --depth 1
+ du -sh . # ~700 MByte
+
+ # configure
+ # set mainboard model, chip size, ...
+ make menuconfig MENUCONFIG_COLOR=blackbg # blackbg = dark mode
+
+ # build toolchain for a x86 target
+ # Note: the i386 toolchain is used for all x86 platforms including x86_64.
+ # See https://doc.coreboot.org/tutorial/part1.html
+ # to list all targets: make help
+ make crossgcc-i386 CPUS=$(nproc)
+
+ # build firmware
+ make CPUS=$(nproc)
+
+ # test firmware
+ qemu-system-x86_64 -bios build/coreboot.rom -serial stdio
+
+Skip building toolchain
+
+   We can use our system toolchain to build coreboot firmware, but this is
+   not recommended per coreboot docs:
+
+     you can possibly use your system toolchain, but the results are not
+     reproducible, and may have issues, so this is not recommended
+
+   To use the system toolchain, in make menuconfig, enable General Setup >
+   Allow building with any toolchain
+
+Building as derivation
+
+   coreboot is pretty picky about the toolchain it is built with and thus
+   using the toolchain it comes with is the easiest path to success. There
+   are commented Nix expressions that build coreboot here.
+
+See also
+
+     * https://doc.coreboot.org/tutorial/part1.html
+     * https://www.coreboot.org/Build_HOWTO
+     * https://www.coreboot.org/Lesson1
+     * https://wiki.gentoo.org/wiki/Coreboot
+     * flashing the new bios image
+          * https://doc.coreboot.org/tutorial/flashing_firmware/index.html
+          * https://libreboot.org/docs/install/spi.html
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Coreboot&oldid=17465"
+   Category:
+     * Booting
+     * This page was last edited on 15 September 2024, at 05:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

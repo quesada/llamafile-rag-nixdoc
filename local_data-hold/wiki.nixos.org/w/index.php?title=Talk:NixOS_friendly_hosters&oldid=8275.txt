@@ -1,0 +1,149 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Classification of Hosters
+       3 comments
+     * 2 Outdated/Unclear status of Scaleway
+   [ ] Toggle the table of contents
+
+                          Talk:NixOS friendly hosters
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 22:01, 21 June 2021 by imported>SebTM (→‎Outdated/Unclear
+   status of Scaleway: new section)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+   Latest comment: 30 September 2020 by Makefu in topic Classification of
+   Hosters
+
+Classification of Hosters
+
+   Latest comment: 30 September 20203 comments3 people in discussion
+
+   Currently, the classification of hosters does not seem to be consistent.
+   To pick one example, the entry for Vultr says: Vultr has a 19.09 NixOS ISO
+   in its public ISO library and also allows the upload of custom ISOs. If
+   that is the only kind of support they offer, I certainly would not
+   describe that as “1st class”. You cannot immediately log in to a new
+   machine via SSH. You still have to install NixOS and configure basic stuff
+   like network and SSH yourself. This is basically the same story as for
+   Hetzner Cloud. Yet Vultr is classified as 1st class NixOS support, while
+   Hetzner Cloud is classified as Support NixOS via custom ISO.
+
+   Compare this to vpsFree.cz. I haven't tried it myself, but according to
+   their documentation, they have a VM image or template for NixOS, and they
+   deploy your SSH key automatically. This way you you should be able to spin
+   up a VM with NixOS and log in with SSH right away.
+
+   If no one has any objections, I will revise this page in the coming days.
+   I propose a new tier system:
+
+   Tier 1
+           Ready-made VM image, automatic deployment of network configuration
+           and SSH keys.
+
+   Tier 2
+           Does not fulfill conditions for tier 1, but a current, stable ISO
+           image is available.
+
+   Tier 3
+           Does not fulfill conditions for tier 1 or tier 2, but allows
+           upload of custom ISOs by the user.
+
+   Tier 4
+           Does not fulfill conditions for tiers 1, 2, or 3, but customer
+           support will upload ISOs if requested.
+
+   Unknown
+           There is reportedly some NixOS support, but the specific nature of
+           that support is unclear.
+
+   The last category is needed, because I don't want to remove any of the
+   hosters already listed. But it’s not in all cases apparent in what way the
+   hoster in question supports NixOS.
+
+   --Mpuppe (talk) 12:43, 30 September 2020 (UTC)Reply
+
+   I am fine with the tiers you proposed 👍 --Fadenb (talk) 14:14, 30
+   September 2020 (UTC)Reply
+
+   Looks great! I will try to contribute my experiences as well --Makefu
+   (talk) 15:13, 30 September 2020 (UTC)Reply
+
+Outdated/Unclear status of Scaleway
+
+   "There is a image proposal to add full NixOS support." The repository was
+   deleted and beside a commit from 2016 in "kernel-tools"
+   (https://github.com/scaleway/kernel-tools/commit/5dde5bc3f7c08c88dd2a2a3661a9dff35479316b)
+   I can't find anything related to NixOS in the whole Scaleway-Organisation
+   on GitHub.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:NixOS_friendly_hosters&oldid=8275"
+     * This page was last edited on 21 June 2021, at 22:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

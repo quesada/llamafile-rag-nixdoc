@@ -1,0 +1,278 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          PinePhone: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:4019:40, 24 April 2024‎ Klinger talk contribs‎ m
+       5,026 bytes +24‎ No edit summary Tag: Visual edit: Switched
+
+    19 April 2024
+
+     * curprev [ ] [ ] 16:2016:20, 19 April 2024‎ Klinger talk contribs‎
+       5,002 bytes −25‎ Undo revision 12212 by Klinger (talk) Tag: Undo
+     * curprev [ ] [ ] 16:1916:19, 19 April 2024‎ Klinger talk contribs‎ m
+       5,027 bytes +25‎ added to Hardware-hub
+
+    23 March 2023
+
+     * curprev [ ] [ ] 20:3620:36, 23 March 2023‎ imported>Agx‎ m 5,002 bytes
+       −18‎ Adjust homepage url
+
+    16 September 2022
+
+     * curprev [ ] [ ] 21:4021:40, 16 September 2022‎ imported>Hall‎ 5,020
+       bytes +106‎ use phosh module from nixpkgs
+
+    11 March 2022
+
+     * curprev [ ] [ ] 13:4813:48, 11 March 2022‎ imported>Tom‎ m 4,914 bytes
+       −11‎ →‎Calling: Oops. Remove incomplete sentence.
+
+    10 March 2022
+
+     * curprev [ ] [ ] 23:1123:11, 10 March 2022‎ imported>Tom‎ 4,925 bytes
+       +264‎ →‎Calling: Recommend --test-quick-suspend-resume
+
+    8 March 2022
+
+     * curprev [ ] [ ] 21:2421:24, 8 March 2022‎ imported>Tom‎ 4,661 bytes
+       +252‎ Mention that fwupd can be used to flash the FOSS firmware as of
+       https://github.com/NixOS/nixpkgs/pull/161935
+
+    15 September 2021
+
+     * curprev [ ] [ ] 02:3302:33, 15 September 2021‎ imported>Tom‎ m 4,409
+       bytes −90‎ →‎Camera: Remove now-merged PR
+     * curprev [ ] [ ] 02:1102:11, 15 September 2021‎ imported>Tom‎ m 4,499
+       bytes −67‎ →‎SMS: chatty no longer needs a plugin as of 0.4
+
+    5 September 2021
+
+     * curprev [ ] [ ] 13:3413:34, 5 September 2021‎ imported>Tom‎ m 4,566
+       bytes −47‎ →‎SMS: Remove reference to now-merged PR.
+
+    26 August 2021
+
+     * curprev [ ] [ ] 11:1511:15, 26 August 2021‎ imported>Tom‎ 4,613 bytes
+       −142‎ →‎Recommended applications: Links to the new apps.gnome.org
+     * curprev [ ] [ ] 11:1311:13, 26 August 2021‎ imported>Tom‎ 4,755 bytes
+       −128‎ →‎Calling: Use the new programs.calls
+
+    15 August 2021
+
+     * curprev [ ] [ ] 04:3704:37, 15 August 2021‎ imported>Tom‎ 4,883 bytes
+       −82‎ →‎Calling: Remove stale known issue. Fixed in phosh 0.13
+     * curprev [ ] [ ] 04:1404:14, 15 August 2021‎ imported>Tom‎ 4,965 bytes
+       −105‎ →‎Requirements: Remove obsolete bug.
+     * curprev [ ] [ ] 04:1304:13, 15 August 2021‎ imported>Tom‎ 5,070 bytes
+       +9‎ →‎Torch: Note that the torch is now working.
+     * curprev [ ] [ ] 04:1104:11, 15 August 2021‎ imported>Tom‎ 5,061 bytes
+       −232‎ →‎Mobile internet: Now that gnome-control-center supports this
+       now.
+
+    11 August 2021
+
+     * curprev [ ] [ ] 11:3711:37, 11 August 2021‎ imported>Tom‎ m 5,293
+       bytes +78‎ Note how to get bluetooth working.
+
+    8 August 2021
+
+     * curprev [ ] [ ] 22:2522:25, 8 August 2021‎ imported>Tom‎ m 5,215 bytes
+       +35‎ Note GNOME circle
+     * curprev [ ] [ ] 06:4406:44, 8 August 2021‎ imported>Tom‎ m 5,180 bytes
+       −128‎ Remove mention of merged PR
+     * curprev [ ] [ ] 06:4306:43, 8 August 2021‎ imported>Tom‎ m 5,308 bytes
+       +95‎ Link to video acceleration
+
+    30 July 2021
+
+     * curprev [ ] [ ] 15:0515:05, 30 July 2021‎ imported>Tom‎ 5,213 bytes
+       +160‎ →‎Status: Mention Wake on WiFi
+
+    28 July 2021
+
+     * curprev [ ] [ ] 13:4313:43, 28 July 2021‎ imported>Tom‎ m 5,053 bytes
+       +29‎ →‎Camera
+     * curprev [ ] [ ] 13:4213:42, 28 July 2021‎ imported>Tom‎ 5,024 bytes
+       +42‎ →‎Camera: Note that back camera does not have autofocus.
+     * curprev [ ] [ ] 13:3813:38, 28 July 2021‎ imported>Tom‎ m 4,982 bytes
+       −97‎ →‎Calling: Remove mention of now-merged PR.
+     * curprev [ ] [ ] 13:3713:37, 28 July 2021‎ imported>Tom‎ 5,079 bytes
+       −163‎ →‎Bluetooth: Link to PR that fixes this.
+
+    27 July 2021
+
+     * curprev [ ] [ ] 15:1615:16, 27 July 2021‎ imported>Tom‎ 5,242 bytes
+       +53‎ →‎Calling
+     * curprev [ ] [ ] 15:0315:03, 27 July 2021‎ imported>Tom‎ 5,189 bytes
+       +55‎ →‎Sensors: Note firmware re sensors
+
+    23 July 2021
+
+     * curprev [ ] [ ] 03:4503:45, 23 July 2021‎ imported>Tom‎ 5,134 bytes
+       −120‎ No edit summary
+     * curprev [ ] [ ] 03:3903:39, 23 July 2021‎ imported>Tom‎ 5,254 bytes
+       +36‎ Note front camera requires a kernel boot param
+     * curprev [ ] [ ] 02:4602:46, 23 July 2021‎ imported>Tom‎ m 5,218 bytes
+       +106‎ →‎Bluetooth
+     * curprev [ ] [ ] 02:3702:37, 23 July 2021‎ imported>Tom‎ m 5,112 bytes
+       +22‎ →‎Requirements
+     * curprev [ ] [ ] 02:3702:37, 23 July 2021‎ imported>Tom‎ 5,090 bytes
+       +83‎ →‎Requirements
+     * curprev [ ] [ ] 00:5300:53, 23 July 2021‎ imported>Tom‎ m 5,007 bytes
+       −102‎ →‎Sensors: Remove reference to obsolete PR.
+
+    22 July 2021
+
+     * curprev [ ] [ ] 17:5617:56, 22 July 2021‎ imported>Samueldr‎ m 5,109
+       bytes +27‎ Use the existing iio service
+     * curprev [ ] [ ] 15:0015:00, 22 July 2021‎ imported>Tom‎ 5,082 bytes
+       +300‎ Add section on sensors
+     * curprev [ ] [ ] 06:0006:00, 22 July 2021‎ imported>Tom‎ m 4,782 bytes
+       +35‎ →‎Recommended applications: Add a TOTP application
+
+    15 July 2021
+
+     * curprev [ ] [ ] 15:3315:33, 15 July 2021‎ imported>Tom‎ 4,747 bytes
+       +127‎ No edit summary
+     * curprev [ ] [ ] 15:3015:30, 15 July 2021‎ imported>Tom‎ 4,620 bytes
+       +105‎ No edit summary
+     * curprev [ ] [ ] 06:5606:56, 15 July 2021‎ imported>Tom‎ 4,515 bytes
+       +268‎ →‎Camera
+
+    13 July 2021
+
+     * curprev [ ] [ ] 14:2914:29, 13 July 2021‎ imported>Tom‎ 4,247 bytes
+       +56‎ →‎GPS
+     * curprev [ ] [ ] 13:2413:24, 13 July 2021‎ imported>Tom‎ 4,191 bytes
+       +79‎ →‎Browsing
+     * curprev [ ] [ ] 07:4007:40, 13 July 2021‎ imported>Tom‎ 4,112 bytes
+       +118‎ No edit summary
+
+    12 July 2021
+
+     * curprev [ ] [ ] 14:2214:22, 12 July 2021‎ imported>Tom‎ 3,994 bytes
+       +76‎ →‎Status
+     * curprev [ ] [ ] 13:5013:50, 12 July 2021‎ imported>Tom‎ m 3,918 bytes
+       +189‎ →‎Disk encryption
+     * curprev [ ] [ ] 08:4808:48, 12 July 2021‎ imported>Tom‎ 3,729 bytes
+       +155‎ No edit summary
+     * curprev [ ] [ ] 02:3502:35, 12 July 2021‎ imported>Tom‎ m 3,574 bytes
+       +82‎ →‎Calling
+
+    11 July 2021
+
+     * curprev [ ] [ ] 18:1818:18, 11 July 2021‎ imported>Mindavi‎ 3,492
+       bytes +74‎ Update megapixels app info
+     * curprev [ ] [ ] 12:0512:05, 11 July 2021‎ imported>Tom‎ 3,418 bytes
+       −12‎ →‎Recommended applications
+     * curprev [ ] [ ] 12:0012:00, 11 July 2021‎ imported>Tom‎ 3,430 bytes
+       +69‎ →‎Recommended applications
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/PinePhone"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

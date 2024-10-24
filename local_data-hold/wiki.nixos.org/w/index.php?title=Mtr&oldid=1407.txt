@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 About
+     * 2 Issues
+          * 2.1 mtr needs to be called with sudo
+   [ ] Toggle the table of contents
+
+                                      mtr
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 16:28, 22 October 2022 by imported>Longregen (Add a
+   description of `mtr` and usage.)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+About
+
+   mtr is a network diagnostic tool that combines ping and traceroute into
+   one program. Nixpkgs contains two flavors of it: the standalone
+   application and a prometheus-ready exporter:
+
+ {
+   programs.mtr.enable = true;
+   services.mtr-exporter.enable = true;
+ }
+
+Issues
+
+  mtr needs to be called with sudo
+
+   To avoid the need to escalate privileges when calling mtr create a setcap
+   wrapper by setting
+
+ programs.mtr.enable = true;
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Mtr&oldid=1407"
+   Category:
+     * Applications
+     * This page was last edited on 22 October 2022, at 16:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

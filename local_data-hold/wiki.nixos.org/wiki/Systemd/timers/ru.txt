@@ -1,0 +1,180 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Настройка
+          * 1.1 Using the systemd.services.<name>.startAt shorthand
+          * 1.2 Running timer on a schedule
+     * 2 Использование
+   [ ] Toggle the table of contents
+
+                                Systemd/Таймеры
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Systemd/timers and the
+   translation is 89% complete.
+   ← Back to systemd
+
+   Таймеры - это файлы модулей systemd, чье имя заканчивается на .timer,
+   которые управляют .service файлами или событиями. Таймеры могут быть
+   использованы в качестве альтернативы cron. Таймеры имеют встроенную
+   поддержку событий, основанных на календаре, и монотонных временных
+   событий, а также могут запускаться асинхронно.
+
+Настройка
+
+   Следующий пример таймера запускает каждые 5 минут юнит systemd, который
+   вызывает сценарий bash.
+
+ systemd.timers."hello-world" = {
+   wantedBy = [ "timers.target" ];
+     timerConfig = {
+       OnBootSec = "5m";
+       OnUnitActiveSec = "5m";
+       Unit = "hello-world.service";
+     };
+ };
+
+ systemd.services."hello-world" = {
+   script = ''
+     set -eu
+     ${pkgs.coreutils}/bin/echo "Hello World"
+   '';
+   serviceConfig = {
+     Type = "oneshot";
+     User = "root";
+   };
+ };
+
+   Alternatively here, avoid quotes when calling for the binary and its
+   command options:
+
+ ${pkgs.foo}/bin/foo command-options
+
+   This will yield the same result as running
+
+ foo command-options
+
+   in your terminal.
+
+    Using the systemd.services.<name>.startAt shorthand
+
+   If you only want a service to execute at an interval and don't plan to
+   configure the timer much more, you can use the
+   systemd.services.<name>.startAt option. This will have the underlying
+   systemd module in nixpkgs create the timer for you, and set its OnCalendar
+   field. Note that the semantics for OnCalendar are different to
+   OnUnitActiveSec.
+
+   This example shows the previous hello-world service configured with
+   startAt, running every 5 minutes.
+
+ systemd.services."hello-world" = {
+   script = ''
+     set -eu
+     ${pkgs.coreutils}/bin/echo "Hello World"
+   '';
+   serviceConfig = {
+     Type = "oneshot";
+     User = "root";
+   };
+   startAt = "*:0/5";
+ };
+
+    Running timer on a schedule
+
+   Следующий пример запускается один раз в день (в 12:00). При активации он
+   запускает службу немедленно, если пропущено время последнего запуска
+   (опция Persistent=true), например, из-за отключения питания системы.
+
+ ...
+   timerConfig = {
+       OnCalendar = "daily";
+       Persistent = true;
+   };
+ };
+
+   More examples can be found at the Arch Wiki and at the systemd.timer
+   manpage.
+
+Использование
+
+   Список активных таймеров и их текущее состояние:
+
+ systemctl list-timers
+
+   Запустите службу вручную один раз в целях тестирования:
+
+ systemctl start hello-world
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Systemd/timers/ru&oldid=17521"
+   Category:
+     * Systemd
+     * This page was last edited on 17 September 2024, at 09:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

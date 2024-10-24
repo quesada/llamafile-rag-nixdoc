@@ -1,0 +1,223 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Installation instructions
+          * 2.1 UEFI (recommended)
+          * 2.2 EXTLINUX (legacy)
+     * 3 Serial console
+     * 4 Compatibility notes
+          * 4.1 Kernels
+               * 4.1.1 Downstream Kernel
+     * 5 USB booting with U-Boot
+     * 6 Notes
+     * 7 Resources
+   [ ] Toggle the table of contents
+
+                         NixOS on ARM/OLIMEX Teres-A64
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   Teres-1 (often referred as teres-a64) is an open-source hardware and
+   software netbook design based on the Allwinner A64 SoC.
+
+   OLIMEX Teres-A64
+   The King Himself
+   Manufacturer OLIMEX, Ltd         
+   Architecture AArch64             
+   Bootloader   Upstream U-Boot^[1] 
+   Boot order   SD, eMMC            
+   Maintainer   KREYREN             
+
+   It can boot from SD or from the included and slow af eMMC module (insane
+   people use only).
+
+Status
+
+   Stable, production-ready and suitable for mission critical environment
+
+   For U-Boot use armbian's distribution as currently the nixos's version is
+   outdated and broken
+
+Installation instructions
+
+  UEFI (recommended)
+
+   Note: This method assumes that you have your bootloader flashed in eMMC or
+   SPI
+
+   Refer to the nixos.org download page and download the installer to your
+   preference, then proceed to follow instructions in the NixOS manual on how
+   to flash the installer on e.g. USB drive
+
+  EXTLINUX (legacy)
+
+   To use the generic installation image for your board, you will need to
+   copy it verbatim to an SD card.
+
+ sudo dd if=sd-image-aarch64-linux.img of=/dev/DEVICE conv=sync status=progress
+
+   This board requires the installation of u-boot at a specific location on
+   the storage where NixOS was written to.
+
+ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/DEVICE bs=1024 seek=8
+
+Serial console
+
+   Serial console can be accessed by default on BAUM 115200 using the
+   TERES-USB-DEBUG cable (or make one it's 3 pole jack with pl2303 converter,
+   can be made work off of single board computer, etc..) in headphone jack
+   port and accessed through:
+
+    $ picocom -b BAUD /dev/SERIAL-DEVICE # Often set as /dev/ttyUSB0 @ baud of 115200
+
+   Currently the sdcard has set this by fault, but if you use custom
+   configuration and want to maintain the serial console functionality then
+   you need to append it to the kernel CLI through:
+
+    boot.kernelParams = ["console=ttyS0,115200n8"];
+
+Compatibility notes
+
+   Mainline kernel on NixOS
+   HDMI                   * Works                                             
+   Display                * Expected to work without issues with exceptions,  
+                            see sunxi wiki                                    
+   WiFi/Bluetooth         * Works, currently requires non-libre firmware for  
+                            RTL8723BS which is projected to be mitigated      
+   Audio (reproductors)   * Unknown                                           
+   Audio (audio jack)     * Unknown                                           
+   3D Acceleration        * Works                                             
+   Webcam                 * Unknown                                           
+   Touchpad               * Works                                             
+   Keyboard               * Works                                             
+   SdCard reader          * Works                                             
+   FOSS Bootloader        * Works - U-Boot/TowBoot                            
+
+  Kernels
+
+    Downstream Kernel
+
+   Note: Keep in mind that using non-upstream forks of the kernel always
+   incurs some risk as far as security goes.
+
+     This article or section needs expansion.                                 
+     Reason: Find and document use of a kernel with the added capabilities.   
+     (Discuss in Talk:NixOS on ARM/OLIMEX Teres-A64#)                         
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+USB booting with U-Boot
+
+   You will need to either have mainline U-Boot installed to the eMMC or to
+   an SD card.
+
+   Stop the boot process when prompted (by pressing a key). Then, do the
+   following:
+
+ Hit any key to stop autoboot:  0
+ => setenv boot_targets usb0
+ => boot
+
+   This sets the boot order for this boot only. U-Boot can boot (among
+   others) either of the NixOS sd-image or EFI iso from USB.
+
+Notes
+
+   Refer to the device's sunxi-linux wiki page for more details:
+   https://linux-sunxi.org/Olimex_Teres-A64
+
+   For u-boot installation refer to the u-boot documentation for AllWinner
+   devices:
+   https://docs.u-boot.org/en/stable/board/allwinner/sunxi.html#installing-on-a-micro-sd-card
+
+   For TowBoot installation refer to the TowBoot wiki:
+
+Resources
+
+   0. The Sunxi Linux Wiki Page for the device
+
+   1. Official product page
+
+   2. linux-sunxi wiki page
+
+   3. U-Boot documentation for the SoC
+
+   4. Armbian product page for Teres
+
+   5. Teres-A64 section on the OLIMEX forum
+
+    1. ↑ https://github.com/NixOS/nixpkgs/pull/240827
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/OLIMEX_Teres-A64&oldid=10809"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 6 February 2024, at 10:05.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

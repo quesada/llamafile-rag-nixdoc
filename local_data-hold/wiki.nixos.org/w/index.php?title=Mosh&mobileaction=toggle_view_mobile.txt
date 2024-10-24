@@ -1,0 +1,168 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Instalation
+          * 1.1 Client
+          * 1.2 Server
+     * 2 Usage
+     * 3 Troubleshooting
+          * 3.1 Missing /run/user/1000
+          * 3.2 The locale requested by LANG=*** isn't available here.
+     * 4 References
+   [ ] Toggle the table of contents
+
+                                      Mosh
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Mosh is an alternative SSH terminal. It has support for roaming, local
+   echo and uses UDP for transport. It also aims to improve responsiveness on
+   intermittent, and high latency connections.
+
+   See the mosh Package and mosh Options
+
+Instalation
+
+  Client
+
+   Install the mosh package.
+
+  Server
+
+   Enable the programs.mosh module. You can simply add the following into
+   your /etc/nixos/configuration.nix:
+
+ # Enable mosh, the ssh alternative when client has bad connection
+ # Opens UDP ports 60000 ... 61000
+ programs.mosh.enable = true;
+
+Usage
+
+   With mosh installed on both the client and server, connect by running:
+
+ $ mosh user@server
+
+   Note that mosh uses SSH for authentication and initialization, so it will
+   respect aliases and other options in .ssh/config. You can also specify SSH
+   options using the --ssh argument. For example, to use port 1122 instead of
+   22, you can either use Port 1122 in SSH config, or use mosh with the --ssh
+   argument:
+
+ $ mosh --ssh='ssh -p 1122' user@server
+
+   More information is available at mosh.org or using man mosh
+
+Troubleshooting
+
+  Missing /run/user/1000
+
+   Using a mosh session, $XDG_RUNTIME_DIR (/run/user/1000) doesn't exist and
+   causes issues such as:
+
+     * nix-shell failing with Error in tempdir() using
+       /run/user/1000/nix-shell.XXXXX
+
+   This is caused by the way mosh handles logging-in to the system, the login
+   is actually handled by a short ssh session, which ends immediately.
+   logind, as it is used, closes the user's session and cleans up behind,
+   since there is no lingering configured by default.
+
+   To enable lingering use:
+
+ $ loginctl enable-linger $USER
+
+   Then reconnect with mosh. Note that lingering is enabled by default in
+   NixOS >= 16.09.
+
+   As a workaround, it is also possible to set an alias in the user's shell
+   on the server wrapping mosh-server to keep the session around. ^[1]
+
+ alias mosh-server = "systemd-run --user --scope mosh-server"
+
+   See also https://github.com/NixOS/nixpkgs/issues/3702#issue-40762878
+
+  The locale requested by LANG=*** isn't available here.
+
+   This error occurs when trying to connect to a linux server (non-NixOS
+   distribution) on which mosh-server has been installed via nix. The easy
+   solution is to set LOCALE_ARCHIVE to your OS locale-archive in your
+   .profile or .zshenv:
+
+ export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
+
+     ----------------------------------------------------------------------
+
+References
+
+    1. ↑ issue#29234
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Mosh&oldid=4807"
+   Category:
+     * Applications
+     * This page was last edited on 13 November 2022, at 02:56.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

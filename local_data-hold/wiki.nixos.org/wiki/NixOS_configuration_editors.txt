@@ -1,0 +1,181 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Text editors
+          * 1.1 Editing as normal user
+     * 2 Graphical editors
+          * 2.1 nix-gui by lapp0
+          * 2.2 nixos-manager by pmiddend
+          * 2.3 nixos-conf-editor by vlinkz
+          * 2.4 nixui by matejc
+          * 2.5 Nixos-Gui by Celestialme
+     * 3 Web-based editors
+          * 3.1 mynixos.com
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                          NixOS configuration editors
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Creating graphical editors for NixOS configurations is hard because of the
+   amount and complexity of options and the resulting possibilities.
+
+Text editors
+
+   To improve the editing experience of configuration.nix, it is recommend to
+   use a text editor with syntax highlighting and language server
+   (autocompletion, formatting, refactoring).
+
+   See also: Editor Modes for Nix Files
+
+  Editing as normal user
+
+   The configuration files in /etc/nixos/ are owned by root, so for every
+   "save" operation, the editor will ask for the sudo password. To avoid
+   this, we can move the config files to a user's home folder:
+
+ mkdir ~/etc
+ sudo mv /etc/nixos ~/etc/
+ sudo chown -R $(id -un):users ~/etc/nixos
+ sudo ln -s ~/etc/nixos /etc/
+
+   Now you can run codium /etc/nixos to edit the config with VSCodium, and
+   sudo nixos-rebuild switch to build the config.
+
+   It's also a good idea to track the config files with git, and to make
+   backups.
+
+Graphical editors
+
+   It is also possible to use a graphical config manager, which can't express
+   all features of NixOS, but is simple to use.
+
+  nix-gui by lapp0
+
+     * https://github.com/nix-gui/nix-gui
+     * https://discourse.nixos.org/t/nix-gui-use-nixos-without-coding/15409
+     * python + qt5 desktop program
+     * 580+ GitHub stars
+
+  nixos-manager by pmiddend
+
+     * https://github.com/pmiddend/nixos-manager
+     * https://discourse.nixos.org/t/nixos-manager-manage-your-nixos-configuration-graphically/6685
+     * haskell + gtk desktop program
+     * 160+ GitHub stars
+     * last commit: 2020
+
+  nixos-conf-editor by vlinkz
+
+     * https://github.com/vlinkz/nixos-conf-editor
+     * https://discourse.nixos.org/t/nixos-conf-editor-a-gtk4-libadwaita-configuration-editor/19426
+     * https://www.reddit.com/r/NixOS/comments/w1pwmd/nixos_configuration_editor_a_gtk4libadwaita_app/
+     * rust + gtk4 desktop program
+     * 210+ GitHub stars
+     * backend tool: https://github.com/vlinkz/nix-editor - 50+ GitHub stars
+     * package manager: https://github.com/vlinkz/nix-software-center - 250+
+       GitHub stars
+
+  nixui by matejc
+
+     * https://github.com/matejc/nixui
+     * https://blog.matejc.com/blogs/myblog/graphical-ui-for-nix
+     * 40+ GitHub stars
+     * last commit: 2015
+
+  Nixos-Gui by Celestialme
+
+     * https://github.com/Celestialme/Nixos-Gui
+     * https://www.reddit.com/r/NixOS/comments/vfywyv/nix_gui_application_to_manage_nixos_build_with/
+     * svelte + tauri desktop program
+     * 20+ GitHub stars
+
+Web-based editors
+
+  mynixos.com
+
+   https://mynixos.com/
+
+   "create and share software configurations using the NixOS ecosystem"
+
+See also
+
+     * Configuration Collection
+     * https://www.reddit.com/r/NixOS/comments/cu4dle/should_nix_have_a_gui/
+     * https://discourse.nixos.org/t/how-would-your-nixos-configuration-tool-look/1380
+     * https://www.reddit.com/r/nosyntax - structural editors
+     * Nixos-rebuild#Specifying a different configuration location
+     * https://discourse.nixos.org/t/use-vscode-editor-configuration-nix-cant-save/14119
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_configuration_editors&oldid=12462"
+   Category:
+     * Applications
+     * This page was last edited on 24 April 2024, at 20:16.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

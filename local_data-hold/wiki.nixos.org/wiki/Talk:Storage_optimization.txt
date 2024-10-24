@@ -1,0 +1,117 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 How to avoid running out of space while building?
+   [ ] Toggle the table of contents
+
+                           Talk:Storage optimization
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+How to avoid running out of space while building?
+
+   tl;dr Would it be possible to mention which of the options are applicable
+   during a nix-build?
+
+   I'm running into issues with running out of space while trying to
+   nix-build on a GitLab.com runner:
+
+ $ nix-build '<nixpkgs/nixos>' -I nixos-config=configuration.nix --option min-free $((100 * 1000 * 1000)) --option max-free $((1000 * 1000 * 1000))
+ […]
+ copying path '/nix/store/ygfb2shrqbs8s2953rmshxzg69xyr124-jetbrains-jdk-11.0.10-b1427' from 'https://cache.nixos.org'...
+ running auto-GC to free 1000000000 bytes
+ preallocating file of 160251638 bytes: No space left on device
+ copying path '/nix/store/6wcgglhg22q7y6fmclmjp36q4z8r4x3i-gnome-connections-40.0.1' from 'https://cache.nixos.org'...
+ finding garbage collector roots...
+ cannot build derivation '/nix/store/vm23zldzlr1jy3h1ja0m9fxgjjzgp1il-idea-ultimate-2021.1.2.drv': 1 dependencies couldn't be built
+ copying path '/nix/store/cyjdcj3mxzp23a0ipcvf9lmigwmc3fid-opencv-4.5.2' from 'https://cache.nixos.org'...
+ cannot build derivation '/nix/store/3z7sp8n5v1hx8r9aywcc92gz7k1mmpxy-system-path.drv': 1 dependencies couldn't be built
+ cannot build derivation '/nix/store/qvn2lsn3isqz5i5a69acjvh5ssaq4sn2-system-path.drv': 1 dependencies couldn't be built
+ cannot build derivation '/nix/store/w5qvgwb68x5q1hpgrf5j91fyvrqd14bh-system-path.drv': 1 dependencies couldn't be built
+ cannot build derivation '/nix/store/l23jfilchzw687y9banwmap6cc1zdl8d-nixos-system-nixos-21.11pre295944.0747387223e.drv': 1 dependencies couldn't be built
+ cannot build derivation '/nix/store/n66jbc39yx70klbdypn62sg7k45m7a7a-nixos-system-nixos-21.11pre295944.0747387223e.drv': 1 dependencies couldn't be built
+ cannot build derivation '/nix/store/vpkk1hiqs3r0ibn6gk1g4h9nbb1gyqfm-nixos-system-nixos-21.11pre295944.0747387223e.drv': 1 dependencies couldn't be built
+ note: can't create trash directory: creating directory '/nix/store/trash': No space left on device
+ deleting garbage...
+ waiting for auto-GC to finish on exit...
+ deleting '/nix/store/trash'
+ deleting unused links...
+ note: currently hard linking saves -1.78 MiB
+ error: build of '/nix/store/bardwaxzi1n0z2vrn38cmgys41kd15a1-nixos-vm.drv', '/nix/store/vpkk1hiqs3r0ibn6gk1g4h9nbb1gyqfm-nixos-system-nixos-21.11pre295944.0747387223e.drv', '/nix/store/vynd65iraj23n9shdd4rra0a7sqqz5mx-nixos-vm.drv' failed
+
+   It looks like the min-free and max-free options are working, but it's
+   running out of space while garbage collecting? Also, I can't quite tell
+   which one of these options are relevant to a nix-build run, so it would be
+   a bit of programming by accident if I started trying everything out to see
+   if any of it will make the build work.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Storage_optimization&oldid=8892"
+     * This page was last edited on 22 August 2021, at 02:59.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

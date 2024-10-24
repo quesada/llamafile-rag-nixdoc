@@ -1,0 +1,87 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+   #09 - NixCon 2018 program, macOS 10.14 Mojave support, Haskell and Python
+                                 packaging tips
+
+   Published on Wed Sep 26 2018
+
+   #09 - NixCon 2018 program, macOS 10.14 Mojave support, Haskell and Python
+                                 packaging tips
+
+                                      News
+
+     * The NixCon 2018 sold out and program is now live
+
+     * Help make the Nix ecosystem’s docs better
+
+       A lot of people meet DocBook for the first time when they’re
+       contributing to the documentation of older, well established open
+       source projects like NixOS. Now there is https://docbook.rocks/ to
+       help you get past the initial hurdle of “what do I do now?” I hope
+       this helps!
+
+     * Nix 2.1 has been added to the docker images
+
+     * Creating Nix build function abstractions for pluggable SDKs
+
+     * Packaging a Haskell library for artefact evaluation using nix
+
+     * A way to develop software with Nix
+
+       This project illustrates using the Nix package manager for programming
+       heterogeneous, multi-module projects. Notably, it provides a Nix
+       library called Pkgs-make to save some of the boilerplate we might have
+       to write when using Nix for managing a software lifecycle. Pkgs-make
+       currently directly supports Haskell and Python development, but has
+       the potential to support other language platforms.
+
+     * Nix 2.1 is compatible with macOS 10.14 Mojave, make sure to update Nix
+       before upgrading
+
+     * travis-ci Nix support now allows setting Nix version
+
+     * Building Customised NixOS Images
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

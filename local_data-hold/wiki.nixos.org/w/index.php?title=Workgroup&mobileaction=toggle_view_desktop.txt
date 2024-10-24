@@ -1,0 +1,114 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Possible ideas for workgroups
+     * 2 Currently existing workgroups
+   [ ] Toggle the table of contents
+
+                                   Workgroup
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Workgroups are interest groups of people working on the same topic in the
+   nix* ecosystem.
+
+   For this, we provide the namespace. To create a workgroup “Example”, just
+   create the article Workgroup:Example, link it from this page, add
+   [[Category:Community]] via Edit_Source and find some folks to collaborate
+   with!
+
+   Your workgroup page should probably start with description of the scope,
+   followed a People section where each participant can link to their
+   userpage (on which they provide contact data). Afterwards, it is up to you
+   how to organize yourself. Link to tooling or issues, have a discussion
+   section (where you can sign your comment with ~~~~), create a few wiki
+   entries …
+
+  Possible ideas for workgroups
+
+     * Language support: Workgroup:RustPackaging, Workgroup:PythonPackaging,
+       …
+     * Documentation improvement: Workgroup:Manual,
+       Workgroup:HelpingBeginners, …
+     * Devops stuff: Workgroup:Nixops, Workgroup:Hydra, …
+
+  Currently existing workgroups
+
+        * Workgroup:Container
+        * Workgroup:DataScience
+        * Workgroup:Deployment
+        * Workgroup:Kubernetes
+        * Workgroup:Router
+        * Workgroup:SELinux
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Workgroup&oldid=12539"
+   Category:
+     * Community
+     * This page was last edited on 24 April 2024, at 22:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

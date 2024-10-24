@@ -1,0 +1,207 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Combine Sets
+     * 2 Adding a Custom Package
+     * 3 Troubleshooting
+          * 3.1 Missing lmodern.sty
+          * 3.2 Invalid fontname ‘Latin Modern Roman/ICU’
+     * 4 Further reading
+   [ ] Toggle the table of contents
+
+                                    TexLive
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   According to Wikipedia:
+
+           TeX Live is a free software distribution for the TeX typesetting
+           system that includes major TeX-related programs, macro packages,
+           and fonts.
+
+Installation
+
+   Since TeX Live consist of thousands of packages, to make managing it
+   easier, NixOS replicates the organization of TeX Live into 'schemes' and
+   'collections'
+
+   The following Tex Live schemes are available:
+
+   Name of TeX    Name of Nixos-derivation                Comment             
+   Live package   
+   Scheme-full    nixpkgs.texlive.combined.scheme-full    Contains every TeX  
+                                                          Live package        
+                                                          contains everything 
+   Scheme-medium  nixpkgs.texlive.combined.scheme-medium  in the small scheme 
+                                                          + more packages and 
+                                                          languages           
+                                                          contains everything 
+   Scheme-small   nixpkgs.texlive.combined.scheme-small   in the basic scheme 
+                                                          + xetex, metapost,  
+                                                          a few languages.    
+                                                          contains everything 
+   Scheme-basic   nixpkgs.texlive.combined.scheme-basic   in the plain scheme 
+                                                          but includes latex. 
+   Scheme-minimal nixpkgs.texlive.combined.scheme-minimal contains plain      
+                                                          only.               
+                                                          contains more than  
+   Scheme-teTeX   nixpkgs.texlive.combined.scheme-tetex   the medium scheme,  
+                                                          but nowhere near    
+                                                          the full scheme.    
+   Scheme-ConTeXt nixpkgs.texlive.combined.scheme-context contains ConTeXt    
+   Scheme-GUST    nixpkgs.texlive.combined.scheme-gust    contains gust       
+
+  Combine Sets
+
+   You can install a set with extra packages by using something like
+
+   (texlive.combine { inherit (texlive) scheme-medium xifthen ifmtarg framed
+   paralist titlesec; })
+
+   For a minimal set of packages needed for Emacs Orgmode, as described in
+   org-latex-default-packages-alist variable, install these packages:
+
+ { config, pkgs, ... }:
+ let
+   tex = (pkgs.texlive.combine {
+     inherit (pkgs.texlive) scheme-basic
+       dvisvgm dvipng # for preview and export as html
+       wrapfig amsmath ulem hyperref capt-of;
+       #(setq org-latex-compiler "lualatex")
+       #(setq org-preview-latex-default-process 'dvisvgm)
+   });
+ in
+ { # home-manager
+   home.packages = with pkgs; [
+     tex
+   ];
+ }
+
+Adding a Custom Package
+
+   If you have a custom LaTeX package or style file that is not part of the
+   TeXLive distribution, you can add it to the package set like this:
+
+   First, create a derivation for your package. The contents of $out/tex will
+   later be placed in texmf/tex
+
+ latex-corporate-identity = pkgs.stdenvNoCC.mkDerivation {
+   name = "latex-corporate-identity";
+   src = ./path/to/package/tree;
+   installPhase = "cp -r $src $out";
+   passthru.tlType = "run";
+ };
+
+
+ texlive-corporate-identity = {
+   pkgs = [ latex-corporate-identity ];
+ };
+
+   The directory tree under the path specified as src looks like this:
+
+ └── tex
+     └── latex
+         └── corporate-identity
+             ├── corporate-identity.sty
+
+   You can now add the package to the combined set as you would with any
+   other texlive package:
+
+ tex = pkgs.texlive.combine {
+   inherit (pkgs.texlive) scheme-full;
+   inherit texlive-corporate-identity;
+ };
+
+Troubleshooting
+
+  Missing lmodern.sty
+
+   If LaTex (perhaps through Pandoc) complains about missing lmodern.sty,
+   make sure you have at least texlive.combined.scheme-medium installed
+   (-full should work as well; while -small worked for some, but not for
+   all).
+
+  Invalid fontname ‘Latin Modern Roman/ICU’
+
+   If you get an error message saying “Invalid fontname ‘Latin Modern
+   Roman/ICU’. . . ”, then you need to add the entry lmodern into your
+   configuration in the section fonts.fonts and rebuild.
+
+Further reading
+
+     * The Tex Live Guide 2018
+     * Tex in NixOS-Wiki
+     * Building LaTeX Documents Reproducibly with Nix Flakes
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=TexLive&oldid=17100"
+   Category:
+     * Applications
+     * This page was last edited on 4 September 2024, at 08:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

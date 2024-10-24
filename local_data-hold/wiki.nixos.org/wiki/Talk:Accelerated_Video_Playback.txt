@@ -1,0 +1,96 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 MPV
+   [ ] Toggle the table of contents
+
+                        Talk:Accelerated Video Playback
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+MPV
+
+   The MPV manual discourages enabling HW acceleration in the config file,
+   saying it can cause problems:
+
+   In general, it's very strongly advised to avoid hardware decoding unless
+   absolutely necessary, i.e. if your CPU is insufficient to decode the file
+   in questions. If you run into any weird decoding issues, frame glitches or
+   discoloration, and you have --hwdec turned on, the first thing you should
+   try is disabling it.
+
+   If one wants to set it in the config, they recommend hwdec=auto-safe, and
+   say hwdec-codecs=all is just for testing purposes.
+
+   Should we change the section in the page?
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Accelerated_Video_Playback&oldid=7602"
+     * This page was last edited on 7 May 2020, at 13:43.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

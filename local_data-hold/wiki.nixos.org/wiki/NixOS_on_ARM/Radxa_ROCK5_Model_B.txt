@@ -1,0 +1,229 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Bootloader Firmware
+          * 2.1 Vendor U-Boot Firmware
+          * 2.2 Community UEFI Firmware
+          * 2.3 Community U-Boot Firmware
+     * 3 System configuration
+          * 3.1 @aciceri's flake
+   [ ] Toggle the table of contents
+
+                        NixOS on ARM/Radxa ROCK5 Model B
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   The Radxa ROCK 5B is a Single-Board Computer with a Rockchip RK3588 SoC.
+
+     * CPU: ARM Cortex-A76 and Cortex-A55
+     * GPU: Mali-G610 MP4
+     * RAM: 4GB/8GB/16GB LPDDR4X at 2133MHz
+     * MMC: eMMC Connector for up to 512GB
+     * NET: 2.5 Gigabit Ethernet
+     * USB: 2x USB 3.1 Type-A, 2x USB 2.0 Type-A
+     * PCIe: M.2 Key E connector with PCIe 2.1 x1, M.2 Key M connector with
+       PCIe 3.0 x4
+
+   Radxa ROCK 5B
+   Radxa R SBC  
+   Manufacturer Radxa                   
+   Architecture AArch64                 
+   Bootloader   Vendor BSP              
+   Boot order   SPI NOR Flash, eMMC, SD 
+   Maintainer   jakubgs                 
+
+Status
+
+   Support of this system is YMMV (your mileage may vary), and depends on
+   vendor-provided BSP (Board Support Package) based components.
+
+   Two kinds of bootloaders are available in different variants:
+
+     * U-Boot
+          * Mainline - Supports all storage boot options, including NVMe
+          * Vendor - Works well for eMMC and SD card boot, not for NVMe.
+          * Not-TowBoot - Supports eMMC and SD card, NVMe sometimes.
+               * Vendor U-Boot built using the TowBoot build infrastructure
+     * EDK2/TianoCore
+          * EDK2 UEFI Firmware - Supports all storage boot options, including
+            NVMe.
+
+   The official hardware documentation can be found on the Radxa wiki.
+
+Bootloader Firmware
+
+  Vendor U-Boot Firmware
+
+   Booting the system with the vendor-provided platform firmware may not work
+   due to a known issue in older U-Boot.
+
+   If using the vendor-provided platform firmware is desired, renaming the
+   kernel derivation to a shorter name should allow boot to succeed.
+
+   Note: The Vendor Platform Firmware operates at the 1500000 baud rate. Your
+   system may need to be configured to use 1500000 baud rate to make the
+   serial console usable.
+
+  Community UEFI Firmware
+
+   The best available bootloader is EDK2 UEFI firmware for Rockchip RK3588
+   platforms. The v0.9.1 release is confirmed working.
+
+   In order to flash this bootloader we'll need to download two files:
+
+     * rk3588_spl_loader_v1.15.113.bin - SPI bootloader image.
+     * rock-5b_UEFI_Release_v0.9.1.img - UEFI bootloader image.
+
+   Then use the rkdeveloptool tool in version 1.32 or higher as described in
+   SPI flashing documentation:
+
+  > nix-shell -p rkdeveloptool
+
+ [nix-shell:~/rk3588]$ rkdeveloptool --version
+ rkdeveloptool ver 1.32
+
+ [nix-shell:~/rk3588]$ sudo rkdeveloptool db rk3588_spl_loader_v1.08.111.bin
+ Downloading bootloader succeeded.
+
+ [nix-shell:~/rk3588]$ sudo rkdeveloptool wl 0 rock-5b_UEFI_Release_v0.9.1.img
+ Write LBA from file (100%)
+
+ [nix-shell:~/rk3588]$ sudo rkdeveloptool rb
+
+   Now the device has a graphical bootloader available when pressing Escape
+   at boot time:
+
+   NanoPi-R6C UEFI Firmware screen 
+
+   Note: The standard NixOS SD card image supports only extlinux so ISO NixOS
+   image needs to be used.
+
+  Community U-Boot Firmware
+
+   Note: This Platform Firmware operates at the 115200 baud rate. The 115200
+   baud rate is more standard, so it may or may not need to be adapted to be
+   usable.
+
+   A WIP tree to build U-Boot using the infrastructure for Tow-Boot is
+   available. (The end-result is not a proper Tow-Boot build.)
+
+     * https://github.com/samueldr/Tow-Boot/tree/wip/rock5-vendor
+
+   This uses a fork with some fixes, so that an installation on the SPI Flash
+   will work, and allow OS booting from NVMe, eMMC or SD. NVMe support may be
+   YMMV depending on the specific hardware.
+
+   The board-specific README has further notes.
+
+   Using from shared storage (SD, eMMC) or from SPI should work, and both are
+   as supported.
+
+   To build:
+
+ nix-build -A radxa-rock5b
+
+   The SD or eMMC shared storage image can be flashed as usual:
+
+ dd if=shared.disk-image.img of=/dev/XXX bs=1M oflag=direct,sync status=progress
+
+   The SPI image cannot be installed using the usual installer. For now you
+   should follow the vendor instructions to write the
+   binaries/Tow-Boot.spi.bin file to SPI. In other words using rkdeveloptool
+   for the installation, or any other way to write to SPI flash.
+
+System configuration
+
+   A working bootloader configuration looks like this:
+
+   boot.loader = {
+     efi.canTouchEfiVariables = true;
+     systemd-boot.enable = true;
+     grub.enable = false;
+   };
+
+   The current NixOS 23.05 release with 6.1 Linux kernel detects NVMe but not
+   the eMMC.
+
+  @aciceri's flake
+
+   Nix flake for building OS image: https://github.com/aciceri/rock5b-nixos
+
+   Flash result to a new second legacy bootable ext4 partition on the
+   installation media
+
+   Boot into system:
+
+ sudo nixos-rebuild switch --flake github:jonahbron/config/aciceri-rebooted-into-this#rock5b
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Radxa_ROCK5_Model_B&oldid=12938"
+     * This page was last edited on 25 May 2024, at 15:09.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,145 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      Talk:Linux kernel: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 April 2024
+
+     * curprev [ ] [ ] 01:5801:58, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       2,232 bytes +172‎ →‎specify pkgs.linuxKernel.packages.* instead of
+       what's currently there: new section
+
+    24 January 2023
+
+     * curprev [ ] [ ] 23:1123:11, 24 January 2023‎
+       imported>FranciscoKurpiel‎ 2,060 bytes +532‎ Build kernel from source
+       and use it
+
+    9 August 2020
+
+     * curprev [ ] [ ] 01:1401:14, 9 August 2020‎ imported>Samueldr‎ 1,528
+       bytes +475‎ →‎Why is the default kernel (just `linux`) not the latest?
+
+    7 August 2020
+
+     * curprev [ ] [ ] 15:5315:53, 7 August 2020‎ imported>Jiehong‎ 1,053
+       bytes +276‎ No edit summary
+
+    7 February 2020
+
+     * curprev [ ] [ ] 03:5603:56, 7 February 2020‎ imported>Taikatytto‎ 777
+       bytes +101‎ →‎Custom Extra Settings: new section
+
+    26 August 2019
+
+     * curprev [ ] [ ] 16:2116:21, 26 August 2019‎ imported>Samueldr‎ m 676
+       bytes +171‎ No edit summary
+     * curprev [ ] [ ] 16:1616:16, 26 August 2019‎ imported>Pingiun‎ 505
+       bytes +505‎ Created page with " == Warning for the section about
+       disabling mitigations? == I think that showing users how to disable
+       security features should come with some warning. Users that are not
+       famil..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Talk:Linux_kernel"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

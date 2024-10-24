@@ -1,0 +1,97 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Auto-start applications on login
+       1 comment
+     * 2 Wayland as default for Gnome
+   [ ] Toggle the table of contents
+
+                                   Talk:GNOME
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 18 January 2022 by L0b0 in topic Auto-start applications
+   on login
+
+Auto-start applications on login
+
+   Latest comment: 18 January 20221 comment1 person in discussion
+
+   How do I set up "startup applications", as they are called in GNOME
+   Tweaks?
+
+   L0b0 (talk) 05:30, 18 January 2022 (UTC)Reply
+
+Wayland as default for Gnome
+
+   What is needed so Gnome uses Wayland as default without the need of X11
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:GNOME&oldid=9550"
+     * This page was last edited on 24 August 2023, at 06:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

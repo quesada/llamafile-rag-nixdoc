@@ -1,0 +1,200 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           GameMode: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    25 June 2024
+
+     * curprev [ ] [ ] 20:3420:34, 25 June 2024‎ Klinger talk contribs‎ m
+       4,064 bytes −22‎ Category:Software removed (Gaming is enough) Tag:
+       Manual revert
+
+    22 June 2024
+
+     * curprev [ ] [ ] 23:0223:02, 22 June 2024‎ Tomodachi94 talk contribs‎ m
+       4,086 bytes +22‎ Adding categories
+     * curprev [ ] [ ] 21:5921:59, 22 June 2024‎ Tomodachi94 talk contribs‎ m
+       4,064 bytes 0‎ Tomodachi94 moved page Gamemode to GameMode: "GameMode"
+       is the casing used in the documentation:
+       https://github.com/FeralInteractive/gamemode?tab=readme-ov-file#gamemode
+     * curprev [ ] [ ] 21:5921:59, 22 June 2024‎ Tomodachi94 talk contribs‎ m
+       4,064 bytes +47‎ link to homepage
+
+    3 May 2024
+
+     * curprev [ ] [ ] 08:0908:09, 3 May 2024‎ Mic92 talk contribs‎ 4,017
+       bytes +366‎ imported from old wiki
+
+    19 April 2024
+
+     * curprev [ ] [ ] 16:2616:26, 19 April 2024‎ Klinger talk contribs‎ m
+       3,651 bytes +21‎ added to category gamemode
+
+    29 September 2023
+
+     * curprev [ ] [ ] 09:3009:30, 29 September 2023‎ imported>IgorM‎ m 3,630
+       bytes +100‎ Fixed syntax highlighting
+
+    23 July 2022
+
+     * curprev [ ] [ ] 01:3101:31, 23 July 2022‎ imported>Kira-bruneau‎ 3,530
+       bytes −80‎ No edit summary
+
+    19 June 2021
+
+     * curprev [ ] [ ] 14:4414:44, 19 June 2021‎ imported>Kira-bruneau‎ m
+       3,610 bytes +1‎ No edit summary
+
+    17 June 2021
+
+     * curprev [ ] [ ] 12:4512:45, 17 June 2021‎ imported>Bryanasdev000‎ m
+       3,609 bytes −38‎ No edit summary
+
+    28 May 2021
+
+     * curprev [ ] [ ] 12:3812:38, 28 May 2021‎ imported>Kira-bruneau‎ 3,647
+       bytes −4‎ No edit summary
+
+    18 May 2021
+
+     * curprev [ ] [ ] 23:3723:37, 18 May 2021‎ imported>MetaDark‎ m 3,651
+       bytes −344‎ No edit summary
+     * curprev [ ] [ ] 23:3223:32, 18 May 2021‎ imported>MetaDark‎ 3,995
+       bytes −203‎ No edit summary
+     * curprev [ ] [ ] 22:1522:15, 18 May 2021‎ imported>MetaDark‎ m 4,198
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 22:0522:05, 18 May 2021‎ imported>MetaDark‎ m 4,198
+       bytes +1‎ No edit summary
+     * curprev [ ] [ ] 22:0522:05, 18 May 2021‎ imported>MetaDark‎ m 4,197
+       bytes +116‎ No edit summary
+     * curprev [ ] [ ] 17:2117:21, 18 May 2021‎ imported>MetaDark‎ m 4,081
+       bytes −2‎ No edit summary
+     * curprev [ ] [ ] 17:1617:16, 18 May 2021‎ imported>MetaDark‎ m 4,083
+       bytes −4‎ No edit summary
+     * curprev [ ] [ ] 17:1517:15, 18 May 2021‎ imported>MetaDark‎ m 4,087
+       bytes +4‎ No edit summary
+     * curprev [ ] [ ] 17:0817:08, 18 May 2021‎ imported>MetaDark‎ m 4,083
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 17:0617:06, 18 May 2021‎ imported>MetaDark‎ 4,083
+       bytes +465‎ No edit summary
+     * curprev [ ] [ ] 16:5116:51, 18 May 2021‎ imported>MetaDark‎ m 3,618
+       bytes +4‎ No edit summary
+     * curprev [ ] [ ] 16:5016:50, 18 May 2021‎ imported>MetaDark‎ m 3,614
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 16:4816:48, 18 May 2021‎ imported>MetaDark‎ m 3,614
+       bytes +23‎ No edit summary
+     * curprev [ ] [ ] 16:4216:42, 18 May 2021‎ imported>MetaDark‎ m 3,591
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 16:4216:42, 18 May 2021‎ imported>MetaDark‎ 3,591
+       bytes +1,145‎ No edit summary
+     * curprev [ ] [ ] 16:3816:38, 18 May 2021‎ imported>MetaDark‎ m 2,446
+       bytes +5‎ No edit summary
+     * curprev [ ] [ ] 16:3716:37, 18 May 2021‎ imported>MetaDark‎ 2,441
+       bytes +2,441‎ Created page with "GameMode is a daemon/lib combo for
+       Linux that allows games to request a set of optimisations be
+       temporarily applied to the host OS and/or a game process. ==
+       Installation == G..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/GameMode"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

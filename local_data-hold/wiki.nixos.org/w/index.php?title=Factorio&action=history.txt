@@ -1,0 +1,128 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Factorio: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 April 2024
+
+     * curprev [ ] [ ] 19:0619:06, 19 April 2024‎ Klinger talk contribs‎
+       2,914 bytes −27‎ Category:Gaming Category:Server
+
+    26 June 2023
+
+     * curprev [ ] [ ] 00:4700:47, 26 June 2023‎ imported>Mac-chaffee‎ 2,941
+       bytes +70‎ mention IPv6 support
+
+    23 June 2023
+
+     * curprev [ ] [ ] 02:0802:08, 23 June 2023‎ imported>Mac-chaffee‎ m
+       2,871 bytes −2‎ fix nixos-rebuild syntax
+     * curprev [ ] [ ] 02:0502:05, 23 June 2023‎ imported>Mac-chaffee‎ 2,873
+       bytes +2,873‎ Created page with
+       "[https://en.wikipedia.org/wiki/Factorio Factorio] is a video game
+       created by Wube Software. Factorio has a multiplayer mode that
+       requires a dedicated server, which is what thi..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Factorio"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

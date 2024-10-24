@@ -1,0 +1,144 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 RAM, ZRAM & Swap
+     * 2 Example config
+   [ ] Toggle the table of contents
+
+                                  Star Citizen
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Star Citizen is playable on NixOS, thanks to a few community projects. In
+   case you have issues, over there is a good place to start
+
+     * Robertsspaceindustries.com - LUG (Linux User Group)
+     * GitHub - fufexan/nix-gaming
+
+RAM, ZRAM & Swap
+
+   Bad news: Star Citizen requires a lot of RAM on Linux
+
+   Good news: ZRAM & Swap count! For the correct amounts, please see GitHub -
+   starcitizen-lug/knowledge-base/wiki/Performance-Tuning#zram--swap
+
+Example config
+
+   The below config is for a system with 16 GB of RAM. Adjust the ZRAM & Swap
+   values as needed.
+
+ { config, pkgs, ... }:
+
+ let
+   nix-gaming = import (builtins.fetchTarball "https://github.com/fufexan/nix-gaming/archive/master.tar.gz");
+ in
+ {
+   # ...
+
+   # See https://github.com/starcitizen-lug/knowledge-base/wiki/Manual-Installation#prerequisites
+   boot.kernel.sysctl = {
+     "vm.max_map_count" = 16777216;
+     "fs.file-max" = 524288;
+   };
+
+   # See RAM, ZRAM & Swap
+   swapDevices = [{
+     device = "/var/lib/swapfile";
+     size = 8 * 1024;  # 8 GB Swap
+   }];
+   zramSwap = {
+     enable = true;
+     memoryMax = 16 * 1024 * 1024 * 1024;  # 16 GB ZRAM
+   };
+
+   # The following line was used in my setup, but I'm unsure if it is still needed
+   # hardware.pulseaudio.extraConfig = "load-module module-combine-sink";
+
+   users.users.foo = {
+     isNormalUser = true;
+     description = "Foo";
+     packages = with pkgs; [
+       # tricks override to fix audio
+       # see https://github.com/fufexan/nix-gaming/issues/165#issuecomment-2002038453
+       (nix-gaming.packages.${pkgs.hostPlatform.system}.star-citizen.override {
+         tricks = [ "arial" "vcrun2019" "win10" "sound=alsa" ];
+       })
+     ];
+   };
+
+   # ...
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Star_Citizen&oldid=13141"
+   Categories:
+     * Applications
+     * Gaming
+     * This page was last edited on 11 June 2024, at 18:41.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

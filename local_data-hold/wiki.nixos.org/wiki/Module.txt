@@ -1,0 +1,584 @@
+   Link: canonical
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Structure
+          * 1.1 Function
+               * 1.1.1 Passing custom values to modules
+               * 1.1.2 modulesPath
+          * 1.2 Imports
+          * 1.3 Declarations
+     * 2 Rationale
+     * 3 Example
+     * 4 Advanced Use Cases
+          * 4.1 Compatibility Issues with Different Nixpkgs Versions
+          * 4.2 Abstract imports
+          * 4.3 Using external NixOS modules
+     * 5 Under the hood
+     * 6 More complex usages
+     * 7 Developing modules
+          * 7.1 With Flakes
+     * 8 References
+     * 9 See also
+   [ ] Toggle the table of contents
+
+                                 NixOS modules
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   (Redirected from Module)
+
+   NixOS produces a full system configuration by combining smaller, more
+   isolated and reusable components: Modules. A module is a file containing a
+   Nix expression with a specific structure. It declares options for other
+   modules to define (give a value). It processes them and defines options
+   declared in other modules.^[1]
+
+   For example, /etc/nixos/configuration.nix is a module. Most other modules
+   are in [IMG]﻿nixos/modules.
+
+Structure
+
+   Modules have the following syntax:
+
+ {
+   imports = [
+     # Paths to other modules.
+     # Compose this module out of smaller ones.
+   ];
+
+   options = {
+     # Option declarations.
+     # Declare what settings a user of this module can set.
+     # Usually this includes a global "enable" option which defaults to false.
+   };
+
+   config = {
+     # Option definitions.
+     # Define what other settings, services and resources should be active.
+     # Usually these depend on whether a user of this module chose to "enable" it
+     # using the "option" above.
+     # Options for modules imported in "imports" can be set here.
+   };
+ }
+
+   There is a shorthand for modules without any declarations:
+
+ {
+   imports = [
+     # Paths to other modules.
+     ./module.nix
+     /path/to/absolute/module.nix
+   ];
+
+   # Config definitions.
+   services.othermodule.enable = true;
+   # ...
+   # Notice that you can leave out the "config { }" wrapper.
+ }
+
+   Beginners often confuse the modules attribute imports = [./module.nix]
+   here with the Nix builtins function import module.nix. The first expects a
+   path to a file containing a NixOS module (having the same specific
+   structure we're describing here), while the second loads whatever Nix
+   expression is in that file (no expected structure). See this post.
+
+   Note: imports provides the same behavior as the obsolete require. There is
+   no reason to use require anymore, however it may still linger in some
+   legacy code.
+
+  Function
+
+   A module can be turned into a function accepting an attribute set.
+
+ { config, pkgs, ... }:
+ {
+   imports = [];
+   # ...
+ }
+
+   It may require the attribute set to contain:
+
+   config
+           The configuration of the entire system.
+
+   options
+           All option declarations refined with all definition and
+           declaration references.
+
+   lib
+           An instance of the nixpkgs "standard library", providing what
+           usually is in pkgs.lib.
+
+   pkgs
+           The attribute set extracted from the Nix package collection and
+           enhanced with the nixpkgs.config option.
+
+   modulesPath
+           The location of the module directory of NixOS.
+
+    Passing custom values to modules
+
+   The config, options, lib, pkgs, and modulesPath arguments are passed
+   automatically to modules, when the module is imported.
+
+   For example, in the following Nix flake, the `./configuration.nix` file
+   will be provided with the default set of arguments listed above, plus
+   `extraArg`, which was set in the `specialArgs` argument to the
+   `nixosGenerate` function.
+
+ {
+   inputs = {
+     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+     nixos-generators = {
+       url = "github:nix-community/nixos-generators";
+       inputs.nixpkgs.follows = "nixpkgs";
+     };
+     xc = {
+       url = "github:joerdav/xc";
+       inputs.nixpkgs.follows = "nixpkgs";
+     };
+   };
+
+   outputs = { nixpkgs, nixos-generators, xc, ... }:
+     let
+       pkgsForSystem = system: import nixpkgs {
+         inherit system;
+         overlays = [
+           (final: prev: { xc = xc.packages.${system}.xc; })
+         ];
+       };
+       allVMs = [ "x86_64-linux" "aarch64-linux" ];
+       forAllVMs = f: nixpkgs.lib.genAttrs allVMs (system: f {
+         inherit system;
+         pkgs = pkgsForSystem system;
+       });
+     in
+     {
+       packages = forAllVMs ({ system, pkgs }: {
+         vm = nixos-generators.nixosGenerate {
+           system = system;
+           specialArgs = {
+             extraArg = "foobar";
+           };
+           modules = [
+             ./configuration.nix
+           ];
+           format = "raw";
+         };
+       });
+     };
+ }
+
+    modulesPath
+
+   Some modules use modulesPath to import nixos libraries
+
+   For example nixos/modules/virtualisation/digital-ocean-config.nix
+
+ { config, pkgs, lib, modulesPath, ... }:
+   imports = [
+     (modulesPath + "/profiles/qemu-guest.nix")
+     (modulesPath + "/virtualisation/digital-ocean-init.nix")
+   ];
+
+   The Nix variable modulesPath is parsed from the environment variable
+   NIX_PATH
+
+   When NIX_PATH is empty, Nix can throw the error undefined variable
+   'modulesPath'
+
+   NIX_PATH should look something like this:
+
+ echo $NIX_PATH | tr : '\n'
+ nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos
+ nixos-config=/etc/nixos/configuration.nix
+ /nix/var/nix/profiles/per-user/root/channels
+
+   Here, the modulesPath is /nix/var/nix/profiles/per-user/root/channels
+
+   When a Nix expression calls import <nixpkgs>,
+   then Nix will load /nix/var/nix/profiles/per-user/root/channels/nixos
+
+  Imports
+
+   Imports are paths to other NixOS modules that should be included in the
+   evaluation of the system configuration. A default set of modules is
+   defined in [IMG]﻿nixos/modules/module-list.nix. These don't need to be
+   added in the import list.
+
+  Declarations
+
+   Declarations specify a module's external interfaces.
+
+ optionName = mkOption {
+   # ...
+ }
+
+   They are created with mkOption, a function accepting a set with following
+   attributes:^[2]^[3]
+
+   type
+
+           The type of the option. It may be omitted, but that’s not
+           advisable since it may lead to errors that are hard to diagnose.
+
+   default
+
+           The default value used if no value is defined by any module. A
+           default is not required; but if a default is not given, then users
+           of the module will have to define the value of the option,
+           otherwise an error will be thrown.
+
+   example
+
+           An example value that will be shown in the NixOS manual.
+
+   description
+
+           A textual description of the option, in DocBook format, that will
+           be included in the NixOS manual.
+
+Rationale
+
+   Modules were introduced to allow extending NixOS without modifying its
+   source code.^[4] They also allow splitting up configuration.nix, making
+   the system configuration easier to maintain and to reuse.
+
+Example
+
+   To see how modules are setup and reuse other modules in practice put
+   hello.nix in the same folder as your configuration.nix:
+
+ { lib, pkgs, config, ... }:
+ with lib;                     
+ let
+   # Shorter name to access final settings a
+   # user of hello.nix module HAS ACTUALLY SET.
+   # cfg is a typical convention.
+   cfg = config.services.hello;
+ in {
+   # Declare what settings a user of this "hello.nix" module CAN SET.
+   options.services.hello = {
+     enable = mkEnableOption "hello service";
+     greeter = mkOption {
+       type = types.str;
+       default = "world";
+     };
+   };
+
+   # Define what other settings, services and resources should be active IF
+   # a user of this "hello.nix" module ENABLED this module
+   # by setting "services.hello.enable = true;".
+   config = mkIf cfg.enable {
+     systemd.services.hello = {
+       wantedBy = [ "multi-user.target" ];
+       serviceConfig.ExecStart = "${pkgs.hello}/bin/hello -g'Hello, ${escapeShellArg cfg.greeter}!'";
+     };
+   };
+ }
+
+   The other configuration.nix module can then import this hello.nix module
+   and decide to enable it (and optionally set other allowed settings) as
+   follows:
+
+ {
+   imports = [ ./hello.nix ];
+   ...
+   services.hello = {
+     enable = true;
+     greeter = "Bob";
+   };
+ }
+
+Advanced Use Cases
+
+  Compatibility Issues with Different Nixpkgs Versions
+
+   Module options between Nixpkgs revisions can sometimes change in
+   incompatible ways.
+
+   For example, the option services.nginx.virtualHosts.*.port in
+   nixpkgs-17.03 was replaced by services.nginx.virtualHosts.*.listen in
+   nixpkgs-17.09. If configuration.nix has to accommodate both variants,
+   options can be inspected:
+
+ { options, ... }: {
+   services.nginx.virtualHosts.somehost = { /* common configuration */ }
+     // (if builtins.hasAttr "port" (builtins.head options.services.nginx.virtualHosts.type.getSubModules).submodule.options
+           then { port = 8000; }
+           else { listen = [ { addr = "0.0.0.0"; port = 8000; } ]; });
+ }
+
+  Abstract imports
+
+   To import a module that's stored somewhere (but for which you have neither
+   an absolute nor a relative path), you can use NIX_PATH elements or
+   specialArgs from nixos/lib/eval-config.nix.
+
+   This is useful for e.g. pulling modules from a git repository without
+   adding it as a channel, or if you just prefer using paths relative to a
+   root you can change (as opposed to the current file, which could move in
+   the future).
+
+ let
+   inherit (import <nixpkgs> {}) writeShellScriptBin fetchgit;
+   yourModules = fetchgit { ... };
+ in rec {
+   nixos = import <nixpkgs/nixos/lib/eval-config.nix> {
+     modules = [ ./configuration.nix ];
+     specialArgs.mod = name: "${yourModules}/${name}";
+   };
+
+   /* use nixos here, e.g. for deployment or building an image */
+ }
+
+ { config, lib, pkgs, mod, ... }: {
+   imports = [
+     (mod "foo.nix")
+   ];
+
+   ...
+ }
+
+  Using external NixOS modules
+
+   Some external modules provide extra functionality to the NixOS module
+   system. You can include these modules, after making them available as a
+   file system path (e.g. through builtins.fetchTarball), by using imports =
+   [ `path to module`] in your configuration.nix.
+
+     * Nixsap - allows to run multiple instances of a service without
+       containers.
+     * musnix - real-time audio in NixOS.
+     * nixos-mailserver - full-featured mail server module
+     * X-Truder Nix-profiles - modules for Nix to quickly configure your
+       system based on application profiles.
+
+Under the hood
+
+   The following was taken from a comment by Infinisil on reddit ^[5].
+
+   A NixOS system is described by a single system derivation. nixos-rebuild
+   builds this derivation with nix-build '<nixpkgs/nixos>' -A system and then
+   switches to that system with result/bin/switch-to-configuration.
+
+   The entrypoint is the file at '<nixpkgs/nixos>' (./default.nix), which
+   defines the system attribute to be the NixOS option
+   config.system.build.toplevel. This toplevel option is the topmost level of
+   the NixOS evaluation and it's what almost all options eventually end up
+   influencing through potentially a number of intermediate options.
+
+   As an example:
+
+     * The high-level option services.nginx.enable uses the lower-level
+       option systemd.services.nginx
+     * Which in turn uses the even-lower-level option
+       systemd.units."nginx.service"
+     * Which in turn uses environment.etc."systemd/system"
+     * Which then ends up as result/etc/systemd/system/nginx.service in the
+       toplevel derivation
+
+   So high-level options use lower-level ones, eventually ending up at
+   config.system.build.toplevel.
+
+   How do these options get evaluated though? That's what the NixOS module
+   system does, which lives in the ./lib directory (in modules.nix,
+   options.nix and types.nix). The module system can even be used without
+   NixOS, allowing you to use it for your own option sets. Here's a simple
+   example of this, whose toplevel option you can evaluate with
+   nix-instantiate --eval file.nix -A config.toplevel:
+
+ let
+   systemModule = { lib, config, ... }: {
+     options.toplevel = lib.mkOption {
+       type = lib.types.str;
+     };
+
+     options.enableFoo = lib.mkOption {
+       type = lib.types.bool;
+       default = false;
+     };
+
+     config.toplevel = ''
+       Is foo enabled? ${lib.boolToString config.enableFoo}
+     '';
+   };
+
+   userModule = {
+     enableFoo = true;
+   };
+
+ in (import <nixpkgs/lib>).evalModules {
+   modules = [ systemModule userModule ];
+ }
+
+   The module system itself is rather complex, but here's a short overview. A
+   module evaluation consists of a set of "modules", which can do three
+   things:
+
+     * Import other modules (through imports = [ ./other-module.nix ])
+     * Declare options (through options = { ... })
+     * Define option values (through |config = { ... }, or without the config
+       key as a shorthand if you don't have imports or options)
+
+   To do the actual evaluation, there's these rough steps:
+
+     * Recursively collect all modules by looking at all imports statements
+     * Collect all option declarations (with options) of all modules and
+       merge them together if necessary
+     * For each option, evaluate it by collecting all its definitions (with
+       config) from all modules and merging them together according to the
+       options type.
+
+   Note that the last step is lazy (only the options you need are evaluated)
+   and depends on other options itself (all the ones that influence it)
+
+More complex usages
+
+   The examples below contain:
+
+     * a child `mkOption` inherits their default from a parent `mkOption`
+     * reading default values from neighbouring `mkOption`(s) for conditional
+       defaults
+     * passing in the config, to read the hostName from a submodule (email
+       system)
+     * setting default values from attrset (email system)
+     * generating documentation for custom modules (outside of nixpkgs). See
+       here
+
+   Source:
+
+     * https://github.com/nixcloud/nixcloud-webservices/blob/master/modules/services/reverse-proxy/default.nix
+     * https://github.com/nixcloud/nixcloud-webservices/blob/master/modules/services/reverse-proxy/options.nix
+     * https://github.com/nixcloud/nixcloud-webservices/blob/master/modules/services/TLS/default.nix
+     * https://github.com/nixcloud/nixcloud-webservices/blob/master/modules/services/email/nixcloud-email.nix#L114
+
+   (sorry, dont' have more time to make this into a nice little guide yet,
+   but this links should be pretty good introductions into more advanced
+   module system usages) qknight
+
+Developing modules
+
+   To test your module out, you can run the following from a local checkout
+   of nixpkgs with a copy of a configuration.nix:
+
+ nixos-rebuild build-vm --fast -I nixos-config=./configuration.nix -I nixpkgs=.
+
+   If you're developing on top of master, this will potentially cause the
+   compilation of lots of packages, since changes on master might not cached
+   on cache.nixos.org yet. To avoid that, you can develop your module on top
+   of the nixos-unstable channel branch, tracked by the eponymous branch in
+   https://github.com/NixOS/nixpkgs:
+
+ git checkout -b mymodule upstream/nixos-unstable
+
+  With Flakes
+
+   If you're developing a module from nixpkgs, you can try and follow the
+   directions here:
+   https://github.com/Misterio77/nix-starter-configs/issues/28.
+
+   If you want to develop a module from a git repo, you can use
+   `--override-input`. For example, if you have an input in your flake called
+   jovian,, you can use
+
+ nixos-rebuild switch --override-input jovian <path-to-url>` --flake <uri>
+
+   Of course, it doesn't have to be {{|c|nixos-rebuild}} in particular.
+
+References
+
+    1. ↑ NixOS Manual, Chapter 42. Writing NixOS Modules
+    2. ↑ [IMG]﻿lib/options.nix#L66-L88
+    3. ↑ NixOS Manual, 42.1. Option Declarations
+    4. ↑ [Nix-dev] NixOS: New scheme
+    5. ↑ Infinisil,
+       https://www.reddit.com/r/NixOS/comments/gdnzhy/question_how_nixos_options_works_underthehood/
+
+See also
+
+     * NixOS:extend_NixOS
+     * NixOS:Properties
+     * NixOS discourse, "Best resources for learning about the NixOS module
+       system?"
+     * Debian Config::Model: target configuration upgrades by abstracting the
+       option of the configuration. Each file is a tree structure where
+       leaves are values defined with an interpreted type. The interpreters
+       are defined for each meta-configuration files name *.conf.
+       Configuration files does not seems to interact with each other to make
+       consistent configuration. They provide an UI for editing their
+       configuration file.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_modules&oldid=16745"
+   Categories:
+     * Configuration
+     * Reference
+     * NixOS
+     * This page was last edited on 16 August 2024, at 09:53.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

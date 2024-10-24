@@ -1,0 +1,173 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Requisites
+     * 2 Installation
+          * 2.1 NixOS
+          * 2.2 Networking
+          * 2.3 Display
+          * 2.4 Windows Guest
+          * 2.5 Guest Agent
+          * 2.6 Wayland
+   [ ] Toggle the table of contents
+
+                                  Virt-manager
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The virt-manager application is a GUI for managing local and remote
+   virtual machines through libvirt. It primarily targets KVM VMs, but also
+   manages Xen and LXC (linux containers).
+
+Requisites
+
+   Even though Virt-manager (using the KVM hypervisor) is able to take
+   advantage of virtualisation capabilities without any UEFI/BIOS
+   configuration, best performances demand that host have Vt-x and Vt-d
+   (Intel) or AMD-V and AMD-Vi (AMD) enabled. These settings can usually be
+   found under the UEFI/BIOS settings.
+
+Installation
+
+  NixOS
+
+ virtualisation.libvirtd.enable = true;
+ programs.virt-manager.enable = true;
+
+   You may get the following error:
+
+   authentication unavailable: no polkit agent available to authenticate
+   action 'org.libvirt.unix.manage'
+
+   To resolve, add the user to the libvirtd group:
+
+ {
+   users.users.<myuser>.extraGroups = [ "libvirtd" ];
+ }
+
+  Networking
+
+   The default network starts off as being inactive, you must enable it
+   before it is accessible. This can be done by running the following
+   command:
+
+   virsh net-start default
+
+   Or autostart:
+
+   virsh net-autostart default
+
+   By default this will enable the virbr0 virtual network bridge.
+
+   Sorry - this seems out of date. 2024 July 10
+
+ [das@t14:~/nixos/t14]$ virsh net-autostart default
+ error: failed to get network 'default'
+ error: Network not found: no network with matching name 'default'
+
+  Display
+
+   The default Video may not allow different resolutions, `Virtio` will allow
+   for more.
+
+  Windows Guest
+
+   See Virtio-win guest tools for additional drivers for both paravirtual and
+   emulated hardware
+
+  Guest Agent
+
+   When running NixOS as a guest, enable the QEMU guest agent with:
+
+ {
+   services.qemuGuest.enable = true;
+   services.spice-vdagentd.enable = true;  # enable copy and paste between host and guest
+ }
+
+   The host must provide the needed virtio serial port under the special name
+   org.qemu.guest_agent.0.
+
+  Wayland
+
+   In order to run on Wayland, virt-manager must be ran under XWayland with
+   `$ GDK_BACKEND=x11 virt-manager` or a gdk cursor must be set. An example
+   of setting a gdk cursor with home-manager is as follows:
+
+  home.pointerCursor = {
+     gtk.enable = true;
+     package = pkgs.vanilla-dmz;
+     name = "Vanilla-DMZ";
+  };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Virt-manager&oldid=16135"
+   Category:
+     * Virtualization
+     * This page was last edited on 1 August 2024, at 12:14.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

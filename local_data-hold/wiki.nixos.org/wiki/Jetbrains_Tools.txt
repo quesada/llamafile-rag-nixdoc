@@ -1,0 +1,255 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Plugins
+     * 2 JetBrains Toolbox
+   [ ] Toggle the table of contents
+
+                                Jetbrains Tools
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Various JetBrains IDEs and tools are available from nixpkgs under the
+   `jetbrains` namespace. For instance, CLion is available as the
+   jetbrains.clion package.
+
+Plugins
+
+   Some Jetbrains IDE plugins such as Github Copilot need to be patched in
+   order to work on NixOS.
+
+   At the time of writing, plugin support is not available in the latest
+   stable version of Nixpkgs (23.05). To install a package from
+   nixos-unstable, see the FAQ.
+
+   For example, a package of CLion with the Github Copilot plugin
+   pre-installed can be obtained by adding the following line to your package
+   list:
+
+      (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["github-copilot"])
+
+   where pkgs is a suitable version of nixpkgs.
+
+   Note that Jetbrains IDEs tend to manage their configuration and plugins
+   statefully. For example, if you have previously attempted to install
+   Copilot through the IDE's plugin manager, you may need to delete the IDE's
+   state in as described in the JetBrains documentation.
+
+JetBrains Toolbox
+
+   If you (understandably) want to eschew a fully-stateless JetBrains IDE
+   setup, JetBrains Toolbox manages everything under
+   ~/.local/share/JetBrains/Toolbox but currently (Jan. 2024) needs some
+   tweaks to get working.
+
+    1. Install pkgs.jetbrains-toolbox and launch it once
+    2. Edit ~/.local/share/JetBrains/Toolbox/.storage.json to add the line
+       "preferredKeychain": "linux-fallback"
+    3. Start to log-in normally, but stop after the JetBrains webpage opens
+    4. Reopen JetBrains Toolbox, navigate to Settings, and click
+       "Troubleshoot..."
+    5. Follow the manual login flow as directed
+
+   After following these steps, JetBrains Toolbox will store user credentials
+   in an encrypted (with a static key) file at
+   ~/.local/share/JetBrains/Toolbox/.securestorage. If not followed,
+   JetBrains Toolbox is unable to retrieve credentials via libsecret (due to
+   bwrap sandboxing?) and persistently notifies the user to re-authorize.
+
+   It may also help to enable nix-ld or launch through JetBrains Toolbox
+   itself if the downloaded IDEs are unable to launch; see nixpkgs#240444.
+
+   With the following configuration rustrover was successfully started:
+
+    programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [
+      SDL
+      SDL2
+      SDL2_image
+      SDL2_mixer
+      SDL2_ttf
+      SDL_image
+      SDL_mixer
+      SDL_ttf
+      alsa-lib
+      at-spi2-atk
+      at-spi2-core
+      atk
+      bzip2
+      cairo
+      cups
+      curlWithGnuTls
+      dbus
+      dbus-glib
+      desktop-file-utils
+      e2fsprogs
+      expat
+      flac
+      fontconfig
+      freeglut
+      freetype
+      fribidi
+      fuse
+      fuse3
+      gdk-pixbuf
+      glew110
+      glib
+      gmp
+      gst_all_1.gst-plugins-base
+      gst_all_1.gst-plugins-ugly
+      gst_all_1.gstreamer
+      gtk2
+      harfbuzz
+      icu
+      keyutils.lib
+      libGL
+      libGLU
+      libappindicator-gtk2
+      libcaca
+      libcanberra
+      libcap
+      libclang.lib
+      libdbusmenu
+      libdrm
+      libgcrypt
+      libgpg-error
+      libidn
+      libjack2
+      libjpeg
+      libmikmod
+      libogg
+      libpng12
+      libpulseaudio
+      librsvg
+      libsamplerate
+      libthai
+      libtheora
+      libtiff
+      libudev0-shim
+      libusb1
+      libuuid
+      libvdpau
+      libvorbis
+      libvpx
+      libxcrypt-legacy
+      libxkbcommon
+      libxml2
+      mesa
+      nspr
+      nss
+      openssl
+      p11-kit
+      pango
+      pixman
+      python3
+      speex
+      stdenv.cc.cc
+      tbb
+      udev
+      vulkan-loader
+      wayland
+      xorg.libICE
+      xorg.libSM
+      xorg.libX11
+      xorg.libXScrnSaver
+      xorg.libXcomposite
+      xorg.libXcursor
+      xorg.libXdamage
+      xorg.libXext
+      xorg.libXfixes
+      xorg.libXft
+      xorg.libXi
+      xorg.libXinerama
+      xorg.libXmu
+      xorg.libXrandr
+      xorg.libXrender
+      xorg.libXt
+      xorg.libXtst
+      xorg.libXxf86vm
+      xorg.libpciaccess
+      xorg.libxcb
+      xorg.xcbutil
+      xorg.xcbutilimage
+      xorg.xcbutilkeysyms
+      xorg.xcbutilrenderutil
+      xorg.xcbutilwm
+      xorg.xkeyboardconfig
+      xz
+      zlib
+    ];
+
+   It could also be extended to the full list in
+   pkgs/build-support/appimage/default.nix
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Jetbrains_Tools&oldid=12312"
+   Category:
+     * Applications
+     * This page was last edited on 19 April 2024, at 21:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

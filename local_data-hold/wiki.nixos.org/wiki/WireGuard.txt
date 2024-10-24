@@ -1,0 +1,584 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setting up WireGuard
+          * 1.1 Generate keypair
+               * 1.1.1 Server setup
+               * 1.1.2 Client setup
+          * 1.2 Setting up WireGuard server/client with wg-quick and dnsmasq
+               * 1.2.1 Server setup
+               * 1.2.2 Client setup
+               * 1.2.3 Client setup (non-declaratively)
+          * 1.3 Setting up WireGuard with systemd-networkd
+               * 1.3.1 Server setup
+               * 1.3.2 Client setup
+          * 1.4 Setting up WireGuard with NetworkManager
+     * 2 Troubleshooting
+          * 2.1 Tunnel does not automatically connect despite
+            persistentKeepalive being set
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                   WireGuard
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   WireGuard is an simple yet fast and modern VPN that utilizes
+   state-of-the-art cryptography.
+
+                              Setting up WireGuard
+
+Generate keypair
+
+   Each peer needs to have a public-private keypair. The keys can be
+   generated on any machine that already has WireGuard installed using the wg
+   utility. If WireGuard isn't installed yet, it can be made available by
+   adding wireguard-tools to environment.systemPackages or by running nix-env
+   -iA nixos.wireguard-tools for NixOS based systems and nix-env -iA
+   nixpkgs.wireguard-tools for non-NixOS systems.
+
+   Creating a keypair is simple:
+
+ umask 077
+ mkdir ~/wireguard-keys
+ wg genkey > ~/wireguard-keys/private
+ wg pubkey < ~/wireguard-keys/private > ~/wireguard-keys/public
+
+   You can create as many keypairs as you like for different connections or
+   roles; it is also possible to reuse the same keypair for every connection.
+
+   Alternatively, you can use
+   networking.wireguard.interfaces.[name].generatePrivateKeyFile option.
+
+  Server setup
+
+   Enable WireGuard on the server via /etc/nixos/configuration.nix:
+
+ {
+   ...
+
+   # enable NAT
+   networking.nat.enable = true;
+   networking.nat.externalInterface = "eth0";
+   networking.nat.internalInterfaces = [ "wg0" ];
+   networking.firewall = {
+     allowedUDPPorts = [ 51820 ];
+   };
+
+   networking.wireguard.interfaces = {
+     # "wg0" is the network interface name. You can name the interface arbitrarily.
+     wg0 = {
+       # Determines the IP address and subnet of the server's end of the tunnel interface.
+       ips = [ "10.100.0.1/24" ];
+
+       # The port that WireGuard listens to. Must be accessible by the client.
+       listenPort = 51820;
+
+       # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
+       # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients
+       postSetup = ''
+         ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
+       '';
+
+       # This undoes the above command
+       postShutdown = ''
+         ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
+       '';
+
+       # Path to the private key file.
+       #
+       # Note: The private key can also be included inline via the privateKey option,
+       # but this makes the private key world-readable; thus, using privateKeyFile is
+       # recommended.
+       privateKeyFile = "path to private key file";
+
+       peers = [
+         # List of allowed peers.
+         { # Feel free to give a meaning full name
+           # Public key of the peer (not a file path).
+           publicKey = "{client public key}";
+           # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
+           allowedIPs = [ "10.100.0.2/32" ];
+         }
+         { # John Doe
+           publicKey = "{john doe's public key}";
+           allowedIPs = [ "10.100.0.3/32" ];
+         }
+       ];
+     };
+   };
+   ...
+ }
+
+  Client setup
+
+ {
+   ...
+   networking.firewall = {
+     allowedUDPPorts = [ 51820 ]; # Clients and peers can use the same port, see listenport
+   };
+   # Enable WireGuard
+   networking.wireguard.interfaces = {
+     # "wg0" is the network interface name. You can name the interface arbitrarily.
+     wg0 = {
+       # Determines the IP address and subnet of the client's end of the tunnel interface.
+       ips = [ "10.100.0.2/24" ];
+       listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
+
+       # Path to the private key file.
+       #
+       # Note: The private key can also be included inline via the privateKey option,
+       # but this makes the private key world-readable; thus, using privateKeyFile is
+       # recommended.
+       privateKeyFile = "path to private key file";
+
+       peers = [
+         # For a client configuration, one peer entry for the server will suffice.
+
+         {
+           # Public key of the server (not a file path).
+           publicKey = "{server public key}";
+
+           # Forward all the traffic via VPN.
+           allowedIPs = [ "0.0.0.0/0" ];
+           # Or forward only particular subnets
+           #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
+
+           # Set this to the server IP and port.
+           endpoint = "{server ip}:51820"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+
+           # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+           persistentKeepalive = 25;
+         }
+       ];
+     };
+   };
+   ...
+ }
+
+   Multiple connections can be configured by configuring multiple interfaces
+   under networking.wireguard.interfaces.
+
+Setting up WireGuard server/client with wg-quick and dnsmasq
+
+  Server setup
+
+   DNS requires opening TCP/UDP port 53.
+
+ {
+   ...
+   # Enable NAT
+   networking.nat = {
+     enable = true;
+     enableIPv6 = true;
+     externalInterface = "eth0";
+     internalInterfaces = [ "wg0" ];
+   };
+   # Open ports in the firewall
+   networking.firewall = {
+     allowedTCPPorts = [ 53 ];
+     allowedUDPPorts = [ 53 51820 ];
+   };
+   ...
+ }
+
+   The wg-quick setup is similar to the previous setup.
+
+ {
+   ...
+   networking.wg-quick.interfaces = {
+     # "wg0" is the network interface name. You can name the interface arbitrarily.
+     wg0 = {
+       # Determines the IP/IPv6 address and subnet of the client's end of the tunnel interface
+       address = [ "10.0.0.1/24" "fdc9:281f:04d7:9ee9::1/64" ];
+       # The port that WireGuard listens to - recommended that this be changed from default
+       listenPort = 51820;
+       # Path to the server's private key
+       privateKeyFile = "/root/wireguard-keys/privatekey";
+
+       # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
+       postUp = ''
+         ${pkgs.iptables}/bin/iptables -A FORWARD -i wg0 -j ACCEPT
+         ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.0.0.1/24 -o eth0 -j MASQUERADE
+         ${pkgs.iptables}/bin/ip6tables -A FORWARD -i wg0 -j ACCEPT
+         ${pkgs.iptables}/bin/ip6tables -t nat -A POSTROUTING -s fdc9:281f:04d7:9ee9::1/64 -o eth0 -j MASQUERADE
+       '';
+
+       # Undo the above
+       preDown = ''
+         ${pkgs.iptables}/bin/iptables -D FORWARD -i wg0 -j ACCEPT
+         ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.0.1/24 -o eth0 -j MASQUERADE
+         ${pkgs.iptables}/bin/ip6tables -D FORWARD -i wg0 -j ACCEPT
+         ${pkgs.iptables}/bin/ip6tables -t nat -D POSTROUTING -s fdc9:281f:04d7:9ee9::1/64 -o eth0 -j MASQUERADE
+       '';
+
+       peers = [
+         { # peer0
+           publicKey = "{client public key}";
+           presharedKeyFile = "/root/wireguard-keys/preshared_from_peer0_key";
+           allowedIPs = [ "10.0.0.2/32" "fdc9:281f:04d7:9ee9::2/128" ];
+         }
+         # More peers can be added here.
+       ];
+     };
+   };
+   ...
+ }
+
+   To enable dnsmasq and only serve DNS requests to the WireGuard interface
+   add the following:
+
+ {
+   ...
+   services = {
+     ...
+     dnsmasq = {
+       enable = true;
+       extraConfig = ''
+         interface=wg0
+       '';
+     };
+     ...
+   };
+   ...
+ }
+
+  Client setup
+
+   The client will now point DNS to the server.
+
+ {
+   ...
+   networking.wg-quick.interfaces = {
+     wg0 = {
+       address = [ "10.0.0.2/24" "fdc9:281f:04d7:9ee9::2/64" ];
+       dns = [ "10.0.0.1" "fdc9:281f:04d7:9ee9::1" ];
+       privateKeyFile = "/root/wireguard-keys/privatekey";
+      
+       peers = [
+         {
+           publicKey = "{server public key}";
+           presharedKeyFile = "/root/wireguard-keys/preshared_from_peer0_key";
+           allowedIPs = [ "0.0.0.0/0" "::/0" ];
+           endpoint = "{server ip}:51820";
+           persistentKeepalive = 25;
+         }
+       ];
+     };
+   };
+   ...
+ }
+
+  Client setup (non-declaratively)
+
+   If you have WireGuard configuration files that you want to use as-is
+   (similarly how you would configure WireGuard e.g. in Debian, without
+   converting them to a declarative NixOS configuration, you can also
+   configure wg-quick to use them. For example, if you have a configuration
+   file /etc/nixos/wireguard/wg0.conf, add the following line to your
+   configuration.nix:
+
+ networking.wg-quick.interfaces.wg0.configFile = "/etc/nixos/files/wireguard/wg0.conf";
+
+   This will set up a wg-quick-wg0.service systemd unit.
+
+Setting up WireGuard with systemd-networkd
+
+  Server setup
+
+ {
+   config,
+   pkgs,
+   lib,
+   ...
+ }: {
+   networking.firewall.allowedUDPPorts = [51820];
+   networking.useNetworkd = true; 
+   systemd.network = {
+     enable = true;
+     netdevs = {
+       "50-wg0" = {
+         netdevConfig = {
+           Kind = "wireguard";
+           Name = "wg0";
+           MTUBytes = "1300";
+         };
+         wireguardConfig = {
+           PrivateKeyFile = "/run/keys/wireguard-privkey";
+           ListenPort = 51820;
+         };
+         wireguardPeers = [
+           # configuration since nixos-unstable/nixos-24.11
+           {
+             PublicKey = "L4msD0mEG2ctKDtaMJW2y3cs1fT2LBRVV7iVlWZ2nZc=";
+             AllowedIPs = ["10.100.0.2"];
+           }
+           # configuration for nixos 24.05
+           #{
+           #  wireguardPeerConfig = {
+           #    PublicKey = "L4msD0mEG2ctKDtaMJW2y3cs1fT2LBRVV7iVlWZ2nZc=";
+           #    AllowedIPs = ["10.100.0.2"];
+           #  };
+           #}
+         ];
+       };
+     };
+     networks.wg0 = {
+       matchConfig.Name = "wg0";
+       address = ["10.100.0.1/24"];
+       networkConfig = {
+         IPMasquerade = "ipv4";
+         IPForward = true;
+       };
+     };
+   };
+ }
+
+  Client setup
+
+ {
+   config,
+   pkgs,
+   lib,
+   ...
+ }: {
+   boot.extraModulePackages = [config.boot.kernelPackages.wireguard];
+   systemd.network = {
+     enable = true;
+     netdevs = {
+       "10-wg0" = {
+         netdevConfig = {
+           Kind = "wireguard";
+           Name = "wg0";
+           MTUBytes = "1300";
+         };
+         # See also man systemd.netdev (also contains info on the permissions of the key files)
+         wireguardConfig = {
+           # Don't use a file from the Nix store as these are world readable. Must be readable by the systemd.network user
+           PrivateKeyFile = "/run/keys/wireguard-privkey";
+           ListenPort = 9918;
+         };
+         wireguardPeers = [         
+           # configuration since nixos-unstable/nixos-24.11
+           {
+             PublicKey = "OhApdFoOYnKesRVpnYRqwk3pdM247j8PPVH5K7aIKX0=";
+             AllowedIPs = ["fc00::1/64" "10.100.0.1"];
+             Endpoint = "{set this to the server ip}:51820";
+           }
+           # configuration for nixos 24.05
+           #{
+           #  wireguardPeerConfig = {
+           #    PublicKey = "OhApdFoOYnKesRVpnYRqwk3pdM247j8PPVH5K7aIKX0=";
+           #    AllowedIPs = ["fc00::1/64" "10.100.0.1"];
+           #    Endpoint = "{set this to the server ip}:51820";
+           #  };
+           #}
+         ];
+       };
+     };
+     networks.wg0 = {
+       # See also man systemd.network
+       matchConfig.Name = "wg0";
+       # IP addresses the client interface will have
+       address = [
+         "fe80::3/64"
+         "fc00::3/120"
+         "10.100.0.2/24"
+       ];
+       DHCP = "no";
+       dns = ["fc00::53"];
+       ntp = ["fc00::123"];
+       gateway = [
+         "fc00::1"
+         "10.100.0.1"
+       ];
+       networkConfig = {
+         IPv6AcceptRA = false;
+       };
+     };
+   };
+ }
+
+Setting up WireGuard with NetworkManager
+
+   This is probably only useful on clients. Functionality is present in
+   NetworkManager since version 1.20 but network-manager-applet can show and
+   control wireguard connections since version 1.22 only (available since
+   NixOS 21.05).
+
+   If you intend to route all your traffic through the wireguard tunnel, the
+   default configuration of the NixOS firewall will block the traffic because
+   of rpfilter. You can either disable rpfilter altogether:
+
+ { config, pkgs, lib, ... }:{
+   networking.firewall.checkReversePath = false;
+ }
+
+   In some cases not false but "loose" (with quotes) can work:
+
+ { config, pkgs, lib, ... }:{
+   networking.firewall.checkReversePath = "loose";
+ }
+
+   Or you can adapt the rpfilter to ignore wireguard related traffic (replace
+   51820 by the port of your wireguard endpoint):
+
+ { config, pkgs, lib, ... }:{
+   networking.firewall = {
+    # if packets are still dropped, they will show up in dmesg
+    logReversePathDrops = true;
+    # wireguard trips rpfilter up
+    extraCommands = ''
+      ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN
+      ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN
+    '';
+    extraStopCommands = ''
+      ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN || true
+      ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN || true
+    '';
+   };
+ }
+
+   Note: On NixOS 22.05 and earlier, the nixos-fw-rpfilter chain was in the
+   raw table, not in the mangle table
+
+   Adding a wireguard connection to NetworkManager is not straightforward to
+   do fully in gui, it is simpler to reuse a configuration file for wg-guick.
+   For example:
+
+ [Interface]
+ # your own IP on the wireguard network
+ Address = 10.0.0.3/24, fd4:8e3:226:2e0::3/64
+ Table = auto
+ PrivateKey = 0000000000000000000000000000000000000000000=
+
+ [Peer]
+ PublicKey = 1111111111111111111111111111111111111111111=
+ # restrict this to the wireguard subnet if you don't want to route everything to the tunnel
+ AllowedIPs = 0.0.0.0/0, ::/0
+ # ip and port of the peer
+ Endpoint = 1.2.3.4:51820
+
+   Then run
+
+ nmcli connection import type wireguard file thefile.conf
+
+   The new VPN connection should be available, you still have to click on it
+   to activate it.
+
+                                Troubleshooting
+
+Tunnel does not automatically connect despite persistentKeepalive being set
+
+   When using the privateKeyFile instead of privateKey setting, the generated
+   WireGuard config file sets PersistentKeepalive as normal, but instead uses
+   the generated PostUp script to set the private key for the tunnel after
+   the tunnel has been started. Apparently the tunnel only automatically
+   connects when the keepalive is set at the same time (i.e. through the
+   config file) as the private key, or afterwards. A workaround is to also
+   set PersistentKeepalive through the PostUp script using the wg command:
+
+ networking.wg-quick.interfaces = let
+   publicKey = "...";
+ in {
+   wg0 = {
+     # ...
+     privateKeyFile = "/path/to/keyfile";
+     # this is what we use instead of persistentKeepalive, the resulting PostUp
+     # script looks something like the following:
+     #     wg set wg0 private-key <(cat /path/to/keyfile)
+     #     wg set wg0 peer <public key> persistent-keepalive 25
+     postUp = ["wg set wgnet0 peer ${publicKey} persistent-keepalive 25"];
+     peers = [{
+       inherit publicKey; # set publicKey to the publicKey we've defined above
+       # ...
+
+       # Use postUp instead of this setting because otherwise it doesn't auto
+       # connect to the peer, apparently that doesn't happen if the private
+       # key is set after the PersistentKeepalive setting which happens if
+       # we load it from a file
+       #persistentKeepalive = 25;
+     }];
+   };
+ };
+
+                                    See also
+
+     * WireGuard homepage
+     * Arch Wiki has an exhaustive guide, including troubleshooting tips
+     * List of WireGuard options supported by NixOS
+     * Talk by @fpletz at NixCon 2018 about networkd and his WireGuard setup
+     * WireGuard Troubleshooting (on Web Archive) shows how to enable debug
+       logs
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=WireGuard&oldid=14473"
+   Category:
+     * Networking
+     * This page was last edited on 13 July 2024, at 13:31.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,362 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Initialization
+          * 2.1 Minimal
+          * 2.2 Preseed
+     * 3 Networking/Firewall
+     * 4 NixOS Instances
+     * 5 NixOS Images
+          * 5.1 Pre-built Images
+               * 5.1.1 Creation
+     * 6 Custom Images
+          * 6.1 VMs
+          * 6.2 Containers
+   [ ] Toggle the table of contents
+
+                                     Incus
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Incus is a next generation system container and virtual machine manager.
+   It is a community driven alternative to Canonical's LXD, keeping the
+   Apache-2.0 license.
+
+   This document aims to provide NixOS specific information related to Incus.
+   For non-NixOS specific documentation, please see the upstream
+   documentation: https://linuxcontainers.org/incus/docs/main/
+
+Installation
+
+   The service can be enabled and started by adding the service to your NixOS
+   configuration. It must still be initialized.
+
+ virtualisation.incus.enable = true;
+
+   To provide non-root access to the Incus server, you will want to add your
+   user to the incus-admin group. Don't forget to logout and log back in.
+
+ users.users.YOUR_USERNAME.extraGroups = ["incus-admin"];
+
+   You should now be able to use the incus client to talk to the server.
+
+ [root@nixos:/etc/nixos]# incus version
+ If this is your first time running Incus on this machine, you should also run: incus admin init
+ To start your first container, try: incus launch images:ubuntu/22.04
+ Or for a virtual machine: incus launch images:ubuntu/22.04 --vm
+
+ Client version: 6.0.0
+ Server version: 6.0.0
+
+Initialization
+
+   As you can see in the above code block, adding the Incus service will
+   provide a working instance of the server, but is not sufficient on its own
+   to have a complete setup.
+
+   For more complex setups, please refer to
+   https://linuxcontainers.org/incus/docs/main/howto/initialize/
+
+  Minimal
+
+   The simplest way to initialize, Incus will provide a basic directory
+   backed storage pool and a bridged NAT network with DHCP.
+
+ incus admin init --minimal
+
+  Preseed
+
+   NixOS has an option for providing a preseed to Incus, as documented in the
+   initialize link above. This is a declarative initialization, with the
+   caveat that Incus preseed will never remove a resource created. Here is an
+   example that is similar to the Minimal initialization option.
+
+ virtualisation.incus.preseed = {
+   networks = [
+     {
+       config = {
+         "ipv4.address" = "10.0.100.1/24";
+         "ipv4.nat" = "true";
+       };
+       name = "incusbr0";
+       type = "bridge";
+     }
+   ];
+   profiles = [
+     {
+       devices = {
+         eth0 = {
+           name = "eth0";
+           network = "incusbr0";
+           type = "nic";
+         };
+         root = {
+           path = "/";
+           pool = "default";
+           size = "35GiB";
+           type = "disk";
+         };
+       };
+       name = "default";
+     }
+   ];
+   storage_pools = [
+     {
+       config = {
+         source = "/var/lib/incus/storage-pools/default";
+       };
+       driver = "dir";
+       name = "default";
+     }
+   ];
+ };
+
+Networking/Firewall
+
+   When using Incus on NixOS, nftables is required to ensure broadest
+   compatibility with other services that manage firewall rules from release
+   24.05. Trying to use iptables will fail eval, and this can be fixed by
+   switching to nftables and for simple firewalls should be a drop-in
+   replacement for iptables.
+
+ networking.nftables.enable = true;
+
+   By default the NixOS firewall will block DHCP requests to the Incus
+   network, meaning instances will not get an IPv4 address. Ensure you allow
+   53 for DNS and 67 for DHCPv4 on any Incus bridge network interfaces. This
+   interface name should match the name given during initialization or
+   configured through the incus interfaces.
+
+ networking.firewall.interfaces.incusbr0.allowedTCPPorts = [
+   53
+   67
+ ];
+ networking.firewall.interfaces.incusbr0.allowedUDPPorts = [
+   53
+   67
+ ];
+
+   OR, the entire intreface can be trusted.
+
+ networking.firewall.trustedInterfaces = [ "incusbr0" ];
+
+NixOS Instances
+
+   To launch a new NixOS container use the following command.
+
+ incus launch images:nixos/unstable nixos -c security.nesting=true
+
+   A NixOS virtual machine is launched with the following.
+
+ incus launch --vm images:nixos/unstable nixos -c security.secureboot=false
+
+NixOS Images
+
+  Pre-built Images
+
+   NixOS images are available at https://images.linuxcontainers.org/
+   providing VM and Container images for both stable and unstable NixOS.
+
+ [root@nixos:/etc/nixos]# incus image list images:nixos
+ +-------------------------------+--------------+--------+---------------------------------------+--------------+-----------------+-----------+----------------------+
+ |             ALIAS             | FINGERPRINT  | PUBLIC |              DESCRIPTION              | ARCHITECTURE |      TYPE       |   SIZE    |     UPLOAD DATE      |
+ +-------------------------------+--------------+--------+---------------------------------------+--------------+-----------------+-----------+----------------------+
+ | nixos/23.11 (3 more)          | 1e606df4d91a | yes    | Nixos 23.11 amd64 (20240521_01:02)    | x86_64       | CONTAINER       | 124.84MiB | 2024/05/21 00:00 UTC |
+ +-------------------------------+--------------+--------+---------------------------------------+--------------+-----------------+-----------+----------------------+
+ | nixos/23.11 (3 more)          | a96494ff3c46 | yes    | Nixos 23.11 amd64 (20240521_01:02)    | x86_64       | VIRTUAL-MACHINE | 452.43MiB | 2024/05/21 00:00 UTC |
+
+    Creation
+
+   Container and VM images are built by Hydra as part of the NixOS release.
+
+   https://hydra.nixos.org/job/nixos/trunk-combined/nixos.lxdContainerImage.x86_64-linux
+
+   https://hydra.nixos.org/job/nixos/trunk-combined/nixos.lxdVirtualMachineImage.x86_64-linux
+
+   The LXC Image Server then consumes them and repackages them using their
+   CI.
+
+   Definition:
+   https://github.com/lxc/lxc-ci/blob/main/jenkins/jobs/image-nixos.yaml
+
+   CI: https://jenkins.linuxcontainers.org/job/image-nixos/
+
+Custom Images
+
+  VMs
+
+   All the necessary build infrastructure exists in nixpkgs to build custom
+   images.
+
+   Define some NixOS systems.
+
+ nixosConfigurations = {
+   container = inputs.nixpkgs.lib.nixosSystem {
+     system = "x86_64-linux";
+     modules = [
+       "${inputs.nixpkgs}/nixos/modules/virtualisation/lxc-container.nix"
+       (
+         { pkgs, ... }:
+         {
+           environment.systemPackages = [ pkgs.vim ];
+         }
+       )
+     ];
+   };
+
+   vm = inputs.nixpkgs.lib.nixosSystem {
+     system = "x86_64-linux";
+     modules = [
+       "${inputs.nixpkgs}/nixos/modules/virtualisation/lxd-virtual-machine.nix"
+       (
+         { pkgs, ... }:
+         {
+           environment.systemPackages = [ pkgs.vim ];
+         }
+       )
+     ];
+   };
+ };
+
+   Then you can build the image and associated metadata.
+
+ $ nix build .#nixosConfigurations.vm.config.system.build.qemuImage --print-out-paths
+ /nix/store/znk28bp34bycb3h5k0byb61bwda23q5l-nixos-disk-image
+
+ $ nix build .#nixosConfigurations.vm.config.system.build.metadata --print-out-paths
+ /nix/store/2snjw9y8brfh5gia44jv6bhdhmmdydva-tarball
+
+   Finally, you can manually import into an Incus storage pool and used to
+   launch instances.
+
+ $ incus image import --alias nixos-gen/custom/jellyfin /nix/store/2snjw9y8brfh5gia44jv6bhdhmmdydva-tarball/tarball/nixos-system-x86_64-linux.tar.xz /nix/store/znk28bp34bycb3h5k0byb61bwda23q5l-nixos-disk-image/nixos.qcow2
+
+   To build and import the VM in one command, follow the steps below.
+
+ $ incus image import --alias nixos-gen/custom/jellyfin $(nix build .#nixosConfigurations.vm.config.system.build.metadata --print-out-paths)/tarball/nixos-system-x86_64-linux.tar.xz $(nix build .#nixosConfigurations.vm.config.system.build.qemuImage --print-out-paths)/nixos.qcow2
+
+ # Image imported with fingerprint: ***
+
+   You can verify the import with the commands below.
+
+ $ incus image list nixos/custom/vm
+ +------------------------+--------------+--------+--------------------------------------------------+--------------+-----------+-----------+----------------------+
+ |         ALIAS          | FINGERPRINT  | PUBLIC |                   DESCRIPTION                    | ARCHITECTURE |   TYPE    |   SIZE    |     UPLOAD DATE      |
+ +------------------------+--------------+--------+--------------------------------------------------+--------------+-----------+-----------+----------------------+
+ | nixos/custom/vm | 9d0d6f3df0cc | no     | NixOS Uakari 24.05.20240513.a39a12a x86_64-linux | x86_64       | CONTAINER | 170.31MiB | 2024/05/21 09:21 EDT |
+ +------------------------+--------------+--------+--------------------------------------------------+--------------+-----------+-----------+----------------------+
+
+ $ incus launch nixos/custom/vm
+ Launching the instance
+ Instance name is: square-heron
+
+ $ incus shell square-heron
+
+ [root@nixos:~]# which vim
+ /run/current-system/sw/bin/vim
+
+  Containers
+
+ $ nix build .#nixosConfigurations.container.config.system.build.squashfs --print-out-paths
+ /nix/store/24djf2qlpkyh29va8z6pxrqp8x5z6xyv-nixos-lxc-image-x86_64-linux.img
+
+ $ nix build .#nixosConfigurations.container.config.system.build.metadata --print-out-paths
+ /nix/store/2snjw9y8brfh5gia44jv6bhdhmmdydva-tarball
+
+ $ incus image import --alias nixos/custom/container /nix/store/2snjw9y8brfh5gia44jv6bhdhmmdydva-tarball/tarball/nixos-system-x86_64-linux.tar.xz /nix/store/24djf2qlpkyh29va8z6pxrqp8x5z6xyv-nixos-lxc-image-x86_64-linux.img
+ Image imported with fingerprint: 9d0d6f3df0cccec4da7ce4f69952bd389b6dd655fd9070e498f591aaffbb2cda
+
+ $ incus image list nixos/custom/container
+ +------------------------+--------------+--------+--------------------------------------------------+--------------+-----------+-----------+----------------------+
+ |         ALIAS          | FINGERPRINT  | PUBLIC |                   DESCRIPTION                    | ARCHITECTURE |   TYPE    |   SIZE    |     UPLOAD DATE      |
+ +------------------------+--------------+--------+--------------------------------------------------+--------------+-----------+-----------+----------------------+
+ | nixos/custom/container | 9d0d6f3df0cc | no     | NixOS Uakari 24.05.20240513.a39a12a x86_64-linux | x86_64       | CONTAINER | 170.31MiB | 2024/05/21 09:21 EDT |
+ +------------------------+--------------+--------+--------------------------------------------------+--------------+-----------+-----------+----------------------+
+
+ $ incus launch nixos/custom/container -c security.nesting=true
+ Launching the instance
+ Instance name is: square-heron
+
+ $ incus shell square-heron
+
+ [root@nixos:~] which vim
+ /run/current-system/sw/bin/vim
+
+   Or, the all in one command:
+
+ incus image import --alias nixos/custom/vm $(nix build .#nixosConfigurations.vm.config.system.build.metadata --print-out-paths)/tarball/nixos-system-x86_64-linux.tar.xz $(nix build .#nixosConfigurations.vm.config.system.build.qemuImage --print-out-paths)/nixos.qcow2
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Incus&oldid=17161"
+   Categories:
+     * Server
+     * Container
+     * This page was last edited on 5 September 2024, at 08:26.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

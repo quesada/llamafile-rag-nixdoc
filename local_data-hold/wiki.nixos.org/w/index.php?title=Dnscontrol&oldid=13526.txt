@@ -1,0 +1,155 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+     * 3 Usage
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                   Dnscontrol
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 19:39, 25 June 2024 by Klinger (talk | contribs)
+   (Category:Networking added)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Dnscontrol is a tool to synchronize your DNS to multiple providers from a
+   simple DSL.
+
+Installation
+
+   Install dnscontrol in your current environment
+
+ # nix-env -iA nixos.dnscontrol
+
+Configuration
+
+   In the following example usage, we'll create a credentials file called
+   creds.json with the login details for the domain provider Inwx.com:
+
+    
+
+ creds.json
+
+ {
+   "inwx": {
+     "TYPE": "INWX",
+     "username": "myuser",
+     "password": "mypassword"
+   }
+ }
+
+   See upstream documentation for available provider and their authentication
+   syntax.
+
+   The second required configuration file called dnsconfig.js defines
+   providers and domain configurations. In this example, we'll add a
+   subdomain test to the domain example.org with a specific A-record.
+
+    
+
+ dnsconfig.js
+
+ var REG_NONE = NewRegistrar("none");
+ var DSP_INWX = NewDnsProvider("inwx");
+
+ D("example.org", REG_NONE, DnsProvider(DSP_INWX), NO_PURGE,
+     A("test", "1.2.3.4")
+ );
+
+   The provider will be Inwx for which we configured the credentials earlier.
+   The option NO_PURGE tells dnscontrol to only add the new record while
+   leaving all other entries untouched.
+
+Usage
+
+   Preview the changes which will be made to your domain
+
+ # dnscontrol preview
+
+   Apply changes with the following command
+
+ # dnscontrol push
+
+   Confirm changes to the dns record using the tool dig.
+
+ # nix shell nixpkgs#dnsutils --command dig +short test.example.org
+
+See also
+
+     * Octodns, tool that allows for easy management of DNS records across
+       multiple providers
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Dnscontrol&oldid=13526"
+   Categories:
+     * Applications
+     * Networking
+     * This page was last edited on 25 June 2024, at 19:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

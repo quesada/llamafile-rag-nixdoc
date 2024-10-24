@@ -1,0 +1,116 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       File:Postorius add new domain.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:Postorius add new domain.png
+   Size of this preview: 453 × 600 pixels. Other resolution: 745 × 986
+   pixels.
+
+   Original file ‎(745 × 986 pixels, file size: 95 KB, MIME type: image/png)
+
+   Screenshot of the Mailman web interface for adding a new email domain
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail    Dimensions User            Comment          
+                     Thumbnail                               Screenshot of    
+           06:31, 20 for version  745 × 986                  the Mailman web  
+   current February  as of 06:31, (95 KB)    Imported>Benley interface for    
+           2020      20 February                             adding a new     
+                     2020                                    email domain     
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following 2 pages use this file:
+
+     * Mailman
+     * File:Postorious add new domain.png (file redirect)
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Software used                 * gnome-screenshot                  
+   Date and time of digitizing   * Thu 20 Feb 2020 01:30:39 AM EST   
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Postorius_add_new_domain.png&oldid=7364"
+     * This page was last edited on 1 April 2024, at 11:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

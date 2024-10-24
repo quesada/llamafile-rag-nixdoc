@@ -1,0 +1,171 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                 Nix vs. Linux Standard Base: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 October 2024
+
+     * curprev [ ] [ ] 15:0415:04, 19 October 2024‎ Fidgetingbits talk
+       contribs‎ 5,244 bytes +13‎ →‎Build and install from Source: formatting
+       Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 15:0315:03, 19 October 2024‎ Fidgetingbits talk
+       contribs‎ 5,231 bytes +78‎ →‎Package Installation: tweak formatting
+       Tags: Mobile edit Mobile web edit
+
+    8 April 2024
+
+     * curprev [ ] [ ] 04:5504:55, 8 April 2024‎ Sdht0 talk contribs‎ 5,153
+       bytes −267‎ Partial copy edit Tag: Visual edit: Switched
+     * curprev [ ] [ ] 04:4704:47, 8 April 2024‎ Sdht0 talk contribs‎ 5,420
+       bytes −563‎ →‎Modifying a Package: Copy edit and shorten
+     * curprev [ ] [ ] 04:3804:38, 8 April 2024‎ Sdht0 talk contribs‎ 5,983
+       bytes −8‎ →‎See also: Update link
+
+    8 October 2021
+
+     * curprev [ ] [ ] 00:2400:24, 8 October 2021‎ imported>Nix‎ m 5,991
+       bytes +62‎ →‎See also: ref for FHS
+     * curprev [ ] [ ] 00:2300:23, 8 October 2021‎ imported>Nix‎ 5,929 bytes
+       +217‎ add OSTree comparison
+
+    20 September 2021
+
+     * curprev [ ] [ ] 00:3100:31, 20 September 2021‎ imported>Nix‎ m 5,712
+       bytes −4‎ move to pedias category
+
+    6 December 2017
+
+     * curprev [ ] [ ] 09:2409:24, 6 December 2017‎ imported>Roberth‎ 5,716
+       bytes −1,407‎ Extract Modifying a Package into new page
+     * curprev [ ] [ ] 09:1909:19, 6 December 2017‎ imported>Roberth‎ 7,123
+       bytes +1,866‎ Some advice around build/install from source + give an
+       overview of package modification methods (modify package should be
+       factored into new page)
+
+    27 August 2017
+
+     * curprev [ ] [ ] 13:2113:21, 27 August 2017‎ imported>Fadenb‎ m 5,257
+       bytes +41‎ →‎Building from Source: syntax highlighting
+
+    23 August 2017
+
+     * curprev [ ] [ ] 18:1018:10, 23 August 2017‎ imported>Ixxie‎ 5,216
+       bytes +102‎ Changed instances of Nixpkgs to Nix, corrected typos and
+       clarified section headings.
+     * curprev [ ] [ ] 18:0118:01, 23 August 2017‎ imported>Ixxie‎ m 5,114
+       bytes 0‎ Ixxie moved page Nixpkgs vs other packagers to Nix vs. Linux
+       Standard Base: Corrected title to reflect actual content.
+     * curprev [ ] [ ] 17:5317:53, 23 August 2017‎ imported>Makefu‎ 5,114
+       bytes +25‎ No edit summary
+
+    30 June 2017
+
+     * curprev [ ] [ ] 10:0310:03, 30 June 2017‎ imported>Fadenb‎ 5,089 bytes
+       +5,089‎ Created page with "==I want a package installed in the
+       system== In most distributions, asking for a package to be installed,
+       means having all its files available in the root filesystem
+       (<code>/{..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nix_vs._Linux_Standard_Base"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

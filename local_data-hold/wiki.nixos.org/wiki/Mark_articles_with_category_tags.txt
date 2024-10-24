@@ -1,0 +1,167 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Ecosystem tags
+     * 2 Topic tags
+     * 3 Resource tags
+   [ ] Toggle the table of contents
+
+                        Mark articles with category tags
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The MediaWiki provides a way to tag articles (at the end of the article).
+   We are using this feature to structure the Wiki.
+
+  Ecosystem tags
+
+   Elements of the Nix Ecosystem should be tagged by one or more of the
+   following categories:
+
+   [[Category:NixOS]]
+           Articles related to the Nix operating system, the module system
+           and the system configuration.
+
+   [[Category:Nix]]
+           Articles about using the Nix Tools to accomplish great things.
+
+   [[Category:Nixpkgs]]
+           Articles about maintaining code in the Nixpkgs repository,
+           structuring, and so on.
+
+   [[Category:Nix Language]]
+           Description of language quirks and solutions.
+
+   [[Category:Hydra]]
+           Articles about Hydra continuous Integration related documentation.
+
+   [[Category:Application]]
+           Extended Ecosystem: Articles about other Nix-based or Nix-related
+           applications.
+
+  Topic tags
+
+   Almost all content of the wiki can be accessed with 2 to 3 clicks via one
+   of these topic categories:
+
+   [[Category:Software]]
+           Articles about software applications like neovim or libreoffice
+
+   [[Category:Hardware]]
+           Articles about hardware like GPU, keyboards and notebooks.
+
+   [[Category:Desktop]]
+           Articles about using NixOS on a PC (e.g. desktop environments)
+
+   [[Category:Server]]
+           Articles about using NixOS on servers, like running web
+           applications (e.g. Nextcloud)
+
+   [[Category:Community]]
+           Articles about the Nix(OS) community and how to engage and
+           contribute.
+
+  Resource tags
+
+   The type of documentation for new pages should be tagged with one of the
+   following categories:
+
+   [[Category:Tutorial]]
+              * is learning-oriented
+              * allows the newcomer to get started
+              * is a lesson
+
+   [[Category:Discussion]]
+              * is understanding-oriented
+              * explains
+              * provides background and context
+
+   [[Category:Guide]]
+              * is goal-oriented
+              * how-to's for dealing with a specific problem / tool
+              * is a series of steps
+
+   [[Category:Cookbook]]
+              * is recipe orientated
+              * a collection of short code snippets and hacks
+              * arranged around a theme or tool
+
+   [[Category:Reference]]
+              * is information-oriented
+              * describes the machinery
+              * is accurate and complete
+              * Most of the time the NixOS Wiki will not contain reference
+                documents
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Mark_articles_with_category_tags&oldid=17072"
+   Category:
+     * Community
+     * This page was last edited on 2 September 2024, at 19:51.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

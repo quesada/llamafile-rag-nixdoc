@@ -1,0 +1,101 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Usage in NixOS
+     * 2 Installation
+   [ ] Toggle the table of contents
+
+                                     Godot
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Godot#)                  
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   Godot is an open-source game engine, capable of creating both 2D and 3D
+   games.
+
+Usage in NixOS
+
+   Use steam-run to run a Godot exported project (without having to fix paths
+   for Nix).
+
+Installation
+
+   Add pkgs.godot_4 to environment.systemPackages.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Godot&oldid=17636"
+   Category:
+     * Applications
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 26 September 2024, at 20:25.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

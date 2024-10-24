@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             File:ROC-RK3328-CC.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+   File:ROC-RK3328-CC.png
+   Size of this preview: 800 × 533 pixels. Other resolution: 980 × 653
+   pixels.
+
+   Original file ‎(980 × 653 pixels, file size: 620 KB, MIME type: image/png)
+
+   A Libre Computer ROC-RK3328-CC.
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail Dimensions User                  Comment        
+                     Thumbnail                                                 
+                     for                                                       
+           19:15, 29 version   980 × 653                        A Libre        
+   current March     as of     (620 KB)   Imported>Cyber-murmel Computer
+           2022      19:15, 29                                  ROC-RK3328-CC.
+                     March     
+                     2022      
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/Libre Computer ROC-RK3328-CC
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:ROC-RK3328-CC.png&oldid=11961"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

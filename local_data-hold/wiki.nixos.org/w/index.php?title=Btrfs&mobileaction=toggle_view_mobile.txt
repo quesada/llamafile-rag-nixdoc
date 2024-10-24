@@ -1,0 +1,363 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Partition the disk
+          * 1.2 Format partitions and create subvolumes
+          * 1.3 Mount the partitions and subvolumes
+          * 1.4 Install NixOS
+     * 2 Configuration
+          * 2.1 Compression
+          * 2.2 Swap file
+          * 2.3 Scrubbing
+     * 3 Usage
+          * 3.1 Subvolume
+          * 3.2 Snapshots
+          * 3.3 Transfer snapshot
+     * 4 Installation with encryption
+          * 4.1 Creating Subvolumes
+   [ ] Toggle the table of contents
+
+                                     Btrfs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   btrfs is a modern copy on write (CoW) filesystem for Linux aimed at
+   implementing advanced features while also focusing on fault tolerance,
+   repair and easy administration.
+
+   Note: Use disko to manage your NixOS storage layout declaratively. The
+   following shows a manual approach as seen in traditional Linux
+   distributions.
+
+Installation
+
+   Note: The following example is for EFI enabled systems. Adjust commands
+   accordingly for a BIOS installation.
+
+  Partition the disk
+
+ # printf "label: gpt\n,550M,U\n,,L\n" | sfdisk /dev/sdX
+
+  Format partitions and create subvolumes
+
+ # nix-shell -p btrfs-progs
+ # mkfs.fat -F 32 /dev/sdX1
+
+ # mkfs.btrfs /dev/sdX2
+ # mkdir -p /mnt
+ # mount /dev/sdX2 /mnt
+ # btrfs subvolume create /mnt/root
+ # btrfs subvolume create /mnt/home
+ # btrfs subvolume create /mnt/nix
+ # umount /mnt
+
+  Mount the partitions and subvolumes
+
+ # mount -o compress=zstd,subvol=root /dev/sdX2 /mnt
+ # mkdir /mnt/{home,nix}
+ # mount -o compress=zstd,subvol=home /dev/sdX2 /mnt/home
+ # mount -o compress=zstd,noatime,subvol=nix /dev/sdX2 /mnt/nix
+
+ # mkdir /mnt/boot
+ # mount /dev/sdX1 /mnt/boot
+
+  Install NixOS
+
+ # nixos-generate-config --root /mnt
+ # nano /mnt/etc/nixos/configuration.nix # manually add mount options (see Compression below for an example)
+ # nixos-install
+
+Configuration
+
+  Compression
+
+   nixos-generate-config --show-hardware-config doesn't detect mount options
+   automatically, so to enable compression, you must specify it and other
+   mount options in a persistent configuration:
+
+ fileSystems = {
+   "/".options = [ "compress=zstd" ];
+   "/home".options = [ "compress=zstd" ];
+   "/nix".options = [ "compress=zstd" "noatime" ];
+   "/swap".options = [ "noatime" ];
+ };
+
+  Swap file
+
+   Optionally, create a separate subvolume for the swap file. Be sure to
+   regenerate your hardware-configuration.nix if you choose to do this.
+
+ # mkdir -p /mnt
+ # mount /dev/sdXY /mnt
+ # btrfs subvolume create /mnt/swap
+ # umount /mnt
+ # mkdir /swap
+ # mount -o noatime,subvol=swap /dev/sdXY /swap
+
+   Then, create the swap file and adjust its size as desired:
+
+ # btrfs filesystem mkswapfile --size 8g --uuid clear /swap/swapfile
+
+   Finally, add the swap file to your configuration and nixos-rebuild switch:
+
+ swapDevices = [ { device = "/swap/swapfile"; } ];
+
+  Scrubbing
+
+   Btrfs filesystem by default keeps checksums for all files, and this allows
+   to check if contents of the file has not changed due to hardware
+   malfunctions and other external effects.
+
+   Scrubbing - is the process of checking file consistency (for this it may
+   use checksums and/or duplicated copies of data, from raid for example).
+   Scrubbing may be done "online", meaning you don't need to unmount a
+   subvolume to scrub it.
+
+   You can enable automatic scrubbing with
+
+ services.btrfs.autoScrub.enable = true;
+
+   Automatic scrubbing by default is performed once a month, but you can
+   change that with
+
+ services.btrfs.autoScrub.interval = "weekly";
+
+   interval syntax is defined by systemd.timer's Calendar Events
+
+   By default, autoscrub will scrub all detected btrfs mount points. However,
+   in case of mounted nested subvolumes (like in example above /nix and /home
+   are nested subvolumes under /), you only need to scrub the top-most one.
+   So an example configuration may look like this:
+
+ services.btrfs.autoScrub = {
+   enable = true;
+   interval = "monthly";
+   fileSystems = [ "/" ];
+ };
+
+   The result of periodic auto scrub will be save to system journal, however
+   you can also always check the status of the last scrub with
+
+ btrfs scrub status /
+
+   You can also start a scrubbing in background manually
+
+ btrfs scrub start /
+
+   You can check the status of the ongoing scrubbing process with the same
+   status command from above
+
+Usage
+
+  Subvolume
+
+   Create a subvolume
+
+ btrfs subvolume create /mnt/nixos
+
+   Removing a subvolume
+
+ btrfs subvolume delete /mnt/nixos
+
+  Snapshots
+
+   A snapshot in btrfs is simply a subvolume that shares its data (and
+   metadata) with some other subvolume, using btrfs's COW capabilities.
+
+   Because of that, there is no special location for snapshots - you need to
+   decide where you want to store them for yourself. It can be a simple
+   directory inside root subvolume, or a directory inside a dedicated
+   "snapshots" subvolume.
+
+   For this example we are going to store snapshots in a simple directory
+   /snapshots, that has to be created beforehand with sudo mkdir /snapshots
+
+   Taking a read-only (-r) snapshot called home_snapshot_202302 of the
+   subvolume mounted at /home
+
+ btrfs subvolume snapshot -r /home /snapshots/home_snapshot_202302
+
+   You can also snapshot the root subvolume. But keep in mind, that nested
+   subvolumes are not part of a snapshot. So if you have subvolumes /nix
+   /home, taking snapshot of / will not include them.
+
+ btrfs subvolume snapshot -r / /snapshots/nixos_snapshot_202302
+
+   Make snapshot read-write again
+
+ btrfs property set -ts /snapshots/home_snapshot_202302 ro false
+
+   However, changing read-only property of a snapshot in-place may causes
+   issues with any future incremental send/receive.
+
+   Instead, a read-only snapshot itself (being a simple subvolume) can be
+   snapshoted again as a read-write snapshot like this:
+
+ btrfs subvolume snapshot /snapshots/home_snapshot_202302 /snapshots/home_snapshot_202302_rw
+
+   Or it can be restored directly to /home straight away like this:
+
+   Warning: this will delete current /home and restore the snapshot! /home
+   must be unmounted for this operation
+
+ btrfs subvolume delete /home
+ btrfs subvolume snapshot /snapshots/home_snapshot_202302 /home
+
+   After this you can mount /home again./
+
+  Transfer snapshot
+
+   Sending the snapshot /snapshots/nixos_snapshot_202302 compressed to a
+   remote host via ssh at root@192.168.178.110 and saving it to a subvolume
+   mounted or directory at /mnt/nixos
+
+ sudo btrfs send /snapshots/nixos_snapshot_202302 | zstd | ssh root@192.168.178.110 'zstd -d | btrfs receive /mnt/nixos'
+
+Installation with encryption
+
+   Using Luks2:
+
+ cryptsetup --verify-passphrase -v luksFormat "$DISK"p2
+
+ cryptsetup open "$DISK"p2 enc
+
+   You can use any device paritition for your bootloader # Notice that this
+   bootloader is unencrypted on default:
+
+   mkfs.vfat -n BOOT "$DISK"p1
+
+  Creating Subvolumes
+
+ mkfs.btrfs /dev/mapper/enc # Creating btrfs partition
+
+ mount -t btrfs /dev/mapper/enc /mnt
+
+ # Create the subvolumes
+
+ btrfs subvolume create /mnt/root # The subvolume for /
+
+ btrfs subvolume create /mnt/home # The subvolume for /home, which should be backed up
+
+ btrfs subvolume create /mnt/nix # The subvolume for /nix, which needs to be persistent but is not worth backing up, as it’s trivial to reconstruct
+
+ btrfs subvolume create /mnt/log # The subvolume for /var/log.
+
+   Unmount to mount on the subvolumes for the next steps:
+
+   umount /mnt
+
+   Once the subvolumes has been created, mount them with the options. Example
+   with Zstandard compression with noatime:
+
+ mount -o subvol=root,compress=zstd,noatime /dev/mapper/enc /mnt
+
+ mkdir /mnt/home
+
+ mount -o subvol=home,compress=zstd,noatime /dev/mapper/enc /mnt/home
+
+ mkdir /mnt/nix
+
+ mount -o subvol=nix,compress=zstd,noatime /dev/mapper/enc /mnt/nix
+
+ mkdir -p /mnt/var/log
+
+ mount -o subvol=log,compress=zstd,noatime /dev/mapper/enc /mnt/var/log
+
+ # do not forget to create and mount the bootloader
+
+ mkdir /mnt/boot
+
+ mount "$DISK"p1 /mnt/boot
+
+   Configure hardware-configuration.nix
+
+  # enable btrfs support
+  boot.supportedFilesystems = [ "btrfs" ];
+
+  fileSystems."/var/log" =
+     { device = "/dev/disk/by-uuid/X";
+       fsType = "btrfs";
+       # enable noatime and zstd to the other subvolumes aswell
+       options = [ "subvol=log" "compress=zstd" "noatime" ];
+       # to have a correct log order
+       neededForBoot = true;
+     };
+
+   Generate Nixconfig:
+
+ nixos-generate-config --root /mnt
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Btrfs&oldid=17607"
+   Categories:
+     * Configuration
+     * Filesystem
+     * This page was last edited on 23 September 2024, at 21:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

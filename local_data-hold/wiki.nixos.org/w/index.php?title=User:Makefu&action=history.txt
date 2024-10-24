@@ -1,0 +1,124 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         User:Makefu: Revision history
+
+   Help
+     * User page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * User contributions
+     * Logs
+     * View user groups
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    22 August 2017
+
+     * curprev [ ] [ ] 09:3109:31, 22 August 2017‎ imported>Makefu‎ 48 bytes
+       +7‎ No edit summary
+     * curprev [ ] [ ] 09:2709:27, 22 August 2017‎ imported>Makefu‎ 41 bytes
+       +19‎ No edit summary
+     * curprev [ ] [ ] 08:5608:56, 22 August 2017‎ imported>Makefu‎ 22 bytes
+       +2‎ No edit summary
+     * curprev [ ] [ ] 08:5008:50, 22 August 2017‎ imported>Makefu‎ 20 bytes
+       +1‎ No edit summary
+     * curprev [ ] [ ] 08:2008:20, 22 August 2017‎ imported>Makefu‎ 19 bytes
+       +19‎ Created page with "Welcome to my page!"
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/User:Makefu"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,150 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Trivial Build Helpers
+          * 1.1 runCommandWith
+   [ ] Toggle the table of contents
+
+                                 Build Helpers
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Nixpkgs hosts a number of simple functions called "build helpers", that
+   are commonly used as part of a larger derivation, such as
+   stdenv.mkDerivation. These helpers can be used part of a larger
+   derivation, or to produce a simple derivation that doesn't need the full
+   power of the standard environment.
+
+  Trivial Build Helpers
+
+     This article or section needs expansion.                                 
+     Reason: Doesn't cover all builders, see:                                 
+     https://nixos.org/manual/nixpkgs/unstable/#part-builders (Discuss in     
+     Talk:Build Helpers#)                                                     
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+    runCommandWith
+
+   An extremely simple derivation that runs a series of shell commands as
+   part of the build-step. It would be accurate to consider this as a fancy
+   wrapper around installPhase.
+
+   This function accepts two arguments, an attribute set and a string. The
+   attribute set is defined as:
+
+    1. name: The derivation name, exactly like a standard Nix derivation.
+    2. stdenv (default: pkgs.stdenv): Define the standard environment used
+    3. runLocal (default: false): Prevents the usage of substituters and/or
+       remote builders; forces local builds only.
+    4. derivationArgs (default: {}): Additional arguments passed directly
+       into an internal mkDerivation.
+
+   The string represents a series of shell commands to execute when building
+   this derivation. These must generate an $out, much like a standard
+   derivation.
+
+   A common use case for this type of builder is when you're copying files
+   into the store. You can get quite creative and use this to transform those
+   files as they become part of the store, leaving you with the final,
+   transformed file output.
+
+ {
+   runCommandWith,
+   sassc,
+ }:
+ runCommandWith {
+   name = "sass-to-css";
+   derivationArgs.nativeBuildInputs = [ sassc ];
+ } ''
+   mkdir -p $out
+   sassc ${./style.scss} $out/style.css
+ ''
+
+   Nixpkgs provides a few higher-level entry points for this builder. All of
+   these functions accept a name, and an attribute set that maps to
+   derivationArgs for the above. This simpler signature makes them more
+   suitable for use as compared to runCommandWith, and should be preferred
+   unless you know you need runCommandWith directly.
+
+     * runCommand: sets stdenv = pkgs.stdenvNoCC.
+     * runCommandCC: completely default runCommandWith.
+     * runCommandLocal: sets runLocal = true.
+
+   There are a couple other aliases that aren't used very often, but will be
+   listed here anyways as an exhaustive reference:
+
+     * runCommandNoCC: identical to runCommand.
+     * runCommandNoCCLocal: identical to runCommandLocal.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Build_Helpers&oldid=17881"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 17 October 2024, at 02:38.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

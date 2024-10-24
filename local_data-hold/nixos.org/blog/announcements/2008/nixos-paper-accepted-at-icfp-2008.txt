@@ -1,0 +1,51 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                         NixOS paper accepted at ICFP!
+
+   Published on Wed Jul 16 2008
+
+                         NixOS paper accepted at ICFP!
+
+   The paper “NixOS: A Purely Functional Linux Distribution” (by Eelco
+   Dolstra and Andres Löh) has been accepted for presentation at the 2008
+   International Conference on Functional Programming (ICFP). It describes
+   NixOS in much greater detail than last year’s HotOS paper, and argues why
+   the purely functional style and features such as laziness are important
+   for system configuration management. It also provides some measurements on
+   the actual purity of Nix build actions. A draft of the paper is available.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

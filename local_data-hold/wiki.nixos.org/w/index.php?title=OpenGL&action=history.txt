@@ -1,0 +1,180 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            OpenGL: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    27 June 2024
+
+     * curprev [ ] [ ] 17:2117:21, 27 June 2024‎ Tomodachi94 talk contribs‎ m
+       2,830 bytes +226‎ update renamed options
+
+    1 April 2024
+
+     * curprev [ ] [ ] 13:5213:52, 1 April 2024‎ Mic92 talk contribs‎ 2,604
+       bytes −20‎ fix links
+
+    4 October 2022
+
+     * curprev [ ] [ ] 20:1720:17, 4 October 2022‎ imported>Pbsds‎ 2,624
+       bytes +16‎ →‎glxinfo: make option name explicit
+
+    3 August 2022
+
+     * curprev [ ] [ ] 13:2113:21, 3 August 2022‎ imported>Fufexan‎ m 2,608
+       bytes +21‎ Add page to Video category
+     * curprev [ ] [ ] 13:2013:20, 3 August 2022‎ imported>Fufexan‎ 2,587
+       bytes +112‎ Add syntax highlighting
+
+    5 July 2022
+
+     * curprev [ ] [ ] 20:1020:10, 5 July 2022‎ imported>PedroHLC‎ 2,475
+       bytes +72‎ Open a merge candidate with "Mesa"
+
+    18 February 2022
+
+     * curprev [ ] [ ] 03:5503:55, 18 February 2022‎ imported>Lapp0‎ 2,403
+       bytes +255‎ No edit summary
+
+    13 January 2022
+
+     * curprev [ ] [ ] 19:5119:51, 13 January 2022‎ imported>Primeos dev‎ m
+       2,148 bytes +14‎ Force a table of contents (helpful for direct links)
+
+    4 September 2021
+
+     * curprev [ ] [ ] 02:5802:58, 4 September 2021‎ imported>Samuela‎ 2,134
+       bytes +22‎ No edit summary
+     * curprev [ ] [ ] 02:5802:58, 4 September 2021‎ imported>Samuela‎ 2,112
+       bytes +107‎ No edit summary
+
+    12 June 2021
+
+     * curprev [ ] [ ] 16:0116:01, 12 June 2021‎ imported>Primeos dev‎ m
+       2,005 bytes 0‎ Undo revision 5878 by Kreyren (talk) - Please don't!
+       /srv isn't ideal but /opt is even worse...
+     * curprev [ ] [ ] 15:2015:20, 12 June 2021‎ imported>Kreyren‎ 2,005
+       bytes 0‎ Compilance with FHS 3.0 -> Use "Optional" directory instead
+       of "Service" dedicated for system-provided services
+     * curprev [ ] [ ] 09:5909:59, 12 June 2021‎ imported>Primeos dev‎ 2,005
+       bytes +384‎ Briefly document how to debug Mesa issues
+
+    31 May 2021
+
+     * curprev [ ] [ ] 11:3211:32, 31 May 2021‎ imported>Primeos dev‎ m 1,621
+       bytes +355‎ →‎Testing Mesa updates: Mention the limitations/issues
+
+    24 May 2021
+
+     * curprev [ ] [ ] 21:1021:10, 24 May 2021‎ imported>Primeos‎ m 1,266
+       bytes +69‎ Minor improvements
+     * curprev [ ] [ ] 21:0421:04, 24 May 2021‎ imported>Primeos‎ 1,197 bytes
+       +631‎ Document how to test Mesa updates (this comes up pretty often)
+
+    25 November 2020
+
+     * curprev [ ] [ ] 02:0402:04, 25 November 2020‎ imported>Tbenst‎ 566
+       bytes +566‎ OpenGL: init with basic info
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/OpenGL"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

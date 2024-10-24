@@ -1,0 +1,267 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Additional features
+     * 2 Configuration
+     * 3 Management of the nixpkgs git repository
+          * 3.1 git
+               * 3.1.1 git-gc
+     * 4 Serve Git repos via SSH
+          * 4.1 Configuration
+          * 4.2 Usage
+          * 4.3 Bisecting Nix regressions
+   [ ] Toggle the table of contents
+
+                                      Git
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Git is the version control system (VCS) designed and developed by Linus
+   Torvalds, the creator of the Linux kernel. Git is used to maintain NixOS
+   packages, as well as many other projects, including sources for the Linux
+   kernel.
+
+Installation
+
+   Install the git package.
+
+  Additional features
+
+   Install tk to use the git gui:
+
+ $ git citool
+
+   Or you may wish to install the gitFull package, which includes git gui,
+   gitk, etc.
+
+Configuration
+
+   Git can be configured using Home Manager:
+
+   programs.git = {
+     enable = true;
+     userName  = "John Doe";
+     userEmail = "johndoe@example.com";
+   };
+
+   Aliases can be added with:
+
+   programs.git = {
+     enable = true;
+     aliases = {
+       ci = "commit";
+       co = "checkout";
+       s = "status";
+     };
+   };
+
+   Git LFS can be enabled with:
+
+   programs.git = {
+     enable = true;
+     lfs.enable = true;
+   };
+
+   Configure git-credential-helper with libsecret:
+
+ { pkgs, ... }:
+
+ {
+   programs.git = {
+     enable = true;
+     extraConfig = {
+       credential.helper = "${
+           pkgs.git.override { withLibsecret = true; }
+         }/bin/git-credential-libsecret";
+     };
+   };
+ }
+
+   For example to add additional configuration you can specify options in an
+   attribute set, so to add something like this:
+
+ [push]
+         autoSetupRemote = true
+
+   To your ~/.config/git/config, you can add the below to extraConfig
+
+ { pkgs, ... }:
+
+ {
+   programs.git = {
+     enable = true;
+     extraConfig = {
+       push = { autoSetupRemote = true; };
+     };
+   };
+ }
+
+Management of the nixpkgs git repository
+
+   nixpkgs has become a git repository of quite substantial size with
+   > 160 000 commits (as of early 2019). This brings many unoptimized tools
+   to their limits, leading to long waiting times on certain operations. Here
+   we’ll collect useful info on how to manage that.
+
+  git
+
+   git itself might not perform as usual with the default settings
+
+    git-gc
+
+   Normal git gc should work as usual, but you should force a full garbage
+   collect every half a year or so. git gc --aggressive is the command for
+   that. For the author it did not work on the first try, since their
+   laptop’s memory was too small and it went out of memory. According to
+   StackOverflow answer it suffices to set some local repository config
+   variables.
+
+ $ git config pack.windowMemory 2g
+ $ git config pack.packSizeLimit 1g
+
+   worked well on a machine with about 6–8 GB of free RAM and two processor
+   threads, and reduced the size of the nixpkgs checkout from ~1.3 GB to
+   ~0.95 GB.
+
+                            Serve Git repos via SSH
+
+   This section implements Git on the Server - Setting Up the Server on
+   NixOS.
+
+   See also: gitolite.
+
+Configuration
+
+ { config, pkgs, ... }: {
+   users.users.git = {
+     isSystemUser = true;
+     group = "git";
+     home = "/var/lib/git-server";
+     createHome = true;
+     shell = "${pkgs.git}/bin/git-shell";
+     openssh.authorizedKeys.keys = [
+       # FIXME: Add pubkeys of authorized users
+       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF38sHxXn/r7KzWL1BVCqcKqmZA/V76N/y5p52UQghw7 example"
+     ];
+   };
+
+   users.groups.git = {};
+
+   services.openssh = {
+     enable = true;
+     extraConfig = ''
+       Match user git
+         AllowTcpForwarding no
+         AllowAgentForwarding no
+         PasswordAuthentication no
+         PermitTTY no
+         X11Forwarding no
+     '';
+   };
+ }
+
+Usage
+
+   1. Run this on the server to create repo myproject accessible by user git
+
+ sudo -u git bash -c "git init --bare ~/myproject.git"
+
+   (~ here is the home of the user git, which is /var/lib/git-server)
+
+   2. Push to the server repo from another system
+
+ mkdir myproject
+ cd myproject
+ echo hello > a
+ git init
+ git add .
+ git commit -m init
+ git remote add origin git@myserver:myproject.git
+ git push origin master
+
+   3. Clone and edit the server repo from another system
+
+ git clone git@myserver:myproject.git
+ cd myproject
+ cat a
+ echo world >> a
+ git commit -am hello
+ git push origin master
+
+Bisecting Nix regressions
+
+   see bisecting
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Git&oldid=17371"
+   Categories:
+     * Applications
+     * Version control
+     * This page was last edited on 12 September 2024, at 08:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

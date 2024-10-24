@@ -1,0 +1,195 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+             Terms and Definitions in Nix Project: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 September 2024
+
+     * curprev [ ] [ ] 15:2115:21, 2 September 2024‎ SigmaSquadron talk
+       contribs‎ m 6,835 bytes +58‎ Minor wording changes and an updated link
+       to the manual page on recursive sets.
+
+    13 July 2024
+
+     * curprev [ ] [ ] 09:4809:48, 13 July 2024‎ Mth talk contribs‎ m 6,777
+       bytes +18‎ Fix broken nix manual link Tag: Visual edit
+
+    6 April 2024
+
+     * curprev [ ] [ ] 17:1717:17, 6 April 2024‎ Sdht0 talk contribs‎ 6,759
+       bytes −246‎ Copy edit
+     * curprev [ ] [ ] 17:0317:03, 6 April 2024‎ Sdht0 talk contribs‎ 7,005
+       bytes −30‎ Remove duplicate header
+     * curprev [ ] [ ] 17:0317:03, 6 April 2024‎ Sdht0 talk contribs‎ 7,035
+       bytes −194‎ Copy edit
+
+    3 April 2024
+
+     * curprev [ ] [ ] 22:1622:16, 3 April 2024‎ Jopejoe1 talk contribs‎ m
+       7,229 bytes −23‎ Remove Withe space
+
+    16 October 2021
+
+     * curprev [ ] [ ] 02:4802:48, 16 October 2021‎ imported>Nix‎ 7,252 bytes
+       +146‎ be more explicit about what a profile is
+
+    25 September 2021
+
+     * curprev [ ] [ ] 03:0703:07, 25 September 2021‎ imported>Nix‎ m 7,106
+       bytes +66‎ limit column widths
+     * curprev [ ] [ ] 03:0103:01, 25 September 2021‎ imported>Nix‎ 7,040
+       bytes +149‎ add example for output path
+
+    24 September 2021
+
+     * curprev [ ] [ ] 07:1207:12, 24 September 2021‎ imported>Nix‎ 6,891
+       bytes +125‎ Add another profiles reference
+
+    23 September 2021
+
+     * curprev [ ] [ ] 14:5014:50, 23 September 2021‎ imported>Nix‎ m 6,766
+       bytes +12‎ No edit summary
+     * curprev [ ] [ ] 14:4914:49, 23 September 2021‎ imported>Nix‎ m 6,754
+       bytes +11‎ less ambiguous
+     * curprev [ ] [ ] 14:4614:46, 23 September 2021‎ imported>Nix‎ 6,743
+       bytes +504‎ better define derivations, add output path definition
+
+    21 September 2021
+
+     * curprev [ ] [ ] 17:3517:35, 21 September 2021‎ imported>Nix‎ m 6,239
+       bytes +14‎ Add wide page note
+     * curprev [ ] [ ] 16:3016:30, 21 September 2021‎ imported>Nix‎ 6,225
+       bytes +1,156‎ order most important items more prominently. better
+       explain profiles and generations
+     * curprev [ ] [ ] 09:2109:21, 21 September 2021‎ imported>Nix‎ m 5,069
+       bytes +125‎ add note about connection to profiles and generations
+     * curprev [ ] [ ] 09:1809:18, 21 September 2021‎ imported>Nix‎ 4,944
+       bytes +176‎ link to new user environment page, add better manual links
+     * curprev [ ] [ ] 03:4003:40, 21 September 2021‎ imported>Nix‎ m 4,768
+       bytes +132‎ add warning against messing with anchor divs
+     * curprev [ ] [ ] 03:3103:31, 21 September 2021‎ imported>Nix‎ m 4,636
+       bytes −4‎ trim anchors
+     * curprev [ ] [ ] 02:4902:49, 21 September 2021‎ imported>Nix‎ m 4,640
+       bytes +35‎ add anchor link for User Environment
+     * curprev [ ] [ ] 02:4702:47, 21 September 2021‎ imported>Nix‎ m 4,605
+       bytes −308‎ replace whitespace with template
+     * curprev [ ] [ ] 02:3702:37, 21 September 2021‎ imported>Nix‎ m 4,913
+       bytes +331‎ add whitespace padding to bottom to make anchors work near
+       bottom of table
+     * curprev [ ] [ ] 02:3402:34, 21 September 2021‎ imported>Nix‎ m 4,582
+       bytes +29‎ anchor to Generation
+
+    29 June 2017
+
+     * curprev [ ] [ ] 15:4815:48, 29 June 2017‎ imported>Fadenb‎ 4,553 bytes
+       −47‎ No edit summary
+     * curprev [ ] [ ] 15:4715:47, 29 June 2017‎ imported>Fadenb‎ 4,600 bytes
+       +4,600‎ Created page with " == Terms and Definitions == If you come
+       across a term or word you don't know, add it here. {|
+       class="wikitable" |- ! Term || Context || Meaning || Related Links
+       |--------..."
+   [ Compare selected revisions ]
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Terms_and_Definitions_in_Nix_Project"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

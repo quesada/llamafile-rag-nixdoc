@@ -1,0 +1,380 @@
+   Link: assets
+   Link: canonical
+   Skip to content 
+
+Navigation Menu
+
+   Toggle navigation
+   Sign in
+     * Product 
+          * GitHub Copilot
+            Write better code with AI
+          * Security
+            Find and fix vulnerabilities
+          * Actions
+            Automate any workflow
+          * Codespaces
+            Instant dev environments
+          * Issues
+            Plan and track work
+          * Code Review
+            Manage code changes
+          * Discussions
+            Collaborate outside of code
+          * Code Search
+            Find more, search less
+       Explore
+          * All features
+          * Documentation 
+          * GitHub Skills 
+          * Blog
+     * Solutions 
+       By company size
+          * Enterprises
+          * Small and medium teams
+          * Startups
+       By use case
+          * DevSecOps
+          * DevOps
+          * CI/CD
+          * View all use cases
+       By industry
+          * Healthcare
+          * Financial services
+          * Manufacturing
+          * Government
+          * View all industries
+       View all solutions
+     * Resources 
+       Topics
+          * AI
+          * DevOps
+          * Security
+          * Software Development
+          * View all
+       Explore
+          * Learning Pathways 
+          * White papers, Ebooks, Webinars 
+          * Customer Stories
+          * Partners
+     * Open Source 
+          * GitHub Sponsors
+            Fund open source developers
+          * The ReadME Project
+            GitHub community articles
+       Repositories
+          * Topics
+          * Trending
+          * Collections
+     * Enterprise 
+          * Enterprise platform
+            AI-powered developer platform
+       Available add-ons
+          * Advanced Security
+            Enterprise-grade security features
+          * GitHub Copilot
+            Enterprise-grade AI features
+          * Premium Support
+            Enterprise-grade 24/7 support
+     * Pricing
+   Search or jump to...
+
+           Search code, repositories, users, issues, pull requests...
+
+   Search
+   _____________________
+   Clear
+   Search syntax tips
+
+                                Provide feedback
+
+   We read every piece of feedback, and take your input very seriously.
+
+   _________________________________________
+   _________________________________________
+   _________________________________________
+   _________________________________________
+   _________________________________________
+   _________________________________________
+   _________________________________________
+   [ ] Include my email address so I can be contacted
+   Cancel Submit feedback
+
+                                 Saved searches
+
+Use saved searches to filter your results more quickly
+
+   Name _____________________
+   Query _____________________
+
+   To see all available qualifiers, see our documentation.
+
+   Cancel Create saved search
+   Sign in
+   Sign up Reseting focus
+   You signed in with another tab or window. Reload to refresh your session.
+   You signed out in another tab or window. Reload to refresh your session.
+   You switched accounts on another tab or window. Reload to refresh your
+   session.  Dismiss alert
+   {{ message }}
+   NixOS / patchelf Public
+     * *  Notifications You must be signed in to change notification settings
+     * Fork 486
+     * Star 3.5k
+
+   A small utility to modify the dynamic linker and RPATH of ELF executables
+
+  License
+
+   GPL-3.0 license
+   3.5k stars  486 forks  Branches  Tags  Activity
+   Star
+   Notifications You must be signed in to change notification settings
+     * Code 
+     * Issues 99
+     * Pull requests 37
+     * Actions 
+     * Projects 0
+     * Security 
+     * Insights
+   Additional navigation options
+     * Code
+     * Issues
+     * Pull requests
+     * Actions
+     * Projects
+     * Security
+     * Insights
+
+                                 NixOS/patchelf
+
+    master
+   [ Submit ]
+   BranchesTags
+   Go to file
+   Code
+   [ Submit ][ Submit ]
+
+Folders and files
+
+   Name             Name             Last commit message Last commit date 
+   Latest commit
+             
+             
+             
+   History   
+             
+   844 Commits
+   .github          .github                                               
+   completions/zsh  completions/zsh                                       
+   m4               m4                                                    
+   src              src                                                   
+   tests            tests                                                 
+   .gitignore       .gitignore                                            
+   BUGS             BUGS                                                  
+   COPYING          COPYING                                               
+   Makefile.am      Makefile.am                                           
+   README.md        README.md                                             
+   bootstrap.sh     bootstrap.sh                                          
+   bors.toml        bors.toml                                             
+   configure.ac     configure.ac                                          
+   default.nix      default.nix                                           
+   flake.lock       flake.lock                                            
+   flake.nix        flake.nix                                             
+   patchelf.1       patchelf.1                                            
+   patchelf.nix     patchelf.nix                                          
+   patchelf.spec.in patchelf.spec.in                                      
+   version          version                                               
+   View all files
+
+Repository files navigation
+
+     * README
+     * Code of conduct
+     * GPL-3.0 license
+     * Security
+
+   PatchELF is a simple utility for modifying existing ELF executables and
+   libraries. In particular, it can do the following:
+
+     * Change the dynamic loader ("ELF interpreter") of executables:
+
+ $ patchelf --set-interpreter /lib/my-ld-linux.so.2 my-program
+
+     * Change the RPATH of executables and libraries:
+
+ $ patchelf --set-rpath /opt/my-libs/lib:/other-libs my-program
+
+     * Shrink the RPATH of executables and libraries:
+
+ $ patchelf --shrink-rpath my-program
+
+       This removes from the RPATH all directories that do not contain a
+       library referenced by DT_NEEDED fields of the executable or library.
+       For instance, if an executable references one library libfoo.so, has
+       an RPATH /lib:/usr/lib:/foo/lib, and libfoo.so can only be found in
+       /foo/lib, then the new RPATH will be /foo/lib.
+
+       In addition, the --allowed-rpath-prefixes option can be used for
+       further rpath tuning. For instance, if an executable has an RPATH
+       /tmp/build-foo/.libs:/foo/lib, it is probably desirable to keep the
+       /foo/lib reference instead of the /tmp entry. To accomplish that, use:
+
+ $ patchelf --shrink-rpath --allowed-rpath-prefixes /usr/lib:/foo/lib my-program
+
+     * Remove declared dependencies on dynamic libraries (DT_NEEDED entries):
+
+ $ patchelf --remove-needed libfoo.so.1 my-program
+
+       This option can be given multiple times.
+
+     * Add a declared dependency on a dynamic library (DT_NEEDED):
+
+ $ patchelf --add-needed libfoo.so.1 my-program
+
+       This option can be give multiple times.
+
+     * Replace a declared dependency on a dynamic library with another one
+       (DT_NEEDED):
+
+ $ patchelf --replace-needed liboriginal.so.1 libreplacement.so.1 my-program
+
+       This option can be give multiple times.
+
+     * Change SONAME of a dynamic library:
+
+ $ patchelf --set-soname libnewname.so.3.4.5 path/to/libmylibrary.so.1.2.3
+
+Compiling and Testing
+
+  Via Autotools
+
+ ./bootstrap.sh
+ ./configure
+ make
+ make check
+ sudo make install
+
+  Via Nix
+
+   You can build with Nix in several ways.
+
+    1. Building via nix build will produce the result in
+       ./result/bin/patchelf. If you would like to build patchelf with musl
+       try nix build .#patchelf-musl
+
+    2. You can launch a development environment with nix develop and follow
+       the autotools steps above. If you would like to develop with musl try
+       nix develop .#musl
+
+Author
+
+   Copyright 2004-2019 Eelco Dolstra edolstra@gmail.com.
+
+License
+
+   This program is free software: you can redistribute it and/or modify it
+   under the terms of the GNU General Public License as published by the Free
+   Software Foundation, either version 3 of the License, or (at your option)
+   any later version.
+
+   This program is distributed in the hope that it will be useful, but
+   WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+   or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+   for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this program. If not, see http://www.gnu.org/licenses/.
+
+About
+
+   A small utility to modify the dynamic linker and RPATH of ELF executables
+
+  Resources
+
+   Readme
+
+  License
+
+   GPL-3.0 license
+
+  Code of conduct
+
+   Code of conduct
+
+  Security policy
+
+   Security policy
+   Activity
+   Custom properties
+
+  Stars
+
+   3.5k stars
+
+  Watchers
+
+   78 watching
+
+  Forks
+
+   486 forks
+   Report repository
+
+Releases 27
+
+   0.18.0 Latest
+   Apr 23, 2023
+   + 26 releases
+
+Sponsor this project
+
+     * open_collective opencollective.com/nixos
+
+Packages 0
+
+   No packages published
+
+Contributors 76
+
+     * @edolstra
+     * @Mic92
+     * @domenkozar
+     * @brenoguim
+     * @cgzones
+     * @bors[bot]
+     * @darealshinji
+     * @neheb
+     * @blitz
+     * @fzakaria
+     * @dependabot[bot]
+     * @DerDakon
+     * @vdanjean
+     * @fsateler
+   + 62 contributors
+
+Languages
+
+     * C 50.2%
+     * C++ 28.3%
+     * Shell 10.6%
+     * M4 5.9%
+     * Makefile 1.8%
+     * Roff 1.5%
+     * Other 1.7%
+
+Footer
+
+   © 2024 GitHub, Inc.
+
+  Footer navigation
+
+     * Terms
+     * Privacy
+     * Security
+     * Status
+     * Docs
+     * Contact
+     * Manage cookies
+     * Do not share my personal information
+   You can’t perform that action at this time.

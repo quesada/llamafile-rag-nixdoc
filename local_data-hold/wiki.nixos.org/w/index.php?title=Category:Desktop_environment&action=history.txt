@@ -1,0 +1,161 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                 Category:Desktop environment: Revision history
+
+   Help
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    4 September 2024
+
+     * curprev [ ] [ ] 16:2116:21, 4 September 2024‎ MorningstarSunset talk
+       contribs‎ 1,989 bytes +11‎ Marked this version for translation
+     * curprev [ ] [ ] 16:2116:21, 4 September 2024‎ MorningstarSunset talk
+       contribs‎ 1,978 bytes +93‎ No edit summary
+
+    25 June 2024
+
+     * curprev [ ] [ ] 19:2719:27, 25 June 2024‎ Klinger talk contribs‎ m
+       1,885 bytes +9‎ class="wikitable sortable"
+
+    20 June 2024
+
+     * curprev [ ] [ ] 10:1910:19, 20 June 2024‎ Atemo C talk contribs‎ m
+       1,876 bytes +324‎ Minor wording tweaks and corrections. Tag: Visual
+       edit
+
+    19 June 2024
+
+     * curprev [ ] [ ] 17:1317:13, 19 June 2024‎ Klinger talk contribs‎ 1,552
+       bytes +111‎ added additional DE to the table (should be complete now,
+       Phosh/Kodi/Surf-Display may need additional articles) Tag: Visual edit
+     * curprev [ ] [ ] 16:2916:29, 19 June 2024‎ Klinger talk contribs‎ 1,441
+       bytes +677‎ What is a DE? Added a table for the different DE in NixOS
+       (not yet fully done) Tag: Visual edit
+
+    29 May 2024
+
+     * curprev [ ] [ ] 17:0617:06, 29 May 2024‎ Klinger talk contribs‎ m 764
+       bytes −42‎ No edit summary
+     * curprev [ ] [ ] 17:0417:04, 29 May 2024‎ Klinger talk contribs‎ 806
+       bytes +255‎ some words about trying different desktop environments
+       added
+     * curprev [ ] [ ] 16:5916:59, 29 May 2024‎ Klinger talk contribs‎ m 551
+       bytes +460‎ First version of category (it could be expanded to have
+       the default configuration of all desktop environments on one page)
+     * curprev [ ] [ ] 16:5016:50, 29 May 2024‎ Klinger talk contribs‎ m 91
+       bytes +21‎ Category:Desktop
+     * curprev [ ] [ ] 16:5016:50, 29 May 2024‎ Klinger talk contribs‎ m 70
+       bytes 0‎ Klinger moved page Desktop environment to Category:Desktop
+       environment: Its not needed to have this specialized article with a
+       self reference.
+
+    13 February 2023
+
+     * curprev [ ] [ ] 03:2603:26, 13 February 2023‎ imported>Vater‎ m 70
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 03:2403:24, 13 February 2023‎ imported>Vater‎ m 71
+       bytes +29‎ No edit summary
+     * curprev [ ] [ ] 03:2203:22, 13 February 2023‎ imported>Vater‎ 42 bytes
+       +42‎ Created page with "== See also == [[{{ns:14}}:{{PAGENAME}}]]"
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Category:Desktop_environment"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

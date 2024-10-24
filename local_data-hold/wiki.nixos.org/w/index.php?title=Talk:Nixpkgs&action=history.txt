@@ -1,0 +1,122 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Talk:Nixpkgs: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    8 June 2018
+
+     * curprev [ ] [ ] 08:1608:16, 8 June 2018‎ imported>Mic92‎ 990 bytes 0‎
+       →‎Replace GitHub instructions with links
+     * curprev [ ] [ ] 08:1608:16, 8 June 2018‎ imported>Mic92‎ 990 bytes
+       +254‎ No edit summary
+     * curprev [ ] [ ] 06:2906:29, 8 June 2018‎ imported>Inquisitiv3‎ m 736
+       bytes +141‎ No edit summary
+     * curprev [ ] [ ] 06:2806:28, 8 June 2018‎ imported>Inquisitiv3‎ 595
+       bytes +595‎ Created page with "Should we replace the subsections
+       ''Fork Nixpkgs on Github'' to ''Create a pull request on GitHub'' with
+       links to relevant pages on GitHub? Their documentation is probably
+       bet..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Talk:Nixpkgs"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

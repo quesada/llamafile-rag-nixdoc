@@ -1,0 +1,208 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setting up Xorg without system wide modifications
+     * 2 Setting up Xorg system-wide but without a Display Manager
+     * 3 Setting up the user's D-Bus Daemon
+   [ ] Toggle the table of contents
+
+                       Using X without a Display Manager
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Note: This page is a WIP, it doesn't describe best-practices with nix and
+   NixOS and should be updated to use a nix derivation generating the
+   necessary files instead of manipulating the contents of the store.
+
+Setting up Xorg without system wide modifications
+
+   To run X11 as a regular user, without services.xserver.enable = true; in
+   configuration.nix, do the following:
+
+   First, install packages:
+
+     * X11 itself:
+          * xorg.xorgserver
+     * X11 input modules
+          * xorg.xf86inputevdev
+          * xorg.xf86inputsynaptics
+          * xorg.xf86inputlibinput
+     * X11 video modules
+          * xorg.xf86videointel
+          * xorg.xf86videoati
+          * xorg.xf86videonouveau
+
+   You probably want to use DRI acceleration for X; enable it and OpenGL in
+   configuration.nix: hardware.opengl.enable = true; and
+   hardware.opengl.driSupport = true;.
+
+   Then, it's just necessary to gather X configuration files into one
+   directory and create a config file that also points X at the correct
+   module paths, by running the following script (which should be re-run each
+   time you run nixos-rebuild switch), but you will need to add or remove to
+   the pkgs and fontpkgs arrays according to your preferences:
+
+ generateXorgConf.sh
+ ------------------------------------------------
+ #!/bin/sh
+ #generate unprivileged user xorg.conf for nixOS
+ #before running:
+ #    install any desired packages by placing them in `/etc/nixos/configuration.nix`
+ #    update by running `nix-channel --update` and `nixos-rebuild switch`
+
+ config_dir=${XDG_CONFIG_HOME:-~/.config}/xorg.conf.d
+
+ mkdir -p "$config_dir"
+ cd "$config_dir"
+
+ #failed glob expansions become empty, not literal 'foo/*'
+ shopt -s nullglob
+
+ get_pkg_path() {
+         attr=$1
+         nix show-derivation -f '<nixpkgs>' "$attr" | jq -r '.[].env.out'
+ }
+
+ #add to this set according to your driver needs
+ pkgs="
+         xorg.xf86inputevdev
+         xorg.xf86videointel
+         xorg.xf86inputsynaptics
+         xorg.xorgserver
+ "
+
+ #make the intel backlight helper setuid if it isn't already
+ xf86videointel_path=$(get_pkg_path xorg.xf86videointel)
+ backlight_helper_path="${xf86_video_intel_path}/libexec/xf86-video-intel-backlight-helper"
+ if [ -e "$backlight_helper_path" -a ! -u "$backlight_helper_path" ]; then
+         sudo chmod +s ${xf86_video_intel_path}/libexec/xf86-video-intel-backlight-helper
+ fi
+
+ echo 'Section "Files"' > 00-nix-module-paths.conf
+ for pkg in $pkgs; do
+         pkg_path=$(get_pkg_path $pkg)
+         for conf in "$pkg_path"/share/X11/xorg.conf.d/*; do
+                 ln -sf "$conf" ./
+         done
+         echo '  ModulePath "'"$pkg_path"'/lib/xorg/modules/"' >> 00-nix-module-paths.conf
+ done
+
+ #add to this set according to your font preferences
+ fontpkgs="
+         xorg.fontmiscmisc
+         ucsFonts
+ "
+
+ for pkg in $fontpkgs; do
+         pkg_path=$(get_pkg_path $pkg)
+         path="$pkg_path"'/share/fonts/'
+         [ -d "$path" ] && echo '        FontPath "'"$path"'"' >> 00-nix-module-paths.conf
+         path="$pkg_path"'/lib/X11/fonts/misc/'
+         [ -d "$path" ] && echo '        FontPath "'"$path"'"' >> 00-nix-module-paths.conf
+ done
+
+ echo 'EndSection' >> 00-nix-module-paths.conf
+
+   You can now start X11 by running:
+
+ startx -- :0 -configdir ~/.config/xorg.conf.d
+
+Setting up Xorg system-wide but without a Display Manager
+
+   If you don't mind having services.xserver.enable = true; but you don't
+   want a display manager, and you want only a TTY login prompt, use the
+   following in your configuration.nix:
+
+ services.xserver.displayManager.startx.enable = true;
+
+   startx is treated as a displayManager and therefore it is used instead of
+   the default (lightdm).
+
+Setting up the user's D-Bus Daemon
+
+   Both of the methods above, don't start the user's dbus-daemon properly on
+   startup. Unfortunately, it is unclear exactly why this is missing, but
+   here's a fix for startx users:
+
+   Put the following in your ~/.xinitrc:
+
+ if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
+         eval $(dbus-launch --exit-with-session --sh-syntax)
+ fi
+ systemctl --user import-environment DISPLAY XAUTHORITY
+
+ if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+         dbus-update-activation-environment DISPLAY XAUTHORITY
+ fi
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Using_X_without_a_Display_Manager&oldid=12440"
+   Category:
+     * Desktop environment
+     * This page was last edited on 24 April 2024, at 19:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

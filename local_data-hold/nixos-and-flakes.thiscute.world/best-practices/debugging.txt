@@ -1,0 +1,445 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS & Flakes Book
+   SearchK
+   Main NavigationHomePrefaceGet StartedBest Practices
+
+   English
+
+   简体中文
+
+   English
+
+   简体中文
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+Preface
+
+   Preface
+
+Get Started
+
+   Introduction
+
+   Advantages and Disadvantages
+
+   Installation
+
+The Nix Language
+
+   Basics
+
+NixOS with Flakes
+
+   Get Started with NixOS
+
+   Introduction to Flakes
+
+   NixOS with Flakes Enabled
+
+   NixOS's flake.nix Explained
+
+   The combination ability of Flakes and Nixpkgs module system
+
+   Getting Started with Home Manager
+
+   Modularize the Configuration
+
+   Updating the System
+
+   Downgrading or Upgrading Packages
+
+   Other useful Tips
+
+Nixpkgs's Advanced Usage
+
+   Introduction
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   Multiple Nixpkgs Instances
+
+Nix Store & Binary Cache
+
+   Introduction
+
+   Add Binary Cache Servers
+
+   Host Your Own Binary Cache Server
+
+Best Practices
+
+   Introduction
+
+   Run downloaded binaries on NixOS
+
+   Simplify NixOS-related Commands
+
+   Accelerating Dotfiles Debugging
+
+   Custom NIX_PATH and Flake Registry
+
+   Remote Deployment
+
+   Debugging Derivations and Nix Expressions
+
+Other Usage of Flakes
+
+   Introduction
+
+   Flake Inputs
+
+   Flake Outputs
+
+   The New CLI
+
+   Module System & Custom Options
+
+   [WIP]Testing
+
+Dev Environments on NixOS
+
+   nix shell, nix develop & pkgs.runCommand
+
+   Dev Environments
+
+   [WIP]Packaging 101
+
+   Cross-platform Compilation
+
+   Distributed Building
+
+   [WIP]Kernel Development
+
+Advanced Topics
+
+   Advanced Topics
+
+Frequently Asked Questions
+
+   Frequently Asked Questions
+
+   On this page
+
+                  Debugging Derivations and Nix Expressions ​
+
+Show detailed error messages ​
+
+   You can always try to add --show-trace --print-build-logs --verbose to the
+   nixos-rebuild command to get the detailed error message if you encounter
+   any errors during the deployment. e.g.
+
+   [ Submit ]bash
+
+ cd /etc/nixos
+ sudo nixos-rebuild switch --flake .#myhost --show-trace --print-build-logs --verbose
+ # A more concise version
+ sudo nixos-rebuild switch --flake .#myhost --show-trace -L -v
+
+   1
+   2
+   3
+   4
+   5
+
+Debugging with nix repl ​
+
+     NOTE: If you have disabled NIX_PATH, you won't be able to use syntax
+     like <nixpkgs>. Instead, you should use nix repl -f flake:nixpkgs to
+     load nixpkgs.
+
+   We have frequently used nix repl <nixpkgs> throughout this guide to
+   examine the source code. It is a powerful tool that helps us understand
+   how things work in Nix.
+
+   Let's take a closer look at the help message of nix repl:
+
+   [ Submit ]shell
+
+ › nix repl -f '<nixpkgs>'
+ Welcome to Nix 2.13.3. Type :? for help.
+ Loading installable ''...
+ Added 17755 variables.
+ nix-repl> :?
+ The following commands are available:
+   <expr>        Evaluate and print expression
+   <x> = <expr>  Bind expression to variable
+   :a <expr>     Add attributes from resulting set to scope
+   :b <expr>     Build a derivation
+   :bl <expr>    Build a derivation, creating GC roots in the working directory
+   :e <expr>     Open package or function in $EDITOR
+   :i <expr>     Build derivation, then install result into current profile
+   :l <path>     Load Nix expression and add it to scope
+   :lf <ref>     Load Nix flake and add it to scope
+   :p <expr>     Evaluate and print expression recursively
+   :q            Exit nix-repl
+   :r            Reload all files
+   :sh <expr>    Build dependencies of derivation, then start nix-shell
+   :t <expr>     Describe result of evaluation
+   :u <expr>     Build derivation, then start nix-shell
+   :doc <expr>   Show documentation of a builtin function
+   :log <expr>   Show logs for a derivation
+   :te [bool]    Enable, disable or toggle showing traces for errors
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+   12
+   13
+   14
+   15
+   16
+   17
+   18
+   19
+   20
+   21
+   22
+   23
+   24
+   25
+   26
+
+   There are a couple of expressions that I frequently use: :lf <ref> and :e
+   <expr>.
+
+   The :e <expr> command is very intuitive, so I won't go into detail about
+   it. Instead, let's focus on :lf <ref>:
+
+   [ Submit ]nix
+
+ # cd into my nix-config repo(you should replace it with your own nix-config repo)
+ › cd ~/nix-config/
+ # enter nix repl
+ › nix repl
+ Welcome to Nix 2.13.3. Type :? for help.
+ # load my nix flake and add it to scope
+ nix-repl> :lf .
+ Added 16 variables.
+ # press <TAB> to see what we have in scope
+ nix-repl><TAB>
+ # ......omit some outputs
+ __isInt                          nixosConfigurations
+ __isList                         null
+ __isPath                         outPath
+ __isString                       outputs
+ __langVersion                    packages
+ # ......omit some outputs
+ # check what's in inputs
+ nix-repl> inputs.<TAB>
+ inputs.agenix            inputs.nixpkgs
+ inputs.darwin            inputs.nixpkgs-darwin
+ inputs.home-manager      inputs.nixpkgs-unstable
+ inputs.hyprland          inputs.nixpkgs-wayland
+ inputs.nil
+ inputs.nixos-generators
+ # check what's in inputs.nil
+ nix-repl> inputs.nil.packages.
+ inputs.nil.packages.aarch64-darwin
+ inputs.nil.packages.aarch64-linux
+ inputs.nil.packages.x86_64-darwin
+ inputs.nil.packages.x86_64-linux
+ # check the outputs of my nix flake
+ nix-repl> outputs.nixosConfigurations.<TAB>
+ outputs.nixosConfigurations.ai
+ outputs.nixosConfigurations.aquamarine
+ outputs.nixosConfigurations.kana
+ outputs.nixosConfigurations.ruby
+ nix-repl> outputs.nixosConfigurations.ai.<TAB>
+ outputs.nixosConfigurations.ai._module
+ outputs.nixosConfigurations.ai._type
+ outputs.nixosConfigurations.ai.class
+ outputs.nixosConfigurations.ai.config
+ outputs.nixosConfigurations.ai.extendModules
+ outputs.nixosConfigurations.ai.extraArgs
+ outputs.nixosConfigurations.ai.options
+ outputs.nixosConfigurations.ai.pkgs
+ outputs.nixosConfigurations.ai.type
+ nix-repl> outputs.nixosConfigurations.ai.config.
+ outputs.nixosConfigurations.ai.config.age
+ outputs.nixosConfigurations.ai.config.appstream
+ outputs.nixosConfigurations.ai.config.assertions
+ outputs.nixosConfigurations.ai.config.boot
+ outputs.nixosConfigurations.ai.config.console
+ outputs.nixosConfigurations.ai.config.containers
+ # ......omit other outputs
+ nix-repl> outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.<TAB>
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.activation
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.activationPackage
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.emptyActivationPath
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.enableDebugInfo
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.enableNixpkgsReleaseCheck
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.extraActivationPath
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.extraBuilderCommands
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.extraOutputsToInstall
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.extraProfileCommands
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.file
+ # ......omit other outputs
+ nix-repl> outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.sessionVariables.<TAB>
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.sessionVariables.BROWSER
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.sessionVariables.DELTA_PAGER
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.sessionVariables.EDITOR
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.sessionVariables.TERM
+ # ......omit other outputs
+ # check the value of `TERM`
+ nix-repl> outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.sessionVariables.TERM
+ "xterm-256color"
+ # check all files defined by `home.file`
+ nix-repl> outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.file.<TAB>
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.file..bash_profile
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.file..bashrc
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.file..config/fcitx5/profile
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.file..config/fcitx5/profile-bak
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.file..config/i3/config
+ outputs.nixosConfigurations.ai.config.home-manager.users.ryan.home.file..config/i3/i3blocks.conf
+ #......
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+   12
+   13
+   14
+   15
+   16
+   17
+   18
+   19
+   20
+   21
+   22
+   23
+   24
+   25
+   26
+   27
+   28
+   29
+   30
+   31
+   32
+   33
+   34
+   35
+   36
+   37
+   38
+   39
+   40
+   41
+   42
+   43
+   44
+   45
+   46
+   47
+   48
+   49
+   50
+   51
+   52
+   53
+   54
+   55
+   56
+   57
+   58
+   59
+   60
+   61
+   62
+   63
+   64
+   65
+   66
+   67
+   68
+   69
+   70
+   71
+   72
+   73
+   74
+   75
+   76
+   77
+   78
+   79
+   80
+   81
+   82
+   83
+   84
+   85
+   86
+   87
+   88
+   89
+   90
+   91
+   92
+   93
+   94
+   95
+   96
+   97
+   98
+   99
+   100
+
+   As you can see, after loading your Nix flake into the REPL, you can check
+   every attribute of the flake. This capability is very convenient for
+   debugging purposes.
+
+Debugging functions provided by nixpkgs ​
+
+   TODO
+
+Debugging by using NIX_DEBUG in derivation ​
+
+   TODO
+
+References ​
+
+     * How to make nix build display all commands executed by make?
+          * use NIX_DEBUG=7 in derivation
+     * Collection of functions useful for debugging broken nix expressions.
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous pageRemote Deployment
+   Next pageIntroduction
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

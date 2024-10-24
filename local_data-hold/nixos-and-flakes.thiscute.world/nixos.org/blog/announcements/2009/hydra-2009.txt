@@ -1,0 +1,54 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                                     Hydra
+
+   Published on Thu Feb 05 2009
+
+                                     Hydra
+
+   Nix and NixOS releases are now built in Hydra, the new Nix-based
+   continuous build system. Hydra replaces our old Nix-based build farm,
+   which will be phased out soon. There are several advantages over the old
+   build farm: the build tasks for a project are scheduled and published
+   separately, so that for instance a (fast) tarball build doesn’t have to
+   wait for a (slow) Cygwin build; build results are stored in a database,
+   which will enable all sorts of interesting queries; better error
+   reporting; a better web interface; and much more. We have written a draft
+   paper about Hydra. There are some instructions available about how to set
+   up your own Hydra server.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

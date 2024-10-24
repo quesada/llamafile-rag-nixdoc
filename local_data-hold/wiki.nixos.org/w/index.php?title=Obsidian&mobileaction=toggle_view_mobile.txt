@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+   [ ] Toggle the table of contents
+
+                                    Obsidian
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Obsidian^[1] is the private and flexible writing app that adapts to the
+   way you think.
+
+Installation
+
+   Obsidian can be installed from nixpkgs:
+
+ environment.systemPackages = with pkgs; [
+   obsidian
+ ];
+
+   On NixOs 23.11, you must add the following line in your
+   configuration^[2]^[3] :
+
+ nixpkgs.config.permittedInsecurePackages = [
+   "electron-25.9.0"
+ ];
+
+   If you upgraded to 24.05, this line is no longer needed.
+
+    1. ↑ https://obsidian.md/
+    2. ↑ https://github.com/NixOS/nixpkgs/issues/273611
+    3. ↑
+       https://forum.obsidian.md/t/electron-25-is-now-eol-please-upgrade-to-a-newer-version/72878/14
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Obsidian&oldid=13636"
+   Categories:
+     * Applications
+     * Note taking
+     * This page was last edited on 30 June 2024, at 16:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

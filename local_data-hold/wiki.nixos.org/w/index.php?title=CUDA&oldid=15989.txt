@@ -1,0 +1,276 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 cudatoolkit, cudnn, and related packages
+     * 2 Setting up CUDA Binary Cache
+          * 2.1 NixOS
+          * 2.2 Non-NixOS
+     * 3 Some things to keep in mind when setting up CUDA in NixOS
+     * 4 CUDA under WSL
+     * 5 See also
+   [ ] Toggle the table of contents
+
+                                      CUDA
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 13:01, 30 July 2024 by Razushi (talk | contribs)
+   (→‎cudatoolkit, cudnn, and related packages: Updated broken links to cuDNN
+   and cuTENSOR, please verify. Update date refers to the last verification,
+   not example updates.)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   NixOS supports using NVIDIA GPUs for pure computing purposes, not just for
+   graphics. For example, many users rely on NixOS for machine learning both
+   locally and on cloud instances. These use cases are supported by the
+   @NixOS/cuda-maintainers team on GitHub. If you have an issue using your
+   NVIDIA GPU for computing purposes open an issue on GitHub and tag
+   @NixOS/cuda-maintainers.
+
+    Tip                                                                       
+    Cache: Using the cuda-maintainers cache is recommended! It will save you  
+    valuable time and electrons. Getting set up should be as simple as cachix 
+    use cuda-maintainers. Click here for more details.                        
+
+    Tip                                                                       
+    Data center GPUs: Note that you may need to adjust your driver version to 
+    use "data center" GPUs like V100/A100s. See this thread for more info.    
+
+cudatoolkit, cudnn, and related packages
+
+   The CUDA toolkit is available in a number of different versions. Please
+   use the latest major version. You can see where they're defined in nixpkgs
+   here.
+
+   Several "CUDA-X" libraries are packages as well. In particular,
+
+     * cuDNN is packaged here.
+     * cuTENSOR is packaged here.
+   Warning: Note that these examples have been updated more recently (as of
+   2024-07-30). May not be the best solution. A better resource is likely the
+   packaging CUDA sample code here.
+
+   There are some possible ways to setup a development environment using CUDA
+   on NixOS. This can be accomplished in the following ways:
+
+     * By making a FHS user env
+
+ cuda-fhs.nix
+
+ # Run with `nix-shell cuda-fhs.nix`
+ { pkgs ? import <nixpkgs> {} }:
+ (pkgs.buildFHSUserEnv {
+   name = "cuda-env";
+   targetPkgs = pkgs: with pkgs; [
+     git
+     gitRepo
+     gnupg
+     autoconf
+     curl
+     procps
+     gnumake
+     util-linux
+     m4
+     gperf
+     unzip
+     cudatoolkit
+     linuxPackages.nvidia_x11
+     libGLU libGL
+     xorg.libXi xorg.libXmu freeglut
+     xorg.libXext xorg.libX11 xorg.libXv xorg.libXrandr zlib
+     ncurses5
+     stdenv.cc
+     binutils
+   ];
+   multiPkgs = pkgs: with pkgs; [ zlib ];
+   runScript = "bash";
+   profile = ''
+     export CUDA_PATH=${pkgs.cudatoolkit}
+     # export LD_LIBRARY_PATH=${pkgs.linuxPackages.nvidia_x11}/lib
+     export EXTRA_LDFLAGS="-L/lib -L${pkgs.linuxPackages.nvidia_x11}/lib"
+     export EXTRA_CCFLAGS="-I/usr/include"
+   '';
+ }).env
+
+     * By making a nix-shell
+
+ cuda-shell.nix
+
+ # Run with `nix-shell cuda-shell.nix`
+ { pkgs ? import <nixpkgs> {} }:
+ pkgs.mkShell {
+    name = "cuda-env-shell";
+    buildInputs = with pkgs; [
+      git gitRepo gnupg autoconf curl
+      procps gnumake util-linux m4 gperf unzip
+      cudatoolkit linuxPackages.nvidia_x11
+      libGLU libGL
+      xorg.libXi xorg.libXmu freeglut
+      xorg.libXext xorg.libX11 xorg.libXv xorg.libXrandr zlib
+      ncurses5 stdenv.cc binutils
+    ];
+    shellHook = ''
+       export CUDA_PATH=${pkgs.cudatoolkit}
+       # export LD_LIBRARY_PATH=${pkgs.linuxPackages.nvidia_x11}/lib:${pkgs.ncurses5}/lib
+       export EXTRA_LDFLAGS="-L/lib -L${pkgs.linuxPackages.nvidia_x11}/lib"
+       export EXTRA_CCFLAGS="-I/usr/include"
+    '';         
+ }
+
+Setting up CUDA Binary Cache
+
+   The cuda-maintainers cache contains pre-built CUDA packages. By adding it
+   to your system, Nix will fetch these packages instead of building them,
+   saving valuable time and processing power.
+
+   For more information, refer to the Using a binary cache page.
+
+   Warning: You need to rebuild your system at least once after adding the
+   cache, before it can be used.
+
+  NixOS
+
+   Add the cache to substituters and trusted-public-keys inside your system
+   configuration:
+
+ /etc/nixos/configuration.nix
+
+ nix.settings = {
+   substituters = [
+     "https://cuda-maintainers.cachix.org"
+   ];
+   trusted-public-keys = [
+     "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+   ];
+ };
+
+  Non-NixOS
+
+   If you have cachix installed and set up, all you need to do is run:
+
+ $ cachix use cuda-maintainers
+
+   Else, you have to add substituters and trusted-public-keys to
+   /etc/nix/nix.conf:
+
+ /etc/nix/nix.conf
+
+ trusted-public-keys = cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E=
+ trusted-substituters = https://cuda-maintainers.cachix.org
+ trusted-users = root @wheel
+
+   If your user is in trusted-users, you can also add the cache in your home
+   directory:
+
+ ~/.config/nix/nix.conf
+
+ substituters = https://cuda-maintainers.cachix.org
+
+Some things to keep in mind when setting up CUDA in NixOS
+
+     * Some GPUs, like Tesla K80, don't work with the latest drivers, so you
+       must specify them in the option hardware.nvidia.package getting the
+       value from your selected kernel, for example,
+       config.boot.kernelPackages.nvidia_x11_legacy470. You can check which
+       driver version your GPU supports by visiting the nvidia site and
+       checking the driver version.
+     * Even with the drivers correctly installed, some software, like
+       Blender, may not see the CUDA GPU. Make sure your system configuration
+       has the option hardware.opengl.enable enabled.
+     * By default, software packaged in source code form has CUDA support
+       disabled, because of the unfree license. To solve this, you can enable
+       builds with CUDA support with a nixpkgs wide configuration, or use
+       binary packaged CUDA compatible software such as blender-bin.
+
+CUDA under WSL
+
+   This (surprisingly) works just fine using nixpkgs 23.05 provided that you
+   prefix the LD_LIBRARY_PATH in your interactive environment with the WSL
+   library directory. For nix shell this looks like:
+
+ cuda-shell.nix
+
+    shellHook = ''
+       export CUDA_PATH=${pkgs.cudatoolkit}
+       export LD_LIBRARY_PATH=/usr/lib/wsl/lib:${pkgs.linuxPackages.nvidia_x11}/lib:${pkgs.ncurses5}/lib
+       export EXTRA_LDFLAGS="-L/lib -L${pkgs.linuxPackages.nvidia_x11}/lib"
+       export EXTRA_CCFLAGS="-I/usr/include"
+    '';
+
+See also
+
+     * nixos-cuda-example
+     * nix-shell envs for Cuda
+     * CUDA setup on NixOS
+     * eGPU with nvidia-docker on intel-xserver
+     * Tesla K80 based CUDA setup with Terraform on GCP
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=CUDA&oldid=15989"
+   Category:
+     * Server
+     * This page was last edited on 30 July 2024, at 13:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

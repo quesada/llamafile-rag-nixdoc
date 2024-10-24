@@ -1,0 +1,160 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Viable Pi 4 (B) image(s)
+     * 2 Enabling the SPI
+       1 comment
+   [ ] Toggle the table of contents
+
+                        Talk:NixOS on ARM/Raspberry Pi 4
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   < Talk:NixOS on ARM
+   Latest comment: 3 April by Riot in topic Enabling the SPI
+
+   I am a bit confused here, it seems like there is a lot of valueable
+   information, but it hard to follow. Can someone help me clear it up,
+   please?
+
+     ----------------------------------------------------------------------
+
+   About which image to use it says:
+
+   First follow the generic installation steps to get the installer image and
+   install using the installation and configuration steps. (Link to
+   https://wiki.nixos.org/wiki/NixOS_on_ARM#Installation which itself links
+   to
+   https://hydra.nixos.org/job/nixos/release-20.03/nixos.sd_image.aarch64-linux)
+   Until the generic image works, a temporary device-specific image is build
+   on Hydra. Note that this image is not using u-boot, but rather the
+   Raspberry Pi specific bootloader configuration. (Link to
+   https://hydra.nixos.org/job/nixos/trunk-combined/nixos.sd_image_raspberrypi4.aarch64-linux)
+
+   Only the later link gave me an image that would boot on my RP4(4GB)
+
+     ----------------------------------------------------------------------
+
+   There is also this line: "These configurations will boot (from this PR
+   comment):" But then no configurations do follow.
+
+Viable Pi 4 (B) image(s)
+
+   (The confusion around working images is compounded by the fact that Hydra
+   offers identically-named downloads have non-identical contents, and the
+   underscore/hyphen nomenclature varies wildly. It took me a while to
+   confirm that the file I'd downloaded matched the build link below.)
+
+   ...
+
+   Currently, build #149338044 has worked twice on my Pi 4 (B) hardware. My
+   usage is command-line only (Bash on TTY + ssh/mosh headless use), and the
+   first run was stable for about three or four weeks of daily-ish use.
+
+   ...
+
+   To be quite honest, I'm not sure how I found that specific working image.
+
+   I know my path led past here, which is why I'm posting, but I know it
+   involved a lot of negotiating with Hydra's willingness to purge
+   long-running queries and finding a way to list successful
+   sd_image_new_kernel.aarch64-linux builds (maybe via this query?. Following
+   that logic has been somewhat of a mixed bag, eg today I've unsuccessfully
+   attempted to get both build #154444353 and build #154444322 to run.
+
+Enabling the SPI
+
+   Latest comment: 3 April1 comment1 person in discussion
+
+   This section is confusing, mostly because it has factual errors and i
+   can't get it to work. For starters, it talks about dtsoFile =
+   ./spi0-0cd.dtso;, which should probably be dtboFile = ./spi0-0cs.dtbo;
+   (note the dtbo and cs part, the page mentions dtso and cd) - at least that
+   is my idea, if i look at the link's (below) target, which is
+   https://github.com/raspberrypi/firmware/blob/master/boot/overlays/spi0-0cs.dtbo
+
+   Also, it is unclear on how one should change the compatible field in a
+   dtbo-file - editing is only possible on their corresponding source files -
+   while the text actually mentions dtbo here ;)
+
+   I've adapted my configuration to this but don't get any spi devices (nor
+   does spi appear in dmesg). I'm also wondering wether using
+   boot.kernelPackages = pkgs.linuxPackages_rpi4; is still relevant (it is
+   mentioned in nixos-hardware-issues/565) while some other user claims that
+   "using nixos-hardware wasn't necessary anymore" (nixos-hardware/issues/631
+   - maybe unrelated)
+
+   It would probably help, if someone knowledgeable can verify these
+   instructions and in general clarify the confusions i mentioned.
+
+   Thanks in advance, Riot (talk) 21:44, 3 April 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:NixOS_on_ARM/Raspberry_Pi_4&oldid=11482"
+     * This page was last edited on 3 April 2024, at 21:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

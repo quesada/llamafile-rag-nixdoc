@@ -1,0 +1,228 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 1st class NixOS support
+     * 2 Support NixOS via custom ISO
+     * 3 Other means of installation
+     * 4 Hoster-agnostic means of installation
+   [ ] Toggle the table of contents
+
+                             NixOS friendly hosters
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   1st class NixOS support      
+                                Start a NixOS server with a single command   
+   GandiCloud VPS               or by few clicks in the web UI: it is a      
+                                provided and supported server image.         
+                                When ordering or configuring, the "Manual    
+   VPS2day                      Install (Advanced)" option includes NixOS.   
+                                Installation is done through a web-based     
+                                console.                                     
+                                A non-profit association providing free as   
+                                in freedom VPS services for its members.     
+                                NixOS is available in the registration form  
+   vpsFree.cz                   and administration interface. See NixOS at   
+                                kb.vpsfree.org for more information. See     
+                                nixops example on howto setup a server using 
+                                nix 2.7 and nixops 2.0.                      
+                                South African Hosting Provider offering      
+   Rackzar.com                  NixOS on all VPS plans as a drop down OS     
+                                during checkout.                             
+   Support NixOS via custom ISO 
+                                BuyVM no longer provides first party support 
+                                for NixOS. You can install NixOS using the   
+   BuyVM                        custom ISO functionality, however the        
+                                resulting install will need some form of     
+                                static IP configuration.                     
+                                From Hetzner's rescue image one can boot     
+                                into the nixos installer using a custom      
+                                kexec image. The installation can be fully   
+                                automated using nixos-anywhere. Hetzner also 
+                                provides an interface to upload your own     
+   Hetzner Online               ISO-images. Also here you may want to build  
+                                your own iso-image, which has openssh with   
+                                ssh keys due the lack of a remote console.   
+                                An easier method to install NixOS on         
+                                Hetzner, is to use the existing integration  
+                                into NixOps. Also see Install NixOS on       
+                                Hetzner Online for future information        
+                                Hetzner Cloud has NixOS ISO images that can  
+                                be mounted on a running instance.            
+                                                                             
+                                When creating the VM, you have to choose a   
+                                different initial distribution and than      
+   Hetzner Cloud                select the NixOS under "ISO images" in the   
+                                VM instance page to reboot into the NixOS    
+                                installer. An alternative approach is using  
+                                nixos-anywhere than can also use other Linux 
+                                distributions as a base and convert them     
+                                into NixOS installation. See also Install    
+                                NixOS on Hetzner Cloud.                      
+   LiteServer                   NixOS ISO is available from the control      
+                                panel. Also see Install NixOS on Liteserver. 
+   BandwagonHost                NixOS ISO is available from the control      
+                                panel.                                       
+                                NixOS ISO can be uploaded via FTP to be      
+                                available in the server control panel.       
+                                                                             
+                                (in the SCP, navigate to: 'Media' →          
+   netcup                       'Images') See the official netcup            
+                                documentation. Step-by-step installation     
+                                instruction can be found here: NixOS on      
+                                Netcup (In English). It may be necessary to  
+                                create a bios-boot partition for grub.       
+                                A NixOS ISO can be use with iDrac (Dell) or  
+                                iLo (HP). You can upload your own iso or use 
+   Online                       virtualmedia. You must have a Dell or HP     
+                                server. Here is the documentation if you     
+                                don't know DRAC at Online.                   
+                                Inception hosting no longer provides first   
+   Inception Hosting            party support for NixOS. You can install     
+                                NixOS using the custom ISO functionality     
+                                no longer provides first party support for   
+   Linode                       NixOS. You can install NixOS using the       
+                                custom ISO functionality. Install and        
+                                Configure NixOS on a Linode                  
+                                RamNode no longer provides first party       
+   RamNode                      support for NixOS. You can install NixOS     
+                                using the custom ISO functionality.          
+                                Vultr no longer provides first party support 
+   Vultr                        for NixOS. You can install NixOS using the   
+                                custom ISO functionality.                    
+   PHP-Friends                  NixOS ISO is available from the control      
+                                panel.                                       
+                                NixOS ISO is available from a drop-down menu 
+                                option when selecting ISO image to mount a   
+                                image for the CD-ROM device. You may also    
+                                request their helpful support team to mount  
+                                a specific ISO image. Using the graphical    
+                                installation works best as you will need to  
+                                set the static ip address, gateway and       
+                                nameserver as provided to gain internet      
+   Cloud.co.za                  access. During the installation setup and    
+                                you will configure your login to be          
+                                password-less in order to access the server  
+                                via the VNC console. On the first boot, to   
+                                complete the configuration for the           
+                                networking (hostname, static ip, gateway,    
+                                nameservers, etc), the ssh access for your   
+                                user and lastly remove the password-less     
+                                login.                                       
+   Other means of installation  
+   Amazon EC2                   See NixOS on Amazon EC2                      
+                                nixos-infect can be used to transform an     
+   DigitalOcean                 existing installation into NixOS. This       
+                                method will be also used in NixOps.          
+   Linode                       Linode Guide.                                
+                                After unmounting /boot, nixos-infect can be  
+                                used to transform an existing Ubuntu 16.04   
+   Genesis Cloud                installation into NixOS. This process can be 
+                                fully automated (example) when using the API 
+                                by supplying the unmount and nixos-infect    
+                                commands in a custom startup_script.         
+   Google Cloud Platform        See Installing NixOS on GCE                  
+   Online                       See Install NixOS on Online.Net              
+   OVH / Kimsufi / So you Start Blog posts for OVH and SoYouStart            
+   Rackspace                    See Install NixOS on Rackspace Cloud Servers 
+                                The kexec method (see Install NixOS on       
+                                Scaleway X86 Virtual Cloud Server) works     
+                                well, but bear in mind it only works with    
+                                the 'virtual' class of servers, as they run  
+                                under a hypervisor which attaches the disks  
+   Scaleway                     before the kernel boots. The 'bare-metal'    
+                                servers rely on a special Linux kernel       
+                                booting to attach network /dev/nbdX drives   
+                                which works only with Scaleway supplied      
+                                images. There is a image proposal to add     
+                                full NixOS support.                          
+
+Hoster-agnostic means of installation
+
+   This section links to or explains methods that can be used on various
+   providers. As always, with unsupported hosts and unsupported
+   distributions, your mileage may vary.
+
+   Not all providers allow to upload custom images or provide NixOS images
+   for installation. However there are a few ways to install NixOS anyhow.
+   nixos-in-place and nixos-infect are generic approaches to install NixOS
+   from an existing Linux. Another approach is to use a kexec-based image as
+   is done with nixos-anywhere. This also allows for changing the underlying
+   filesystem. See Install NixOS on a Server With a Different Filesystem.
+
+   See also the NixOps project, which also provides interfaces to different
+   cloud providers.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_friendly_hosters&oldid=12997"
+   Categories:
+     * Server
+     * Community
+     * This page was last edited on 30 May 2024, at 07:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

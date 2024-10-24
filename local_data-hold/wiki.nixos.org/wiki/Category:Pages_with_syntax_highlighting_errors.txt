@@ -1,0 +1,297 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                 Category:Pages with syntax highlighting errors
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+   SyntaxHighlight adds pages to this tracking category if they have a
+   missing or unsupported lang="…" attribute in a <source or
+   <syntaxhighlight> tag.
+
+   Common problems and solutions:
+
+    1. a missing attribute
+         1. Look for a specific Supported language
+         2. Add lang="text"
+    2. the unsupported attribute lang="sh"
+         1. Add lang="bash"
+         2. Add lang="shell-session" or lang="console"
+    3. the unsupported attribute lang="mediawiki"
+         1. Add lang="wikitext"
+
+Pages in category "Pages with syntax highlighting errors"
+
+   The following 125 pages are in this category, out of 125 total.
+
+  A
+
+     * Adding VMs to PATH
+     * Apropos
+     * Arduino
+     * Template:ARM/installation allwinner
+     * Template:ARM/installation generic
+
+  B
+
+     * Binary Cache
+     * BitlBee
+     * Budgie Desktop
+     * Building ancient nixpkgs
+     * Buildkite
+
+  C
+
+     * Caddy
+     * Ca-derivations
+     * CDE
+     * Ceph
+     * Change root
+     * Consul
+     * Cron
+     * Cursor Themes
+
+  E
+
+     * ECryptfs
+     * Error handling
+
+  F
+
+     * FAQ
+     * Template:FAQ/breadcrumb
+     * FAQ/en
+     * FAQ/Pinning Nixpkgs
+     * FAQ/Private Cache Proxy
+     * FAQ/zh-cn
+     * Flakes
+     * Flakes/en
+     * Flakes/ja
+     * Flakes/ru
+     * Frida
+
+  G
+
+     * Talk:Games
+     * Gammastep
+     * Gitolite
+     * GNOME/Calendar
+
+  H
+
+     * Hardware/Asus
+     * Template:Hardware/breadcrumb
+     * Hardware/TUXEDO
+     * How to fetch Nixpkgs with an empty NIX PATH
+     * How to give Nix software access to native libraries when running Nix
+       package manager on a non-NixOS distribution
+     * Talk:Hydra
+
+  I
+
+     * IIO
+     * Installing Nix on Crostini
+     * Install NixOS on Kimsufi
+     * Install NixOS on Liteserver
+     * Install NixOS on Online.Net
+     * Install NixOS on Rackspace Cloud Servers
+     * Install NixOS on Scaleway X86 Virtual Cloud Server
+
+  J
+
+     * JAX
+
+  K
+
+     * Keyd
+
+  L
+
+     * Libimobiledevice
+     * List Of Common Folders In Output Derivation
+     * Talk:LLVM
+     * Lua
+
+  M
+
+     * Man pages
+     * Talk:MediaWiki
+     * Mosh
+     * Mtr
+     * MultiMC
+     * MusicBrainz Picard
+
+  N
+
+     * Talk:NetBox
+     * Talk:Nginx
+     * Nix Evaluation Performance
+     * Nix on Travis
+     * NixOps/Virtualization
+     * Nixos-generate-config
+     * NixOS Generations Trimmer
+     * NixOS Installation Guide/multibootusb
+     * NixOS:nixos-rebuild build-vm
+     * NixOS on ARM/NanoPC-T4
+     * NixOS on ARM/NanoPi-R6C
+     * NixOS on ARM/ODROID-C2
+     * NixOS on ARM/ODROID-HC1
+     * NixOS on ARM/ODROID-HC4
+     * NixOS on ARM/PINE64 ROCK64
+     * NixOS on ARM/PINE64 ROCKPro64
+     * NixOS on ARM/QEMU
+     * NixOS on ARM/Raspberry Pi
+     * NixOS on ARM/Raspberry Pi 3
+     * NixOS on ARM/Toshiba AC100
+     * Nixpkgs/Building RPM DEB with nixpkgs
+     * Nixpkgs/Modifying Packages
+     * Nix-writers
+     * NNCP
+     * Noisemaker
+     * Nvidia
+
+  O
+
+     * OpenSearch
+     * OpenSnitch
+     * OpenVPN
+     * Out-of-tree build
+
+  P
+
+     * PICO-8
+     * Platformio
+     * Pocketbase
+     * PostgreSQL
+     * Python
+     * Talk:Python
+
+  Q
+
+     * Qt
+
+  R
+
+     * Redmine
+     * Talk:Redmine
+
+  S
+
+     * Talk:Samba
+     * Slock
+     * Snapcast
+     * Snippets
+     * SSH public key authentication
+     * Steam
+
+  T
+
+     * Teamviewer
+     * Tex
+     * Tinc
+     * Tmux
+     * Touchpad
+     * TPM
+     * Tup
+
+  U
+
+     * Using Clang instead of GCC
+
+  V
+
+     * Valid Nix store path names
+
+  W
+
+     * Waydroid
+     * Talk:WireGuard
+     * Workgroup:SELinux
+     * Wrappers vs. Dotfiles
+
+  X
+
+     * Xdebug
+     * Xorg
+
+  Y
+
+     * Yubikey
+     * Talk:Yubikey
+     * Yubikey based Full Disk Encryption (FDE) on NixOS
+
+  Z
+
+     * ZFS
+     * Zotero
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Pages_with_syntax_highlighting_errors&oldid=13414"
+   Categories:
+     * Hidden categories
+     * Maintenance
+     * This page was last edited on 23 June 2024, at 01:14.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

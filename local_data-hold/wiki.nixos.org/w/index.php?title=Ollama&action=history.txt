@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Ollama: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    30 September 2024
+
+     * curprev [ ] [ ] 21:1621:16, 30 September 2024‎ Klinger talk contribs‎
+       2,827 bytes +838‎ Improved the configuration and usage for ollama
+
+    29 September 2024
+
+     * curprev [ ] [ ] 18:3218:32, 29 September 2024‎ Klinger talk contribs‎
+       1,989 bytes +26‎ Ollama can also be used as CLI application.
+
+    2 July 2024
+
+     * curprev [ ] [ ] 18:2218:22, 2 July 2024‎ Soliprem talk contribs‎ 1,963
+       bytes +52‎ No edit summary
+     * curprev [ ] [ ] 18:1618:16, 2 July 2024‎ Soliprem talk contribs‎ m
+       1,911 bytes +24‎ No edit summary
+
+    25 May 2024
+
+     * curprev [ ] [ ] 19:1919:19, 25 May 2024‎ Lelgenio talk contribs‎ m
+       1,887 bytes −9‎ Use a more appropriate option for setting environment
+       variables Tag: Visual edit
+     * curprev [ ] [ ] 18:1818:18, 25 May 2024‎ Lelgenio talk contribs‎ 1,896
+       bytes +1,047‎ Add troubleshooting instructions for AMD GPUs Tag:
+       Visual edit: Switched
+
+    10 May 2024
+
+     * curprev [ ] [ ] 13:1913:19, 10 May 2024‎ Klinger talk contribs‎ 849
+       bytes +21‎ Category:Server
+     * curprev [ ] [ ] 10:2310:23, 10 May 2024‎ Onny talk contribs‎ 828 bytes
+       +65‎ Add note on obtaining LLMs Tag: Visual edit
+     * curprev [ ] [ ] 10:1410:14, 10 May 2024‎ Onny talk contribs‎ 763 bytes
+       +763‎ Initial page Tag: Visual edit
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Ollama"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,252 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                    Remote disk unlocking: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 June 2024
+
+     * curprev [ ] [ ] 13:5513:55, 14 June 2024‎ Teutat3s talk contribs‎
+       9,364 bytes 0‎ Properly escape greater than signs Tag: Visual edit
+     * curprev [ ] [ ] 13:4513:45, 14 June 2024‎ Teutat3s talk contribs‎
+       9,364 bytes +17‎ Workaround broken >> special characters being
+       displayed as >> Tag: Visual edit: Switched
+     * curprev [ ] [ ] 13:0613:06, 14 June 2024‎ Teutat3s talk contribs‎
+       9,347 bytes +214‎ Fix broken networkmanager DNS with
+       boot.initrd.network.enable, see:
+       https://github.com/NixOS/nixpkgs/issues/63941#issuecomment-2081126437.
+       Use ed25519 host key. Use postCommands to directly prompt for
+       password, shell option did not work for me. Tag: Visual edit
+
+    15 May 2024
+
+     * curprev [ ] [ ] 11:5811:58, 15 May 2024‎ Onny talk contribs‎ 9,133
+       bytes +1,502‎ Add section on how to enable wifi in initrd Tag: Visual
+       edit
+
+    13 May 2024
+
+     * curprev [ ] [ ] 12:3512:35, 13 May 2024‎ Onny talk contribs‎ 7,631
+       bytes +38‎ →‎Bcachefs unlocking: Clarify bcachefs remote disk
+       unlocking setup Tag: Visual edit
+     * curprev [ ] [ ] 11:2611:26, 13 May 2024‎ Onny talk contribs‎ 7,593
+       bytes −15‎ →‎Bcachefs unlocking: Fix code syntax Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:4917:49, 19 April 2024‎ Klinger talk contribs‎ m
+       7,608 bytes +43‎ Category:Server Category:Cookbook
+
+    3 March 2024
+
+     * curprev [ ] [ ] 19:4119:41, 3 March 2024‎ imported>Farcaller‎ 7,565
+       bytes +15‎ trace: warning: Please set
+       'boot.initrd.systemd.users.root.shell' instead of
+       'boot.initrd.network.ssh.shell'
+
+    28 February 2024
+
+     * curprev [ ] [ ] 10:1510:15, 28 February 2024‎ imported>Onny‎ 7,550
+       bytes −9‎ Small enhancement
+
+    26 February 2024
+
+     * curprev [ ] [ ] 09:2009:20, 26 February 2024‎ imported>Onny‎ m 7,559
+       bytes 0‎ Onny moved page Remote LUKS Unlocking to Remote disk
+       unlocking: The instruction is now more general and not only for LUKS
+     * curprev [ ] [ ] 09:1909:19, 26 February 2024‎ imported>Onny‎ 7,559
+       bytes +831‎ Add bcachefs remote unlocking
+
+    23 February 2024
+
+     * curprev [ ] [ ] 15:0315:03, 23 February 2024‎ imported>Fadenb‎ m 6,728
+       bytes −4‎ Fix & html
+     * curprev [ ] [ ] 15:0115:01, 23 February 2024‎ imported>Fadenb‎ m 6,732
+       bytes −6‎ Fix more HTML entities (this time < and >)
+     * curprev [ ] [ ] 14:5914:59, 23 February 2024‎ imported>Fadenb‎ 6,738
+       bytes −34‎ syntaxHighlight a code block & fix HTML entities for double
+       quotes that somehow showed up in the process
+     * curprev [ ] [ ] 13:3913:39, 23 February 2024‎ imported>Onny‎ m 6,772
+       bytes +73‎ No edit summary
+     * curprev [ ] [ ] 13:3713:37, 23 February 2024‎ imported>Onny‎ 6,699
+       bytes +397‎ Restructuring setup part and add usage example
+
+    21 February 2024
+
+     * curprev [ ] [ ] 11:2911:29, 21 February 2024‎ imported>H3ndrik‎ 6,302
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 11:2811:28, 21 February 2024‎ imported>H3ndrik‎ 6,302
+       bytes +149‎ added Warning
+
+    20 February 2024
+
+     * curprev [ ] [ ] 12:5512:55, 20 February 2024‎ imported>Onny‎ m 6,153
+       bytes −8‎ No edit summary
+     * curprev [ ] [ ] 12:5412:54, 20 February 2024‎ imported>Onny‎ m 6,161
+       bytes +5‎ No edit summary
+
+    19 February 2024
+
+     * curprev [ ] [ ] 13:1213:12, 19 February 2024‎ imported>Onny‎ 6,156
+       bytes −417‎ Restructuring
+
+    7 February 2024
+
+     * curprev [ ] [ ] 18:1518:15, 7 February 2024‎ imported>Skarlett‎ m
+       6,573 bytes +178‎ No edit summary
+
+    8 August 2023
+
+     * curprev [ ] [ ] 15:4315:43, 8 August 2023‎ imported>LunarEclipse‎ m
+       6,395 bytes +1‎ fixed a typo from my previous edit
+     * curprev [ ] [ ] 15:4115:41, 8 August 2023‎ imported>LunarEclipse‎
+       6,394 bytes +641‎ More information on the network setup, the suggested
+       default now replaces the default ssh shell with a password prompt,
+       simplifying it's usage
+
+    9 April 2022
+
+     * curprev [ ] [ ] 11:2511:25, 9 April 2022‎ imported>Ikovnatsky‎ m 5,753
+       bytes −1‎ Wording: theses -> these
+
+    27 March 2022
+
+     * curprev [ ] [ ] 11:3011:30, 27 March 2022‎ imported>Reivilibre‎ m
+       5,754 bytes +4‎ Fix example: authorizedKeys is a list of strings
+
+    8 July 2021
+
+     * curprev [ ] [ ] 21:0421:04, 8 July 2021‎ imported>Riotbib‎ m 5,750
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 21:0221:02, 8 July 2021‎ imported>Riotbib‎ 5,750 bytes
+       +131‎ Change from deprecated hostECDSAkey to hostKeys and from
+       dropbear to ssh-keygen
+
+    5 November 2020
+
+     * curprev [ ] [ ] 21:3521:35, 5 November 2020‎ imported>Makefu‎ 5,619
+       bytes +266‎ No edit summary
+
+    26 June 2020
+
+     * curprev [ ] [ ] 16:1416:14, 26 June 2020‎ imported>0x4A6F‎ 5,353 bytes
+       +507‎ No edit summary
+
+    19 June 2020
+
+     * curprev [ ] [ ] 22:5022:50, 19 June 2020‎ imported>0x4A6F‎ 4,846 bytes
+       +573‎ No edit summary
+
+    21 May 2020
+
+     * curprev [ ] [ ] 18:1218:12, 21 May 2020‎ imported>Mweinelt‎ m 4,273
+       bytes +7‎ No edit summary
+     * curprev [ ] [ ] 18:1218:12, 21 May 2020‎ imported>Mweinelt‎ 4,266
+       bytes −101‎ No edit summary
+     * curprev [ ] [ ] 17:1717:17, 21 May 2020‎ imported>MrVanDalo‎ 4,367
+       bytes +4,367‎ Created page with "= Unlocking your LUKS via SSH and Tor
+       = If you want to unlock your Computer remotely, and you are facing the
+       problem, that you can’t reach your computer before your compute..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Remote_disk_unlocking"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

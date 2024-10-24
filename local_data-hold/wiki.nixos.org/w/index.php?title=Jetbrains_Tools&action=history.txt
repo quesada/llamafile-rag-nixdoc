@@ -1,0 +1,147 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Jetbrains Tools: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:0721:07, 19 April 2024‎ Klinger talk contribs‎ m
+       4,506 bytes +27‎ Category:Applications
+
+    1 April 2024
+
+     * curprev [ ] [ ] 13:5513:55, 1 April 2024‎ Mic92 talk contribs‎ 4,479
+       bytes −45‎ fix links
+
+    11 March 2024
+
+     * curprev [ ] [ ] 15:0215:02, 11 March 2024‎ imported>Haraldh‎ 4,524
+       bytes +1,566‎ Extend package set for more functionality
+
+    6 March 2024
+
+     * curprev [ ] [ ] 08:0008:00, 6 March 2024‎ imported>Haraldh‎ 2,958
+       bytes +94‎ Remark about full list of nix-ld packages
+
+    5 March 2024
+
+     * curprev [ ] [ ] 14:5414:54, 5 March 2024‎ imported>Haraldh‎ 2,864
+       bytes +478‎ Add example nix-ld config
+
+    20 January 2024
+
+     * curprev [ ] [ ] 11:4211:42, 20 January 2024‎ imported>Magneticflux-‎
+       2,386 bytes +1,209‎ Add section on JetBrains Toolbox and workarounds
+
+    29 September 2023
+
+     * curprev [ ] [ ] 23:2623:26, 29 September 2023‎ imported>Werner291‎
+       1,177 bytes −5‎ Fixed wrong link subheading
+     * curprev [ ] [ ] 23:1523:15, 29 September 2023‎ imported>Werner291‎ m
+       1,182 bytes +52‎ No edit summary
+     * curprev [ ] [ ] 23:1023:10, 29 September 2023‎ imported>Werner291‎
+       1,130 bytes +1,130‎ Created the page as a stub.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Jetbrains_Tools"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

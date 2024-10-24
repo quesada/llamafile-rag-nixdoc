@@ -1,0 +1,165 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Lutris: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    27 June 2024
+
+     * curprev [ ] [ ] 05:5205:52, 27 June 2024‎ Mic92 talk contribs‎ 1,780
+       bytes +41‎ hardware.graphics -> hardware.opengl
+
+    19 April 2024
+
+     * curprev [ ] [ ] 16:2516:25, 19 April 2024‎ Klinger talk contribs‎ m
+       1,739 bytes +20‎ added to category:gaming
+
+    2 October 2023
+
+     * curprev [ ] [ ] 17:4517:45, 2 October 2023‎ imported>Jonringer‎ 1,719
+       bytes +557‎ Mention lutris runtime issues.
+
+    24 December 2022
+
+     * curprev [ ] [ ] 17:1217:12, 24 December 2022‎ imported>Wolf2482-1639‎
+       1,162 bytes −175‎ This issue appears to be resolved.
+
+    26 October 2022
+
+     * curprev [ ] [ ] 21:5921:59, 26 October 2022‎ imported>Quasigod-io‎ m
+       1,337 bytes −26‎ Removed unnecessary line I mistakenly included last
+       time
+
+    17 October 2022
+
+     * curprev [ ] [ ] 19:5819:58, 17 October 2022‎ imported>Quasigod-io‎
+       1,363 bytes +620‎ This adds an explanation of how to add dependencies
+       to Lutris, similar to what is available on the Steam page
+
+    18 August 2022
+
+     * curprev [ ] [ ] 23:5223:52, 18 August 2022‎ imported>Zyansheep‎ 743
+       bytes +199‎ provide more info
+
+    24 December 2020
+
+     * curprev [ ] [ ] 21:3821:38, 24 December 2020‎ imported>Asbachb‎ 544
+       bytes +1‎ No edit summary
+     * curprev [ ] [ ] 21:3721:37, 24 December 2020‎ imported>Asbachb‎ 543
+       bytes +204‎ No edit summary
+
+    17 November 2020
+
+     * curprev [ ] [ ] 06:4906:49, 17 November 2020‎ imported>Artturin‎ 339
+       bytes +117‎ No edit summary
+
+    19 April 2020
+
+     * curprev [ ] [ ] 17:2917:29, 19 April 2020‎ imported>The pumpkin man‎
+       222 bytes +222‎ Created page with "== Known Issues == === Icons does
+       not appear === You have to install a compatible icon theme. For
+       example, you can install the <code>adwaita-icon-theme</code> available
+       as <co..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Lutris"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

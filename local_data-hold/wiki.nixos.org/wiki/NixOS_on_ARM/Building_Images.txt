@@ -1,0 +1,219 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Build your own image natively
+          * 1.1 Cross-compiling
+          * 1.2 Compiling through binfmt QEMU
+          * 1.3 Compiling through QEMU/kvm
+     * 2 Alternatives to building custom images
+          * 2.1 Stock NixOS installer image with custom U-Boot
+          * 2.2 Editing the image manually
+   [ ] Toggle the table of contents
+
+                          NixOS on ARM/Building Images
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+    This article or section is out of date.                                   
+    Reason: This page needs a cleanup; it was migrated from an organically    
+    evolving article from about three wikis ago. The information may still be 
+    accurate though. (Discuss in Talk:NixOS on ARM/Building Images)           
+    Once the page has been updated this notice can be removed.                
+
+Build your own image natively
+
+   You can customize image by using the following snippet.
+
+ # save as sd-image.nix somewhere
+ { ... }: {
+   imports = [
+     <nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
+   ];
+   # put your own configuration here, for example ssh keys:
+   users.users.root.openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1.... username@tld"
+   ];
+ }
+
+   Then build with:
+
+ $ nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=./sd-image.nix
+
+   Note that this requires a machine with aarch64. You can however also build
+   it from your laptop using an aarch64 remote builder as described in
+   Distributed build or ask for access on the community aarch64 builder.
+
+   if you use the experimental flake, instead of doing the above stuff, can
+   put the following lines in flake.nix, git add flake.nix and build with nix
+   build .#images.rpi2:
+
+ {
+   description = "Build image";
+   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+   outputs = { self, nixpkgs }: rec {
+     nixosConfigurations.rpi2 = nixpkgs.lib.nixosSystem {
+       modules = [
+         "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-raspberrypi.nix"
+         {
+           nixpkgs.config.allowUnsupportedSystem = true;
+           nixpkgs.hostPlatform.system = "armv7l-linux";
+           nixpkgs.buildPlatform.system = "x86_64-linux"; #If you build on x86 other wise changes this.
+           # ... extra configs as above
+         }
+       ];
+     };
+     images.rpi2 = nixosConfigurations.rpi2.config.system.build.sdImage;
+   };
+ }
+
+  Cross-compiling
+
+   It is possible to cross-compile from a different architecture. To
+   cross-compile to armv7l, on the same sd-image.nix add in crossSystem:
+
+ { ... }: {
+   nixpkgs.crossSystem.system = "armv7l-linux";
+   imports = [
+     <nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
+   ];
+   # ...
+ }
+
+  Compiling through binfmt QEMU
+
+   It is also possible to compile for aarch64 on your non-aarch64 local
+   machine, or a remote builder, by registering QEMU as a binfmt wrapper for
+   the aarch64 architecture. This wrapper uses emulation and will therefore
+   be slower than comparable native machines or cross-compiling.
+
+   To enable the binfmt wrapper on NixOS, add the following to
+   configuration.nix
+
+ {
+   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+ }
+
+   Then, add --argstr system aarch64-linux to the build command:
+
+ $ nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=./sd-image.nix --argstr system aarch64-linux
+
+   If you are building on non-NixOS machine with QEMU binfmt wrapper
+   configured, you will want to configure nix daemon to let it know that it
+   can build for aarch64. Add the following line to /etc/nix/nix.conf:
+   extra-platforms = aarch64-linux arm-linux
+
+   Note: archlinux users can install extra/qemu-system-aarch64,
+   extra/qemu-user-static and extra/qemu-user-static-binfmt and restart
+   systemd-binfmt.service. Check if binfmt is loaded by ls
+   /proc/sys/fs/binfmt_misc/ (there must be qemu-aarch64 or needed
+   architecture) and add line extra-sandbox-paths =
+   /usr/bin/qemu-aarch64-static to /etc/nix/nix.conf and don't forget to
+   restart the nix-daemon.service systemd unit afterwards.
+
+   If you want to build just one specific package, use this:
+
+ nix-build '<nixpkgs/nixos>' -A pkgs.theRequiredPackage --argstr system aarch64-linux -I nixos-config=/path/to/target/machine/nixos/config/copy
+
+   (the last option should not be required on NixOS machines)
+
+  Compiling through QEMU/kvm
+
+   It is also possible to build nixos images through full emulation using
+   QEMU/kvm but will be way slower than native and binfmt QEMU.
+
+Alternatives to building custom images
+
+  Stock NixOS installer image with custom U-Boot
+
+   The Mic92/nixos-aarch64-images repository provides a mechanism to modify
+   the official NixOS installer to embed the board-specific U-Boot firmware
+   required for different boards. This method does not require QEMU or native
+   ARM builds since the existing Hydra-built U-Boot binaries are used.
+
+  Editing the image manually
+
+   For some simple operations, like adding an SSH public key, the expected
+   usage for new users is to manually edit the image, add the proper
+   directory and authorized_keys file, with proper modes.
+
+ $ namei -l /home/nixos/.ssh/authorized_keys
+ f: /home/nixos/.ssh/authorized_keys
+ drwxr-xr-x root   root  /
+ drwxr-xr-x root   root  home
+ drwx------ nixos  users nixos
+ drwx------ nixos  users .ssh
+ -rw------- nixos  users authorized_keys
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Building_Images&oldid=11905"
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 8 April 2024, at 01:46.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

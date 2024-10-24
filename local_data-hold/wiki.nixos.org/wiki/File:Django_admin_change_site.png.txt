@@ -1,0 +1,103 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       File:Django admin change site.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+   File:Django admin change site.png
+   Size of this preview: 800 × 303 pixels. Other resolution: 1,470 × 556
+   pixels.
+
+   Original file ‎(1,470 × 556 pixels, file size: 69 KB, MIME type:
+   image/png)
+
+   Screenshot of the Django admin Change Site page
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail       Dimensions  User            Comment      
+                     Thumbnail for                               Screenshot   
+           06:47, 20 version as of   1,470 × 556                 of the       
+   current February  06:47, 20       (69 KB)     Imported>Benley Django admin 
+           2020      February 2020                               Change Site  
+                                                                 page         
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * Mailman
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Django_admin_change_site.png&oldid=7372"
+     * This page was last edited on 1 April 2024, at 11:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

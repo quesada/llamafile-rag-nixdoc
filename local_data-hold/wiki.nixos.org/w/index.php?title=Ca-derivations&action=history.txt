@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Ca-derivations: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    10 October 2023
+
+     * curprev [ ] [ ] 03:1503:15, 10 October 2023‎ imported>Artturin‎ 3,495
+       bytes −32‎ remove unnecessary setting
+
+    21 November 2022
+
+     * curprev [ ] [ ] 13:5713:57, 21 November 2022‎ imported>Ericson2314‎ m
+       3,527 bytes +42‎ Fix markup
+     * curprev [ ] [ ] 13:5613:56, 21 November 2022‎ imported>Ericson2314‎
+       3,485 bytes +115‎ Add non-NixOS instructions
+
+    11 October 2022
+
+     * curprev [ ] [ ] 08:3808:38, 11 October 2022‎ imported>Mjbecze‎ m 3,370
+       bytes −14‎ remove ca-references
+     * curprev [ ] [ ] 08:3708:37, 11 October 2022‎ imported>Mjbecze‎ m 3,384
+       bytes +14‎ remove reference to ca-reference
+     * curprev [ ] [ ] 08:3608:36, 11 October 2022‎ imported>Mjbecze‎ m 3,370
+       bytes −14‎ remove reference to ca-reference
+
+    5 September 2021
+
+     * curprev [ ] [ ] 19:4419:44, 5 September 2021‎ imported>Artturin‎ m
+       3,384 bytes +18‎ add Category:Nix
+
+    21 May 2021
+
+     * curprev [ ] [ ] 14:5714:57, 21 May 2021‎ imported>Gytis-ivaskevicius‎
+       3,366 bytes +103‎ No edit summary
+     * curprev [ ] [ ] 12:3512:35, 21 May 2021‎ imported>Regnat‎ 3,263 bytes
+       +3,263‎ Created page with "'''ca derivations''' (or more formally
+       ''Floating content-addressed derivations'') is an upcoming feature of
+       the Nix package manager. Without entering too much into the detai..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Ca-derivations"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

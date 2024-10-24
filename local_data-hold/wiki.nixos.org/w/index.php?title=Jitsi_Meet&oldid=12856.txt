@@ -1,0 +1,86 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                   Jitsi Meet
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 18:57, 16 May 2024 by Klinger (talk | contribs) (first
+   version with link to NixOS manual)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Jitsi Meet is a complete, private, self-hosted video conferencing
+   solution.
+
+   It is documented in the NixOS manual.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Jitsi_Meet&oldid=12856"
+   Categories:
+     * Web Applications
+     * Server
+     * NixOS Manual
+     * This page was last edited on 16 May 2024, at 18:57.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

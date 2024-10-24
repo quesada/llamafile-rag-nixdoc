@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Vagrant: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    3 December 2023
+
+     * curprev [ ] [ ] 15:0315:03, 3 December 2023‎ imported>GeFrIt42‎ m
+       3,435 bytes +283‎ vagrant 2.3.4's bug in mounting nfs folders: add
+       reference to vagrant bug issue that contains a workaround
+
+    11 February 2023
+
+     * curprev [ ] [ ] 02:2402:24, 11 February 2023‎ imported>GeFrIt42‎ 3,152
+       bytes +573‎ No edit summary
+
+    7 January 2019
+
+     * curprev [ ] [ ] 12:1412:14, 7 January 2019‎ imported>Lheckemann‎ 2,579
+       bytes +367‎ No edit summary
+
+    24 March 2018
+
+     * curprev [ ] [ ] 12:4312:43, 24 March 2018‎ imported>Mic92‎ 2,212 bytes
+       +1,345‎ document vagrant quirk
+
+    23 February 2018
+
+     * curprev [ ] [ ] 18:3418:34, 23 February 2018‎ imported>Samueldr‎ m 867
+       bytes +594‎ Adds a (slightly wrong) documentation to make use of NFS
+       mounts and vagrant.
+
+    13 January 2018
+
+     * curprev [ ] [ ] 19:5619:56, 13 January 2018‎ imported>Samueldr‎ m 273
+       bytes +173‎ Adds link to the nixos box page for the
+       vagrant-nixos-plugin
+     * curprev [ ] [ ] 19:4219:42, 13 January 2018‎ imported>Samueldr‎ 100
+       bytes +100‎ Pre-empts visits to Vagrant but actually wants Vagrant Box
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Vagrant"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

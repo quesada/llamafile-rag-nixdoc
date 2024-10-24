@@ -1,0 +1,214 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                Keyboard Layout Customization: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 June 2024
+
+     * curprev [ ] [ ] 18:3518:35, 6 June 2024‎ Rhendric talk contribs‎ 4,289
+       bytes +1‎ →‎Relevant other options: Update xkb options Tag: Visual
+       edit
+     * curprev [ ] [ ] 18:3518:35, 6 June 2024‎ Rhendric talk contribs‎ 4,288
+       bytes +5‎ →‎Simple: Update xkb options Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:0320:03, 24 April 2024‎ Klinger talk contribs‎ m
+       4,283 bytes +44‎ No edit summary
+
+    5 April 2024
+
+     * curprev [ ] [ ] 01:3501:35, 5 April 2024‎ Samueldr talk contribs‎ m
+       4,239 bytes +90‎ No edit summary
+
+    25 November 2023
+
+     * curprev [ ] [ ] 12:0712:07, 25 November 2023‎ imported>Heartbeast42‎
+       4,149 bytes −16‎ For the section on xmodmap: Fix heading size to match
+       other headings, make heading clearer, reframe copy to be more general
+       rather than being about 1 users experience.
+     * curprev [ ] [ ] 05:2205:22, 25 November 2023‎ imported>Heartbeast42‎ m
+       4,165 bytes −1‎ fixed a small typo
+
+    14 September 2023
+
+     * curprev [ ] [ ] 20:3220:32, 14 September 2023‎ imported>Vieta‎ 4,166
+       bytes +90‎ No edit summary
+
+    4 August 2023
+
+     * curprev [ ] [ ] 14:3614:36, 4 August 2023‎ imported>Dym-sohin‎ m 4,076
+       bytes +27‎ →‎Configs: fix 404
+
+    9 October 2022
+
+     * curprev [ ] [ ] 16:5016:50, 9 October 2022‎ imported>MasseGuillaume‎ m
+       4,049 bytes −64‎ inline writeText to avoid having to create a let
+       block
+
+    16 September 2022
+
+     * curprev [ ] [ ] 14:2714:27, 16 September 2022‎ imported>Silverdev2482‎
+       m 4,113 bytes 0‎ No edit summary
+
+    20 July 2022
+
+     * curprev [ ] [ ] 01:4301:43, 20 July 2022‎ imported>Aabccd021‎ 4,113
+       bytes +224‎ No edit summary
+
+    3 July 2021
+
+     * curprev [ ] [ ] 12:0612:06, 3 July 2021‎ imported>Matklad‎ 3,889 bytes
+       +220‎ Clarify using xkbVariant with several layouts
+
+    18 April 2021
+
+     * curprev [ ] [ ] 12:3412:34, 18 April 2021‎ imported>Attila-lendvai‎
+       3,669 bytes +141‎ added reference to services.xserver.extraLayouts
+
+    10 March 2021
+
+     * curprev [ ] [ ] 11:2511:25, 10 March 2021‎ imported>Voidless‎ 3,528
+       bytes −4‎ i18n.consoleUseXkbConfig was changed into
+       console.useXkbConfig in release 20.09
+
+    8 March 2021
+
+     * curprev [ ] [ ] 23:2623:26, 8 March 2021‎ imported>Dmarcoux‎ 3,532
+       bytes +179‎ Add line about home-manager for home.keyboard = null
+
+    25 November 2019
+
+     * curprev [ ] [ ] 18:3918:39, 25 November 2019‎ imported>Qknight‎ 3,353
+       bytes +848‎ No edit summary
+
+    4 November 2019
+
+     * curprev [ ] [ ] 15:1015:10, 4 November 2019‎ imported>Timstott‎ m
+       2,505 bytes −4‎ Update xkeyboardconfig attribute name
+
+    3 March 2019
+
+     * curprev [ ] [ ] 22:0422:04, 3 March 2019‎ imported>Erikarvstedt‎ m
+       2,509 bytes +2‎ No edit summary
+     * curprev [ ] [ ] 22:0322:03, 3 March 2019‎ imported>Erikarvstedt‎ m
+       2,507 bytes +101‎ No edit summary
+
+    4 December 2018
+
+     * curprev [ ] [ ] 21:3721:37, 4 December 2018‎ imported>Erikarvstedt‎
+       2,406 bytes +136‎ compile the layout to catch errors at build time and
+       to improve x11 startup performance
+
+    9 June 2018
+
+     * curprev [ ] [ ] 23:2023:20, 9 June 2018‎ imported>Infinisil‎ m 2,270
+       bytes −35‎ No edit summary
+     * curprev [ ] [ ] 23:2023:20, 9 June 2018‎ imported>Infinisil‎ 2,305
+       bytes +2,305‎ Created page with "= Keyboard Layout Customization = ==
+       Simple == The easiest way to customize your keyboard layout on NixOS
+       is with these options: * <code>services.xserver.layout</code>: Key..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Keyboard_Layout_Customization"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,110 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Issues installing vscode
+       1 comment
+   [ ] Toggle the table of contents
+
+                            Talk:Visual Studio Code
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 21 January 2019 by Samueldr in topic Issues installing
+   vscode
+
+   This pages looks more like an example how to install stuff with nix rather
+   then visual studio code. --Mic92 (talk) 07:41, 16 June 2018 (UTC)Reply
+
+     ----------------------------------------------------------------------
+
+Issues installing vscode
+
+   Latest comment: 21 January 20191 comment1 person in discussion
+
+   This example is not working anymore with NixOS 18.03 -- not signed
+
+   This example is not working with NixOS 18.09 -- not signed
+
+ $ nix-env -iA nixos.vscode
+
+ $ code
+ code: command not found
+
+ #I tried to find it with
+ $ nix-env -qaP --description | grep -i vscode
+
+ but got nothing back.
+
+           vscode is the right attribute name. Visual Studio Code is unfree,
+           which is why it doesn't seem to work. --samueldr (talk) 18:25, 21
+           January 2019 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Visual_Studio_Code&oldid=6083"
+     * This page was last edited on 30 September 2021, at 07:33.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

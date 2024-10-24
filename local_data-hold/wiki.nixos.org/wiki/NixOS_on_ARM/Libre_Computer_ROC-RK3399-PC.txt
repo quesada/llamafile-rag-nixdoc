@@ -1,0 +1,132 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Installation instructions
+     * 3 Serial console
+     * 4 Compatibility notes
+     * 5 Resources
+   [ ] Toggle the table of contents
+
+                   NixOS on ARM/Libre Computer ROC-RK3399-PC
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   An SBC design based on the Rockchip RK3399 SoC by Libre Computer.
+
+   Libre Computer ROC-RK3399-PC
+   An ROC-RK3399-PC.
+   Manufacturer Firefly for Libre Computer 
+   Architecture AArch64                    
+   Bootloader   Upstream U-Boot            
+   Boot order   SPI, eMMC, SD              
+   Maintainer   
+
+Status
+
+Installation instructions
+
+     This article or section needs expansion.                                 
+     Reason: This article is a stub. (Discuss in Talk:NixOS on ARM/Libre      
+     Computer ROC-RK3399-PC#)                                                 
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+   You can use nixos-aarch64-images to get an rock64 compatible disk image or
+   running the commands manually. It is currently untested but should work.
+   Please report back if it does.
+
+Serial console
+
+   Follows a simplified drawing of the board. The location for serial has
+   been highlighted to the top right.
+
+   [IMG] 
+
+Compatibility notes
+
+     This article or section needs expansion.                                 
+     Reason: This article is a stub. (Discuss in Talk:NixOS on ARM/Libre      
+     Computer ROC-RK3399-PC#)                                                 
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+Resources
+
+   https://libre.computer/products/roc-rk3399-pc/
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Libre_Computer_ROC-RK3399-PC&oldid=13661"
+   Category:
+     * Pages with broken file links
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 1 July 2024, at 20:50.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

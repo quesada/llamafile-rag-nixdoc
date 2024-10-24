@@ -1,0 +1,154 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           PCManFM: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    20 June 2024
+
+     * curprev [ ] [ ] 16:4416:44, 20 June 2024‎ Klinger talk contribs‎ 1,123
+       bytes +42‎ broken link --> changed to wikipedia. Added Category:File
+       Manager Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:1021:10, 19 April 2024‎ Klinger talk contribs‎ m
+       1,081 bytes +27‎ Category:Applications
+
+    3 June 2022
+
+     * curprev [ ] [ ] 11:5311:53, 3 June 2022‎ imported>Sshilovsky‎ m 1,054
+       bytes 0‎ shared-mime-info was renamed
+
+    24 December 2019
+
+     * curprev [ ] [ ] 08:0708:07, 24 December 2019‎ imported>Jchv‎ m 1,054
+       bytes +2‎ Make indentation consistent between code blocks.
+     * curprev [ ] [ ] 08:0708:07, 24 December 2019‎ imported>Jchv‎ 1,052
+       bytes −126‎ GIO_EXTRA_MODULES hack is no longer needed according to
+       Jan Tojnar
+       (https://github.com/NixOS/nixpkgs/issues/29137#issuecomment-527579650)
+
+    7 March 2019
+
+     * curprev [ ] [ ] 16:5616:56, 7 March 2019‎ imported>Makefu‎ 1,178 bytes
+       +130‎ add link to samba wiki page for PCmanFM
+
+    13 January 2018
+
+     * curprev [ ] [ ] 20:0020:00, 13 January 2018‎ imported>Makefu‎ 1,048
+       bytes +390‎ No edit summary
+     * curprev [ ] [ ] 19:2519:25, 13 January 2018‎ imported>Krey‎ 658 bytes
+       +101‎ No edit summary
+
+    10 January 2018
+
+     * curprev [ ] [ ] 21:3721:37, 10 January 2018‎ imported>Samueldr‎ m 557
+       bytes +35‎ Use syntaxhighlight
+     * curprev [ ] [ ] 21:3321:33, 10 January 2018‎ imported>Krey‎ 522 bytes
+       +522‎ Created page with "[https://wiki.lxde.org/en/PCManFM PCManFM] is
+       a free file manager application and the standard file manager of LXDE.
+       == Installation == Install the <code>pcmanfm</code> pack..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/PCManFM"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

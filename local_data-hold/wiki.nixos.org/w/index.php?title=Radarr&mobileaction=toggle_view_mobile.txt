@@ -1,0 +1,121 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Further configuration
+   [ ] Toggle the table of contents
+
+                                     Radarr
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Radarr is a movie collection manager for Usenet and BitTorrent users. It
+   can monitor multiple RSS feeds for new movies and will interface with
+   clients and indexers to grab, sort, and rename them. It can also be
+   configured to automatically upgrade the quality of existing files in the
+   library when a better quality format becomes available. Note that only one
+   type of a given movie is supported. If you want both an 4k version and
+   1080p version of a given movie you will need multiple instances.
+
+                                     Setup
+
+   Radarr is best installed as a service on NixOS in your configuration.nix.
+
+   A basic install can be done using the following options:
+
+ services.radarr = {
+   enable = true;
+   openFirewall = true;
+ };
+
+   The openFirewall option is used to open port 7878 on the host firewall.
+
+                             Further configuration
+
+   Radarr can be further configured using NixOS options.
+
+ services.radarr = {
+   ...
+   user = "user";
+   group = "group";
+   dataDir = "path/to/directory"
+ };
+
+   Both the user and group options are used to specify which user and group
+   is used to run Radarr. The dataDir option specifies the directory where
+   Radarr stores its data files, and can be set to a custom location. When
+   setting the dataDir option, be careful of permissions as a specified user
+   still needs the correct read/write permissions in this directory.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Radarr&oldid=12607"
+   Category:
+     * Applications
+     * This page was last edited on 30 April 2024, at 20:37.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

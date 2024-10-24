@@ -1,0 +1,366 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Firefox Variants
+          * 2.1 Variant: Official Binaries
+          * 2.2 Variant: ESR
+          * 2.3 Variant: Nightly
+               * 2.3.1 Reproducible
+               * 2.3.2 Non-reproducible (Impure)
+     * 3 Customizing with Home Manager
+     * 4 FAQ
+          * 4.1 How do I use ALSA with Firefox instead of PulseAudio?
+     * 5 Tips
+          * 5.1 Use KDE file picker
+          * 5.2 Use xinput2
+     * 6 Troubleshooting
+          * 6.1 If you can't start the browser because of a configuration
+            error
+          * 6.2 nativeMessagingHosts doesn't work
+          * 6.3 Screen Sharing under Wayland
+   [ ] Toggle the table of contents
+
+                                    Firefox
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page contains changes which are not marked for translation.
+
+   Firefox is a graphical web browser developed by Mozilla. It can be used
+   with a Firefox Sync Server.
+
+Installation
+
+   Set programs.firefox.enable to true in your system or Home Manager
+   configuration. Keep in mind that the NixOS and Home Manager modules have
+   different options, so choose accordingly.
+
+Firefox Variants
+
+   There are several Firefox variants that you can choose to install. To
+   choose a variant, set programs.firefox.package accordingly. Note: The
+   packages for the variants listed below are installed instead of the normal
+   firefox package. Thus, you'll have to choose one among these options.
+
+  Variant: Official Binaries
+
+   Mozilla provides official pre-built Firefox binaries. This is the
+   firefox-bin package and will be downloaded directly from the Mozilla
+   servers.
+
+  Variant: ESR
+
+   firefox-esr is the Extended Support Release of Firefox provided by
+   Mozilla, which receives only security updates and a more relaxed cadence
+   of feature implementation.
+
+  Variant: Nightly
+
+   Nightly builds are daily builds of Firefox from the central Mozilla
+   repository.
+
+    Reproducible
+
+   This method uses flakes to pull in nightly versions of Firefox in a
+   reproducible way, and is recommended for use. If you don't want to use
+   flakes, check out the next section.
+
+   First, add the following inputs to your flake:
+
+ inputs = {
+   firefox.url = "github:nix-community/flake-firefox-nightly";
+   firefox.inputs.nixpkgs.follows = "nixpkgs";
+ };
+
+   Then, using the specialArgs attribute to pass flake inputs to external
+   configuration files, add the nightly package to your system:
+
+ { pkgs, inputs, config, ... }:
+ {
+   environment.systemPackages = [
+     inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
+   ];
+ }
+
+   The downside of using this method is that you'll have to update the flake
+   input before you can get a new nightly version, which also means that you
+   might miss new builds since the flake lags behind the nightly release.
+
+    Non-reproducible (Impure)
+
+   Using this method is bad for reproducibility since it fetches resources
+   from non-pinned URLs, but it also means you always get the latest nightly
+   version when you build your system.
+
+    Tip                                                                       
+    If you don't want to use flakes but you still want to reproducibly        
+    install Firefox nightly, you might want to use this method with niv.      
+
+ nixpkgs.overlays =
+   let
+     # Change this to a rev sha to pin
+     moz-rev = "master";
+     moz-url = builtins.fetchTarball { url = "https://github.com/mozilla/nixpkgs-mozilla/archive/${moz-rev}.tar.gz";};
+     nightlyOverlay = (import "${moz-url}/firefox-overlay.nix");
+   in [
+     nightlyOverlay
+   ];
+ programs.firefox.package = pkgs.latest.firefox-nightly-bin;
+
+   Once you've added the overlay, you'll need to pass the --impure option to
+   nix commands. For example, in order to build and activate your
+   configuration, you'll have to run:
+
+ $ nixos-rebuild switch --impure
+
+Customizing with Home Manager
+
+   Home manager allows more customization for firefox. Such as extensions,
+   search engines, bookmarks, userChrome and user.js. The example below shows
+   a basic config defining Nix packages & options as a search engine. More
+   options are available on Home Manager's site
+
+ home-manager.users.username = {
+   programs.firefox = {
+     enable = true;
+     profiles = {
+       "user" = {
+         id = 0;
+         isDefault = true;
+
+         search.engines = {
+           "Nix Packages" = {
+             urls = [{
+               template = "https://search.nixos.org/packages";
+               params = [
+                 { name = "query"; value = "{searchTerms}"; }
+               ];
+             }];
+             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+             definedAliases = [ "@np" ];
+           };
+           "Nix Options" = {
+             definedAliases = [ "@no" ];
+             urls = [{
+               template = "https://search.nixos.org/options";
+               params = [
+                 { name = "query"; value = "{searchTerms}"; }
+               ];
+             }];
+           };
+         };
+       };
+     };
+   };
+
+FAQ
+
+  How do I use ALSA with Firefox instead of PulseAudio?
+
+ programs.firefox.package = (pkgs.wrapFirefox.override { libpulseaudio = pkgs.libpressureaudio; }) pkgs.firefox-unwrapped { };
+
+Tips
+
+   === Enabling Plasma Browser Integration === 1. Add the following line to
+   your configuration.nix (note that enabling Plasma automatically does
+   this):
+
+ programs.firefox.nativeMessagingHosts.packages = [ pkgs.plasma5Packages.plasma-browser-integration ];
+
+   2. Install KDE's Firefox extension.
+
+  Use KDE file picker
+
+   You must instruct Firefox to use the file picker offered by the XDG
+   Desktop Portal framework. This setting can be found in Firefox's
+   about:config as widget.use-xdg-desktop-portal.file-picker. The value 1
+   means "always". To set it using NixOS, add to 'configuration.nix'
+
+   # Make Firefox use the KDE file picker.
+   # Preferences source: https://wiki.archlinux.org/title/firefox#KDE_integration
+   programs.firefox = {
+     enable = true;
+     preferences = {
+       "widget.use-xdg-desktop-portal.file-picker" = 1;
+     };
+   };
+
+  Use xinput2
+
+   You can make Firefox use xinput2 by setting the MOZ_USE_XINPUT2
+   environment variable. This improves touchscreen support and enables
+   additional touchpad gestures. It also enables smooth scrolling as opposed
+   to the stepped scrolling that Firefox has by default. To do this, put the
+   following in your config:
+
+ environment.sessionVariables = {
+   MOZ_USE_XINPUT2 = "1";
+ };
+
+Troubleshooting
+
+  If you can't start the browser because of a configuration error
+
+   For example:
+
+ firefox
+ 1554035168269   Marionette      FATAL   XML parsing error: undefined entity
+ Location: chrome://browser/content/browser.xul
+ Line 2526, column 13:            <toolbarbutton id="tracking-protection-preferences-button"
+ JavaScript error: resource:///modules/aboutpages/AboutPrivateBrowsingHandler.jsm, line 28: TypeError: this.pageListener is undefined
+
+   An easy way to get away from this is to start firefox with the firefox
+   -safe-mode command. Then you can troubleshoot your actual problem or you
+   can call your luck by calling the refresh option (a special button will
+   appear when firefox starts in this mode). This will reset your
+   configuration to a sane state and you will be usually able to start the
+   browser again, but you will lose most of your customization.
+
+  nativeMessagingHosts doesn't work
+
+   Such as enablePlasmaBrowserIntegration, enableGnomeExtensions, and
+   enableBrowserpass.
+
+   They do not work with the firefox-bin derivation^[1] or with firefox
+   installed via nix-env
+
+     ----------------------------------------------------------------------
+
+    1. ↑ https://github.com/NixOS/nixpkgs/issues/47340#issuecomment-476368401
+
+  Screen Sharing under Wayland
+
+   When using Firefox with Wayland, screen sharing options might be limited
+   and require additional configuration (exact capabilities vary with
+   different compositors).
+
+     * add Pipewire support to Firefox:
+
+ # when programs.firefox.enable == true
+ programs.firefox.wrapperConfig = {
+   pipewireSupport = true;
+ };
+
+ # or, alternatively
+
+ environment.systemPackages = [
+   # Replace this
+   pkgs.firefox
+   # With this
+   (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})
+ ];
+
+     * Enable PipeWire
+
+ services.pipewire.enable = true;
+
+     * Enable xdg desktop integration:
+
+ xdg = {
+   portal = {
+     enable = true;
+     extraPortals = with pkgs; [
+       xdg-desktop-portal-wlr
+       xdg-desktop-portal-gtk
+     ];
+   };
+ };
+
+     * Set environment variables to hint Firefox to use Wayland features.
+       E.g.:
+
+ # Classical NixOS setup
+ environment.sessionVariables = {
+   # only needed for Sway
+   XDG_CURRENT_DESKTOP = "sway";
+ };
+
+ # Home Manager setup
+ home.sessionVariables = {
+   # only needed for Sway
+   XDG_CURRENT_DESKTOP = "sway";
+ };
+
+     * Ensure that the environment variables are correctly set for the user
+       systemd units, e.g.
+    1. Sway users might achieve this by adding the following to their Sway
+       config file
+    2. This ensures all user units started after the command (not those
+       already running) set the variables
+
+ exec systemctl --user import-environment
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Firefox&oldid=17643"
+   Categories:
+     * Cookbook
+     * Applications
+     * Web Browser
+     * This page was last edited on 26 September 2024, at 20:43.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

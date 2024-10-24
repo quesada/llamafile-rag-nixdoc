@@ -1,0 +1,169 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      Nix-shell shebang: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    28 May 2024
+
+     * curprev [ ] [ ] 21:5821:58, 28 May 2024‎ Klinger talk contribs‎ m
+       4,582 bytes +37‎ Category:Nix Category:Shell Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 07:0607:06, 28 May 2024‎ Vherrmann talk contribs‎
+       4,545 bytes −40‎ No edit summary Tag: Visual edit: Switched
+
+    10 January 2024
+
+     * curprev [ ] [ ] 13:2513:25, 10 January 2024‎ imported>Tobias.bora‎ m
+       4,585 bytes 0‎ No edit summary
+     * curprev [ ] [ ] 13:2413:24, 10 January 2024‎ imported>Tobias.bora‎
+       4,585 bytes +516‎ No edit summary
+
+    19 December 2023
+
+     * curprev [ ] [ ] 11:1311:13, 19 December 2023‎ imported>Mausch‎ 4,069
+       bytes +216‎ Add link to new CLI docs
+
+    7 December 2023
+
+     * curprev [ ] [ ] 14:4814:48, 7 December 2023‎ imported>Turion‎ 3,853
+       bytes +255‎ Add section Haskell
+
+    4 July 2023
+
+     * curprev [ ] [ ] 23:4823:48, 4 July 2023‎ imported>Enzime‎ 3,598 bytes
+       +20‎ nixpkgs-channel is no longer in use and actually pin a commit
+
+    25 June 2023
+
+     * curprev [ ] [ ] 20:1020:10, 25 June 2023‎ imported>Milahu‎ 3,578 bytes
+       +100‎ add link: Nix Flakes, Part 2: Evaluation caching - Tweag
+
+    17 June 2023
+
+     * curprev [ ] [ ] 09:5109:51, 17 June 2023‎ imported>JakeHillion‎ 3,478
+       bytes +11‎ →‎Python: Had no luck running this and
+       [this](https://discourse.nixos.org/t/nix-shell-shebang-default-nix-no-such-file-or-directory/24246)
+       suggested you need at least one package. Added `-p python3` and it
+       worked.
+
+    27 December 2022
+
+     * curprev [ ] [ ] 03:2303:23, 27 December 2022‎ imported>N8henrie‎ m
+       3,467 bytes +8‎ Needs -p bash to run
+
+    2 April 2022
+
+     * curprev [ ] [ ] 19:5619:56, 2 April 2022‎ imported>Artturin‎ 3,459
+       bytes +955‎ add rust
+     * curprev [ ] [ ] 19:2819:28, 2 April 2022‎ imported>Milahu‎ 2,504 bytes
+       +76‎ add section: Performance
+     * curprev [ ] [ ] 19:2519:25, 2 April 2022‎ imported>Milahu‎ 2,428 bytes
+       +198‎ add links: Speeding up nix-shell shebang, cached-nix-shell
+     * curprev [ ] [ ] 19:1819:18, 2 April 2022‎ imported>Milahu‎ 2,230 bytes
+       +2,230‎ Created page with "You can use <code>nix-shell</code> as a
+       script interpreter to * run scripts in arbitrary languages * provide
+       dependencies with Nix To do this, start the script with multiple..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nix-shell_shebang"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

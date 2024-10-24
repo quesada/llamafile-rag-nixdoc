@@ -1,0 +1,120 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Usage
+   [ ] Toggle the table of contents
+
+                                      Sudo
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Translate this page
+
+   Sudo allows a system administrator to delegate authority to give certain
+   users - or groups of users - the ability to run commands as root or
+   another user while providing an audit trail of the commands and their
+   arguments.
+
+Usage
+
+   Following simple configuration will allow all users which are part of the
+   group wheel to execute commands specified inside extraRules as super user
+   using sudo without the need to supply a user password.
+
+ security.sudo = {
+   enable = true;
+   extraRules = [{
+     commands = [
+       {
+         command = "${pkgs.systemd}/bin/systemctl suspend";
+         options = [ "NOPASSWD" ];
+       }
+       {
+         command = "${pkgs.systemd}/bin/reboot";
+         options = [ "NOPASSWD" ];
+       }
+       {
+         command = "${pkgs.systemd}/bin/poweroff";
+         options = [ "NOPASSWD" ];
+       }
+     ];
+     groups = [ "wheel" ];
+   }];
+   extraConfig = with pkgs; ''
+     Defaults:picloud secure_path="${lib.makeBinPath [
+       systemd
+     ]}:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
+   '';
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Sudo/en&oldid=16638"
+   Category:
+     * Security
+     * This page was last edited on 11 August 2024, at 16:59.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

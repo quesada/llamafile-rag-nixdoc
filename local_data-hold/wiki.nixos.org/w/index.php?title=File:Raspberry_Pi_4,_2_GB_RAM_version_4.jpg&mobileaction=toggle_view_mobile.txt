@@ -1,0 +1,162 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  File:Raspberry Pi 4, 2 GB RAM version 4.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:Raspberry Pi 4, 2 GB RAM version 4.jpg
+   Size of this preview: 800 × 600 pixels. Other resolutions: 2,560 × 1,920
+   pixels | 3,562 × 2,671 pixels.
+
+   Original file ‎(3,562 × 2,671 pixels, file size: 1.65 MB, MIME type:
+   image/jpeg)
+
+   Author: Suyash.dwivedi Licence: Creative Commons Attribution-Share Alike
+   4.0
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail Dimensions User             Comment            
+                     Thumbnail                             Author:            
+                     for       3,562 ×                     Suyash.dwivedi     
+   current 13:53, 27 version   2,671      Imported>Waschtl Licence: Creative  
+           July 2023 as of     (1.65 MB)                   Commons            
+                     13:53, 27                             Attribution-Share  
+                     July 2023                             Alike 4.0          
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following file is a duplicate of this file (more details):
+
+     * File:Raspberry Pi 4, 2 GB RAM version 4.jpg from Wikimedia Commons
+
+   The following page uses this file:
+
+     * NixOS on ARM/Raspberry Pi 4
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Image title                      
+   Date and time of data generation 18:12, 17 March 2020         
+   Exposure time                    4,001/200,000 sec (0.020005) 
+   F Number                         f/1.7                        
+   ISO speed rating                 336                          
+   Lens focal length                4.73 mm                      
+   Latitude                         23° 12′ 18.87″ N             
+   Altitude                         0 meters above sea level     
+   Longitude                        77° 26′ 0.55″ E              
+   Vertical resolution              72 dpi                       
+   Horizontal resolution            72 dpi                       
+   Width                            3,562 px                     
+   Height                           2,671 px                     
+   Y and C positioning              Co-sited                     
+   Orientation                      Normal                       
+   File change date and time        21:45, 18 March 2020         
+   Exif version                     2.2                          
+   APEX exposure bias               0                            
+   Exposure Program                 Not defined                  
+   Color space                      sRGB                         
+   Supported Flashpix version       1                            
+   DateTimeOriginal subseconds      88                           
+   White balance                    Auto white balance           
+   Exposure mode                    Auto exposure                
+   Flash                            Flash did not fire           
+   DateTime subseconds              88                           
+                                     1. Y                        
+   Meaning of each component         2. Cb                       
+                                     3. Cr                       
+                                     4. does not exist           
+   Focal length in 35 mm film       0 mm                         
+   DateTimeDigitized subseconds     88                           
+   Digital zoom ratio               1                            
+   Date and time of digitizing      18:12, 17 March 2020         
+   Metering mode                    Center weighted average      
+   Scene capture type               Standard                     
+   Light source                     Other light source           
+   GPS time (atomic clock)          12:42                        
+   GPS date                         17 March 2020                
+   GPS tag version                  0.0.2.2                      
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Raspberry_Pi_4,_2_GB_RAM_version_4.jpg&oldid=11967"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Removing "Adding missing indices" section?
+       2 comments
+     * 2 Does ONLYOFFICE really require the ONLYOFFICE app?
+       1 comment
+   [ ] Toggle the table of contents
+
+                                 Talk:Nextcloud
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 11 September by Britter in topic Does ONLYOFFICE really
+   require the ONLYOFFICE app?
+
+Removing "Adding missing indices" section?
+
+   Latest comment: 24 May2 comments2 people in discussion
+
+   Since https://github.com/NixOS/nixpkgs/pull/308291 has been merged, would
+   it be okay to remove this section? PopeRigby (talk) 22:06, 24 May 2024
+   (UTC)Reply
+
+           Yes this would we good :) Onny (talk) 23:35, 24 May 2024
+           (UTC)Reply
+
+Does ONLYOFFICE really require the ONLYOFFICE app?
+
+   Latest comment: 11 September1 comment1 person in discussion
+
+   I was under the impression that the richdocuments app can deal with any
+   WOPI client. It's a bit confusing right now because NextCloud seems to be
+   pushing hard for Collabora. So everything is currently being rephrased in
+   a why that seems to indicate you can only use Collabora with NextCloud
+   Office (which is really richdocuments). Britter (talk) 13:02, 11 September
+   2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Nextcloud&oldid=17361"
+     * This page was last edited on 11 September 2024, at 13:02.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

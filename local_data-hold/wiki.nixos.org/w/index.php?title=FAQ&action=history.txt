@@ -1,0 +1,335 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             FAQ: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    14 September 2024
+
+     * curprev [ ] [ ] 20:0120:01, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 28,565 bytes −29‎ fix the broken wiki link
+     * curprev [ ] [ ] 19:5319:53, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 28,594 bytes +1‎ fix the broken wiki link
+
+    9 September 2024
+
+     * curprev [ ] [ ] 03:4303:43, 9 September 2024‎ MorningstarSunset talk
+       contribs‎ 28,593 bytes +1,378‎ Marked this version for translation
+     * curprev [ ] [ ] 03:4203:42, 9 September 2024‎ MorningstarSunset talk
+       contribs‎ 27,215 bytes +306‎ No edit summary
+
+    20 July 2024
+
+     * curprev [ ] [ ] 04:4404:44, 20 July 2024‎ Rhendric talk contribs‎ m
+       26,909 bytes +11‎ →‎I'm getting ‘infinite recursion’ errors when
+       trying to do something clever with imports
+
+    19 July 2024
+
+     * curprev [ ] [ ] 18:4918:49, 19 July 2024‎ Rhendric talk contribs‎
+       26,898 bytes +1,047‎ Add FAQ entry about infinite recursion and
+       imports Tag: Visual edit: Switched
+
+    15 July 2024
+
+     * curprev [ ] [ ] 14:1214:12, 15 July 2024‎ OTE talk contribs‎ m 25,851
+       bytes 0‎ Wifi -> WiFi Tag: Visual edit
+
+    10 July 2024
+
+     * curprev [ ] [ ] 19:4119:41, 10 July 2024‎ 0x4A6F talk contribs‎ 25,851
+       bytes +4‎ remove link to legacy wiki
+
+    1 July 2024
+
+     * curprev [ ] [ ] 20:4220:42, 1 July 2024‎ Klinger talk contribs‎ m
+       25,847 bytes +4‎ changed link from redirect to article
+     * curprev [ ] [ ] 20:3820:38, 1 July 2024‎ Klinger talk contribs‎ m
+       25,843 bytes −4‎ removed link to redirect
+     * curprev [ ] [ ] 20:2320:23, 1 July 2024‎ Klinger talk contribs‎ m
+       25,847 bytes 0‎ →‎What are channels and how do they get updated?: typo
+     * curprev [ ] [ ] 20:1720:17, 1 July 2024‎ Klinger talk contribs‎ m
+       25,847 bytes +4‎ →‎What are channels and how do they get updated?:
+       link
+
+    25 June 2024
+
+     * curprev [ ] [ ] 20:4020:40, 25 June 2024‎ Klinger talk contribs‎ m
+       25,843 bytes 0‎ fixed link to Nix package manager (capitilazation
+       change)
+
+    28 May 2024
+
+     * curprev [ ] [ ] 04:3904:39, 28 May 2024‎ Chika.chika talk contribs‎
+       25,843 bytes +962‎ Add nix-ld as recommendation to run unlatched
+       binaries Tags: Mobile edit Mobile web edit
+
+    20 May 2024
+
+     * curprev [ ] [ ] 22:1322:13, 20 May 2024‎ Sdht0 talk contribs‎ 24,881
+       bytes +1‎ →‎What does it mean to say that NixOS is "immutable": remove
+       blank line
+     * curprev [ ] [ ] 22:0922:09, 20 May 2024‎ Sdht0 talk contribs‎ 24,880
+       bytes +28‎ Move transcludes together to the end
+
+    19 May 2024
+
+     * curprev [ ] [ ] 10:1410:14, 19 May 2024‎ Jtojnar talk contribs‎ 24,852
+       bytes +62‎ Partially undo revision 11690 by Sdht0 (talk) re-add
+       subpages
+
+    15 May 2024
+
+     * curprev [ ] [ ] 06:2606:26, 15 May 2024‎ Artoria2e5 talk contribs‎
+       24,790 bytes +126‎ →‎Why is there a new wiki? What is with
+       nixos.wiki?: WP:LISTGAP is bad: putting each bullet point like that
+       puts them in individual <ul> elements, which is not how documents
+       work! Also, add userscript
+
+    11 April 2024
+
+     * curprev [ ] [ ] 01:5701:57, 11 April 2024‎ SYMYS talk contribs‎ 24,664
+       bytes −1‎ →‎What does it mean to say that NixOS is "immutable"? Tag:
+       Visual edit
+     * curprev [ ] [ ] 01:5501:55, 11 April 2024‎ SYMYS talk contribs‎ 24,665
+       bytes +559‎ No edit summary Tag: Visual edit
+
+    8 April 2024
+
+     * curprev [ ] [ ] 21:3921:39, 8 April 2024‎ Itslychee talk contribs‎ m
+       24,106 bytes +125‎ prefer nix.settings over nix.extraConfig for
+       clarity purposes Tag: Visual edit
+
+    6 April 2024
+
+     * curprev [ ] [ ] 03:4803:48, 6 April 2024‎ Sdht0 talk contribs‎ 23,981
+       bytes −258‎ →‎Why is Nix written in C++ rather than a functional
+       language like Haskell?: Cleanup: Is mentioning the perl removal
+       project relevant?
+     * curprev [ ] [ ] 03:4403:44, 6 April 2024‎ Sdht0 talk contribs‎ 24,239
+       bytes +24‎ →‎Why is there a new wiki? What is with nixos.wiki?: Reword
+       Tag: Visual edit
+     * curprev [ ] [ ] 03:3403:34, 6 April 2024‎ Sdht0 talk contribs‎ 24,215
+       bytes +78‎ →‎What is the origin of the name "Nix": Formatting Tag:
+       Visual edit: Switched
+     * curprev [ ] [ ] 03:2703:27, 6 April 2024‎ Sdht0 talk contribs‎ m
+       24,137 bytes −46‎ Better formatting
+
+    3 April 2024
+
+     * curprev [ ] [ ] 14:3114:31, 3 April 2024‎ Qyriad talk contribs‎ 24,183
+       bytes +183‎ note lib.fakeHash Tag: Visual edit: Switched
+     * curprev [ ] [ ] 11:1511:15, 3 April 2024‎ Lassulus talk contribs‎
+       24,000 bytes +943‎ add explanation about why there are 2 wikis Tag:
+       Visual edit
+
+    24 January 2024
+
+     * curprev [ ] [ ] 23:4323:43, 24 January 2024‎ imported>Pete3n‎ m 23,057
+       bytes +115‎ Removed factually incorrect statement about internet
+       requirement
+
+    9 December 2023
+
+     * curprev [ ] [ ] 02:2302:23, 9 December 2023‎ imported>Cory‎ m 22,942
+       bytes 0‎ Corrected typo from “name” to “same”
+
+    6 February 2023
+
+     * curprev [ ] [ ] 21:5921:59, 6 February 2023‎ imported>Chaostheorie‎ m
+       22,942 bytes +6‎ Updated instructions for activating sandboxed builds
+       on NixOs
+
+    4 August 2022
+
+     * curprev [ ] [ ] 10:4710:47, 4 August 2022‎ imported>Toraritte‎ 22,936
+       bytes +23‎ Add Cookbook category
+
+    22 January 2022
+
+     * curprev [ ] [ ] 14:0214:02, 22 January 2022‎ imported>Asymmetric‎
+       22,913 bytes +882‎ add section on nixpkgs branches
+
+    30 May 2021
+
+     * curprev [ ] [ ] 12:0412:04, 30 May 2021‎ imported>Symphorien‎ 22,031
+       bytes +654‎ mention overlays to change the version of packages used by
+       nixos modules
+
+    31 January 2021
+
+     * curprev [ ] [ ] 00:4300:43, 31 January 2021‎ imported>Jtojnar‎ 21,377
+       bytes −18‎ avoid deprecated github:NixOS/nixpkgs-channels
+
+    21 September 2020
+
+     * curprev [ ] [ ] 14:4514:45, 21 September 2020‎ imported>Kolaente‎ m
+       21,395 bytes +105‎ No edit summary
+
+    19 July 2020
+
+     * curprev [ ] [ ] 06:1906:19, 19 July 2020‎ imported>Pancho‎ m 21,290
+       bytes +1‎ →‎How to keep build-time dependencies around / be able to
+       rebuild while being offline?: Add space around pipe for readability
+     * curprev [ ] [ ] 06:1706:17, 19 July 2020‎ imported>Pancho‎ m 21,289
+       bytes 0‎ →‎How to keep build-time dependencies around / be able to
+       rebuild while being offline?: Style fix: prefer single quotes in shell
+       if no variable interpolation is needed. Also, slightly easier to type.
+     * curprev [ ] [ ] 06:1106:11, 19 July 2020‎ imported>Pancho‎ m 21,289
+       bytes +17‎ →‎How can I disable the binary cache and build everything
+       locally?: Prefer single quotes in shell if no variable interpolation
+       is needed, also, slightly easier to type
+     * curprev [ ] [ ] 05:5905:59, 19 July 2020‎ imported>Pancho‎ m 21,272
+       bytes +13‎ →‎How can I disable the binary cache and build everything
+       locally?: Fix style
+
+    19 May 2020
+
+     * curprev [ ] [ ] 20:0220:02, 19 May 2020‎ imported>Dustin‎ 21,259 bytes
+       +224‎ How to run a nix-shell with an unstable package
+
+    26 April 2020
+
+     * curprev [ ] [ ] 20:5320:53, 26 April 2020‎ imported>Dsyer‎ m 21,035
+       bytes +19‎ Fix brackets and indenting
+
+    17 September 2019
+
+     * curprev [ ] [ ] 11:1511:15, 17 September 2019‎ imported>Asymmetric‎ m
+       21,016 bytes +3‎ →‎What are channels and how they get updated?: Fix
+       grammar in title
+     * curprev [ ] [ ] 11:1511:15, 17 September 2019‎ imported>Asymmetric‎ m
+       21,013 bytes +40‎ →‎How can I manage software with nix-env like with
+       configuration.nix?: Mention Home Manager
+
+    14 March 2019
+
+     * curprev [ ] [ ] 01:1701:17, 14 March 2019‎ imported>Simonmichael‎ m
+       20,973 bytes +16‎ →‎Why - instead of -?
+     * curprev [ ] [ ] 01:1401:14, 14 March 2019‎ imported>Simonmichael‎ m
+       20,957 bytes 0‎ →‎Why - instead of -?
+     * curprev [ ] [ ] 01:1401:14, 14 March 2019‎ imported>Simonmichael‎ m
+       20,957 bytes +2‎ →‎Why - instead of -?
+     * curprev [ ] [ ] 01:1301:13, 14 March 2019‎ imported>Simonmichael‎
+       20,955 bytes +243‎ →‎Why - instead of -?
+
+    15 February 2019
+
+     * curprev [ ] [ ] 17:0617:06, 15 February 2019‎ imported>Immae‎ m 20,712
+       bytes −6‎ gc- are deprecated
+
+    21 January 2019
+
+     * curprev [ ] [ ] 19:4019:40, 21 January 2019‎ imported>Mic92‎ 20,718
+       bytes +34‎ →‎What is the origin of the name Nix: wiktionary link
+
+    2 December 2018
+
+     * curprev [ ] [ ] 23:4523:45, 2 December 2018‎ imported>Symphorien‎
+       20,684 bytes +29‎ →‎How can I compile a package with debugging symbols
+       included?: link to the DebugSymbols page
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/FAQ"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,437 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Install
+          * 1.1 Gamescope Compositor / "Boot to Steam Deck"
+               * 1.1.1 gs.sh
+          * 1.2 steam-tui
+          * 1.3 FHS environment only
+     * 2 Adding missing dependencies
+          * 2.1 Bumblebee and Primus
+          * 2.2 Java
+     * 3 gamescope
+     * 4 Troubleshooting
+          * 4.1 Steam fails to start. What do I do?
+          * 4.2 Steam is not updated
+          * 4.3 Game fails to start
+               * 4.3.1 Changing the driver on AMD GPUs
+          * 4.4 SteamVR
+          * 4.5 Gamescope fails to launch when used within Steam
+          * 4.6 Known issues
+     * 5 Steam hardware
+     * 6 Proton
+          * 6.1 NixOS 21.11
+          * 6.2 Custom Proton versions
+          * 6.3 Install Proton versions by GUI
+     * 7 GameMode
+     * 8 See also
+   [ ] Toggle the table of contents
+
+                                     Steam
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 08:47, 20 October 2024 by Fidgetingbits (talk | contribs)
+   (→‎NixOS 21.11: clarify wording)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+    This article or section needs expansion.                                  
+    Reason: See notes in -> (Discuss in Talk:Steam#)                          
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   This page is intended to explain how to run Steam, Steam games as well as
+   proprietary DRM-free games under NixOS. Steam on NixOS is very easy to
+   install and use - it just works. But you may need to be aware of the
+   limitations when trying to run a native Linux install of a game. It's
+   often better to run the emulated Windows version via Proton. A dedicated
+   Games page lists games and reports on their successful execution on NixOS.
+
+Install
+
+   To install the Steam package and enable all the system options necessary
+   to allow it to run:
+
+ /etc/nixos/configuration.nix
+
+ # Apparently there are amdgpu issues in 6.10? Reference needed.
+ # So you maybe need to revert on the default lts kernel.
+ # boot.kernelPackages = pkgs.linuxPackages;
+ programs.steam = {
+   enable = true;
+   remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+ };
+
+   Note: Enabling steam installs several unfree packages. If you are using
+   allowUnfreePredicate you will need to ensure that your configurations
+   permit all of them.
+
+ {
+   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+     "steam"
+     "steam-original"
+     "steam-run"
+   ];
+ }
+
+  Gamescope Compositor / "Boot to Steam Deck"
+
+   Gamescope can function as a minimal desktop environment, meaning you can
+   launch it from a TTY and have an experience very similar to the Steam Deck
+   hardware console.
+
+ programs = {
+   gamescope = {
+     enable = true;
+     capSysNice = true;
+   };
+   steam = {
+     enable = true;
+     gamescopeSession.enable = true;
+   };
+ };
+ hardware.xone.enable = true; # support for the xbox controller USB dongle
+ services.getty.autologinUser = "your_user";
+ environment = {
+   systemPackages = pkgs.mangohud;
+   loginShellInit = ''
+     [[ "$(tty)" = "/dev/tty1" ]] && ./gs.sh
+   '';
+ };
+
+    gs.sh
+
+ #!/usr/bin/env bash
+ set -xeuo pipefail
+
+ gamescopeArgs=(
+     --adaptive-sync # VRR support
+     --hdr-enabled
+     --mangoapp # performance overlay
+     --rt
+     --steam
+ )
+ steamArgs=(
+     -pipewire-dmabuf
+     -tenfoot
+ )
+ mangoConfig=(
+     cpu_temp
+     gpu_temp
+     ram
+     vram
+ )
+ mangoVars=(
+     MANGOHUD=1
+     MANGOHUD_CONFIG="$(IFS=,; echo "${mangoConfig[*]}")"
+ )
+
+ export "${mangoVars[@]}"
+ exec gamescope "${gamescopeArgs[@]}" -- steam "${steamArgs[@]}"
+
+  steam-tui
+
+   If you want the steam-tui client you'll have to install it, but since it
+   relies on steamcmd being set up, you'll have to set that up, just to
+   generate the right files.
+
+ nix-shell -p steamcmd --run steamcmd
+
+   And then log in:
+
+ login <username> <password> <steam 2fa password>
+
+   After that, steam-tui should start fine.
+
+  FHS environment only
+
+   This will only make partial installation - provide the script, which
+   creates the typical environment expected by proprietary games and software
+   on regular Linux, allowing to run such software without patching. Useful
+   if you plan to run games downloaded from the internet.
+
+   Note that this is not necessary for clients installed from Nixpkgs (like
+   Minigalaxy or Itch), which already use the FHS environment.
+
+   There are two options to install the FHS environment. The first is to
+   install steam-run.
+
+   Example snippet of configuration.nix:
+
+   environment.systemPackages = with pkgs; [
+     steam-run
+   ];
+
+   Another option, in case you need more flexibility, is to directly
+   reference the part of steam metapackage.
+
+   Example snippet of configuration.nix:
+
+   environment.systemPackages = with pkgs; [
+     (steam.override { /* Your overrides here */ }).run
+   ];
+
+   Install the game by setting the executable attribute on the installer and
+   then running it via steam-run ./your_installer.sh. After installation,
+   edit the "~/.local/share/applications/your_game.desktop" and replace the
+   exec line from Exec="/home/user/game/start.sh" "" with Exec="steam-run"
+   "/home/user/game/start.sh".
+
+Adding missing dependencies
+
+   In some cases, you may need to override steam to provide missing
+   dependencies. Use the programs.steam.package for this.
+
+  Bumblebee and Primus
+
+   programs.steam.package = pkgs.steam.override {
+      withPrimus = true;
+      extraPackages = [ bumblebee glxinfo ];
+   };
+
+  Java
+
+   programs.java.enable = true;
+   programs.steam.package = pkgs.steam.override { withJava = true; };
+
+gamescope
+
+   To use the gamescope compositor, which enables features such as resolution
+   upscaling and stretched aspect ratios (such as 4:3), set
+
+ programs.steam.gamescopeSession.enable = true;
+
+   in your system configuration.
+
+Troubleshooting
+
+   For all issues: first run steam -dev -console through the terminal and
+   read the output.
+
+  Steam fails to start. What do I do?
+
+   Run strace steam -dev -console 2> steam.logs in the terminal. In the case
+   of a missing strace installation, you can temporarily install it using
+   nix-shell -p strace or nix run nixpkgs#strace -- steam -dev -console 2>
+   steam.logs, if Flakes are enabled. After that, create a bug report.
+
+  Steam is not updated
+
+   When you restart Steam after an update, it starts the old version.
+   (#181904)
+
+   A workaround is to remove the user files in
+   /home/<USER>/.local/share/Steam/userdata. This can be done with rm -rf
+   /home/<USER>/.local/share/Steam/userdata in the terminal or with your file
+   manager. After that, Steam can be setup again by restarting.
+
+  Game fails to start
+
+   Games may fail to start because they lack dependencies (this should be
+   added to the script, for now), or because they cannot be patched. The
+   steps to launch a game directly are:
+
+     * Patch the script/binary if you can
+     * Add a file named steam_appid.txt in the binary folder, with the appid
+       as contents (it can be found in the stdout from steam)
+     * Using the LD_LIBRARY_PATH from the nix/store steam script, with some
+       additions, launch the game binary
+
+  LD_LIBRARY_PATH=~/.steam/bin32:$LD_LIBRARY_PATH:/nix/store/pfsa... blabla ...curl-7.29.0/lib:. ./Osmos.bin32 (if you could not patchelf the game, call ld.so directly with the binary as parameter)
+
+   Note: If a game gets stuck on Installing scripts, check for a DXSETUP.EXE
+   process and run it manually, then restart the game launch.
+
+    Changing the driver on AMD GPUs
+
+   Note: This is not recommended because radv drivers tend to perform better
+   and are generally more stable than amdvlk.
+
+   Sometimes, changing the driver on AMD GPUs helps. To try this, first,
+   install multiple drivers such as radv and amdvlk:
+
+ hardware.graphics = { # hardware.opengl in 24.05
+   ## radv: an open-source Vulkan driver from freedesktop
+   enable32Bit = true; # driSupport32Bit in 24.05
+
+   ## amdvlk: an open-source Vulkan driver from AMD
+   extraPackages = [ pkgs.amdvlk ];
+   extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
+ };
+
+   In the presence of both drivers, Steam will default to amdvlk. The amdvlk
+   driver can be considered more correct regarding Vulkan specification
+   implementation, but less performant than radv. However, this tradeoff
+   between correctness and performance can sometimes make or break the gaming
+   experience.
+
+   To "reset" your driver to radv when both radv and amdvlk are installed,
+   set either AMD_VULKAN_ICD = "RADV" or VK_ICD_FILENAMES =
+   "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json" environment
+   variable. For example, if you start Steam from the shell, you can enable
+   radv for the current session by running AMD_VULKAN_ICD="RADV" steam. If
+   you are unsure which driver you currently use, you can launch a game with
+   MangoHud enabled, which has the capability to show what driver is
+   currently in use.
+
+  SteamVR
+
+   The setcap issue at SteamVR start can be fixed with:
+
+   sudo setcap CAP_SYS_NICE+ep
+   ~/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrcompositor-launcher
+
+  Gamescope fails to launch when used within Steam
+
+   Gamescope may fail to start due to missing Xorg libraries. (#214275) To
+   resolve this override the steam package to add them:
+
+ programs.steam.package = pkgs.steam.override {
+   extraPkgs = pkgs:
+     with pkgs; [
+       xorg.libXcursor
+       xorg.libXi
+       xorg.libXinerama
+       xorg.libXScrnSaver
+       libpng
+       libpulseaudio
+       libvorbis
+       stdenv.cc.cc.lib
+       libkrb5
+       keyutils
+     ];
+ };
+
+  Known issues
+
+   "Project Zomboid" may report "couldn't determine 32/64 bit of java". This
+   is not related to java at all, it carries its own outdated java binary
+   that refuses to start if path contains non-Latin characters. Check for
+   errors by directly starting local java binary within steam-run bash.
+
+   Resetting your password through the Steam app may fail at the CAPTCHA step
+   repeatedly, with Steam itself reporting that the CAPTCHA was not correct,
+   even though the CAPTCHA UI shows success. Resetting password through the
+   Steam website should work around that.
+
+Steam hardware
+
+   If you are using a Steam Controller or a Valve Index, you will want to add
+   hardware.steam-hardware.enable = true; to your configuration.
+
+   Note that this is already enabled with programs.steam.enable = true;.
+
+Proton
+
+  NixOS 21.11
+
+   From NixOS 21.11 onwards, you should be able to play most games with
+   Proton. If there is a Linux native version you have to activate a custom
+   compatibility layer to use the emulated Windows version. Native Linux
+   versions may not even start due to the way NixOS work.
+
+  Custom Proton versions
+
+   By default, Steam looks for custom Proton versions such as GE-Proton in
+   ~/.steam/root/compatibilitytools.d. Additionally the environment variable
+   STEAM_EXTRA_COMPAT_TOOLS_PATHS can be set to change or add to the paths
+   which steam searches for custom Proton versions.
+
+ programs.steam.extraCompatPackages = with pkgs; [ proton-ge-bin ];
+
+  Install Proton versions by GUI
+
+   The main disadvantage of using the proton-ge-bin package is: its only one
+   version. For using steam it may be better not to use the declaritive
+   approach and manually install several versions of proton via protonup-qt
+   GUI (like GloriousEggroll version GE_Proton).
+
+   environment.systemPackages = with pkgs; [
+     protonup-qt
+   ];
+
+GameMode
+
+   Consider activating GameMode.
+
+See also
+
+   Explaining the current Steam Package build
+
+   VR
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Steam&oldid=17906"
+   Categories:
+     * Applications
+     * Gaming
+   Hidden categories:
+     * Pages with syntax highlighting errors
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 20 October 2024, at 08:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

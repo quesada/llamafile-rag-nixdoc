@@ -1,0 +1,216 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Btrbk: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    20 October 2024
+
+     * curprev [ ] [ ] 15:5215:52, 20 October 2024‎ Onny talk contribs‎ 5,335
+       bytes −3‎ No edit summary Tag: Visual edit
+
+    19 October 2024
+
+     * curprev [ ] [ ] 01:4401:44, 19 October 2024‎ Jarrodsfarrell talk
+       contribs‎ m 5,338 bytes +5‎ Correct which man page to use. Tag: Visual
+       edit: Switched
+     * curprev [ ] [ ] 01:4201:42, 19 October 2024‎ Jarrodsfarrell talk
+       contribs‎ 5,333 bytes +1,258‎ Added a section for local /home
+       snapshots—inspired from my systems—and in the previous section points
+       out that subvolume can instead be a attribute set. Carry-over from the
+       unofficial wiki. Tag: Visual edit: Switched
+
+    14 August 2024
+
+     * curprev [ ] [ ] 18:4118:41, 14 August 2024‎ Onny talk contribs‎ 4,075
+       bytes +1,152‎ Retention policy Tag: Visual edit
+
+    31 May 2024
+
+     * curprev [ ] [ ] 08:0908:09, 31 May 2024‎ Onny talk contribs‎ 2,923
+       bytes −187‎ Remove unstable notice Tag: Visual edit
+
+    11 December 2023
+
+     * curprev [ ] [ ] 10:2810:28, 11 December 2023‎ imported>Onny‎ m 3,110
+       bytes +28‎ No edit summary
+     * curprev [ ] [ ] 10:2410:24, 11 December 2023‎ imported>Onny‎ 3,082
+       bytes +127‎ Update example setup reflecting latest module changes
+
+    7 December 2023
+
+     * curprev [ ] [ ] 09:1809:18, 7 December 2023‎ imported>Onny‎ 2,955
+       bytes +23‎ Make clear that instance name is custom
+
+    6 December 2023
+
+     * curprev [ ] [ ] 22:0622:06, 6 December 2023‎ imported>Onny‎ 2,932
+       bytes +192‎ Add workaround for NOPASSWD in NixOS 23.11
+
+    13 April 2023
+
+     * curprev [ ] [ ] 14:4114:41, 13 April 2023‎ imported>Onny‎ m 2,740
+       bytes +60‎ No edit summary
+     * curprev [ ] [ ] 14:3714:37, 13 April 2023‎ imported>Onny‎ 2,680 bytes
+       +530‎ Expanded remote host setup instructions
+
+    27 March 2023
+
+     * curprev [ ] [ ] 15:0415:04, 27 March 2023‎ imported>Onny‎ m 2,150
+       bytes +1‎ No edit summary
+     * curprev [ ] [ ] 14:5814:58, 27 March 2023‎ imported>Onny‎ 2,149 bytes
+       +254‎ Add notes on sudo entry on remote host
+
+    14 March 2023
+
+     * curprev [ ] [ ] 15:0415:04, 14 March 2023‎ imported>Onny‎ m 1,895
+       bytes −33‎ No edit summary
+
+    12 March 2023
+
+     * curprev [ ] [ ] 13:1413:14, 12 March 2023‎ imported>Asymmetric‎ m
+       1,928 bytes +6‎ →‎Configuration: also mention group
+     * curprev [ ] [ ] 12:3912:39, 12 March 2023‎ imported>Asymmetric‎ m
+       1,922 bytes +73‎ add note about ssh key
+
+    11 March 2023
+
+     * curprev [ ] [ ] 11:2311:23, 11 March 2023‎ imported>Onny‎ m 1,849
+       bytes −10‎ No edit summary
+     * curprev [ ] [ ] 11:1611:16, 11 March 2023‎ imported>Onny‎ 1,859 bytes
+       −12‎ Simplify instructions
+     * curprev [ ] [ ] 11:1111:11, 11 March 2023‎ imported>Onny‎ m 1,871
+       bytes +20‎ No edit summary
+
+    20 February 2023
+
+     * curprev [ ] [ ] 12:5312:53, 20 February 2023‎ imported>Onny‎ m 1,851
+       bytes +11‎ No edit summary
+
+    7 February 2023
+
+     * curprev [ ] [ ] 09:5609:56, 7 February 2023‎ imported>Onny‎ m 1,840
+       bytes +20‎ No edit summary
+
+    5 February 2023
+
+     * curprev [ ] [ ] 04:5504:55, 5 February 2023‎ imported>Onny‎ m 1,820
+       bytes +32‎ No edit summary
+     * curprev [ ] [ ] 04:5304:53, 5 February 2023‎ imported>Onny‎ 1,788
+       bytes +605‎ Update example configuration
+     * curprev [ ] [ ] 03:0103:01, 5 February 2023‎ imported>Onny‎ m 1,183
+       bytes +8‎ No edit summary
+     * curprev [ ] [ ] 02:5902:59, 5 February 2023‎ imported>Onny‎ 1,175
+       bytes +122‎ Add note lz4 must be installed on remote host
+     * curprev [ ] [ ] 02:0802:08, 5 February 2023‎ imported>Onny‎ 1,053
+       bytes +287‎ Note on btrbk usage and dry-testing
+
+    4 February 2023
+
+     * curprev [ ] [ ] 11:5211:52, 4 February 2023‎ imported>Onny‎ m 766
+       bytes −4‎ No edit summary
+     * curprev [ ] [ ] 08:3808:38, 4 February 2023‎ imported>Onny‎ 770 bytes
+       +770‎ Initial page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Btrbk"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

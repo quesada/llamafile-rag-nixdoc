@@ -1,0 +1,122 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Shell extensions
+          * 1.1 bash
+          * 1.2 zsh
+          * 1.3 fish
+     * 2 Examples
+          * 2.1 Search all nix packages
+   [ ] Toggle the table of contents
+
+                                      fzf
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   fzf is a general-purpose command-line fuzzy finder.
+
+                                Shell extensions
+
+   fzf provides additional key bindings (CTRL-T, CTRL-R, and ALT-C) for
+   shells
+
+   First install fzf in your profile, then use one of the following methods:
+
+bash
+
+   To enable fzf in bash add the following line to .bashrc
+
+ eval "$(fzf --bash)"
+
+zsh
+
+   To enable fzf in zsh add the following line to .zshrc
+
+ eval "$(fzf --zsh)"
+
+fish
+
+   To enable fzf in fish, add the following to
+   $HOME/.config/fish/functions/fish_user_key_bindings.fish
+
+ fzf --fish | source
+
+                                    Examples
+
+Search all nix packages
+
+   You can interactively search the list of available packages with:
+
+ nix-env -qa | fzf
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Fzf&oldid=12083"
+   Category:
+     * Applications
+     * This page was last edited on 14 April 2024, at 13:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

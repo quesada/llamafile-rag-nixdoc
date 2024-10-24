@@ -1,0 +1,160 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Blocky: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    12 September 2024
+
+     * curprev [ ] [ ] 16:3916:39, 12 September 2024‎ Pascal talk contribs‎ m
+       1,585 bytes −1‎ Update to current blocky config format Tag: Visual
+       edit: Switched
+
+    8 June 2024
+
+     * curprev [ ] [ ] 06:2606:26, 8 June 2024‎ Mic92 talk contribs‎ 1,586
+       bytes −36‎ fix syntax
+
+    2 May 2024
+
+     * curprev [ ] [ ] 12:5612:56, 2 May 2024‎ Raboof talk contribs‎ m 1,622
+       bytes 0‎ fix typo Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:5317:53, 19 April 2024‎ Klinger talk contribs‎ m
+       1,622 bytes +43‎ Category:Server Category:Cookbook
+
+    6 April 2024
+
+     * curprev [ ] [ ] 11:2711:27, 6 April 2024‎ Mirquee talk contribs‎ 1,579
+       bytes +5‎ Additional nesting fot `ports` section, according to the doc
+       https://0xerr0r.github.io/blocky/v0.23/configuration/#ports-configuration
+       Tag: Visual edit
+     * curprev [ ] [ ] 11:2011:20, 6 April 2024‎ Mirquee talk contribs‎ 1,574
+       bytes +64‎ Added upstream groups as it was added to the original
+       project. See their doc
+       https://0xerr0r.github.io/blocky/v0.23/configuration/#upstream-groups
+       Tag: Visual edit
+
+    31 March 2024
+
+     * curprev [ ] [ ] 09:5309:53, 31 March 2024‎ imported>Honnip‎ m 1,510
+       bytes +36‎ Link to GitHub repo in the project name
+
+    7 February 2024
+
+     * curprev [ ] [ ] 02:2202:22, 7 February 2024‎ imported>Continous‎ m
+       1,474 bytes −1‎ Typo in example config that causes it to write an
+       incorrect Blocky config.
+
+    19 July 2023
+
+     * curprev [ ] [ ] 16:1416:14, 19 July 2023‎ imported>TAKYON‎ m 1,475
+       bytes +66‎ Correcting formatting errors
+     * curprev [ ] [ ] 16:1016:10, 19 July 2023‎ imported>TAKYON‎ 1,409 bytes
+       +1,409‎ Blocky is a DNS proxy and ad-blocker for the local network
+       written in Go.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Blocky"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

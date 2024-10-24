@@ -1,0 +1,157 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+     * 3 Configuration
+          * 3.1 DNS Management
+          * 3.2 Power Saving
+   [ ] Toggle the table of contents
+
+                                 NetworkManager
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   NetworkManager is a program for configuring network devices on Linux. It
+   is widely used by several Linux distributions and can be optionally
+   enabled on NixOS for non-declarative network configuration. It also tends
+   to be the default for many desktop environments, such as GNOME or KDE
+   Plasma.
+
+Installation
+
+   NetworkManager can be enabled in the NixOS configuration file with the
+   following line:
+
+ networking.networkmanager.enable = true;
+
+   In order to allow access to the NetworkManager daemon and be able to
+   configure and add new networks, the user must be added to the
+   networkmanager group. This can be done through the extraGroups option for
+   a defined user:
+
+ users.users.<name>.extraGroups = [ "networkmanager" ];
+
+   By default, NetworkManager comes with nmcli and nmtui as user interfaces,
+   however, a GTK interface called nm-connection-editor can be found in the
+   nm-applet package.
+
+Usage
+
+   NetworkManager can be used with several front ends, such as nmcli, nmtui,
+   or nm-applet and nm-connection-editor.
+
+Configuration
+
+   The NixOS modules offer additional configurations that can be setup very
+   easily.
+
+  DNS Management
+
+   To allow custom DNS management, you must disable NetworkManager's built-in
+   DNS resolution, as well as some NixOS dhcp related options. Refer to the
+   configuration below as an example of what to do:
+
+ networking.networkmanager.enable = true;
+
+ # Disable NetworkManager's internal DNS resolution
+ networking.networkmanager.dns = "none";
+
+ # These options are unnecessary when managing DNS ourselves
+ networking.useDHCP = false;
+ networking.dhcpcd.enable = false;
+
+ # Configure DNS servers manually (this example uses Cloudflare and Google DNS)
+ # IPv6 DNS servers can be used here as well.
+ networking.nameservers = [
+   "1.1.1.1"
+   "1.0.0.1"
+   "8.8.8.8"
+   "8.8.4.4"
+ ];
+
+  Power Saving
+
+   On laptops, where extra power savings may be desired, you can enable
+   NetworkManager specific power saving options as follows:
+
+ networking.networkmanager.wifi.powersave = true;
+
+   Please see Power Management for more tips relating to power-saving tips
+   and tricks for NixOS.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NetworkManager&oldid=17681"
+   Categories:
+     * Networking
+     * Desktop
+     * GNOME
+     * KDE
+     * This page was last edited on 29 September 2024, at 18:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

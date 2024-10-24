@@ -1,0 +1,203 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Coreboot: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    15 September 2024
+
+     * curprev [ ] [ ] 05:1005:10, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 3,048 bytes +22‎ fix tutorial link
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:4021:40, 24 April 2024‎ Klinger talk contribs‎ m
+       3,026 bytes +21‎ Category:Booting
+
+    3 January 2022
+
+     * curprev [ ] [ ] 10:2310:23, 3 January 2022‎ imported>Blitz‎ 3,005
+       bytes +176‎ Add a link to my Coreboot packaging example.
+
+    28 December 2021
+
+     * curprev [ ] [ ] 21:2621:26, 28 December 2021‎ imported>Lenzj‎ 2,829
+       bytes +525‎ No edit summary
+
+    30 October 2021
+
+     * curprev [ ] [ ] 22:0322:03, 30 October 2021‎ imported>Milahu‎ m 2,304
+       bytes +29‎ remove "this can take some hours" - it does not, when we
+       build only one toolchain
+
+    26 October 2021
+
+     * curprev [ ] [ ] 16:3416:34, 26 October 2021‎ imported>Milahu‎ m 2,275
+       bytes +44‎ make menuconfig -> dark mode
+     * curprev [ ] [ ] 15:5115:51, 26 October 2021‎ imported>Milahu‎ 2,231
+       bytes +34‎ build toolchain only for x64
+     * curprev [ ] [ ] 12:5512:55, 26 October 2021‎ imported>Milahu‎ 2,197
+       bytes +40‎ No edit summary
+     * curprev [ ] [ ] 12:3512:35, 26 October 2021‎ imported>Milahu‎ 2,157
+       bytes +524‎ + Skip building toolchain
+     * curprev [ ] [ ] 12:1812:18, 26 October 2021‎ imported>Milahu‎ m 1,633
+       bytes −281‎ remove outdated section: compiler version
+     * curprev [ ] [ ] 12:1712:17, 26 October 2021‎ imported>Milahu‎ m 1,914
+       bytes +33‎ configure: set mainboard, flash size, ...
+     * curprev [ ] [ ] 12:1612:16, 26 October 2021‎ imported>Milahu‎ 1,881
+       bytes +563‎ fix nix-shell with mkShellNoCC
+     * curprev [ ] [ ] 08:4808:48, 26 October 2021‎ imported>Milahu‎ 1,318
+       bytes +220‎ + qemu: test the new image
+     * curprev [ ] [ ] 08:1108:11, 26 October 2021‎ imported>Milahu‎ 1,098
+       bytes +14‎ + CPUS=$(nproc)
+     * curprev [ ] [ ] 07:5307:53, 26 October 2021‎ imported>Milahu‎ 1,084
+       bytes +192‎ + clone submodules. shallow clone, otherwise needs 10x
+       more diskspace
+
+    25 October 2021
+
+     * curprev [ ] [ ] 22:3622:36, 25 October 2021‎ imported>Milahu‎ m 892
+       bytes −7‎ - should
+     * curprev [ ] [ ] 22:3622:36, 25 October 2021‎ imported>Milahu‎ 899
+       bytes +295‎ add gnat = gnu ada compiler
+     * curprev [ ] [ ] 22:2322:23, 25 October 2021‎ imported>Milahu‎ 604
+       bytes +30‎ fix nix-shell, use shallow clone
+
+    16 April 2021
+
+     * curprev [ ] [ ] 11:2611:26, 16 April 2021‎ imported>Blitz‎ m 574 bytes
+       −1‎ Fixed link syntax
+     * curprev [ ] [ ] 11:2411:24, 16 April 2021‎ imported>Blitz‎ 575 bytes
+       +284‎ Add link to Coreboot Nix expressions
+
+    24 December 2020
+
+     * curprev [ ] [ ] 01:2601:26, 24 December 2020‎ imported>Flokli‎ 291
+       bytes −56‎ remove hardening edit /
+       https://github.com/NixOS/nixpkgs/pull/107435
+
+    3 March 2020
+
+     * curprev [ ] [ ] 21:4121:41, 3 March 2020‎ imported>Lassulus‎ m 347
+       bytes +1‎ use secure git destination
+
+    21 February 2019
+
+     * curprev [ ] [ ] 05:4705:47, 21 February 2019‎ imported>Ajs124‎ m 346
+       bytes +56‎ disable format hardening, because is breaks the crossgcc
+       build
+
+    29 December 2017
+
+     * curprev [ ] [ ] 23:3923:39, 29 December 2017‎ imported>Makefu‎ 290
+       bytes +15‎ fix syntax highlight (again)
+     * curprev [ ] [ ] 23:3823:38, 29 December 2017‎ imported>Makefu‎ m 275
+       bytes +36‎ fix syntax highlight
+     * curprev [ ] [ ] 23:3823:38, 29 December 2017‎ imported>Makefu‎ 239
+       bytes +239‎ Created page with "== Building == To build your own
+       coreboot bios: <code> git clone
+       http://review.coreboot.org/coreboot.git; cd coreboot nix-shell -p
+       ncurses.dev bison flex clang zlib NIX_LDFLAG..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Coreboot"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,87 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                 Talk:Bluetooth
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 14 January 2023 by Chance
+
+   Doesn't mention that you need to install bluetoothctl, by adding bluez
+   bluez-tools.
+
+     ----------------------------------------------------------------------
+
+   One of the "See Also" links, Scripting PulseAudio, Bluetooth, JACK is
+   dead, and Internet Archive's Wayback Machine doesn't seem to have a cached
+   copy (most try to follow a redirect, the oldest copy is some XML error).
+   If anyone has a live version or a similar resource that we can put in the
+   place of the current link, that would be great. --Chance (talk) 09:18, 14
+   January 2023 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Bluetooth&oldid=8271"
+     * This page was last edited on 14 January 2023, at 09:18.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,189 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       NixOS Wiki:News: Revision history
+
+   Help
+     * Project page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 September 2024
+
+     * curprev [ ] [ ] 19:0219:02, 2 September 2024‎ Klinger talk contribs‎
+       1,124 bytes +263‎ Added a news article about the Manual of Style.
+
+    22 August 2024
+
+     * curprev [ ] [ ] 20:1620:16, 22 August 2024‎ Ibizaman talk contribs‎
+       861 bytes +179‎ →‎News
+
+    27 June 2024
+
+     * curprev [ ] [ ] 17:5417:54, 27 June 2024‎ Klinger talk contribs‎ 682
+       bytes +129‎ →‎News: wiki meeting announced.
+
+    23 June 2024
+
+     * curprev [ ] [ ] 05:0405:04, 23 June 2024‎ Tomodachi94 talk contribs‎ m
+       553 bytes +2‎ "checkout" -> "check out"; add punctuation
+
+    3 April 2024
+
+     * curprev [ ] [ ] 11:2111:21, 3 April 2024‎ Mic92 talk contribs‎ 551
+       bytes −23‎ Fix news faq link
+     * curprev [ ] [ ] 11:2011:20, 3 April 2024‎ Lassulus talk contribs‎ 574
+       bytes +156‎ No edit summary
+
+    1 April 2024
+
+     * curprev [ ] [ ] 12:4012:40, 1 April 2024‎ JulienMalka talk contribs‎
+       418 bytes −38‎ No edit summary
+     * curprev [ ] [ ] 12:3812:38, 1 April 2024‎ JulienMalka talk contribs‎
+       456 bytes −4,306‎ →‎News Tag: Replaced
+
+    28 January 2024
+
+     * curprev [ ] [ ] 05:5405:54, 28 January 2024‎ imported>Domtoro‎ 4,762
+       bytes +500‎ Add news on more DOS attacks against the wiki
+
+    11 January 2024
+
+     * curprev [ ] [ ] 16:2516:25, 11 January 2024‎ imported>Domtoro‎ 4,262
+       bytes +906‎ Add new item with clarification
+
+    12 December 2023
+
+     * curprev [ ] [ ] 08:1708:17, 12 December 2023‎ imported>Domtoro‎ 3,356
+       bytes +919‎ Add news item
+
+    9 September 2023
+
+     * curprev [ ] [ ] 08:1808:18, 9 September 2023‎ imported>Fadenb‎ 2,437
+       bytes +644‎ Add new item on server migration
+
+    23 September 2021
+
+     * curprev [ ] [ ] 15:2515:25, 23 September 2021‎ imported>Nix‎ m 1,793
+       bytes +150‎ one more good update
+     * curprev [ ] [ ] 15:1315:13, 23 September 2021‎ imported>Nix‎ 1,643
+       bytes +560‎ some news that's not from over two years ago
+
+    2 June 2019
+
+     * curprev [ ] [ ] 13:2713:27, 2 June 2019‎ imported>Fadenb‎ 1,083 bytes
+       +171‎ Add news about the google indexing issues, use YMD format for
+       dates
+
+    11 December 2017
+
+     * curprev [ ] [ ] 20:1920:19, 11 December 2017‎ imported>Ixxie‎ 912
+       bytes +2‎ Fixed dates standard international format.
+
+    9 October 2017
+
+     * curprev [ ] [ ] 19:4119:41, 9 October 2017‎ imported>Samueldr‎ m 910
+       bytes +299‎ News updates
+     * curprev [ ] [ ] 19:3619:36, 9 October 2017‎ imported>Samueldr‎ 611
+       bytes +611‎ Created page with "<noinclude> What's new with the wiki?
+       == News == </noinclude>{{news|2017-10-02|New Wiki theme activated| We
+       activated the theme proposed by samueldr ([https://github.com/nixo..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_Wiki:News"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

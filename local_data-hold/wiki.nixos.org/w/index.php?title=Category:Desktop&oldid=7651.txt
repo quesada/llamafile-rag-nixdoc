@@ -1,0 +1,158 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                Category:Desktop
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Revision as of 07:47, 16 May 2020 by imported>User (Created blank page)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Subcategories
+
+   This category has the following 17 subcategories, out of 17 total.
+
+  B
+
+     * Backup
+     * Booting
+
+  C
+
+     * Configuration
+
+  D
+
+     * Desktop environment
+     * Desktop environment/en
+     * Desktop environment/zh-cn
+     * Development
+
+  F
+
+     * Filesystem
+     * Flakes
+
+  H
+
+     * Home Manager
+
+  N
+
+     * Networking
+
+  P
+
+     * Privacy
+
+  S
+
+     * Security
+     * Shell
+     * Systemd
+
+  V
+
+     * Virtualization
+
+  W
+
+     * Window managers
+
+Pages in category "Desktop"
+
+   The following 9 pages are in this category, out of 9 total.
+
+  F
+
+     * Fonts
+     * Full Disk Encryption
+     * Fwupd
+
+  K
+
+     * Keyboard Layout Customization
+
+  M
+
+     * Multiseat
+
+  N
+
+     * NetworkManager
+     * NixOS as a desktop
+
+  R
+
+     * Remote Desktop
+
+  W
+
+     * Wil T Nix Guides
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Desktop&oldid=7651"
+     * This page was last edited on 16 May 2020, at 07:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

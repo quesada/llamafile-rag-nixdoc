@@ -1,0 +1,115 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                File:ROCK64.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:ROCK64.jpg
+   No higher resolution available.
+
+   ROCK64.jpg ‎(460 × 460 pixels, file size: 98 KB, MIME type: image/jpeg)
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail         Dimensions User                Comment 
+           04:53, 3  Thumbnail for                                    
+   current February  version as of     460 × 460  Imported>Lopsided98
+           2019      04:53, 3 February (98 KB)
+                     2019              
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/PINE64 ROCK64
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Horizontal resolution     300 dpi                
+   Vertical resolution       300 dpi                
+   Software used             GIMP 2.10.8            
+   File change date and time 23:52, 2 February 2019 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:ROCK64.jpg&oldid=11963"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,319 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Overview
+     * 2 Core Nix features
+          * 2.1 Effort to isolate runtime search paths
+          * 2.2 Multi-user installation
+          * 2.3 Data integrity and authenticity
+          * 2.4 Obscurity of Nix store
+     * 3 Supported by Nix
+          * 3.1 Encryption
+               * 3.1.1 Filesystem encryption
+          * 3.2 Isolation
+               * 3.2.1 Flatpaks
+               * 3.2.2 Linux Containers
+                    * 3.2.2.1 References
+               * 3.2.3 Docker Containers
+               * 3.2.4 Virtual machines
+                    * 3.2.4.1 Test machines
+                    * 3.2.4.2 References
+               * 3.2.5 Systemd Hardening
+          * 3.3 Networking
+               * 3.3.1 Firewall
+     * 4 Awaiting NixOS support
+          * 4.1 Secure Boot
+          * 4.2 SELinux
+     * 5 Nix official references
+     * 6 See also
+          * 6.1 NixOS
+          * 6.2 Projects leveraging Nix for security
+          * 6.3 General Linux hardening
+          * 6.4 General systems hardening
+   [ ] Toggle the table of contents
+
+                                    Security
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Overview
+
+   This page is a guide to securing NixOS. Topics like hardening, process
+   isolation, virtualization, firewalls, SELinux, containers, sandboxes,
+   encryption, VPNs, etc. are in scope.
+
+Core Nix features
+
+   These are security elements that are core features of using Nix(OS).
+
+  Effort to isolate runtime search paths
+
+   In general, there is an effort to avoid rpath collisions across users [1].
+
+  Multi-user installation
+
+   NixOS is automatically installed in Multi-User mode. For standalone-Nix,
+   the manual covers multi-user installs. This allows multiple users to have
+   isolated store environments and to avoid them having access to root in
+   order to install their personal applications (achieved by having build
+   users which nix operations are delegated to).
+
+  Data integrity and authenticity
+
+   The core installation resources for Nix(OS) have SHA256 checksums which
+   are GPG signed by the Nix team for authenticity. Within the installation
+   data are all the SHA256 checksums for packages that were available within
+   Nixpkgs at build time.
+
+   All packages which are pulled into your Nix system via Nixpkgs derivation
+   builds are checked against SHA256 checksums which are already available on
+   your local system (and should be traceable to the signed core Nix install
+   materials).
+
+  Obscurity of Nix store
+
+   In a vanilla NixOS system, the typical Linux filesystem hierarchy is, in
+   large part, replaced with the Nix store's user environments. This means
+   that some malware which might rely on finding system tools in particular
+   places might fail. This is a form of security through obscurity and is
+   only a minor layer of protection.
+
+Supported by Nix
+
+   These are features which are easily supported using Nix(OS).
+
+  Encryption
+
+   These are features which can protect data on a system.
+
+    Filesystem encryption
+
+   NixOS has LUKS partition-level disk encryption support.
+
+     * NixOS Manual - LUKS-Encrypted File Systems
+     * Authenticated Boot and Disk Encryption on Linux
+
+  Isolation
+
+   These are features which can limit a process or package's access to the
+   host system.
+
+    Flatpaks
+
+   Flatpak'ed applications are sandboxed and require explicit privilege
+   declaration for most access outside their own path. NixOS includes support
+   for Flatpak. Note that, since Flatpak application dependencies are
+   bundled/vendored, this introduces other security risks for the application
+   . Also, most application flatpaks do no not make meaningful use of the
+   sandbox.
+
+    Linux Containers
+
+   NixOS includes support for Linux Containers (LXC). Containers, by default,
+   do not provide much security. They are, oversimplifying a lot, a chroot
+   environment with some resource constraints (cgroups). The root user in a
+   container would also be root on the whole system though. To avoid this,
+   you must use unprivileged containers. There are some complications to
+   this. The end of this post covers them well in brief.
+
+      References
+
+     * NixOS Manual - Administration: Containers Chapter.
+          * The manual — notably — currently has no mention of using
+            unprivileged containers.
+     * LXC 1.0 Release, Security Features Coverage (user namespaces,
+       unprivileged containers)
+     * Youtube - Red Hat: How containers use PID namespaces to provide
+       process isolation
+     * What Are Namespaces and cgroups, and How Do They Work?
+     * A Tutorial for Isolating Your System with Linux Namespaces (code-based
+       fundamental examples)
+
+    Docker Containers
+
+   Docker is a system for building and running platform-independent virtual
+   containers. On Linux, it is implemented similarly to LXC. Nix integrates
+   tools to create Docker images (the templates for making Docker
+   containers), documented in the Nixpkgs manual. Docker containers work with
+   namespacing controls similar to unprivileged LXC containers by default.
+
+    Virtual machines
+
+   Virtual machines are generally one of the most robust tools available for
+   process isolation. They come with performance penalties and resource
+   overheads.
+
+   NixOS includes support for hosting virtual machines. The Nix store of the
+   host machine is shared read-only with guest machines, making them
+   lighter-weight in terms of storage use than typical VMs. Guest VMs are
+   easily built from Nix configurations.
+
+     * qemu-vm.nix - Implementation of QEMU builds of NixOS machine
+       configurations
+     * Firecracker microVM - packages available
+     * microvm.nix builds and runs NixOS on various hypervisors
+
+      Test machines
+
+   NixOS integrates support for building test VMs to test configuration
+   changes to your system.
+
+   NixOS also uses VMs to continuously validate functionality of the system.
+   NixOS Manual - Writing Tests Chapter covers this.
+
+      References
+
+     * Updating NixOS local VMs - Post demonstrating how to build and run a
+       VM from a NixOS configuration and then update the configuration of the
+       running VM on the fly.
+     * 2020 IBM Presentation on Address Space Isolation in the Linux Kernel -
+       Containers within VMs are a norm for security in the cloud. Addressing
+       ongoing work to improve isolation of containers and VMs.
+     * An EPYC escape: Case-study of a KVM breakout - Detailing first known
+       non-userspace vulnerability enabling guest-to-host breakout.
+
+    Systemd Hardening
+
+   It is possible to increase the isolation of Systemd services by using
+   hardening options. For example, adding PrivateNetwork=yes option in a
+   Systemd unit removes access to the host network.
+
+   For more information, please see Systemd_Hardening.
+
+  Networking
+
+   These are features which improve system security in relation to the world
+   outside of the system.
+
+    Firewall
+
+   NixOS includes a simple stateful firewall. It blocks incoming connections
+   and other unexpected packets and is enabled by default.
+
+     * NixOS Manual - Networking Chapter: Firewall
+     * NixOS Manual - Options: networking.firewall.enable
+
+Awaiting NixOS support
+
+   This section covers important security technologies which still need full
+   NixOS support.
+
+  Secure Boot
+
+   Development of UEFI Secure Boot support is in flight. An experimental
+   secure boot implementation is available in Lanzaboote
+
+  SELinux
+
+   It is possible to use Security-Enhanced Linux (SELinux) in NixOS, but
+   proper integration does not exist. This does not appear to have gotten
+   much attention since 2019.
+
+Nix official references
+
+     * Nix Manual - Security Chapter
+
+See also
+
+  NixOS
+
+     * Blog - Paranoid NixOS Setup
+     * vulnix - Vulnerability (CVE) scanner for Nix/NixOS
+
+  Projects leveraging Nix for security
+
+     * Spectrum OS - Nix based, Spectrum is a project that aims to create a
+       computer operating system, based on the principle of security by
+       compartmentalization, that has a lower barrier to entry and is easier
+       to use and maintain than other such systems.
+
+  General Linux hardening
+
+     * The Practical Linux Hardening Guide
+     * How To Secure A Linux Server - An evolving how-to guide for securing a
+       Linux server that, hopefully, also teaches you a little about security
+       and why it matters.
+     * lynis - Security auditing tool for Linux, macOS, and UNIX-based
+       systems. Assists with compliance testing (HIPAA/ISO27001/PCI DSS) and
+       system hardening. Agentless, and installation optional.
+     * DevSec Linux Baseline - InSpec profile to test Linux server security
+       config
+
+  General systems hardening
+
+     * awesome-security-hardening - Collection of security hardening guides,
+       tools and other resources.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Security&oldid=12361"
+   Categories:
+     * Guide
+     * NixOS
+     * Nix
+     * This page was last edited on 22 April 2024, at 12:20.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

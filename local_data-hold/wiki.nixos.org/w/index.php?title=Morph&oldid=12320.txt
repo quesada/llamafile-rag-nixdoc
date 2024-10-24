@@ -1,0 +1,94 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Links
+   [ ] Toggle the table of contents
+
+                                     Morph
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 21:14, 19 April 2024 by Klinger (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Morph is a tool for managing existing NixOS hosts - basically a fancy
+   wrapper around nix-build, nix copy, nix-env,
+   /nix/store/.../bin/switch-to-configuration, scp and more. Morph supports
+   updating multiple hosts in a row, and with support for health checks makes
+   it fairly safe to do so.
+
+                                     Links
+
+     * Github
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Morph&oldid=12320"
+   Categories:
+     * Deployment
+     * Server
+     * This page was last edited on 19 April 2024, at 21:14.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

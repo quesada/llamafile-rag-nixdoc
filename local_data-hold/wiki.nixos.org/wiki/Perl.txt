@@ -1,0 +1,180 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Running a Perl script
+          * 1.1 Replacing #! with nix-shell
+          * 1.2 Invoking nix-shell on command-line
+          * 1.3 There is no /usr/bin/perl
+     * 2 Adding something from CPAN to nixpkgs
+     * 3 Wrappers for installed programs
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                      Perl
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Running a Perl script
+
+  Replacing #! with nix-shell
+
+   Perl scripts normally start something like this:
+
+   #!/usr/bin/env perl
+
+   In Nix, we often make isolated environments using nix-shell. You can do
+   this in the #! (shabang) section directly in the script too. Here is an
+   example from the manual — a Perl script that specifies that it requires
+   Perl and the HTML::TokeParser::Simple and LWP packages:
+
+ #! /usr/bin/env nix-shell
+ #! nix-shell -i perl -p perl perlPackages.HTMLTokeParserSimple perlPackages.LWP
+
+ use HTML::TokeParser::Simple;
+
+ # Fetch nixos.org and print all hrefs.
+ my $p = HTML::TokeParser::Simple->new(url => 'http://nixos.org/');
+
+ while (my $token = $p->get_tag("a")) {
+     my $href = $token->get_attr("href");
+     print "$href\n" if $href;
+ }
+
+  Invoking nix-shell on command-line
+
+   If you run a perl script and encounter a dependency error like this:
+
+ Can't locate DB_File.pm in @INC (you may need to install the DB_File module)
+
+   ... use nix-shell to create a shell environment which includes the
+   dependency. Here we searched NixOS packages and found an existing perl
+   package which suits, like so.
+
+ nix-shell -p perl perl534Packages.DBFile --run ./myscript.pl
+
+  There is no /usr/bin/perl
+
+   By design, there is no /usr/bin/perl in Nix. So you may encounter messages
+   like:
+
+ ./myscript.pl: bad interpreter: /usr/bin/perl: no such file or directory
+
+   Change the first line of the script to
+
+ #!/usr/bin/env -S perl
+
+   or start it with perl ./myscript.pl
+
+Adding something from CPAN to nixpkgs
+
+    1. Enter a nix-shell that provides the necessary dependencies:
+
+ nix-shell -p perl perlPackages.CPANPLUS perlPackages.GetoptLongDescriptive perlPackages.LogLog4perl perlPackages.Readonly
+
+       .
+    2. Use the nix-generate-from-cpan.pl script (see
+       nixpkgs/maintainers/scripts/) to generate something appropriate.
+       Example usage:
+
+ nix-generate-from-cpan.pl Devel::REPL
+
+    3. After reviewing the result from the previous step and making
+       appropriate modifications, add it to pkgs/top-level/perl-packages.nix.
+       Note that some things use buildPerlPackage while some use
+       buildPerlModule. Also note the mostly-followed naming convention as
+       well as the mostly-followed alphabetical ordering. There are plenty of
+       examples in perl-packages.nix — use the source, Luke!
+    4. Build and test.
+
+Wrappers for installed programs
+
+   To make perl modules available to a program in your derivation:
+
+    1. Add makeWrapper to nativeBuildInputs
+    2. Add
+
+ postFixup = ''
+   wrapProgram $out/bin/something \
+     --prefix PERL5LIB : "${with perlPackages; makePerlPath [ something ]}"
+ '';
+
+   Also keep in mind that makePerlPath would not resolve transitive
+   dependencies of Perl packages. Hence if you want to just reference
+   top-level packages, then use makeFullPerlPath which would recursively
+   resolve dependency graph for you.
+
+See also
+
+     * Nixpkgs Manual - Perl section
+     * Overriding an existing Perl package in NixOS
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Perl&oldid=13352"
+   Category:
+     * Languages
+     * This page was last edited on 21 June 2024, at 06:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

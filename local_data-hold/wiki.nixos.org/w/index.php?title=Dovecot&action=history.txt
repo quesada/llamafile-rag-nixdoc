@@ -1,0 +1,130 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Dovecot: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 June 2024
+
+     * curprev [ ] [ ] 13:5813:58, 14 June 2024‎ Klinger talk contribs‎ m 663
+       bytes +46‎ Category:Mail Server Category:Server
+     * curprev [ ] [ ] 06:2306:23, 14 June 2024‎ Mic92 talk contribs‎ 617
+       bytes +87‎ add description
+
+    13 June 2024
+
+     * curprev [ ] [ ] 21:0121:01, 13 June 2024‎ Writer talk contribs‎ m 530
+       bytes −6‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 19:3219:32, 13 June 2024‎ Writer talk contribs‎ 536
+       bytes +536‎ Created page with "== Troubleshooting == === sievec fails
+       to compile basic sieve scripts in 24.05 === Since NixOS 24.05 even
+       basic sieve commands such as ''fileinto'' need to be enabled
+       explicitly with: <syntaxhighlight
+       lang="nix">services.dovecot2.sieve.globalExtensions =
+       ["fileinto"];</syntaxhighlight> Otherwise, the ''sievec'' command will
+       fail to compile sieve scripts with <code>fileinto</code> statements
+       and as a result the Dovecot service itself will fail to start if the
+       configu..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Dovecot"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

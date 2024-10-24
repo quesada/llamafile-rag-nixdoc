@@ -1,0 +1,152 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Nushell: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    17 April 2024
+
+     * curprev [ ] [ ] 16:4016:40, 17 April 2024‎ Ivandimitrov8080 talk
+       contribs‎ m 2,313 bytes +7‎ carapace_completer errors out because of
+       API changes. This is the new way from the docs Tag: Visual edit
+
+    6 April 2024
+
+     * curprev [ ] [ ] 08:2008:20, 6 April 2024‎ Claes talk contribs‎ 2,306
+       bytes +19‎ Add category shell Tag: Visual edit
+
+    13 November 2023
+
+     * curprev [ ] [ ] 11:5011:50, 13 November 2023‎ imported>Vieta‎ 2,287
+       bytes +6‎ typo
+
+    29 October 2023
+
+     * curprev [ ] [ ] 00:0700:07, 29 October 2023‎ imported>Vieta‎ 2,281
+       bytes +1‎ change name to var -- Sorry for my typos btw
+
+    28 October 2023
+
+     * curprev [ ] [ ] 23:5323:53, 28 October 2023‎ imported>Vieta‎ 2,280
+       bytes 0‎ typo
+     * curprev [ ] [ ] 23:5223:52, 28 October 2023‎ imported>Vieta‎ 2,280
+       bytes +1,015‎ autosuggestion with carapace
+     * curprev [ ] [ ] 20:2320:23, 28 October 2023‎ imported>Schrottkatze‎
+       1,265 bytes −104‎ removed redundant sentence
+     * curprev [ ] [ ] 15:0715:07, 28 October 2023‎ imported>Vieta‎ 1,369
+       bytes +316‎ extraConfig
+
+    14 September 2023
+
+     * curprev [ ] [ ] 22:2822:28, 14 September 2023‎ imported>Vieta‎ m 1,053
+       bytes +103‎ configFile.source function
+     * curprev [ ] [ ] 15:2515:25, 14 September 2023‎ imported>Vieta‎ 950
+       bytes −5‎ removed <code>
+
+    13 September 2023
+
+     * curprev [ ] [ ] 18:5518:55, 13 September 2023‎ imported>Vieta‎ 955
+       bytes +955‎ First Nushell entry. Please feel free to change
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nushell"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

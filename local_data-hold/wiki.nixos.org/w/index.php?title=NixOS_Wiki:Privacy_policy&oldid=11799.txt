@@ -1,0 +1,158 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Introduction
+     * 2 Information We Collect
+          * 2.1 Log Data
+          * 2.2 Cookies
+          * 2.3 Wiki Data
+     * 3 Requesting Removal of Your Personal Data
+     * 4 Contacting Us
+   [ ] Toggle the table of contents
+
+                           NixOS Wiki:Privacy policy
+
+     * Project page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 01:45, 7 April 2024 by Samueldr (talk | contribs) (Remove
+   use of single-use template)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Introduction
+
+   At wiki.nixos.org, we regard your privacy as important, same as we regard
+   our own privacy. This policy provides information about how we collect,
+   use, and safeguard your personal data when you interact with our website.
+
+Information We Collect
+
+  Log Data
+
+   Whenever you visit wiki.nixos.org, our servers automatically record
+   certain information, referred to as "log data." This includes specifics
+   that your browser transmits to us, such as your Internet Protocol address,
+   the URL you accessed on our site, your browser type, and the date and time
+   of your request. It also incorporates data about your usage of nixos.wiki
+   and any cookie data.
+
+  Cookies
+
+   wiki.nixos.org uses "cookies" or equivalent technologies to capture data.
+   Cookies are small text files that your computer sends each time you visit
+   our website. Depending on their function, we may use session cookies
+   (which expire when you close your browser) or persistent cookies (which
+   remain on your device until you or your browser delete them).
+
+   We use cookies to remember your preferences and settings on
+   wiki.nixos.org, thus saving you from the need to set them up each time you
+   visit our site. Some cookies may be linked to your wiki.nixos.org account,
+   which might include information like the email address or username you
+   provided us, while others are not. Our usage of cookies is consistent with
+   standard practices for MediaWiki installations. We refrain from using
+   cookies for additional user tracking or advertising purposes.
+
+  Wiki Data
+
+   Given the intrinsic nature of a wiki and especially the MediaWiki
+   software, we must save and process specific additional data. This includes
+   (but is not limited to) your wiki username, language settings, email
+   address (if provided), a log of all your wiki edits, and the time, date,
+   and associated account of each edit.
+
+Requesting Removal of Your Personal Data
+
+   If you want your personal data removed from wiki.nixos.org, please reach
+   out to us at wiki@nixos.org. Make sure to specify:
+
+     * The precise personal information you want us to remove. Providing as
+       many details as possible will help avoid unnecessary correspondence.
+     * A method for us to verify that the data you wish to have removed
+       indeed belongs to you.
+
+   Please note:
+
+     * We can't process requests that lack the required information.
+     * Certain data is essential for the proper functioning of the wiki and,
+       under the legitimate interest provision, will not be removed. This
+       includes your wiki username, for instance.
+
+Contacting Us
+
+   Should you have any questions or concerns about this privacy policy, feel
+   free to contact our admin team at wiki@nixos.org. Our admin team consists
+   entirely of volunteers, and all work is carried out on a best-effort
+   basis. As such, we can't guarantee immediate response times.
+
+   By using our site, you consent to the terms of this privacy policy. We may
+   occasionally update this policy, so we recommend you review it regularly
+   to stay informed about our data practices
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Wiki:Privacy_policy&oldid=11799"
+     * This page was last edited on 7 April 2024, at 01:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

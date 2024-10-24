@@ -1,0 +1,92 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                 Talk:Coreboot
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Thanks for posting this. I followed the instructions however after the
+   "... make crossgcc" step I get the following error:
+
+   Welcome to the coreboot cross toolchain builder v6065f616eb (2020-10-28)
+
+   Building toolchain using 1 thread(s).
+
+   Target architecture is i386-elf
+
+   WARNING No compatible Ada compiler (GNAT) found. You can continue without
+   Ada support, but this will limit the features of coreboot (e.g. native
+   graphics initialization won't be available on most Intel boards). ...
+
+   I added gnat to the nix-shell step, however the same error message is
+   displayed. I need native graphics initialization, so just checking whether
+   someone else has experienced this and found a solution. I'll keep looking
+   in the meantime.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Coreboot&oldid=8479"
+     * This page was last edited on 20 December 2020, at 15:48.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

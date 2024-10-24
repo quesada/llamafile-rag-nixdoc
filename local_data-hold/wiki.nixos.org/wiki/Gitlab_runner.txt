@@ -1,0 +1,291 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Introduction
+     * 2 The state of gitlab-runner in nixpkgs
+     * 3 Configuring a caching dockerized gitlab build runner
+          * 3.1 Alternative approach with nix-daemon in dedicated Docker
+            container
+   [ ] Toggle the table of contents
+
+                                 Gitlab runner
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Introduction
+
+   This is the partner page to Gitlab. A Gitlab pipeline runs operations on a
+   Gitlab Runner. These operations can include building an executable,
+   running a test suite, pushing a docker image, etc.
+
+   Once you have Gitlab installed and running you can install a Gitlab
+   Runner. The Runner does not need to run on the same machine as Gitlab and
+   you will need to register the Runner with Gitlab, to do this you will
+   generate a token in Gitlab.
+
+The state of gitlab-runner in nixpkgs
+
+   As of 20.09 NixOS comes with a revamped gitlab-runner module which
+   provides the capabilities to set up custom to meet your needs. The
+   services.gitlab-runner.services documents a number of typical setups and
+   this article gives an overview of some of the more complex setups.
+
+Configuring a caching dockerized gitlab build runner
+
+   With the configuration defined below a gitlab runner will be created which
+   provides a caching docker container to run nix-build.
+
+ {
+   boot.kernel.sysctl."net.ipv4.ip_forward" = true; # 1
+   virtualisation.docker.enable = true;
+   services.gitlab-runner = {
+     enable = true;
+     services= {
+       # runner for building in docker via host's nix-daemon
+       # nix store will be readable in runner, might be insecure
+       nix = with lib;{
+         # File should contain at least these two variables:
+         # `CI_SERVER_URL`
+         # `REGISTRATION_TOKEN`
+         registrationConfigFile = toString ./path/to/ci-env; # 2
+         dockerImage = "alpine";
+         dockerVolumes = [
+           "/nix/store:/nix/store:ro"
+           "/nix/var/nix/db:/nix/var/nix/db:ro"
+           "/nix/var/nix/daemon-socket:/nix/var/nix/daemon-socket:ro"
+         ];
+         dockerDisableCache = true;
+         preBuildScript = pkgs.writeScript "setup-container" ''
+           mkdir -p -m 0755 /nix/var/log/nix/drvs
+           mkdir -p -m 0755 /nix/var/nix/gcroots
+           mkdir -p -m 0755 /nix/var/nix/profiles
+           mkdir -p -m 0755 /nix/var/nix/temproots
+           mkdir -p -m 0755 /nix/var/nix/userpool
+           mkdir -p -m 1777 /nix/var/nix/gcroots/per-user
+           mkdir -p -m 1777 /nix/var/nix/profiles/per-user
+           mkdir -p -m 0755 /nix/var/nix/profiles/per-user/root
+           mkdir -p -m 0700 "$HOME/.nix-defexpr"
+           . ${pkgs.nix}/etc/profile.d/nix-daemon.sh
+           ${pkgs.nix}/bin/nix-channel --add https://nixos.org/channels/nixos-20.09 nixpkgs # 3
+           ${pkgs.nix}/bin/nix-channel --update nixpkgs
+           ${pkgs.nix}/bin/nix-env -i ${concatStringsSep " " (with pkgs; [ nix cacert git openssh ])}
+         '';
+         environmentVariables = {
+           ENV = "/etc/profile";
+           USER = "root";
+           NIX_REMOTE = "daemon";
+           PATH = "/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin";
+           NIX_SSL_CERT_FILE = "/nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt";
+         };
+         tagList = [ "nix" ];
+       };
+     };
+   };
+ }
+
+    1. enabling ip_forward on the host machine is important for the docker
+       container to be able to perform networking tasks (such as cloning the
+       gitlab repo)
+    2. the registrationConfigFile must contain the gitlab token for
+       registering a gitlab-runner
+    3. this line defines the default nixpkgs channel to be used inside the
+       container
+   Note: In order to have NIX_PATH set, the etc/profile.d/nix.sh file must be
+   sourced in the .gitlab-ci.yml of your project:
+
+ before_script:
+   - . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+   ...
+
+  Alternative approach with nix-daemon in dedicated Docker container
+
+   The alternative to the upper approach is to use a dedicated docker
+   container with nix-daemon. The advantage is that you are not sharing the
+   host's store and, thus not disclosing its configuration. It is also
+   possible to spawn multiple daemons and, for example, have one runner for
+   protected runs to build release binaries and one for the rest.
+
+   The implementation here uses flakes to pull in Nix repository, and it also
+   hacks the service configure script to load the docker image. The issue
+   here is that we can't get to the configuration file generated by the
+   module this way and thus we just provide our own. You have to register the
+   runner manually to get a token in this case! This should be improved in
+   the future to load the docker images as part of gitlab-runner module.
+
+ nix: { config, lib, pkgs, ... }:
+ with builtins;
+ with lib;
+ let
+     localNix = import (nix.outPath + "/docker.nix") {
+       pkgs = pkgs;
+       name = "local/nix";
+       tag = "latest";
+       bundleNixpkgs = false;
+       extraPkgs = with pkgs; [ cachix ];
+       nixConf = {
+         cores = "0";
+         experimental-features = [ "nix-command" "flakes" ];
+       };
+     };
+     localNixDaemon = pkgs.dockerTools.buildLayeredImage {
+       fromImage = localNix;
+       name = "local/nix-daemon";
+       tag = "latest";
+       config = {
+         Volumes = {
+           "/nix/store" = { };
+           "/nix/var/nix/db" = { };
+           "/nix/var/nix/daemon-socket" = { };
+         };
+       };
+       maxLayers = 125;
+     };
+
+ in {
+     # Docker for the gitlab runner
+     virtualisation.docker = {
+       enable = true;
+       autoPrune = {
+         enable = true;
+         dates = "daily";
+       };
+     };
+
+     # Common container for the Gitlab Nix runner
+     virtualisation.oci-containers = {
+       backend = "docker";
+       containers.gitlabnix = {
+         imageFile = localNixDaemon;
+         image = "local/nix-daemon:latest";
+         cmd = ["nix" "daemon"];
+       };
+     };
+
+     # Gitlab runner
+     systemd.services.gitlab-runner.serviceConfig = let
+       config = (pkgs.formats.toml{}).generate "gitlab-runner.toml" {
+         concurrent = 1;
+         runners = [
+           {
+             name = "Nix caching runner";
+             url = "https://gitlab.com";
+             id = 12354;
+             token = "@TOKEN_NIX@";
+             executor = "docker";
+             docker = {
+               image = "local/nix:latest";
+               allowed_images = ["local/nix:latest"];
+               pull_policy = "if-not-present";
+               allowed_pull_policies = ["if-not-present"];
+               volumes_from = ["gitlabnix:ro"];
+             };
+             environment = [
+               "NIX_REMOTE=daemon"
+               "ENV=/etc/profile.d/nix-daemon.sh"
+               "BASH_ENV=/etc/profile.d/nix-daemon.sh"
+             ];
+             pre_build_script = ''
+               # TODO for some reason the /tmp seems to be missing
+               mkdir -p /tmp
+               # We need to allow modification of nix config for cachix as
+               # otherwise it is link to the read only file in the store.
+               cp --remove-destination \
+                 $(readlink -f /etc/nix/nix.conf) /etc/nix/nix.conf
+             '';
+           }
+         ];
+       };
+       configPath = "$HOME/.gitlab-runner/config.toml";
+       configureScript = pkgs.writeShellScript "gitlab-runner-configure" ''
+         docker load < ${localNix}
+         mkdir -p $(dirname ${configPath})
+         ${pkgs.gawk}/bin/awk '{
+           for(varname in ENVIRON)
+             gsub("@"varname"@", ENVIRON[varname])
+           print
+         }' "${config}" > "${configPath}"
+         chown -R --reference=$HOME $(dirname ${configPath})
+       '';
+     in {
+       EnvironmentFile = "/run/secrets/gitlab-runner.env";
+       ExecStartPre = mkForce "!${configureScript}";
+       ExecReload = mkForce "!${configureScript}";
+     };
+     services.gitlab-runner.enable = true;
+
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Gitlab_runner&oldid=17659"
+   Categories:
+     * Applications
+     * Server
+     * Container
+     * This page was last edited on 27 September 2024, at 08:27.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,141 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+          Explaining the current Steam Package build: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 April 2024
+
+     * curprev [ ] [ ] 05:3005:30, 7 April 2024‎ Sen talk contribs‎ m 2,946
+       bytes +55‎ →‎chroot: made more formal Tag: Visual edit
+     * curprev [ ] [ ] 05:2405:24, 7 April 2024‎ Sen talk contribs‎ m 2,891
+       bytes +145‎ →‎Nix problems and constraints: Improves clarity in the
+       "Nix problems and constraints" section and removes first-person
+       perspective Tag: Visual edit
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4705:47, 20 September 2021‎ imported>Nix‎ m 2,746
+       bytes +27‎ add Software/Applications subcategory
+
+    15 December 2020
+
+     * curprev [ ] [ ] 12:4712:47, 15 December 2020‎ imported>Fab‎ m 2,719
+       bytes 0‎ Update naming
+
+    24 October 2017
+
+     * curprev [ ] [ ] 20:1920:19, 24 October 2017‎ imported>HLandau‎ 2,719
+       bytes −8‎ →‎Description of the package
+
+    11 October 2017
+
+     * curprev [ ] [ ] 14:2714:27, 11 October 2017‎ imported>Makefu‎ 2,727
+       bytes +2,727‎ Created page with "This article should give insight
+       about how steam is currently packaged and how and why it works like
+       this. It also discusses what the problems are in packaging it and how
+       we..."
+   [ Compare selected revisions ]
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Explaining_the_current_Steam_Package_build"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

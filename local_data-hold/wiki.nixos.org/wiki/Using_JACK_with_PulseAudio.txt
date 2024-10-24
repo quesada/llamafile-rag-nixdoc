@@ -1,0 +1,361 @@
+   Link: canonical
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Troubleshooting JACK and PulseAudio
+     * 2 System optimizations for low latency audio with JACK
+     * 3 Connecting nix JACK clients to Pipewire installed via other package
+       managers
+   [ ] Toggle the table of contents
+
+                                      JACK
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   (Redirected from Using JACK with PulseAudio)
+
+   One may use JACK module. It works both with and without PulseAudio. Enable
+   it this way and reboot:
+
+ /etc/nixos/configuration.nix
+
+   services.jack = {
+     jackd.enable = true;
+     # support ALSA only programs via ALSA JACK PCM plugin
+     alsa.enable = false;
+     # support ALSA only programs via loopback device (supports programs like Steam)
+     loopback = {
+       enable = true;
+       # buffering parameters for dmix device to work with ALSA only semi-professional sound programs
+       #dmixConfig = ''
+       #  period_size 2048
+       #'';
+     };
+   };
+
+   users.extraUsers.YOURUSER.extraGroups = [ "jackaudio" ];
+
+   Since the config above and below apparently does not work for several
+   users, according to forum posts, here a solution that works:
+
+   - Add musnix channel (https://github.com/musnix/musnix)
+
+ /etc/nixos/configuration.nix
+
+   imports = [ &lt;musnix&gt; ];
+   environment.systemPackages = with pkgs; [ libjack2 jack2 qjackctl ];
+   environment.systemPackages = with pkgs; [ pavucontrol libjack2 jack2 qjackctl jack2Full jack_capture ];
+   security.sudo.extraConfig = ''
+     moritz  ALL=(ALL) NOPASSWD: ${pkgs.systemd}/bin/systemctl
+     '';
+   musnix = {
+     enable = true;
+     alsaSeq.enable = false;
+
+     # Find this value with `lspci | grep -i audio` (per the musnix readme).
+     # PITFALL: This is the id of the built-in soundcard.
+     #   When I start using the external one, change it.
+     soundcardPciId = "00:1f.3";
+
+     # magic to me
+     rtirq = {
+       # highList = "snd_hrtimer";
+       resetAll = 1;
+       prioLow = 0;
+       enable = true;
+       nameList = "rtc0 snd";
+     };
+   };
+
+   After a reboot, you can enable JACKD using "pasuspender qjackctl" and
+   start jackd by pressing the start button.
+
+   You can test, if your JACK works, using the command jack_simple_client,
+   which produces a sound if JACK is running.
+
+   Sources:
+   https://discourse.nixos.org/t/declarative-audio-config-how-to-start-and-maybe-use-jack/5458
+   https://github.com/NixOS/nixpkgs/issues/71283
+
+    This article or section is out of date.                    
+    Reason: needs cleanup (Discuss in Talk:JACK)               
+    Once the page has been updated this notice can be removed. 
+
+   The Jack Audio Connection Kit is used by most of the serious audio
+   applications on Linux. It provides real-time, low latency connections for
+   both audio and MIDI data between applications that implement its API.
+   NixOS uses the dbus version of JACK2 (jackdbus). This can be used together
+   with pulseaudio with a little configuration. The result is that you don't
+   have to manually hunt down applications which are using the sound device
+   and kill them before starting JACK. You can also continue to use non-JACK
+   aware applications (e.g. flash) at the same time as using JACK
+   applications (e.g. Ardour).
+
+    1. Load the sequencer and midi kernel modules
+
+                    boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
+
+    2. Enable JACK support
+
+                    In your configuration file:
+
+ hardware.pulseaudio.package = pkgs.pulseaudio.override { jackaudioSupport = true; };
+
+    3. Ensure that the JACK enabled pulseaudio is being used
+
+                    ~/.config/pulse/client.conf
+
+ daemon-binary=/var/run/current-system/sw/bin/pulseaudio
+
+    4. Configure QjackCtl
+         1. Enable jackdbus
+
+                         Setup -> Settings -> Server Path: jackdbus
+                         [IMG]
+                         Setup -> Misc -> Enable D-Bus interface: check
+                         [IMG]
+
+         2. Load the jack modules for pulseaudio after starting jackdbus
+
+                         Setup -> Settings -> Options -> Execute script after
+                         Startup: check
+
+ pactl load-module module-jack-sink channels=2; pactl load-module module-jack-source channels=2; pacmd set-default-sink jack_out
+
+                         Setup -> Settings -> Options -> Execute script on
+                         Shutdown: check
+
+ pactl unload-module `pactl list|grep -A 3 jack-source|tail -1|awk '{ print $NF }'`;pactl unload-module `pactl list|grep -A 3 jack-sink|tail -1|awk '{ print $NF }'`
+
+                         [IMG]
+
+   You should now be able to start JACK with QjackCtl, you will notice a new
+   playback and capture device in your sound mixer along with your normal
+   devices.
+
+   [IMG]
+
+    Troubleshooting JACK and PulseAudio
+
+ $ pactl load-module module-jack-sink channels=2
+ Failure: Module initalization failed
+
+   Check if you have previous settings in ~/.config/jack/conf.xml. Try
+   renaming this file and running the pactl command again.
+
+   You might need this setting so JACK_PROMISCUOUS_SERVER is defined when
+   pulseaudio is started.
+
+ /etc/nixos/configuration.nix
+
+   systemd.user.services.pulseaudio.environment = {
+     JACK_PROMISCUOUS_SERVER = "jackaudio";
+   };
+
+   Otherwise, you may get further info by disabling PulseAudio respawning
+   (see above) and starting it in verbose mode:
+
+ $ pulseaudio -vvv
+
+  System optimizations for low latency audio with JACK
+
+   Some of the following settings, documented in
+   http://wiki.linuxmusicians.com/doku.php?id=system_configuration and
+   https://wiki.archlinux.org/index.php/Pro_Audio can be very helpful to
+   reduce xruns and improve responsiveness and are required for certain
+   programs to run at all e.g. Ardour. The kernelPackages section was taken
+   from
+   https://github.com/rockfabrik/deployment/blob/master/modules/profiles/dj.nix#L32
+
+   An easy way of setting all of these, plus a true realtime kernel, is here:
+   https://github.com/musnix/musnix
+
+ boot = {
+   kernelModules = [ "snd-seq" "snd-rawmidi" ];
+   kernel.sysctl = { "vm.swappiness" = 10; "fs.inotify.max_user_watches" = 524288; };
+   kernelParams = [ "threadirq" ];
+   kernelPackages = let
+     rtKernel = pkgs.linuxPackagesFor (pkgs.linux.override {
+       extraConfig = ''
+         PREEMPT_RT_FULL? y
+         PREEMPT y
+         IOSCHED_DEADLINE y
+         DEFAULT_DEADLINE y
+         DEFAULT_IOSCHED "deadline"
+         HPET_TIMER y
+         CPU_FREQ n
+         TREE_RCU_TRACE n
+       '';
+     }) pkgs.linuxPackages;
+   in rtKernel;
+
+   postBootCommands = ''
+     echo 2048 > /sys/class/rtc/rtc0/max_user_freq
+     echo 2048 > /proc/sys/dev/hpet/max-user-freq
+     setpci -v -d *:* latency_timer=b0
+     setpci -v -s $00:1b.0 latency_timer=ff
+   '';
+   # The SOUND_CARD_PCI_ID can be obtained like so:
+   # $ lspci ¦ grep -i audio
+ };
+
+ powerManagement.cpuFreqGovernor = "performance";
+
+ fileSystems."/" = { options = "noatime errors=remount-ro"; };
+
+ security.pam.loginLimits = [
+   { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
+   { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
+   { domain = "@audio"; item = "nofile"; type = "soft"; value = "99999"; }
+   { domain = "@audio"; item = "nofile"; type = "hard"; value = "99999"; }
+ ];
+
+ services = {
+   udev = {
+     packages = [ pkgs.ffado ]; # If you have a FireWire audio interface
+     extraRules = ''
+       KERNEL=="rtc0", GROUP="audio"
+       KERNEL=="hpet", GROUP="audio"
+     '';
+   };
+   cron.enable =false;
+ };
+
+ shellInit = ''
+   export VST_PATH=/nix/var/nix/profiles/default/lib/vst:/var/run/current-system/sw/lib/vst:~/.vst
+   export LXVST_PATH=/nix/var/nix/profiles/default/lib/lxvst:/var/run/current-system/sw/lib/lxvst:~/.lxvst
+   export LADSPA_PATH=/nix/var/nix/profiles/default/lib/ladspa:/var/run/current-system/sw/lib/ladspa:~/.ladspa
+   export LV2_PATH=/nix/var/nix/profiles/default/lib/lv2:/var/run/current-system/sw/lib/lv2:~/.lv2
+   export DSSI_PATH=/nix/var/nix/profiles/default/lib/dssi:/var/run/current-system/sw/lib/dssi:~/.dssi
+ '';
+
+ users = {
+   extraUsers.yourname= {
+    extraGroups = [ "wheel" "audio" ];
+   };
+ };
+
+Connecting nix JACK clients to Pipewire installed via other package managers
+
+   Pipewire offers a JACK API, but applications installed via nix are not
+   able to connect to it out of the box.
+
+   Use the following command to make them work (using qsynth as an example):
+
+ LD_LIBRARY_PATH="$(nix build nixpkgs#pipewire.jack --print-out-paths)/lib" nix run nixpkgs#qsynth
+
+   You can also wrap it in a script, for adding this to your home-manager
+   config will allow using `nix-jack nix run nixpkgs#qsynth`
+
+ home.packages = with pkgs; [
+     (writeShellScriptBin "nix-jack" ''
+       exec /usr/bin/env \
+         LD_LIBRARY_PATH=${pipewire.jack}/lib''${LD_LIBRARY_PATH:+:''${LD_LIBRARY_PATH}} \
+         "''$@"
+     '')
+ ]
+
+   or
+
+ let
+   jackWrap = drv: pkgs.symlinkJoin {
+     name = "${drv.name}-jackwrapped";
+     paths = [ drv ];
+     buildInputs = [ pkgs.makeWrapper ];
+     postBuild = ''
+       ls "$out/bin"
+       for b in "$out/bin/"*; do
+         wrapProgram "$b" \
+           --prefix LD_LIBRARY_PATH : "${pkgs.pipewire.jack}/lib"
+       done
+     '';
+   };
+ in [
+   (jackWrap pkgs.qsynth)
+ ]
+
+   This is necessary because of the way the pipewire jack interface works. By
+   using a pipewire-provided dynamically linked library, the connection
+   attempt is translated to a pipewire connection inside the client process.
+   Other distributions such as Arch Linux implement this by just placing the
+   .so files in /usr/lib but since nix application don't include that
+   directory we need this approach.
+
+   (Tested on Arch Linux in May 2023)
+
+   If you know of a way to do this without wrapping each individual package,
+   please add it here.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=JACK&oldid=6806"
+   Categories:
+     * Audio
+     * Applications
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 1 May 2023, at 23:35.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

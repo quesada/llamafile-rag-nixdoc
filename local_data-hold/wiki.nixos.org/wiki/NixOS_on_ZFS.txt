@@ -1,0 +1,729 @@
+   Link: canonical
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Limitations
+          * 1.1 Latest kernel compatible with ZFS
+          * 1.2 Partial support for SWAP on ZFS
+          * 1.3 Zpool not found
+          * 1.4 declarative mounting of ZFS datasets
+     * 2 Guides
+          * 2.1 OpenZFS Documentation for installing
+          * 2.2 Simple NixOS ZFS in root installation
+     * 3 Importing on boot
+          * 3.1 Zpool created with bus-based disk names
+          * 3.2 Zpool created with disk IDs
+     * 4 Mount datasets at boot
+     * 5 Changing the Adaptive Replacement Cache size
+     * 6 Tuning other parameters
+     * 7 Automatic scrubbing
+     * 8 Remote unlock
+          * 8.1 Unlock encrypted zfs via ssh on boot
+     * 9 Reservations
+     * 10 Auto ZFS trimming
+     * 11 Take snapshots automatically
+     * 12 NFS share
+     * 13 Mail notification for ZFS Event Daemon
+          * 13.1 Alternative 1: Enable Mail Notification without
+            Re-compliation
+          * 13.2 Alternative 2: Rebuild ZFS with Mail Support
+   [ ] Toggle the table of contents
+
+                                      ZFS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   (Redirected from NixOS on ZFS)
+
+   ZFS (wikipedia:en:ZFS) - also known as OpenZFS (wikipedia:en:OpenZFS) - is
+   a modern filesystem which is well supported on NixOS.
+
+   Besides the zfs package (ZFS Filesystem Linux Kernel module) ^[1] itself
+   there are many packages in the ZFS ecosystem available.
+
+   ZFS integrates into NixOS via the boot.zfs^[2] and service.zfs^[3]
+   options.
+
+Limitations
+
+    Latest kernel compatible with ZFS
+
+   Newer kernels might not be supported by ZFS yet. If you are running a
+   kernel which is not officially supported by zfs, the module will refuse to
+   evaluate and show an error.
+
+   You can pin to a newer kernel version explicitly, but note that this
+   version may be dropped by upstream and in nixpkgs prior to zfs supporting
+   the next version. See Linux kernel for more information.
+
+ {
+   boot.kernelPackages = pkgs.linuxPackages_latest;
+   # OR
+   boot.kernelPackages = pkgs.linuxPackages_6_6
+ }
+
+   This snippet will configure the latest compatible kernel. Note that this
+   can over time jump back to old kernel versions because non-lts kernel
+   version get removed over time and their newer replacements might be not
+   supported by zfs yet.
+
+ {
+   lib,
+   pkgs,
+   config,
+   ...
+ }:
+
+ let
+   isUnstable = config.boot.zfs.package == pkgs.zfsUnstable;
+   zfsCompatibleKernelPackages = lib.filterAttrs (
+     name: kernelPackages:
+     (builtins.match "linux_[0-9]+_[0-9]+" name) != null
+     && (builtins.tryEval kernelPackages).success
+     && (
+       (!isUnstable && !kernelPackages.zfs.meta.broken)
+       || (isUnstable && !kernelPackages.zfs_unstable.meta.broken)
+     )
+   ) pkgs.linuxKernel.packages;
+   latestKernelPackage = lib.last (
+     lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+       builtins.attrValues zfsCompatibleKernelPackages
+     )
+   );
+ in
+ {
+   # Note this might jump back and worth as kernel get added or removed.
+   boot.kernelPackages = latestKernelPackage;
+ }
+
+    Partial support for SWAP on ZFS
+
+   ZFS does not support swapfiles. SWAP devices can be used instead.
+   Additionally, hibernation is disabled by default due to a high risk of
+   data corruption. Note that even if that pull request is merged, it does
+   not fully mitigate the risk. If you wish to enable hibernation regardless
+   and made sure that not swapfiles on ZFS are used, set
+   boot.zfs.allowHibernation = true.
+
+    Zpool not found
+
+   If NixOS fails to import the zpool on reboot, you may need to add
+   boot.zfs.devNodes = "/dev/disk/by-path"; or boot.zfs.devNodes =
+   "/dev/disk/by-partuuid"; to your configuration.nix file.
+
+   The differences can be tested by running zpool import -d /dev/disk/by-id
+   when none of the pools are discovered, eg. a live iso.
+
+    declarative mounting of ZFS datasets
+
+   When using legacy mountpoints (created with egzfs create -o
+   mountpoint=legacy) mountpoints must be specified with
+   fileSystems."/mount/point" = {};. ZFS native mountpoints are not managed
+   as part of the system configuration but better support hibernation with a
+   separate swap partition. This can lead to conflicts if ZFS mount service
+   is also enabled for the same datasets. Disable it with
+   systemd.services.zfs-mount.enable = false;.
+
+Guides
+
+    OpenZFS Documentation for installing
+
+   Warning: This guide is not endorsed by NixOS and some features like
+   immutable root do not have upstream support and could break on updates. If
+   an issue arises while following this guide, please consult the guides
+   support channels.
+
+   One guide for a NixOS installation with ZFS is maintained at OpenZFS
+   Documentation (Getting Started for NixOS)
+
+   It is about:
+
+     * enabling ZFS on an existing NixOS installation and
+     * (installing NixOS with) Root on ZFS.
+
+   It is not about:
+
+     * Give understandable, easy to follow and close to the standard
+       installation guide instructions
+     * integrating ZFS into your existing config
+
+    Simple NixOS ZFS in root installation
+
+   Start from here in the NixOS manual: [1]. Under manual partitioning [2] do
+   this instead:
+
+   Partition your disk with your favorite partition tool.
+
+   We need the following partitions:
+
+     * 1G for boot partition with "boot" as the partition label (also called
+       name in some tools) and ef00 as partition code
+     * 4G for a swap partition with "swap" as the partition label and 8200 as
+       partition code. We will encrypt this with a random secret on each
+       boot.
+     * The rest of disk space for zfs with "root" as the partition label and
+       8300 as partition code (default code)
+
+   Reason for swap partition: ZFS does use a caching mechanism that is
+   different from the normal Linux cache infrastructure. In low-memory
+   situations, ZFS therefore might need a bit longer to free up memory from
+   its cache. The swap partition will help with that.
+
+   Example with gdisk:
+
+ sudo gdisk /dev/nvme0n1
+ GPT fdisk (gdisk) version 1.0.10
+ ...
+ # boot partition
+ Command (? for help): n
+ Partition number (1-128, default 1):
+ First sector (2048-1000215182, default = 2048) or {+-}size{KMGTP}:
+ Last sector (2048-1000215182, default = 1000215175) or {+-}size{KMGTP}: +1G
+ Current type is 8300 (Linux filesystem)
+ Hex code or GUID (L to show codes, Enter = 8300): ef00
+ Changed type of partition to 'EFI system partition'
+
+ # Swap partition
+ Command (? for help): n
+ Partition number (2-128, default 2):
+ First sector (2099200-1000215182, default = 2099200) or {+-}size{KMGTP}:
+ Last sector (2099200-1000215182, default = 1000215175) or {+-}size{KMGTP}: +4G
+ Current type is 8300 (Linux filesystem)
+ Hex code or GUID (L to show codes, Enter = 8300): 8200
+ Changed type of partition to 'Linux swap'
+
+ # root partition
+ Command (? for help): n
+ Partition number (3-128, default 3):
+ First sector (10487808-1000215182, default = 10487808) or {+-}size{KMGTP}:
+ Last sector (10487808-1000215182, default = 1000215175) or {+-}size{KMGTP}:
+ Current type is 8300 (Linux filesystem)
+ Hex code or GUID (L to show codes, Enter = 8300):
+ Changed type of partition to 'Linux filesystem'
+
+ # write changes
+ Command (? for help): w
+
+ Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+ PARTITIONS!!
+
+ Do you want to proceed? (Y/N): y
+ OK; writing new GUID partition table (GPT) to /dev/nvme0n1.
+ The operation has completed successfully.
+
+   Final partition table
+
+ Number  Start (sector)    End (sector)  Size       Code  Name
+    1            2048         2099199   1024.0 MiB  EF00  EFI system partition
+    2         2099200        10487807   4.0 GiB     8200  Linux swap
+    3        10487808      1000215175   471.9 GiB   8300  Linux filesystem
+
+   Let's use variables from now on for simplicity. Get the device ID in
+   /dev/disk/by-id/, in our case here it is
+   nvme-SKHynix_HFS512GDE9X081N_FNB6N634510106K5O
+
+ BOOT=/dev/disk/by-id/nvme-SKHynix_HFS512GDE9X081N_FNB6N634510106K5O-part1
+ SWAP=/dev/disk/by-id/nvme-SKHynix_HFS512GDE9X081N_FNB6N634510106K5O-part2
+ DISK=/dev/disk/by-id/nvme-SKHynix_HFS512GDE9X081N_FNB6N634510106K5O-part3
+
+   Make zfs pool with encryption and mount points:
+
+   Note: zpool config can significantly affect performance (especially the
+   ashift option) so you may want to do some research. The ZFS tuning
+   cheatsheet or ArchWiki is a good place to start.
+
+ zpool create -O encryption=on -O keyformat=passphrase -O keylocation=prompt -O compression=zstd -O mountpoint=none -O xattr=sa -O acltype=posixacl -o ashift=12 zpool $DISK
+ # enter the password to decrypt the pool at boot
+ Enter new passphrase:
+ Re-enter new passphrase:
+
+ # Create datasets
+ zfs create zpool/root
+ zfs create zpool/nix
+ zfs create zpool/var
+ zfs create zpool/home
+
+ mkdir -p /mnt
+ mount -t zfs zpool/root /mnt -o zfsutil
+ mkdir /mnt/nix /mnt/var /mnt/home
+
+ mount -t zfs zpool/nix /mnt/nix -o zfsutil
+ mount -t zfs zpool/var /mnt/var -o zfsutil
+ mount -t zfs zpool/home /mnt/home -o zfsutil
+
+   Output from zpool  status:
+
+ zpool status
+   pool: zpool
+  state: ONLINE
+ ...
+ config:
+
+         NAME                               STATE     READ WRITE CKSUM
+         zpool                              ONLINE       0     0     0
+           nvme-eui.0025384b21406566-part2  ONLINE       0     0     0
+
+   Format boot partition with fat as filesystem
+
+ mkfs.fat -F 32 -n boot $BOOT
+
+   Enable swap
+
+ mkswap -L swap $SWAP
+ swapon $SWAP
+
+   Installation:
+
+    1. Mount boot
+
+ mkdir -p /mnt/boot
+ mount $BOOT /mnt/boot
+
+ # Generate the nixos config
+ nixos-generate-config --root /mnt
+ ...
+ writing /mnt/etc/nixos/hardware-configuration.nix...
+ writing /mnt/etc/nixos/configuration.nix...
+ For more hardware-specific settings, see https://github.com/NixOS/nixos-hardware.
+
+   Now edit the configuration.nix that was just created in
+   /mnt/etc/nixos/configuration.nix and make sure to have at least the
+   following content in it.
+
+ {
+ ...
+   # Boot loader config for configuration.nix:
+   boot.loader.systemd-boot.enable = true;
+
+   # for local disks that are not shared over the network, we don't need this to be random
+   networking.hostId = "8425e349";
+ ...
+
+   Now check the hardware-configuration.nix in
+   /mnt/etc/nixos/hardware-configuration.nix and add whats missing e.g.
+   options = [ "zfsutil" ] for all filesystems except boot and
+   randomEncryption = true; for the swap partition. Also change the generated
+   swap device to the partition we created e.g.
+   /dev/disk/by-id/nvme-SKHynix_HFS512GDE9X081N_FNB6N634510106K5O-part2 in
+   this case and
+   /dev/disk/by-id/nvme-SKHynix_HFS512GDE9X081N_FNB6N634510106K5O-part1 for
+   boot.
+
+ ...
+   fileSystems."/" = {
+     device = "zpool/root";
+     fsType = "zfs";
+     # the zfsutil option is needed when mounting zfs datasets without "legacy" mountpoints
+     options = [ "zfsutil" ];
+   };
+
+   fileSystems."/nix" = {
+     device = "zpool/nix";
+     fsType = "zfs";
+     options = [ "zfsutil" ];
+   };
+
+   fileSystems."/var" = {
+     device = "zpool/var";
+     fsType = "zfs";
+     options = [ "zfsutil" ];
+   };
+
+   fileSystems."/home" = {
+     device = "zpool/home";
+     fsType = "zfs";
+     options = [ "zfsutil" ];
+   };
+
+   fileSystems."/boot" = {
+    device = "/dev/disk/by-id/nvme-SKHynix_HFS512GDE9X081N_FNB6N634510106K5O-part1";
+    fsType = "vfat";
+   };
+
+   swapDevices = [{
+     device = "/dev/disk/by-id/nvme-SKHynix_HFS512GDE9X081N_FNB6N634510106K5O-part2";
+     randomEncryption = true;
+   }];
+ }
+
+   Now you may install nixos with nixos-install
+
+Importing on boot
+
+   If you create a zpool, it will not be imported on the next boot unless you
+   either add the zpool name to boot.zfs.extraPools:
+
+ ## In /etc/nixos/configuration.nix:
+ boot.zfs.extraPools = [ "zpool_name" ];
+
+   or if you are using legacy mountpoints, add a fileSystems entry and NixOS
+   will automatically detect that the pool needs to be imported:
+
+ ## In /etc/nixos/configuration.nix:
+ fileSystems."/mount/point" = {
+   device = "zpool_name";
+   fsType = "zfs";
+ };
+
+  Zpool created with bus-based disk names
+
+   If you used bus-based disk names in the zpool create command, e.g.,
+   /dev/sda, NixOS may run into issues importing the pool if the names
+   change. Even if the pool is able to be mounted (with boot.zfs.devNodes =
+   "/dev/disk/by-partuuid"; set), this may manifest as a FAULTED disk and a
+   DEGRADED pool reported by zpool status. The fix is to re-import the pool
+   using disk IDs:
+
+ # zpool export zpool_name
+ # zpool import -d /dev/disk/by-id zpool_name
+
+   The import setting is reflected in /etc/zfs/zpool.cache, so it should
+   persist through subsequent boots.
+
+  Zpool created with disk IDs
+
+   If you used disk IDs to refer to disks in the zpool create command, e.g.,
+   /dev/disk/by-id, then NixOS may consistently fail to import the pool
+   unless boot.zfs.devNodes = "/dev/disk/by-id" is also set.
+
+Mount datasets at boot
+
+   zfs-mount service is enabled by default on NixOS 22.05.
+
+   To automatically mount a dataset at boot, you only need to set canmount=on
+   and mountpoint=/mount/point on the respective datasets.
+
+Changing the Adaptive Replacement Cache size
+
+   To change the maximum size of the ARC to (for example) 12 GB, add this to
+   your NixOS configuration:
+
+ boot.kernelParams = [ "zfs.zfs_arc_max=12884901888" ];
+
+Tuning other parameters
+
+   To tune other attributes of ARC, L2ARC or of ZFS itself via runtime
+   modprobe config, add this to your NixOS configuration (keys and values are
+   examples only!):
+
+     boot.extraModprobeConfig = ''
+       options zfs l2arc_noprefetch=0 l2arc_write_boost=33554432 l2arc_write_max=16777216 zfs_arc_max=2147483648
+     '';
+
+   You can confirm whether any specified configuration/tuning got applied via
+   commands like arc_summary and arcstat -a -s " ".
+
+Automatic scrubbing
+
+   Regular scrubbing of ZFS pools is recommended and can be enabled in your
+   NixOS configuration via:
+
+ services.zfs.autoScrub.enable = true;
+
+   You can tweak the interval (defaults to once a week) and which pools
+   should be scrubbed (defaults to all).
+
+Remote unlock
+
+  Unlock encrypted zfs via ssh on boot
+
+   Note: As of 22.05, rebuilding your config with the below directions may
+   result in a situation where, if you want to revert the changes, you may
+   need to do some pretty hairy nix-store manipulation to be able to
+   successfully rebuild, see
+   https://github.com/NixOS/nixpkgs/issues/101462#issuecomment-1172926129
+
+   In case you want unlock a machine remotely (after an update), having an
+   ssh service in initrd for the password prompt is handy:
+
+ boot = {
+   initrd.network = {
+     # This will use udhcp to get an ip address.
+     # Make sure you have added the kernel module for your network driver to `boot.initrd.availableKernelModules`,
+     # so your initrd can load it!
+     # Static ip addresses might be configured using the ip argument in kernel command line:
+     # https://www.kernel.org/doc/Documentation/filesystems/nfs/nfsroot.txt
+     enable = true;
+     ssh = {
+       enable = true;
+       # To prevent ssh clients from freaking out because a different host key is used,
+       # a different port for ssh is useful (assuming the same host has also a regular sshd running)
+       port = 2222;
+       # hostKeys paths must be unquoted strings, otherwise you'll run into issues with boot.initrd.secrets
+       # the keys are copied to initrd from the path specified; multiple keys can be set
+       # you can generate any number of host keys using
+       # `ssh-keygen -t ed25519 -N "" -f /path/to/ssh_host_ed25519_key`
+       hostKeys = [ /path/to/ssh_host_rsa_key ];
+       # public ssh key used for login
+       authorizedKeys = [ "ssh-rsa AAAA..." ];
+     };
+   };
+ };
+
+     * In order to use DHCP in the initrd, network manager must not be
+       enabled and networking.useDHCP = true; must be set.
+     * If your network card isn't started, you'll need to add the according
+       kernel module to the kernel and initrd as well, e.g.
+
+ boot.kernelModules = [ "r8169" ];
+ boot.initrd.kernelModules = [ "r8169" ];
+
+   After that you can unlock your datasets using the following ssh command:
+
+ ssh -p 2222 root@host "zpool import -a; zfs load-key -a && killall zfs"
+
+   Alternatively you could also add the commands as postCommands to your
+   configuration.nix, then you just have to ssh into the initrd:
+
+ boot = {
+   initrd.network = {
+     postCommands = ''
+     # Import all pools
+     zpool import -a
+     # Or import selected pools
+     zpool import pool2
+     zpool import pool3
+     zpool import pool4
+     # Add the load-key command to the .profile
+     echo "zfs load-key -a; killall zfs" >> /root/.profile
+     '';
+   };
+ };
+
+   After that you can unlock your datasets using the following ssh command:
+
+ ssh -p 2222 root@host
+
+Reservations
+
+   On ZFS, the performance will deteriorate significantly when more than 80%
+   of the available space is used. To avoid this, reserve disk space
+   beforehand.
+
+   To reserve space create a new unused dataset that gets a guaranteed disk
+   space of 10GB.
+
+ # zfs create -o refreservation=10G -o mountpoint=none zroot/reserved
+
+Auto ZFS trimming
+
+   services.zfs.trim.enable = true;.
+
+   This will periodically run zpool trim. Note that this is different from
+   the autotrim pool property. For further information, see the zpool-trim
+   and zpoolprops man pages.
+
+Take snapshots automatically
+
+   See services.sanoid section in man configuration.nix.
+
+NFS share
+
+   With sharenfs property, ZFS has build-in support for generating
+   /etc/exports.d/zfs.exports file, which in turn is processed by NFS service
+   automatically.
+
+   Warning: If you are intending on defining an IPv6 subnet as part of your
+   sharenfs rule, as of ZFS 2.0.6 (2021-09-23) please note that due to a bug
+   in openzfs your rule will not correctly apply, and may result in a
+   security vulnerability (CVE-2013-20001). A fix has been implemented in the
+   next yet-to-be-released upstream version - openzfs/zfs#11939
+
+   To enable NFS share on a dataset, only two steps are needed:
+
+   First, enable NFS service:
+
+ services.nfs.server.enable = true;
+
+   Only this line is needed. Configure firewall if necessary, as described in
+   NFS article.
+
+   Then, set sharenfs property:
+
+ # zfs set sharenfs="ro=192.168.1.0/24,all_squash,anonuid=70,anongid=70" rpool/myData
+
+   For more options, see man 5 exports.
+
+   Todo: sharesmb property for Samba.
+
+Mail notification for ZFS Event Daemon
+
+   ZFS Event Daemon (zed) monitors events generated by the ZFS kernel module
+   and runs configured tasks. It can be configured to send an email when a
+   pool scrub is finished or a disk has failed. zed options
+
+  Alternative 1: Enable Mail Notification without Re-compliation
+
+   First, we need to configure a mail transfer agent, the program that sends
+   email:
+
+ {
+   programs.msmtp = {
+     enable = true;
+     setSendmail = true;
+     defaults = {
+       aliases = "/etc/aliases";
+       port = 465;
+       tls_trust_file = "/etc/ssl/certs/ca-certificates.crt";
+       tls = "on";
+       auth = "login";
+       tls_starttls = "off";
+     };
+     accounts = {
+       default = {
+         host = "mail.example.com";
+         passwordeval = "cat /etc/emailpass.txt";
+         user = "user@example.com";
+         from = "user@example.com";
+       };
+     };
+   };
+ }
+
+   Then, configure an alias for root account. With this alias configured, all
+   mails sent to root, such as cron job results and failed sudo login events,
+   will be redirected to the configured email account.
+
+ tee -a /etc/aliases <<EOF
+ root: user@example.com
+ EOF
+
+   Finally, override default zed settings with a custom one:
+
+ {
+   services.zfs.zed.settings = {
+     ZED_DEBUG_LOG = "/tmp/zed.debug.log";
+     ZED_EMAIL_ADDR = [ "root" ];
+     ZED_EMAIL_PROG = "${pkgs.msmtp}/bin/msmtp";
+     ZED_EMAIL_OPTS = "@ADDRESS@";
+
+     ZED_NOTIFY_INTERVAL_SECS = 3600;
+     ZED_NOTIFY_VERBOSE = true;
+
+     ZED_USE_ENCLOSURE_LEDS = true;
+     ZED_SCRUB_AFTER_RESILVER = true;
+   };
+   # this option does not work; will return error
+   services.zfs.zed.enableMail = false;
+ }
+
+   You can now test this by performing a scrub
+
+ # zpool scrub $pool
+
+  Alternative 2: Rebuild ZFS with Mail Support
+
+   The zfs package can be rebuilt with mail features. However, please note
+   that this will cause Nix to recompile the entire ZFS package on the
+   computer, and on every kernel update, which could be very time-consuming
+   on lower-end NAS systems.
+
+   An alternative solution that does not involve recompliation can be found
+   above.
+
+   The following override is needed as zfs is implicitly used in partition
+   mounting:
+
+ nixpkgs.config.packageOverrides = pkgs: {
+   zfsStable = pkgs.zfsStable.override { enableMail = true; };
+ };
+
+   A mail sender like msmtp or postfix is required.
+
+   A minimal, testable ZED configuration example:
+
+ services.zfs.zed.enableMail = true;
+ services.zfs.zed.settings = {
+   ZED_EMAIL_ADDR = [ "root" ];
+   ZED_NOTIFY_VERBOSE = true;
+ };
+
+   Above, ZED_EMAIL_ADDR is set to root, which most people will have an alias
+   for in their mailer. You can change it to directly mail you:
+   ZED_EMAIL_ADDR = [ "you@example.com" ];
+
+   ZED pulls in mailutils and runs mail by default, but you can override it
+   with ZED_EMAIL_PROG. If using msmtp, you may need ZED_EMAIL_PROG =
+   "${pkgs.msmtp}/bin/msmtp";.
+
+   You can customize the mail command with ZED_EMAIL_OPTS. For example, if
+   your upstream mail server requires a certain FROM address: ZED_EMAIL_OPTS
+   = "-r 'noreply@example.com' -s '@SUBJECT@' @ADDRESS@";
+
+    1. ↑
+       https://search.nixos.org/packages?channel=unstable&show=zfs&query=zfs
+    2. ↑ https://search.nixos.org/options?channel=unstable&query=boot.zfs
+    3. ↑ https://search.nixos.org/options?channel=unstable&query=services.zfs
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=ZFS&oldid=17724"
+   Categories:
+     * Filesystem
+     * Guide
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 6 October 2024, at 21:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

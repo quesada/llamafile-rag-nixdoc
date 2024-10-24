@@ -1,0 +1,141 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Problem statement
+     * 2 How can we cache all buildInputs for mkShell?
+     * 3 inputDerivation
+   [ ] Toggle the table of contents
+
+                         Caching nix shell build inputs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 19:55, 24 April 2024 by Klinger (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Problem statement
+
+   Caching a Nix build is straightforward if there's a build result. We can
+   use nix-store --query --requisites to query the runtime closure of the
+   build for a binary distribution".
+
+   Unfortunately, this is not doable with mkShell as they are purposefully
+   not build-able.
+
+ let pkgs = import <nixpkgs> {};
+ in
+ with pkgs.stdenv;
+ with pkgs.stdenv.lib;
+ pkgs.mkShell {
+   name = "example-shell";
+   nativeBuildInputs = with pkgs.buildPackages; [ /* tools */ ];
+   buildInputs = with pkgs; [ /* libs */ ];
+ }
+
+ $ nix-build shell.nix
+
+ This derivation is not meant to be built, aborting
+
+   We could perform nix-store --query --requisites on the derivation
+   nix-instantiate shell.nix however that results in a source transitive
+   closure; which is unecessary if the goal is to simply cache buildInputs.
+
+How can we cache all buildInputs for mkShell?
+
+   A blog post (mirror) on the subject improved upon the previous wisdom and
+   came up with the following
+
+ nix-store --query --references $(nix-instantiate shell.nix) | \
+     xargs nix-store --realise | \
+     xargs nix-store --query --requisites | \
+     cachix push your_cache
+
+   The "trick" here; is to rely on --references which gives only the
+   immediate dependencies. For each dependency then it's runtime closure is
+   calculated.
+
+inputDerivation
+
+   A recent improvement to 'nixpkgs included the inputDerivation attribute.
+   https://github.com/NixOS/nixpkgs/pull/95536
+
+   This further improves on the previous example by also supporting
+   derivations with multiple outputs.
+
+ nix-build shell.nix -A inputDerivation
+
+   or if you are using cachix
+
+ nix-build shell.nix -A inputDerivation | cachix push $name
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Caching_nix_shell_build_inputs&oldid=12450"
+   Category:
+     * Nix
+     * This page was last edited on 24 April 2024, at 19:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

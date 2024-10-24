@@ -1,0 +1,276 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                     Storage optimization: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 October 2024
+
+     * curprev [ ] [ ] 17:0817:08, 5 October 2024‎ Denperidge talk contribs‎
+       13,277 bytes −52‎ Moving the store: fixed rsync --hard-links argument,
+       merged rsync commands. Moved mount instructions from mounting on /mnt
+       to mounting on /mnt/nix, added mount options Tag: Visual edit
+
+    29 July 2024
+
+     * curprev [ ] [ ] 17:4317:43, 29 July 2024‎ Adda0 talk contribs‎ m
+       13,329 bytes −2‎ Fix trailing typo. Tags: Mobile edit Mobile web edit
+
+    27 July 2024
+
+     * curprev [ ] [ ] 14:1714:17, 27 July 2024‎ Mic92 talk contribs‎ 13,331
+       bytes +25‎ No edit summary
+
+    1 January 2024
+
+     * curprev [ ] [ ] 23:2723:27, 1 January 2024‎ imported>LucasWagler‎ m
+       13,306 bytes +3‎ Wording in Automatic Optimisation
+     * curprev [ ] [ ] 23:2123:21, 1 January 2024‎ imported>LucasWagler‎
+       13,303 bytes +13‎ Rework automatic optimisation to differentiate the
+       two methods.
+
+    26 December 2023
+
+     * curprev [ ] [ ] 14:4214:42, 26 December 2023‎ imported>Xav-ie‎ m
+       13,290 bytes +365‎ Add reasoning for why auto-optimise-store is not on
+       automatically and what you can do instead
+
+    9 October 2023
+
+     * curprev [ ] [ ] 20:5720:57, 9 October 2023‎ imported>Riley-martine‎ m
+       12,925 bytes −10‎ →‎Automatic
+
+    17 March 2023
+
+     * curprev [ ] [ ] 18:1418:14, 17 March 2023‎ imported>Sbh69840‎ m 12,935
+       bytes +239‎ nix.gc.dates is not supported in nix-darwin and hence
+       included an example to use nix.gc.interval
+
+    11 July 2022
+
+     * curprev [ ] [ ] 11:3611:36, 11 July 2022‎ imported>Odyssey346‎ m
+       12,696 bytes +11‎ Update auto optimise
+
+    15 September 2021
+
+     * curprev [ ] [ ] 22:3522:35, 15 September 2021‎ imported>Schuelermine‎
+       12,685 bytes −3‎ -d is dangerous as per section below
+
+    5 September 2021
+
+     * curprev [ ] [ ] 22:5222:52, 5 September 2021‎ imported>Samuela‎ 12,688
+       bytes +982‎ No edit summary
+
+    2 June 2021
+
+     * curprev [ ] [ ] 20:4720:47, 2 June 2021‎ imported>Appetrosyan‎ 11,706
+       bytes +169‎ Consistency improvements, style. Used more templates. All
+       commands now have the appropriate privilege indicator.
+     * curprev [ ] [ ] 19:4819:48, 2 June 2021‎ imported>Appetrosyan‎ m
+       11,537 bytes +118‎ Grammar + explained trailing slashes
+
+    24 May 2021
+
+     * curprev [ ] [ ] 11:3711:37, 24 May 2021‎ imported>Pinage404‎ m 11,419
+       bytes +16‎ Re add moving store with a second step to remove the old
+       store
+     * curprev [ ] [ ] 11:3311:33, 24 May 2021‎ imported>Pinage404‎ 11,403
+       bytes +984‎ →‎Moving the store
+
+    22 May 2021
+
+     * curprev [ ] [ ] 01:0301:03, 22 May 2021‎ imported>Ianthehenry‎ 10,419
+       bytes +473‎ larger tweaks to the section on pinning
+     * curprev [ ] [ ] 00:5300:53, 22 May 2021‎ imported>Ianthehenry‎ m 9,946
+       bytes +42‎ try to make some of the language a little more clear
+     * curprev [ ] [ ] 00:3800:38, 22 May 2021‎ imported>Ianthehenry‎ 9,904
+       bytes +175‎ clarify the keep-outputs=true assumptions on this page
+     * curprev [ ] [ ] 00:3400:34, 22 May 2021‎ imported>Ianthehenry‎ m 9,729
+       bytes +39‎ minor grammatical tweaks
+
+    29 November 2020
+
+     * curprev [ ] [ ] 23:2223:22, 29 November 2020‎ imported>Petersjt014‎
+       9,690 bytes +422‎ note about noatime
+     * curprev [ ] [ ] 04:5704:57, 29 November 2020‎ imported>Petersjt014‎
+       9,268 bytes +485‎ added a bash alias demonstrating the utility of
+       /nix/var/nix/gcroots
+
+    14 November 2020
+
+     * curprev [ ] [ ] 04:2904:29, 14 November 2020‎ imported>Artturin‎ 8,783
+       bytes +39‎ move optimizing the store up so that it is more visible and
+       add automatically section
+
+    27 March 2020
+
+     * curprev [ ] [ ] 07:3707:37, 27 March 2020‎ imported>Kiwi‎ m 8,744
+       bytes −1‎ No edit summary
+
+    29 December 2019
+
+     * curprev [ ] [ ] 22:0922:09, 29 December 2019‎ imported>Haslersn‎ m
+       8,745 bytes −4‎ fetchFromTarball -> fetchTarball
+
+    25 October 2019
+
+     * curprev [ ] [ ] 05:4305:43, 25 October 2019‎
+       imported>OctavioElMagnifico‎ m 8,749 bytes +79‎ More detail in rsync
+       command and more numbers in action list for nixos migration of store.
+     * curprev [ ] [ ] 05:4005:40, 25 October 2019‎
+       imported>OctavioElMagnifico‎ 8,670 bytes +150‎ Added detail over the
+       method for changing the store location in nixos. After binding into
+       nix/ the new partition you need to restart the daemon in order to be
+       able to rebuild. Also, for nixos to boot you need to add
+       "neeededForBoot" in the new /nix filesy
+
+    22 April 2019
+
+     * curprev [ ] [ ] 06:4106:41, 22 April 2019‎ imported>Mth‎ m 8,520 bytes
+       +91‎ Use syntaxhighlight lang="console"
+
+    15 April 2019
+
+     * curprev [ ] [ ] 19:1019:10, 15 April 2019‎ imported>Mth‎ 8,429 bytes
+       +515‎ automatically run garbage collection whenever there is not
+       enough space left
+     * curprev [ ] [ ] 17:1117:11, 15 April 2019‎ imported>Mth‎ m 7,914 bytes
+       +2‎ No edit summary
+     * curprev [ ] [ ] 16:5016:50, 15 April 2019‎ imported>Mth‎ m 7,912 bytes
+       −34‎ bash syntax highlighting makes root prompts look like comments
+     * curprev [ ] [ ] 16:1116:11, 15 April 2019‎ imported>Mth‎ m 7,946 bytes
+       0‎ Mth moved page Garbage Collection to Storage optimization
+     * curprev [ ] [ ] 16:0416:04, 15 April 2019‎ imported>Mth‎ 7,946 bytes
+       −25‎ No edit summary
+     * curprev [ ] [ ] 15:5415:54, 15 April 2019‎ imported>Mth‎ 7,971 bytes
+       −5‎ No edit summary
+     * curprev [ ] [ ] 15:5315:53, 15 April 2019‎ imported>Mth‎ 7,976 bytes
+       −123‎ No edit summary
+     * curprev [ ] [ ] 15:4915:49, 15 April 2019‎ imported>Mth‎ 8,099 bytes
+       +267‎ No edit summary
+     * curprev [ ] [ ] 13:4513:45, 15 April 2019‎ imported>Mth‎ 7,832 bytes
+       −60‎ not sure about these changes, review appreciated
+
+    10 August 2018
+
+     * curprev [ ] [ ] 15:4015:40, 10 August 2018‎ imported>Cransom‎ 7,892
+       bytes +16‎ nix-shell silently ignores --add-root, nix-instantiate is
+       the right tool.
+
+    30 December 2017
+
+     * curprev [ ] [ ] 14:1114:11, 30 December 2017‎ imported>Turion‎ m 7,876
+       bytes +291‎ Improve formatting, wording and grammar
+
+    26 August 2017
+
+     * curprev [ ] [ ] 20:0420:04, 26 August 2017‎ imported>Fadenb‎ m 7,585
+       bytes +156‎ Syntax highlighting
+
+    21 August 2017
+
+     * curprev [ ] [ ] 18:1418:14, 21 August 2017‎ imported>Makefu‎ 7,429
+       bytes +7,429‎ initial batch of nixos-users
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Storage_optimization"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

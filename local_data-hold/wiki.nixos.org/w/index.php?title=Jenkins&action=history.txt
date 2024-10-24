@@ -1,0 +1,131 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Jenkins: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    15 September 2024
+
+     * curprev [ ] [ ] 10:4410:44, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 3,610 bytes +181‎ add sha for urls, add outdated notice
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:5717:57, 19 April 2024‎ Klinger talk contribs‎
+       3,429 bytes +116‎ Category:Server Category:Applications. Beginning
+       sentence. Tag: Visual edit: Switched
+
+    12 January 2024
+
+     * curprev [ ] [ ] 00:4300:43, 12 January 2024‎ imported>Qknight‎ 3,313
+       bytes +689‎ No edit summary
+     * curprev [ ] [ ] 00:3700:37, 12 January 2024‎ imported>Qknight‎ 2,624
+       bytes +2,167‎ No edit summary
+     * curprev [ ] [ ] 00:2900:29, 12 January 2024‎ imported>Qknight‎ 457
+       bytes +457‎ Created page with "
+       [https://github.com/juspay/jenkins-nix-ci jenkins-nix-ci]: A NixOS
+       module for Jenkins, optimized specifically for running projects using
+       Nix. [https://github.com/mrVanDalo m..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Jenkins"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

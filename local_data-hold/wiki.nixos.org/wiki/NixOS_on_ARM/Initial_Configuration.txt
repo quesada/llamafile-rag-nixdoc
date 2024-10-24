@@ -1,0 +1,165 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS installation & configuration
+          * 1.1 First rebuild on ARMv6 and ARMv7
+   [ ] Toggle the table of contents
+
+                       NixOS on ARM/Initial Configuration
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+NixOS installation & configuration
+
+     This article or section is out of date.                                  
+     Reason: The kernel version recommendations of this section are severely  
+     outdated. This section should be rewritten to be generic and refer       
+     people to the board-specific page. Only the board specific page should   
+     make recommendations about the kernel. (Discuss in Talk:NixOS on         
+     ARM/Initial Configuration)                                               
+     Once the page has been updated this notice can be removed.               
+
+   The installation image is actually a MBR partition table plus two
+   partitions; a FAT16 /boot and a ext4 root filesystem. The image is
+   designed such that it's possible to directly reuse the SD image's
+   partition layout and "install" NixOS on the very same SD card by simply
+   replacing the default configuration.nix and running nixos-rebuild. Using
+   this installation method is strongly recommended, though if you know
+   exactly what you're doing and how U-Boot on your board works, you can use
+   nixos-install as usual. To help with the SD card installation method, the
+   boot scripts on the image automatically resize the rootfs partition to fit
+   the SD card on the first boot.
+
+     * To generate a default /etc/nixos/configuration.nix file, run sudo
+       nixos-generate-config.
+     * You can also use an existing template:
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, lib, ... }:
+ {
+   # NixOS wants to enable GRUB by default
+   boot.loader.grub.enable = false;
+   # Enables the generation of /boot/extlinux/extlinux.conf
+   boot.loader.generic-extlinux-compatible.enable = true;
+ 
+   # !!! If your board is a Raspberry Pi 1, select this:
+   boot.kernelPackages = pkgs.linuxPackages_rpi;
+   # On other boards, pick a different kernel, note that on most boards with good mainline support, default, latest and hardened should all work
+   # Others might need a BSP kernel, which should be noted in their respective wiki entries
+  
+   # !!! This is only for ARMv6 / ARMv7. Don't enable this on AArch64, cache.nixos.org works there.
+   nix.binaryCaches = lib.mkForce [ "https://cache.armv7l.xyz" ];
+   nix.binaryCachePublicKeys = [ "cache.armv7l.xyz-1:kBY/eGnBAYiqYfg0fy0inWhshUo+pGFM3Pj7kIkmlBk=" ];
+    
+   # nixos-generate-config should normally set up file systems correctly
+   imports = [ ./hardware-configuration.nix ];
+   # If not, you can set them up manually as shown below
+   /*
+   fileSystems = {
+     # Prior to 19.09, the boot partition was hosted on the smaller first partition
+     # Starting with 19.09, the /boot folder is on the main bigger partition.
+     # The following is to be used only with older images. Note such old images should not be considered supported anymore whatsoever, but if you installed back then, this might be needed
+     /*
+     "/boot" = {
+       device = "/dev/disk/by-label/NIXOS_BOOT";
+       fsType = "vfat";
+     };
+     */
+     "/" = {
+       device = "/dev/disk/by-label/NIXOS_SD";
+       fsType = "ext4";
+     };
+   };
+   */
+    
+   # !!! Adding a swap file is optional, but recommended if you use RAM-intensive applications that might OOM otherwise.
+   # Size is in MiB, set to whatever you want (though note a larger value will use more disk space).
+   # swapDevices = [ { device = "/swapfile"; size = 1024; } ];
+ }
+
+   Note: the default configuration.nix will contain something like imports =
+   [ <nixos/modules/installer/sd-card/sd-image-armv7l-multiplatform.nix> ];
+   do not include that in your final installation or you will experience
+   interesting problems. It is only for building the installation image!
+
+    First rebuild on ARMv6 and ARMv7
+
+   To rebuild your system, run: sudo nixos-rebuild switch
+
+   Note: Instructions removed since they referred to a long abandoned
+   user-provided cache...
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Initial_Configuration&oldid=11902"
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 8 April 2024, at 01:25.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

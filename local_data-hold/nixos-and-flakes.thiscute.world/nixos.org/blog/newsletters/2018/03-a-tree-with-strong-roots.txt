@@ -1,0 +1,127 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                      #03 - A tree with strong roots \...
+
+   Published on Mon Feb 26 2018
+
+                      #03 - A tree with strong roots \...
+
+   Welcome to another edition of NixOS “Weekly” Newsletter! Thank you to
+   everyone who helped make this happen.
+
+                                      News
+
+     * Nix 2.0 has been released
+
+          * discussion on lobste.rs
+          * discussion on hacker news
+     * NixOS 18.03 release approaching
+
+       Mog has set up an unofficial redbubble store for various NixOS items
+       (T-shirts, stickers, banners).
+
+     * Nix has learned to load plugins
+
+     * Nix workgroups area
+
+       Workgroups are used to facilitate working on components of the Nix
+       ecosystems. As of this writing there exists:
+
+          * container workgroup: “building (minimal) OCI containers from the
+            nixpkgs ecosystem.”
+          * router workgroup: running NixOS on your router.
+     * Google Summer of Code 2018 proposals were not accepted
+
+     * Tracking RISC-V support in the Nix world
+
+       Note the followup message linking the publicly visible boards:
+
+          * RISC-V support for nix
+          * RISC-V support for nixpkgs
+     * RFC 0023: Support musl libc
+
+     * Patreon to support the NixOS OfBorg infrastructure
+
+       This supports @grhmc’s work on the OfBorg tooling.
+
+                                      Jobs
+
+     * Nix/DevOps position with Tweag I/O
+     * Software Engineer with DevOps and Continuous Delivery Experience at
+       Conference Compass
+     * Serokell is hiring for several positions
+          * Site Reliability Engineer (IT Operations Engineer)
+          * Head of IT Operations
+
+                                    Reading
+
+     * Deploying systems with circular dependencies using Disnix by Sander
+       van der Burg
+     * Haskell developer experience in NixOS by Roman Kuznetsov
+     * XMonad and Taffybar on NixOS using Stack by Dennis Gosnell
+     * Install VirtualBox on NixOS by Dennis Gosnell
+     * Parity as a service on NixOS by Alexander Krupenkin
+
+                                    Tooling
+
+     * nix-update for Emacs - An Emacs command for updating fetch
+       declarations in place
+     * simple-hydra - A simple module for enabling Hydra
+     * groking-hydra - A repository of collecting insight about hydra
+     * dhall-build - A Dhall interface to the Nix build system
+     * nix-update - A script to update package in nixos automagically
+     * Disnix - Disnix 0.8 released
+
+                                Events / Meetups
+
+     * ComcastLabs Connect: Functional Programming
+          * When: March 9
+          * Where: Philadelphia PA, USA
+          * What: Among other functional programming topics, Susan Potter
+            (@SusanPotter) is speaking on Functional Operations: Packaging,
+            system/configuration building, and testing infrastructure with
+            [Nix] lambdas
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

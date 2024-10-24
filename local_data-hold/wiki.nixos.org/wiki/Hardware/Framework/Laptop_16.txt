@@ -1,0 +1,183 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Known issues
+     * 3 Configuration
+          * 3.1 AMD 7040 Series
+          * 3.2 Fix Color accuracy in Power Saving modes
+          * 3.3 Touchpad Palm Rejection
+          * 3.4 Prevent wake up in backpack
+          * 3.5 Bios Configuration
+     * 4 External resources
+   [ ] Toggle the table of contents
+
+                              Framework Laptop 16
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to Hardware Hub
+
+   Framework Laptop 16
+   Laptop 16    
+   Manufacturer Framework       
+   Architecture x86_64-linux    
+   7040 Series  
+   Status       maybe supported 
+
+   The Framework Laptop 16 is a configurable, upgradeable, and repairable
+   laptop made by the Framework company.
+
+Status
+
+   The device boots NixOS.
+
+Known issues
+
+   The device still has a couple of hardware quirks (see below).
+
+   Using the latest kernel will fix some issues. Also read configuration
+   hints in this article.
+
+Configuration
+
+   Framework specific NixOS hardware options are bundled within the
+   nixos-hardware project.
+
+  AMD 7040 Series
+
+   It is recommended to use power-profiles-daemon over tlp for the AMD
+   framework.
+
+     * NixOS Hardware module for flakes:
+       nixos-hardware.nixosModules.framework-16-7040-amd
+     * NixOS Hardware module for channels:
+       <nixos-hardware/framework/16-inch/7040-amd>
+
+  Fix Color accuracy in Power Saving modes
+
+   Active Backlight Management is used to reduce battery power consumption
+   causing the colors of the screen to be inaccurate.
+
+   Some desktop environments may already be able to modify this setting.
+
+   To disable it add the kernel parameter:
+
+ boot.kernelParams = [ "amdgpu.abmlevel=0" ];
+
+  Touchpad Palm Rejection
+
+   Prior to libinput 1.26, the Framework 16 keyboard was treated as an
+   external USB device by libinput, causing the touchpad to stay enabled when
+   typing.
+
+   NixOS Unstable has updated libinput and is not affected. On NixOS 24.05
+   and earlier, this can be worked around with a libinput quirk (sourced from
+   here: community.frame.work by: @sumiflow)
+
+ environment.etc = {
+   "libinput/local-overrides.quirks".text = ''
+     [Keyboard]
+     MatchUdevType=keyboard
+     MatchName=Framework Laptop 16 Keyboard Module - ANSI Keyboard
+     AttrKeyboardIntegration=internal
+   '';
+ };
+
+  Prevent wake up in backpack
+
+   Putting your Framework in a backpack can cause it to wake up due to the
+   screen flexing onto the keyboard. While this is not resolved in Firmware,
+   you can workaround this issue with a udev rule:
+
+ services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0012", ATTR{power/wakeup}="disabled", ATTR{driver/1-1.1.1.4/power/wakeup}="disabled"
+    ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="32ac", ATTRS{idProduct}=="0014", ATTR{power/wakeup}="disabled", ATTR{driver/1-1.1.1.4/power/wakeup}="disabled"
+ '';
+
+   The Product and Vendor IDs can be found using lsusb.
+
+   This does not prevent the trackpad from waking up the device. This however
+   seems to happen less in a backpack.
+
+  Bios Configuration
+
+   Enable Linux Audio Compatibility in the bios to improve speaker audio
+   quality.
+
+External resources
+
+   There is a nixos thread on the framework forum, where you can find
+   additional help, guidance and example configurations.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/Framework/Laptop_16&oldid=17377"
+   Category:
+     * Incomplete
+     * This page was last edited on 13 September 2024, at 00:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

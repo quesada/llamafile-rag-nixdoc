@@ -1,0 +1,151 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Tips and tricks
+          * 2.1 podman-compose
+          * 2.2 Using podman with ZFS
+          * 2.3 Use Podman within nix-shell
+          * 2.4 Run Podman containers as systemd services
+   [ ] Toggle the table of contents
+
+                                     Podman
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Podman can run rootless containers and be a drop-in replacement for
+   Docker.
+
+Setup
+
+   To enable Podman support, add following lines to your system configuration
+
+ # Enable common container config files in /etc/containers
+ virtualisation.containers.enable = true;
+ virtualisation = {
+   podman = {
+     enable = true;
+     # Create a `docker` alias for podman, to use it as a drop-in replacement
+     dockerCompat = true;
+     # Required for containers under podman-compose to be able to talk to each other.
+     defaultNetwork.settings.dns_enabled = true;
+   };
+ };
+
+ users.users.myuser = {
+   isNormalUser = true;
+   extraGroups = [ "podman" ];
+ };
+
+   Replace myuser with your current user. A reboot or re-login might be
+   required for the permissions to take effect after applying changes.
+
+Tips and tricks
+
+  podman-compose
+
+   podman-compose is a drop-in replacement for docker-compose
+
+  Using podman with ZFS
+
+   Rootless can't use ZFS directly but the overlay needs POSIX ACL enabled
+   for the underlying ZFS filesystem, ie., acltype=posixacl
+
+   Best to mount a dataset under /var/lib/containers/storage with property
+   acltype=posixacl.
+
+  Use Podman within nix-shell
+
+   https://gist.github.com/adisbladis/187204cb772800489ee3dac4acdd9947
+
+   Note that rootless podman requires newuidmap (from shadow). If you're not
+   on NixOS, this cannot be supplied by the Nix package 'shadow' since
+   setuid/setgid programs are not currently supported by Nix.
+
+  Run Podman containers as systemd services
+
+ {
+   virtualisation.oci-containers.backend = "podman";
+   virtualisation.oci-containers.containers = {
+     container-name = {
+       image = "container-image";
+       autoStart = true;
+       ports = [ "127.0.0.1:1234:1234" ];
+     };
+   };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Podman&oldid=17641"
+   Categories:
+     * Software
+     * Server
+     * Container
+     * This page was last edited on 26 September 2024, at 20:41.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,146 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+   [ ] Toggle the table of contents
+
+                                   OpenSnitch
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Opensnitch is a configurable inbound and outbound firewall with support
+   for configurable rules by application, port, host, etc.
+
+Installation
+
+   Add following line to your system configuration to install and enable
+   OpenSnitch
+
+ services.opensnitch.enable = true;
+
+   OpenSnitch will start blocking connctions as soon the client application
+   opensnitch-ui is connected. For Home Manager users, you can automatically
+   start it in the background with the following configuration
+
+ home-manager.users.myuser = {
+   services.opensnitch-ui.enable = true;
+ };
+
+   Using this minimal and default configuration, an application which tries
+   to connect to the outside network will be blocked. You'll see a popup
+   window asking to grant or deny connectivity for the specific application.
+
+Configuration
+
+   You can preconfigure which connections are allowed or blocked by default.
+   Following rules will allow internet connectivity for the binaries
+   systemd-resolved and systemd-timesyncd. All other connection requests will
+   be blocked and require an manual exception.
+
+ services.opensnitch = {
+   enable = true;
+   rules = {
+     systemd-timesyncd = {
+       name = "systemd-timesyncd";
+       enabled = true;
+       action = "allow";
+       duration = "always";
+       operator = {
+         type ="simple";
+         sensitive = false;
+         operand = "process.path";
+         data = "${lib.getBin pkgs.systemd}/lib/systemd/systemd-timesyncd";
+       };
+     };
+     systemd-resolved = {
+       name = "systemd-resolved";
+       enabled = true;
+       action = "allow";
+       duration = "always";
+       operator = {
+         type ="simple";
+         sensitive = false;
+         operand = "process.path";
+         data = "${lib.getBin pkgs.systemd}/lib/systemd/systemd-resolved";
+       };
+     };
+   };
+ };
+
+   Please refer upstream documentation for configuration syntax and
+   additional examples.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=OpenSnitch&oldid=10283"
+   Categories:
+     * Applications
+     * Security
+     * This page was last edited on 13 August 2023, at 07:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

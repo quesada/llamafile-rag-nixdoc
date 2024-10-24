@@ -1,0 +1,161 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Testing Mesa updates
+     * 2 Debugging Mesa issues
+          * 2.1 glxinfo
+     * 3 Notes
+     * 4 Related
+   [ ] Toggle the table of contents
+
+                                     OpenGL
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section is a candidate for merging with Mesa.             
+    Notes: Most of the content here is related to the mesa package (Discuss   
+    in Talk:OpenGL#)                                                          
+
+   You can enable OpenGL by setting hardware.graphics.enable = true;^[note 1]
+   in your /etc/nixos/configuration.nix.
+
+   OpenGL must break purity due to the need for hardware-specific linkage.
+   Intel, AMD, and Nvidia have different drivers for example. On NixOS, these
+   libraries are symlinked under
+
+  /run/opengl-driver/lib
+
+   and optionally (if hardware.graphics.enable32Bit^[note 2] is enabled)
+
+  /run/opengl-driver-32/lib
+
+   When a program is installed in your environment, these libraries should be
+   found automatically. However, this is not the case in a `nix-shell`. To
+   fix, add this line to your shell.nix:
+
+ LD_LIBRARY_PATH="/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+
+Testing Mesa updates
+
+   To avoid a lot of rebuilds there's an internal NixOS option to override
+   the Mesa drivers: hardware.opengl.package
+
+   It can be used like this:
+
+ hardware.opengl.package = (import /srv/nixpkgs-mesa { }).pkgs.mesa.drivers;
+
+   However, since Mesa 21.0.2 this doesn't necessarily work anymore and
+   something like the following might be required:
+
+ system.replaceRuntimeDependencies = [
+   ({ original = pkgs.mesa; replacement = (import /srv/nixpkgs-mesa { }).pkgs.mesa; })
+   ({ original = pkgs.mesa.drivers; replacement = (import /srv/nixpkgs-mesa { }).pkgs.mesa.drivers; })
+ ];
+
+   Note: Both of these approaches are impure and only work to a certain
+   degree (many limitations!). If you want to use a different version of Mesa
+   your best option is to use an overlay or a Git worktree where you use the
+   same Nixpkgs revision and only alter pkgs/development/libraries/mesa/ for
+   one of the two approaches mentioned above.
+
+Debugging Mesa issues
+
+   There are a lot of useful environment variables for debugging purposes:
+   https://docs.mesa3d.org/envvars.html
+
+   The most important one is LIBGL_DEBUG=verbose and helps with debugging
+   error like:
+
+ libGL error: MESA-LOADER: failed to open $DRIVER (search paths /run/opengl-driver/lib/dri)
+ libGL error: failed to load driver: $DRIVER
+
+  glxinfo
+
+   Use glxinfo to load 3D acceleration debug information.
+
+   If glxinfo returns Error: couldn't find RGB GLX visual or fbconfig, ensure
+   you have hardware.opengl.extraPackages = [ pkgs.mesa.drivers ]; set.
+
+Notes
+
+    1. ↑ Renamed from hardware.opengl.enable in NixOS 24.11
+    2. ↑ Renamed from hardware.opengl.driSupport32Bit in NixOS 24.11
+
+Related
+
+   Nixpkgs with OpenGL on non-NixOS
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=OpenGL&oldid=13616"
+   Category:
+     * Video
+   Hidden category:
+     * Pages or sections flagged with Template:Merge
+     * This page was last edited on 27 June 2024, at 17:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,264 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                                    Download
+
+                                    Download
+
+                           Nix : the package manager
+
+Current version
+
+   2.24.9
+
+  Linux
+
+  Multi-user installation (recommended)
+
+   Install Nix via the recommended multi-user installation:
+
+ $ sh <(curl -L https://nixos.org/nix/install) --daemon
+
+   We recommend the multi-user install if you are on Linux running systemd,
+   with SELinux disabled and you can authenticate with sudo.
+
+  Single-user installation
+
+   Install Nix via the single-user installation:
+
+ $ sh <(curl -L https://nixos.org/nix/install) --no-daemon
+
+   Above command will perform a single-user installation of Nix, meaning that
+   nix is owned by the invoking user. You should run this under your usual
+   user account, not as root. The script will invoke sudo to create /nix if
+   it doesn’t already exist.
+
+  Which type of installation should you choose?
+
+   This depends on your requirements, but here is a short list of reasons why
+   we recommend multi-user installation:
+
+    Pros
+
+     * Better build isolation (and that is what Nix is all about)
+     * Better security (a build can not write somewhere in your home)
+     * Sharing builds between users
+
+    Cons
+
+     * Requires root to run the daemon
+     * More involved installation (creation of nixbld* users, installing a
+       systemd unit, …
+     * Harder to uninstall
+
+  MacOS
+
+  Multi-user installation
+
+     Updating to macOS 15 Sequoia
+
+     If you recently updated to macOS 15 Sequoia and are getting
+
+ error: the user '_nixbld1' in the group 'nixbld' does not exist
+
+     when running Nix commands, refer to GitHub issue NixOS/nix#10892 for
+     instructions to fix your installation without reinstalling.
+
+   Install Nix via the recommended multi-user installation:
+
+ $ sh <(curl -L https://nixos.org/nix/install)
+
+   We believe we have ironed out how to cleanly support the read-only root on
+   modern macOS. Please consult the manual on details what the installation
+   script does.
+
+  Windows (WSL2)
+
+  Multi-user installation (Requires WSL with systemd enabled)
+
+   WSL versions 0.67.6 and above has systemd support. Follow Microsoft’s
+   systemd guide to configure it, and then install Nix using:
+
+ $ sh <(curl -L https://nixos.org/nix/install) --daemon
+
+  Single-user installation
+
+   Install Nix via the single-user installation
+
+ $ sh <(curl -L https://nixos.org/nix/install) --no-daemon
+
+  Docker
+
+   Start a Docker shell with Nix:
+
+ $ docker run -it nixos/nix
+
+   Or start a Docker shell with Nix exposing a workdir directory:
+
+ $ mkdir workdir
+ $ docker run -it -v $(pwd)/workdir:/workdir nixos/nix
+
+   The workdir example from above can be also used to start hacking on
+   nixpkgs:
+
+ $ git clone --depth=1 https://github.com/NixOS/nixpkgs.git
+ $ docker run -it -v $(pwd)/nixpkgs:/nixpkgs nixos/nix
+ docker> nix-build -I nixpkgs=/nixpkgs -A hello
+ docker> find ./result # this symlink points to the build package
+
+  More ...
+
+   The following release items are also available:
+
+     * Release notes
+     * Manual. Please read the “Quick Start” section of the manual for an
+       overview of how to install and use Nix.
+     * Old releases are also available.
+
+                         NixOS : the Linux distribution
+
+Current version
+
+   24.05
+
+  ISO image
+
+   You can install NixOS on physical hardware by burning one of the CD images
+   onto a blank CD/DVD disk, or by copying it onto a USB stick. For
+   installation instructions, please see the manual.
+
+  Graphical ISO image
+
+   The graphical installation ISO image contains the graphical NixOS
+   installer as well as a Desktop Environment and several applications. It’s
+   a live CD, so it allows you to get an impression of NixOS (and the Nix
+   package manager) without installing it.
+
+   Download (GNOME, 64-bit Intel/AMD) (SHA-256) Recommended Download (GNOME,
+   64-bit ARM) (SHA-256) Download (Plasma Desktop, 64-bit Intel/AMD)
+   (SHA-256) Download (Plasma Desktop, 64-bit ARM) (SHA-256)
+
+   Note that while the image itself only comes in GNOME and Plasma
+   variations, the included installer also allows installing various other
+   desktops, or installing without a desktop.
+
+  Minimal ISO image
+
+   The minimal installation ISO image does not contain the graphical user
+   interface, and is therefore a lot smaller. You have to run the installer
+   from the console. It contains a number of rescue tools.
+
+   Download (64-bit Intel/AMD) (SHA-256) Download (64-bit ARM) (SHA-256)
+
+  VirtualBox
+
+   This is a demo appliance for VirtualBox (in OVA format).
+
+   VirtualBox image includes the Plasma Desktop (was KDE) as well as the
+   VirtualBox guest additions.
+
+   Download (64-bit) (SHA-256)
+
+  To use it
+
+     * Download the OVA file using the button above.
+     * Open VirtualBox.
+     * Run File → Import Appliance from the menu.
+     * Select previously downloaded OVA file.
+     * Click Import.
+     * You can then start the virtual machine.
+     * You can log in as user demo, password demo.
+     * To obtain a root shell, run sudo -i in the terminal (konsole).
+
+  Amazon
+
+NixOS AMIs
+
+   NixOS can be deployed to Amazon EC2 using our official AMI. We publish
+   AMIs to all AWS regions for both x86_64 and arm64 on a weekly basis.
+
+   We will start deprecating and garbage collecting images older than 90 days
+   in the future. This is why we suggest using a terraform data source or the
+   AWS API to query for the latest AMI.
+
+  Via Terraform / OpenTofu
+
+   You can easily query for the latest AMI using a data source:
+
+ provider "aws" {
+   region = "eu-central-1"
+ }
+ data "aws_ami" "nixos_arm64" {
+   owners      = ["427812963091"]
+   most_recent = true
+   filter {
+     name   = "name"
+     values = ["nixos/24.05*"]
+   }
+   filter {
+     name   = "architecture"
+     values = ["arm64"] # or "x86_64"
+   }
+ }
+ resource "aws_instance" "nixos_arm64" {
+   ami           = data.aws_ami.nixos_arm64.id
+   instance_type = "t4g.nano"
+ }
+
+  Via Command Line / AWS API
+
+   The DescribeImages API can be used to query the latest AMI too:
+
+ aws ec2 describe-images --owners 427812963091 \
+   --filter 'Name=name,Values=nixos/24.05*' \
+   --filter 'Name=architecture,Values=arm64'
+
+  Search for specific AMIs
+
+   You can also use the Image searcher to find a specific AMI. Do note that
+   we intend to deprecate images older than 90 days automatically and we do
+   not recommend hardcoding AMI ids.
+
+  More ...
+
+   The following release items are also available:
+
+     * Release notes
+     * Manual.
+
+     * Old releases are also available.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

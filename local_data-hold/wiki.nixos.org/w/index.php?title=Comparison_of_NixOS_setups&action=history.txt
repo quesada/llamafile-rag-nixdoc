@@ -1,0 +1,261 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  Comparison of NixOS setups: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    22 September 2024
+
+     * curprev [ ] [ ] 08:0508:05, 22 September 2024‎ RichardCory talk
+       contribs‎ 6,226 bytes −21‎ →‎General information: Update outdated
+       reference: `victor-engmark` to `engmark` Tag: Visual edit: Switched
+
+    28 April 2024
+
+     * curprev [ ] [ ] 21:4721:47, 28 April 2024‎ Kiara talk contribs‎ 6,247
+       bytes +146‎ comparison of nixos setups: add kiara/cfg Tag: Visual
+       edit: Switched
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:3520:35, 24 April 2024‎ Klinger talk contribs‎
+       6,101 bytes +25‎ No edit summary
+
+    2 April 2024
+
+     * curprev [ ] [ ] 14:3814:38, 2 April 2024‎ RGBCube talk contribs‎ m
+       6,076 bytes +17‎ Rename the DE column to DE / WM as there are entries
+       that are WMs but not full DEs Tag: Visual edit
+     * curprev [ ] [ ] 14:3714:37, 2 April 2024‎ RGBCube talk contribs‎ m
+       6,059 bytes +153‎ Add RGBCube/NCC to the comparision
+
+    6 November 2023
+
+     * curprev [ ] [ ] 16:1416:14, 6 November 2023‎ imported>XenoRock‎ m
+       5,906 bytes +2‎ tudurom's config uses agenix for secret management
+     * curprev [ ] [ ] 16:1016:10, 6 November 2023‎ imported>XenoRock‎ 5,904
+       bytes −2‎ No edit summary
+
+    11 September 2023
+
+     * curprev [ ] [ ] 14:1814:18, 11 September 2023‎ imported>Pgrosslicht‎
+       5,906 bytes +88‎ Mark digga as no longer maintained
+
+    14 October 2022
+
+     * curprev [ ] [ ] 22:3322:33, 14 October 2022‎ imported>L0b0‎ 5,818
+       bytes +131‎ Add GitLab search link
+     * curprev [ ] [ ] 22:2822:28, 14 October 2022‎ imported>L0b0‎ 5,687
+       bytes +170‎ My setup
+
+    7 September 2022
+
+     * curprev [ ] [ ] 17:1217:12, 7 September 2022‎ imported>NikitinGs‎ m
+       5,517 bytes 0‎ update links to btrfs wiki
+
+    16 July 2022
+
+     * curprev [ ] [ ] 18:3118:31, 16 July 2022‎ imported>Yuu‎ 5,517 bytes
+       +6‎ →‎General information
+     * curprev [ ] [ ] 18:2718:27, 16 July 2022‎ imported>Yuu‎ 5,511 bytes
+       +149‎ →‎General information
+     * curprev [ ] [ ] 18:2418:24, 16 July 2022‎ imported>Yuu‎ 5,362 bytes
+       +173‎ add secrets
+     * curprev [ ] [ ] 16:3216:32, 16 July 2022‎ imported>Yuu‎ 5,189 bytes
+       +20‎ →‎General information
+     * curprev [ ] [ ] 16:2816:28, 16 July 2022‎ imported>Yuu‎ 5,169 bytes
+       +104‎ →‎General information
+
+    17 November 2021
+
+     * curprev [ ] [ ] 14:0114:01, 17 November 2021‎ imported>Yuu‎ 5,065
+       bytes +116‎ →‎General information
+
+    7 November 2021
+
+     * curprev [ ] [ ] 22:0722:07, 7 November 2021‎ imported>Enderger‎ 4,949
+       bytes +169‎ Add my dotfiles
+
+    30 October 2021
+
+     * curprev [ ] [ ] 13:4213:42, 30 October 2021‎ imported>Yuu‎ 4,780 bytes
+       +1‎ No edit summary
+     * curprev [ ] [ ] 13:3013:30, 30 October 2021‎ imported>Yuu‎ 4,779 bytes
+       +520‎ No edit summary
+
+    11 October 2021
+
+     * curprev [ ] [ ] 04:0004:00, 11 October 2021‎ imported>Vater‎ m 4,259
+       bytes +21‎ →‎General information
+     * curprev [ ] [ ] 03:5503:55, 11 October 2021‎ imported>Vater‎ m 4,238
+       bytes −7‎ →‎Definitions
+     * curprev [ ] [ ] 03:5303:53, 11 October 2021‎ imported>Vater‎ m 4,245
+       bytes +8‎ →‎General information
+
+    10 October 2021
+
+     * curprev [ ] [ ] 16:4316:43, 10 October 2021‎ imported>Ericson2314‎
+       4,237 bytes +249‎ Add my config, add new column so I can mention
+       Wayland and X
+
+    4 September 2021
+
+     * curprev [ ] [ ] 23:2423:24, 4 September 2021‎ imported>Yuu‎ 3,988
+       bytes 0‎ →‎External links
+
+    10 July 2021
+
+     * curprev [ ] [ ] 12:4812:48, 10 July 2021‎ imported>Yuu‎ 3,988 bytes
+       +7‎ No edit summary
+     * curprev [ ] [ ] 12:4712:47, 10 July 2021‎ imported>Yuu‎ 3,981 bytes
+       −15‎ No edit summary
+     * curprev [ ] [ ] 12:4212:42, 10 July 2021‎ imported>Yuu‎ m 3,996 bytes
+       0‎ Isa moved page Comparison of NixOS configurations to Comparison of
+       NixOS setups: configurations can be confused with general options, and
+       so on
+     * curprev [ ] [ ] 12:4112:41, 10 July 2021‎ imported>Yuu‎ 3,996 bytes
+       +1,000‎ No edit summary
+
+    9 July 2021
+
+     * curprev [ ] [ ] 23:1223:12, 9 July 2021‎ imported>Yuu‎ 2,996 bytes
+       +26‎ No edit summary
+     * curprev [ ] [ ] 23:0723:07, 9 July 2021‎ imported>Yuu‎ 2,970 bytes +1‎
+       No edit summary
+     * curprev [ ] [ ] 23:0723:07, 9 July 2021‎ imported>Yuu‎ 2,969 bytes
+       +100‎ No edit summary
+     * curprev [ ] [ ] 23:0323:03, 9 July 2021‎ imported>Yuu‎ 2,869 bytes
+       +895‎ No edit summary
+     * curprev [ ] [ ] 21:3321:33, 9 July 2021‎ imported>Yuu‎ m 1,974 bytes
+       0‎ Isa moved page Notable configurations to Comparison of NixOS
+       configurations: follow wikipedia convention
+     * curprev [ ] [ ] 21:3221:32, 9 July 2021‎ imported>Yuu‎ 1,974 bytes
+       −10‎ No edit summary
+     * curprev [ ] [ ] 21:3221:32, 9 July 2021‎ imported>Yuu‎ 1,984 bytes
+       +142‎ No edit summary
+     * curprev [ ] [ ] 21:2921:29, 9 July 2021‎ imported>Yuu‎ 1,842 bytes
+       +75‎ No edit summary
+     * curprev [ ] [ ] 21:2721:27, 9 July 2021‎ imported>Yuu‎ 1,767 bytes
+       −19‎ No edit summary
+     * curprev [ ] [ ] 21:0421:04, 9 July 2021‎ imported>Yuu‎ 1,786 bytes
+       +358‎ No edit summary
+     * curprev [ ] [ ] 20:5520:55, 9 July 2021‎ imported>Yuu‎ 1,428 bytes
+       −12‎ No edit summary
+     * curprev [ ] [ ] 20:5320:53, 9 July 2021‎ imported>Yuu‎ 1,440 bytes +1‎
+       No edit summary
+     * curprev [ ] [ ] 20:5320:53, 9 July 2021‎ imported>Yuu‎ 1,439 bytes
+       +65‎ No edit summary
+     * curprev [ ] [ ] 20:4920:49, 9 July 2021‎ imported>Yuu‎ 1,374 bytes
+       +163‎ No edit summary
+     * curprev [ ] [ ] 20:4320:43, 9 July 2021‎ imported>Yuu‎ 1,211 bytes
+       +776‎ No edit summary
+     * curprev [ ] [ ] 20:2220:22, 9 July 2021‎ imported>Yuu‎ 435 bytes +121‎
+       No edit summary
+     * curprev [ ] [ ] 19:5019:50, 9 July 2021‎ imported>Yuu‎ 314 bytes +314‎
+       Created page with "List of notable NixOS configurations. == Templates
+       == * [https://github.com/divnix/devos DevOS] *
+       [https://github.com/colemickens/nixos-flake-example
+       colemickens/nixos-flake-..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Comparison_of_NixOS_setups"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,220 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Available templates
+          * 1.1 Article status
+          * 1.2 Note templates
+          * 1.3 Prefab tips
+          * 1.4 Formatting
+               * 1.4.1 Misc. prefabs
+               * 1.4.2 Code and commands
+          * 1.5 Nix, Nixpkgs and NixOS
+               * 1.5.1 Nix
+               * 1.5.2 Nixpkgs
+               * 1.5.3 NixOS
+               * 1.5.4 Other links
+          * 1.6 Page construction
+     * 2 Visual Guidelines
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                 Help:Template
+
+     * Help page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The wiki provides templates for common tasks.
+
+   Those templates can range from simple to complex, being almost invisible
+   to the end-user to provide a complete harmonized template between
+   articles.
+
+   In addition to the visual aspect, using some templates will automatically
+   file and categorize articles in ways indispensable to the end-users.
+
+Available templates
+
+   These templates are meant to be used across the whole wiki.
+
+   There are other section-specific templates, and templates for internal use
+   available too.
+
+  Article status
+
+   These templates should be added to either the top of a page, or the top of
+   a section, when needed.
+
+     * {{outdated}} for when a page or a section is outdated.
+     * {{expansion}} for when a page or section needs expansion.
+     * {{merge}} for when a a page or a section may need to be merged into
+       another.
+     * {{disambiguation}} for when a page name is ambiguous, to link to
+       another.
+     * {{low quality}} for when a page or a section is of low quality.
+
+  Note templates
+
+   These templates are purposefully intrusive, and serve as a visual landmark
+   to an important note.
+
+     * {{tip}} for a tip.
+     * {{warning}} for a non-security warning.
+     * {{Security Warning}} for a security warning.
+
+   These templates should be used sparingly, but are useful as they are less
+   intrusive.
+
+     * {{note}} for a note.
+     * {{aside}} for an aside comment about a section.
+
+  Prefab tips
+
+   Common repeated tips in template form.
+
+     * {{evaluate}} reminder to evaluate a NixOS configuration with
+       nixos-rebuild.
+     * {{unfree}} a note that a package is unfree, with a link for more help.
+
+  Formatting
+
+    Misc. prefabs
+
+     * {{app}} for a card with details about an application.
+     * {{man}} to refer to a man page (and section).
+
+    Code and commands
+
+     * {{commands}} for a list of commands.
+     * {{file}} for a formatted code block with a filename header.
+     * Prefer the SyntaxHighlight extension with e.g. <syntaxhighlight
+       lang="nix"></syntaxhighlight> otherwise.
+
+   These are more raw implementation blocks. They are not recommended for
+   broad use.
+
+     * {{ic}} for inline code.
+     * {{bc}} for a block of code.
+
+  Nix, Nixpkgs and NixOS
+
+   These helpers link to specific project parts.
+
+    Nix
+
+     * {{nix:option}} links to a given Nix option documentation.
+     * {{Nix Manual}} links to the Nix manual (with optional chapter and
+       version).
+
+    Nixpkgs
+
+     * {{Nixpkgs Link}} links to a given Nixpkgs file (with optional
+       revision).
+     * {{Nixpkgs Manual}} links to the Nixpkgs manual (with optional chapter
+       and version).
+
+    NixOS
+
+     * {{nixos:package}} links to a given NixOS package search result.
+     * {{nixos:option}} links to a given NixOS option search result.
+     * {{NixOS Manual}} links to the NixOS manual (with optional chapter and
+       version).
+
+    Other links
+
+     * {{issue}} to link to a Nixpkgs issue.
+     * {{pull}} to link to a Nixpkgs pull request.
+
+  Page construction
+
+   Templates helping in building pages with common forms.
+
+     * {{lowercase title}} to lowercase the first character of a page name.
+     * {{main}} to refer back to a main article.
+     * {{PrefixIndex}} to add a list of pages starting with a given prefix.
+
+Visual Guidelines
+
+   The icons used are from Breeze, the default icon set of KDE.
+
+   Since the icons from Breeze are used, the colours from HIG, which is the
+   Breeze Color Palette are used.
+
+   Sometimes, there isn't an icon in the Breeze theme that can be used for
+   the purpose. In this case, alternative free and open source icons can be
+   used. Once a stand-in is used, someone with the necessary skills can
+   create the needed icon in the breeze style.
+
+See also
+
+     * List of all templates
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Help:Template&oldid=17447"
+   Category:
+     * Contributions
+     * This page was last edited on 14 September 2024, at 18:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

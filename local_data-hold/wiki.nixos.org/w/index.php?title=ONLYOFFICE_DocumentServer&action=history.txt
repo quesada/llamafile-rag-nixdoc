@@ -1,0 +1,147 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  ONLYOFFICE DocumentServer: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    22 August 2024
+
+     * curprev [ ] [ ] 05:3805:38, 22 August 2024‎ Vuhoanghuynh02 talk
+       contribs‎ m 2,370 bytes 0‎ Vuhoanghuynh02 moved page
+       Onlyoffice-Documentserver to ONLYOFFICE DocumentServer: Misspelled
+       title
+     * curprev [ ] [ ] 05:2405:24, 22 August 2024‎ Vuhoanghuynh02 talk
+       contribs‎ m 2,370 bytes +1‎ typo Tag: Visual edit
+
+    19 August 2024
+
+     * curprev [ ] [ ] 21:2921:29, 19 August 2024‎ Raboof talk contribs‎
+       2,369 bytes +58‎ Add jwtSecretFile to the minimal example, as it's
+       mandatory from version 7.2 onwards Tag: Visual edit
+
+    27 June 2024
+
+     * curprev [ ] [ ] 13:0913:09, 27 June 2024‎ Onny talk contribs‎ 2,311
+       bytes +136‎ Adapt alternative Caddy config Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:1219:12, 24 April 2024‎ Klinger talk contribs‎
+       2,175 bytes −26‎ removed category applications
+
+    23 January 2023
+
+     * curprev [ ] [ ] 16:4216:42, 23 January 2023‎ imported>SuperSandro2000‎
+       2,201 bytes +357‎ Add warning when using caddy
+     * curprev [ ] [ ] 14:0514:05, 23 January 2023‎ imported>Onny‎ m 1,844
+       bytes +124‎ No edit summary
+     * curprev [ ] [ ] 14:0314:03, 23 January 2023‎ imported>Onny‎ 1,720
+       bytes +465‎ Add configuration example for Caddy
+
+    10 December 2022
+
+     * curprev [ ] [ ] 08:1508:15, 10 December 2022‎ imported>Onny‎ 1,255
+       bytes +1,255‎ Add initial page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/ONLYOFFICE_DocumentServer"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

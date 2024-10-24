@@ -1,0 +1,117 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        File:Raspberry pi 3 glamour.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:Raspberry pi 3 glamour.jpg
+   Size of this preview: 751 × 599 pixels. Other resolution: 1,040 × 830
+   pixels.
+
+   Original file ‎(1,040 × 830 pixels, file size: 188 KB, MIME type:
+   image/jpeg)
+
+   Photo taken by User:samueldr, released under the wiki's own license.
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail          Dimensions  User              Comment 
+           19:44, 17 Thumbnail for                                    
+   current December  version as of      1,040 × 830 Imported>Samueldr
+           2017      19:44, 17 December (188 KB)
+                     2017               
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following 2 pages use this file:
+
+     * NixOS on ARM/Raspberry Pi
+     * NixOS on ARM/Raspberry Pi 3
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   JPEG file comment Created with GIMP 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Raspberry_pi_3_glamour.jpg&oldid=11968"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

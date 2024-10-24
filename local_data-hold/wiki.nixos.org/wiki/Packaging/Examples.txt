@@ -1,0 +1,103 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 See also
+   [ ] Toggle the table of contents
+
+                               Packaging/Examples
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This page lists packages with unusual build steps or exemplary idioms that
+   can be used as guidance for packaging.
+   If enough packages using the same idiom are collected here, this list
+   could be used for factoring them out.
+   Please add any that you feel belong here.
+
+   Java with a native launcher: Minecraft
+
+   from the ChromiumOS repository: crosvm
+
+   GTK Application: mousetweaks
+
+   self-referencing Python: MMA
+
+   multiple, dependent builds: audacious
+
+See also
+
+     * Packaging/Binaries
+     * Packaging/Python
+     * Packaging/Ruby
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Packaging/Examples&oldid=7562"
+   Category:
+     * Nixpkgs
+     * This page was last edited on 30 April 2020, at 12:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,103 @@
+   Link: canonical
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Relevant pages
+   [ ] Toggle the table of contents
+
+                        Nix Language: Learning resources
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   (Redirected from Nix Expression Language: Learning resources)
+     * The Nix manual provides a reference of the language. All language
+       constructs you may use are defined there, together with code snippets.
+     * Nix language basics is a practical tutorial to reading the Nix
+       language.
+     * Nix - A One Pager provides a brief overview of language constructs
+     * Nix by example is a step-by-step tutorial.
+     * Nix Pills Chapter 4 and Chapter 5 discuss key language features
+     * The Nix Tour is an interactive tour that uses the actual package
+       manager to learn you the language by example, in the browser.
+     * Scrive Nix Workshop is a series of examples demonstrating language
+       features, mostly without comments or further explanations.
+     * Learn X in Y minutes is brief listing of Nix syntax, types,
+       operations, etc.
+
+Relevant pages
+
+     * Overview of the Nix Expression Language
+     * Editor Modes for Nix Files
+     * Nix Expression Language: Tips & Tricks
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_Language:_Learning_resources&oldid=10002"
+   Categories:
+     * Nix Language
+     * Guide
+     * This page was last edited on 5 October 2022, at 07:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

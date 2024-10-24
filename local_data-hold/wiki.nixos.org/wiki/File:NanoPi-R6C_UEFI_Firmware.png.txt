@@ -1,0 +1,119 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       File:NanoPi-R6C UEFI Firmware.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:NanoPi-R6C UEFI Firmware.png
+   Size of this preview: 800 × 328 pixels. Other resolution: 1,041 × 427
+   pixels.
+
+   Original file ‎(1,041 × 427 pixels, file size: 40 KB, MIME type:
+   image/png)
+
+   Screenshot of UEFI firmware greeting screen on NanoPi-R6C.
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail   Dimensions  User             Comment         
+                     Thumbnail                                                
+           12:10, 4  for version                              Screenshot of   
+   current November  as of       1,041 × 427 Imported>Jakubgs UEFI firmware   
+           2023      12:10, 4    (40 KB)                      greeting screen 
+                     November                                 on NanoPi-R6C.
+                     2023        
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/NanoPi-R6C
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Horizontal resolution 51.18 dpc 
+   Vertical resolution   51.18 dpc 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:NanoPi-R6C_UEFI_Firmware.png&oldid=11980"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

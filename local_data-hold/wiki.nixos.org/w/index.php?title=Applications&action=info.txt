@@ -1,0 +1,102 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Information for "Applications"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Applications 
+   Default sort key                 Applications 
+   Page length (in bytes)           10,059       
+   Namespace ID                     0            
+   Page ID                          57           
+   Page content language            en - English 
+   Page content model               wikitext     
+   Indexing by robots               Allowed      
+   Number of redirects to this page 0            
+   Counted as a content page        Yes          
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                imported>Makefu                
+   Date of page creation                       16:50, 21 August 2017          
+   Latest editor                               Phanirithvij (talk | contribs) 
+   Date of latest edit                         08:38, 15 September 2024       
+   Total number of edits                       100                            
+   Total number of distinct authors            46                             
+   Recent number of edits (within past 90      6                              
+   days)                                       
+   Recent number of distinct authors           3                              
+
+   Retrieved from "https://wiki.nixos.org/wiki/Applications"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

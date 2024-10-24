@@ -1,0 +1,293 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+     * 3 Usage
+     * 4 Tips and tricks
+          * 4.1 Replace inplace strings with secrets
+          * 4.2 Access secrets inside container
+          * 4.3 Using secrets in initrd
+     * 5 See also
+   [ ] Toggle the table of contents
+
+                                     Agenix
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 10:45, 15 February 2024 by imported>Dafitt (Alternate way
+   to access secrets inside container)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   agenix is a commandline tool for managing secrets in your Nix
+   configuration, encrypted with your existing SSH keys. The project also
+   includes the NixOS module age for adding encrypted secrets into the Nix
+   store and decrypting them.
+
+Installation
+
+   The following example describes an installation via Flakes. For further
+   installation methods see the upstream documentation.
+
+ {
+   inputs.agenix.url = "github:ryantm/agenix";
+   # optional, not necessary for the module
+   #inputs.agenix.inputs.nixpkgs.follows = "nixpkgs";
+
+   outputs = { self, nixpkgs, agenix }: {
+     nixosConfigurations.yourhostname = nixpkgs.lib.nixosSystem {
+       system = "x86_64-linux";
+       modules = [
+         ./configuration.nix
+         agenix.nixosModules.default
+       ];
+     };
+   };
+ }
+
+   Change yourhostname to your actual hostname and x86_64-linux to your
+   system architecture.
+
+   After that installing the agenix client application can be achieved like
+   this
+
+ { config, pkgs, lib, inputs, ... }:{
+   environment.systemPackages = [
+     inputs.agenix.packages."${system}".default
+   ];
+ }
+
+Configuration
+
+   First create a directory where secrets are going to be stored. In this
+   example we're creating the directory secrets inside the NixOS system
+   configuration path /etc/nixos
+
+ # mkdir /etc/nixos/secrets
+
+   Inside the secrets directory we create a secrets.nix file which will be
+   used by the agenix client as a rule file to encrypt secrets for specific
+   users and parts of the system. The following example configures access to
+   secrets stored in secret1.age for the SSH public keys of user1 and
+   system1.
+
+    
+
+ /etc/nixos/secrets/secrets.nix
+
+ let
+   user1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0idNvgGiucWgup/mP78zyC23uFjYq0evcWdjGQUaBH";
+   users = [ user1 ];
+
+   system1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPJDyIr/FSz1cJdcoW69R+NrWzwGK/+3gJpqD1t8L2zE";
+   systems = [ system1 ];
+ in
+ {
+   "secret1.age".publicKeys = [ user1 system1 ];
+ }
+
+   SSH public keys for a specific user or system can be generated with
+   ssh-keygen, see this page for more information. Usually the public key of
+   your user can be found in ~/.ssh/id_rsa.pub and the system one in
+   /etc/ssh/ssh_host_rsa_key.pub.
+
+Usage
+
+   Creating a secret file, which contents will be encrypted
+
+ # cd /etc/nixos/secrets
+ # agenix -e secret1.age
+
+   The agenix command will open your default terminal editor. Write in your
+   secret, for example password123.
+
+   The filename secret1.age is specified above in the agenix secrets.nix
+   configuration. So agenix will know which keys to use for a specific user
+   or system.
+
+   To use and reference the secret inside your Nix configuration, an example
+   would look like this
+
+ age.secrets.nextcloud = {
+   file = ./secrets/secret1.age;
+   owner = "nextcloud";
+   group = "nextcloud";
+ };
+ services.nextcloud = {
+   enable = true;
+   package = pkgs.nextcloud28;
+   hostName = "localhost";
+   config.adminpassFile = config.age.secrets.nextcloud.path;
+ };
+
+   Here, the service Nextcloud requires a password for the administrator
+   account. In this case, the password is stored in an age-encrypted file, so
+   no plaintext passwords will be copied into your world-readable Nix-store.
+   We configure owner and group names to nextcloud so that the webservice has
+   the permissions to read the password wile.
+
+   Secrets can be also deployed as file with specific permissions to a target
+   path. In this example the secret is sourced to /home/myuser/.netrc and
+   permissions are set that only myuser is able to read and write the file
+
+ age.secrets = {
+   netrc = {
+     file = ./secrets/netrc.age;
+     path = "/home/myuser/.netrc";
+     owner = "myuser";
+     group = "users";
+     mode = "600";
+   };
+ };
+
+Tips and tricks
+
+  Replace inplace strings with secrets
+
+   Considering that there still might be some modules which doesn't support
+   reading secrets from a file, you could provide a placeholder string
+   instead of a clear-text password and replace this placeholder with the
+   secret provided by Agenix.
+
+   In the following example, the Dex module creates the config file
+   /run/dex/config.yaml containing the placeholder string
+   @dex-user-password@. The activation script will read the Agenix secret
+   from config.age.secret.dex-user-password.path and replace the placeholder
+   string with the actual secret.
+
+ system.activationScripts."dex-user-secret" = ''
+   secret=$(cat "${config.age.secrets.dex-user-password.path}")
+   configFile=/run/dex/config.yaml
+   ${pkgs.gnused}/bin/sed -i "s#@dex-user-password@#$secret#" "$configFile"
+ '';
+
+  Access secrets inside container
+
+   Using the option bindMounts for an example container named mycontainer
+   will provide the secret file inside the container as /run/agenix/mysecret:
+
+ containers.mycontainer.bindMounts."${config.agenix.secrets.mysecret.path}".isReadOnly = true;
+
+   Another option would be to to use the agenix-module in the
+   nixos-container. This also allows to set the secret-owner to the users
+   inside the container. But it is also necessary to provide the
+   ssh-private-key to the container in order for agenix to decrypt the secret
+   (or generate a own for the container).
+
+ { agenix, ... }: {
+
+   containers."mycontainer" = {
+
+     # pass the private key to the container for agenix to decrypt the secret
+     bindMounts."/etc/ssh/ssh_host_ed25519_key".isReadOnly = true;
+
+     config = { config, lib, pkgs, ... }: {
+
+       imports = [ agenix.nixosModules.default ]; # import agenix-module into the nixos-container
+
+       age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ]; # isn't set automatically for some reason
+
+       # import the secret
+       age.secrets."mysecret" = {
+         file = ../secrets/mysecret.age;
+         owner = "myuser";
+       };
+
+       # use the secret like you normally would with config.age.secrets."mysecret".path
+     };
+   };
+ }
+
+  Using secrets in initrd
+
+   Unfortunately this doesn't work because Agenix sets up secrets during
+   system activation stage but initrd is being built before that. As a
+   workaround we could create the secret as a static file outside of
+   /run/agenix and reference the secret at /etc/initrd-hostkey.
+
+ age.secrets.hostkey-initrd = {
+   file = "${paths.agenix}/hostkey-initrd.age";
+   path = "/etc/initrd-hostkey";
+   symlink = false;
+ };
+
+ boot.initrd.network.ssh.hostKeys = [ "/etc/initrd-hostkey" ];
+
+   For this workaround you'll have to rebuild twice and reference the secret
+   /etc/initrd-hostkey only after the file is created.
+
+See also
+
+     * Comparison of secret managing schemes
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Agenix&oldid=10372"
+   Categories:
+     * Applications
+     * Security
+     * This page was last edited on 15 February 2024, at 10:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

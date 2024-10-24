@@ -1,0 +1,198 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Serial console
+     * 4 Xorg
+     * 5 Resources
+   [ ] Toggle the table of contents
+
+                             NixOS on ARM/ODROID-C2
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   Hardkernel ODROID-C2
+   An ODROID-C2.
+   Manufacturer Hardkernel      
+   Architecture AArch64         
+   Bootloader   Upstream U-Boot 
+   Boot options SD, eMMC        
+
+    This article or section is out of date.                                   
+    Reason: The information is likely outdated, but it is likely the          
+    ODROID-C2 works well. (Discuss in Talk:NixOS on ARM/ODROID-C2)            
+    Once the page has been updated this notice can be removed.                
+
+Status
+
+   Mainline kernel from NixOS has been reported as working^[1]. A
+   non-specified build from mainline u-boot also has been reported to work.
+
+Board-specific installation notes
+
+   Note this assumes u-boot is in partition 1 of your board's connected eMMC.
+   If you haven't done that yet, you can build it with nix and then write it
+   this fusing script (using an emmc/usb adapter) download and extract
+   (replace /dev/sdX with the device for the eMMC):
+
+ nix-build '<nixpkgs>' -A pkgsCross.aarch64-multiplatform.ubootOdroidC2
+ cd result
+ bash /path/to/extracted/boot/sd_fusing.sh /dev/sdX
+
+    1. Download the sd-image from Hydra at
+       https://hydra.nixos.org/job/nixos/release-22.05-aarch64/nixos.sd_image.aarch64-linux/latest
+    2. Copy it to the SD card
+    3. Mount first partition to /mnt with sudo mount /dev/mmcblk0p1 /mnt
+    4. Edit /mnt/extlinux/extlinux.conf and delete all the console=tty....
+       arguments in the APPEND line
+    5. Add console=ttyAML0,115200n8 to the end of the APPEND line
+
+   it will look something like this:
+
+ $ cat  /mnt/extlinux/extlinux.conf
+ # Generated file, all changes will be lost on nixos-rebuild!
+
+ # Change this to e.g. nixos-42 to temporarily boot to an older configuration.
+ DEFAULT nixos-default
+
+ MENU TITLE ------------------------------------------------------------
+ TIMEOUT 30
+
+ LABEL nixos-default
+   MENU LABEL NixOS - Default
+   LINUX ../nixos/gz1chw67hj8fj2b3xdrkv1nxrv8jvdzv-linux-4.19.13-Image
+   INITRD ../nixos/4gifkl2yv2g58nxmf6z68y42s70xrsg0-initrd-initrd
+   FDTDIR ../nixos/gz1chw67hj8fj2b3xdrkv1nxrv8jvdzv-linux-4.19.13-dtbs
+   APPEND systemConfig=/nix/store/...-nixos-system-nixos-xxx.xxx.xxx.xxx init=/nix/store/...-nixos-system-nixos-xx.xx.xxxx.xxx init loglevel=7 cma=32M console=ttyAML0,115200n8
+
+   and then boot the sdcard.
+
+   Once booted, partition your on-board emmc like:
+
+ Device         Boot    Start      End  Sectors  Size Id Type
+ /dev/mmcblk0p1          2048   264191   262144  128M  c W95 FAT32 (LBA)
+ /dev/mmcblk0p2 *      264192 50595839 50331648   24G 83 Linux
+ /dev/mmcblk0p3      50595840 61071359 10475520    5G 83 Linux
+
+   note **p2** is bootable.
+
+ $ mkfs.ext4 /dev/mmcblk0p2
+ $ mkswap /dev/mmcblk0p3
+ $ swapon /dev/mmcblk0p3
+ $ mount /dev/mmcblk0p2 /mnt
+ $ nixos-generate-config /mnt
+ $ nixos-install
+ $ reboot
+
+Serial console
+
+   I used minicom to access the serial console:
+
+ $ cat /etc/minirc.odroid-c2
+ # Machine-generated file - use "minicom -s" to change parameters.
+ pu port             /dev/ttyUSB0
+ pu lock             /var/lock
+ pu rtscts           No
+
+   then run sudo minicom to access the console.
+
+Xorg
+
+   Nixos 20.03 should install all modules needed for this to work but at
+   least two changes should be made to the xorg configuration:
+
+ services.xserver.videoDrivers = [ "modesetting"  ];
+   services.xserver.extraConfig = ''
+     Section "OutputClass"
+         Identifier "Meson"
+         MatchDriver "meson"
+         Driver "modesetting"
+         Option "PrimaryGPU" "true"
+     EndSection
+   '';
+
+   The HW cursor support was very laggy when tried on 20.03 so enabling the
+   software cursor may be desired:
+
+ services.xserver.deviceSection = "Option \"SWcursor\" \"on\"";
+
+Resources
+
+     * Official product page
+     * NixOS Image Build for Odroid-C2 by George Whewell
+    1. ↑ https://logs.nix.samueldr.com/nixos-aarch64/2018-01-25#863144;
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/ODROID-C2&oldid=17489"
+   Hidden categories:
+     * Pages with syntax highlighting errors
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 15 September 2024, at 09:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

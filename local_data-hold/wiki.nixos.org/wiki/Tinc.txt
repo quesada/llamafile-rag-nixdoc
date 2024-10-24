@@ -1,0 +1,372 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 What is tinc
+     * 2 How peer to peer setup in tinc
+          * 2.1 Overview
+          * 2.2 Generate keys
+          * 2.3 Create host files
+          * 2.4 Setup interface
+               * 2.4.1 networking.interfaces
+               * 2.4.2 tinc-up/tinc-down
+          * 2.5 Open the Firewall
+          * 2.6 use service.tinc module
+               * 2.6.1 /etc/nixos/tinc.nix on heinz
+               * 2.6.2 /etc/nixos/tinc.nix on peter
+   [ ] Toggle the table of contents
+
+                                      Tinc
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+                                  What is tinc
+
+   Tinc is an awesome vpn mesh.
+
+                         How peer to peer setup in tinc
+
+   The following tutorial will setup a very simple scenario, where you create
+   a tinc vpn between two computers in the same network. In this scenario
+   heinz will connect to peter. But this will make heinz also visible to
+   peter.
+
+   It can easily be improved to a setup with multiple computers involved.
+
+Overview
+
+   The following diagram shows the network we want to setup.
+
+                      network : private
+ +--------------------------+      +--------------------------+
+ |    name : heinz          |      |    name : peter          |
+ | real ip : 192.168.178.25 | ---> | real ip : 192.168.178.21 |
+ | tinc ip : 10.1.1.25/24   |      | tinc ip : 10.1.1.21/24   |
+ +--------------------------+      +--------------------------+
+
+Generate keys
+
+   Tinc clients need to verify themselves to each other, which is done by
+   keys. There are multiple ways to generate your keys. Here is one.
+
+ nix-shell -p tinc_pre --run "tinc generate-keys 4096"
+
+   The command ask you where to put the keys. If you hit enter a few times it
+   will generate 4 files. (instead of hitting enter you can give it different
+   file path)
+
+     * /etc/tinc/rsa_key.priv
+     * /etc/tinc/rsa_key.pub
+     * /etc/tinc/ed25519_key.priv
+     * /etc/tinc/ed25519_key.pub
+
+Create host files
+
+   The hostfile can have a lot of parameters (here is an overview).
+
+   But these are the minimum needed for our setup
+
+     * Address : The real world IP-Address of this machine
+     * Subnet : The tinc network IP-Address (the one we want to connect to
+       after the tinc network is setup).
+
+   Also the host files need to contain the public keys for this host.
+
+   So lets create the two hostfiles. Assuming we have generated keys for the
+   2 machines and they are stored in the folders heinz and peter.
+
+ cat >hosts_heinz <<EOF
+ Address = 192.168.178.25
+ Subnet  = 10.1.1.25
+ EOF
+ cat heinz/rsa_key.pub >> hosts_heinz
+ cat heinz/ed25519_key.pub >> hosts_heinz
+
+ cat >hosts_peter <<EOF
+ Address = 192.168.178.21
+ Subnet  = 10.1.1.21
+ EOF
+ cat peter/rsa_key.pub >> hosts_heinz
+ cat peter/ed25519_key.pub >> hosts_heinz
+
+Setup interface
+
+   We have to configure the tinc tunnel interface.
+
+  networking.interfaces
+
+   NOTE: There are changes proposed to nix configuration, for using networkd
+   based configuration instead of the current fragile scripted configuration,
+   that will hopefully make the following section obsolete.
+
+   The simplest way is to use the networking module. But it has some minor
+   flaws on package updates.
+
+ # for heinz
+ networking.interfaces."tinc.${networkName}".ipv4.addresses = [ { address = "10.1.1.25"; prefixLength = 24; } ];
+
+   Another author has experienced problems with the network failing to
+   restart when using the above to configure interfaces. The following
+   snippet seems to fix that (until perhaps a more proper fix is
+   upstreamed?):
+
+   # Start the unit for adding addresses if Tinc is started
+   systemd.services."tinc.${networkName}".wants = [ "network-addresses-tinc.${networkName}.service" ];
+   # Stop the unit for adding addresses if Tinc is stopped or restarted
+   systemd.services."network-addresses-tinc.${networkName}".partOf = [ "tinc.${networkName}.service" ];
+   # Start the unit for adding addresses after the Tinc device is added
+   systemd.services."network-addresses-tinc.${networkName}".after = [ "sys-subsystem-net-devices-tinc.${networkName}.device" ];
+
+  tinc-up/tinc-down
+
+   A more robust but more complicated way to configure the interfaces are the
+   tinc-up and tinc-down scripts.
+
+   First we have to create the scripts:
+
+ # for heinz
+ environment.etc = {
+     "tinc/private/tinc-up".source = pkgs.writeScript "tinc-up-private" ''
+         #!${pkgs.stdenv.shell}
+         ${pkgs.nettools}/bin/ifconfig $INTERFACE 10.1.1.25 netmask 255.255.255.0
+     '';
+     "tinc/private/tinc-down".source = pkgs.writeScript "tinc-down-private" ''
+         #!${pkgs.stdenv.shell}
+         /run/wrappers/bin/sudo ${pkgs.nettools}/bin/ifconfig $INTERFACE down
+     '';
+ };
+
+   For the tinc-down we need to use sudo, because the user tinc.private who
+   starts the service is not able to tear down the interface.
+
+   So we have to make sure this user can call sudo without entering a
+   password.
+
+  security.sudo.extraRules = [
+     {
+       users    = [ "tinc.private" ];
+       commands = [
+         {
+           command  = "${pkgs.nettools}/bin/ifconfig";
+           options  = [ "NOPASSWD" ];
+         }
+       ];
+     }
+   ];
+
+Open the Firewall
+
+   The computer which you connect to needs to open some ports.
+
+ networking.firewall.allowedUDPPorts = [ 655 ];
+ networking.firewall.allowedTCPPorts = [ 655 ];
+
+use service.tinc module
+
+   Now we have everything we need to configure the services.tinc module in
+   our configuration.nix file on both machines.
+
+   You can recognise that the services.tinc."${myMeshName}".hosts have the
+   same content on both machines.
+
+   It is also important that you set services.tinc."${myMeshName}".name to a
+   machine that is contained in the services.tinc."${myMeshName}".hosts.
+
+  /etc/nixos/tinc.nix on heinz
+
+ { config, pkgs, ... }:
+
+ let
+
+   myMeshIp   = "10.1.1.25";
+   myMeshMask = "255.255.255.0";
+   myMeshName = "private";
+
+ in {
+
+   # simple interface setup
+   # ----------------------
+   networking.interfaces."tinc.${myMeshName}" = [ { address = myMeshIp; } ];
+
+
+   # configure tinc service
+   # ----------------------
+   services.tinc.networks."${myMeshName}"= {
+
+     name          = "heinz";      # who are we in this network.
+
+     debugLevel    = 3;            # the debug level for journal -u tinc.private
+     chroot        = false;        # otherwise addresses can't be a DNS
+     interfaceType = "tap";        # tun might also work.
+
+     extraConfig   = ''
+       # connect to peter
+       # ----------------
+       # check AutoConnect as alternative option.
+       ConnectTo  = peter
+
+       # Keys
+       # ----
+       # if you don't set the path as string, it will import the file in
+       # in the nix/store where everybody can read it.
+       Ed25519PrivateKeyFile = "/root/secrets/heinz/ed25519_key.priv"
+       PrivateKeyFile        = "/root/secrets/heinz/rsa_key.priv"
+     '';
+     hosts = {
+       # content of hosts_heinz (from above)
+       heinz = ''
+         Address = 192.168.178.25
+         Subnet  = 10.1.1.25
+
+         Ed25519PublicKey = asdf ...
+         -----BEGIN RSA PUBLIC KEY-----
+         bla blub ...
+         -----END RSA PUBLIC KEY-----
+         '';
+       # content of hosts_peter (from above)
+       peter = ''
+         Address = 192.168.178.21
+         Subnet  = 10.1.1.21
+
+         Ed25519PublicKey = asdf ...
+         -----BEGIN RSA PUBLIC KEY-----
+         bla blub ...
+         -----END RSA PUBLIC KEY-----
+       '';
+     };
+   };
+ }
+
+  /etc/nixos/tinc.nix on peter
+
+ { config, pkgs, ... }:
+
+ let
+
+   myMeshIp   = "10.1.1.21";
+   myMeshMask = "255.255.255.0";
+   myMeshName = "private";
+
+ in {
+
+   # open tinc ports
+   # ---------------
+   networking.firewall.allowedTCPPorts = [ 655 ];
+   networking.firewall.allowedUDPPorts = [ 655 ];
+
+   # simple interface setup
+   # ----------------------
+   networking.interfaces."tinc.${myMeshName}" = [ { address = myMeshIp; } ];
+
+
+   # configure tinc service
+   # ----------------------
+   services.tinc.networks."${myMeshName}"= {
+
+     name          = "peter";      # who are we in this network.
+
+     debugLevel    = 3;            # the debug level for journal -u tinc.private
+     chroot        = false;        # otherwise addresses can't be a DNS
+     interfaceType = "tap";        # tun might also work.
+
+     extraConfig   = ''
+       # Keys
+       # ----
+       # if you don't set the path as string, it will import the file in
+       # in the nix/store where everybody can read it.
+       Ed25519PrivateKeyFile = "/root/secrets/peter/ed25519_key.priv"
+       PrivateKeyFile        = "/root/secrets/peter/rsa_key.priv"
+     '';
+     hosts = {
+       # content of hosts_heinz (from above)
+       heinz = ''
+         Address = 192.168.178.25
+         Subnet  = 10.1.1.25
+
+         Ed25519PublicKey = asdf ...
+         -----BEGIN RSA PUBLIC KEY-----
+         bla blub ...
+         -----END RSA PUBLIC KEY-----
+         '';
+       # content of hosts_peter (from above)
+       peter = ''
+         Address = 192.168.178.21
+         Subnet  = 10.1.1.21
+
+         Ed25519PublicKey = asdf ...
+         -----BEGIN RSA PUBLIC KEY-----
+         bla blub ...
+         -----END RSA PUBLIC KEY-----
+       '';
+     };
+   };
+ }
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Tinc&oldid=5956"
+     * This page was last edited on 27 February 2022, at 13:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

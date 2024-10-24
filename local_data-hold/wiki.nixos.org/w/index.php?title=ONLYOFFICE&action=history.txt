@@ -1,0 +1,128 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          ONLYOFFICE: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    22 August 2024
+
+     * curprev [ ] [ ] 05:4305:43, 22 August 2024‎ Vuhoanghuynh02 talk
+       contribs‎ m 1,880 bytes −26‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 05:4205:42, 22 August 2024‎ Vuhoanghuynh02 talk
+       contribs‎ m 1,906 bytes 0‎ Vuhoanghuynh02 moved page Onlyoffice to
+       ONLYOFFICE: Misspelled title
+     * curprev [ ] [ ] 05:2105:21, 22 August 2024‎ Vuhoanghuynh02 talk
+       contribs‎ m 1,906 bytes +58‎ ONLYOFFICE full uppercase Tag: Visual
+       edit
+
+    27 May 2023
+
+     * curprev [ ] [ ] 14:4614:46, 27 May 2023‎ imported>Onny‎ m 1,848 bytes
+       −33‎ No edit summary
+     * curprev [ ] [ ] 14:4414:44, 27 May 2023‎ imported>Onny‎ 1,881 bytes
+       +975‎ Add troubleshooting section
+     * curprev [ ] [ ] 09:0509:05, 27 May 2023‎ imported>Onny‎ 906 bytes
+       +906‎ Add initial page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/ONLYOFFICE"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

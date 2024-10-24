@@ -1,0 +1,111 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Minetest Server Setup
+   [ ] Toggle the table of contents
+
+                                Minetest Server
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Minetest is a voxel game engine than allows for many different games to be
+   played.
+
+Minetest Server Setup
+
+   Below is a basic configuration that will setup the Minetest server and use
+   port 30000.
+
+ {
+  services.minetest-server = {
+    enable = true;
+    port = 30000;
+  };
+ }
+
+   With this setup, a user named minetest will be created, along with its
+   home folder '/var/lib/minetest'. All standard Minetest configuration and
+   world files are stored in /var/lib/minetest/.minetest.
+
+   The Minetest service will be started after running nixos-rebuild. It can
+   be controlled using systemctl
+
+ systemctl start minetest-server.service
+ systemctl stop minetest-server.service
+
+   Additional options can be found in the NixOS options search
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Minetest_Server&oldid=12395"
+   Categories:
+     * Server
+     * Applications
+     * Gaming
+     * This page was last edited on 24 April 2024, at 17:16.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

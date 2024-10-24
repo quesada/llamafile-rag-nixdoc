@@ -1,0 +1,228 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+          * 2.1 Invoice templates
+          * 2.2 Invoice mail delivery
+          * 2.3 Recurring invoices
+          * 2.4 Electronic invoice
+     * 3 Maintenance
+          * 3.1 Upgrading to new versions
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                  Invoiceplane
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Invoiceplane is a web application for managing invoices, clients and
+   payments.
+
+Installation
+
+   To setup Invoiceplane locally, this is the most minimal configuration to
+   get started
+
+ /etc/nixos/configuration.nix
+
+ services.invoiceplane.sites."localhost".enable = true;
+
+   After that Invoiceplane will be available at http://localhost . Complete
+   the setup by choosing your default language and setting up your user
+   profile.
+
+   It is recommended to disable the setup wizard after installation is
+   complete. Add following arguments to the settings option:
+
+ /etc/nixos/configuration.nix
+
+ services.invoiceplane.sites."localhost".settings = {
+   DISABLE_SETUP=true;
+   SETUP_COMPLETED=true;
+ };
+
+Configuration
+
+  Invoice templates
+
+   Invoiceplane will render and export invoices as PDF. You can create your
+   own invoice templates or reuse existing ones. The following example
+   fetches an invoice template and makes it available to your running
+   Invoiceplane instance
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, lib, ... }:
+ let
+
+   template-vtdirektmarketing = pkgs.stdenv.mkDerivation {
+     name = "vtdirektmarketing";
+     src = pkgs.fetchgit {
+       url = "https://git.project-insanity.org/onny/invoiceplane-vtdirektmarketing.git";
+       rev = "0c5807132ea6cecdb9d031d9b61e478d371f7607";
+       hash = "sha256-sVunmCWRYcZwADQLhQHiuU4faMB05hEqwH1/os1Rxqo=";
+     };
+     makeFlags = [ "DESTDIR=$(out)" ];
+   };
+
+ in {
+
+   services.invoiceplane.sites."localhost" = {
+     enable = true;
+     invoiceTemplates = [ template-vtdirektmarketing ];
+   };
+
+ }
+
+  Invoice mail delivery
+
+   There are several methods to automatically deliver invoices via mail.
+   First we have to configure which mail backend to use. One method which is
+   confirmed to work on NixOS is to use sendmail. Using a configured program
+   like Msmtp to relay mails from your server using your existing mail
+   provider. Unfortunately it is not yet possible to configure the mail
+   backend with extraSettings. In this case navigate in the web interface to:
+   Settings → System settings → E-Mail and set mail delivery method to
+   Sendmail.
+
+   Invoices can be send directly while editing them. It is also possible to
+   create a common mail template which can be reused. Go to Settings → Mail
+   templates. To configure a default mail template, go to Settings → System
+   settings → Invoices.
+
+  Recurring invoices
+
+   See upstream documentation on how to configure recurring. invoices. This
+   feature requires a cron task setup which queries the Invoiceplane backend
+   every few minutes. This can be configured with the Invoiceplane module as
+   follows
+
+ /etc/nixos/configuration.nix
+
+ services.invoiceplane.sites."localhost" = {
+   cron.enable = true;
+   cron.key = "1234";
+ };
+
+   Replace the cron key value with the one given in the Invoiceplane
+   administration web interface.
+
+  Electronic invoice
+
+   To enable electronic invoicing using the standard ZUGFeRD, we can hardcode
+   the activation into the InvoicePlane source code. Otherwise it has to be
+   manually enabled in the settings menu of the web app.
+
+ /etc/nixos/configuration.nix
+
+ nixpkgs = {
+   overlays = [
+     (self: super: {
+       invoiceplane = super.invoiceplane.overrideAttrs (oldAttrs: rec {
+         postFixup = ''
+           sed -i 's/\$include_zugferd = .*/$include_zugferd = true;/g' $out/application/helpers/pdf_helper.php
+         '';
+       });
+     })
+   ];
+ };
+
+   Enabling this via settings option is not yet possible.
+
+Maintenance
+
+  Upgrading to new versions
+
+   After upgrading to a new version of Invoiceplane, change following two
+   lines of your Invoiceplane config to re-enable the setup wizard, required
+   for database upgrades.
+
+ /etc/nixos/configuration.nix
+
+ services.invoiceplane.sites."localhost".settings = {
+   DISABLE_SETUP=false;
+   SETUP_COMPLETED=false;
+ };
+
+   Access your Invoiceplane instance again in your browser and rerun the
+   setup. After upgrading the tables you can login as usual. It is now
+   recommended to change both variables in the config file above back to
+   true.
+
+See also
+
+     * Crater, alternative self-hosted invoicing application
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Invoiceplane&oldid=13008"
+   Categories:
+     * Server
+     * Web Applications
+     * This page was last edited on 31 May 2024, at 08:08.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

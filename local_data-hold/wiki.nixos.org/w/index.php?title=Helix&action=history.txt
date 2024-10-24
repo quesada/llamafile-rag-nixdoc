@@ -1,0 +1,137 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Helix: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    25 June 2024
+
+     * curprev [ ] [ ] 18:4618:46, 25 June 2024‎ Klinger talk contribs‎ m
+       1,953 bytes +50‎ short example about tree-sitter integration
+
+    20 June 2024
+
+     * curprev [ ] [ ] 14:3814:38, 20 June 2024‎ Klinger talk contribs‎ m
+       1,903 bytes +25‎ Category:Text Editor
+     * curprev [ ] [ ] 13:2613:26, 20 June 2024‎ Hexa talk contribs‎ m 1,878
+       bytes +27‎ →‎Configuration Tag: Visual edit
+     * curprev [ ] [ ] 13:2513:25, 20 June 2024‎ Hexa talk contribs‎ m 1,851
+       bytes +7‎ →‎With Home Manager Tag: Visual edit
+     * curprev [ ] [ ] 13:2413:24, 20 June 2024‎ Hexa talk contribs‎ m 1,844
+       bytes −10‎ →‎Installation Tag: Visual edit
+     * curprev [ ] [ ] 13:2313:23, 20 June 2024‎ Hexa talk contribs‎ m 1,854
+       bytes +13‎ →‎Installation Tag: Visual edit
+
+    22 May 2024
+
+     * curprev [ ] [ ] 19:0019:00, 22 May 2024‎ Klinger talk contribs‎ 1,841
+       bytes +948‎ Category and sentence to explain what it is. hx --health.
+       Tag: Visual edit
+
+    8 February 2024
+
+     * curprev [ ] [ ] 22:1922:19, 8 February 2024‎ imported>Mbwk‎ 893 bytes
+       +893‎ Initial article on Helix
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Helix"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

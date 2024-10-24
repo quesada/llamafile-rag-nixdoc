@@ -1,0 +1,154 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 adding plugins
+          * 1.1 plugin list
+          * 1.2 plugin example configuration
+     * 2 missing features
+          * 2.1 missing imagemagicksupport for pdf
+          * 2.2 missing imagemagicksupport for convert
+     * 3 enabling sending mails example configuration
+   [ ] Toggle the table of contents
+
+                                  Talk:Redmine
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+adding plugins
+
+  plugin list
+
+           for current version 4.2
+
+   https://www.redmine.org/plugins?utf8=%E2%9C%93&page=1&sort=&v=4.2
+
+  plugin example configuration
+
+   services.redmine.plugins = {
+     redmine_env_auth = builtins.fetchurl {
+       url = "https://github.com/Intera/redmine_env_auth/archive/refs/tags/1.1.tar.gz";
+       sha256 = "1fxnkdpd2pgqmirif0jq3iydvlf4wglf1yn56p0vjqdpjfdz9y9m";
+     };
+
+missing features
+
+    missing imagemagicksupport for pdf
+
+   Version 22.11
+
+   https://redmine.domain.tld/admin/info
+
+ Information
+
+   Redmine version                4.2.8.stable
+
+ ImageMagick PDF support available (optional)
+
+   does not work.
+
+   Maybe the command convert (from the package imagemagick) can not convert
+   from pdf to images (for example for the file type png).
+
+   Maybe imagemagickBig must be used (instead of imagemagick) at build time.
+
+    missing imagemagicksupport for convert
+
+   Version 23.05
+
+   https://redmine.domain.tld/admin/info
+
+ Information
+
+   Redmine version                5.0.5.stable
+
+ ImageMagick convert available (optional)
+
+   does not work.
+
+enabling sending mails example configuration
+
+   services.redmine.settings = {
+     production = {
+       email_delivery = {
+         delivery_method = ":smtp";
+         smtp_settings = {
+           address = "mail.domain.tld";
+           port = 25;
+         };
+ #      email_delivery = {
+ #        delivery_method = ":sendmail";
+ #        };
+       };
+     };
+   };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Redmine&oldid=10211"
+     * This page was last edited on 18 November 2023, at 21:13.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

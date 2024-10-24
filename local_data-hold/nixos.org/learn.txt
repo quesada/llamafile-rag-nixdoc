@@ -1,0 +1,137 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                                     Learn
+
+                                     Learn
+
+   Install Nix
+   First steps with Nix
+   How Nix works
+
+Search
+
+  Nix packages
+
+   _____________________
+
+  NixOS options
+
+   _____________________
+
+Nix Manual
+
+   Nix is a package manager which comes in a form of many command line tools.
+   Packages that Nix can build are defined with the Nix Expression Language.
+
+     * Installation
+     * Basic package management
+     * What is a channel?
+     * Main command line tools:
+          * nix-env — manipulate or query Nix user environments
+          * nix-build — build a Nix expression
+          * nix-shell — start an interactive shell based on a Nix expression
+          * nix-store — manipulate or query the Nix store
+     * Nix expression language
+          * Built-in functions
+          * Nixpkgs Library Functions
+          * Debugging Nix Expressions
+   Full Nix Manual
+
+Nixpkgs Manual
+
+   The Nix Packages collection (Nixpkgs) is a set of thousands of packages
+   for the Nix package manager and NixOS Linux distribution.
+
+     * Configure nixpkgs
+     * Customize packages (override packages)
+     * Extend nixpkgs (via overlays)
+     * Adding a package to nixpkgs
+          * The Standard Environment
+          * Fetching sources
+          * Building images:
+                  * Docker - Snap - AppImage - OCI - …
+     * Integrate Nix with programming languages:
+             * Javascript (Node) - Python - Ruby - Java - Go - Rust - R -
+               Haskell - Elm - BEAM Languages (Erlang, Elixir, LFE) - Lua -
+               Idris - Coq - Perl - OCaml - …
+     * Integrate Nix with frameworks:
+             * Android - IOS - Titanium - Tex Live - Qt - …
+     * Configure your editor with Nix:
+             * Vim - Emacs - Eclipse - Kakoune - …
+     * Contributing to Nixpkgs
+   Full Nixpkgs Manual
+
+NixOS Manual
+
+   NixOS is a Linux distribution based on Nix package manager.
+
+     * Installing NixOS
+     * Changing the Configuration
+     * Upgrading NixOS
+     * Configuration Syntax
+     * Package Management
+     * User Management
+     * Troubleshooting
+     * Writing NixOS Modules
+     * Writing NixOS Documentation
+     * Writing NixOS Tests
+     * Building Your Own NixOS CD
+   Full NixOS Manual
+
+Other learning resources
+
+  The Nix hour
+
+   A weekly beginner-oriented interactive video lecture on all things Nix.
+   Running since October 2022.
+
+   Watch on Youtube
+
+  NixOS Wiki
+
+   A user-maintained wiki for Nix and NixOS
+
+   Check the wiki
+
+  Nix Pills
+
+   A low-level tutorial on building software packages with Nix, showing in
+   detail how Nixpkgs is constructed.
+
+   Take the Pills
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

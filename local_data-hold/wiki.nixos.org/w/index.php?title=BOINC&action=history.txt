@@ -1,0 +1,134 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            BOINC: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    17 May 2024
+
+     * curprev [ ] [ ] 11:1911:19, 17 May 2024‎ Klinger talk contribs‎ m 654
+       bytes +77‎ links to BOINC and documentation of boinc-manager Tag:
+       Visual edit
+
+    16 May 2024
+
+     * curprev [ ] [ ] 21:5721:57, 16 May 2024‎ 42 talk contribs‎ 577 bytes
+       +123‎ extraEnvPackages for Rosetta Beta 6.05 Tag: Visual edit
+
+    4 May 2024
+
+     * curprev [ ] [ ] 11:1811:18, 4 May 2024‎ Klinger talk contribs‎ m 454
+       bytes +26‎ No edit summary Tags: Mobile edit Mobile web edit
+
+    17 July 2023
+
+     * curprev [ ] [ ] 03:5203:52, 17 July 2023‎ imported>L0b0‎ 428 bytes
+       −58‎ Remove unnecessary default value
+
+    13 February 2022
+
+     * curprev [ ] [ ] 04:4504:45, 13 February 2022‎ imported>Klaymore‎ 486
+       bytes +486‎ Started page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/BOINC"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

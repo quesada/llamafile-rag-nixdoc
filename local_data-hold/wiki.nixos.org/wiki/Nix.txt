@@ -1,0 +1,199 @@
+   Link: canonical
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Usage
+          * 1.1 Installation
+          * 1.2 Nix commands
+          * 1.3 Configuration
+     * 2 Internals
+          * 2.1 Nix store
+          * 2.2 Profiles
+          * 2.3 Sandboxing
+          * 2.4 Alternative Interpreters
+     * 3 Notes
+   [ ] Toggle the table of contents
+
+                              Nix package manager
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   (Redirected from Nix)
+
+   Nix is a package manager and build system that parses reproducible build
+   instructions specified in the Nix Expression Language, a pure functional
+   language with lazy evaluation. Nix expressions are pure
+   functions^[1]taking dependencies as arguments and producing a derivation
+   specifying a reproducible build environment for the package. Nix stores
+   the results of the build in unique addresses specified by a hash of the
+   complete dependency tree, creating an immutable package store (aka the nix
+   store) that allows for atomic upgrades, rollbacks and concurrent
+   installation of different versions of a package, essentially eliminating
+   dependency hell.
+
+Usage
+
+  Installation
+
+   NixOS: Nix is being installed while you install NixOS.
+
+   If you intend to utilize Nix on a different Linux distribution or a Mac
+   computer, you can perform a standalone installation: The installation
+   section of the Nix manual describes the installation of standalone Nix
+   from binary or source.
+
+  Nix commands
+
+   The Nix commands are documented in the Nix reference manual: main
+   commands, utilities and experimental commands. Prior to version 2.0
+   (released in February 2018) there have been different commands.
+
+  Configuration
+
+   On NixOS, Nix is configured through the nix option.
+
+   Standalone Nix is configured through nix.conf (usually found in
+   /etc/nix/), which defines a number of settings relating to evaluation,
+   builds, garbage collection, sandboxing, and user permissions. Details on
+   the available options are found in the Nix reference manual.
+
+   Even further configuration is possible with Home Manager to manage
+   declarative environments for a single user. For system-wide configuration
+   on Linux, you can use System Manager. For system-wide configuration on
+   macOS, nix-darwin is the preferred solution.
+
+Internals
+
+  Nix store
+
+   Packages built by Nix are placed in the read-only Nix store, normally
+   found in /nix/store. Each package is given a unique address specified by a
+   cryptographic hash followed by the package name and version, for example
+   /nix/store/nawl092prjblbhvv16kxxbk6j9gkgcqm-git-2.14.1. These prefixes
+   hash all the inputs to the build process, including the source files, the
+   full dependency tree, compiler flags, etc. This allows Nix to
+   simultaneously install different versions of the same package, and even
+   different builds of the same version, for example variants built with
+   different compilers. When adding, removing or updating a package, nothing
+   is removed from the store; instead, symlinks to these packages are added,
+   removed or changed in profiles.
+
+  Profiles
+
+   In order to construct a coherent user or system environment, Nix symlinks
+   entries of the Nix store into profiles. These are the front-end by which
+   Nix allows rollbacks: since the store is immutable and previous versions
+   of profiles are kept, reverting to an earlier state is simply a matter of
+   change the symlink to a previous profile. To be more precise, Nix symlinks
+   binaries into entries of the Nix store representing the user environments.
+   These user environments are then symlinked into labeled profiles stored in
+   /nix/var/nix/profiles, which are in turn symlinked to the user's
+   ~/.nix-profile.
+
+  Sandboxing
+
+   When sandbox builds are enabled, Nix will setup an isolated environment
+   for each build process. It is used to remove further hidden dependencies
+   set by the build environment to improve reproducibility. This includes
+   access to the network during the build outside of fetch* functions and
+   files outside the Nix store. Depending on the operating system access to
+   other resources are blocked as well (ex. inter process communication is
+   isolated on Linux); see nix.conf section in the Nix manual for details.
+
+   Sandboxing is enabled by default on Linux, and disabled by default on
+   macOS. In pull requests for Nixpkgs people are asked to test builds with
+   sandboxing enabled (see Tested using sandboxing in the pull request
+   template) because in official Hydra builds sandboxing is also used.
+
+   To configure Nix for sandboxing, set sandbox = true in /etc/nix/nix.conf;
+   to configure NixOS for sandboxing set nix.useSandbox = true; in
+   configuration.nix. The nix.useSandbox option is true by default since
+   NixOS 17.09.
+
+  Alternative Interpreters
+
+   There is an ongoing effort to reimplement Nix, from the ground up, in
+   Rust.
+
+     * tvix
+
+   Earlier attempts can be found on riir-nix
+
+Notes
+
+    1. ↑ Values cannot change during computation. Functions always produce
+       the same output if their input does not change.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_package_manager&oldid=17454"
+   Categories:
+     * Pedias
+     * Nix
+     * Incomplete
+     * Software
+     * This page was last edited on 14 September 2024, at 19:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

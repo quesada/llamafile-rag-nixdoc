@@ -1,0 +1,179 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS & Flakes Book
+   SearchK
+   Main NavigationHomePrefaceGet StartedBest Practices
+
+   English
+
+   简体中文
+
+   English
+
+   简体中文
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+Preface
+
+   Preface
+
+Get Started
+
+   Introduction
+
+   Advantages and Disadvantages
+
+   Installation
+
+The Nix Language
+
+   Basics
+
+NixOS with Flakes
+
+   Get Started with NixOS
+
+   Introduction to Flakes
+
+   NixOS with Flakes Enabled
+
+   NixOS's flake.nix Explained
+
+   The combination ability of Flakes and Nixpkgs module system
+
+   Getting Started with Home Manager
+
+   Modularize the Configuration
+
+   Updating the System
+
+   Downgrading or Upgrading Packages
+
+   Other useful Tips
+
+Nixpkgs's Advanced Usage
+
+   Introduction
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   Multiple Nixpkgs Instances
+
+Nix Store & Binary Cache
+
+   Introduction
+
+   Add Binary Cache Servers
+
+   Host Your Own Binary Cache Server
+
+Best Practices
+
+   Introduction
+
+   Run downloaded binaries on NixOS
+
+   Simplify NixOS-related Commands
+
+   Accelerating Dotfiles Debugging
+
+   Custom NIX_PATH and Flake Registry
+
+   Remote Deployment
+
+   Debugging Derivations and Nix Expressions
+
+Other Usage of Flakes
+
+   Introduction
+
+   Flake Inputs
+
+   Flake Outputs
+
+   The New CLI
+
+   Module System & Custom Options
+
+   [WIP]Testing
+
+Dev Environments on NixOS
+
+   nix shell, nix develop & pkgs.runCommand
+
+   Dev Environments
+
+   [WIP]Packaging 101
+
+   Cross-platform Compilation
+
+   Distributed Building
+
+   [WIP]Kernel Development
+
+Advanced Topics
+
+   Advanced Topics
+
+Frequently Asked Questions
+
+   Frequently Asked Questions
+
+   On this page
+
+                             Updating the System ​
+
+   With Flakes, updating the system is straightforward. Simply execute the
+   following commands in /etc/nixos or any other location where you keep the
+   configuration:
+
+   [ Submit ]shell
+
+ # Update flake.lock
+ nix flake update
+ # Or replace only the specific input, such as home-manager:
+ nix flake update home-manager
+ # Apply the updates
+ sudo nixos-rebuild switch --flake .
+ # Or to update flake.lock & apply with one command (i.e. same as running "nix flake update" before)
+ sudo nixos-rebuild switch --recreate-lock-file --flake .
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+
+   Occasionally, you may encounter a "sha256 mismatch" error when running
+   nixos-rebuild switch. This error can be resolved by updating flake.lock
+   using nix flake update.
+
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous pageModularize the Configuration
+   Next pageDowngrading or Upgrading Packages
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

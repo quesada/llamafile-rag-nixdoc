@@ -1,0 +1,148 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             NTP: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 June 2024
+
+     * curprev [ ] [ ] 13:2013:20, 14 June 2024‎ Koalp talk contribs‎ m 7,310
+       bytes +4‎ Add link to chrony article Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:5117:51, 19 April 2024‎ Klinger talk contribs‎ m
+       7,306 bytes +22‎ Category:Server Category:Cookbook
+     * curprev [ ] [ ] 17:5117:51, 19 April 2024‎ Klinger talk contribs‎ m
+       7,284 bytes +21‎ Category:Server
+
+    26 September 2023
+
+     * curprev [ ] [ ] 09:1209:12, 26 September 2023‎ imported>IgorM‎ m 7,263
+       bytes +65‎ Fixed highlighting in console examples
+     * curprev [ ] [ ] 08:4108:41, 26 September 2023‎ imported>IgorM‎ m 7,198
+       bytes +40‎ Fixed syntax highlighting errors by using lang=text where
+       it was omitted
+
+    23 November 2022
+
+     * curprev [ ] [ ] 14:2814:28, 23 November 2022‎ imported>Tobias.bora‎
+       7,158 bytes +87‎ No edit summary
+
+    22 November 2022
+
+     * curprev [ ] [ ] 23:5023:50, 22 November 2022‎ imported>Tobias.bora‎ m
+       7,071 bytes +167‎ No edit summary
+     * curprev [ ] [ ] 23:3023:30, 22 November 2022‎ imported>Tobias.bora‎
+       6,904 bytes +255‎ No edit summary
+     * curprev [ ] [ ] 23:2623:26, 22 November 2022‎ imported>Tobias.bora‎
+       6,649 bytes +5,466‎ NTP and DHCP
+
+    10 September 2018
+
+     * curprev [ ] [ ] 18:3018:30, 10 September 2018‎ imported>Symphorien‎
+       1,183 bytes +1,183‎ mention a trick to get the default value of an
+       option, applied to ntp servers.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NTP"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

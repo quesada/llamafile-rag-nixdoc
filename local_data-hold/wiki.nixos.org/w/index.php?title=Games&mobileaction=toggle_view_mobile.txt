@@ -1,0 +1,187 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Open source games and their status on NixOS
+     * 2 Other resources
+     * 3 Game starters
+     * 4 List of games
+          * 4.1 Renowned Explorers: International Society
+   [ ] Toggle the table of contents
+
+                                     Games
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Open source games and their status on NixOS
+
+   Name            Category        nixpkg      Short Description              
+                                   status      
+                                   pending     Stealth game inspired by the   
+   The Dark Mod    Stealth, FPS    pull        Thief series.                  
+                                   request     
+   Endless Sky     Space           In nixpkgs  Explore a universe with        
+                   simulation, RPG             different factions and ships.  
+   Veloren         RPG, Sandbox    In progress Multiplayer voxel RPG set in a 
+                                               procedurally generated world.  
+   Armagetron      Arcade, Racing  In nixpkgs  A multiplayer Tron-like        
+   Advanced                                    lightcycle racing game.        
+   0 A.D.          Strategy,       In nixpkgs  Historical real-time strategy  
+                   Historical                  game.                          
+                                               Kart racing game (like Super   
+   SuperTuxKart    Arcade, Racing  In nixpkgs  Mario Kart) featuring Tux and  
+                                               friends.                       
+   OpenRA          Strategy, RTS   In nixpkgs  Open-source implementation of  
+                                               Command & Conquer.             
+   FreeCiv         Strategy,       In Nixpkgs  Civilization-building strategy 
+                   Turn-based                  game.                          
+   OpenTTD         Simulation,     In nixpkgs  Business simulation game based 
+                   Management                  on Transport Tycoon Deluxe.    
+   Battle for      Strategy,       In nixpkgs  Turn-based strategy game with  
+   Wesnoth         Turn-based                  fantasy themes.                
+   FreeDoom        FPS             Not in      Free alternative to the Doom   
+                                   nixpkgs     series.                        
+   Xonotic         FPS, Arena      In nixpkgs  Fast-paced multiplayer         
+                   shooter                     shooter.                       
+   Mindustry       Strategy,       In nixpkgs  Sandbox tower defense game.    
+                   Sandbox         
+   Cataclysm: Dark Survival,       In nixpkgs  Post-apocalyptic survival      
+   Days Ahead      Rogue-like                  game.                          
+   Shattered Pixel Rogue-like, RPG In nixpkgs  Rogue-like dungeon crawler     
+   Dungeon                                     with pixel graphics.           
+
+Other resources
+
+     * List of existing games in nixpkgs
+     * Open Source Game Clones
+     * open-source-games list on Github by bobeff
+     * 50 highest rated (by stars on Github) playable open source games
+     * List of open-source video games (en.wikipedia)
+     * Topic "open-source-game" on github
+
+Game starters
+
+   Games can be run by different applications. Some are able to include
+   libraries from different plattforms.
+
+   Application Platform                      Remarks                          
+                                             Windows games work fine. Linux   
+   Steam       Steam                         games are often incompatible due 
+                                             to how NixOS works.              
+               GOG, Humble Bundle, Epic, EA  
+   Lutris      App, Ubisoft Connect, Steam,  
+               Flatpak, Wine                 
+   Heroic      Epic, GOG, Prime Gaming, Wine 
+                                             often easier to use Lutris       
+   Wine        Windows applications/games    install scripts for wine         
+                                             applications/games               
+                                             There are several games in       
+                                             nixpgs. You can install them     
+   nixpgs      Linux games                   directly, e.g. vintagestory,     
+                                             flightgear, lots of racing       
+                                             games.                           
+   Dosbox      DOS applications/games        
+
+List of games
+
+  Renowned Explorers: International Society
+
+   Tested with version renowned_explorers_international_society_522_26056.sh
+   from gog.com. It can be played with steam-run, but it needs some libraries
+   that are not normally included in Steam's FHS environment. One way to
+   solve this is to add an overlay:
+
+   nixpkgs.overlays = [
+     (self: super: {
+       steam-run = (super.steam.override {
+         extraLibraries = pkgs: with pkgs;
+           [
+             libxkbcommon
+             mesa
+             wayland
+             (sndio.overrideAttrs (old: {
+               postFixup = old.postFixup + ''
+                 ln -s $out/lib/libsndio.so $out/lib/libsndio.so.6.1
+               '';
+             }))
+           ];
+       }).run;
+     })
+   ];
+
+   Adding libxkbcommon, mesa, and wayland is straightforward. The game
+   expects the shared library sdnio.so.6.1 to exist, so we need to create a
+   symbolic link after the installation of sndio.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Games&oldid=16178"
+   Categories:
+     * Gaming
+     * Applications
+     * This page was last edited on 3 August 2024, at 10:48.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

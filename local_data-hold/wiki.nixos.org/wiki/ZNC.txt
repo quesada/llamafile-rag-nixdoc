@@ -1,0 +1,142 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Clients
+     * 2 Networks
+   [ ] Toggle the table of contents
+
+                                      ZNC
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   ZNC is an IRC bouncer: it stays connected to IRC networks so clients can
+   disconnect without missing messages or losing the session.
+
+   Note: This page concerns NixOS 19.03 and later.
+
+   Start with the following:
+
+ services.znc = {
+   enable = true;
+   mutable = false; # Overwrite configuration set by ZNC from the web and chat interfaces.
+   useLegacyConfig = false; # Turn off services.znc.confOptions and their defaults.
+   openFirewall = true; # ZNC uses TCP port 5000 by default.
+ };
+
+   And use services.znc.config to configure ZNC as described in Configuration
+   on the ZNC wiki.
+
+Clients
+
+   Choose a password, and extract a hash with:
+
+ $ nix-shell --packages znc --command "znc --makepass"
+
+   Then, in configuration.nix:
+
+ services.znc.config = {
+   LoadModule = [ "adminlog" ]; # Write access logs to ~znc/moddata/adminlog/znc.log.
+   User.bob = {
+     Admin = true;
+     Pass.password = {
+       Method = "sha256"; # Fill out this section
+       Hash = "...";      # with the generated hash.
+       Salt = "...";
+     };
+   };
+ };
+
+   SSL is enabled by default and a self-signed certificate is generated to
+   ~znc/znc.pem. A fingerprint can be extracted with:
+
+ cat ~znc/znc.pem | openssl x509 -sha512 -fingerprint -noout | tr -d ':' | tr 'A-Z' 'a-z' | cut -d = -f 2
+
+   Next, see Connecting and Category:Clients on the ZNC wiki.
+
+Networks
+
+   SASL authentication is not yet supported from configuration.nix. Either
+   /msg *sasl ^[1] or use NickServ instead as shown below.
+
+ service.znc.config.User.bob = {
+   Network.freenode = {
+     Server = "chat.freenode.net +6697";
+     Chan = { "#nixos" = {}; "#nixos-wiki" = {}; };
+     Nick = "bob";                             # Supply your password as an argument
+     LoadModule = [ "nickserv yourpassword" ]; # <- to the nickserv module here.
+     JoinDelay = 2; # Avoid joining channels before authenticating.
+   };
+ };
+
+    1. ↑ See Sasl on the ZNC wiki.
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=ZNC&oldid=12490"
+   Category:
+     * Applications
+     * This page was last edited on 24 April 2024, at 20:35.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

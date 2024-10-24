@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 In Progress
+     * 2 COSMIC Packages
+   [ ] Toggle the table of contents
+
+                                     COSMIC
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   COSMIC is a desktop environment developed in the Rust programming
+   language, using the iced cross platform GUI library for Rust, and Smithay
+   as building blocks for its compositor, cosmic-comp. Cosmic-comp is
+   comparable to smithay's own anvil compositor demonstration, just like the
+   Wayland project uses Weston as demo compositor.
+
+   COSMIC was primarily developed for use in the Pop!_OS distribution.
+
+In Progress
+
+   COSMIC support in nixpkgs is still in development. You can follow progress
+   via the tracking issue.
+
+   There is a flake to setup COSMIC on NixOS.
+
+COSMIC Packages
+
+   While the whole desktop is not configured many packages are available in
+   nixpkgs already. You can search for packages with a query similar to this
+   one
+   https://search.nixos.org/packages?query=cosmic&from=0&size=1000&sort=relevance&channel=unstable.
+   Note that not all of the results will be part of the COSMIC desktop.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=COSMIC&oldid=13569"
+   Category:
+     * Desktop environment
+     * This page was last edited on 26 June 2024, at 12:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

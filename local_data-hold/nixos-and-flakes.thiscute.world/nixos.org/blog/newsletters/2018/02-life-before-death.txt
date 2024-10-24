@@ -1,0 +1,123 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+            #02 - Life before death, strength before weakness, \...
+
+   Published on Thu Feb 01 2018
+
+            #02 - Life before death, strength before weakness, \...
+
+   Welcome to another edition of NixOS “Weekly” News — we’re still working on
+   that weekly bit and I’ve half a mind to amend the quote to add “monthly
+   before weekly”.
+
+   Let me start by addressing everyone who helped put this edition together:
+   By creating the content and helping collect items, you make the newsletter
+   possible. Thank you.
+
+   Contributions for future editions are more than welcome. One way to help
+   is by editing a release; we’ve added an Editor’s Guide to help you.
+
+   There are some exciting things happening in the community, and I hope
+   you’ll agree.
+
+                                      News
+
+     * Nix 2.0 is coming
+
+       This includes renaming Nix 1.12 to 2.0
+
+       Relevant are Eelco’s slides fron NixCon and associated talk about the
+       changes.
+
+     * Google Summer of Code is coming up
+
+       …and looking for mentors. Please submit PRs at GSoC 2018 project
+       ideas.
+
+     * Seeking maintainer for mvn2nix-maven-plugin
+
+     * NixOS Vagrant box updated to 17.09
+
+     * Pure evaluation mode added to Nix unstable
+
+                                      Jobs
+
+     * Serokell is hiring Nix DevOps Engineers
+
+                                    Reading
+
+     * Danial Barlow is developing NixWRT^1
+          * nix-devel NixWRT discussion
+          * Baud Games blog post
+     * Stackage nixpkgs overlays by Dmitry Bushev
+     * Syntax highlighting Nix expressions in mcedit by Sander van der Burg
+     * Diagnosing problems and running maintenance tasks in a network with
+       services deployed by Disnix by Sander van der Burg
+     * OneDrive on NixOS using Docker by Nathan Bijnens
+     * (French) Journal le “style fonctionnel” en vidéos (Nix, NixOS,
+       Haskell) (Video, Code) by nokomprendo
+     * Linux Distributions, Part 1: NixOS by Guillaume Salvan
+     * Introduction to NixOS by @hackoflamb
+     * Provisioning a NixOS server from macOS by zw3rk
+     * Installing NixOS by Andrew McCluskey
+
+                                    Tooling
+
+     * nixos/nixos-hardware
+
+       A collection of NixOS modules covering hardware quirks.
+
+       The respository has been seeing a lot of work being done in last
+       months leading by @yegortimoshenko (Yegor Timoshenko).
+
+       Check it out and contribute your own hardware-configuration.nix
+
+     * nixos-mailserver
+
+       A complete and Simple Nixos Mailserver
+
+                                   Contribute
+
+   You can help shape NixOS Weekly Newsletter too! Create or comment on the
+   pull request for the next edition or loot at the issue tracker to add
+   other improvements.
+
+Footnotes
+
+    1. described as “won’t be big or professional like OpenWRT” ↩
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

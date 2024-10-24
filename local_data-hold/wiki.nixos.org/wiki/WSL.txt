@@ -1,0 +1,137 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Usage
+     * 3 Tips and tricks
+          * 3.1 Run container on startup
+   [ ] Toggle the table of contents
+
+                                      WSL
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Notes on running NixOS on the Windows Subsystem for Linux (WSL, WSL2)
+
+Setup
+
+   Ensure that WSL is installed and up to date.
+
+ wsl --install
+ wsl --update
+
+   Sometimes you'll have to install WSL2 manually by downloading the
+   msi-installation package.
+
+   NixOS is not yet packaged as a official WSL distribution or on the
+   Microsoft store. Download the latest release of nixos-wsl.tar.gz from the
+   NixOS-WSL Github page.
+
+   Import the WSL container using PowerShell
+
+ wsl --import NixOS .\NixOS\ nixos-wsl.tar.gz --version 2
+
+Usage
+
+   Start it with PowerShell
+
+ wsl -d NixOS
+
+Tips and tricks
+
+  Run container on startup
+
+   To run the distro NixOS on Windows startup or user login in the
+   background, proceed with following commands in PowerShell
+
+ echo "" > $HOME\run_wsl2_at_startup.vbs
+ notepad $HOME\run_wsl2_at_startup.vbs
+
+   Inside the script we define NixOS as the distribution name, as imported in
+   the setup step above
+
+ $HOME\run_wsl2_at_startup.vbs
+
+ set object = createobject("wscript.shell")
+ object.run "wsl.exe --distribution NixOS", 0
+
+   Execute following command to open the task planer
+
+ taskschd.msc
+
+   Click on Create task on the right pane, set name to WSL. On the tab
+   "Triggers" click on "New ..." and select run task on user login in the
+   dropdown menu. On the tab "Action" click on "New ..." and insert as
+   command: %USERPROFILE%\run_wsl2_at_startup.vbs
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=WSL&oldid=12491"
+   Category:
+     * Container
+     * This page was last edited on 24 April 2024, at 20:36.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

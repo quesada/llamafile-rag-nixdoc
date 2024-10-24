@@ -1,0 +1,89 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                      Honk
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Honk and the translation is
+   100% complete.
+   Other languages:
+     * English
+     * русский
+     * 日本語
+
+   Это описано в руководстве NixOS manual.
+
+   Это описано в руководстве NixOS manual.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Honk/ru&oldid=15359"
+   Categories:
+     * ActivityPub
+     * Web Applications
+     * Server
+     * NixOS Manual/ru
+     * This page was last edited on 22 July 2024, at 12:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

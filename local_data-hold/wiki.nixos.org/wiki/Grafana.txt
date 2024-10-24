@@ -1,0 +1,188 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+          * 2.1 Via Web UI
+          * 2.2 Declarative configuration
+     * 3 External Links
+   [ ] Toggle the table of contents
+
+                                    Grafana
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Grafana is an open-source, general purpose dashboarding tool, which runs
+   as a web application. It can be used to create a variety of time-series
+   graphs and also for displaying logs. It supports Prometheus, graphite,
+   InfluxDB, opentsdb, Grafana Loki, PostgreSQL and many other data sources.
+
+   See Grafana options
+
+Installation
+
+   Grafana is available as NixOS module, it can be enabled using the
+   following config:
+
+ services.grafana = {
+   enable = true;
+   settings = {
+     server = {
+       # Listening Address
+       http_addr = "127.0.0.1";
+       # and Port
+       http_port = 3000;
+       # Grafana needs to know on which domain and URL it's running
+       domain = "your.domain";
+       root_url = "https://your.domain/grafana/"; # Not needed if it is `https://your.domain/`
+       serve_from_sub_path = true;
+     };
+   };
+ };
+
+   This will make Grafana available only at localhost. On a server, it might
+   be used through SSH tunnel or made publicly available using nginx with
+   TLS. For example the follwing Nginx configuration can be used:
+
+ services.nginx.virtualHosts."your.domain" = {
+   addSSL = true;
+   enableACME = true;
+   locations."/grafana/" = {
+       proxyPass = "http://${toString config.services.grafana.settings.server.http_addr}:${toString config.services.grafana.settings.server.http_port}";
+       proxyWebsockets = true;
+       recommendedProxySettings = true;
+   };
+ };
+
+Configuration
+
+   Everything else (data sources, users, dashboards, ...) can be configured
+   either in the Web UI, or as code.
+
+  Via Web UI
+
+   Log into the Grafana web application (using default user: admin, password:
+   admin). Refer to the official documentation on how to do it:
+
+     * Add a data source
+     * Add a user
+     * Create dashboard
+
+  Declarative configuration
+
+ services.grafana = {
+   declarativePlugins = with pkgs.grafanaPlugins; [ ... ];
+
+   provision = {
+     enable = true;
+
+     dashboards.settings.providers = [{
+       name = "my dashboards";
+       options.path = "/etc/grafana-dashboards";
+     }];
+
+     datasources.settings.datasources = [
+       # "Built-in" datasources can be provisioned - c.f. https://grafana.com/docs/grafana/latest/administration/provisioning/#data-sources
+       {
+         name = "Prometheus";
+         type = "prometheus";
+         url = "http://${config.services.prometheus.listenAddress}:${toString config.services.prometheus.port}";
+       }
+       # Some plugins also can - c.f. https://grafana.com/docs/plugins/yesoreyeram-infinity-datasource/latest/setup/provisioning/
+       {
+         name = "Infinity";
+         type = "yesoreyeram-infinity-datasource";
+       }
+       # But not all - c.f. https://github.com/fr-ser/grafana-sqlite-datasource/issues/141
+     ];
+
+     # Note: removing attributes from the above `datasources.settings.datasources` is not enough for them to be deleted on `grafana`;
+     # One needs to use the following option:
+     # datasources.settings.deleteDatasources = [ { name = "foo"; orgId = 1; } { name = "bar"; orgId = 1; } ];
+   };
+ };
+
+ environment.etc = [{
+   source = ./. + "/grafana-dashboards/some-dashboard.json";
+   group = "grafana";
+   user = "grafana";
+ }];
+
+External Links
+
+     * wiki.archlinux.org/Grafana
+     * grafana.com
+     * How to Setup Prometheus, Grafana and Loki on NixOS
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Grafana&oldid=16936"
+   Categories:
+     * Server
+     * Web Applications
+     * This page was last edited on 25 August 2024, at 17:29.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

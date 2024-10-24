@@ -1,0 +1,159 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Consul
+     * 2 Consul-template
+   [ ] Toggle the table of contents
+
+                                     Consul
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Consul
+
+   Consul by Hashicorp is a distributed key/value store along with other
+   things.
+
+   Setting up Consul can be as easy as:
+
+   services.consul.enable = true;
+
+   But there are some specific options that might be useful.
+
+   Setting up Consul in a production setting is beyond the scope of this
+   wiki, see the consul documentation for particulars.
+
+   One advice is that if you have systemd services depending on Consul via
+   After=consul.service, you may want to switch consul service type no
+   notify, to make sure that dependent services don't try to run until Consul
+   is ready to accept connections:
+
+   systemd.services.consul.serviceConfig.Type = "notify";
+
+Consul-template
+
+   currently consul-template is packaged, but does not have nixos options to
+   configure it. Here is an haproxy example that might prove useful:
+
+   This turns on haproxy with essentially a blank config then sets up a
+   systemd unit to run haproxy-config, a consul-template service to generate
+   the haproxy configuration from your template.
+
+   note, in the configuration below, you will need to change:
+   /path/to/haproxy.consul to the path where your haproxy consul template
+   resides. If you rename the file, be sure to fix the ExecReload line as
+   well.
+
+ services.haproxy.enable = true;
+ services.haproxy.config = "#this should be replaced via systemd.services.haproxy-config";
+ systemd.services.haproxy-config = {
+     description = "Consul-Template configuration for HAPROXY.";
+     documentation = [ "https://github.com/hashicorp/consul-template" ];
+     wantedBy = [ "multi-user.target" ];
+     requires = [ "network-online.target" ];
+     after = [ "network-online.target" "consul.service" ];
+     path = [
+       pkgs.coreutils
+       pkgs.consul
+       pkgs.consul-template
+       pkgs.vault
+       pkgs.cacert
+       pkgs.procps
+     ];
+     serviceConfig = {
+       ExecStart = ''
+         ${pkgs.consul-template}/bin/consul-template -template "/path/to/haproxy.consul:/etc/haproxy.cfg:${pkgs.procps}/bin/pkill -SIGUSR2 haproxy"
+         '';
+       ExecReload = "${pkgs.procps}/bin/pkill -HUP -f haproxy.consul";
+       KillMode = "process";
+       KillSignal = "SIGINT";
+       LimitNOFILE = "infinity";
+       LimitNPROC = "infinity";
+       Restart = "on-failure";
+       RestartSec = "2";
+       StartLimitBurst = "3";
+       StartLimitIntervalSec="10";
+       TasksMax = "infinity";
+       # we run as root, because /etc/ is not writable by the haproxy user, the config file should really exist in /etc/haproxy/
+       #User = "${config.services.haproxy.user}";
+       User = "root";
+     };
+
+     environment = {
+       #systemd environment for haproxy-config
+     };
+   };
+ systemd.services.haproxy-config.enable = true;
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Consul&oldid=8378"
+   Category:
+     * Applications
+     * This page was last edited on 20 September 2021, at 05:43.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

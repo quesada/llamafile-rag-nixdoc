@@ -1,0 +1,117 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                 File:Krebs.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:Krebs.png
+   Size of this preview: 600 × 600 pixels. Other resolution: 1,692 × 1,692
+   pixels.
+
+   Original file ‎(1,692 × 1,692 pixels, file size: 2 KB, MIME type:
+   image/png)
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time   Thumbnail        Dimensions    User            Comment 
+                       Thumbnail for                                  
+   current 09:28, 22   version as of    1,692 × 1,692 Imported>Makefu
+           August 2017 09:28, 22 August (2 KB)
+                       2017             
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following 3 pages use this file:
+
+     * User:0x4A6F
+     * User:Makefu
+     * User:Tv
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Horizontal resolution 157.48 dpc 
+   Vertical resolution   157.48 dpc 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Krebs.png&oldid=11985"
+   Category:
+     * Userpage files
+     * This page was last edited on 8 April 2024, at 05:31.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

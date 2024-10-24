@@ -1,0 +1,301 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration details
+          * 1.1 Cache v2 plans
+               * 1.1.1 BETA: Try cache v2!
+               * 1.1.2 Changelog
+               * 1.1.3 Beta + IPv6 + HTTP/2
+               * 1.1.4 Beta Issues
+     * 2 Known issues
+          * 2.1 Possible Nix bugs
+          * 2.2 IPv6 shenanigans
+     * 3 Future plans
+          * 3.1 Hydra integration
+          * 3.2 Lower negative TTL times
+          * 3.3 Secure S3 fetches
+          * 3.4 tarballs.nixos.org
+   [ ] Toggle the table of contents
+
+                               Maintainers:Fastly
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Fastly is a global CDN provider that powers https://cache.nixos.org, one
+   of our mission-critical services, through their Open Source and Non-Profit
+   Program.
+
+   This page gives some basic details about what the configuration for our
+   services looks like. In the future, we hope to integrate more
+   https://nixos.org services with Fastly, such as Hydra, and the main
+   homepage.
+
+   Note: The current binary cache is undergoing some rather large upgrades
+   internally, but should mostly be invisible to users. See #Cache v2 plans,
+   and #Known issues.
+
+Configuration details
+
+   The core configuration details for our services are located in infra,
+   which you can quickly clone with git:
+
+ $ git clone https://github.com/nixos/infra
+
+   Check the README.md for details about the structure of the project, how to
+   make and contribute changes, etc. It also describes the rough architecture
+   of the integration(s).
+
+  Cache v2 plans
+
+   There are currently plans underway to do some nice user-visible upgrades
+   on the main binary cache. See the beta notes below if you want to try. The
+   first-cut goals are:
+
+     * Improved TTFB and overall tail latency for all objects. (STATUS: DONE)
+          * Better backbone routing: inter-POP network thanks to shielding.
+          * Improved support for large NARs, by streaming results directly
+            from S3 rather than "buffering" them in the POP first. This
+            improves TTFB dramatically.
+     * Aggressive 404 caching, helping reduce the cost of misses on S3, which
+       will be very common, especially if users have low TTLs or Hydra is
+       lagging. (STATUS: MOSTLY DONE)
+          * Mapping 403s to proper 404s and caching them (STATUS: DONE)
+          * Cache aggressive: ~1 month. (STATUS: NOT DONE -- requires
+            upstream Hydra tooling changes, so cache uploads have their
+            potential 404s purged in a timely manner.)
+     * Rudimentary logging that can be ingested into some OLAP/timeseries
+       database. (STATUS: NOT STARTED)
+          * Some logging is configured upstream already, but we don't know
+            how it's being used (Logstream?)
+          * We might want to just go as far as emitting raw JSON records into
+            S3, on some schedule (easily done with Fastly logging.)
+          * Example use: Glean insights from nar requests, correlated with
+            evaluations producing those paths: better insight into how users
+            use packages and track release channels.
+          * Example use: Look at and optimize effective TTL times.
+
+    BETA: Try cache v2!
+
+   Warning: The current beta cache might be unstable or respond badly while
+   it's being worked on! I (Austin) strive to always keep it working with
+   every minor improvement, but occasionally small things will break, as a
+   staging service will.
+
+   Austin currently has a Fastly service configured implementing some of the
+   above. To use it, you can change your substituters setting. This uses the
+   real upstream S3 bucket, so you do not need to trust any new signatures.
+   For NixOS users:
+
+ /etc/nixos/configuration.nix
+
+ {...}
+ {
+   nix.binaryCaches = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ]
+ }
+
+   Nix users:
+
+ /etc/nix/nix.conf
+
+ substituters = https://aseipp-nix-cache.global.ssl.fastly.net
+
+   You should be set. This uses the real upstream nixos.org binary cache as a
+   backend, so it should basically be up to date with cache.nixos.org.
+
+    Changelog
+
+   We'll also have a changelog recording any major upgrades made to the
+   service. You can view the current one here:
+   https://aseipp.notion.site/07c3be3df9f24d829471c6f8208a8570?v=41a80a849bb646d6a184bd1ce770edc4
+
+    Beta + IPv6 + HTTP/2
+
+   The above domain in the prior section is IPv4 only. There have seemingly
+   been various frustrations around IPv6 support (see #IPv6 shenanigans
+   below), so the beta currently uses IPv4 only as a default. Instead of the
+   above domain, you can use the following domain if you want to enable
+   IPv4/IPv6 dual stack support. This also enables HTTP/2 support.
+
+ /etc/nix/nix.conf
+
+ substituters = https://aseipp-nix-cache.freetls.fastly.net
+
+   Note the difference in the DNS name: global.ssl vs freetls.
+
+    Beta Issues
+
+   There are some known deficiencies with the beta, listed below:
+
+     * Any user can purge cache objects with no authentication. Use curl -v
+       -X PURGE https://<SOME URL> in order to do so. This is useful for
+       debugging user issues, but during final deployment, we'll want to turn
+       this off.
+     * Overly-conservative URL blocking. The current implementation will only
+       allow you to download .narinfo, .ls, and .nar.xz files -- this is to
+       eliminate spurious/invalid requests to S3 for objects which could
+       never possibly exist. If you see a 403 error returned from the server,
+       then this is why. This should mean "recent" (few year old) evaluations
+       should work fine -- ever since we've been using LZMA. This will be
+       rectified in the future, but should only be noticeable to users on old
+       channels. FIXED: This is now taken care of, and several other paths
+       were fixed as well.
+          * We'll be sure to check the S3 metadata so that all filetypes in
+            the cache can be downloaded properly, before final deployment.
+     * Origin connections do not use TLS. When connecting to a Fastly POP,
+       you use TLS. When Fastly POPs talk to each other, they also use TLS.
+       When a POP talks to S3, the beta service does not use TLS -- it talks
+       to S3 over HTTP. This is due to a limitation in a feature we use
+       called Streaming Miss, which is vital in reducing TTFB for large,
+       uncached objects. (Without it, a POP must download an entire, possibly
+       multi-hundred-MB NAR file before it can begin serving you. Streaming
+       miss allows your download to start instantly.) Support for streaming
+       miss with TLS origins is currently deployed in "Limited Availability"
+       for Fastly customers. We'll be applying to the LA program for TLS
+       Origin support before deploying to production, and testing it
+       carefully. FIXED: This is now taken care of -- the final, live
+       deployment will use TLS Origins! The beta currently does not.
+
+Known issues
+
+   There are some known deficiencies with the cache that is currently
+   deployed upstream for all users, on cache.nixos.org. These are listed
+   below:
+
+  Possible Nix bugs
+
+   See [1] and [2]. Root cause is unclear, but it may be causing issues with
+   cache downloads.
+
+  IPv6 shenanigans
+
+   See [3]. Some users report that turning off IPv6 helps download things
+   from cache.nixos.org. See also on the Fastly support forums: I (often)
+   can't access Fastly servers using HTTPS+IPv6: RST packets received. It is
+   unclear how widespread this issue might be. Using an IPv4 only DNS CNAME
+   may mitigate this in the long run.
+
+Future plans
+
+   The primary goal is to reduce user friction and significantly smooth out
+   our infrastructure for the binary cache. Afterwords, we can look at
+   integrating other services and other projects.
+
+  Hydra integration
+
+   After #Cache v2 plans are completed and we're satisfied with the results,
+   we could also look at integrating Hydra into our Fastly configuration.
+   Hydra is notoriously slow due to almost zero caching for its dynamic
+   content, such as evaluation or search listings.
+
+   It is traditionally considered difficult to cache highly dynamic content,
+   but Fastly has extremely low (~100ms) purge times, extremely low (~1-5s)
+   configuration change rollout, as well as advanced content-caching
+   capabilities with surrogate keys. This is fast enough to where, providing
+   your integration is deep enough, you can even cache your APIs, and purging
+   strategies are normally pretty simple.
+
+   The range of this integration could be simple or complex, however. It's
+   also worth investigating whether or not Hydra's database queries are slow,
+   and also optimizing that. But caching search, result, logs, etc should all
+   be possible and some of it is probably easy.
+
+  Lower negative TTL times
+
+   Negative TTLs are currently 1 hour: in other words, if something isn't
+   available in an upstream cache, Nix will not check for it again when you
+   evaluate, for up to 1 hour. ("Positive" TTLs are currently 1 month.)
+
+   However, with aggressive 404 caching, we could investigate lowering the
+   default negative TTL setting: redundant fetches for 404s will be handled
+   without talking to S3, which is already a significant improvement. This
+   means users won't have to wait as long for binaries to appear in the cache
+   if they had tried previously. On the other hand, too small a negative TTL
+   will result in a significant amount of wasted time on the users part.
+   There may be a better tradeoff on this curve than we currently default to.
+
+   Users can also start using lower negative TTLs to experiment as well, by
+   setting the narinfo-cache-negative-ttl option.
+
+  Secure S3 fetches
+
+   In the long run, we might want to look into securing the upstream S3
+   backend with authentication keys, and use VCL to authenticate HTTP
+   requests to the origin. That will ensure the cache itself does not waste
+   bandwidth from users who directly access it. (This also helps prevent gaps
+   in logs, etc)
+
+  tarballs.nixos.org
+
+   https://tarballs.nixos.org needs to be handled in the same way as
+   cache.nixos.org as well. This is not yet done.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Maintainers:Fastly&oldid=17481"
+     * This page was last edited on 15 September 2024, at 08:53.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

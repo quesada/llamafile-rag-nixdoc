@@ -1,0 +1,185 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Hyprland: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    30 August 2024
+
+     * curprev [ ] [ ] 08:4508:45, 30 August 2024‎ Unabomberlive talk
+       contribs‎ m 4,481 bytes −5‎ Proper way to write in XDG config
+       directory
+
+    3 April 2024
+
+     * curprev [ ] [ ] 18:2418:24, 3 April 2024‎ Jopejoe1 talk contribs‎ m
+       4,486 bytes +8‎ Update dead link
+
+    2 April 2024
+
+     * curprev [ ] [ ] 20:4320:43, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       4,478 bytes −3‎ lowercased display manager, capitalized AMD, removed
+       link for xdg-desktop-portal-hyprland since we don't need a specific
+       article for that. Tags: Mobile edit Mobile web edit
+
+    17 January 2024
+
+     * curprev [ ] [ ] 19:1919:19, 17 January 2024‎ imported>Haemeah‎ m 4,481
+       bytes +16‎ fix broken link from October 13, 10:00 revision
+     * curprev [ ] [ ] 19:1319:13, 17 January 2024‎ imported>Haemeah‎ m 4,465
+       bytes −214‎ remove mention of no longer needed 'enableNvidiaPatches'
+       option, see nixpkgs/nixos/modules/programs/hyprland.nix and
+       nixpkgs/pkgs/applications/window-managers/hyprwm/hyprand/default.nix
+       in NixOS repo
+
+    13 December 2023
+
+     * curprev [ ] [ ] 07:4907:49, 13 December 2023‎ imported>Vieta‎ 4,679
+       bytes +17‎ fixed format error
+     * curprev [ ] [ ] 06:0406:04, 13 December 2023‎ imported>Smeltitdeltit‎
+       4,662 bytes −9‎ No edit summary
+     * curprev [ ] [ ] 06:0406:04, 13 December 2023‎ imported>Smeltitdeltit‎
+       4,671 bytes +2‎ No edit summary
+     * curprev [ ] [ ] 06:0406:04, 13 December 2023‎ imported>Smeltitdeltit‎
+       4,669 bytes +7‎ No edit summary
+     * curprev [ ] [ ] 06:0106:01, 13 December 2023‎ imported>Smeltitdeltit‎
+       4,662 bytes +112‎ No edit summary
+
+    18 November 2023
+
+     * curprev [ ] [ ] 23:3223:32, 18 November 2023‎ imported>Srestegosaurio‎
+       m 4,550 bytes +107‎ →‎Installation
+     * curprev [ ] [ ] 23:3023:30, 18 November 2023‎ imported>Srestegosaurio‎
+       m 4,443 bytes +171‎ Added a warning linking the upstream nix docs
+       regarding installation as the page is currently incomplete and
+       outdated.
+
+    28 October 2023
+
+     * curprev [ ] [ ] 01:2701:27, 28 October 2023‎ imported>Bzm3r‎ m 4,272
+       bytes −1‎ minor typo
+
+    16 October 2023
+
+     * curprev [ ] [ ] 18:3018:30, 16 October 2023‎ imported>Omgitsaheadcrab‎
+       4,273 bytes +7‎ fix: broken option
+
+    10 October 2023
+
+     * curprev [ ] [ ] 16:1116:11, 10 October 2023‎ imported>Niahex‎ 4,266
+       bytes +22‎ →‎Installation
+     * curprev [ ] [ ] 13:5713:57, 10 October 2023‎ imported>Niahex‎ 4,244
+       bytes +1,688‎ wrong indicate files | Flake | Plugin | separe
+       configuration in a title | add see also link
+     * curprev [ ] [ ] 13:0013:00, 10 October 2023‎ imported>Niahex‎ m 2,556
+       bytes +63‎ Clarification of requires / add links to list of modules
+     * curprev [ ] [ ] 12:3812:38, 10 October 2023‎ imported>Niahex‎ m 2,493
+       bytes +79‎ No edit summary
+     * curprev [ ] [ ] 12:3112:31, 10 October 2023‎ imported>Niahex‎ 2,414
+       bytes +2,414‎ Created page with "{{Expansion|Incomplete (reason:
+       (Adding incrementally through testing and verification.))}}
+       [https://hyprland.org/ Hyprland] is a wlroots-based tiling Wayland
+       compositor..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Hyprland"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

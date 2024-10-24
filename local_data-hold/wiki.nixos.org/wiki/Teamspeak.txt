@@ -1,0 +1,118 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Install client
+     * 2 Install server
+   [ ] Toggle the table of contents
+
+                                   Teamspeak
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Teamspeak is an unfree voice chat application mainly used for online
+   games. It is available as client, but its also possible to host an (older)
+   version of Teamspeak as server service.
+
+                                 Install client
+
+   To install the client just add the package:
+
+   environment.systemPackages = with pkgs; [
+     teamspeak_client
+   ];
+
+                                 Install server
+
+   To install a Teamspeak3 server with NixOS for up to 32 users:
+
+   services.teamspeak3 = {
+     enable = true;
+     openFirewall = true;
+   };
+
+   Because teamspeak has an unfree licence, you also need to accept that
+   manually. Place the following in your config in order to do so.
+
+ { nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "teamspeak-server"
+  ];
+ }
+
+   Teamspeak has several additional options for configuration. To get
+   elevated rights on the server, it is needed to use the ServerAdmin
+   privilege key from the first log in /var/log/teamspeak3-server.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Teamspeak&oldid=13091"
+   Categories:
+     * Applications
+     * Gaming
+     * Server
+     * This page was last edited on 7 June 2024, at 12:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,108 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              NixOS 24.05 released
+
+   Published on Fri May 31 2024
+
+                              NixOS 24.05 released
+
+   NixOS 24.05 Uakari logo
+
+   Hey everyone, we are Weijia Wang and Jörg Thalheim, the release managers
+   for this stable release and we are very proud to announce the public
+   availability of NixOS 24.05 “Uakari”.
+
+   NixOS is a Linux distribution, whose set of packages can also be used on
+   other Linux systems and macOS.
+
+   This release will receive bugfixes and security updates for seven months
+   (up until 2024-12-31).
+
+     * Release manual
+          * Highlights
+          * New Services
+          * Backward Incompatibilities
+          * Other Notable Changes
+     * Upgrade Instructions
+     * ISO Image Downloads
+
+   The 24.05 release was made possible due to the efforts of 2491
+   contributors, who authored 47795 commits since the previous release. Our
+   thanks go the contributors who also take care of the continued stability
+   and security of our stable release.
+
+   NixOS is already known as the most up to date distribution while also
+   being the distribution with the most packages. This release saw 17777 new
+   packages and 16249 updated packages in Nixpkgs. We also removed 9393
+   packages in an effort to keep the package set maintainable and secure. In
+   addition to packages the NixOS distribution also features modules and
+   tests that make it what it is. This release brought 145 new modules and
+   removed 23. In that process we added 1983 options and removed 304.
+
+  GNOME 46
+
+   GNOME has been updated to version 46 “Kathmandu”, which introduces
+   experimental VRR support, WebDAV support in Online Accounts, and more
+   changes. Refer to the release notes for more details.
+
+  Plasma 6
+
+   Plasma has been updated to version 6.0, which introduces new defaults,
+   refreshed Breeze, and more changes. Refer to the release notes for more
+   details.
+
+  Linux Kernel 6.6
+
+   The default kernel package has been updated from 6.1 to 6.6. All supported
+   kernels since 4.19 remain available.
+
+  Special Thanks
+
+   We want to personally thank Jacek Generowicz for editorializing the
+   release notes, Lennart Mühlenmeier for doing the release logo, Vladimír
+   Čunát for his tireless effort in managing jobsets and staging cycles,
+   Martin Weinelt for dutifully tending to our build infrastructure, and Cole
+   Helbling for his effort on keeping ofBorg running.
+
+  Reflections and Closing
+
+   We are very thankful for this opportunity to learn about and participate
+   in the release process. It has been an awesome experience to work with
+   everyone on this release, and we want to say thank you to everyone in this
+   community that built NixOS and helped made this release better.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

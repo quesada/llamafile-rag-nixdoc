@@ -1,0 +1,267 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Requirements
+     * 2 Building the system
+     * 3 Starting the built NixOS system on the server
+     * 4 Installing NixOS
+          * 4.1 Example installation with ZFS
+     * 5 NIXOS_LUSTRATE
+   [ ] Toggle the table of contents
+
+             Install NixOS on a Server With a Different Filesystem
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Note: If you don't need to change the filesystem, you can follow the new
+   section in the nixos manual.
+   Note: nixos-anywhere automates most of the manual steps into a single CLI
+   command
+
+   Usually when installing NixOS, you boot from an external USB device
+   containing the installer, which makes it easy to change the underlying
+   filesystem. On a remote server however, this is usually not possible. This
+   guide shows you how you can still make it work. Here it is shown with a
+   DigitalOcean (DO) droplet initially running Debian, then replacing the
+   original filesystem with ZFS and installing NixOS on it.
+
+   The trick to making this work is by building a kexec compatible ramdisk
+   NixOS system locally, transfering it to the server and use the kexec
+   command to boot into it. Afterwards, you can install NixOS like you
+   usually do.
+
+Requirements
+
+   To follow this guide you need a server with:
+
+     * A running Linux installation (This guide uses Debian)
+     * At least 2GB of RAM
+     * root ssh access
+     * The same architecture as your local machine
+
+   Note: DigitalOcean allows you to resize the droplet temporarily, which you
+   can use to get enough RAM to do this, while reverting it once done.
+
+Building the system
+
+   To create the installation system, we use clever's kexec config with some
+   modifications. Clone the repository and create a file myconfig.nix with
+   the following contents:
+
+ {
+   imports = [
+     ./configuration.nix
+   ];
+
+   # Make it use predictable interface names starting with eth0
+   boot.kernelParams = [ "net.ifnames=0" ];
+
+   networking = {
+     defaultGateway = "x.x.x.x";
+     # Use google's public DNS server
+     nameservers = [ "8.8.8.8" ];
+     interfaces.eth0 = {
+       ipAddress = "y.y.y.y";
+       prefixLength = z;
+     };
+   };
+
+   kexec.autoReboot = false;
+
+   users.users.root.openssh.authorizedKeys.keys = [
+     "ssh-rsa ..."
+   ];
+ }
+
+   Replace x.x.x.x with your servers IPv4 gateway, y.y.y.y with its IPv4
+   address and z with the subnet mask prefix. In DigitalOcean, you can find
+   this info in your droplet's Networking tab in the Public Network section.
+   Finally, put your ssh public key in the
+   users.users.root.openssh.authorizedKeys.keys option.
+
+   Build the system configuration with
+
+ nix-build '<nixpkgs/nixos>' -A config.system.build.kexec_tarball -I nixos-config=./myconfig.nix -Q
+
+   This may take a while. When it finishes you will find the finished system
+   as a tarball in ./result/tarball.
+
+Starting the built NixOS system on the server
+
+   Transfer the tarball to the server and ssh into it
+
+ scp result/tarball/nixos-system-x86_64-linux.tar.xz root@y.y.y.y:.
+ ssh root@y.y.y.y
+
+   Then unpack the tarball and run the kexec script
+
+ cd /
+ tar -xf ~/nixos-system-x86_64-linux.tar.xz
+ ./kexec_nixos
+
+    1. Wait until the + kexec -e line shows up, then terminate the ssh
+       connection by pressing the following keys one after the other: RETURN
+       + ~ + ..
+    2. Wait until you have a ping again by doing ping y.y.y.y.
+    3. Reconnect with ssh, you should see a warning about the host
+       identification having changed, which is a good sign in our case.
+    4. Remove your server's previous entry in ~/.ssh/known_hosts and try
+       again.
+
+   If everything worked, you should now see the [root@kexec:~]# prompt.
+   You're now running NixOS entirely in RAM!
+
+Installing NixOS
+
+   Install NixOS like normal, and make sure to include the following:
+
+     * boot.kernelParams = [ "net.ifnames=0" ];
+     * The same network configuration from above
+
+  Example installation with ZFS
+
+   Repartition your main disk using fdisk to such a configuration (you can
+   remove all previous partitions):
+
+ /dev/vda1 1M BIOS boot partition (BIOS boot)
+ /dev/vda2 200M boot partition (EFI System)
+ /dev/vda3 2GB swap partition (Linux swap)
+ /dev/vda4 rest, zfs partition (Linux Filesystem)
+
+   Create the file systems:
+
+ mkfs.ext4 /dev/vda2
+ mkswap /dev/vda3
+ zpool create -O compress=on -O mountpoint=legacy tank /dev/vda4
+ zfs create -o xattr=off -o atime=off tank/nix
+
+   Mount them:
+
+ swapon /dev/vda3
+ mount -t zfs tank /mnt
+ mkdir /mnt/boot /mnt/nix
+ mount -t zfs tank/nix /mnt/nix
+ mount /dev/vda2 /mnt/boot
+
+   Generate the configs:
+
+ nixos-generate-config --root /mnt
+
+   Edit /mnt/etc/nixos/configuration.nix to something like this:
+
+ { config, pkgs, ... }:
+
+ {
+   imports =
+     [
+       ./hardware-configuration.nix
+     ];
+
+   boot.loader.grub.enable = true;
+   boot.loader.grub.version = 2;
+
+   boot.kernelParams = [ "net.ifnames=0" ];
+
+   boot.zfs.devNodes = "/dev";
+   boot.loader.grub.device = "/dev/vda";
+
+   networking = {
+     hostName = "foobar";
+     hostId = "12345678";
+     defaultGateway = "x.x.x.x";
+     nameservers = [ "8.8.8.8" ];
+     interfaces.eth0 = {
+       ipAddress = "y.y.y.y";
+       prefixLength = z;
+     };
+   };
+
+   services.openssh.enable = true;
+
+   users.users.root.openssh.authorizedKeys.keys = [
+     "ssh-rsa ..."
+   ];
+
+   system.stateVersion = "18.03"; # Did you read the comment?
+ }
+
+   And finally, install nixos and cross fingers:
+
+ nixos-install
+ reboot
+
+NIXOS_LUSTRATE
+
+   See the relevant PR or section of the manual
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Install_NixOS_on_a_Server_With_a_Different_Filesystem&oldid=11651"
+   Category:
+     * Server
+     * This page was last edited on 5 April 2024, at 09:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

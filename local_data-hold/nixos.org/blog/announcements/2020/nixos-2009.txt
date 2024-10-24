@@ -1,0 +1,99 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              NixOS 20.09 released
+
+   Published on Tue Oct 27 2020
+
+                              NixOS 20.09 released
+
+   20.09 Nightingale logo
+
+   Hey everyone, I’m Jonathan Ringer, one of the release managers for 20.09.
+   As promised, the latest stable release is here: NixOS 20.09 “Nightingale”
+   ✨.
+
+     * Release manual
+          * Highlights
+          * New Services
+          * Backward Incompatibilities
+          * Other Notable Changes
+     * Upgrade Instructions
+     * Image downloads
+
+   The 20.09 release was possible due to the efforts of 1313 contributors in
+   31282 commits. We would especially like to thank our top 10 contributors:
+   Mario Rodas, Frederik Rietdijk, Jörg Thalheim, Maximilian Bosch, Jonathan
+   Ringer, Jan Tojnar, Daniël de Kok, WORLDofPEACE, Florian Klink, José
+   Romildo Malaquias, and 1303 others!
+
+   NixOS is already known as the most up to date distribution and is in the
+   top three by total number of packages.
+
+   This didn’t stop us. In the last six months:
+
+     * 7349 packages were added
+     * 8181 packages were removed
+     * 14442 packages were updated
+
+   Likewise, our NixOS module system got bigger and better:
+
+     * 1119 options were added (61 new modules)
+     * 476 options removed
+     * 118 options were updated
+
+  Stabilization Contributors
+
+   Stabilization of the NixOS happens a month before planned release. The
+   goal is to have as little as possible continuous integration (Hydra) jobs
+   failing before the release is cut. While we would like to release on time,
+   a high quality release is more important.
+
+   Individuals who contributed to stabilizing this release: volth, Robert
+   Scott, Tim Steinbach, WORLDofPEACE, Maximilian Bosch, Thomas Tuegel, Doron
+   Behar, Vladimír Čunát, Jonathan Ringer, Maciej Krüger, and 190 others!
+
+  Reflections and Closing
+
+   I think that the 20.09 release highlighted a few weak points with our
+   current release schedule. Discussions have already began on how to improve
+   the process from the beginning, to help minimize risk, and set ourselves
+   up for more successes in the future. I want to thank WORLDofPEACE (my
+   co-release-manager) for helping me with release management items, Thomas
+   Tuegel for helping with Qt and Plasma stabilization, as well as Robert
+   Scott for his work with release stabilization.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

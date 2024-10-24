@@ -1,0 +1,161 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      Searching packages: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    1 July 2024
+
+     * curprev [ ] [ ] 20:3220:32, 1 July 2024‎ Klinger talk contribs‎ m
+       2,575 bytes +7‎ changed link from redirect page to article
+
+    27 April 2024
+
+     * curprev [ ] [ ] 18:2218:22, 27 April 2024‎ Gerg-L talk contribs‎ 2,568
+       bytes −46‎ fixed nix-index link, updated nix repl section mention
+       rippkgs Tag: Visual edit
+
+    18 April 2024
+
+     * curprev [ ] [ ] 16:1416:14, 18 April 2024‎ Klinger talk contribs‎
+       2,614 bytes +272‎ Package search does not only search package names,
+       but also the description. Added pro/contra to a subsection. Added idea
+       of search engines in browser)
+
+    5 September 2023
+
+     * curprev [ ] [ ] 17:0717:07, 5 September 2023‎ imported>Berquist‎ m
+       2,342 bytes 0‎ packages and options links under flakes were switched
+
+    29 December 2022
+
+     * curprev [ ] [ ] 00:1900:19, 29 December 2022‎ imported>Vater‎ m 2,342
+       bytes 0‎ →‎Using search.nixos.org website
+     * curprev [ ] [ ] 00:1000:10, 29 December 2022‎ imported>Vater‎ 2,342
+       bytes +529‎ form & foo
+
+    28 December 2022
+
+     * curprev [ ] [ ] 23:1523:15, 28 December 2022‎ imported>Vater‎ 1,813
+       bytes +227‎ there is also a search for everybody's (experimental)
+       darling flakes nowadays
+
+    4 August 2022
+
+     * curprev [ ] [ ] 12:4512:45, 4 August 2022‎ imported>Fricklerhandwerk‎
+       1,586 bytes +162‎ formatting and wording
+     * curprev [ ] [ ] 12:3812:38, 4 August 2022‎ imported>Rapenne-s‎ 1,424
+       bytes +282‎ add nix search
+     * curprev [ ] [ ] 12:3212:32, 4 August 2022‎ imported>Rapenne-s‎ m 1,142
+       bytes +1‎ missing space in the verbatim repl
+     * curprev [ ] [ ] 12:3012:30, 4 August 2022‎ imported>Rapenne-s‎ 1,141
+       bytes +306‎ add nix repl as a way
+     * curprev [ ] [ ] 12:2412:24, 4 August 2022‎ imported>Rapenne-s‎ m 835
+       bytes +527‎ Better display
+     * curprev [ ] [ ] 11:3211:32, 4 August 2022‎ imported>Fricklerhandwerk‎
+       308 bytes +24‎ add category: Reference
+     * curprev [ ] [ ] 09:2509:25, 4 August 2022‎ imported>Rapenne-s‎ 284
+       bytes +284‎ Create the page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Searching_packages"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

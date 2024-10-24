@@ -1,0 +1,134 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+          * 2.1 Plugins
+          * 2.2 Other functionalities
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                     Thunar
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Thunar is a GTK file manager originally made for Xfce.
+
+Installation
+
+   Thunar will automatically be installed by enabling Xfce.
+
+   If you want to install Thunar standalone, add to your configuration.nix:
+
+ programs.thunar.enable = true;
+
+Configuration
+
+   If xfce is not used as desktop and therefore xfconf is not enabled,
+   preference changes are discarded. In that case enable the xfconf program
+   manually to be able to save preferences:
+
+ programs.xfconf.enable = true;
+
+  Plugins
+
+   You can add plugins by including them in programs.thunar.plugins to your
+   configuration.nix. For example:
+
+ programs.thunar.plugins = with pkgs.xfce; [
+   thunar-archive-plugin
+   thunar-volman
+ ];
+
+  Other functionalities
+
+   You can extend Thunar's functionalities by adding to your
+   configuration.nix:
+
+ services.gvfs.enable = true; # Mount, trash, and other functionalities
+ services.tumbler.enable = true; # Thumbnail support for images
+
+     Tip                                                                      
+     You must logout and login again, after enabling gvfs, for the plugin to  
+     be active in Thunar                                                      
+
+   You can extend Tumbler's support to other file formats by adding more
+   packages to environment.systemPackages. See here for a list (the names may
+   not match 1:1).
+
+See also
+
+     * PCManFM
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Thunar&oldid=17756"
+   Categories:
+     * Applications
+     * File Manager
+     * This page was last edited on 8 October 2024, at 15:27.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

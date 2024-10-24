@@ -1,0 +1,83 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                Talk:Bootloader
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   I am currently trying to setup a Raspberry Pi and neither on the ARM
+   installation page, the default configuration, nor this page here, does the
+   required option "boot.loader.grub.devices" come up.
+
+   With my configuration, the system requires me to set this.
+
+   This is my configuration:
+   https://gist.github.com/ShalokShalom/f5b190f531d354614a7319a7f3d22fc1
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Bootloader&oldid=11045"
+     * This page was last edited on 1 January 2024, at 15:04.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,212 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                              Go: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 October 2024
+
+     * curprev [ ] [ ] 13:2213:22, 2 October 2024‎ Britter talk contribs‎
+       7,531 bytes +39‎ Use pname and set version in example Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 16:2716:27, 19 April 2024‎ A-H talk contribs‎ 7,492
+       bytes +2,521‎ Provide more examples, explain use cases with titles.
+       Tag: Visual edit
+
+    13 August 2023
+
+     * curprev [ ] [ ] 00:5500:55, 13 August 2023‎ imported>Hypnosis2839‎
+       4,971 bytes −173‎ →‎Install using Home Manager: remove outdated
+       instructions, avoid encouraging installing dev packages globally
+
+    14 April 2023
+
+     * curprev [ ] [ ] 13:3213:32, 14 April 2023‎ imported>Pbek‎ 5,144 bytes
+       +82‎ add: ldflags to set version of application
+
+    29 November 2022
+
+     * curprev [ ] [ ] 19:0219:02, 29 November 2022‎ imported>Shindakun‎ m
+       5,062 bytes +1‎ Corrected spelling in Home Manager heading
+
+    30 September 2022
+
+     * curprev [ ] [ ] 10:5110:51, 30 September 2022‎ imported>Mitar‎ 5,061
+       bytes +1,165‎ Add musl static building.
+
+    2 September 2022
+
+     * curprev [ ] [ ] 20:1020:10, 2 September 2022‎ imported>Zarelit‎ 3,896
+       bytes +422‎ Add workaround about delve not running in vscode
+
+    26 August 2022
+
+     * curprev [ ] [ ] 10:2910:29, 26 August 2022‎ imported>Adisbladis‎ 3,474
+       bytes −175‎ Remove statement about generating deps.nix with vgo2nix
+       and gomod2nix. The former is deprecated and the latter has dropped
+       support for deps.nix output.
+
+    17 August 2022
+
+     * curprev [ ] [ ] 09:5409:54, 17 August 2022‎ imported>Synapze‎ m 3,649
+       bytes −30‎ fix broken implementation links of buildGoModule and
+       buildGoPackage
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5105:51, 20 September 2021‎ imported>Nix‎ m 3,679
+       bytes +26‎ add Software/Applications subcategory
+
+    26 August 2021
+
+     * curprev [ ] [ ] 19:2419:24, 26 August 2021‎ imported>Milahu‎ 3,653
+       bytes +451‎ move buildGoPackage to separate section, add link to
+       implementation
+     * curprev [ ] [ ] 19:0919:09, 26 August 2021‎ imported>Milahu‎ 3,202
+       bytes +112‎ link to implementation of buildGoModule
+     * curprev [ ] [ ] 14:4014:40, 26 August 2021‎ imported>Milahu‎ 3,090
+       bytes +293‎ add note: go.mod file must be in the source root
+     * curprev [ ] [ ] 13:2013:20, 26 August 2021‎ imported>Milahu‎ 2,797
+       bytes +58‎ remove the outdated go2nix, replace with vgo2nix and
+       gomod2nix
+
+    13 September 2020
+
+     * curprev [ ] [ ] 19:1019:10, 13 September 2020‎ imported>Makefu‎ 2,739
+       bytes +325‎ No edit summary
+
+    2 July 2020
+
+     * curprev [ ] [ ] 13:4513:45, 2 July 2020‎ imported>Makefu‎ 2,414 bytes
+       +9‎ lang=nix
+     * curprev [ ] [ ] 06:4006:40, 2 July 2020‎ imported>Elitelinuxuser‎
+       2,405 bytes −15‎ No edit summary
+     * curprev [ ] [ ] 06:3906:39, 2 July 2020‎ imported>Elitelinuxuser‎
+       2,420 bytes +178‎ No edit summary
+
+    27 September 2018
+
+     * curprev [ ] [ ] 13:5413:54, 27 September 2018‎ imported>Mic92‎ 2,242
+       bytes +7‎ →‎Compile go program with static compile flag
+     * curprev [ ] [ ] 13:5313:53, 27 September 2018‎ imported>Mic92‎ 2,235
+       bytes +783‎ go static linking
+
+    24 October 2017
+
+     * curprev [ ] [ ] 17:4117:41, 24 October 2017‎ imported>HLandau‎ 1,452
+       bytes +320‎ No edit summary
+
+    27 August 2017
+
+     * curprev [ ] [ ] 16:0016:00, 27 August 2017‎ imported>Fadenb‎ m 1,132
+       bytes +18‎ Syntax highlighting
+
+    21 August 2017
+
+     * curprev [ ] [ ] 18:1418:14, 21 August 2017‎ imported>Makefu‎ 1,114
+       bytes +1,114‎ initial batch of nixos-users
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Go"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

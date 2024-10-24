@@ -1,0 +1,74 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                User talk:Raboof
+
+     * User page
+     * Discussion
+   [ ] English
+   [ ] Tools
+   Tools
+   Actions
+   General
+     * What links here
+     * User contributions
+     * Logs
+     * View user groups
+     * Special pages
+     * Printable version
+     * Page information
+   From NixOS Wiki
+
+  Start a discussion with Raboof
+
+   Talk pages are where people discuss how to make content on NixOS Wiki the
+   best that it can be. Start a new discussion to connect and collaborate
+   with Raboof. What you say here will be public for others to see.
+
+   Start a discussion
+   Retrieved from "https://wiki.nixos.org/wiki/User_talk:Raboof"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

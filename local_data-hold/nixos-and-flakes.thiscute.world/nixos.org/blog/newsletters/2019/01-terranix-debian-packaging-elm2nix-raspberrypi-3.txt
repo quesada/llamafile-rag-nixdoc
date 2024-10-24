@@ -1,0 +1,80 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+           #01 - TerraNix, Debian packaging, elm2nix, RaspberryPi 3+
+
+   Published on Thu Jan 17 2019
+
+           #01 - TerraNix, Debian packaging, elm2nix, RaspberryPi 3+
+
+                                      News
+
+     * nix-instantiate introduction
+
+       A polite introduction to use nix-instantiate and the NixOS module
+       system to render JSON.
+
+     * TerraNix
+
+       Terraform is awesome, it would be much more awesome with a NixOS
+       module system.
+
+     * Debian is packaging Nix
+
+     * elm2nix 0.1
+
+     * nix-env replacement for imperative package management, but with
+       declarative core
+
+     * nix-mode.el’s alternate indentation function nix-indent-line has
+       received some very needed indentation improvements in
+       NixOS/nix-mode#61, and automated tests and Travis-CI support in
+       NixOS/nix-mode#63 thanks to @etu and @matthewbauer.
+
+     * Beginners Guide for setting up NixOS on the RaspberryPi 3+ based on
+       the new aarch64 SD-Image built by hydra
+
+     * Easy Peasy Nix versions
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,139 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                 Nix Language: Tips & Tricks: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    3 April 2024
+
+     * curprev [ ] [ ] 13:3913:39, 3 April 2024‎ Qyriad talk contribs‎ 8,113
+       bytes +638‎ mention using :edit as surrogate jump to definition Tag:
+       2017 source edit
+
+    10 August 2023
+
+     * curprev [ ] [ ] 01:4801:48, 10 August 2023‎ imported>Mateusauler‎ m
+       7,475 bytes −11‎ Update the label of the link to "Overview of the Nix
+       Language"
+     * curprev [ ] [ ] 01:4701:47, 10 August 2023‎ imported>Mateusauler‎ m
+       7,486 bytes +1‎ To wrtie text to a file by redirecting the output of a
+       shell utility, `echo` should be used, instead of `cat`.
+
+    4 August 2022
+
+     * curprev [ ] [ ] 08:1908:19, 4 August 2022‎ imported>Fricklerhandwerk‎
+       7,485 bytes −11‎ No edit summary
+     * curprev [ ] [ ] 08:1908:19, 4 August 2022‎ imported>Fricklerhandwerk‎
+       m 7,496 bytes 0‎ Fricklerhandwerk moved page Nix Expression Language:
+       Tips & Tricks to Nix Language: Tips & Tricks: nix expression language
+       -> nix language
+
+    3 August 2022
+
+     * curprev [ ] [ ] 03:2203:22, 3 August 2022‎ imported>Toraritte‎ m 7,496
+       bytes +170‎ Add relevant pages
+     * curprev [ ] [ ] 03:1203:12, 3 August 2022‎ imported>Toraritte‎ 7,326
+       bytes +7,326‎ Moved from "Overview of Nix Expression Language"
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nix_Language:_Tips_%26_Tricks"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

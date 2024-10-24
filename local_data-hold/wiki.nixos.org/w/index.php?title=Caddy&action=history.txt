@@ -1,0 +1,256 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Caddy: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    11 September 2024
+
+     * curprev [ ] [ ] 13:4313:43, 11 September 2024‎ Onny talk contribs‎
+       9,624 bytes +20‎ →‎Redirect Tag: Visual edit
+     * curprev [ ] [ ] 13:4113:41, 11 September 2024‎ Onny talk contribs‎ m
+       9,604 bytes −6‎ No edit summary Tag: Visual edit
+
+    2 September 2024
+
+     * curprev [ ] [ ] 14:3214:32, 2 September 2024‎ Denperidge talk
+       contribs‎ 9,610 bytes +776‎ Added Adding plug-ins Tag: Visual edit
+     * curprev [ ] [ ] 14:1714:17, 2 September 2024‎ Denperidge talk
+       contribs‎ 8,834 bytes +638‎ Added Passing environment variable
+       secrets/configuring acme_dns Tag: Visual edit
+
+    19 May 2024
+
+     * curprev [ ] [ ] 16:2816:28, 19 May 2024‎ Onny talk contribs‎ 8,196
+       bytes +407‎ →‎Reverse proxy: Add example on forward real client ip
+       Tag: Visual edit
+
+    17 May 2024
+
+     * curprev [ ] [ ] 12:5112:51, 17 May 2024‎ Noon talk contribs‎ m 7,789
+       bytes +2‎ Fix option name in redirect example Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:1021:10, 24 April 2024‎ Klinger talk contribs‎ m
+       7,787 bytes +24‎ No edit summary
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:5320:53, 19 April 2024‎ Klinger talk contribs‎ m
+       7,763 bytes −1‎ No edit summary
+     * curprev [ ] [ ] 20:4120:41, 19 April 2024‎ Klinger talk contribs‎ m
+       7,764 bytes −25‎ No edit summary
+     * curprev [ ] [ ] 20:4020:40, 19 April 2024‎ Klinger talk contribs‎ m
+       7,789 bytes +21‎ No edit summary
+
+    1 April 2024
+
+     * curprev [ ] [ ] 14:0314:03, 1 April 2024‎ Mic92 talk contribs‎ 7,768
+       bytes −20‎ fix links
+
+    23 February 2024
+
+     * curprev [ ] [ ] 20:2020:20, 23 February 2024‎ imported>Jeyemwey‎ m
+       7,788 bytes +4‎ fix: closing code tag
+
+    6 January 2024
+
+     * curprev [ ] [ ] 15:3915:39, 6 January 2024‎ imported>Researchcrowbar‎
+       7,784 bytes +102‎ Add a reverse proxy example for unix socket
+
+    24 August 2023
+
+     * curprev [ ] [ ] 13:3813:38, 24 August 2023‎ imported>Onny‎ m 7,682
+       bytes +5‎ No edit summary
+
+    8 August 2023
+
+     * curprev [ ] [ ] 19:5719:57, 8 August 2023‎ imported>Onny‎ 7,677 bytes
+       −7‎ Fix example syntax
+
+    15 July 2023
+
+     * curprev [ ] [ ] 09:5009:50, 15 July 2023‎ imported>Malteneuss‎ m 7,684
+       bytes +71‎ Show caddy config as part of whole NixOS module
+
+    8 July 2023
+
+     * curprev [ ] [ ] 14:5114:51, 8 July 2023‎ imported>Malteneuss‎ 7,613
+       bytes +595‎ Simplify curl check and add explanation for https
+     * curprev [ ] [ ] 14:1714:17, 8 July 2023‎ imported>Malteneuss‎ 7,018
+       bytes +394‎ Simplify getting started
+     * curprev [ ] [ ] 12:0912:09, 8 July 2023‎ imported>Malteneuss‎ m 6,624
+       bytes +113‎ Add code highlighting
+     * curprev [ ] [ ] 12:0512:05, 8 July 2023‎ imported>Malteneuss‎ 6,511
+       bytes +946‎ Fix content error in introduction
+     * curprev [ ] [ ] 09:2109:21, 8 July 2023‎ imported>Malteneuss‎ m 5,565
+       bytes +49‎ Add example how to open NixOS ports
+     * curprev [ ] [ ] 09:2009:20, 8 July 2023‎ imported>Malteneuss‎ 5,516
+       bytes +603‎ Simplify installation example
+     * curprev [ ] [ ] 09:0409:04, 8 July 2023‎ imported>Malteneuss‎ m 4,913
+       bytes −88‎ Fix table layout
+     * curprev [ ] [ ] 09:0309:03, 8 July 2023‎ imported>Malteneuss‎ m 5,001
+       bytes +52‎ Add debug subsections
+     * curprev [ ] [ ] 09:0109:01, 8 July 2023‎ imported>Malteneuss‎ 4,949
+       bytes +2,177‎ Add debugging section
+     * curprev [ ] [ ] 08:3908:39, 8 July 2023‎ imported>Malteneuss‎ 2,772
+       bytes +6‎ No edit summary
+     * curprev [ ] [ ] 08:3808:38, 8 July 2023‎ imported>Malteneuss‎ m 2,766
+       bytes +11‎ No edit summary
+     * curprev [ ] [ ] 08:3808:38, 8 July 2023‎ imported>Malteneuss‎ m 2,755
+       bytes +206‎ Add additional see also links
+     * curprev [ ] [ ] 08:3408:34, 8 July 2023‎ imported>Malteneuss‎ m 2,549
+       bytes −1‎ Fix typo
+     * curprev [ ] [ ] 08:3308:33, 8 July 2023‎ imported>Malteneuss‎ m 2,550
+       bytes +58‎ Make structure of examples consistent
+
+    6 February 2023
+
+     * curprev [ ] [ ] 03:5703:57, 6 February 2023‎ imported>Montchr‎ 2,492
+       bytes −42‎ fix code block formatting resulting in invalid rendered
+       html entities
+
+    30 January 2023
+
+     * curprev [ ] [ ] 13:0113:01, 30 January 2023‎ imported>Onny‎ m 2,534
+       bytes −5‎ No edit summary
+     * curprev [ ] [ ] 12:5912:59, 30 January 2023‎ imported>Onny‎ 2,539
+       bytes +474‎ Add example for PHP Fastcgi
+
+    6 August 2022
+
+     * curprev [ ] [ ] 16:5516:55, 6 August 2022‎ imported>Onny‎ m 2,065
+       bytes −45‎ No edit summary
+     * curprev [ ] [ ] 16:5216:52, 6 August 2022‎ imported>Onny‎ m 2,110
+       bytes −4‎ No edit summary
+     * curprev [ ] [ ] 16:5016:50, 6 August 2022‎ imported>Onny‎ 2,114 bytes
+       0‎ No edit summary
+     * curprev [ ] [ ] 16:5016:50, 6 August 2022‎ imported>Onny‎ 2,114 bytes
+       +914‎ Add config examples for serving static files and SSL config
+
+    31 July 2022
+
+     * curprev [ ] [ ] 14:4014:40, 31 July 2022‎ imported>Onny‎ m 1,200 bytes
+       +84‎ No edit summary
+     * curprev [ ] [ ] 14:2814:28, 31 July 2022‎ imported>Onny‎ m 1,116 bytes
+       +21‎ No edit summary
+     * curprev [ ] [ ] 14:2814:28, 31 July 2022‎ imported>Onny‎ m 1,095 bytes
+       +146‎ Add note to upstream documentation
+     * curprev [ ] [ ] 14:2614:26, 31 July 2022‎ imported>Onny‎ 949 bytes +2‎
+       No edit summary
+     * curprev [ ] [ ] 14:2614:26, 31 July 2022‎ imported>Onny‎ 947 bytes
+       +150‎ Add example to configure redirect
+
+    20 July 2022
+
+     * curprev [ ] [ ] 10:3710:37, 20 July 2022‎ imported>Onny‎ m 797 bytes
+       +52‎ No edit summary
+
+    23 June 2022
+
+     * curprev [ ] [ ] 12:4712:47, 23 June 2022‎ imported>Onny‎ 745 bytes
+       +745‎ Initial infos about setting up Caddy
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Caddy"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,165 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Building and serving a netboot image
+          * 1.1 Example
+          * 1.2 See also
+     * 2 netboot.xyz
+   [ ] Toggle the table of contents
+
+                                    Netboot
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 21:42, 24 April 2024 by Klinger (talk | contribs)
+   (Category:Booting)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Building and serving a netboot image
+
+  Example
+
+   This example uses Pixiecore for hosting, which works in an ordinary
+   network environment with an existing DHCP server.
+
+   Create file system.nix:
+
+ let
+   # NixOS 22.11 as of 2023-01-12
+   nixpkgs = builtins.getFlake "github:nixos/nixpkgs/54644f409ab471e87014bb305eac8c50190bcf48";
+
+   sys = nixpkgs.lib.nixosSystem {
+     system = "x86_64-linux";
+     modules = [
+       ({ config, pkgs, lib, modulesPath, ... }: {
+         imports = [
+           (modulesPath + "/installer/netboot/netboot-minimal.nix")
+         ];
+         config = {
+           ## Some useful options for setting up a new system
+           # services.getty.autologinUser = lib.mkForce "root";
+           # users.users.root.openssh.authorizedKeys.keys = [ ... ];
+           # console.keyMap = "de";
+           # hardware.video.hidpi.enable = true;
+
+           system.stateVersion = config.system.nixos.release;
+         };
+       })
+     ];
+   };
+
+   run-pixiecore = let
+     hostPkgs = if sys.pkgs.system == builtins.currentSystem
+                then sys.pkgs
+                else nixpkgs.legacyPackages.${builtins.currentSystem};
+     build = sys.config.system.build;
+   in hostPkgs.writers.writeBash "run-pixiecore" ''
+     exec ${hostPkgs.pixiecore}/bin/pixiecore \
+       boot ${build.kernel}/bzImage ${build.netbootRamdisk}/initrd \
+       --cmdline "init=${build.toplevel}/init loglevel=4" \
+       --debug --dhcp-no-bind \
+       --port 64172 --status-port 64172 "$@"
+   '';
+ in
+   run-pixiecore
+
+   Run pixiecore:
+
+ # Build pixiecore runner
+ nix build -f system.nix -o /tmp/run-pixiecore
+
+ # Open required firewall ports
+ sudo iptables -w -I nixos-fw -p udp -m multiport --dports 67,69,4011 -j ACCEPT
+ sudo iptables -w -I nixos-fw -p tcp -m tcp --dport 64172 -j ACCEPT
+
+ # Run pixiecore
+ sudo $(realpath /tmp/run-pixiecore)
+
+ # Close ports
+ sudo iptables -w -D nixos-fw -p udp -m multiport --dports 67,69,4011 -j ACCEPT
+ sudo iptables -w -D nixos-fw -p tcp -m tcp --dport 64172 -j ACCEPT
+
+  See also
+
+   NixOS: Pixiecore module.
+
+   NixOS manual: PXE booting.
+
+netboot.xyz
+
+   There is now official netboot.xyz support. Just select NixOS from Linux
+   installs and you should be ready to go.
+
+   Note: Your iPXE must be recent enough to support https:// links
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Netboot&oldid=12536"
+   Category:
+     * Booting
+     * This page was last edited on 24 April 2024, at 21:42.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

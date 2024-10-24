@@ -1,0 +1,147 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Tailscale: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 August 2024
+
+     * curprev [ ] [ ] 23:0823:08, 5 August 2024‎ Sandro talk contribs‎ 4,763
+       bytes −117‎ Optimize
+     * curprev [ ] [ ] 21:4121:41, 5 August 2024‎ Tboston talk contribs‎ m
+       4,880 bytes 0‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 21:4121:41, 5 August 2024‎ Tboston talk contribs‎
+       4,880 bytes +29‎ fix tiny errors and spacing Tag: Visual edit
+
+    4 August 2024
+
+     * curprev [ ] [ ] 04:4104:41, 4 August 2024‎ Jad talk contribs‎ 4,851
+       bytes +878‎ I described how Tailscale's recommendations on optimizing
+       UDP throughput translate into NixOS. Tag: Visual edit
+
+    25 May 2024
+
+     * curprev [ ] [ ] 22:1222:12, 25 May 2024‎ Malteneuss talk contribs‎ m
+       3,973 bytes +230‎ Mention headscale Tag: Visual edit
+     * curprev [ ] [ ] 22:0522:05, 25 May 2024‎ Malteneuss talk contribs‎ m
+       3,743 bytes +644‎ Add split dns mention Tag: Visual edit
+
+    10 February 2024
+
+     * curprev [ ] [ ] 22:5122:51, 10 February 2024‎ imported>Mekanoe‎ 3,099
+       bytes +360‎ Adds userspace-networking method
+
+    19 August 2023
+
+     * curprev [ ] [ ] 14:3914:39, 19 August 2023‎ imported>Cablespaghetti‎
+       2,739 bytes +377‎ Notes about DNS issues
+     * curprev [ ] [ ] 13:1513:15, 19 August 2023‎ imported>Cablespaghetti‎
+       2,362 bytes +744‎ Add ipv6 known issue and basic docs
+
+    2 December 2022
+
+     * curprev [ ] [ ] 14:4414:44, 2 December 2022‎ imported>Telotortium‎
+       1,618 bytes +1,618‎ Initial page stub
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Tailscale"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

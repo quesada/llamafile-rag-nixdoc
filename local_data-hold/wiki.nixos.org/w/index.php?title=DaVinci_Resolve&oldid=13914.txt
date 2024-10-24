@@ -1,0 +1,157 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Drivers
+          * 2.1 AMD
+          * 2.2 Intel
+     * 3 Troubleshooting
+          * 3.1 Resolve crashes/fails to start
+          * 3.2 Cannot import video file
+   [ ] Toggle the table of contents
+
+                                DaVinci Resolve
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 12:06, 11 July 2024 by Mic92 (talk | contribs) (amd:
+   mention opencl option (needed according to archwiki))
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   DaVinci Resolve color grading, color correction, visual effects, and audio
+   post-production video editing application. It is unfree and
+   multi-plattform.
+
+Installation
+
+   Install the davinci-resolve package.
+
+Drivers
+
+  AMD
+
+   Contrary to the Arch Wiki, DaVinci Resolve seems to work (on an RX 570)
+   without switching to proprietary GPU drivers.
+
+ hardware.amdgpu.opencl.enable = true;
+
+  Intel
+
+   DaVinci Resolve has partial support for Intel GPUs on Linux. Audio
+   playback works on the Fairlight page, but the video timeline does not
+   work. To add Intel support, add the following setting to your
+   configuration.nix:
+
+  hardware.graphics = { # hardware.opengl in 24.05
+     enable = true;
+     enable32Bit = true; # driSupport32Bit in 24.05
+     extraPackages = with pkgs; [
+       intel-compute-runtime
+     ];
+   };
+
+Troubleshooting
+
+  Resolve crashes/fails to start
+
+   If it doesn't launch, and crashes when running davinci-resolve, then try
+   running it as root.
+
+   If it didn't help, you can view the error log at
+   ~/.local/share/DaVinciResolve/logs/ResolveDebug.txt to pinpoint the issue.
+
+   If you can spot a line similar to Cannot mix incompatible Qt library
+   (5.15.12) with this library (5.15.2), and have configured QT options in
+   your NixOS configuration (qt.enable = true;), try disabling them.
+
+  Cannot import video file
+
+   DaVinci Resolve's free edition does not come with H264/H265 support. You
+   need to convert your video to a supported video format, like DNxHD/DNxHR
+   and Cineform. you can do this with ffmpeg. With FFmpeg installed, assuming
+   your video is called video.mp4, you can use the following command to
+   convert:
+
+   ffmpeg -i video.mp4 -c:v dnxhd -profile:v dnxhr_hq -c:a pcm_s16le -pix_fmt
+   yuv422p output.mov
+
+   This command will convert your video to a DNxHR video and your audio to
+   uncompressed 16bit PCM. For 24bit PCM, use -c:a pcm_s24le instead.
+
+   You can know more about DNxHD/HR profiles with the command ffmpeg -h
+   encoder=dnxhd
+
+   Resolve also supports Cineform and a few other formats. For Cineform
+   encoding, use the cfhd encoder.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=DaVinci_Resolve&oldid=13914"
+   Category:
+     * Applications
+     * This page was last edited on 11 July 2024, at 12:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

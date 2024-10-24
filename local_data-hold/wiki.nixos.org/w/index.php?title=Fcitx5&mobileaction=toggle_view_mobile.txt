@@ -1,0 +1,127 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Troubleshooting
+          * 2.1 Add-ons Not Detected
+          * 2.2 Fcitx5 Doesn't Start When Using WM
+          * 2.3 Using Wayland
+   [ ] Toggle the table of contents
+
+                                     Fcitx5
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Fcitx5 is a lightweight input method framework with addon support.
+
+Setup
+
+   The following is a simple NixOS configuration that'll setup fcitx5, its
+   GUI config tool, and two addons.
+
+ i18n.inputMethod = {
+     enabled = "fcitx5";
+     fcitx5.addons = with pkgs; [
+         fcitx5-mozc
+         fcitx5-gtk
+     ];
+ };
+
+   Notably, NixOS automagically sets session variables that are required for
+   fcitx5.
+
+Troubleshooting
+
+  Add-ons Not Detected
+
+   Installing fcitx5 using environment.systemPackages can interfere with
+   add-on detection. Make sure to only add fcitx5 to your config as shown in
+   Setup.
+
+  Fcitx5 Doesn't Start When Using WM
+
+   As of NixOS 23.11 i18n.inputMethod.enabled no longer creates systemd
+   services for fcitx5. Instead it relies on XDG autostart files. If using a
+   Window Manager (WM), such as Sway, you may need to add
+   services.xserver.desktopManager.runXdgAutostartIfNone = true; to your
+   NixOS configuration.
+
+   See the NixOS 23.11 Release Notes for more information.
+
+  Using Wayland
+
+   Set boolean i18n.inputMethod.fcitx5.waylandFrontend to true to suppress
+   warnings about environment variables.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Fcitx5&oldid=16175"
+   Category:
+     * Applications
+     * This page was last edited on 2 August 2024, at 19:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

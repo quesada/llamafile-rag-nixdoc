@@ -1,0 +1,170 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Checking for Wayland
+     * 2 Setup
+     * 3 Display Managers
+          * 3.1 Graphical
+          * 3.2 Text-based
+     * 4 Compositors
+          * 4.1 Wayland Native
+          * 4.2 X and Wayland support
+     * 5 Applications
+          * 5.1 Electron and Chromium
+   [ ] Toggle the table of contents
+
+                                    Wayland
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: Verify accuracy of article (Discuss in Talk:Wayland#)             
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+Checking for Wayland
+
+   To check if you are using Wayland, run the following command
+
+ $ echo $XDG_SESSION_TYPE
+
+   If wayland is returned, you are running Wayland
+
+Setup
+
+   Two things are required for running Wayland: a compatible Display Manager,
+   and a compatible Compositor.
+
+     This article or section needs expansion.                                 
+     Reason: Verify completeness of DM and Compositor lists (Discuss in       
+     Talk:Wayland#)                                                           
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+Display Managers
+
+   Display Managers are responsible for handling user login.
+
+   The following Display Managers support using both X and Wayland protocols
+
+    Graphical
+
+     * gdm is the GNOME Display Manager.
+     * sddm is the default Display Manager for KDE. Wayland support is
+       currently experimental.
+
+    Text-based
+
+     * ly
+     * emptty
+     * lemurs
+
+Compositors
+
+   For the purposes of this basic overview, a compositor can be thought of as
+   equivalent to an X Desktop Environment.
+
+   Note: It is important to remember that this is not actually the case as
+   there are multiple differences between how X and Wayland work internally
+
+  Wayland Native
+
+     * Sway is a i3-like compositor.
+     * Hyprland the dynamic tiling Wayland compositor that doesn't sacrifice
+       on its looks.
+
+  X and Wayland support
+
+     * Mutter is the default GNOME Desktop Environment/Compositor.
+     * Plasma is the default KDE Desktop Environment/Compositor.
+
+Applications
+
+   Not all apps support running natively on Wayland. To work around this,
+   XWayland should be enabled.
+
+   Note: Enabling XWayland varies slightly from Compositor to Compositor, and
+   may already be enabled. Consult your Compositor's documentation and/or nix
+   file for how to enable
+
+    Electron and Chromium
+
+   As of NixOS 22.05 ("Quokka"), you can enable Ozone Wayland support in
+   Chromium and Electron based applications by setting the environment
+   variable NIXOS_OZONE_WL=1. For example, in a configuration.nix:
+
+ environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+   This allows these applications to run without Xwayland.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Wayland&oldid=10637"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 19 March 2024, at 03:11.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

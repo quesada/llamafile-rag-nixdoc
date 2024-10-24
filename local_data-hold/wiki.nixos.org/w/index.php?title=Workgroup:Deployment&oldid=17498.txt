@@ -1,0 +1,110 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 People
+   [ ] Toggle the table of contents
+
+                              Workgroup:Deployment
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 11:15, 15 September 2024 by Phanirithvij (talk | contribs)
+   (add outdated notice)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+    This article or section is out of date.                                   
+    Reason: this group no longer exists (Discuss in                           
+    Talk:Workgroup:Deployment)                                                
+    Once the page has been updated this notice can be removed.                
+
+   This is an informal gathering of people interesting in deploying Nix(OS)
+   onto various targets like bare-metal, cloud, containers, … Following
+   NixCon and other informal discussions there are quite a few people working
+   in that area. The goal is to bring people together on the subject so that
+   we don’t re-invent the wheel in our corners. It might also allow us to
+   work towards bigger goals that any individual might not be able to tackle
+   in his own.
+
+   Everyone interested is welcome to join it as this is not an official team.
+
+   For a start I propose to engage in conversation in the new “Deployment
+   Working Group” category. Go to
+   https://discourse.nixos.org/c/dev/deployments-working-group 13 and select
+   “Tracking” to be notified of new messages in the group.
+
+People
+
+     * zimbatm
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Workgroup:Deployment&oldid=17498"
+   Category:
+     * Community
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 15 September 2024, at 11:15.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

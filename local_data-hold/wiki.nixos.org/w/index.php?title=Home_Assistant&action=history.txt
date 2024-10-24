@@ -1,0 +1,304 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Home Assistant: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    8 October 2024
+
+     * curprev [ ] [ ] 14:3614:36, 8 October 2024‎ Mic92 talk contribs‎
+       26,058 bytes −2‎ imported from old wiki
+
+    30 August 2024
+
+     * curprev [ ] [ ] 02:4202:42, 30 August 2024‎ Hexa talk contribs‎ 26,060
+       bytes +49‎ →‎Declarative configuration: Update onboarding packages
+       Tag: Visual edit
+     * curprev [ ] [ ] 01:5301:53, 30 August 2024‎ Hexa talk contribs‎ m
+       26,011 bytes 0‎ Update number of supported integrations Tag: Visual
+       edit
+
+    9 August 2024
+
+     * curprev [ ] [ ] 00:5200:52, 9 August 2024‎ Hexa talk contribs‎ 26,011
+       bytes 0‎ Updated supported integrations Tag: Visual edit
+
+    27 July 2024
+
+     * curprev [ ] [ ] 17:4017:40, 27 July 2024‎ Hexa talk contribs‎ 26,011
+       bytes +117‎ →‎Declarative configuration Tag: Visual edit
+     * curprev [ ] [ ] 17:1217:12, 27 July 2024‎ Sandro talk contribs‎ 25,894
+       bytes +32‎ Link directly
+     * curprev [ ] [ ] 17:1117:11, 27 July 2024‎ Sandro talk contribs‎ 25,862
+       bytes +1‎ fix typoi´
+     * curprev [ ] [ ] 13:0813:08, 27 July 2024‎ Hexa talk contribs‎ 25,861
+       bytes −118‎ →‎Using PostgreSQL: Use the module to inject the
+       dependency Tag: Visual edit
+
+    21 July 2024
+
+     * curprev [ ] [ ] 13:3613:36, 21 July 2024‎ Hexa talk contribs‎ 25,979
+       bytes −1‎ →‎Automations, Scenes, and Scripts from the UI: scenes ->
+       scene Tag: Visual edit
+     * curprev [ ] [ ] 13:3413:34, 21 July 2024‎ Musicmatze talk contribs‎ m
+       25,980 bytes −1‎ Fix typo: Apparently it is called "script ui", not
+       "scripts ui" Tag: Visual edit
+     * curprev [ ] [ ] 11:5911:59, 21 July 2024‎ Hexa talk contribs‎ 25,981
+       bytes 0‎ Updated number of supported integrations Tag: Visual edit
+     * curprev [ ] [ ] 11:4311:43, 21 July 2024‎ Hexa talk contribs‎ 25,981
+       bytes +28‎ →‎Running a recent version using an overlay: rename Tag:
+       Visual edit
+     * curprev [ ] [ ] 11:4011:40, 21 July 2024‎ Hexa talk contribs‎ 25,953
+       bytes −37‎ →‎Snippets: split off Examples Tag: Visual edit
+     * curprev [ ] [ ] 11:3211:32, 21 July 2024‎ Hexa talk contribs‎ 25,990
+       bytes −652‎ →‎Combine declarative and UI defined automations: Simplify
+       section, add copy pastable example for UI, add scripts Tag: Visual
+       edit
+
+    6 July 2024
+
+     * curprev [ ] [ ] 21:1221:12, 6 July 2024‎ Hexa talk contribs‎ 26,642
+       bytes +100‎ HAOS in Virtualbox Screenshot Tag: Visual edit
+     * curprev [ ] [ ] 21:0921:09, 6 July 2024‎ Hexa talk contribs‎ 26,542
+       bytes +3,118‎ →‎NixOS Module Tag: Visual edit: Switched
+     * curprev [ ] [ ] 18:1718:17, 6 July 2024‎ Hexa talk contribs‎ 23,424
+       bytes −20‎ →‎Upstream installation methods Tag: Visual edit
+     * curprev [ ] [ ] 16:2216:22, 6 July 2024‎ Hexa talk contribs‎ 23,444
+       bytes +426‎ →‎NixOS Module Tag: Visual edit
+
+    23 May 2024
+
+     * curprev [ ] [ ] 15:2915:29, 23 May 2024‎ Sandro talk contribs‎ 23,018
+       bytes +756‎ Add ZHA snippet
+     * curprev [ ] [ ] 15:2015:20, 23 May 2024‎ Sandro talk contribs‎ 22,262
+       bytes −540‎ drop no longer required openssl 1.1.1 workaround Tag:
+       Visual edit: Switched
+
+    9 May 2024
+
+     * curprev [ ] [ ] 12:1412:14, 9 May 2024‎ Hexa talk contribs‎ 22,802
+       bytes +49‎ Show logo from mediawiki commons Tag: Visual edit: Switched
+     * curprev [ ] [ ] 12:0412:04, 9 May 2024‎ Hexa talk contribs‎ 22,753
+       bytes +64‎ →‎Snippets: Reorder declarative/ui defined scenes to be
+       closer to similar automation section Tag: Visual edit
+     * curprev [ ] [ ] 12:0012:00, 9 May 2024‎ Hexa talk contribs‎ 22,689
+       bytes −2,593‎ →‎Snippets: Remove manual way to configure custom
+       components and lovelace modules
+
+    16 April 2024
+
+     * curprev [ ] [ ] 13:3413:34, 16 April 2024‎ Mfed3 talk contribs‎ 25,282
+       bytes +1,711‎ →‎More Declarative Nix Configuration Examples: - Added
+       more examples of how to declaratively define Groups / Helpers Tag:
+       Visual edit
+     * curprev [ ] [ ] 06:0206:02, 16 April 2024‎ Mfed3 talk contribs‎ 23,571
+       bytes +948‎ →‎More Declarative Nix Configuration Examples: Added alarm
+       control panel example Tag: Visual edit
+     * curprev [ ] [ ] 05:5305:53, 16 April 2024‎ Mfed3 talk contribs‎ 22,623
+       bytes +1,438‎ →‎Automations: - Added another 2 examples for some more
+       Trigger types (time based, duration based) Tag: Visual edit
+     * curprev [ ] [ ] 05:4505:45, 16 April 2024‎ Mfed3 talk contribs‎ 21,185
+       bytes +1,544‎ →‎Declarative Nix Configuration Examples: - Added
+       another example of how to include multiple conditions and multiple
+       actions Tag: Visual edit
+     * curprev [ ] [ ] 05:3005:30, 16 April 2024‎ Mfed3 talk contribs‎ 19,641
+       bytes +1,164‎ →‎Combine declarative and UI defined automations: -
+       Added another example for how to declaratively make "entity_id"
+       customizations that will generate yaml code for them. Tag: Visual edit
+
+    19 February 2024
+
+     * curprev [ ] [ ] 11:2711:27, 19 February 2024‎ imported>Abowen‎ 18,477
+       bytes +123‎ Add firewall for containers
+
+    15 February 2024
+
+     * curprev [ ] [ ] 17:3217:32, 15 February 2024‎ imported>W4tsn‎ 18,354
+       bytes +301‎ →‎Declarative configuration: Add a note about updating the
+       firewall if not using
+     * curprev [ ] [ ] 16:5916:59, 15 February 2024‎ imported>W4tsn‎ 18,053
+       bytes −49‎ Replace undocumented (and possibly non-effective) option
+       "ensurePermissions" with ensureDBOwnership.
+
+    10 December 2023
+
+     * curprev [ ] [ ] 13:5913:59, 10 December 2023‎ imported>Mweinelt‎
+       18,102 bytes +540‎ OpenSSL 1.1 explanation
+
+    27 November 2023
+
+     * curprev [ ] [ ] 09:0109:01, 27 November 2023‎ imported>Ibizaman‎
+       17,562 bytes −93‎ Custom components and lovelace modules can now be
+       added declaratively
+
+    5 November 2023
+
+     * curprev [ ] [ ] 15:2415:24, 5 November 2023‎ imported>Diogotcorreia‎ m
+       17,655 bytes +8‎ Fix invalid syntax on automations and scenes examples
+
+    28 July 2023
+
+     * curprev [ ] [ ] 23:2023:20, 28 July 2023‎ imported>Ibizaman‎ 17,647
+       bytes +390‎ Add tmpfiles.d rule to avoid start failure
+
+    23 June 2023
+
+     * curprev [ ] [ ] 09:5109:51, 23 June 2023‎ imported>Mweinelt‎ 17,257
+       bytes +16‎ →‎Declarative configuration: Update onboarding dependencies
+
+    5 March 2023
+
+     * curprev [ ] [ ] 15:1115:11, 5 March 2023‎ imported>Mweinelt‎ 17,241
+       bytes −121‎ →‎Reusing existing YAML configuration
+     * curprev [ ] [ ] 02:0302:03, 5 March 2023‎ imported>NewAM‎ m 17,362
+       bytes −2‎ Fix a minor typo.
+
+    30 December 2022
+
+     * curprev [ ] [ ] 00:0500:05, 30 December 2022‎ imported>NewAM‎ 17,364
+       bytes −7‎ Update the instructions to trust a private certificate
+       authority.
+
+    20 November 2022
+
+     * curprev [ ] [ ] 23:4723:47, 20 November 2022‎ imported>NewAM‎ 17,371
+       bytes +901‎ Added a snippet for using a private x509 certificate
+       authority.
+
+    4 August 2022
+
+     * curprev [ ] [ ] 23:5623:56, 4 August 2022‎ imported>Mweinelt‎ 16,470
+       bytes +9‎ No edit summary
+     * curprev [ ] [ ] 23:4323:43, 4 August 2022‎ imported>Mweinelt‎ 16,461
+       bytes +567‎ →‎NixOS Module
+     * curprev [ ] [ ] 16:2016:20, 4 August 2022‎ imported>Mweinelt‎ 15,894
+       bytes +777‎ →‎Declarative configuration
+     * curprev [ ] [ ] 15:2415:24, 4 August 2022‎ imported>Mweinelt‎ 15,117
+       bytes +2,249‎ →‎Declarative configuration
+     * curprev [ ] [ ] 15:0015:00, 4 August 2022‎ imported>Mweinelt‎ 12,868
+       bytes +68‎ OCI Container: Warn about missing container image name
+       reevaluation in the example
+     * curprev [ ] [ ] 14:5714:57, 4 August 2022‎ imported>Mweinelt‎ m 12,800
+       bytes +2‎ →‎Installation methods
+     * curprev [ ] [ ] 14:5714:57, 4 August 2022‎ imported>Mweinelt‎ m 12,798
+       bytes +29‎ →‎Installation methods
+
+    15 June 2022
+
+     * curprev [ ] [ ] 14:0414:04, 15 June 2022‎ imported>Fleaz‎ m 12,769
+       bytes +11‎ hass module is now in home-automation and no longer in misc
+
+    1 March 2022
+
+     * curprev [ ] [ ] 12:2312:23, 1 March 2022‎ imported>Simisimis‎ 12,758
+       bytes +283‎ No edit summary
+
+    21 February 2022
+
+     * curprev [ ] [ ] 16:2516:25, 21 February 2022‎ imported>NewAM‎ 12,475
+       bytes −10‎ Undo revision 7263 by NewAM (talk)
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Home_Assistant"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

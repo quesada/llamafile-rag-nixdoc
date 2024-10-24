@@ -1,0 +1,156 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Using the package
+     * 2 Configure Dropbox as a Service on NixOS
+     * 3 Configure Dropbox as a Service in HomeManager
+     * 4 Alternative Open Source Client
+   [ ] Toggle the table of contents
+
+                                    Dropbox
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Using the package
+
+   Install the dropbox package after enabling unfree software. Then start the
+   dropbox command, which will download the real dropbox binary and start it.
+
+Configure Dropbox as a Service on NixOS
+
+   As of right now (19 Jun 2022) there is no dropbox module in nixpkgs,
+   however peterhoeg at discourse.nixos.org shared the service code he is
+   using:
+
+ {
+   environment.systemPackages = with pkgs; [
+     # dropbox - we don't need this in the environment. systemd unit pulls it in
+     dropbox-cli
+   ];
+
+   networking.firewall = {
+     allowedTCPPorts = [ 17500 ];
+     allowedUDPPorts = [ 17500 ];
+   };
+
+   systemd.user.services.dropbox = {
+     description = "Dropbox";
+     wantedBy = [ "graphical-session.target" ];
+     environment = {
+       QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
+       QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
+     };
+     serviceConfig = {
+       ExecStart = "${lib.getBin pkgs.dropbox}/bin/dropbox";
+       ExecReload = "${lib.getBin pkgs.coreutils}/bin/kill -HUP $MAINPID";
+       KillMode = "control-group"; # upstream recommends process
+       Restart = "on-failure";
+       PrivateTmp = true;
+       ProtectSystem = "full";
+       Nice = 10;
+     };
+   };
+ }
+
+   A pull request has been created to add Dropbox as a Nixos module which
+   builds on this code snippet (21 Apr 2020). As of 19 Jun 2022, this has not
+   been accepted and has not seen activity in 2 years.
+
+Configure Dropbox as a Service in HomeManager
+
+   The dropbox package is better maintained than the dropbox-cli package. The
+   follow sets up dropbox as a service in home manager (working in Sept.
+   2024).
+
+ {
+     systemd.user.services.dropbox = {
+         Unit = {
+             Description = "Dropbox service";
+         };
+         Install = {
+             WantedBy = [ "default.target" ];
+         };
+         Service = {
+             ExecStart = "${pkgs.dropbox}/bin/dropbox";
+             Restart = "on-failure";
+         };
+     };
+ }
+
+Alternative Open Source Client
+
+   There is also an open source alternative called Maestral: maestral as CLI
+   and maestral-gui for a GUI.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Dropbox&oldid=17748"
+   Category:
+     * Applications
+     * This page was last edited on 8 October 2024, at 14:35.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

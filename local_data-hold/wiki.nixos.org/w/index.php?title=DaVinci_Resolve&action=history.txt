@@ -1,0 +1,140 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       DaVinci Resolve: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    11 July 2024
+
+     * curprev [ ] [ ] 12:0612:06, 11 July 2024‎ Mic92 talk contribs‎ 2,409
+       bytes +85‎ amd: mention opencl option (needed according to archwiki)
+
+    27 June 2024
+
+     * curprev [ ] [ ] 05:5405:54, 27 June 2024‎ Mic92 talk contribs‎ 2,324
+       bytes +49‎ hardware.graphics -> hardware.opengl
+
+    9 June 2024
+
+     * curprev [ ] [ ] 05:0905:09, 9 June 2024‎ Mic92 talk contribs‎ 2,275
+       bytes +372‎ imported from old wiki
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:2720:27, 19 April 2024‎ Klinger talk contribs‎
+       1,903 bytes +180‎ Beginning sentence and Category:Applications
+
+    20 November 2023
+
+     * curprev [ ] [ ] 21:3921:39, 20 November 2023‎ imported>Spacebanana420‎
+       1,723 bytes +873‎ Added video transcoding troubleshoot section
+     * curprev [ ] [ ] 19:4419:44, 20 November 2023‎ imported>Spacebanana420‎
+       m 850 bytes +439‎ Added intel driver section
+
+    11 June 2022
+
+     * curprev [ ] [ ] 04:5804:58, 11 June 2022‎ imported>Klaymore‎ 411 bytes
+       +411‎ Basic troubleshooting/AMD driver information
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/DaVinci_Resolve"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

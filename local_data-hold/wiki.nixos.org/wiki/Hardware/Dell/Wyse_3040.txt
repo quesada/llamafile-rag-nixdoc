@@ -1,0 +1,91 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                 Dell Wyse 3040
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to Hardware Hub
+
+   Dell Wyse 3040 is a small Thinclient that can be used as a powersaving
+   Mini-Server.
+
+   NixOS 23.05
+
+   There is a Bug in the 6.1 Linux Kernel that leads to a kernelpanic after
+   30min to 2h operation.
+
+   Solution: in /etc/nixos/configuration.nix
+
+   boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_15;
+
+   boot.kernel.sysctl."kernel.panic" = 60;
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/Dell/Wyse_3040&oldid=12059"
+   Category:
+     * Cookbook
+     * This page was last edited on 12 April 2024, at 13:48.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

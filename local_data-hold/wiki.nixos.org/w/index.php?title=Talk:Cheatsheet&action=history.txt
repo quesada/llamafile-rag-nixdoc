@@ -1,0 +1,142 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Talk:Cheatsheet: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 August 2022
+
+     * curprev [ ] [ ] 15:0615:06, 5 August 2022‎ imported>Cynic‎ 2,129 bytes
+       +388‎ No edit summary
+
+    7 June 2022
+
+     * curprev [ ] [ ] 01:5501:55, 7 June 2022‎ imported>Ddssff‎ 1,741 bytes
+       +114‎ Search commands don't work
+
+    30 March 2022
+
+     * curprev [ ] [ ] 11:1911:19, 30 March 2022‎ imported>TLATER‎ 1,627
+       bytes +584‎ No edit summary
+
+    1 June 2018
+
+     * curprev [ ] [ ] 10:1510:15, 1 June 2018‎ imported>Gmarmstrong‎ 1,043
+       bytes +228‎ Respond re: formatting
+
+    10 April 2018
+
+     * curprev [ ] [ ] 17:4817:48, 10 April 2018‎ imported>Makefu‎ 815 bytes
+       +277‎ No edit summary
+     * curprev [ ] [ ] 17:4517:45, 10 April 2018‎ imported>Abrooks‎ 538 bytes
+       +320‎ No edit summary
+
+    1 December 2017
+
+     * curprev [ ] [ ] 22:0622:06, 1 December 2017‎ imported>Makefu‎ 218
+       bytes +218‎ Created page with "the table is overly long and requires
+       scrolling left and right, not sure how to make the page show it all
+       without the need for scrolling --~~~~"
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Talk:Cheatsheet"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

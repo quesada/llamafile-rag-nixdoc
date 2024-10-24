@@ -1,0 +1,185 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Invoiceplane: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    31 May 2024
+
+     * curprev [ ] [ ] 08:0808:08, 31 May 2024‎ Onny talk contribs‎ 4,595
+       bytes −268‎ Remove unstable notice Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:1519:15, 24 April 2024‎ Klinger talk contribs‎ m
+       4,863 bytes +20‎ Category:Server Category:Web Applications
+
+    30 November 2023
+
+     * curprev [ ] [ ] 15:2415:24, 30 November 2023‎ imported>Onny‎ 4,843
+       bytes +553‎ Add security notes on disable setup wizard
+     * curprev [ ] [ ] 15:0415:04, 30 November 2023‎ imported>Onny‎ m 4,290
+       bytes 0‎ No edit summary
+
+    27 November 2023
+
+     * curprev [ ] [ ] 13:4913:49, 27 November 2023‎ imported>Onny‎ 4,290
+       bytes +730‎ Add note on enable electronic invoicing
+
+    26 November 2023
+
+     * curprev [ ] [ ] 12:0712:07, 26 November 2023‎ imported>Onny‎ m 3,560
+       bytes −8‎ No edit summary
+     * curprev [ ] [ ] 12:0512:05, 26 November 2023‎ imported>Onny‎ m 3,568
+       bytes −49‎ No edit summary
+
+    25 November 2023
+
+     * curprev [ ] [ ] 14:4214:42, 25 November 2023‎ imported>Onny‎ 3,617
+       bytes 0‎ Fix invoice template fetchgit attrs
+
+    5 December 2022
+
+     * curprev [ ] [ ] 13:5213:52, 5 December 2022‎ imported>Onny‎ 3,617
+       bytes −125‎ Remove notice about ongoing development since NixOS 22.11
+       is released
+
+    24 November 2022
+
+     * curprev [ ] [ ] 10:5010:50, 24 November 2022‎ imported>Onny‎ 3,742
+       bytes +623‎ Upgrade instructions
+
+    10 November 2022
+
+     * curprev [ ] [ ] 11:4511:45, 10 November 2022‎ imported>Onny‎ 3,119
+       bytes +76‎ Reference alternative invoicing applications
+
+    7 November 2022
+
+     * curprev [ ] [ ] 19:3019:30, 7 November 2022‎ imported>Onny‎ 3,043
+       bytes +698‎ Add information on setting up cron task
+
+    9 September 2022
+
+     * curprev [ ] [ ] 18:0518:05, 9 September 2022‎ imported>Onny‎ m 2,345
+       bytes +91‎ No edit summary
+     * curprev [ ] [ ] 17:3717:37, 9 September 2022‎ imported>Onny‎ m 2,254
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 17:3617:36, 9 September 2022‎ imported>Onny‎ m 2,255
+       bytes +164‎ No edit summary
+     * curprev [ ] [ ] 17:2717:27, 9 September 2022‎ imported>Onny‎ 2,091
+       bytes +632‎ Configure mail delivery backend
+
+    7 September 2022
+
+     * curprev [ ] [ ] 08:1608:16, 7 September 2022‎ imported>Onny‎ 1,459
+       bytes +9‎ No edit summary
+     * curprev [ ] [ ] 08:1608:16, 7 September 2022‎ imported>Onny‎ 1,450
+       bytes +87‎ Add notes about setup wizard
+     * curprev [ ] [ ] 08:1408:14, 7 September 2022‎ imported>Onny‎ 1,363
+       bytes +914‎ Add example installing custom templates
+     * curprev [ ] [ ] 08:0808:08, 7 September 2022‎ imported>Onny‎ 449 bytes
+       +449‎ Init page on how to setup Invoiceplane
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Invoiceplane"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

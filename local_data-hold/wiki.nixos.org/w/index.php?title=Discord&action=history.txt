@@ -1,0 +1,298 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Discord: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    18 October 2024
+
+     * curprev [ ] [ ] 00:3300:33, 18 October 2024‎ Frontear talk contribs‎
+       6,631 bytes −1,509‎ improve the troubleshooting format Tag: Visual
+       edit
+     * curprev [ ] [ ] 00:1000:10, 18 October 2024‎ Frontear talk contribs‎
+       8,140 bytes +1,424‎ reformat a large chunk of this page to improve
+       formatting Tag: Visual edit: Switched
+
+    17 October 2024
+
+     * curprev [ ] [ ] 23:1723:17, 17 October 2024‎ Frontear talk contribs‎ m
+       6,716 bytes +932‎ reword portions of the discord page, installation
+       step Tag: Visual edit: Switched
+
+    25 June 2024
+
+     * curprev [ ] [ ] 20:2620:26, 25 June 2024‎ Klinger talk contribs‎ m
+       5,784 bytes 0‎ fixed link to „Unfree software“ (capitalization)
+
+    30 May 2024
+
+     * curprev [ ] [ ] 19:0319:03, 30 May 2024‎ Sen talk contribs‎ m 5,784
+       bytes −306‎ Discord community nowadays expands much more outside of
+       gaming, and their marketing has shifted from gamers to the general
+       public. Tag: Visual edit
+     * curprev [ ] [ ] 18:5518:55, 30 May 2024‎ Sen talk contribs‎ 6,090
+       bytes +315‎ Adds a warning to client mods and fixes minor formatting
+       issues Tag: Visual edit: Switched
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:3520:35, 19 April 2024‎ Klinger talk contribs‎
+       5,775 bytes +165‎ Added beginning sentence. Category:Applications
+       Category:Gaming Tag: Visual edit: Switched
+
+    23 March 2024
+
+     * curprev [ ] [ ] 22:4422:44, 23 March 2024‎ imported>Npanickssery‎ m
+       5,610 bytes −7‎ change Vesktop execution from "vencorddesktop" ->
+       "vesktop"
+
+    9 January 2024
+
+     * curprev [ ] [ ] 16:5716:57, 9 January 2024‎ imported>Rrdpad‎ 5,617
+       bytes +37‎ fix syntax highlight
+
+    24 December 2023
+
+     * curprev [ ] [ ] 10:4510:45, 24 December 2023‎ imported>Root-Time‎ m
+       5,580 bytes +303‎ No edit summary
+
+    25 November 2023
+
+     * curprev [ ] [ ] 23:3723:37, 25 November 2023‎ imported>Artturin‎ 5,277
+       bytes +200‎ Add openasar fix
+
+    26 August 2023
+
+     * curprev [ ] [ ] 23:3823:38, 26 August 2023‎ imported>Hypnosis2839‎
+       5,077 bytes +110‎ →‎OpenAsar / Vencord: add warning to copy the
+       example verbatim
+
+    7 August 2023
+
+     * curprev [ ] [ ] 01:2501:25, 7 August 2023‎ imported>Hypnosis2839‎ m
+       4,967 bytes −5‎ →‎Installation: formatting
+     * curprev [ ] [ ] 01:2101:21, 7 August 2023‎ imported>Hypnosis2839‎
+       4,972 bytes −99‎ →‎Text-to-Speech: replace overlay with override
+     * curprev [ ] [ ] 01:1901:19, 7 August 2023‎ imported>Hypnosis2839‎
+       5,071 bytes −345‎ →‎Installation: deduplicate info, refer to dedicated
+       page for unfree
+     * curprev [ ] [ ] 01:1201:12, 7 August 2023‎ imported>Hypnosis2839‎ m
+       5,416 bytes +11‎ →‎OpenAsar / Vencord: formatting
+     * curprev [ ] [ ] 01:0901:09, 7 August 2023‎ imported>Hypnosis2839‎
+       5,405 bytes −720‎ →‎Usage: change overlay to override, remove
+       duplicate info
+
+    22 June 2023
+
+     * curprev [ ] [ ] 07:4507:45, 22 June 2023‎ imported>Scrumplex‎ m 6,125
+       bytes 0‎ Move "Join the NixOS Discord" below Usage
+     * curprev [ ] [ ] 07:4307:43, 22 June 2023‎ imported>Scrumplex‎ 6,125
+       bytes +609‎ Add Vencord installation docs
+
+    9 April 2023
+
+     * curprev [ ] [ ] 21:4321:43, 9 April 2023‎ imported>MathiasSven‎ m
+       5,516 bytes +278‎ Add TTS section
+       https://github.com/NixOS/nixpkgs/pull/224565
+
+    15 February 2023
+
+     * curprev [ ] [ ] 18:5118:51, 15 February 2023‎ imported>Wolf2482-1639‎
+       5,238 bytes +65‎ Tell what to do if the setting.json file doesn't
+       already exit
+
+    12 February 2023
+
+     * curprev [ ] [ ] 01:0601:06, 12 February 2023‎ imported>Sorrel‎ 5,173
+       bytes +343‎ krisp is broken by binary patching
+
+    28 June 2022
+
+     * curprev [ ] [ ] 01:0301:03, 28 June 2022‎ imported>PedroHLC‎ m 4,830
+       bytes +331‎ Add OpenAsar
+
+    12 June 2022
+
+     * curprev [ ] [ ] 05:3405:34, 12 June 2022‎ imported>VergeDX‎ 4,499
+       bytes −20‎ update[nix]: Use new format of `run` subcommand.
+
+    22 September 2021
+
+     * curprev [ ] [ ] 23:0823:08, 22 September 2021‎ imported>Hyperfekt‎ m
+       4,519 bytes +13‎ format settings file path
+     * curprev [ ] [ ] 23:0723:07, 22 September 2021‎ imported>Hyperfekt‎ m
+       4,506 bytes +1‎ just a missed letter
+     * curprev [ ] [ ] 23:0623:06, 22 September 2021‎ imported>Hyperfekt‎
+       4,505 bytes +141‎ add auto-update disable setting
+
+    10 June 2021
+
+     * curprev [ ] [ ] 17:2917:29, 10 June 2021‎ imported>IvarWithoutBones‎ m
+       4,364 bytes +387‎ Add betterdiscord installation instructions
+
+    16 May 2021
+
+     * curprev [ ] [ ] 20:4720:47, 16 May 2021‎ imported>Legendofmiracles‎
+       3,977 bytes +31‎ No edit summary
+     * curprev [ ] [ ] 20:4720:47, 16 May 2021‎ imported>Legendofmiracles‎ m
+       3,946 bytes 0‎ fixes a typo
+
+    2 January 2021
+
+     * curprev [ ] [ ] 18:3518:35, 2 January 2021‎ imported>Mzero‎ m 3,946
+       bytes +3‎ fix syntax in example
+
+    5 December 2020
+
+     * curprev [ ] [ ] 18:1818:18, 5 December 2020‎ imported>Con-f-use‎ 3,943
+       bytes +382‎ more discord update possibilities
+     * curprev [ ] [ ] 18:1518:15, 5 December 2020‎ imported>Con-f-use‎ 3,561
+       bytes +752‎ add discord update workaround
+
+    19 November 2020
+
+     * curprev [ ] [ ] 03:0503:05, 19 November 2020‎ imported>Artturin‎ m
+       2,809 bytes +95‎ format
+
+    18 November 2020
+
+     * curprev [ ] [ ] 19:2719:27, 18 November 2020‎ imported>Artturin‎ 2,714
+       bytes +310‎ category and troubleshooting
+
+    14 November 2020
+
+     * curprev [ ] [ ] 09:1109:11, 14 November 2020‎ imported>Artturin‎ 2,404
+       bytes +146‎ replace nix-env
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:4021:40, 24 September 2020‎ imported>Garbas‎ m
+       2,258 bytes −3‎ No edit summary
+
+    1 August 2020
+
+     * curprev [ ] [ ] 22:0722:07, 1 August 2020‎ imported>Zimbatm‎ 2,261
+       bytes +122‎ add link to the NixOS Discord
+
+    25 June 2020
+
+     * curprev [ ] [ ] 20:1020:10, 25 June 2020‎ imported>Elitelinuxuser‎ m
+       2,139 bytes +262‎ Added the installation commands for the non stable
+       versions of discord as well.
+
+    25 April 2020
+
+     * curprev [ ] [ ] 13:2713:27, 25 April 2020‎ imported>Deingithub‎ 1,877
+       bytes +1,316‎ Add workaround for nixos/nixpkgs#78961
+     * curprev [ ] [ ] 13:1013:10, 25 April 2020‎ imported>Deingithub‎ m 561
+       bytes +76‎ Add highlighting for command lines
+
+    7 March 2018
+
+     * curprev [ ] [ ] 14:1614:16, 7 March 2018‎ imported>Makefu‎ 485 bytes
+       +9‎ No edit summary
+     * curprev [ ] [ ] 06:3106:31, 7 March 2018‎ imported>Jringer‎ 476 bytes
+       +476‎ Discord: Text and VoIP Messaging Application
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Discord"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

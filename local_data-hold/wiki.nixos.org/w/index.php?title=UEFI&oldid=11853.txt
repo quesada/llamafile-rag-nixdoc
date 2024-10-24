@@ -1,0 +1,91 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 See also
+   [ ] Toggle the table of contents
+
+                                      UEFI
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 04:52, 7 April 2024 by Samueldr (talk | contribs) (Init
+   stub)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+    This article or section needs expansion.                                  
+    Reason: This page is a stub. (Discuss in Talk:UEFI#)                      
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+                                    See also
+
+     * NixOS_on_ARM/UEFI
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=UEFI&oldid=11853"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 7 April 2024, at 04:52.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

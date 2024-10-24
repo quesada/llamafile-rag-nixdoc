@@ -1,0 +1,135 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 NixOS
+     * 2 Accelerated video playback
+     * 3 Enabling native Wayland support
+     * 4 Enabling DRM (Widevine support)
+   [ ] Toggle the table of contents
+
+                                    Chromium
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Installation
+
+  NixOS
+
+   Add chromium to systemPackages.
+
+Accelerated video playback
+
+   Make sure Accelerated Video Playback is setup on the system properly.
+   Check chrome://gpu to see if Chromium has enabled hardware acceleration.
+
+   If accelerated video playback is not working, check relevant flags at
+   chrome://flags, or enable them using the cli:
+
+ /etc/nixos/configuration.nix
+
+ {
+   environment.systemPackages = with pkgs; [
+     (chromium.override {
+       commandLineArgs = [
+         "--enable-features=VaapiVideoDecodeLinuxGL"
+         "--ignore-gpu-blocklist"
+         "--enable-zero-copy"
+       ];
+     })
+   ];
+ }
+
+Enabling native Wayland support
+
+   You can turn on native Wayland support in all chrome and most electron
+   apps by setting an environment variable:
+   environment.sessionVariables.NIXOS_OZONE_WL = "1".
+
+Enabling DRM (Widevine support)
+
+   By default, chromium does not support playing DRM protected media.
+   However, there is a build time flag to include the unfree Widevine blob
+   from nixpkgs:
+
+ /etc/nixos/configuration.nix
+
+ {
+   environment.systemPackages = with pkgs; [
+     (chromium.override { enableWideVine = true; })
+   ];
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Chromium&oldid=17642"
+   Categories:
+     * Applications
+     * Web Browser
+     * This page was last edited on 26 September 2024, at 20:43.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

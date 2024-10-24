@@ -1,0 +1,87 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                  User:0x4A6F
+
+     * User page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * User contributions
+     * Logs
+     * View user groups
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   0x4A6F    
+   [IMG]     
+   Domain    Eukaryota          
+   Kingdom   Animalia           
+   Phylum    Arthropoda         
+   Clade     Pancrustacea       
+   Subphylum Crustacea          
+   Communication
+   matrix    @0x4A6F:matrix.org 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=User:0x4A6F&oldid=11484"
+     * This page was last edited on 3 April 2024, at 22:04.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

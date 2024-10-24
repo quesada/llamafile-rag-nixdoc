@@ -1,0 +1,126 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Building a recent box
+     * 2 NixOS Plugin
+   [ ] Toggle the table of contents
+
+                                  Vagrant Box
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section is out of date.                                   
+    Reason: This page has not been edited for several years. Please remove    
+    this notice if the content is accurate. (Discuss in Talk:Vagrant Box)     
+    Once the page has been updated this notice can be removed.                
+
+   The vagrant cloud has a NixOS box, but it is an older revision and hasn't
+   been updated for a short while^[1], it is currently stuck to the much
+   older 16.09 release.
+
+   The tooling used to build the boxes is still available and still
+   maintained. It is @zimbatm's nixbox project.
+
+Building a recent box
+
+   There are some small caveats with the tooling, one will need to do a bit
+   of work to get it working, and then working in a reliable manner on slower
+   hardware.
+
+   First, in the nixos-x86_64.json file, remove the post-processor of type
+   atlas, unless you want to push the image on the vagrant cloud (you're on
+   your own there).
+
+   Then, it may be necessary to increase the boot_wait a bit, on a Haswell
+   laptop-class CPU, with SSD, 30 seconds was a few seconds too short,
+   doubling is almost sure to be enough for most uses. This is only used once
+   during the build of the .box file.
+
+   Then, continue with the instructions in the README.
+
+NixOS Plugin
+
+     This article or section needs expansion.                                 
+     Reason: This article is a stub. (Discuss in Talk:Vagrant Box#)           
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+   The vagrant-nixos-plugin project adds nix provisioning for NixOS guests in
+   vagrant. The project's README should explain its use.
+
+     ----------------------------------------------------------------------
+
+    1. ↑ https://logs.nix.samueldr.com/nixos/2018-01-10#822772
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Vagrant_Box&oldid=11616"
+   Hidden categories:
+     * Pages or sections flagged with Template:outdated
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 5 April 2024, at 01:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

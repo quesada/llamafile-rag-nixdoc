@@ -1,0 +1,112 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Cookbook
+   [ ] Toggle the table of contents
+
+                                    Wiki-js
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Wiki.js is a wiki engine running on Node.js.
+
+Cookbook
+
+   Most basic Nix to get Wiki-js running on port 3000:
+
+  systemd.services.wiki-js = {
+    requires = [ "postgresql.service" ];
+    after    = [ "postgresql.service" ];
+  };
+  services.wiki-js = {
+    enable = true;
+    settings.db = {
+      db  = "wiki-js";
+      host = "/run/postgresql";
+      type = "postgres";
+      user = "wiki-js";
+    };
+  };
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "wiki-js" ];
+    ensureUsers = [{
+      name = "wiki-js";
+      ensureDBOwnership = true;
+    }];
+  };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Wiki-js&oldid=12980"
+   Categories:
+     * Server
+     * Cookbook
+     * Web Applications
+     * This page was last edited on 28 May 2024, at 21:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

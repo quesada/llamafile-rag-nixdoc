@@ -1,0 +1,90 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                               Talk:Home Manager
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Looks like the nixos module usage is different from that suggested in the
+   documentation:
+   https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module
+
+   Why is that?
+
+   ---
+
+   > Why is that?
+
+   @Onny Things changed, I guess. We should not document how to use
+   independently developed software here. If you see NixOS wiki pages
+   outdated w.r.t. official documentation, remove that information.
+
+   -- Fricklerhandwerk
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Home_Manager&oldid=13318"
+     * This page was last edited on 21 June 2024, at 04:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

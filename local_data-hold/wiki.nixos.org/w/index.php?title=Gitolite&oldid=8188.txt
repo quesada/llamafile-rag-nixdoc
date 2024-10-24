@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+   [ ] Toggle the table of contents
+
+                                    Gitolite
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 16:30, 24 November 2023 by imported>Variant9 (Specify user
+   used to clone repos, as this is different from the standard `git` user.)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Gitolite allows you to host git repositories with fine-grained access
+   control.
+
+Installation
+
+   Obtain the SSH public key of the user you will use to configure gitolite,
+   then add the following to your NixOS config:
+
+   services.gitolite = {
+     enable = true;
+     adminPubkey = "<ssh public key>";
+   };
+
+   When you rebuild, a new unit should start:
+
+ the following new units were started: gitolite-init.service
+
+   You can now check out the gitolite-admin repo using the gitolite user.
+   Gitolite's configuration is located in conf/gitolite.conf and you can give
+   users access by adding their public keys to keydir.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Gitolite&oldid=8188"
+   Category:
+     * Applications
+     * This page was last edited on 24 November 2023, at 16:30.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

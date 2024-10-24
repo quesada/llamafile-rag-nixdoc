@@ -1,0 +1,303 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Get In Touch: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    14 September 2024
+
+     * curprev [ ] [ ] 01:0001:00, 14 September 2024‎ Marshmallow talk
+       contribs‎ 4,197 bytes +17‎ Fix: Add "References" Heading Tag: Visual
+       edit
+     * curprev [ ] [ ] 00:5700:57, 14 September 2024‎ Marshmallow talk
+       contribs‎ 4,180 bytes +170‎ Add "Nix/NixOS Community" discord, see
+       https://discourse.nixos.org/t/new-discord-to-discuss-nix-nixos-and-the-wider-ecosystem/51953
+       Tag: Visual edit
+
+    3 September 2024
+
+     * curprev [ ] [ ] 12:2812:28, 3 September 2024‎ Adamcstephens talk
+       contribs‎ 4,010 bytes +12‎ Fix Discord link being unclickable Tag:
+       Visual edit
+
+    2 July 2024
+
+     * curprev [ ] [ ] 01:3301:33, 2 July 2024‎ Zyansheep talk contribs‎
+       3,998 bytes +96‎ add a somewhat active programming.dev lemmy community
+       & re-format some headings
+
+    24 June 2024
+
+     * curprev [ ] [ ] 21:1921:19, 24 June 2024‎ Zyansheep talk contribs‎
+       3,902 bytes +137‎ reorganize page around official/unofficial
+       categories, add links, and remove unnecessary language for faster
+       skimming Tag: Visual edit
+
+    28 May 2024
+
+     * curprev [ ] [ ] 11:1311:13, 28 May 2024‎ Fgaz talk contribs‎ 3,765
+       bytes +49‎ →‎Telegram: add @nixosita
+
+    23 May 2024
+
+     * curprev [ ] [ ] 18:0218:02, 23 May 2024‎ Samueldr talk contribs‎ m
+       3,716 bytes −228‎ Undo revision 12913 by RGBCube (talk) Tag: Undo
+     * curprev [ ] [ ] 18:0218:02, 23 May 2024‎ Samueldr talk contribs‎ m
+       3,944 bytes 0‎ Protected "Get In Touch": Edit warring ([Edit=Allow
+       only administrators] (expires 18:02, 24 May 2024 (UTC)) [Move=Allow
+       only administrators] (expires 18:02, 24 May 2024 (UTC)))
+     * curprev [ ] [ ] 09:0509:05, 23 May 2024‎ RGBCube talk contribs‎ 3,944
+       bytes +228‎ Add NixOS subreddit, as it seems to be missing Tag:
+       Reverted
+     * curprev [ ] [ ] 01:3001:30, 23 May 2024‎ Adamcstephens talk contribs‎
+       3,716 bytes −18‎ Update discord invite link to differentiate from
+       nixos.org link Tag: Visual edit
+     * curprev [ ] [ ] 00:3300:33, 23 May 2024‎ Hexa talk contribs‎ 3,734
+       bytes +292‎ Restore the unofficial Discord server. The bar for removal
+       should be the same as on the homepage. Give people a chance to discuss
+       the situation and solve problems as needed. Tag: Undo
+
+    22 May 2024
+
+     * curprev [ ] [ ] 23:1523:15, 22 May 2024‎ Samueldr talk contribs‎ 3,442
+       bytes −292‎ Removed the toxic discord from the page. Tag: Reverted
+     * curprev [ ] [ ] 23:1323:13, 22 May 2024‎ Samueldr talk contribs‎ 3,734
+       bytes −89‎ Vandalism by a banned member Tag: Undo
+     * curprev [ ] [ ] 20:0920:09, 22 May 2024‎ Srid talk contribs‎ 3,823
+       bytes +89‎ →‎Online: add Zulip Tags: Reverted Visual edit
+
+    9 May 2024
+
+     * curprev [ ] [ ] 19:4419:44, 9 May 2024‎ Samueldr talk contribs‎ m
+       3,734 bytes −55‎ Remove subreddit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:4820:48, 24 April 2024‎ Klinger talk contribs‎ m
+       3,789 bytes +24‎ No edit summary
+
+    18 April 2024
+
+     * curprev [ ] [ ] 16:3516:35, 18 April 2024‎ Klinger talk contribs‎ m
+       3,765 bytes −8‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 16:3416:34, 18 April 2024‎ Klinger talk contribs‎ m
+       3,773 bytes +38‎ changed tables to wikitables for better readability
+       Tag: Visual edit
+
+    16 April 2024
+
+     * curprev [ ] [ ] 21:3621:36, 16 April 2024‎ Klinger talk contribs‎ m
+       3,735 bytes 0‎ →‎Forums Tag: Visual edit: Switched
+     * curprev [ ] [ ] 21:3521:35, 16 April 2024‎ Klinger talk contribs‎ m
+       3,735 bytes 0‎ →‎Online Tag: Visual edit: Switched
+     * curprev [ ] [ ] 21:2221:22, 16 April 2024‎ Klinger talk contribs‎
+       3,735 bytes +429‎ added forums, moved link to events up, added wiki
+       matrix channel Tag: Visual edit: Switched
+     * curprev [ ] [ ] 20:5420:54, 16 April 2024‎ Klinger talk contribs‎
+       3,306 bytes −3,039‎ No edit summary Tag: Visual edit: Switched
+
+    5 April 2024
+
+     * curprev [ ] [ ] 21:4021:40, 5 April 2024‎ Samueldr talk contribs‎ m
+       6,345 bytes −39‎ Remove unneeded banner
+     * curprev [ ] [ ] 11:4611:46, 5 April 2024‎ Patka talk contribs‎ m 6,384
+       bytes −5‎ Grammar nits Tag: Visual edit
+     * curprev [ ] [ ] 07:0107:01, 5 April 2024‎ ViperML talk contribs‎ 6,389
+       bytes +5‎ Tweak discord banner Tag: Visual edit
+     * curprev [ ] [ ] 06:5206:52, 5 April 2024‎ ViperML talk contribs‎ 6,384
+       bytes +217‎ Reword discord section Tag: Visual edit
+     * curprev [ ] [ ] 01:0801:08, 5 April 2024‎ Samueldr talk contribs‎ m
+       6,167 bytes −12‎ Drop red links
+
+    16 March 2024
+
+     * curprev [ ] [ ] 21:3321:33, 16 March 2024‎ imported>Anuramat‎ m 6,179
+       bytes +4‎ updated the matrix room link: the old room is "replaced and
+       no longer active"
+
+    21 January 2024
+
+     * curprev [ ] [ ] 08:5808:58, 21 January 2024‎ imported>Domtoro‎ m 6,175
+       bytes +13‎ →‎Events organized by others: Link to devroom
+     * curprev [ ] [ ] 08:5208:52, 21 January 2024‎ imported>Domtoro‎ m 6,162
+       bytes −85‎ Removed broken/dead links
+
+    5 January 2024
+
+     * curprev [ ] [ ] 00:3300:33, 5 January 2024‎ imported>Vater‎ 6,247
+       bytes +525‎ →‎NixCon
+
+    24 October 2023
+
+     * curprev [ ] [ ] 14:3114:31, 24 October 2023‎ imported>Mic92‎ 5,722
+       bytes +59‎ →‎NixCon 2022
+     * curprev [ ] [ ] 14:2914:29, 24 October 2023‎ imported>Mic92‎ 5,663
+       bytes −66‎ Drop Weekly Haskell packaging (no longer a thing)
+     * curprev [ ] [ ] 14:2814:28, 24 October 2023‎ imported>Mic92‎ 5,729
+       bytes −293‎ drop mailing list
+
+    10 September 2023
+
+     * curprev [ ] [ ] 05:5705:57, 10 September 2023‎
+       imported>Sarcasticadmin‎ 6,022 bytes +339‎ No edit summary
+
+    8 August 2023
+
+     * curprev [ ] [ ] 22:5322:53, 8 August 2023‎ imported>Vater‎ m 5,683
+       bytes +16‎ →‎Events organized by others
+     * curprev [ ] [ ] 19:5719:57, 8 August 2023‎ imported>Vater‎ 5,667 bytes
+       +278‎ →‎Events organized by others
+
+    20 July 2023
+
+     * curprev [ ] [ ] 13:2213:22, 20 July 2023‎ imported>Vater‎ m 5,389
+       bytes 0‎ →‎Events
+     * curprev [ ] [ ] 13:2013:20, 20 July 2023‎ imported>Vater‎ m 5,389
+       bytes +9‎ →‎NixCon
+     * curprev [ ] [ ] 13:0413:04, 20 July 2023‎ imported>Vater‎ m 5,380
+       bytes +46‎ →‎Events organized by others
+     * curprev [ ] [ ] 12:4712:47, 20 July 2023‎ imported>Vater‎ m 5,334
+       bytes +23‎ →‎NixCon
+     * curprev [ ] [ ] 12:4412:44, 20 July 2023‎ imported>Vater‎ 5,311 bytes
+       +73‎ →‎NixCon 2023
+     * curprev [ ] [ ] 12:4112:41, 20 July 2023‎ imported>Vater‎ 5,238 bytes
+       +700‎ →‎Events organized by others
+
+    10 April 2023
+
+     * curprev [ ] [ ] 18:3118:31, 10 April 2023‎ imported>Vater‎ 4,538 bytes
+       +277‎ →‎Events
+
+    3 March 2023
+
+     * curprev [ ] [ ] 00:1500:15, 3 March 2023‎ imported>Alyssais‎ 4,261
+       bytes −268‎ →‎IRC: Remove #nixos-gm as it moved to Matrix
+
+    7 February 2023
+
+     * curprev [ ] [ ] 13:2513:25, 7 February 2023‎ imported>Vater‎ 4,529
+       bytes +133‎ →‎Events organized by others
+
+    5 February 2023
+
+     * curprev [ ] [ ] 12:4312:43, 5 February 2023‎ imported>Vater‎ 4,396
+       bytes +85‎ →‎Events organized by others
+
+    29 December 2022
+
+     * curprev [ ] [ ] 01:2701:27, 29 December 2022‎ imported>Vater‎ 4,311
+       bytes +470‎ No edit summary
+
+    10 December 2022
+
+     * curprev [ ] [ ] 10:5010:50, 10 December 2022‎
+       imported>Fricklerhandwerk‎ 3,841 bytes −152‎ Undo revision 8721 -
+       Don’t maintain that information redundantly. The second sentence of
+       this article states its purpose.
+     * curprev [ ] [ ] 09:4309:43, 10 December 2022‎ imported>Benediktbroich‎
+       m 3,993 bytes +152‎ Add NixOS Discourse https://discourse.nixos.org/
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Get_In_Touch"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

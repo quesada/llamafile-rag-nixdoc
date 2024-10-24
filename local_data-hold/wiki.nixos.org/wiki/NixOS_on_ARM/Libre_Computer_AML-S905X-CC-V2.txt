@@ -1,0 +1,144 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Configuration
+          * 3.1 Use latest kernel
+     * 4 Troubleshooting
+          * 4.1 Selecting any boot option resets the board
+          * 4.2 Squashfs errors
+   [ ] Toggle the table of contents
+
+                  NixOS on ARM/Libre Computer AML-S905X-CC-V2
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   AML-S905X-CC-V2
+   Manufacturer Libre Computer 
+   Architecture AArch64        
+   Bootloader   U-Boot or UEFI 
+   Maintainer   Programmerino  
+
+Status
+
+   The only tested installation method is using NixOS_on_ARM/UEFI, although
+   limited testing with the generic SD image also showed promise
+
+Board-specific installation notes
+
+   Follow the generic UEFI installation steps, and make sure to use an image
+   which has at least kernel 6.2 to avoid networking issues. These images are
+   recommended.
+
+   The biggest hurdle is making sure you have the latest bootloader
+   installed. The easiest approach is to use the official flashing tool on a
+   microSD card (or potentially directly onto the SPI flash if you already
+   have an OS booted), and then write the NixOS ISO to a USB drive. Although
+   this isn't documented, it appears that the physical boot switch chooses
+   whether to choose the bootloader from the flash memory or the microSD
+   card. If you just flashed the new bootloader to a microSD card, make sure
+   it is set in the position closest to the I/O (ethernet, USB ports, etc.),
+   otherwise, set it to the opposite direction.
+
+Configuration
+
+  Use latest kernel
+
+   As of writing, the stable LTS kernel is not 6.2+ and thus the default
+   configuration.nix will cause networking issues. To avoid this, make the
+   change below:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   boot.kernelPackages = pkgs.linuxPackages_latest;
+ }
+
+Troubleshooting
+
+  Selecting any boot option resets the board
+
+   You probably are not using the latest platform firmware, or the physical
+   boot switch is not set correctly (and that is causing you to boot from the
+   factory bootloader). See the instructions above.
+
+  Squashfs errors
+
+   Use the copytoram boot option
+
+     ----------------------------------------------------------------------
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Libre_Computer_AML-S905X-CC-V2&oldid=10967"
+     * This page was last edited on 18 October 2023, at 07:12.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

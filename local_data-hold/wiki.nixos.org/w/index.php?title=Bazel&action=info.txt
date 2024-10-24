@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Information for "Bazel"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Bazel        
+   Default sort key                 Bazel        
+   Page length (in bytes)           1,751        
+   Namespace ID                     0            
+   Page ID                          719          
+   Page content language            en - English 
+   Page content model               wikitext     
+   Indexing by robots               Allowed      
+   Number of redirects to this page 0            
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>Dmayle        
+   Date of page creation                        12:31, 5 May 2021      
+   Latest editor                                imported>Keegancsmith  
+   Date of latest edit                          13:53, 2 November 2022 
+   Total number of edits                        6                      
+   Total number of distinct authors             4                      
+   Recent number of edits (within past 90 days) 0                      
+   Recent number of distinct authors            0                      
+
+Page properties
+
+                            Template used on this page:     
+   Transcluded template (1)                                 
+                              * Template:Ic (view source)   
+
+   Retrieved from "https://wiki.nixos.org/wiki/Bazel"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

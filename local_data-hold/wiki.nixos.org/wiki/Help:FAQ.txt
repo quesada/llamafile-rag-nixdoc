@@ -1,0 +1,102 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Splitting a FAQ entry into a sub-page
+   [ ] Toggle the table of contents
+
+                                    Help:FAQ
+
+     * Help page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Warning: This is NOT the FAQ. This is for wiki page authors. Follow this
+   link to go to the FAQ.
+
+Splitting a FAQ entry into a sub-page
+
+   This is done in four steps:
+
+    1. Create the new page using the "short" URL. (FAQ/unfree, FAQ/Libraries)
+    2. Include the whole content of the entry, wrap this way:
+
+ {{FAQ/breadcrumb}}{{#tweekihide:firstHeading}}<onlyinclude>
+ == How can I install a proprietary or unfree package? ==
+ ... page contents here. ...
+ </onlyinclude>
+
+    3. Transclude the page (prefer using the short link)
+
+ {{:FAQ/unfree}}
+
+    4. Move the page from the short to the full title link.
+       [IMG]
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Help:FAQ&oldid=17076"
+   Category:
+     * Contributions
+     * This page was last edited on 2 September 2024, at 20:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

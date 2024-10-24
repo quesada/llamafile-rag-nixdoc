@@ -1,0 +1,144 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Service configuration
+          * 2.1 Password-protected RPC
+          * 2.2 Example: allow remote access
+   [ ] Toggle the table of contents
+
+                                  Transmission
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Transmission#)           
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+Installation
+
+   Install by adding transmission_4-qt or transmission_4-gtk to your packages
+   list
+
+ environment.systemPackages = with pkgs; [ transmission_4-qt ];
+
+ environment.systemPackages = with pkgs; [ transmission_4-gtk ];
+
+   If you want to configure the settings declaratively with within
+   configuration.nix, you will have to instead install transmission-qt or
+   transmission-gtk. Do note that this is using version 3.0.0 instead of
+   version 4.
+
+ environment.systemPackages = with pkgs; [ transmission-qt ];
+
+ environment.systemPackages = with pkgs; [ transmission-gtk ];
+
+Service configuration
+
+   You can declaratively change the settings via Nix by modifying
+   services.transmission.settings. View the documentation for more info. Like
+   the previous section has said before, you'll have to use the nixpkgs
+   transmission-gtk or transmission-qt for this to work.
+
+   Example:
+
+ services.transmission.settings = {
+   download-dir = "${config.services.transmission.home}/Downloads";
+ };
+
+  Password-protected RPC
+
+   The default method of editing the configuration and restarting the daemon
+   will not work because of the way the configuration is handled. It is
+   however possible to once set it in clear in the settings, and then copy
+   the generated hash to the setting, removing the in-clear copy from the
+   configuration.
+
+  Example: allow remote access
+
+   To control the daemon remotely, put the following lines in your
+   /etc/nixos/configuration.nix:
+
+ services.transmission = {
+     enable = true; #Enable transmission daemon
+     openRPCPort = true; #Open firewall for RPC
+     settings = { #Override default settings
+       rpc-bind-address = "0.0.0.0"; #Bind to own IP
+       rpc-whitelist = "127.0.0.1,10.0.0.1"; #Whitelist your remote machine (10.0.0.1 in this example)
+     };
+   };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Transmission&oldid=4678"
+   Category:
+     * Applications
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 28 February 2024, at 00:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

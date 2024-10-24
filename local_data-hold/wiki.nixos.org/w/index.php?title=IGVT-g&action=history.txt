@@ -1,0 +1,312 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            IGVT-g: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    21 December 2022
+
+     * curprev [ ] [ ] 18:5818:58, 21 December 2022‎ imported>Whazor‎ 5,787
+       bytes +262‎ Add note about GVT-g removal and SR-IOV future
+
+    1 February 2022
+
+     * curprev [ ] [ ] 15:4215:42, 1 February 2022‎ imported>Patryk27‎ 5,525
+       bytes −24‎ No edit summary
+     * curprev [ ] [ ] 15:4115:41, 1 February 2022‎ imported>Patryk27‎ 5,549
+       bytes +151‎ No edit summary
+     * curprev [ ] [ ] 15:3615:36, 1 February 2022‎ imported>Patryk27‎ 5,398
+       bytes +565‎ No edit summary
+
+    10 March 2021
+
+     * curprev [ ] [ ] 13:4413:44, 10 March 2021‎ imported>Nh2‎ 4,833 bytes
+       +4‎ uuid is now a list, see
+       https://github.com/NixOS/nixpkgs/commit/180d1d37b28a92cf544a6bdc7834733819be3ad8
+
+    18 August 2020
+
+     * curprev [ ] [ ] 06:5506:55, 18 August 2020‎ imported>Offlinehacker‎ m
+       4,829 bytes +64‎ Add `MESA_LOADER_DRIVER_OVERRIDE` env to command line
+       flags, as it fixes garbled graphic issues
+
+    24 May 2020
+
+     * curprev [ ] [ ] 09:0009:00, 24 May 2020‎ imported>User‎ 4,765 bytes
+       −129‎ No edit summary
+
+    1 March 2020
+
+     * curprev [ ] [ ] 11:2211:22, 1 March 2020‎ imported>User‎ m 4,894 bytes
+       −93‎ No edit summary
+
+    18 January 2020
+
+     * curprev [ ] [ ] 09:4509:45, 18 January 2020‎ imported>User‎ 4,987
+       bytes +45‎ No edit summary
+
+    15 January 2020
+
+     * curprev [ ] [ ] 17:2517:25, 15 January 2020‎ imported>User‎ 4,942
+       bytes 0‎ No edit summary
+
+    17 November 2019
+
+     * curprev [ ] [ ] 19:3519:35, 17 November 2019‎ imported>User‎ 4,942
+       bytes 0‎ No edit summary
+
+    17 October 2019
+
+     * curprev [ ] [ ] 16:4216:42, 17 October 2019‎ imported>User‎ 4,942
+       bytes +61‎ virt-viewer is not required anymore
+
+    14 October 2019
+
+     * curprev [ ] [ ] 16:5316:53, 14 October 2019‎ imported>User‎ 4,881
+       bytes −403‎ EDID support is landed
+
+    18 August 2019
+
+     * curprev [ ] [ ] 10:0710:07, 18 August 2019‎ imported>User‎ 5,284 bytes
+       −9‎ adjust bare qemu instruction to recent changes
+     * curprev [ ] [ ] 09:5709:57, 18 August 2019‎ imported>User‎ 5,293 bytes
+       +51‎ No edit summary
+     * curprev [ ] [ ] 09:5409:54, 18 August 2019‎ imported>User‎ 5,242 bytes
+       +1‎ highlight correct line after recent changes
+
+    4 July 2019
+
+     * curprev [ ] [ ] 08:0608:06, 4 July 2019‎ imported>Abbradar‎ 5,241
+       bytes −63‎ Drop advice about video adapter in libvirt - it should just
+       be `none`
+     * curprev [ ] [ ] 08:0508:05, 4 July 2019‎ imported>Abbradar‎ 5,304
+       bytes +122‎ Updated libvirt guide with improvements from ArchWiki
+
+    7 April 2019
+
+     * curprev [ ] [ ] 06:3706:37, 7 April 2019‎ imported>User‎ 5,182 bytes
+       +57‎ No edit summary
+
+    4 April 2019
+
+     * curprev [ ] [ ] 18:4718:47, 4 April 2019‎ imported>User‎ 5,125 bytes
+       0‎ No edit summary
+
+    31 March 2019
+
+     * curprev [ ] [ ] 09:4409:44, 31 March 2019‎ imported>User‎ 5,125 bytes
+       +68‎ No edit summary
+     * curprev [ ] [ ] 09:0509:05, 31 March 2019‎ imported>User‎ 5,057 bytes
+       +18‎ No edit summary
+     * curprev [ ] [ ] 07:3507:35, 31 March 2019‎ imported>User‎ 5,039 bytes
+       +53‎ No edit summary
+
+    28 March 2019
+
+     * curprev [ ] [ ] 07:5907:59, 28 March 2019‎ imported>User‎ m 4,986
+       bytes −155‎ 4.19 is default on nixos-unstable again
+
+    24 March 2019
+
+     * curprev [ ] [ ] 05:5805:58, 24 March 2019‎ imported>User‎ 5,141 bytes
+       +12‎ No edit summary
+     * curprev [ ] [ ] 05:5305:53, 24 March 2019‎ imported>User‎ 5,129 bytes
+       −2‎ No edit summary
+
+    17 March 2019
+
+     * curprev [ ] [ ] 09:4509:45, 17 March 2019‎ imported>User‎ 5,131 bytes
+       +191‎ No edit summary
+
+    25 February 2019
+
+     * curprev [ ] [ ] 19:5019:50, 25 February 2019‎ imported>User‎ m 4,940
+       bytes +98‎ 4.14 became default again on nixos-unstable :-!
+     * curprev [ ] [ ] 08:1808:18, 25 February 2019‎ imported>Kyren‎ 4,842
+       bytes +378‎ No edit summary
+
+    27 December 2018
+
+     * curprev [ ] [ ] 17:1017:10, 27 December 2018‎ imported>User‎ m 4,464
+       bytes −98‎ No edit summary
+
+    14 December 2018
+
+     * curprev [ ] [ ] 13:3713:37, 14 December 2018‎ imported>User‎ m 4,562
+       bytes 0‎ bump kernel
+
+    15 October 2018
+
+     * curprev [ ] [ ] 19:4519:45, 15 October 2018‎ imported>Gnidorah‎ 4,562
+       bytes 0‎ bump kernel version, 4.16 got removed
+
+    3 September 2018
+
+     * curprev [ ] [ ] 08:2108:21, 3 September 2018‎ imported>Gnidorah‎ 4,562
+       bytes +108‎ No edit summary
+
+    2 September 2018
+
+     * curprev [ ] [ ] 15:1215:12, 2 September 2018‎ imported>Gnidorah‎ 4,454
+       bytes +39‎ adjust to nixos-unstable
+
+    17 July 2018
+
+     * curprev [ ] [ ] 09:0209:02, 17 July 2018‎ imported>Gnidorah‎ 4,415
+       bytes +39‎ No edit summary
+     * curprev [ ] [ ] 07:3407:34, 17 July 2018‎ imported>Gnidorah‎ 4,376
+       bytes +51‎ No edit summary
+     * curprev [ ] [ ] 07:3207:32, 17 July 2018‎ imported>Gnidorah‎ 4,325
+       bytes +204‎ No edit summary
+
+    15 June 2018
+
+     * curprev [ ] [ ] 20:0420:04, 15 June 2018‎ imported>Gnidorah‎ 4,121
+       bytes +67‎ No edit summary
+     * curprev [ ] [ ] 20:0120:01, 15 June 2018‎ imported>Gnidorah‎ 4,054
+       bytes +13‎ No edit summary
+     * curprev [ ] [ ] 20:0120:01, 15 June 2018‎ imported>Gnidorah‎ 4,041
+       bytes +113‎ No edit summary
+
+    5 June 2018
+
+     * curprev [ ] [ ] 17:0317:03, 5 June 2018‎ imported>Gnidorah‎ 3,928
+       bytes +162‎ No edit summary
+     * curprev [ ] [ ] 16:4616:46, 5 June 2018‎ imported>Gnidorah‎ 3,766
+       bytes −3‎ No edit summary
+
+    3 June 2018
+
+     * curprev [ ] [ ] 18:2418:24, 3 June 2018‎ imported>Gnidorah‎ 3,769
+       bytes −214‎ No edit summary
+
+    16 May 2018
+
+     * curprev [ ] [ ] 04:5204:52, 16 May 2018‎ imported>Gnidorah‎ 3,983
+       bytes +123‎ No edit summary
+
+    11 May 2018
+
+     * curprev [ ] [ ] 18:0618:06, 11 May 2018‎ imported>Gnidorah‎ 3,860
+       bytes +511‎ No edit summary
+     * curprev [ ] [ ] 16:0416:04, 11 May 2018‎ imported>Gnidorah‎ 3,349
+       bytes −94‎ No edit summary
+
+    10 May 2018
+
+     * curprev [ ] [ ] 17:1317:13, 10 May 2018‎ imported>Gnidorah‎ 3,443
+       bytes 0‎ No edit summary
+
+    9 May 2018
+
+     * curprev [ ] [ ] 19:5919:59, 9 May 2018‎ imported>Gnidorah‎ 3,443 bytes
+       −28‎ No edit summary
+     * curprev [ ] [ ] 19:5819:58, 9 May 2018‎ imported>Gnidorah‎ 3,471 bytes
+       −86‎ No edit summary
+     * curprev [ ] [ ] 19:4519:45, 9 May 2018‎ imported>Gnidorah‎ 3,557 bytes
+       +48‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/IGVT-g"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

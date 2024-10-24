@@ -1,0 +1,47 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              NixOps 1.1 released
+
+   Published on Wed Oct 09 2013
+
+                              NixOps 1.1 released
+
+   NixOps 1.1 has been released. This release brings a backend for Hetzner, a
+   German data center provider, support for EC2 spot instances and some minor
+   bugfixes. See the manual for details.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,170 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS & Flakes Book
+   SearchK
+   Main NavigationHomePrefaceGet StartedBest Practices
+
+   English
+
+   简体中文
+
+   English
+
+   简体中文
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+Preface
+
+   Preface
+
+Get Started
+
+   Introduction
+
+   Advantages and Disadvantages
+
+   Installation
+
+The Nix Language
+
+   Basics
+
+NixOS with Flakes
+
+   Get Started with NixOS
+
+   Introduction to Flakes
+
+   NixOS with Flakes Enabled
+
+   NixOS's flake.nix Explained
+
+   The combination ability of Flakes and Nixpkgs module system
+
+   Getting Started with Home Manager
+
+   Modularize the Configuration
+
+   Updating the System
+
+   Downgrading or Upgrading Packages
+
+   Other useful Tips
+
+Nixpkgs's Advanced Usage
+
+   Introduction
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   Multiple Nixpkgs Instances
+
+Nix Store & Binary Cache
+
+   Introduction
+
+   Add Binary Cache Servers
+
+   Host Your Own Binary Cache Server
+
+Best Practices
+
+   Introduction
+
+   Run downloaded binaries on NixOS
+
+   Simplify NixOS-related Commands
+
+   Accelerating Dotfiles Debugging
+
+   Custom NIX_PATH and Flake Registry
+
+   Remote Deployment
+
+   Debugging Derivations and Nix Expressions
+
+Other Usage of Flakes
+
+   Introduction
+
+   Flake Inputs
+
+   Flake Outputs
+
+   The New CLI
+
+   Module System & Custom Options
+
+   [WIP]Testing
+
+Dev Environments on NixOS
+
+   nix shell, nix develop & pkgs.runCommand
+
+   Dev Environments
+
+   [WIP]Packaging 101
+
+   Cross-platform Compilation
+
+   Distributed Building
+
+   [WIP]Kernel Development
+
+Advanced Topics
+
+   Advanced Topics
+
+Frequently Asked Questions
+
+   Frequently Asked Questions
+
+   On this page
+
+                                Packaging 101 ​
+
+   WIP work in progress, please refer to the following reference documents to
+   learn Nix packaging.
+
+References ​
+
+     * NixOS Series 3: Software Packaging 101
+     * How to Learn Nix, Part 28: The standard environment
+     * stdenv - Nixpkgs Manual
+     * languages-frameworks - Nixpkgs Manual
+     * Wrapping packages - NixOS Cookbook
+     * Useful tools:
+          * nurl: Generate Nix fetcher calls from repository URLs
+          * nix-init: Generate Nix packages from URLs with hash prefetching,
+            dependency inference, license detection, and more
+     * Source Code:
+          * pkgs/build-support/trivial-builders/default.nix - runCommand
+          * pkgs/build-support/setup-hooks/make-wrapper.sh
+          * FHS related
+               * pkgs/build-support/build-fhsenv-bubblewrap/buildFHSEnv.nix:
+                 pkgs.buildFHSEnvBubblewrap
+               * pkgs/build-support/build-fhsenv-chroot/default.nix:
+                 pkgs.buildFHSEnvChroot
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous pageDev Environments
+   Next pageCross-platform Compilation
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

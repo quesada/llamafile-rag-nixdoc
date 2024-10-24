@@ -1,0 +1,116 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Add colors at keyboard plug
+   [ ] Toggle the table of contents
+
+                                    G810-led
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Some Logitech keyboards have LEDs. G810-led is a LED controller for
+   Logitech G213, G410, G413, G512, G513, G610, G810, g815, G910 and GPRO
+   keyboards.
+
+Installation
+
+   The program MatMoul/g810-led is provided by the package pkgs.g810-led.
+
+   To be able to run it, you should add the following udev config :
+
+ services.udev = {
+   packages = [
+     pkgs.g810-led
+   ];
+ };
+
+   After a nixos-rebuild switch you should be able to run g810-led -a ff0000.
+
+Add colors at keyboard plug
+
+   Currently, you need to run this command after you plug your keyboard in,
+   with the following udev rule, you are able to run the command
+   automatically after any USB device is plugged in :
+
+ services.udev = {
+   packages = [
+     pkgs.g810-led
+   ];
+   extraRules = ''
+     ACTION=="add", SUBSYSTEM=="usb", RUN+="${pkgs.g810-led}/bin/g810-led -a 0000ff"
+   '';
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=G810-led&oldid=13213"
+   Category:
+     * Hardware
+     * This page was last edited on 18 June 2024, at 21:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

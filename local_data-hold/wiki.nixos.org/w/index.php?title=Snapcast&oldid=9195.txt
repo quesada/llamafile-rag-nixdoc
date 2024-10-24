@@ -1,0 +1,154 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Pipewire Sink
+     * 2 Playback
+   [ ] Toggle the table of contents
+
+                                    Snapcast
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 01:53, 10 September 2021 by imported>Mweinelt (Add audio
+   category)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+     Snapcast is a multiroom client-server audio player, where all clients
+     are time synchronized with the server to play perfectly synced audio.
+     It's not a standalone player, but an extension that turns your existing
+     audio player into a Sonos-like multiroom solution. Audio is captured by
+     the server and routed to the connected clients. Several players can feed
+     audio to the server in parallel and clients can be grouped to play the
+     same audio stream.
+
+   https://github.com/badaix/snapcast
+
+Pipewire Sink
+
+   Both pulseaudio and pipewire can create a virtual audio sink that uses a
+   FIFO queue to stream audio data into Snapcast.
+
+   First create a local snapserver instance that creates the FIFO queue to
+   stream into.
+
+   services.snapserver = {
+     enable = true;
+     codec = "flac";
+     streams = {
+       pipewire  = {
+         type = "pipe";
+         location = "/run/snapserver/pipewire";
+       };
+     };
+   };
+
+   Then create a systemd user unit to attach the pipe-sink after pipewire has
+   started.
+
+   systemd.user.services.snapcast-sink = {
+     wantedBy = [
+       "pipewire.service"
+     ];
+     after = [
+       "pipewire.service"
+     ];
+     bindsTo = [
+       "pipewire.service"
+     ];
+     path = with pkgs; [
+       gawk
+       pulseaudio
+     ];
+     script = ''
+       pactl load-module module-pipe-sink file=/run/snapserver/pipewire sink_name=Snapcast format=s16le rate=48000
+     '';
+   };
+
+Playback
+
+   To have local audio synced up with remote clients it needs to be routed
+   through a local snapclient instance.
+
+   systemd.user.services.snapclient-local = {
+     wantedBy = [
+       "pipewire.service"
+     ];
+     after = [
+       "pipewire.service"
+     ];
+     serviceConfig = {
+       ExecStart = "${pkgs.snapcast}/bin/snapclient -h ::1";
+     };
+   };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Snapcast&oldid=9195"
+   Category:
+     * Audio
+     * This page was last edited on 10 September 2021, at 01:53.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

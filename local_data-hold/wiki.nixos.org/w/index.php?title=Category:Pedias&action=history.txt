@@ -1,0 +1,177 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Category:Pedias: Revision history
+
+   Help
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 September 2024
+
+     * curprev [ ] [ ] 20:0520:05, 2 September 2024‎ Klinger talk contribs‎ m
+       2,740 bytes −15‎ →‎Writing Pedias: Changed link to MoS Tag: Visual
+       edit
+
+    20 September 2021
+
+     * curprev [ ] [ ] 09:0709:07, 20 September 2021‎ imported>Nix‎ 2,755
+       bytes +23‎ make pedias a subcategory of "Resource"
+     * curprev [ ] [ ] 01:1201:12, 20 September 2021‎ imported>Nix‎ 2,732
+       bytes +862‎ add comparison to other main resource types
+     * curprev [ ] [ ] 00:2300:23, 20 September 2021‎ imported>Nix‎ m 1,870
+       bytes 0‎ Nix moved page Category:Discussion to Category:Pedias:
+       Discussion implies dialogue, not encyclopedic text. There are already
+       discussion pages. Pedias is an abbreviation of encyclopedia.
+     * curprev [ ] [ ] 00:2200:22, 20 September 2021‎ imported>Nix‎ 1,870
+       bytes +13‎ prepare for move to Pedias
+
+    9 December 2017
+
+     * curprev [ ] [ ] 17:0617:06, 9 December 2017‎ imported>Ixxie‎ 1,857
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 17:0517:05, 9 December 2017‎ imported>Ixxie‎ 1,857
+       bytes +30‎ No edit summary
+     * curprev [ ] [ ] 17:0317:03, 9 December 2017‎ imported>Ixxie‎ 1,827
+       bytes −257‎ No edit summary
+     * curprev [ ] [ ] 16:4216:42, 9 December 2017‎ imported>Ixxie‎ 2,084
+       bytes +6‎ No edit summary
+     * curprev [ ] [ ] 16:4116:41, 9 December 2017‎ imported>Ixxie‎ 2,078
+       bytes −84‎ →‎Canonical Forms
+
+    30 August 2017
+
+     * curprev [ ] [ ] 11:0311:03, 30 August 2017‎ imported>Ixxie‎ 2,162
+       bytes −332‎ Added style section.
+     * curprev [ ] [ ] 10:3810:38, 30 August 2017‎ imported>Ixxie‎ 2,494
+       bytes +39‎ →‎Software
+     * curprev [ ] [ ] 10:3510:35, 30 August 2017‎ imported>Ixxie‎ 2,455
+       bytes −4‎ No edit summary
+     * curprev [ ] [ ] 10:3410:34, 30 August 2017‎ imported>Ixxie‎ 2,459
+       bytes +8‎ No edit summary
+     * curprev [ ] [ ] 10:1010:10, 30 August 2017‎ imported>Ixxie‎ 2,451
+       bytes +350‎ Added more clauses to language section.
+
+    29 August 2017
+
+     * curprev [ ] [ ] 19:1819:18, 29 August 2017‎ imported>Ixxie‎ m 2,101
+       bytes +1‎ →‎Software
+     * curprev [ ] [ ] 19:1819:18, 29 August 2017‎ imported>Ixxie‎ 2,100
+       bytes +1‎ →‎Language
+     * curprev [ ] [ ] 19:1619:16, 29 August 2017‎ imported>Ixxie‎ 2,099
+       bytes +557‎ Added language section.
+     * curprev [ ] [ ] 17:2417:24, 29 August 2017‎ imported>Ixxie‎ 1,542
+       bytes −4‎ →‎Software: - fixed list numbering.
+     * curprev [ ] [ ] 17:2217:22, 29 August 2017‎ imported>Ixxie‎ 1,546
+       bytes +138‎ →‎Software: - added intro sentence.
+     * curprev [ ] [ ] 17:2017:20, 29 August 2017‎ imported>Ixxie‎ 1,408
+       bytes +1,060‎ Added Software Canonical Form.
+     * curprev [ ] [ ] 16:5716:57, 29 August 2017‎ imported>Ixxie‎ 348 bytes
+       −146‎ Recast the same information as a cohesive paragraph.
+
+    22 August 2017
+
+     * curprev [ ] [ ] 19:2619:26, 22 August 2017‎ imported>Makefu‎ 494 bytes
+       +494‎ Created page with "Discussions, or explanations, clarify and
+       illuminate a particular topic. They broaden the documentation’s
+       coverage of a topic. They are '''understanding-oriented'''. Discu..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Category:Pedias"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

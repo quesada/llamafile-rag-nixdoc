@@ -1,0 +1,131 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Radarr: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    30 April 2024
+
+     * curprev [ ] [ ] 20:3720:37, 30 April 2024‎ MsHaze talk contribs‎ m
+       1,533 bytes 0‎ The default port for Radarr is 7878 - 8989 is the
+       Sonarr default. Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 12:5612:56, 19 April 2024‎ Klinger talk contribs‎ m
+       1,533 bytes +28‎ Category:Applications
+
+    13 April 2024
+
+     * curprev [ ] [ ] 13:1013:10, 13 April 2024‎ Ctfg talk contribs‎ 1,505
+       bytes +1,505‎ Created page with "[https://radarr.video/ Radarr] is a
+       movie collection manager for Usenet and BitTorrent users. It can
+       monitor multiple RSS feeds for new movies and will interface with
+       clients and indexers to grab, sort, and rename them. It can also be
+       configured to automatically upgrade the quality of existing files in
+       the library when a better quality format becomes available. Note that
+       only one type of a given movie is supported. If you want both an 4k
+       version and 1080p version of a gi..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Radarr"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

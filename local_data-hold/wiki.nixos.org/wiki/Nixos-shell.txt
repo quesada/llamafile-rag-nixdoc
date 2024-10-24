@@ -1,0 +1,186 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+          * 2.1 Simple port forward
+          * 2.2 Mounting host directories
+          * 2.3 Inside Nix Flake
+   [ ] Toggle the table of contents
+
+                                  nixos-shell
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   nixos-shell is a small helper script for spawning lightweight NixOS
+   virtual machines in a shell.
+
+Installation
+
+   Add following line to your system configuration to install the program
+
+ environment.systemPackages = [ pkgs.nixos-shell ];
+
+Usage
+
+  Simple port forward
+
+   Create a single example file containing the system configuration for the
+   virtual machine
+
+ myvm.nix
+
+ { pkgs, ... }: {
+   services.dokuwiki.sites."localhost" = {
+     enable = true;
+     settings.title = "My Wiki";
+   };
+ }
+
+   In this example, we'll have a virtual guest machine running an instance of
+   DokuWiki on port 80. Start the VM while forwarding port 8080 on the host
+   to port 80 on the guest
+
+ QEMU_NET_OPTS="hostfwd=tcp::8080-:80" nixos-shell myvm.nix
+
+   After the VM is successfully booted, DokuWiki will be available on
+   http://localhost:8080
+
+  Mounting host directories
+
+   This snippet mounts the directory calendar which resides in the working
+   directory where you run nixos-shell on the host. It gets mounted to
+   /var/lib/nextcloud/store-apps/calendar on the guest. The target directory
+   must exist before mounting gets executed.
+
+ myvm.nix
+
+ { pkgs, ... }: {
+   nixos-shell.mounts.extraMounts = {
+     "/var/lib/nextcloud/store-apps/calendar" = {
+        target = ./calendar;
+        cache = "none";
+     };
+   };
+ };
+
+   Mounting is done through the network filesystem protocol 9p. Currently
+   it's not possible to mount the target directory with a specific UID/GID,
+   so you'll have to change the permissions on the host directory according
+   to your needs.
+
+  Inside Nix Flake
+
+   Using following Flakes example, you can start a virtual machine using
+   nixos-shell by just typing nix run
+
+ flake.nix
+
+ {
+   description = "Spawns lightweight nixos vm in a shell";
+
+   inputs = {
+     nixpkgs.url = "nixpkgs/nixos-23.11";
+     nixos-shell.url = "github:Mic92/nixos-shell";
+   };
+
+   outputs = { self, nixpkgs, nixos-shell }: let
+     pkgs = nixpkgs.legacyPackages.x86_64-linux;
+     start =
+       pkgs.writeShellScriptBin "start" ''
+         set -e
+         export QEMU_NET_OPTS="hostfwd=tcp::8080-:80"
+         ${pkgs.nixos-shell}/bin/nixos-shell --flake .
+       '';
+   in {
+
+     nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
+       system = "x86_64-linux";
+       modules = [
+         (import ./myvm.nix)
+         nixos-shell.nixosModules.nixos-shell
+       ];
+     };
+
+     packages = { inherit start; };
+     defaultPackage.x86_64-linux = start;
+
+   };
+ }
+
+   The configuration of the virtual machine is inside the file myvm.nix in
+   the same directory. The virtual machine will use the nixpkgs source
+   defined in the flake inputs.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nixos-shell&oldid=17599"
+   Category:
+     * Container
+     * This page was last edited on 22 September 2024, at 22:03.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

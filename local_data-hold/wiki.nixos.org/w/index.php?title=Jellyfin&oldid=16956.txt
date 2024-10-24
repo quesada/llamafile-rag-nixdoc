@@ -1,0 +1,239 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation and configuration
+          * 1.1 Allow Jellyfin to read external drives
+          * 1.2 Intro Skipper plugin
+     * 2 Hardware transcoding
+          * 2.1 VAAPI and Intel QSV
+   [ ] Toggle the table of contents
+
+                                    Jellyfin
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 10:09, 26 August 2024 by Ponder (talk | contribs) (Copyedit
+   throughout, mend copy/paste from Plex)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Jellyfin is the volunteer-built media solution that puts you in control of
+   your media. Stream to any device from your own server, with no strings
+   attached.
+
+Installation and configuration
+
+   To get up and running with Jellyfin, add the packages pkgs.jellyfin
+   pkgs.jellyfin-web & pkgs.jellyfin-ffmpeg to your `configuration.nix` file
+   as shown below.
+
+ {
+   services.jellyfin.enable = true;
+   environment.systemPackages = [
+     pkgs.jellyfin
+     pkgs.jellyfin-web
+     pkgs.jellyfin-ffmpeg
+   ];
+ }
+
+   If you want more advanced configuration, use something like what's shown
+   below and see the docs for more configuration options
+
+ {
+   services.jellyfin = {
+     enable = true;
+     openFirewall = true;
+   };
+ }
+
+   Once you have included the packages to be installed, and enabled and
+   configured Jellyfin to your liking, then rebuild your system for changes
+   to take effect.
+
+ $ sudo nixos-rebuild switch
+
+   After the rebuild is complete, Jellyfin should be running. Verify that it
+   is with the following command.
+
+ $ sudo systemctl status jellyfin
+
+   If jellyfin is not running you should be able to start it by running
+   jellyfin in your terminal.
+
+ $ jellyfin
+
+   After you've verified that Jellyfin is running you can start the
+   configuration process.
+
+     * The Jellyfin server should be running on port 8096.
+     * Go to http://localhost:8096 if you are setting this up on your primary
+       computer or want to test your build locally.
+     * If you're logging into a remote server, replace localhost with the ip
+       address of the server.
+
+  Allow Jellyfin to read external drives
+
+   You might encounter permission issues when you try to access external
+   drives if you haven't configured anything else with the server yet. If you
+   haven't explicitly set up a mounting configuration for your drives and
+   instead let your desktop environment (e.g. GNOME or KDE) automatically
+   mount it when you try accessing it via their file explorers, Jellyfin
+   won't be able to access the drive. This is because the desktop environment
+   mounts it to your user, while Jellyfin runs by default as the "jellyfin"
+   user.
+
+   The easiest way to allow it to see these external drives is to change the
+   service's user . Here is an example:
+
+   services.jellyfin = {
+     enable = true;
+     openFirewall = true;
+     user="yourusername";
+   };
+
+   If you have changed the user option after you have already installed
+   Jellyfin, you have to change the ownership of the folder /var/lib/jellyfin
+   to the user you set it to by doing this:
+
+   sudo chown -R /var/lib/jellyfin
+
+   The alternative is to explicitly mount the drives via Filesystems. This
+   takes more effort to set up and requires every new drive to be explicitly
+   declared, but allows more control in what Jellyfin is allowed to see.
+
+  Intro Skipper plugin
+
+   If you install the Intro Skipper plugin, it will not be able to display
+   the skip button in the web interface. This is due to the plugin being
+   unable to modify contents of files in the nix store. To get around this
+   you can make the changes yourself with this:
+
+   nixpkgs.overlays = with pkgs; [
+     (
+       final: prev:
+         {
+           jellyfin-web = prev.jellyfin-web.overrideAttrs (finalAttrs: previousAttrs: {
+             installPhase = ''
+               runHook preInstall
+
+               # this is the important line
+               sed -i "s#</head>#<script src=\"configurationpage?name=skip-intro-button.js\"></script></head>#" dist/index.html
+
+               mkdir -p $out/share
+               cp -a dist $out/share/jellyfin-web
+
+               runHook postInstall
+             '';
+           });
+         }
+     )
+   ];
+
+Hardware transcoding
+
+   In most cases you want to make most of your hardware. Modern boards often
+   come with a hardware accelerator, all you need to do is enable it!
+
+   Source:
+   https://jellyfin.org/docs/general/administration/hardware-acceleration.html
+
+  VAAPI and Intel QSV
+
+   VAAPI and QSV is often available on platforms with Intel GPUs but need
+   their corresponding packages in hardware.graphics.extraPackages.
+
+ { pkgs, lib,config, ... }:
+ {
+   # 1. enable vaapi on OS-level
+   nixpkgs.config.packageOverrides = pkgs: {
+     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+   };
+   hardware.graphics = { # hardware.opengl in 24.05
+     enable = true;
+     extraPackages = with pkgs; [
+       intel-media-driver
+       intel-vaapi-driver # previously vaapiIntel
+       vaapiVdpau
+       intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
+       vpl-gpu-rt # QSV on 11th gen or newer
+       intel-media-sdk # QSV up to 11th gen
+     ];
+   };
+
+   # 2. do not forget to enable jellyfin
+   services.jellyfin.enable = true;
+ }
+
+   Related: Accelerated Video Playback and Intel Graphics
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Jellyfin&oldid=16956"
+   Categories:
+     * Server
+     * Applications
+     * This page was last edited on 26 August 2024, at 10:09.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,109 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Summary
+   [ ] Toggle the table of contents
+
+                            File:Radxa ROCK 4BP.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+   File:Radxa ROCK 4BP.jpg
+   Size of this preview: 800 × 600 pixels. Other resolution: 1,200 × 900
+   pixels.
+
+   Original file ‎(1,200 × 900 pixels, file size: 200 KB, MIME type:
+   image/jpeg)
+
+Summary
+
+   ROCK 4B+
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time    Thumbnail             Dimensions  User       Comment  
+           04:19, 10    Thumbnail for version 1,200 × 900 Msgilligan          
+   current October 2024 as of 04:19, 10       (200 KB)    (talk |    ROCK 4B+
+                        October 2024                      contribs)  
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/Radxa ROCK 4
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Radxa_ROCK_4BP.jpg&oldid=17764"
+     * This page was last edited on 10 October 2024, at 04:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

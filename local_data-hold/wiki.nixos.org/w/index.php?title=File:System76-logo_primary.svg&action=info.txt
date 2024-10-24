@@ -1,0 +1,104 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                Information for "File:System76-logo primary.svg"
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    File:System76-logo primary.svg           
+   Default sort key                 System76-logo primary.svg                
+   Page length (in bytes)           18                                       
+   Namespace ID                     6                                        
+   Namespace                        File                                     
+   Page ID                          3367                                     
+   Page content language            en - English                             
+   Page content model               wikitext                                 
+   Indexing by robots               Allowed                                  
+   Number of redirects to this page 0                                        
+   Hash value                       d72237d967b8ac27f4677db4a56c981ac3d5c589 
+
+Page protection
+
+   Edit   Allow all users (infinite) 
+   Move   Allow all users (infinite) 
+   Upload Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 Ahoneybun (talk | contribs) 
+   Date of page creation                        16:46, 15 October 2024      
+   Latest editor                                Ahoneybun (talk | contribs) 
+   Date of latest edit                          16:46, 15 October 2024      
+   Total number of edits                        1                           
+   Total number of distinct authors             1                           
+   Recent number of edits (within past 90 days) 1                           
+   Recent number of distinct authors            1                           
+
+   Retrieved from
+   "https://wiki.nixos.org/wiki/File:System76-logo_primary.svg"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

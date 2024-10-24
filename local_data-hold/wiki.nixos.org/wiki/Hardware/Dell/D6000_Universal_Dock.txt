@@ -1,0 +1,110 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Displaylink Graphic Driver
+     * 2 Enabling IPv6
+   [ ] Toggle the table of contents
+
+                           Dell D6000 Universal Dock
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to Hardware Hub
+
+Displaylink Graphic Driver
+
+   The Displaylink entry shows all the steps in getting the graphics part of
+   the Universal Dock / Docking Station up and running.
+
+Enabling IPv6
+
+   So there seems to be an issue in the kernel drivers which makes Ethernet
+   Multicast not working with this docking station (bug report and patches
+   here). Somehow these patches or workarounds never got upstream, but with
+   this code snippet you can include the patches easily inside your
+   configuration.nix if you put the patches in a subdirectory for instance
+   linux_kernel_cdc_ncm_patches:
+
+ {
+   ...
+   boot.kernelPatches = lib.singleton {
+     name = "enable-d6000";
+     patch = [
+       ./linux_kernel_cdc_ncm_patches/0001-Hook-into-usbnet_change_mtu-respecting-usbnet-driver.patch
+       ./linux_kernel_cdc_ncm_patches/0002-Admit-multicast-traffic.patch
+     ];
+   };
+   ...
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/Dell/D6000_Universal_Dock&oldid=12211"
+   Category:
+     * Incomplete
+     * This page was last edited on 19 April 2024, at 16:16.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

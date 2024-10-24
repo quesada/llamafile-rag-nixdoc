@@ -1,0 +1,145 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Coq: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    11 March 2024
+
+     * curprev [ ] [ ] 09:4109:41, 11 March 2024‎ imported>Tora0101‎ 3,934
+       bytes +141‎ Update to current environment
+
+    16 February 2024
+
+     * curprev [ ] [ ] 09:4509:45, 16 February 2024‎ imported>Vbgl‎ 3,793
+       bytes +1,057‎ Non-default versions of libraries
+
+    27 June 2022
+
+     * curprev [ ] [ ] 14:0314:03, 27 June 2022‎ imported>Vbgl‎ m 2,736 bytes
+       −2‎ Typo
+     * curprev [ ] [ ] 14:0214:02, 27 June 2022‎ imported>Vbgl‎ 2,738 bytes
+       +79‎ No edit summary
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4405:44, 20 September 2021‎ imported>Nix‎ m 2,659
+       bytes +27‎ add Software/Applications subcategory
+
+    6 September 2018
+
+     * curprev [ ] [ ] 09:5809:58, 6 September 2018‎ imported>Vbgl‎ 2,632
+       bytes +364‎ →‎ProofGeneral: evil-mode
+
+    22 March 2018
+
+     * curprev [ ] [ ] 14:0214:02, 22 March 2018‎ imported>Vbgl‎ 2,268 bytes
+       +794‎ proofgeneral
+
+    12 March 2018
+
+     * curprev [ ] [ ] 08:5808:58, 12 March 2018‎ imported>Vbgl‎ 1,474 bytes
+       +1,474‎ A few words about Coq
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Coq"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

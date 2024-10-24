@@ -1,0 +1,158 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Avoid downloading already built results
+     * 2 Instructions for specific CI Providers
+          * 2.1 Travis CI
+          * 2.2 Github actions
+               * 2.2.1 Self-hosted runners
+          * 2.3 Build kite
+          * 2.4 Drone
+          * 2.5 Jenkins
+          * 2.6 Gitlab
+          * 2.7 Garnix
+          * 2.8 Sourcehut
+   [ ] Toggle the table of contents
+
+                          Continuous Integration (CI)
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Nix nicely integrates into your CI.
+
+   TODO: some general tips & tricks
+
+Avoid downloading already built results
+
+   nix-build will always ensure the built store path is put in the local
+   store, be it by building or by downloading from a substituter. On CI, we
+   often only want to check whether we can build the derivation, without
+   using or running the output.
+
+   This can be achieved by using `--dry-run` to check whether the result
+   would be fetched, and only building it it has to be built.
+
+   nix-build-if-changed.py implements this in a relatively straightforward
+   (but naïve) Python script.
+
+   nix-build-uncached implements it in a slightly more elaborate manner, and
+   is available on nixpkgs (as the nix-build-uncached package).
+
+Instructions for specific CI Providers
+
+  Travis CI
+
+   See Nix_on_Travis article
+
+  Github actions
+
+   See install-nix-action to install nix in Linux/macOS actions. There is
+   also one action to setup cachix, a hosted binary cache.
+
+    Self-hosted runners
+
+   NixOS has a module for running self-hosted GitHub runners.
+
+  Build kite
+
+   See the Buildkite article
+
+  Drone
+
+   There is no official NixOS module however both drone and drone-cli are
+   packaged in nixpkgs.
+
+   Mic92 has the following custom module in his repository. An example public
+   project can be found in cntr and this project for an example using flakes
+   Mic92's dotfiles.
+
+  Jenkins
+
+   Jenkins
+
+  Gitlab
+
+   NixOS has a module for Gitlab runner
+
+  Garnix
+
+   Garnix is a nix-specific CI provider that also provides a cache. it
+   currently only works with flake-enabled repos.
+
+  Sourcehut
+
+   Sourcehut provides an official NixOS image
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Continuous_Integration_(CI)&oldid=12910"
+   Categories:
+     * Server
+     * Applications
+     * This page was last edited on 22 May 2024, at 23:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

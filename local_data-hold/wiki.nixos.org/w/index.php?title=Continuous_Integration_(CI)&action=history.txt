@@ -1,0 +1,200 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                 Continuous Integration (CI): Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    22 May 2024
+
+     * curprev [ ] [ ] 23:2223:22, 22 May 2024‎ Samueldr talk contribs‎ m
+       2,333 bytes −102‎ Drop banned user's contribution Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:5517:55, 19 April 2024‎ Klinger talk contribs‎ m
+       2,435 bytes +47‎ Category:Server Category:Applications
+
+    13 February 2024
+
+     * curprev [ ] [ ] 09:2209:22, 13 February 2024‎ imported>Srid‎ 2,388
+       bytes +193‎ Self-hosted runner
+
+    12 January 2024
+
+     * curprev [ ] [ ] 00:3100:31, 12 January 2024‎ imported>Qknight‎ 2,195
+       bytes −446‎ No edit summary
+
+    28 March 2023
+
+     * curprev [ ] [ ] 14:3914:39, 28 March 2023‎ imported>Srid‎ 2,641 bytes
+       +143‎ Add https://github.com/juspay/jenkins-nix-ci
+
+    13 August 2022
+
+     * curprev [ ] [ ] 09:4109:41, 13 August 2022‎ imported>DarkOnion0‎ m
+       2,498 bytes +65‎ Update broken links due to deletion or change of
+       repository structure
+
+    11 June 2022
+
+     * curprev [ ] [ ] 17:0117:01, 11 June 2022‎ imported>Fgaz‎ 2,433 bytes
+       +143‎ add sourcehut
+
+    3 May 2022
+
+     * curprev [ ] [ ] 18:0118:01, 3 May 2022‎ imported>Flubbard‎ m 2,290
+       bytes +21‎ Missing link
+     * curprev [ ] [ ] 18:0018:00, 3 May 2022‎ imported>Flubbard‎ 2,269 bytes
+       +132‎ Mention garnix
+
+    8 February 2022
+
+     * curprev [ ] [ ] 18:4718:47, 8 February 2022‎ imported>Astro‎ 2,137
+       bytes +22‎ →‎Jenkins: update dead links
+
+    26 November 2020
+
+     * curprev [ ] [ ] 10:0210:02, 26 November 2020‎ imported>Mic92‎ 2,115
+       bytes −7‎ No edit summary
+     * curprev [ ] [ ] 10:0110:01, 26 November 2020‎ imported>Mic92‎ 2,122
+       bytes +65‎ link to gitlab runner article
+
+    24 November 2020
+
+     * curprev [ ] [ ] 15:2215:22, 24 November 2020‎ imported>Mic92‎ 2,057
+       bytes −8‎ →‎Drone
+
+    3 August 2020
+
+     * curprev [ ] [ ] 21:1921:19, 3 August 2020‎ imported>Mic92‎ 2,065 bytes
+       −1‎ No edit summary
+     * curprev [ ] [ ] 21:1821:18, 3 August 2020‎ imported>Mic92‎ 2,066 bytes
+       +126‎ →‎Drone
+
+    2 August 2020
+
+     * curprev [ ] [ ] 10:0010:00, 2 August 2020‎ imported>Mic92‎ 1,940 bytes
+       +310‎ No edit summary
+     * curprev [ ] [ ] 08:5708:57, 2 August 2020‎ imported>Mic92‎ 1,630 bytes
+       +349‎ add example drone configuration
+     * curprev [ ] [ ] 08:3808:38, 2 August 2020‎ imported>Mic92‎ 1,281 bytes
+       −421‎ →‎Build kite: move to own article
+
+    25 July 2020
+
+     * curprev [ ] [ ] 22:1222:12, 25 July 2020‎ imported>Mic92‎ 1,702 bytes
+       +1‎ fix syntax
+     * curprev [ ] [ ] 22:1122:11, 25 July 2020‎ imported>Mic92‎ 1,701 bytes
+       −19‎ →‎nix-build, without downloading the result if already built
+     * curprev [ ] [ ] 22:1022:10, 25 July 2020‎ imported>Mic92‎ 1,720 bytes
+       −2‎ fix link
+     * curprev [ ] [ ] 21:5421:54, 25 July 2020‎ imported>Mic92‎ 1,722 bytes
+       +738‎ add buildkite + install-nix-action
+
+    21 July 2020
+
+     * curprev [ ] [ ] 20:2420:24, 21 July 2020‎ imported>Profpatsch‎ 984
+       bytes +984‎ Add basic CI page. Add nix-build-uncached section.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Continuous_Integration_(CI)"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

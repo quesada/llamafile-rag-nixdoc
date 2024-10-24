@@ -1,0 +1,255 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 KVM
+          * 1.1 Generating VMA
+          * 1.2 Deploying on proxmox
+          * 1.3 Network configuration
+     * 2 LXC
+          * 2.1 Generating LXC template
+          * 2.2 Privileged LXCs
+          * 2.3 Network configuration
+          * 2.4 deploying on proxmox
+          * 2.5 LXC Console
+          * 2.6 LXC See also
+     * 3 Name
+     * 4 References
+   [ ] Toggle the table of contents
+
+                          Proxmox Virtual Environment
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Proxmox Virtual Environment - shortened PVE - (wikipedia:en:Proxmox
+   Virtual Environment) is a platform for containerization and
+   virtualization. PVE can manage a so called "data center" as a cluster of
+   machines and storage. (It supports file systems like ZFS and Ceph.) Mostly
+   it can be used with a WUI. It is open source and is based on
+   Debian GNU/Linux (with a customized kernel of Ubuntu).
+
+   PVE uses
+
+     * #LXC for containerization and
+     * #KVM for virtualization.
+
+   NixOS runs on both.
+
+     The instructions should work for PVE 7.2 and later with NixOS 22.05 and
+     later.
+
+KVM
+
+   It is possible to generate generic qcow2 images and attach them to VMs
+   with qm importdisk as shown here.
+
+   A better option is to generate a VMA image that can be imported as a VM on
+   proxmox. With this method, many VM configuration options such as CPU,
+   memory, network interfaces, and serial terminals can be specified in nix
+   instead of manually setting them on the proxmox UI.
+
+  Generating VMA
+
+     The first run will take some time, as a patched version of qemu with
+     support for the VMA format needs to be built
+
+ nix run github:nix-community/nixos-generators -- --format proxmox
+
+   Pass additional nix configuration to the template with --configuration
+   filename.nix. In addition to NixOS module options, proxmox-specific
+   options present in nixos/modules/virtualisation/proxmox-image.nix can be
+   used to set core, memory, disk and other VM hardware options.
+
+  Deploying on proxmox
+
+   The generated vma.zst file can be copied to /var/lib/vz/dump/ (or any
+   other configured VM dump storage path). A new VM can be spun up from it
+   either using the GUI or the CLI:
+
+ qmrestore /var/lib/vz/dump/vzdump-qemu-nixos-21.11.git.d41882c7b98M.vma.zst <vmid> --unique true
+
+     note: the MAC address of net0 defaults to 00:00:00:00:00:00. This must
+     either be overridden through proxmox.qemuConf.net0, or the unique
+     attribute must be set to true when importing the image on proxmox.
+
+   By default, the generated image is set up to expose a serial terminal
+   interface for ease of access.
+
+ root@proxmox-server:~# qm start <vmid>
+ root@proxmox-server:~# qm terminal <vmid>
+ starting serial terminal on interface serial0 (press Ctrl+O to exit)
+
+ <<< NixOS Stage 1 >>>
+
+ loading module dm_mod...
+ running udev...
+ Starting version 249.4
+ .
+ .
+ .
+ [  OK  ] Reached target Multi-User System.
+
+
+ <<< Welcome to NixOS 21.11.git.d41882c7b98M (x86_64) - ttyS0 >>>
+
+ Run 'nixos-help' for the NixOS manual.
+
+ nixos login: root (automatic login)
+
+
+ [root@nixos:~]#
+
+  Network configuration
+
+   Cloud-init can be enabled with
+
+ services.cloud-init.network.enable = true;
+
+   This will enable systemd-networkd, allowing cloud-init to set up network
+   interfaces on boot.
+
+LXC
+
+  Generating LXC template
+
+ nix run github:nix-community/nixos-generators -- --format proxmox-lxc
+
+  Privileged LXCs
+
+   While it’s not necessary, proxmoxLXC.privileged can be set to true to
+   enable the DebugFS mount in privileged LXCs. If enabled on unprivileged
+   LXCs, this will fail to mount.
+
+  Network configuration
+
+   The proxmox LXC template uses systemd-networkd by default to allow network
+   configuration by proxmox. proxmoxLXC.manageNetwork can be set to true to
+   disable this.
+
+  deploying on proxmox
+
+   Copy the tarball to proxmox, then create a new LXC with this template
+   through the web UI or the CLI. The “nesting” feature needs to be enabled.
+   Newer versions of proxmox will have it enabled by default.
+
+   As of now, not all of the configuration options on the web UI work for
+   proxmox LXCs. Network configuration and adding SSH keys to root user work,
+   while setting a password for the root user and setting hostname don’t.
+
+   It is suggested to set a root password within the container on first boot.
+
+   The template built above without any options does not come with
+   /etc/nixos/configuration.nix. A minimal working example is presented
+   below. Be sure to run nix-channel --update, reboot the container running
+   before nixos-rebuild switch.
+
+ { pkgs, modulesPath, ... }:
+
+ {
+   imports = [
+     (modulesPath + "/virtualisation/proxmox-lxc.nix")
+   ];
+
+   environment.systemPackages = [
+     pkgs.vim
+   ];
+ }
+
+  LXC Console
+
+   You may need to set the Console Mode option to /dev/console (instead of
+   the default of "tty") in order to make the console shell work.
+
+  LXC See also
+
+     * earlier wiki page Proxmox Linux Container
+
+Name
+
+   Proxmox Virtual Environment is also called
+
+           short Proxmox VE,
+           shortened PVE,
+           just Proxmox.
+
+   Proxmox is the firm of the company Proxmox Server Solutions GmbH. Besides
+   Proxmox Virtual Environment (PVE)^[1] there are other products called
+   Proxmox Backup Server (PBS)^[2] and Proxmox Mail Gateway (PMG)^[3].
+
+References
+
+    1. ↑ https://pve.proxmox.com/
+    2. ↑ https://pbs.proxmox.com/
+    3. ↑ https://pmg.proxmox.com/
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Proxmox_Virtual_Environment&oldid=12235"
+   Categories:
+     * Software
+     * Virtualization
+     * This page was last edited on 19 April 2024, at 17:33.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

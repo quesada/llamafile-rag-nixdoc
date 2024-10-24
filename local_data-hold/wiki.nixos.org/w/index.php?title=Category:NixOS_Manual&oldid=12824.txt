@@ -1,0 +1,196 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Category:NixOS Manual
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Revision as of 20:59, 15 May 2024 by Klinger (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   These articles are extensions of parts of the NixOS manual, for example
+   additional cookbooks documentation of applications in the manual. The
+   NixOS manual is the prime source of documentation - this wiki exists to be
+   an extension of the manual. This category is only used for chapters in the
+   manual.
+
+Pages in category "NixOS Manual"
+
+   The following 50 pages are in this category, out of 50 total.
+
+  A
+
+     * Akkoma
+     * Apache Kafka
+
+  B
+
+     * Blackfire profiler
+     * Borg backup
+
+  C
+
+     * C2FmZQ
+     * Castopod
+     * Cert Spotter
+
+  D
+
+     * Digital Bitbox
+     * Discourse
+
+  E
+
+     * Emacs
+
+  F
+
+     * Firefox Sync Server
+     * Flatpak
+     * Forgejo
+     * Foundation DB
+
+  G
+
+     * Garage
+     * Gitlab
+     * GNOME
+     * Goss
+     * GoToSocial
+     * Grocy
+
+  H
+
+     * Honk
+
+  J
+
+     * Jitsi Meet
+
+  K
+
+     * Keycloak
+     * Kubernetes
+
+  L
+
+     * Lemmy
+     * Litestream
+     * Livebook
+
+  M
+
+     * Mailman
+     * Matomo
+     * Matrix
+     * Meilisearch
+     * Mjolnir
+
+  N
+
+     * Nextcloud
+
+  O
+
+     * OCS Inventory
+
+  P
+
+     * Pantheon
+     * Parsedmarc
+     * Pict-rs
+     * Plausible
+     * Pleroma
+     * Plotinus
+     * PostgreSQL
+     * Prometheus
+     * Prosody
+
+  S
+
+     * Sourcehut
+     * Subversion
+
+  T
+
+     * Taskserver
+     * Trezor
+
+  W
+
+     * Weechat
+
+  X
+
+     * Xfce
+
+  Z
+
+     * Zsh
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:NixOS_Manual&oldid=12824"
+     * This page was last edited on 15 May 2024, at 20:59.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

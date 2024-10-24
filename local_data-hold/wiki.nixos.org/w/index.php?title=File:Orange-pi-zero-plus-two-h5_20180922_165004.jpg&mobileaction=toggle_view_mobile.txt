@@ -1,0 +1,158 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+              File:Orange-pi-zero-plus-two-h5 20180922 165004.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:Orange-pi-zero-plus-two-h5 20180922 165004.jpg
+   Size of this preview: 736 × 600 pixels. Other resolution: 885 × 721
+   pixels.
+
+   Original file ‎(885 × 721 pixels, file size: 158 KB, MIME type:
+   image/jpeg)
+
+   Photo taken by User:samueldr, released under the wiki's own license.
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail          Dimensions User              Comment  
+           22:11, 22 Thumbnail for                                   Photo    
+   current September version as of      885 × 721  Imported>Samueldr taken by 
+           2018      22:11, 22          (158 KB)                     me, of   
+                     September 2018                                  the SBC. 
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/Orange Pi Zero Plus2 H5
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Camera manufacturer              motorola                                  
+   Camera model                     XT1635-02                                 
+   Exposure time                    1/36,506 sec (0)                          
+   F Number                         f/2                                       
+   ISO speed rating                 1,600                                     
+   Date and time of data generation 16:50, 22 September 2018                  
+   Lens focal length                4.68 mm                                   
+   Horizontal resolution            72 dpi                                    
+   Vertical resolution              72 dpi                                    
+   Software used                    GIMP 2.10.6                               
+   File change date and time        18:02, 22 September 2018                  
+   Y and C positioning              Centered                                  
+   Exposure Program                 Normal program                            
+   Exif version                     2.2                                       
+   Date and time of digitizing      16:50, 22 September 2018                  
+                                     1. Y                                     
+   Meaning of each component         2. Cb                                    
+                                     3. Cr                                    
+                                     4. does not exist                        
+   APEX shutter speed               15.15                                     
+   APEX aperture                    2                                         
+   APEX brightness                  −1                                        
+   APEX exposure bias               0                                         
+   Maximum land aperture            2 APEX (f/2)                              
+   Metering mode                    Average                                   
+   Flash                            Flash did not fire, compulsory flash      
+                                    suppression                               
+   DateTime subseconds              090895                                    
+   DateTimeOriginal subseconds      090895                                    
+   DateTimeDigitized subseconds     090895                                    
+   Supported Flashpix version       1                                         
+   Color space                      sRGB                                      
+   Scene type                       A directly photographed image             
+   Custom image processing          Normal process                            
+   Exposure mode                    Auto exposure                             
+   White balance                    Auto white balance                        
+   Digital zoom ratio               1                                         
+   Scene capture type               Standard                                  
+   Contrast                         Normal                                    
+   Saturation                       Low saturation                            
+   Sharpness                        Soft                                      
+   Geodetic survey data used        WGS-84                                    
+   GPS tag version                  0.0.2.2                                   
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Orange-pi-zero-plus-two-h5_20180922_165004.jpg&oldid=11975"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

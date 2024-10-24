@@ -1,0 +1,151 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           GNU GRUB: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 April 2024
+
+     * curprev [ ] [ ] 15:3615:36, 19 April 2024‎ Klinger talk contribs‎ m
+       1,202 bytes +20‎ added category:Booting Tag: Visual edit: Switched
+
+    15 April 2023
+
+     * curprev [ ] [ ] 16:4816:48, 15 April 2023‎ imported>Rti‎ m 1,182 bytes
+       −1‎ fix boot.loader.grub.splashImage setting name
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5005:50, 20 September 2021‎ imported>Nix‎ m 1,183
+       bytes +27‎ add Software/Applications subcategory
+
+    13 April 2018
+
+     * curprev [ ] [ ] 20:3120:31, 13 April 2018‎ imported>Samueldr‎ m 1,156
+       bytes +443‎ Adds stub about this GPT partition label contains no BIOS
+       Boot Partition
+
+    3 February 2018
+
+     * curprev [ ] [ ] 15:3115:31, 3 February 2018‎ imported>Samueldr‎ m 713
+       bytes −4‎ Removes leftover ==
+     * curprev [ ] [ ] 15:3015:30, 3 February 2018‎ imported>Samueldr‎ m 717
+       bytes −302‎ Adds a mention to look at the bootloaders FAQ.
+
+    1 January 2018
+
+     * curprev [ ] [ ] 13:1313:13, 1 January 2018‎ imported>Fadenb‎ 1,019
+       bytes +300‎ fix grub textmode instructions
+     * curprev [ ] [ ] 12:4912:49, 1 January 2018‎ imported>Fadenb‎ 719 bytes
+       +320‎ Adds: How do I use GRUB in text mode?
+
+    6 December 2017
+
+     * curprev [ ] [ ] 22:0122:01, 6 December 2017‎ imported>Samueldr‎ m 399
+       bytes 0‎ Samueldr moved page GRUB to GNU GRUB: GNU GRUB is the full
+       name of the project.
+     * curprev [ ] [ ] 22:0122:01, 6 December 2017‎ imported>Samueldr‎ 399
+       bytes +399‎ Inits with answer to a frequently asked question
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/GNU_GRUB"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

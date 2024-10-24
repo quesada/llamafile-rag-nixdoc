@@ -1,0 +1,165 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Category:Virtualization
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Revision as of 09:44, 2 May 2024 by Klinger (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   This guide page exists to point out resources related to virtualization in
+   the Nix ecosystem.
+
+   You can use
+
+     * QEMU/KVM (see Virt-manager)
+     * VirtualBox
+     * VMware
+
+   for virtualization. You can use containers as well.
+
+                 Install of host and install of guest additions
+   NixOS host NixOS guest Code                                                
+                          virtualisation.libvirtd.enable = true;              
+                                                                              
+   QEMU/KVM               # if you use libvirtd on a desktop environment      
+                                                                              
+                          programs.virt-manager.enable = true; # can be used  
+                          to manage non-local hosts as well                   
+                          virtualisation.virtualbox.host.enable = true;       
+                                                                              
+                          users.extraGroups.vboxusers.members = [             
+   VirtualBox             "user-with-access-to-virtualbox" ]; # unfree        
+                          Extension Pack nixpkgs.config.allowUnfree = true;   
+                          virtualisation.virtualbox.host.enableExtensionPack  
+                          = true;                                             
+   VMware                 virtualisation.vmware.host.enable = true;           
+                          services.qemuGuest.enable =true;                    
+              QEMU/KVM                                                        
+                          services.spice-vdagentd.enable = true;              
+                          virtualisation.virtualbox.guest.enable = true;      
+              VirtualBox                                                      
+                          virtualisation.virtualbox.guest.x11 = true;         
+                          services.xserver.videoDrivers = [ "vmware" ];       
+              VMware                                                          
+                          virtualisation.vmware.guest.enable = true;          
+              microvm.nix see https://github.com/astro/microvm.nix            
+
+Pages in category "Virtualization"
+
+   The following 13 pages are in this category, out of 13 total.
+
+  A
+
+     * Adding VMs to PATH
+
+  I
+
+     * IGVT-g
+
+  K
+
+     * Kernel Debugging with QEMU
+
+  L
+
+     * Libvirt
+
+  N
+
+     * NixOps/Virtualization
+     * NixOS on ARM/QEMU
+
+  O
+
+     * OSX-KVM
+
+  P
+
+     * Proxmox Virtual Environment
+
+  Q
+
+     * QEMU
+
+  U
+
+     * Using bridges under NixOS
+
+  V
+
+     * Virt-manager
+     * VirtualBox
+     * VMware
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Virtualization&oldid=12620"
+   Categories:
+     * Software
+     * Desktop
+     * Server
+     * This page was last edited on 2 May 2024, at 09:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

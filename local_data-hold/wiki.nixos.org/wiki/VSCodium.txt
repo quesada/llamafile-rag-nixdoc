@@ -1,0 +1,210 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 NixOS
+          * 1.2 Non-NixOS
+          * 1.3 Use VS Code extensions without additional configuration
+     * 2 Creating development environments using nix-shell
+     * 3 Troubleshooting
+          * 3.1 Issues running Vscodium on Wayland
+   [ ] Toggle the table of contents
+
+                                    VSCodium
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   VSCodium is a build of Visual Studio Code without the proprietary bits
+   that are included in the official distribution. See
+   https://github.com/VSCodium/vscodium#readme for more background.
+
+Installation
+
+  NixOS
+
+ environment.systemPackages = with pkgs; [ vscodium ];
+
+   Extensions can be managed using the 'vscode-with-extensions' package:
+
+ environment.systemPackages = with pkgs; [
+   (vscode-with-extensions.override {
+     vscode = vscodium;
+     vscodeExtensions = with vscode-extensions; [
+       bbenoist.nix
+       ms-python.python
+       ms-azuretools.vscode-docker
+       ms-vscode-remote.remote-ssh
+     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+       {
+         name = "dscodegpt";
+         publisher = "DanielSanMedium";
+         version = "3.4.10";
+         hash = "sha256-zjaM9YME0wfBOwhJTacnQbQvw35QL5NvXIBAx5d/bjI=";
+       }
+     ];
+   })
+ ];
+
+   Some examples here: GitHub search for "extensionFromVscodeMarketplace"
+
+   extensionsFromVscodeMarketplace is a manual way to fetch extensions.
+   However, to keep updated from upstream,
+   nix-community/nix-vscode-extensions provides the Nix expressions for the
+   majority of available extensions from Open VSX and VSCode Marketplace. A
+   GitHub Action updates the extensions daily.
+
+   It's also possible to install VSCodium via Home Manager:
+
+ programs.vscode = {
+   enable = true;
+   package = pkgs.vscodium;
+   extensions = with pkgs.vscode-extensions; [
+     dracula-theme.theme-dracula
+     vscodevim.vim
+     yzhang.markdown-all-in-one
+   ];
+ };
+
+     * See for more options: Home Manager Manual: Options - programs.vscode
+     * Search for extensions with configurations: NixOS Search:
+       vscode-extensions
+
+   Please note that some Visual Studio Code extensions have licenses that
+   restrict their use to the official Visual Studio Code builds and therefore
+   do not work with VSCodium. See this note on the VSCodium docs page for
+   what's been found so far and possible workarounds. In particular,
+   remote-ssh does not work yet with VSCodium.
+
+  Non-NixOS
+
+ $ nix-env -iA nixos.vscodium
+
+  Use VS Code extensions without additional configuration
+
+   With the package vscodium.fhs, the editor launches inside a FHS compliant
+   chroot environment using buildFHSUserEnv. This reintroduces directories
+   such as /bin, /lib, and /usr, which allows for extensions which ship
+   pre-compiled binaries to work with little to no additional nixification.
+
+   Note: From a philosophical view, use of buildFHSUserEnv allows for
+   ease-of-use at the cost of some impurity and non-reproducibility. If you
+   prioritize purely-declarative configurations, please stay with the above
+   guidance.
+
+   Example usage:
+
+ environment.systemPackages = with pkgs; [ vscodium.fhs ];
+
+   Home-manager:
+
+ programs.vscode = {
+   enable = true;
+   package = pkgs.vscodium.fhs;
+ };
+
+   Adding extension-specific dependencies, these will be added to the FHS
+   environment:
+
+ # needed for rust lang server extension
+ programs.vscode.package = pkgs.vscodium.fhsWithPackages (ps: with ps; [ rustup zlib ]);
+
+Creating development environments using nix-shell
+
+   Instead of using configuration.nix to add packages (e.g. Python or NodeJS)
+   for developing code on VSCode, you can instead use nix-shell. This will
+   allow you to seamlessly create development environments with the correct
+   packages for your project, without rebuilding and restarting NixOS. See
+   this page for further instructions in building nix-shell development
+   environments.
+
+   The extension nix-env-selector will make switching between different
+   nix-shell environments within VSCode so you can switch between different
+   coding projects easily. It has a guide for setting up nix-shell
+   environments for VSCode.
+
+Troubleshooting
+
+  Issues running Vscodium on Wayland
+
+   In case of a broken graphical interface while running Vscodium on Wayland,
+   removing following cache directories might resolve the issues:
+
+ $ rm -r ~/.config/VSCodium/GPUCache ~/.config/VSCodium/Crashpad
+
+   An other workaround is to run Vscodium without GPU acceleration
+
+ $ codium --disable-gpu
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=VSCodium&oldid=17651"
+   Categories:
+     * Applications
+     * IDE
+     * This page was last edited on 26 September 2024, at 21:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

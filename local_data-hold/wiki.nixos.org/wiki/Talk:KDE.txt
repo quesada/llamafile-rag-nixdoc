@@ -1,0 +1,114 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                    Talk:KDE
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 26 June by Sandro
+
+   How do I install KDE apps? For example, Ark?
+
+     ----------------------------------------------------------------------
+
+   You add this to your configuration.nix
+
+ environment.systemPackages = [
+   pkgs.libsForQt5.ark
+ ];
+
+   --AmnesiaAmesia (talk) 21:03, 7 June 2023 (UTC)Reply
+
+           plasma5Packages.ark or plasma packages should be used instead of
+           some qt. Sandro (talk) 07:18, 25 June 2024 (UTC)Reply
+
+     ----------------------------------------------------------------------
+
+   I’ve updated the example on how to exclude packages as a response to the
+   warning it produced in NixOS 23, but maybe it would’ve been better to have
+   separate sections for the different NixOS versions? Or is there another
+   way to indicate the difference? And how do I know what version this change
+   was introduced in?
+
+   --AmnesiaAmesia (talk) 21:03, 7 June 2023 (UTC)Reply
+
+           We only really want to support the latest, none EOL NixOS version
+           and Plasma 5 will be dropped soonish, anyway. Sandro (talk) 07:17,
+           25 June 2024 (UTC)Reply
+
+                        How long will Plasma5 be in Nixpkgs? Klinger (talk)
+                        18:32, 25 June 2024 (UTC)Reply
+
+                                     It will be probably gone by 25.05, maybe
+                                     already for the 24.11 release but
+                                     nothing set in stone yet. Sandro (talk)
+                                     21:42, 26 June 2024 (UTC)Reply
+
+     ----------------------------------------------------------------------
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:KDE&oldid=13596"
+     * This page was last edited on 26 June 2024, at 21:42.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

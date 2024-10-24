@@ -1,0 +1,124 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Tooling
+          * 1.1 Linting
+          * 1.2 Code Formatting
+          * 1.3 Editor Integration
+     * 2 Language and Frameworks
+          * 2.1 Rust
+          * 2.2 Haskell
+   [ ] Toggle the table of contents
+
+                                    Blessed
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Nix has a vast ecosystem, struggling to find the current best practice for
+   a specific task is a common complaint from new Nix users. This list
+   attempts to answer those questions.
+
+Tooling
+
+   Developer tools for working with Nix projects.
+
+  Linting
+
+     * statix - Lints and suggestions for the Nix programming language
+     * deadnix - Scan Nix files for dead code
+
+  Code Formatting
+
+     * nixpkgs-fmt - Nix code formatter for nixpkgs
+
+  Editor Integration
+
+     * nil - NIx Language server, an incremental analysis assistent for
+       writing in Nix
+     * tree-sitter-nix - Nix grammar for tree-sitter
+
+Language and Frameworks
+
+   Developer tools for working with other language and frameworks.
+
+  Rust
+
+     * rust-overlay - Pure and reproducible nix overlay of binary distributed
+       rust toolchains
+
+  Haskell
+
+     * haskell-template - Haskell project template using Nix + Flakes +
+       VSCode (HLS)
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Blessed&oldid=10314"
+   Category:
+     * Nix
+     * This page was last edited on 8 December 2022, at 04:08.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

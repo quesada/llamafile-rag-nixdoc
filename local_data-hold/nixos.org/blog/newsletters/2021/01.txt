@@ -1,0 +1,74 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #06 - NixOS Weekly
+
+   Published on Fri Jan 01 2021
+
+                               #06 - NixOS Weekly
+
+                                      News
+
+     * deadnix
+
+       Finds and removes unused code in .nix files.
+
+Announcements
+
+     * Nix 💙 Deployments fund call for contributors
+
+       A fund on OpenCollective for the maintenance and development of
+       Nix-based deployment technologies, starting with funding the NixOps 2
+       release.
+
+     * NixOS is available on GandiCloud VPS
+
+       A NixOS server can be started in a single command or by few clicks on
+       GandiCloud VPS.
+
+Tutorials & Resources
+
+Jobs
+
+                           Contribute to NixOS Weekly
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

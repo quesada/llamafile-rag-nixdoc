@@ -1,0 +1,453 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setting up SSH
+          * 1.1 General best practices
+          * 1.2 Recommended setup: multi-user Nix local –> multi-user Nix
+            remote
+     * 2 Modify the local machine's Nix config to know about the remote
+       machine.
+          * 2.1 Remote builders' features
+          * 2.2 Non-standard Nix installations
+     * 3 Further use of remote builders
+          * 3.1 Force builds on remote builder
+          * 3.2 Using remote builders as substituters
+     * 4 Troubleshooting
+     * 5 See also
+   [ ] Toggle the table of contents
+
+                               Distributed build
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   When your local machine is too slow or doesn't have the right CPU
+   architecture or operating system for the Nix derivation you want to build,
+   you can delegate the build to some other remote machine. For this you need
+
+    1. the Nix package manager installed on both machines; just follow the
+       official installation instructions and prefer the normal "multi-user"
+       install. You don't need to run NixOS; any operating system like
+       Debian, Ubuntu, Arch, MacOS or others where the Nix package manager
+       can be installed, should work.
+    2. SSH access from the local to the remote machine.
+    3. modify the local machine's Nix config to know about the remote
+       machine.
+
+   There is a dedicated chapter in the Nix Manual but it may be difficult to
+   follow for beginners.
+
+   This is an easier, step-by-step guide to setting up a "remote builder"
+   machine to create distributed builds, and includes some SSH tips that are
+   out of scope for the Nix Manual chapter.
+
+Setting up SSH
+
+   The main tool to connect to a remote builder, exchange files and trigger
+   builds is SSH.
+
+   Depending on how you installed the Nix package manager,
+
+     * "multi-user" (system-wide installation; default on NixOS, preferred,
+       normal case for most Linux distro users) or
+     * "single-user" (installed only for a single user on the machine; used
+       when no root/admin rights were available for the user),
+
+   on your local and remote machine you need to allow a certain local SSH
+   user (on your local machine) to connect to a certain remote SSH user (on
+   the remote machine):
+
+   Nix Installation Nix Installation                                          
+                                     SSH Connection Requirements
+   Local Machine    Remote Builder   
+   Multi-user       Multi-user       Local: root user ------------SSH---->    
+                                     Remote: any user (most frequent case)    
+   Single-user      Multi-user       Local: Your single-user -----SSH---->    
+                                     Remote: any user                         
+                                     Local: root user ------------SSH---->    
+   Multi-user       Single-user      Remote: your single-user for which Nix   
+                                     is installed with their UID (see Nix     
+                                     manual page).                            
+                                     Local: Your single-user -----SSH---->    
+   Single-user      Single-user      Remote: your single-user each of which   
+                                     Nix is installed for with their UID (see 
+                                     Nix manual page).                        
+
+   The thing to know about the "Multi-user" installation is that Nix is
+   installed with a "nix-daemon" background process that runs as root and
+   actually manages the builds on your behalf. So when you call "nix build
+   ..." as a non-root user, this is delegated to the nix-daemon process,
+   which runs as root. And this process can further delegate the build to a
+   remote builder; that's why the local machine's root user needs the SSH
+   access.
+
+    Tip                                                                       
+    The best test to check that the SSH access works for Nix is to run on     
+    your local machine:                                                       
+                                                                              
+    nix store ping --store ssh://<REMOTE-BUILDER>                             
+                                                                              
+    Where <REMOTE-BUILDER> is the remote builder's IP address, host address   
+    or whatever name you configure in ~/.ssh/config or /root/.ssh/config,     
+    including the user@ prefix.                                               
+
+   An alternative check is:
+
+ ssh <REMOTE-BUILDER> 'type nix-store'
+
+   The following sections guide you how to setup such authentication, with
+   security in mind, and maximal comfort, assuming basic knowledge about SSH
+   authentication keys.
+
+  General best practices
+
+   It is recommended to not allow root access to the remote machine, even if
+   only via an SSH public/private key pair. Especially because it's not
+   required in any of the 4 scenarios described in the table above.
+
+   In all of the cases above it is recommended to create an SSH public /
+   private key pair without a passphrase, so that you won't have to run
+   ssh-add along with ssh-agent prior to using the remote builder. When the
+   local machine has NixOS / System-wide installation of Nix you'd probably
+   need to spawn eval $(ssh-agent) while you are logged in as root. Not using
+   a passphrase for the SSH key allows other users to enjoy the remote
+   builder.
+
+   Since the access to the remote machine doesn't have to be privileged, you
+   can choose to login to a weakly privileged, and password-locked user on
+   the remote machine, which may help you feel comfortable with the fact root
+   can access it without a passphrase.
+
+    Tip                                                                       
+    The above assumes you have root access on the remote machine, that allows 
+    you to create such a weakly priviledged user, or that you have good       
+    relationship with your system administrator - which is the expected       
+    scenario if they have installed Nix system-wide.                          
+
+   When the remote machine doesn't have NixOS / System-wide Nix installation,
+   the only option is to allow access without passphrase and with an SSH key
+   to the user with Nix installed for them.
+
+  Recommended setup: multi-user Nix local –> multi-user Nix remote
+
+   For the common case where your local Nix is installed system-wide in
+   multi-user mode, create a user on the remote machine that will have an
+   unwriteable home directory, with a ~/.ssh/authorized_keys in it, that will
+   allow SSH access to that user without a passphrase. The steps are:
+
+     * ssh to the remote builder.
+     * Run (requires privileges) useradd -m nixremote; -m makes sure a home
+       directory is created for the nixremote user.
+     * Run (requires privileges) usermod nixremote -L; -L locks the user such
+       that nobody will be able to su to it
+     * Run (requires privileges) mkdir ~nixremote/.ssh. Make sure to run this
+       command as nixremote user or chown it afterwards
+
+   If your remote builder has Nix installed system-wide in multi-user mode,
+   but you're not running NixOS, you may need to add something like the
+   following to your /etc/ssh/sshd_config on this remote machine:
+
+ /etc/ssh/sshd_config
+
+ SetEnv PATH=/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+   Explanation: This extends the $PATH variable on your remote builder for
+   your ssh connection such that the installed Nix tools like
+   /var/nix/var/nix/profiles/default/bin/nix-store can be found on this
+   remote builder when connecting through ssh from your local machine.
+   Otherwise you will get an error on your local machine like "ssh..
+   nix-store: command not found". The reason is that the Nix ssh connection
+   uses an "non-interactive" shell on the remote builder that doesn't load
+   any .bashrc files like a normal "interactive" shell would do, when connect
+   manually.
+
+   Then, on your local machine, create the private / public key pair without
+   a passphrase, as root:
+
+ # ssh-keygen -f /root/.ssh/nixremote
+
+   Copy the contents of /root/.ssh/nixremote.pub from your local machine to
+   the remote builder ~nixremote/.ssh/authorized_keys.
+
+   Then to further harden the setup, remove write permissions from everyone
+   on the remote host's nixremote home directory:
+
+ # chmod -R a-w ~nixremote
+
+   Now you want to make it easy for root on your local machine to connect to
+   nixremote@builder. You can do that by creating the following
+   /root/.ssh/config on the local machine:
+
+ /root/.ssh/config
+
+ Host builder # Replace by IP address, or add a ProxyCommand, see `man ssh_config` for full docs.
+         # Prevent using ssh-agent or another keyfile, useful for testing
+         IdentitiesOnly yes
+         IdentityFile /root/.ssh/nixremote
+         # The weakly privileged user on the remote builder – if not set, 'root' is used – which will hopefully fail
+         User nixremote
+
+    Tip                                                                       
+    When connecting to a new remote builder, ssh will ask you whether you     
+    trust the identity of the builder. Nix needs fully unattended connection, 
+    so you may want to accept all fingerprints by default. To achieve this    
+    you can use StrictHostKeyChecking=accept-new in that config section. Note 
+    that this has security implications if you usually really check the       
+    fingerprints when prompted to do so. If you anticipate the host key won't 
+    change in the future, you can add it manually to the local machines'      
+    /root/.ssh/known_hosts.                                                   
+
+   You may also want to make nix on the remote machine trust that new user by
+   adding it to nix.settings.trusted-users if it's using NixOS, or by
+   manually adding trusted-users = nixremote to /etc/nix/nix.conf.
+
+Modify the local machine's Nix config to know about the remote machine.
+
+   The Nix package manager on your local machine needs to know that the
+   remote builder exists and what its supported features are. See official
+   supportedFeatures documentation.
+
+   If your local machine uses NixOS, you can mention the remote builder
+   within a NixOS nix.buildMachines section. For example:
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, ... }:
+
+ {
+   # You can see the resulting builder-strings of this NixOS-configuration with "cat /etc/nix/machines".
+   # These builder-strings are used by the Nix terminal tool, e.g.
+   # when calling "nix build ...".
+   nix.buildMachines = [{
+     # Will be used to call "ssh builder" to connect to the builder machine.
+     # The details of the connection (user, port, url etc.)
+     # are taken from your "~/.ssh/config" file.
+     hostName = "builder";
+     # CPU architecture of the builder, and the operating system it runs.
+     # Replace the line by the architecture of your builder, e.g.
+     # - Normal Intel/AMD CPUs use "x86_64-linux"
+     # - Raspberry Pi 4 and 5 use  "aarch64-linux"
+     # - M1, M2, M3 ARM Macs use   "aarch64-darwin"
+     # - Newer RISCV computers use "riscv64-linux"
+     # See https://github.com/NixOS/nixpkgs/blob/nixos-unstable/lib/systems/flake-systems.nix
+     # If your builder supports multiple architectures
+     # (e.g. search for "binfmt" for emulation),
+     # you can list them all, e.g. replace with
+     # systems = ["x86_64-linux" "aarch64-linux" "riscv64-linux"];
+     system = "x86_64-linux";
+     # Nix custom ssh-variant that avoids lots of "trusted-users" settings pain
+     protocol = "ssh-ng";
+     # default is 1 but may keep the builder idle in between builds
+     maxJobs = 3;
+     # how fast is the builder compared to your local machine
+     speedFactor = 2;
+     supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+     mandatoryFeatures = [ ];
+   }];
+   # required, otherwise remote buildMachines above aren't used
+   nix.distributedBuilds = true;
+   # optional, useful when the builder has a faster internet connection than yours
+   nix.settings = {
+     builders-use-substitutes = true;
+   };
+ }
+
+    Tip                                                                       
+    In order to affect your system by your nix-language-specific changes you  
+    have to evaluate it, run (as root):                                       
+                                                                              
+    # nixos-rebuild switch                                                    
+
+    Remote builders' features
+
+   Each builder is declared with a set of supportedFeatures. When a builder
+   lacks one of the requiredSystemFeatures of a derivation, it will be
+   ignored. Here are some features used in nixpkgs:
+
+   Feature      Derivations requiring it                                      
+   kvm          Everything which builds inside a vm, like NixOS tests         
+   nixos-test   Machine can run NixOS tests                                   
+   big-parallel kernel config, libreoffice, evolution, llvm and chromium      
+   benchmark    Machine can generate metrics (means the builds usually takes  
+                the same amount of time)                                      
+
+  Non-standard Nix installations
+
+   If you are not root on the remote builder and have used nix-user-chroot or
+   PRoot to install nix there (see Nix Installation Guide) then nix is not
+   available on the PATH of the remote builder. We describe a solution for
+   nix-user-chroot which is easily adapted to PRoot.
+
+     * Create a script ~/bin/nix_wrapper.sh as follows:
+
+ #!/bin/sh
+ exec ~/bin/nix-user-chroot ~/.nix bash -c '
+ . ~/.nix-profile/etc/profile.d/nix.sh
+ exec $SSH_ORIGINAL_COMMAND
+ '
+
+   Of course, adapt this script to the location of the store and
+   nix-user-chroot. Make the script executable.
+
+     * In ~/.ssh/authorized_keys, locate the line corresponding to
+       ~/.ssh/nixremote.pub and prepend this:
+       command="/home/something/bin/nix_wrapper.sh".
+
+   Now ssh will transparently run nix-user-chroot when you connect to the
+   remote builder with the specified ssh key.
+
+Further use of remote builders
+
+    Force builds on remote builder
+
+   Your local machine is also a builder, so when connecting to remote
+   builders fails, Nix will fall back to building locally. To never use the
+   local machine, set the --max-jobs <n>/-j<n> Nix option to 0 as follows:
+
+ $ nix-build -j0 blah
+
+    Using remote builders as substituters
+
+   If you have two remote builders A and B (where A has higher speed than B),
+   if a derivation foo.drv is already built on B, and your local machine
+   needs to build foo.drv, then it will:
+
+     * build (possibly remotely) all the build dependencies of foo.drv
+     * build foo.drv on A
+
+   Even if foo.drv is also on A, you will still have to build the build
+   dependencies of foo.drv before sending the build to A, which will build it
+   instantly since it is in cache.
+
+   To solve this problem, you can set up your remote builders as
+   substituters. Every time (the local machine's) nix considers building a
+   derivation, it will connect to the remote builders to check whether it is
+   already available there. Here is how to set this up via ssh. See also
+   Binary Cache for an alternative using http and nix-serve.
+
+   1. On the remote builder, create a binary cache key:
+
+ $ nix-store --generate-binary-cache-key builder-name cache-priv-key.pem cache-pub-key.pem
+
+   The private key must be readable only by the user running the build: ???
+   on multi-user installs, and the owner of /nix on single-user installs.
+   builder-name is only here for your convenience to distinguish several
+   public keys, it has no functional meaning.
+
+   2. On the remote builder, set up nix to sign all store paths it builds: in
+   the nix configuration (/etc/nix/nix.conf on multi-user installs and
+   ~/.config/nix/nix.conf on single user installs), add the following line:
+
+ secret-key-files = /path/to/cache-priv-key.pem
+
+   If necessary, restart the nix daemon.
+
+   3. The previous point does not retroactively sign existing paths in the
+   store of the builder. To do so, run
+
+ $ nix sign-paths --all -k /path/to/cache-priv-key.pem
+
+   4. In the nix configuration of the local machine, append the content of
+   cache-pub-key.pem to the option trusted-public-keys. Also append
+   ssh-ng://builder to the option substituters. If you only want to use the
+   remote builder occasionally as a substituter, use trusted-substituters
+   instead of substituters. Then, when you want to use the builder, pass
+   --option extra-substituters ssh-ng://builder to the nix command you run.
+
+Troubleshooting
+
+     * How do I know if I'm distributing my build at all?
+          * Run nix build with --max-jobs 0.
+     * How do I know why my builds aren't being distributed?
+          * Run nix build -vvvvvvvvv 2>&1 | less and search for decline.
+     * I can nix store ping but the build doesn't distribute.
+          * If on NixOS, Check that nix store ping command works when run as
+            root.
+          * If you configured builders on the command line (with --builders),
+            make sure your account is in nix.trustedUsers in
+            /etc/nixos/configuration.nix. Only /etc/nix/nix.conf is taken
+            into account otherwise.
+     * I can ping the store as root, but I'm getting "broken pipe" errors
+       when trying to distribute.
+          * You may have hit bug [IMG]#46038. Add nix.distributedBuilds =
+            true; to configuration.nix and nixos-rebuild switch.
+
+See also
+
+     * The NixOS Remote Builds Test Case
+     * Mail to nixos-dev about setting up remote builds by Russell O'Connor
+     * A step-by-step guide on remote Firefox building through bastion host
+     * Offloading NixOS builds to a faster machine
+     * Run a qemu Linux builder on macOS
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Distributed_build&oldid=17090"
+   Categories:
+     * Nix
+     * Guide
+     * This page was last edited on 4 September 2024, at 07:08.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

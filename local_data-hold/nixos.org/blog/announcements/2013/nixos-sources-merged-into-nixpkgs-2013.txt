@@ -1,0 +1,48 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                       NixOS sources merged into Nixpkgs
+
+   Published on Sun Nov 10 2013
+
+                       NixOS sources merged into Nixpkgs
+
+   The NixOS Git tree has been merged into the Nixpkgs tree in order to
+   simplify development. The sources now live in the nixos subdirectory of
+   the Nixpkgs repository on GitHub. See the announcement for more
+   information.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

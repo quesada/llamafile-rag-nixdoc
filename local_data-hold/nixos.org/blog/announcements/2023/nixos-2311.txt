@@ -1,0 +1,104 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              NixOS 23.11 released
+
+   Published on Wed Nov 29 2023
+
+                              NixOS 23.11 released
+
+   NixOS 23.05 Stoat logo
+
+   Hey everyone, we are figsoda and Ryan Lahfa, the release managers for this
+   stable release and we are very proud to announce the public availability
+   of NixOS 23.11 “Tapir”.
+
+   This release will receive bugfixes and security updates for seven months
+   (up until 2024-06-30).
+
+     * Release manual
+          * NixOS breaking changes
+          * New NixOS services
+          * Other notable NixOS changes
+          * Nixpkgs library breaking changes
+          * Nixpkgs library additions and improvements
+          * Nixpkgs library deprecations
+     * Upgrade Instructions
+     * ISO Image Downloads
+
+   The 23.11 release was made possible due to the efforts of 2162
+   contributors, who authored 40024 commits since the previous release. Our
+   thanks go the contributors who also take care of the continued stability
+   and security of our stable release.
+
+   NixOS is already known as the most up to date distribution while also
+   being the distribution with the most packages. This release saw 9147 new
+   packages and 18700 updated packages in Nixpkgs. We also removed 4015
+   packages in an effort to keep the package set maintainable and secure. In
+   addition to packages the NixOS distribution also features modules and
+   tests that make it what it is. This release brought 113 new modules and
+   removed 18. In that process we added 1565 options and removed 362.
+
+  GNOME 45
+
+   GNOME has been updated to version 45 “Rīga”, which introduces a new image
+   viewer, a new camera app, and more changes. Refer to the release notes for
+   more details.
+
+  Default LLVM Version
+
+   The default version for the LLVM package set has been updated to 16 (from
+   11) on both Linux and Darwin, which introduced lots of new features and
+   improvements. The full lists of changes are available here (LLVM) and here
+   (Clang).
+
+  Special Thanks
+
+   We want to personally thank Alejandro Sánchez Medina and Lennart
+   Mühlenmeier for editorializing the release notes, Vladimír Čunát for his
+   tireless effort in managing jobsets, staging cycles and build
+   infrastructure, Cole Helbling for his epic effort in bisecting kernel
+   issues with ARM64 for our remote builders, and Graham Christensen for
+   dutifully tending to our build infrastructure.
+
+  Reflections and Closing
+
+   I am very thankful for this opportunity to learn about and participate in
+   the release process. It has been an awesome experience to work with
+   everyone on this release, and I want to say thank you to everyone in this
+   community that built NixOS and helped made this release better.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

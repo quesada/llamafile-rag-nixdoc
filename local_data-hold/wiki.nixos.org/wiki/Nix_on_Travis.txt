@@ -1,0 +1,137 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Caching dependencies
+     * 2 Enable sandboxed builds
+   [ ] Toggle the table of contents
+
+                                 Nix on Travis
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Travis-CI provides a language: nix setting (to put in a .travis.yml file)
+   to run continuous integration scripts on a machine with Nix installed.
+
+   See Travis-CI documentation for Nix, Travis source code for Nix.
+
+Caching dependencies
+
+   Build dependencies are usually downloaded from some online public binary
+   cache; but some dependencies are not available on such a cache and must be
+   built on the CI machine on every run. It is however possible to reuse the
+   result of such local builds from one run of the CI script to the next one
+   by means of Travis CI caching feature.
+
+   A Nix binary cache can be set up in a local directory (say ~/nix.store)
+   which will be preserved between CI runs:
+
+ cache:
+   directories:
+   - $HOME/nix.store
+
+   Nix must then be configured to read from this local binary cache:
+
+ before_install:
+ - sudo mkdir -p /etc/nix
+ - echo "substituters = https://cache.nixos.org/ file://$HOME/nix.store" | sudo tee -a /etc/nix/nix.conf > /dev/null
+ - echo 'require-sigs = false' | sudo tee -a /etc/nix/nix.conf > /dev/null
+
+   The first line ensures the directory holding Nix’s configuration files
+   exists. The second line declares two binary cache: the main only hydra
+   cache and the locally cached directory. The third line declares that
+   cached closures need not be signed; indeed the local directory will not be
+   signed.
+
+   Finally, actual data must be stored in the cache:
+
+ before_cache:
+ - mkdir -p $HOME/nix.store
+ - nix copy --to file://$HOME/nix.store -f default.nix buildInputs
+
+   In this example, the buildInputs from default.nix are added to the binary
+   cache.
+
+   NB: in this setting, the cache only grows. It might be manually deleted
+   when it becomes too bloated but smarter eviction strategies can be
+   implemented too!
+
+Enable sandboxed builds
+
+   At the moment travis does not have a sandbox enabled by default. This can
+   lead to non-trivial to reproduce errors, when files from the travis image
+   interfere with the build. Enabling however is straight-forward by using
+   the following little snippet:
+
+ before_script:
+   - sudo mkdir -p /etc/nix && echo 'sandbox = true' | sudo tee /etc/nix/nix.conf
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_on_Travis&oldid=5785"
+     * This page was last edited on 22 August 2020, at 09:53.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

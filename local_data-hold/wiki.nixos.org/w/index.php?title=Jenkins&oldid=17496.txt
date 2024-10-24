@@ -1,0 +1,205 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 services.jenkins activation
+          * 1.1 CI configuration
+     * 2 reverse proxy
+     * 3 using email
+     * 4 building nix projects
+   [ ] Toggle the table of contents
+
+                                    Jenkins
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 10:44, 15 September 2024 by Phanirithvij (talk | contribs)
+   (add sha for urls, add outdated notice)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Jenkins is an extendable open source continuous integration server.
+
+services.jenkins activation
+
+   Write this into your /etc/nixos/configuration.nix
+
+  services.jenkins = {
+    enable = true;
+  };
+
+   After a `nixos-rebuild switch`
+
+   Then the program is available via webbrowser at:
+
+   <http://localhost:8080>
+
+  CI configuration
+
+   Using the multibranch pipeline one can use this Jenkinsfile in the
+   repository to build it:
+
+  pipeline {
+    agent any
+    environment {
+        PATH="/run/current-system/sw/bin"
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                sh 'ls'
+                sh 'nix-shell --command "just build"'
+                archiveArtifacts artifacts: 'frontend/dist/*', fingerprint: true
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh 'nix-shell --command "just test"'
+            }
+        }
+        stage('Check fmt') {
+            steps {
+                echo 'Checking fmt..'
+                  sh 'nix-shell --command "cargo fmt --check"'
+                  sh 'nix-shell --command "cd frontend; cargo fmt --check"'
+            }
+        }
+    }
+    post {
+         changed {
+            script {
+                if (currentBuild.currentResult == 'FAILURE') {
+                    emailext subject: '$DEFAULT_SUBJECT',
+                        body: '$DEFAULT_CONTENT',
+                        recipientProviders: [
+                            [$class: 'CulpritsRecipientProvider'],
+                            [$class: 'DevelopersRecipientProvider'],
+                            [$class: 'RequesterRecipientProvider']
+                        ],
+                        replyTo: '$DEFAULT_REPLYTO',
+                        to: '$DEFAULT_RECIPIENTS'
+                }
+            }
+        }
+        always {
+            cleanWs(cleanWhenNotBuilt: false,
+                    deleteDirs: true,
+                    disableDeferredWipeout: true,
+                    notFailBuild: true,
+                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+                               [pattern: '.propsfile', type: 'EXCLUDE']])
+        }
+    }
+  }
+
+reverse proxy
+
+  services.nginx = {
+    enable = true;
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    virtualHosts = {
+      jenkins = {
+        serverName = "ci.example.com";
+        serverAliases = [ "ci-static.example.com" ];
+        forceSSL = true;
+        enableACME = true;
+        locations = {
+          "/" = {
+            proxyPass = "http://127.0.0.1:8080/";
+          };
+        };
+      };
+    };
+
+   You might want to enable the firewall using:
+
+  networking.firewall.enable = true;
+
+using email
+
+   Use <https://gitlab.com/simple-nixos-mailserver> for email support. Can be
+   tested using a test button from the <localhost:8080> webpage.
+
+building nix projects
+
+   jenkins-nix-ci: A NixOS module for Jenkins, optimized specifically for
+   running projects using Nix.
+
+   mrVanDalo has a library to declare jenkins in his repository. It can be
+   used as shown here.
+
+     * Note: the above repo no longer has those sources so it is outdated,
+       but keeping it as a reference.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Jenkins&oldid=17496"
+   Categories:
+     * Server
+     * Applications
+     * This page was last edited on 15 September 2024, at 10:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

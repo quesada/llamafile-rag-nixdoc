@@ -1,0 +1,305 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        NixOS modules: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    16 August 2024
+
+     * curprev [ ] [ ] 09:5309:53, 16 August 2024‎ Mic92 talk contribs‎
+       17,952 bytes −7‎ imported from old wiki
+
+    1 July 2024
+
+     * curprev [ ] [ ] 20:3520:35, 1 July 2024‎ Klinger talk contribs‎ m
+       17,959 bytes +16‎ changed link from redirect to article
+
+    19 April 2024
+
+     * curprev [ ] [ ] 16:5216:52, 19 April 2024‎ A-H talk contribs‎ 17,943
+       bytes +1,579‎ Add example of use of specialArgs. Tag: Visual edit
+
+    6 April 2024
+
+     * curprev [ ] [ ] 11:3311:33, 6 April 2024‎ NobbZ talk contribs‎ 16,364
+       bytes +135‎ →‎Function Tag: Visual edit: Switched
+
+    4 April 2024
+
+     * curprev [ ] [ ] 13:0913:09, 4 April 2024‎ Catvayor talk contribs‎ m
+       16,229 bytes 0‎ Updated link to source code of option declarations
+       Tag: Visual edit: Switched
+
+    22 February 2024
+
+     * curprev [ ] [ ] 07:4707:47, 22 February 2024‎ imported>Siriobalmelli‎
+       m 16,229 bytes −21‎ Minor grammar
+
+    14 January 2024
+
+     * curprev [ ] [ ] 18:1218:12, 14 January 2024‎ imported>Gileri‎ m 16,250
+       bytes 0‎ T'is a config, not an option
+
+    7 November 2023
+
+     * curprev [ ] [ ] 00:2900:29, 7 November 2023‎ imported>Imadnyc‎ 16,250
+       bytes +526‎ Added a section about flake
+
+    15 July 2023
+
+     * curprev [ ] [ ] 10:0710:07, 15 July 2023‎ imported>Malteneuss‎ m
+       15,724 bytes +106‎ Make simplified syntax more obvious
+     * curprev [ ] [ ] 10:0310:03, 15 July 2023‎ imported>Malteneuss‎ m
+       15,618 bytes +2‎ Fix typo
+     * curprev [ ] [ ] 10:0110:01, 15 July 2023‎ imported>Malteneuss‎ m
+       15,616 bytes +485‎ Extend explanation of module syntax structure
+
+    9 July 2023
+
+     * curprev [ ] [ ] 07:5207:52, 9 July 2023‎ imported>Malteneuss‎ m 15,131
+       bytes +635‎ Improve structure and reuse formulations
+
+    8 July 2023
+
+     * curprev [ ] [ ] 20:1020:10, 8 July 2023‎ imported>Malteneuss‎ m 14,496
+       bytes +546‎ Add imports vs import note which trips ups beginners often
+
+    1 November 2022
+
+     * curprev [ ] [ ] 00:0600:06, 1 November 2022‎ imported>Anoadragon453‎ m
+       13,950 bytes −3‎ Clean up extra period.
+
+    3 August 2022
+
+     * curprev [ ] [ ] 19:0019:00, 3 August 2022‎ imported>Toraritte‎ m
+       13,953 bytes 0‎ Toraritte moved page Module to NixOS modules:
+       https://github.com/nix-community/wiki/issues/43
+     * curprev [ ] [ ] 07:4707:47, 3 August 2022‎ imported>Fricklerhandwerk‎
+       13,953 bytes −104‎ add example to make module available, do not
+       recommend search paths
+
+    2 August 2022
+
+     * curprev [ ] [ ] 12:2712:27, 2 August 2022‎ imported>Toraritte‎ 14,057
+       bytes +894‎ Move "NixOS Module Enhancements" section from Alternative
+       Package Sets article to here
+
+    15 December 2021
+
+     * curprev [ ] [ ] 15:0115:01, 15 December 2021‎ imported>Montchr‎ 13,163
+       bytes +11‎ Replace example of obsolete `require` option with `imports`
+
+    19 November 2021
+
+     * curprev [ ] [ ] 13:0513:05, 19 November 2021‎ imported>Milahu‎ 13,152
+       bytes +551‎ add section modulesPath
+
+    6 November 2021
+
+     * curprev [ ] [ ] 13:1013:10, 6 November 2021‎ imported>Milahu‎ 12,601
+       bytes +509‎ clarify modulesPath
+
+    8 September 2021
+
+     * curprev [ ] [ ] 06:0606:06, 8 September 2021‎ imported>Chanbakjsd‎
+       12,092 bytes +1‎ Update line numbers of links to GitHub
+
+    23 July 2021
+
+     * curprev [ ] [ ] 17:5117:51, 23 July 2021‎ imported>Makefu‎ 12,091
+       bytes +240‎ clarification of require
+
+    31 January 2021
+
+     * curprev [ ] [ ] 00:4100:41, 31 January 2021‎ imported>Jtojnar‎ 11,851
+       bytes −35‎ avoid deprecated github:NixOS/nixpkgs-channels
+
+    8 September 2020
+
+     * curprev [ ] [ ] 23:2123:21, 8 September 2020‎ imported>Fzakaria‎
+       11,886 bytes +3,119‎ Added under the hood explanation by Infinisil
+
+    21 August 2020
+
+     * curprev [ ] [ ] 04:0004:00, 21 August 2020‎ imported>Workflow‎ m 8,767
+       bytes −4‎ Remove explicit lib call since lib is in scope
+
+    3 May 2020
+
+     * curprev [ ] [ ] 04:1404:14, 3 May 2020‎ imported>Petabyteboy‎ 8,771
+       bytes −3‎ Changed types.string to types.str since type string is
+       deprecated
+
+    19 September 2019
+
+     * curprev [ ] [ ] 21:1521:15, 19 September 2019‎ imported>Asymmetric‎ m
+       8,774 bytes +65‎ →‎Developing modules: syntax
+     * curprev [ ] [ ] 21:1321:13, 19 September 2019‎ imported>Asymmetric‎ m
+       8,709 bytes −1‎ →‎Developing modules: remove stray .
+     * curprev [ ] [ ] 21:1321:13, 19 September 2019‎ imported>Asymmetric‎
+       8,710 bytes +704‎ add stub on developing modules
+
+    9 June 2019
+
+     * curprev [ ] [ ] 21:5421:54, 9 June 2019‎ imported>Mth‎ 8,006 bytes
+       +393‎ No edit summary
+     * curprev [ ] [ ] 16:0716:07, 9 June 2019‎ imported>Mth‎ m 7,613 bytes
+       0‎ Mth moved page NixOS Modules to Module
+
+    14 December 2018
+
+     * curprev [ ] [ ] 19:3219:32, 14 December 2018‎ imported>Growpotkin‎
+       7,613 bytes +180‎ No edit summary
+
+    31 August 2018
+
+     * curprev [ ] [ ] 09:4909:49, 31 August 2018‎ imported>Qknight‎ 7,433
+       bytes +939‎ No edit summary
+
+    28 March 2018
+
+     * curprev [ ] [ ] 14:2914:29, 28 March 2018‎ imported>Makefu‎ 6,494
+       bytes +29‎ add subsection "Advanced Use Cases" aka. things you
+       shouldn't have to bother when you start with NixOS
+     * curprev [ ] [ ] 14:1214:12, 28 March 2018‎ imported>Tilpner‎ 6,465
+       bytes +1,028‎ Describe how to use imports without committing to a
+       directory structure
+
+    7 March 2018
+
+     * curprev [ ] [ ] 15:2015:20, 7 March 2018‎ imported>Makefu‎ 5,437 bytes
+       +856‎ add example module
+
+    7 September 2017
+
+     * curprev [ ] [ ] 10:0710:07, 7 September 2017‎ imported>Tv‎ m 4,581
+       bytes −2‎ →‎Compatibility Issues with Different Nixpkgs Versions: fix
+       typo
+     * curprev [ ] [ ] 10:0010:00, 7 September 2017‎ imported>Tv‎ 4,583 bytes
+       +784‎ talk about module option incompatibilities
+
+    29 August 2017
+
+     * curprev [ ] [ ] 17:3217:32, 29 August 2017‎ imported>Ixxie‎ m 3,799
+       bytes 0‎ Ixxie moved page NixOS:Modules to NixOS Modules: Stylistic
+       improvement of title.
+
+    27 August 2017
+
+     * curprev [ ] [ ] 13:3013:30, 27 August 2017‎ imported>Fadenb‎ m 3,799
+       bytes +140‎ Syntax highlighting
+
+    23 August 2017
+
+     * curprev [ ] [ ] 12:1112:11, 23 August 2017‎ imported>Makefu‎ 3,659
+       bytes +23‎ No edit summary
+
+    28 June 2017
+
+     * curprev [ ] [ ] 20:2920:29, 28 June 2017‎ imported>Fadenb‎ 3,636 bytes
+       +3,636‎ Created page with "NixOS has modules to have non-intrusive
+       extensions. Modules are made to avoid manipulating the core of NixOS
+       while allowing the user to separate their <code>configuration.nix..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_modules"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

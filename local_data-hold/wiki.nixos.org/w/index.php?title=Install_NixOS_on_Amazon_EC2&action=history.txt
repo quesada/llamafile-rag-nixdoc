@@ -1,0 +1,182 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                 Install NixOS on Amazon EC2: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    4 March 2024
+
+     * curprev [ ] [ ] 13:2013:20, 4 March 2024‎ imported>Kimat‎ m 1,629
+       bytes +157‎ 23.11 image is not available on that list cf.
+       https://discourse.nixos.org/t/ami-for-nixos-23-11/36860/7
+
+    1 March 2024
+
+     * curprev [ ] [ ] 18:1418:14, 1 March 2024‎ imported>Tamiyo‎ 1,472 bytes
+       +302‎ →‎Additional Resources: ssh sometimes asks for password
+
+    2 January 2024
+
+     * curprev [ ] [ ] 21:2421:24, 2 January 2024‎ imported>Tamiyo‎ 1,170
+       bytes +160‎ add additional resources section
+     * curprev [ ] [ ] 21:0921:09, 2 January 2024‎ imported>Tamiyo‎ 1,010
+       bytes −5,338‎ remove outdated information & replace it with some
+       updated info
+
+    20 December 2023
+
+     * curprev [ ] [ ] 19:1019:10, 20 December 2023‎ imported>Tamiyo‎ 6,348
+       bytes +191‎ No edit summary
+
+    31 December 2021
+
+     * curprev [ ] [ ] 13:5513:55, 31 December 2021‎ imported>Scvalex‎ 6,157
+       bytes +7‎ Update link to file with all the AMIs
+
+    20 September 2021
+
+     * curprev [ ] [ ] 04:5804:58, 20 September 2021‎ imported>Nix‎ m 6,150
+       bytes +20‎ add Server category
+
+    11 February 2019
+
+     * curprev [ ] [ ] 16:1216:12, 11 February 2019‎ imported>Tomberek‎ 6,130
+       bytes +90‎ No edit summary
+
+    5 March 2018
+
+     * curprev [ ] [ ] 01:4201:42, 5 March 2018‎ imported>Samueldr‎ m 6,040
+       bytes +14‎ This page may be outdated, it was referred in a 2015 issue
+       on `nixos-homepage` as outdated
+       https://github.com/NixOS/nixos-homepage/issues/37
+
+    9 October 2017
+
+     * curprev [ ] [ ] 19:5519:55, 9 October 2017‎ imported>Makefu‎ m 6,026
+       bytes 0‎ Makefu moved page NixOS on Amazon EC2 to Install NixOS on
+       Amazon EC2
+
+    27 August 2017
+
+     * curprev [ ] [ ] 13:2513:25, 27 August 2017‎ imported>Fadenb‎ m 6,026
+       bytes +48‎ Syntax highlighting: use console lexer instead of bash
+
+    26 August 2017
+
+     * curprev [ ] [ ] 19:4719:47, 26 August 2017‎ imported>Fadenb‎ m 5,978
+       bytes +576‎ Syntax highlighting
+     * curprev [ ] [ ] 19:4019:40, 26 August 2017‎ imported>Fadenb‎ m 5,402
+       bytes +26‎ →‎Public NixOS AMIs: fix broken link (ec2-amis.nix was
+       removed from nixops repo,
+       https://github.com/NixOS/nixops/commit/48fc0ffb53c97eb7ea895b0470816b83d0d34647
+       )
+
+    30 June 2017
+
+     * curprev [ ] [ ] 11:1611:16, 30 June 2017‎ imported>Fadenb‎ 5,376 bytes
+       +5,376‎ Created page with "This article has some notes on installing
+       NixOS on Amazon's [http://aws.amazon.com/ec2/ Elastic Compute Cloud
+       (EC2)]. EC2 support is work in progress. Below we assume that t..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Install_NixOS_on_Amazon_EC2"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

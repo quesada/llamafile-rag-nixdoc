@@ -1,0 +1,152 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Rspamd: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    31 May 2024
+
+     * curprev [ ] [ ] 08:0908:09, 31 May 2024‎ Onny talk contribs‎ 3,354
+       bytes −101‎ Remove unstable notice Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:1319:13, 24 April 2024‎ Klinger talk contribs‎ m
+       3,455 bytes +20‎ No edit summary
+
+    15 April 2024
+
+     * curprev [ ] [ ] 22:0722:07, 15 April 2024‎ Writer talk contribs‎ 3,435
+       bytes +130‎ →‎Bayesian spam training
+
+    28 December 2023
+
+     * curprev [ ] [ ] 13:5513:55, 28 December 2023‎ imported>Onny‎ 3,305
+       bytes +1,389‎ Add tip on spam training
+
+    14 October 2023
+
+     * curprev [ ] [ ] 09:3809:38, 14 October 2023‎ imported>Onny‎ 1,916
+       bytes +586‎ Add note on enable bayesian spam training
+
+    27 August 2023
+
+     * curprev [ ] [ ] 14:4714:47, 27 August 2023‎ imported>Onny‎ m 1,330
+       bytes +28‎ No edit summary
+     * curprev [ ] [ ] 12:1312:13, 27 August 2023‎ imported>Onny‎ 1,302 bytes
+       +572‎ Add DKIM key configuration
+
+    9 April 2023
+
+     * curprev [ ] [ ] 22:3622:36, 9 April 2023‎ imported>Asbachb‎ m 730
+       bytes +9‎ No edit summary
+
+    27 March 2023
+
+     * curprev [ ] [ ] 19:4819:48, 27 March 2023‎ imported>Onny‎ 721 bytes
+       +721‎ Created page with "[https://rspamd.com Rspamd] is a fast, free
+       and open-source spam filtering system. == Installation == To enable
+       Rspamd add following line to your system configuration {{fil..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Rspamd"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

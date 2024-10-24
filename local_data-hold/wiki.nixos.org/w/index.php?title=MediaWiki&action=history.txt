@@ -1,0 +1,209 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          MediaWiki: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    18 September 2024
+
+     * curprev [ ] [ ] 05:2205:22, 18 September 2024‎ Phanirithvij talk
+       contribs‎ m 2,602 bytes 0‎ fix mediawiki extension url
+
+    15 September 2024
+
+     * curprev [ ] [ ] 22:3722:37, 15 September 2024‎ H7x4 talk contribs‎
+       2,602 bytes +41‎ Add a few links
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:1619:16, 24 April 2024‎ Klinger talk contribs‎ m
+       2,561 bytes +20‎ Category:Server Category:Web Applications
+
+    2 April 2024
+
+     * curprev [ ] [ ] 20:3320:33, 2 April 2024‎ Mic92 talk contribs‎ 2,541
+       bytes +79‎ link to the nixos wiki infra
+     * curprev [ ] [ ] 20:3220:32, 2 April 2024‎ Mic92 talk contribs‎ 2,462
+       bytes −148‎ The media wiki configuration fix was also backported to
+       23.11
+
+    28 March 2024
+
+     * curprev [ ] [ ] 10:1210:12, 28 March 2024‎ imported>Webxem‎ 2,610
+       bytes +169‎ No edit summary
+
+    27 March 2024
+
+     * curprev [ ] [ ] 15:3315:33, 27 March 2024‎ imported>Threddast‎ 2,441
+       bytes +8‎ Make comment about admin account more visible
+
+    25 March 2024
+
+     * curprev [ ] [ ] 19:0819:08, 25 March 2024‎ imported>Webxem‎ m 2,433
+       bytes +28‎ Can't login as "admin". Must use Wiki
+
+    14 February 2024
+
+     * curprev [ ] [ ] 03:0703:07, 14 February 2024‎ imported>Tamiyo‎ 2,405
+       bytes +137‎ →‎Web Server
+     * curprev [ ] [ ] 03:0503:05, 14 February 2024‎ imported>Tamiyo‎ 2,268
+       bytes +6‎ →‎Small Configuration
+     * curprev [ ] [ ] 02:4202:42, 14 February 2024‎ imported>Tamiyo‎ 2,262
+       bytes +315‎ No edit summary
+
+    4 January 2024
+
+     * curprev [ ] [ ] 23:2423:24, 4 January 2024‎ imported>Abhillman‎ 1,947
+       bytes +101‎ Add link to mediawiki.nix test
+
+    31 July 2023
+
+     * curprev [ ] [ ] 15:3715:37, 31 July 2023‎ imported>Mweinelt‎ 1,846
+       bytes +149‎ →‎small configuration
+
+    19 January 2023
+
+     * curprev [ ] [ ] 16:4416:44, 19 January 2023‎ imported>Onny‎ m 1,697
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 16:4316:43, 19 January 2023‎ imported>Onny‎ 1,697
+       bytes +144‎ Add links to other web-based wiki software
+
+    5 November 2022
+
+     * curprev [ ] [ ] 10:0510:05, 5 November 2022‎ imported>Vater‎ m 1,553
+       bytes +206‎ No edit summary
+
+    2 March 2022
+
+     * curprev [ ] [ ] 02:3802:38, 2 March 2022‎ imported>Wackbyte‎ m 1,347
+       bytes +36‎ syntax highlighting and fix a typo
+
+    11 January 2022
+
+     * curprev [ ] [ ] 01:2001:20, 11 January 2022‎ imported>Alyaeanyx‎ m
+       1,311 bytes +25‎ No edit summary
+     * curprev [ ] [ ] 01:1901:19, 11 January 2022‎ imported>Alyaeanyx‎ m
+       1,286 bytes −6‎ No edit summary
+     * curprev [ ] [ ] 01:1901:19, 11 January 2022‎ imported>Alyaeanyx‎ 1,292
+       bytes −547‎ Added info about module
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:0806:08, 20 September 2021‎ imported>Nix‎ m 1,839
+       bytes +26‎ add Software/Applications subcategory
+
+    5 September 2021
+
+     * curprev [ ] [ ] 04:5504:55, 5 September 2021‎ imported>Vater‎ 1,813
+       bytes +74‎ mediawiki is available as a package and with a lot of
+       options
+     * curprev [ ] [ ] 04:4404:44, 5 September 2021‎ imported>Vater‎ m 1,739
+       bytes 0‎ Vater moved page Mediawiki to MediaWiki
+
+    13 December 2018
+
+     * curprev [ ] [ ] 01:1201:12, 13 December 2018‎ imported>Redvers‎ 1,739
+       bytes +1,739‎ Initial mediawiki guide.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/MediaWiki"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

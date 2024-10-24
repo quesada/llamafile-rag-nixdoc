@@ -1,0 +1,86 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+   Nix Steering Committee Election 2024 Announcement
+
+                               Declarative builds
+                                and deployments.
+
+   Nix is a tool that takes a unique approach to package management and
+   system configuration. Learn how to make reproducible, declarative and
+   reliable systems.
+
+   Download Get started
+
+Reproducible
+
+   Nix builds packages in isolation from each other. This ensures that they
+   are reproducible and don’t have undeclared dependencies, so if a package
+   works on one machine, it will also work on another.
+
+Declarative
+
+   Nix makes it trivial to share development and build environments for your
+   projects, regardless of what programming languages and tools you’re using.
+
+Reliable
+
+   Nix ensures that installing or upgrading one package cannot break other
+   packages. It allows you to roll back to previous versions, and ensures
+   that no package is in an inconsistent state during an upgrade.
+
+Choose from Thousands of Packages
+
+   The Nix Packages collection (Nixpkgs) is a set of over 100 000 packages
+   for the Nix package manager.
+
+   _____________________
+   Search
+
+Examples
+
+  Try new tools without fear
+
+  Multiple languages, one tool
+
+  Declarative dev-environments
+
+  Minimal docker images
+
+  Declarative cloud images
+
+  Test your configurations
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

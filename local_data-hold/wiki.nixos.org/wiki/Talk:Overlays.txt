@@ -1,0 +1,95 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 TODOs
+       1 comment
+   [ ] Toggle the table of contents
+
+                                 Talk:Overlays
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 3 August 2022 by Toraritte in topic TODOs
+
+TODOs
+
+   Latest comment: 3 August 20221 comment1 person in discussion
+     * the rust manual link is not valid and the Rust nightly overlay points
+       to Mozilla's nixpkgs fork (from @fricklerhandwerk on Matrix)
+       --Toraritte (talk) 14:50, 3 August 2022 (UTC)Reply
+     * The Python Packages Overlay uses a recursive set, and "pythonPackages
+       = python.pkgs;" instead of "pythonPackages = self.python.pkgs;"
+       Doesn't that mean that if a later overlay further modifies the
+       "python" key, then " pythonPackages = python.pkgs;" will still see the
+       earlier version? About the dangers of "rec" in overlays:
+       https://www.youtube.com/watch?v=W85mF1zWA2o&t=681s
+     * Overriding of Go packages is needed, because it's not obvious.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Overlays&oldid=10013"
+     * This page was last edited on 15 February 2023, at 18:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

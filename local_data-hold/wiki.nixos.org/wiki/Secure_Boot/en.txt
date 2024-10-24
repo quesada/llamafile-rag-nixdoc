@@ -1,0 +1,167 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Requirements
+     * 2 Setup
+     * 3 Key management
+     * 4 Differences with `systemd-stub`
+   [ ] Toggle the table of contents
+
+                                  Secure Boot
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Translate this page
+   Other languages:
+     * English
+     * français
+     * русский
+
+   Secure Boot usually refers to a platform firmware capability to verify the
+   boot components and ensure that only your own operating system to boot.
+
+   Secure Boot has multiple implementations, the most known one is UEFI
+   Secure Boot, which relies on the UEFI platform firmware, but others
+   implementations can exist on embedded systems.
+
+   On NixOS, Secure Boot can be enabled via the project Lanzaboote.
+
+   Lanzaboote has two components: lzbt and stub.
+
+   lzbt is the command line that signs and installs the boot files on the
+   ESP.
+
+   stub is a UEFI application that loads the kernel and initrd from the ESP,
+   it's different from systemd-stub, see below to see precise differences.
+
+   Warning: Lanzaboote is still in development and requires some
+   prerequisites and precautions. Currently it's only available for
+   nixos-unstable. For more information, please see the GitHub repository or
+   the Quick Start guide.
+
+Requirements
+
+   The Secure Boot implementation of Lanzaboote requires a system installed
+   in UEFI mode together with systemd-boot enabled. This can be checked by
+   running bootctl status:
+
+ $ bootctl status
+ System:
+      Firmware: UEFI 2.70 (Lenovo 0.4720)
+   Secure Boot: disabled (disabled)
+  TPM2 Support: yes
+  Boot into FW: supported
+
+ Current Boot Loader:
+       Product: systemd-boot 251.7
+ ...
+
+   It is recommended to enable a BIOS password and full disc encryption to
+   prevent attacks against UEFI and Secure Boot.
+
+Setup
+
+   Follow the instructions in the Quick Start guide.
+
+Key management
+
+   At the time of writing, Lanzaboote offers only local storage of the
+   keyring, otherwise, it is not possible to rebuild the system and sign the
+   new resulting files.
+
+   In the future, Lanzaboote will offer two new signature backends: remote
+   signing (an HTTP server which receives signature requests and answers with
+   signatures) and PKCS#11-based signing (that is, bringing an HSM-like
+   device, e.g. YubiKey, NitroKey, etc.).
+
+   Warning: Key management is a hard problem which is out of scope for
+   Lanzaboote project, many recipes exist and there is no single perfect
+   solution. Taking the time to learn how to key manage and figure out the
+   right level of threat protection is crucial to achieve an effective boot
+   protection.
+
+Differences with `systemd-stub`
+
+   systemd and distribution upstream have an existing solution called
+   `systemd-stub` but this is not a realistic solution for NixOS as there's
+   too many generations on a system.
+
+   Using `systemd-stub`, a kernel and an initrd has to be duplicated for each
+   generation, using Lanzaboote's stub, a kernel and initrd can be
+   deduplicated without compromising on the security.
+
+   Tracking the feature parity with `systemd-stub` can be done in this issue:
+   https://github.com/nix-community/lanzaboote/issues/94.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Secure_Boot/en&oldid=14318"
+   Categories:
+     * Security
+     * Booting
+     * This page was last edited on 12 July 2024, at 21:29.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

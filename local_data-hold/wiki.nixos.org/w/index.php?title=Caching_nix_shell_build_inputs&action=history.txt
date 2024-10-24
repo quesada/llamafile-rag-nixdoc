@@ -1,0 +1,133 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                Caching nix shell build inputs: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:5519:55, 24 April 2024‎ Klinger talk contribs‎ m
+       2,148 bytes +18‎ No edit summary
+
+    26 December 2023
+
+     * curprev [ ] [ ] 17:3017:30, 26 December 2023‎ imported>Xav-ie‎ m 2,130
+       bytes +114‎ add mirror link for broken link
+
+    24 November 2020
+
+     * curprev [ ] [ ] 21:1321:13, 24 November 2020‎ imported>Ericson2314‎ m
+       2,016 bytes +85‎ Make the shell.nix example ideomatically respect the
+       buildInputs nativeBuildInputs distinction
+
+    2 September 2020
+
+     * curprev [ ] [ ] 19:1619:16, 2 September 2020‎ imported>Fzakaria‎ 1,931
+       bytes +1,931‎ Created page with "== Problem statement == Caching a Nix
+       build is ''straightforward'' if there's a build result. We can use
+       {{ic|nix-store --query --requisites}} to query the runtime closure
+       of..."
+   [ Compare selected revisions ]
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Caching_nix_shell_build_inputs"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

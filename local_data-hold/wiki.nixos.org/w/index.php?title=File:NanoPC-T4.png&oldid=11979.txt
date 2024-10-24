@@ -1,0 +1,102 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                               File:NanoPC-T4.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 05:22, 8 April 2024 by Samueldr (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+     * File
+     * File history
+     * File usage
+   File:NanoPC-T4.png
+   No higher resolution available.
+
+   NanoPC-T4.png ‎(416 × 288 pixels, file size: 259 KB, MIME type: image/png)
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time    Thumbnail       Dimensions User               Comment 
+                        Thumbnail for                                 
+   current 03:11, 15    version as of   416 × 288  Imported>Tmountain
+           January 2021 03:11, 15       (259 KB)
+                        January 2021    
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/NanoPC-T4
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:NanoPC-T4.png&oldid=11979"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

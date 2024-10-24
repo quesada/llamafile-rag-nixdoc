@@ -1,0 +1,127 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Using generic image
+     * 2 U-boot
+     * 3 Configuring SATA boot
+   [ ] Toggle the table of contents
+
+                           NixOS on ARM/Kosagi Novena
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   We now have https://github.com/novena-next/nixos-novena repository that
+   can be used to build Novena specific kernel and few other tools like
+   novena-eeprom and novena-usb-hub.
+
+   Also check out https://github.com/novena-next/docs for general purpose
+   documentation. This guide might move there at some point.
+
+  Using generic image
+
+   NixOS on ARM
+
+   use generic armv7l image (sd-image-armv7l-linux.img)
+
+  U-boot
+
+   Build u-boot according to
+
+   NixOS_on_ARM#Building_u-boot_from_your_NixOS_PC
+
+ make novena_defconfig
+
+ dd if=SPL of=/dev/sdc seek=1 bs=1k
+
+   Store u-boot.bin on /boot (mounted sd-image).
+
+   Proceed with standard installation steps and
+   NixOS_on_ARM#Building_U-Boot_from_your_NixOS_PC
+
+   You can use your own layout when installing on the hard drive (SD-card is
+   still needed to boot from SATA), extlinux insted of grub is important.
+
+  Configuring SATA boot
+
+   To enable booting from SATA by default enable sataroot feature with
+   novena-eeprom and then break to u-boot shell and run following commands to
+   set different boot order:
+
+   TODO: disk ID
+
+ printenv
+ setenv boot_targets sata0
+ saveenv
+ reset
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Kosagi_Novena&oldid=11634"
+     * This page was last edited on 5 April 2024, at 03:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

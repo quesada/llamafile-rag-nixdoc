@@ -1,0 +1,103 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Separate into offical/unoffical, moderated/unmoderated platforms
+       1 comment
+   [ ] Toggle the table of contents
+
+                               Talk:Get In Touch
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 23 May by Hexa in topic Separate into offical/unoffical,
+   moderated/unmoderated platforms
+
+   Update nixOS Meetups with new meetups from meetup page
+
+   I've removed a bunch of deleted meetups and noticed that there's a bunch
+   of not listed meetups
+   https://www.meetup.com/de-DE/find/?keywords=nixos&radius=Infinity
+
+   Should they be added as well?
+
+   Mkg20001 (talk)
+
+Separate into offical/unoffical, moderated/unmoderated platforms
+
+   Latest comment: 23 May1 comment1 person in discussion
+
+   The page is currently throwing all kinds of online communities into the
+   same bucket called "Online". It would be helpful to point out the status
+   of moderation, and whether they're official platforms. The idea here is
+   not to kick anyone out, but make a clear distinction what can be expected
+   from these platforms. Hexa (talk) 10:07, 23 May 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Get_In_Touch&oldid=12914"
+     * This page was last edited on 23 May 2024, at 10:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

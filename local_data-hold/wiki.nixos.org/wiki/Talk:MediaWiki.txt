@@ -1,0 +1,140 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 configuration examples
+          * 1.1 minimal configuration
+   [ ] Toggle the table of contents
+
+                                 Talk:MediaWiki
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 26 May 2021 by Makefu
+
+   Now that there is `services.mediawiki` i think this article needs to be
+   revised. I am somewhat struggling to get the whole setup running, there
+   are just so many configuration options and it is not clear what actually
+   needs to be done I was looking for a nixos container setup which gets
+   requests forwarded from the host system but maybe it is enough to have
+   mediawiki listen on the a port != 80 --Makefu (talk) 07:28, 26 May 2021
+   (UTC)Reply
+
+configuration examples
+
+    minimal configuration
+
+           tested on NixOS 21.11
+           with a working setup for networking
+
+     ----------------------------------------------------------------------
+
+ touch /run/keys/mediawiki-password
+
+ $EDITOR /run/keys/mediawiki-password
+
+ cat /run/keys/mediawiki-password
+
+ this-is-an-initial-password-for-mediawiki
+
+ $EDITOR /etc/nixos/configuration.nix
+
+ { config, pkgs, ... }:
+
+ {
+
+   services.mediawiki.enable = true;
+   services.mediawiki.virtualHost.hostName = "mediawiki.example.org";
+   services.mediawiki.virtualHost.adminAddr = "admin@example.org";
+   services.mediawiki.passwordFile = "/run/keys/mediawiki-password";
+   networking.firewall.allowedTCPPorts = [ 80 ];
+ }
+
+ nixos-rebuild switch
+
+   fails
+
+     ----------------------------------------------------------------------
+
+ cp --preserve=all /var/lib/mediawiki/secret.key /var/lib/mediawiki/passwordFile
+
+ cat /run/keys/mediawiki-password > /var/lib/mediawiki/passwordFile
+
+ $EDITOR /etc/nixos/configuration.nix
+
+ #  services.mediawiki.passwordFile = "/run/keys/mediawiki-password";
+ #  services.mediawiki.passwordFile = "/tmp/configuration.nix_services_mediawiki_passwordFile";
+   services.mediawiki.passwordFile = "/var/lib/mediawiki/passwordFile";
+
+ nixos-rebuild switch
+
+   works
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:MediaWiki&oldid=8833"
+     * This page was last edited on 31 March 2022, at 10:11.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

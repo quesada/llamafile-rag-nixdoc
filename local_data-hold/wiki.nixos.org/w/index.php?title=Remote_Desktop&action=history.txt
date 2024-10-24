@@ -1,0 +1,240 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Remote Desktop: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 October 2024
+
+     * curprev [ ] [ ] 19:5519:55, 5 October 2024‎ JollyDevelopment talk
+       contribs‎ 12,117 bytes +7,558‎ →‎Guacamole Tag: Visual edit: Switched
+
+    30 April 2024
+
+     * curprev [ ] [ ] 08:5408:54, 30 April 2024‎ Klinger talk contribs‎ m
+       4,559 bytes +59‎ rustdesk is also available as server package
+
+    29 April 2024
+
+     * curprev [ ] [ ] 11:5911:59, 29 April 2024‎ Karolchmist talk contribs‎
+       4,500 bytes +11‎ Add RustDesk to a list of clients Tag: Visual edit:
+       Switched
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:0620:06, 24 April 2024‎ Klinger talk contribs‎ m
+       4,489 bytes +68‎ No edit summary
+
+    5 April 2024
+
+     * curprev [ ] [ ] 01:3401:34, 5 April 2024‎ Samueldr talk contribs‎ m
+       4,421 bytes +36‎ fixed deprecated syntax
+
+    3 March 2024
+
+     * curprev [ ] [ ] 07:5807:58, 3 March 2024‎ imported>Skyset‎ m 4,385
+       bytes −43‎ Typo
+
+    2 March 2024
+
+     * curprev [ ] [ ] 08:2008:20, 2 March 2024‎ imported>Skyset‎ m 4,428
+       bytes +104‎ Pics or it didn't happen!
+     * curprev [ ] [ ] 08:1308:13, 2 March 2024‎ imported>Skyset‎ 4,324 bytes
+       +77‎ As it turns out, it was (lowercase) gnome-session with the
+       nixpkgs repository package that worked
+     * curprev [ ] [ ] 07:4107:41, 2 March 2024‎ imported>Skyset‎ m 4,247
+       bytes 0‎ (I made a silly case-sensitive typo that is kind of deeply
+       important. GNOME needs to be capitalized in the
+       xrdp.defaultWindowManager value.)
+     * curprev [ ] [ ] 07:2207:22, 2 March 2024‎ imported>Skyset‎ 4,247 bytes
+       +818‎ Add structure, divide article into RDP and VNC configuration,
+       clean up markdown on GNOME section
+     * curprev [ ] [ ] 06:3106:31, 2 March 2024‎ imported>Skyset‎ m 3,429
+       bytes +370‎ →‎Xrdp GNOME window manager note, tested using the
+       unstable branch
+
+    9 November 2023
+
+     * curprev [ ] [ ] 13:5113:51, 9 November 2023‎ imported>Skylark‎ 3,059
+       bytes +10‎ →‎Clients: Add Remmina, since it's mentioned below
+     * curprev [ ] [ ] 13:5013:50, 9 November 2023‎ imported>Skylark‎ 3,049
+       bytes −200‎ →‎Servers: Tidy, update status of Guacamole
+     * curprev [ ] [ ] 13:3913:39, 9 November 2023‎ imported>Skylark‎ 3,249
+       bytes +64‎ →‎Clients: Alpha order, add freerdp tightvnc turbovnc
+     * curprev [ ] [ ] 11:1811:18, 9 November 2023‎ imported>MichaelCTS‎
+       3,185 bytes +976‎ Add information about starting desktop sessions
+
+    26 July 2023
+
+     * curprev [ ] [ ] 08:3108:31, 26 July 2023‎ imported>Kavika13‎ 2,209
+       bytes +212‎ Mention polkit policies that may fix the blackscreeen on
+       reboot in XRDP
+
+    17 June 2023
+
+     * curprev [ ] [ ] 12:0312:03, 17 June 2023‎ imported>Kaleocheng‎ 1,997
+       bytes −56‎ the services.xrdp.openFirewall is avaliable. update the doc
+       for that
+
+    5 June 2023
+
+     * curprev [ ] [ ] 20:5920:59, 5 June 2023‎ imported>Drupol‎ 2,053 bytes
+       +88‎ Add sections `Clients` and `Servers`
+
+    6 April 2022
+
+     * curprev [ ] [ ] 12:5912:59, 6 April 2022‎ imported>Jonasmadsen‎ m
+       1,965 bytes +445‎ Added meshcentral
+
+    7 January 2022
+
+     * curprev [ ] [ ] 08:2108:21, 7 January 2022‎ imported>Nezumi1503‎ 1,520
+       bytes +155‎ →‎x2go: How to install a server
+
+    21 August 2021
+
+     * curprev [ ] [ ] 11:0411:04, 21 August 2021‎ imported>Whil-‎ 1,365
+       bytes +56‎ No edit summary
+     * curprev [ ] [ ] 11:0011:00, 21 August 2021‎ imported>Whil-‎ m 1,309
+       bytes +137‎ No edit summary
+     * curprev [ ] [ ] 10:5810:58, 21 August 2021‎ imported>Whil-‎ m 1,172
+       bytes −13‎ No edit summary
+
+    16 July 2021
+
+     * curprev [ ] [ ] 02:0902:09, 16 July 2021‎ imported>Sjau‎ m 1,185 bytes
+       +276‎ Adding info about logging out user first
+
+    30 March 2021
+
+     * curprev [ ] [ ] 11:5011:50, 30 March 2021‎ imported>Makefu‎ 909 bytes
+       +254‎ No edit summary
+
+    25 September 2018
+
+     * curprev [ ] [ ] 22:1922:19, 25 September 2018‎ imported>Telotortium‎ m
+       655 bytes 0‎ Fix syntax error
+
+    24 October 2017
+
+     * curprev [ ] [ ] 23:0223:02, 24 October 2017‎ imported>HLandau‎ m 655
+       bytes 0‎ HLandau moved page RemoteDesktop to Remote Desktop
+
+    24 August 2017
+
+     * curprev [ ] [ ] 01:3201:32, 24 August 2017‎ imported>Volth‎ 655 bytes
+       +78‎ →‎RDP
+     * curprev [ ] [ ] 00:0700:07, 24 August 2017‎ imported>Mic92‎ 577 bytes
+       +170‎ No edit summary
+
+    23 August 2017
+
+     * curprev [ ] [ ] 23:2623:26, 23 August 2017‎ imported>Volth‎ 407 bytes
+       +109‎ No edit summary
+     * curprev [ ] [ ] 23:2023:20, 23 August 2017‎ imported>Volth‎ 298 bytes
+       +298‎ Created page with "=== Tiger VNC === ... === x2go === ... ===
+       RDP === NixOS has first class support for XRDP server. <source
+       lang="nix"> services.xrdp.enable = true: services.xrdp.defaultW..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Remote_Desktop"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,164 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Using the genesis's NUR package
+     * 2 Using frida's own binaries
+     * 3 Compile from source
+   [ ] Toggle the table of contents
+
+                                     Frida
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Frida is a dynamic binary instrumentation framework.
+
+Using the genesis's NUR package
+
+   Setup NUR as described. Then install frida from genesis's repository:
+
+ $ nix-shell -p nur.repos.genesis.frida-tools
+ nix-shell> frida-trace -i "recv*" firefox
+
+   The python bindings are available via
+   nur.repos.genesis.python3Packages.frida Both frida and frida-tools
+   packages are based on pypi, feel free to post a PR to add support for your
+   platform to them.
+
+Using frida's own binaries
+
+   The project provides pre-compiled binaries that almost work out of the box
+   (when installed via pip install frida-tools) However at runtime it unpacks
+   a helper called frida-helper-64 that uses /lib64/ld-linux-x86-64.so.2 as
+   its link-loader. The error message will be similar to this one:
+
+ $ frida-trace -i "recv*" 1
+ "/run/user/1000/frida-ea4a59ca62f7c8d1d49bd898ec313eeb/frida-helper-64": No such file or directory (os error 2)
+
+   Since the helper is not accessible on the filesystem it cannot patched
+   with patchelf. A simple hack is to symlink an arbitrary link loader to
+   this directory:
+
+ $ ldd /bin/sh
+ ...
+ /nix/store/83lrbvbmxrgv7iz49mgd42yvhi473xp6-glibc-2.27/lib/ld-linux-x86-64.so.2 => /nix/store/83lrbvbmxrgv7iz49mgd42yvhi473xp6-glibc-2.27/lib64/ld-linux-x86-64.so.2 (0x00007fa78b289000)
+ $ ln -s /nix/store/83lrbvbmxrgv7iz49mgd42yvhi473xp6-glibc-2.27/lib/ld-linux-x86-64.so.2 /lib64/ld-linux-x86-64.so.2
+
+Compile from source
+
+   Frida provides a pre-compiled SDK. Since it assumes many binaries in
+   /usr/bin/, the best option is to use buildFHSUserEnv:
+
+ with import <nixpkgs> {};
+ let
+   fhs = pkgs.buildFHSUserEnv {
+     name = "frida-env";
+     targetPkgs = pkgs: with pkgs; [
+       gcc_multi
+       binutils
+       gnumake
+       which
+       git
+       (python3.withPackages (p: [ p.setuptools p.wheel ]))
+       nodejs
+       perl
+       curl
+       glibc_multi
+       yarn
+     ];
+     profile = ''
+       export hardeningDisable=all
+       export SSL_CERT_FILE="${cacert}/etc/ssl/certs/ca-bundle.crt"
+       # initialize sdk
+       make
+       # npm does not frida-gum/bindings/gumjs/node_modules -> bug?
+       (cd frida-gum/bindings/gumjs && yarn install)
+
+       # for frida-python wheel
+       export FRIDA_VERSION=$(git describe --tags)
+       export FRIDA_EXTENSION=$(realpath build/frida-linux-x86_64/${python3.sitePackages}/_frida.so)
+       export SOURCE_DATE_EPOCH="315532800"
+     '';
+   };
+ in fhs.env
+
+   Afterwards the build system can be used as documented:
+
+ $  make python-linux-x86_64
+
+   The python egg can be build then like this:
+
+ $ cd frida-python
+ $ python setup.py bdist_wheel
+ $ pip install dist/frida-*.whl
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Frida&oldid=6107"
+   Category:
+     * Applications
+     * This page was last edited on 20 September 2021, at 05:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

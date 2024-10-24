@@ -1,0 +1,172 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                   Category:Virtualization: Revision history
+
+   Help
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 May 2024
+
+     * curprev [ ] [ ] 09:4409:44, 2 May 2024‎ Klinger talk contribs‎ m 1,313
+       bytes −32‎ No edit summary
+     * curprev [ ] [ ] 09:4309:43, 2 May 2024‎ Klinger talk contribs‎ m 1,345
+       bytes +1,313‎ (old content pasted)
+     * curprev [ ] [ ] 09:4309:43, 2 May 2024‎ Klinger talk contribs‎ m 32
+       bytes 0‎ Klinger moved page Virtualization to Category:Virtualization:
+       no longer needed, now its better to use the virtualization category
+       for overview-type-information.
+
+    24 April 2024
+
+     * curprev [ ] [ ] 17:1817:18, 24 April 2024‎ Klinger talk contribs‎ 32
+       bytes +32‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 17:1017:10, 24 April 2024‎ Klinger talk contribs‎
+       empty −1,280‎ not necessary anymore Tag: Blanking
+     * curprev [ ] [ ] 17:0517:05, 24 April 2024‎ Klinger talk contribs‎ m
+       1,280 bytes +1‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 17:0517:05, 24 April 2024‎ Klinger talk contribs‎ m
+       1,279 bytes +187‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 17:0217:02, 24 April 2024‎ Klinger talk contribs‎
+       1,092 bytes +45‎ Organized in a table. The most important
+       configuration options added. Tag: Visual edit
+
+    18 April 2024
+
+     * curprev [ ] [ ] 17:3717:37, 18 April 2024‎ Klinger talk contribs‎
+       1,047 bytes +132‎ little bit expanded to faster find the right link.
+       Tag: Visual edit
+
+    7 April 2024
+
+     * curprev [ ] [ ] 09:2309:23, 7 April 2024‎ Claes talk contribs‎ 915
+       bytes −38‎ Changed heading structure for better readability Tag:
+       Visual edit
+
+    9 January 2024
+
+     * curprev [ ] [ ] 07:2307:23, 9 January 2024‎ imported>Jopejoe1‎ 953
+       bytes −264‎ VMWare remove unnecesary step
+
+    17 December 2023
+
+     * curprev [ ] [ ] 18:0118:01, 17 December 2023‎
+       imported>Neongreensniper‎ 1,217 bytes +21‎ No edit summary
+     * curprev [ ] [ ] 17:5717:57, 17 December 2023‎
+       imported>Neongreensniper‎ 1,196 bytes +380‎ →‎NixOS as a VM host
+
+    30 November 2023
+
+     * curprev [ ] [ ] 15:3915:39, 30 November 2023‎ imported>Astro‎ 816
+       bytes +118‎ Add advertisement
+
+    23 March 2022
+
+     * curprev [ ] [ ] 07:0807:08, 23 March 2022‎ imported>Raboof‎ 698 bytes
+       +42‎ →‎NixOS as a VM host: link to virt-manager for QEMU/KVM
+
+    24 September 2021
+
+     * curprev [ ] [ ] 08:0408:04, 24 September 2021‎ imported>Nix‎ 656 bytes
+       +656‎ basic Virtualization guide page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Category:Virtualization"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

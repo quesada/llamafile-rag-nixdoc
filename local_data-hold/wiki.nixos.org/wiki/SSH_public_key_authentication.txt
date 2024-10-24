@@ -1,0 +1,177 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 SSH agent
+     * 2 SSH server config
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                         SSH public key authentication
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   To setup a public key based SSH connection from your-machine (client) to
+   another-machine (server):
+
+ [user@your-machine] $ ssh-keygen -f ~/.ssh/another-machine
+ [user@your-machine] $ ssh-copy-id -i ~/.ssh/another-machine another-machine-host-or-ip
+
+   In case another-machine uses another port for SSH connections use this
+   command instead:
+
+ [user@your-machine] $ ssh-copy-id -i ~/.ssh/another-machine -p1234 another-machine-host-or-ip
+
+   Now the public key is stored on the another-machine in
+   /home/user/.ssh/authorized_keys
+
+   On your-machine, we stored the key file in the non-standard path
+   ~/.ssh/another-machine, so we must tell the SSH client to use the key
+   file:
+
+ [user@clientmachine] $ ssh -i ~/.ssh/another-machine another-machine-host-or-ip
+
+   The connection should work without password.
+
+   To make the SSH client automatically use the key file, we add this to
+   /home/user/.ssh/config:
+
+ Host another-machine
+   HostName 192.168.1.105 # another-machine-host-or-ip
+   #Port 22
+   #User user
+
+   # Prevent using ssh-agent or another keyfile, useful for testing
+   IdentitiesOnly yes
+   IdentityFile ~/.ssh/another-machine
+
+SSH agent
+
+   A ssh private key, for which a phrase is defined, can be clumsy if you use
+   it multiple times. It is possible to store the private key identity in a
+   ssh-agent. The ssh-agent uses the ssh private key identity when you issue
+   a ssh command, for instance when using ssh to connect.
+
+   To define NixOS to setup a ssh-agent, add this to your configuration:
+
+ programs.ssh.startAgent = true;
+
+   NixOS will start a user systemd service with the ssh-agent at login. You
+   can see the service with the command systemctl --user status ssh-agent.
+
+   It provides also the environment variable $SSH_AUTH_SOCK which refers to
+   /run/user/1000/ssh-agent , in this case for user id 1000.
+
+   If you want to use a ssh key pair for authenticating, you can add this to
+   the ssh-agent using the command ssh-add entering the phrase only once.
+
+ [user@your-machine] $ ssh-add .ssh/id_rsa
+ Enter passphrase for .ssh/id_rsa:
+ Identity added: .ssh/id_rsa (myaccounts@mymachine)
+
+   If you store the ssh public key with the command ssh-copy-id on
+   another-machine as shown above, you can logon without giving a password or
+   phrase.
+
+SSH server config
+
+   Optionally, on the NixOS-based another-machine, we can set
+   passwordAuthentication = false; to require public key authentication for
+   better security.
+
+ services.openssh = {
+   enable = true;
+   # require public key authentication for better security
+   settings.PasswordAuthentication = false;
+   settings.KbdInteractiveAuthentication = false;
+   #settings.PermitRootLogin = "yes";
+ };
+
+   We can also store the public keys in /etc/nixos/configuration.nix:
+
+ users.users."user".openssh.authorizedKeys.keys = [
+   "ssh-rsa AAAAB3Nz....6OWM= user" # content of authorized_keys file
+   # note: ssh-copy-id will add user@your-machine after the public key
+   # but we can remove the "@your-machine" part
+ ];
+
+   ... or use a custom path for the authorized_keys file:
+
+ users.users."user".openssh.authorizedKeys.keyFiles = [
+   /etc/nixos/ssh/authorized_keys
+ ];
+
+See also
+
+     * Distributed build
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=SSH_public_key_authentication&oldid=15529"
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 25 July 2024, at 21:26.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

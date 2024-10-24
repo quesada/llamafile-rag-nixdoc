@@ -1,0 +1,99 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Wrappers
+     * 2 Context
+   [ ] Toggle the table of contents
+
+                        Nixpkgs with OpenGL on non-NixOS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Applications in `nixpkgs` handle OpenGL in a certain way. Using these
+   applications outside of NixOS requires the use of a wrapper.
+
+Wrappers
+
+     * https://github.com/guibou/nixGL
+
+  NixGL is known to work with KVM virtio gpu accelerated graphics
+
+     * https://github.com/deepfire/nix-install-vendor-gl
+
+  Tested with NVIDIA on some Ubuntu variants
+
+Context
+
+     * https://github.com/NixOS/nixpkgs/issues/9415
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nixpkgs_with_OpenGL_on_non-NixOS&oldid=6250"
+   Category:
+     * Video
+     * This page was last edited on 3 August 2022, at 13:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

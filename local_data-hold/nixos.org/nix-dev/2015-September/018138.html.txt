@@ -1,0 +1,84 @@
+   Link: Index
+   Link: Previous
+   Link: Next
+
+              [Nix-dev] Full Stackage Support in Nixpkgs "master"
+
+   Peter Simons simons at cryp.to
+   Sun Sep 20 20:31:17 CEST 2015
+
+     * Previous message: [Nix-dev] ghc --enable-multi-instance, the end of
+       cabal hell ?
+     * Next message: [Nix-dev] Full Stackage Support in Nixpkgs "master"
+     * Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
+
+     ----------------------------------------------------------------------
+
+ Fellow Haskell Hackers,
+
+ commit 2aaa587b71 in Nixpkgs "master" [1] added full support for
+ Stackage [2] in the form of 51(!) new packages sets called
+
+     haskell.packages.lts-x_y
+
+ where x_y stands for LTS Haskell version x.y, obviously. If you have a
+ cabal2nix-generated "shell.nix" file for your project, then you can
+ switch your build environment to the latest version of LTS Haskell, 3.5,
+ by running:
+
+     nix-shell --argstr compiler lts-3_5
+
+ The 3.x package sets have been tested fairly well (on x64_64-linux) and
+ they should work 100%. Older versions of LTS Haskell received some
+ testing and probably work okay'ish, but don't be surprised if a few
+ Stackage packages in those older versions don't compile at the moment.
+ Packages that are not part of Stackage are available in those package
+ sets for the sake of convenience, but haven't been tested.
+
+ Hydra.nixos.org has no binaries for LTS Haskell. Hydra.cryp.to has
+ x86_64-linux binaries for most of LTS 3.x and all of LTS 3.5.
+ Personally, I'd like to have hydra.nixos.org build and distribute at
+ least some subset LTS Haskell -- say, the respective latest version in
+ every major release --, but our resources are scarce and we'll have to
+ investigate how much more is feasible.
+
+ Furthermore, our default package set haskell.packages.ghc783 a.k.a
+ haskellPackages now tracks Stackage Nightly. This change causes some
+ downgrades. For example, we used to ship version 0.11.x of the "vector"
+ library, but Stackage says we ought to distribute version 0.10.12.3. In
+ such cases, where Stackage hasn't accepted the latest available version
+ of a package yet, that package is always available in a version'ed
+ attribute, i.e. we have haskell.packages.xyz.vector_0_11_0_0. Run
+
+     nix-env -f "<nixpkgs>" -qaP -A haskellPackages
+
+ to discover the available versions, and feel free to create your own
+ personal package set by overriding these default choices to your liking.
+ The Nixpkgs Haskell Manual [3] contains plenty of helpful information to
+ that end, and I'll also update it soon to reflect the new state of
+ affairs.
+
+ The "nixos-unstable" channel doesn't have these improvements yet.
+ They'll show up in a few days, but until then the pleasure of early
+ adopting is limited to the wild men and women who live on Git "master".
+
+ Best regards,
+ Peter
+
+
+
+ [1] https://github.com/NixOS/nixpkgs/commit/2aaa587b71e19ff105fc482414f9dbc3060d57b6
+ [2] http://www.stackage.org/
+ [3] http://nixos.org/nixpkgs/manual/#users-guide-to-the-haskell-infrastructure
+
+
+     ----------------------------------------------------------------------
+
+     * Previous message: [Nix-dev] ghc --enable-multi-instance, the end of
+       cabal hell ?
+     * Next message: [Nix-dev] Full Stackage Support in Nixpkgs "master"
+     * Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
+
+     ----------------------------------------------------------------------
+
+   More information about the nix-dev mailing list

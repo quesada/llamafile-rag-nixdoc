@@ -1,0 +1,170 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 People
+     * 2 Tooling
+     * 3 Nix images
+     * 4 Interesting threads
+     * 5 Work In Progress
+     * 6 Projects
+          * 6.1 Self-Hosted, Minimal Docker/OSI Images
+   [ ] Toggle the table of contents
+
+                              Workgroup:Container
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section is out of date.                                   
+    Reason: Other than site-wide fixes, this page has not seen recent         
+    updates. (Discuss in Talk:Workgroup:Container)                            
+    Once the page has been updated this notice can be removed.                
+
+   We are interested in directly building (minimal) OCI containers from the
+   nixpkgs ecosystem.
+
+People
+
+     * Profpatsch
+     * Lewo
+     * MoreTea
+
+Tooling
+
+     * opencontainers.org
+          * runc: spawn and run OCI containers (nixpkgs: runc)
+          * image-spec: container image specification
+          * runtime-spec: container runtime specification
+          * image-tools: tools for working with the image-spec
+          * runtime-tools: tools for working with the runtime-spec
+          * umoci: intends to be a complete manipulation tool for OCI images
+            with a rootless mode
+     * projectatomic.io
+          * skopeo: modify and inspect images on registries (nixpkgs: skopeo)
+          * buildah: build/generate OCI images (nixpkgs: buildah)
+     * containers Github project: golang libraries for interacting with
+       containers
+          * image: library used by skopeo
+          * oci-fetch: CLI tool for fetching OCI containers over various
+            transports
+     * awakesecurity
+          * hocker: fetch from docker (v2) registry and generate nix
+            derivations
+
+Nix images
+
+   There are a few images that contain Nix with various trade-offs:
+
+     * nixos/nix (source) - 200 MB - Official images based on
+       pkgs.dockerTools, updated automatically.
+     * u/nixpkgs - (source) - various docker images from nixpkgs, updated
+       daily.
+     * lnl7/nix/ (source) - 57 MB - Images built out of a Nix derivation.
+
+Interesting threads
+
+     * https://github.com/projectatomic/buildah/issues/386: about rootless
+       support
+
+Work In Progress
+
+     * Improve image storage in the Nix store
+
+   https://github.com/projectatomic/skopeo/issues/481
+
+Projects
+
+  Self-Hosted, Minimal Docker/OSI Images
+
+   For our platform at Techcultivation we want to generate docker images for
+   all parts of our system. Those images should come in two flavors,
+   development (to quickly spin up local test services, with mock data) and
+   deployment (secure/production-ready). We chose to generate these images
+   purely out of nixpkgs code, so no binary (base) images have to be
+   included.
+
+   The current version of the deployment code can be found on our Gitlab.
+
+   A basic (pretty messy) postgres image is already done, complete with
+   in-build setup of a mock database. The resulting image is smaller than the
+   “official” one in the docker registry, only uses nixpkgs-native
+   dependencies and only contains the most minimal filetree needed to run the
+   postgres binary.
+
+   Still to do: rabbitmq, frontend code, api, refactor, various others.
+
+   — Profpatsch (talk) 02:47, 10 February 2018 (UTC)
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Workgroup:Container&oldid=17453"
+   Category:
+     * Container
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 14 September 2024, at 19:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

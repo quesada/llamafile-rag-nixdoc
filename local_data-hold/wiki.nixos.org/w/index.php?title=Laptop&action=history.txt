@@ -1,0 +1,202 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Laptop: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    11 August 2024
+
+     * curprev [ ] [ ] 12:5512:55, 11 August 2024‎ Wimpy talk contribs‎ 6,645
+       bytes 0‎ Undo revision 16587 by Wimpy (talk) Tag: Undo
+     * curprev [ ] [ ] 12:4312:43, 11 August 2024‎ Wimpy talk contribs‎ m
+       6,645 bytes 0‎ Correct configuration.nix example when using the
+       upstream auto-cpufreq flake. Tag: Visual edit
+
+    20 April 2024
+
+     * curprev [ ] [ ] 08:2708:27, 20 April 2024‎ Sleepynix talk contribs‎ m
+       6,645 bytes −18‎ line break (4th try) Tag: Visual edit: Switched
+     * curprev [ ] [ ] 08:2408:24, 20 April 2024‎ Sleepynix talk contribs‎ m
+       6,663 bytes +20‎ correct line break (3rd attempt, yikes) Tag: Visual
+       edit
+     * curprev [ ] [ ] 08:2208:22, 20 April 2024‎ Sleepynix talk contribs‎ m
+       6,643 bytes +1‎ changed line break/paragraph break Tag: Visual edit
+     * curprev [ ] [ ] 08:1608:16, 20 April 2024‎ Sleepynix talk contribs‎ m
+       6,642 bytes +84‎ added links to external TLP and auto-cpufreq pages
+       Tag: Visual edit
+     * curprev [ ] [ ] 08:1308:13, 20 April 2024‎ Sleepynix talk contribs‎
+       6,558 bytes +13‎ changed text formatting Tag: Visual edit
+     * curprev [ ] [ ] 08:1008:10, 20 April 2024‎ Sleepynix talk contribs‎ m
+       6,545 bytes +13‎ changed style of configuration.nix text Tag: Visual
+       edit
+     * curprev [ ] [ ] 08:0908:09, 20 April 2024‎ Sleepynix talk contribs‎
+       6,532 bytes 0‎ changed tlp to TLP Tag: Visual edit
+     * curprev [ ] [ ] 08:0708:07, 20 April 2024‎ Sleepynix talk contribs‎
+       6,532 bytes +1,626‎ Added information about a flake that auto-cpufreq
+       provides Tag: Visual edit
+
+    22 December 2023
+
+     * curprev [ ] [ ] 17:0517:05, 22 December 2023‎
+       imported>Neongreensniper‎ 4,906 bytes +199‎ →‎tlp
+
+    20 October 2023
+
+     * curprev [ ] [ ] 13:2713:27, 20 October 2023‎ imported>Skylark‎ 4,707
+       bytes +39‎ See also: Power Management
+     * curprev [ ] [ ] 13:1113:11, 20 October 2023‎ imported>Skylark‎ 4,668
+       bytes −108‎ Improve English throughout
+
+    27 September 2023
+
+     * curprev [ ] [ ] 09:2709:27, 27 September 2023‎ imported>IgorM‎ m 4,776
+       bytes +45‎ Added categories
+
+    20 June 2023
+
+     * curprev [ ] [ ] 05:4705:47, 20 June 2023‎ imported>AmnesiaAmesia‎ m
+       4,731 bytes +21‎ Fixed indentation
+     * curprev [ ] [ ] 05:4605:46, 20 June 2023‎ imported>AmnesiaAmesia‎ m
+       4,710 bytes −76‎ Corrected scalling of freqs according to
+       documentation on tlp
+     * curprev [ ] [ ] 05:1805:18, 20 June 2023‎ imported>AmnesiaAmesia‎ m
+       4,786 bytes −4‎ Correct small mistake in example
+
+    19 June 2023
+
+     * curprev [ ] [ ] 20:4220:42, 19 June 2023‎ imported>AmnesiaAmesia‎ m
+       4,790 bytes −1‎ Corrected spelling mistake
+     * curprev [ ] [ ] 20:4120:41, 19 June 2023‎ imported>AmnesiaAmesia‎
+       4,791 bytes +1,456‎ Added section about nvidia and gpus
+     * curprev [ ] [ ] 17:0417:04, 19 June 2023‎ imported>AmnesiaAmesia‎ m
+       3,335 bytes +207‎ Added section about thermald
+     * curprev [ ] [ ] 16:3516:35, 19 June 2023‎ imported>AmnesiaAmesia‎ m
+       3,128 bytes +332‎ Wrote shortly about the nixos power management
+     * curprev [ ] [ ] 09:1809:18, 19 June 2023‎ imported>AmnesiaAmesia‎ m
+       2,796 bytes +1‎ Fixed indentation
+     * curprev [ ] [ ] 08:2808:28, 19 June 2023‎ imported>AmnesiaAmesia‎ m
+       2,795 bytes +407‎ Added example for auto-cpufreq and corrected small
+       mistakes
+
+    18 June 2023
+
+     * curprev [ ] [ ] 20:5720:57, 18 June 2023‎ imported>AmnesiaAmesia‎ m
+       2,388 bytes +475‎ Added initial text about powertop
+     * curprev [ ] [ ] 17:2017:20, 18 June 2023‎ imported>AmnesiaAmesia‎ m
+       1,913 bytes +449‎ Added initial text about auto-cpufreq
+     * curprev [ ] [ ] 09:4409:44, 18 June 2023‎ imported>AmnesiaAmesia‎ m
+       1,464 bytes −2‎ Other example correction
+     * curprev [ ] [ ] 09:4309:43, 18 June 2023‎ imported>AmnesiaAmesia‎ m
+       1,466 bytes +6‎ Corrected example
+     * curprev [ ] [ ] 07:4507:45, 18 June 2023‎ imported>AmnesiaAmesia‎ m
+       1,460 bytes +374‎ Added troubleshooting for hot laptop in power
+     * curprev [ ] [ ] 06:2806:28, 18 June 2023‎ imported>AmnesiaAmesia‎ m
+       1,086 bytes +840‎ Added example of how to configure tlp
+
+    17 June 2023
+
+     * curprev [ ] [ ] 20:5820:58, 17 June 2023‎ imported>AmnesiaAmesia‎ 246
+       bytes +246‎ Added page including how to enable tlp.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Laptop"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,493 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Disclaimer
+     * 2 A Tale of Two Use-Cases
+     * 3 Requirements
+     * 4 The Usual NixOps Boilerplate
+     * 5 Picking a Hypervisor
+     * 6 Installing the Hypervisor
+     * 7 Setting Up the Guests
+          * 7.1 Surely NixOps Will Handle This?
+          * 7.2 Surely NixOS Will Handle This?
+          * 7.3 Okay, Okay, I'll Do It Myself
+     * 8 Building a NixOS base image
+     * 9 Deploying the guests
+     * 10 Drawbacks
+   [ ] Toggle the table of contents
+
+                             NixOps/Virtualization
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Disclaimer
+
+   I don't do ops for a living and my cluster only has 2 nodes. I'm not
+   saying that this is the correct approach, just that it has worked okay for
+   me, so far.
+
+A Tale of Two Use-Cases
+
+   As a developer I have two primary uses for virtual machines: testing my
+   code in an isolated environment, and then deploying it to my server(s).
+   These have very different requirements; while testing I only want to run
+   the VMs that I care about, and only while working on the project. On the
+   other hand, when deploying I want to manage all guests declaratively, run
+   everything on boot, I don't want any GUI, and preferably I'd like good
+   support for remote console access.
+
+   NixOps's built-in VirtualBox support satisfies the testing requirements
+   pretty well for me, so I'm going to focus on deployment in this blog post.
+
+Requirements
+
+   As with any good project, it's vital to start out with a solid set of
+   requirements! In my case, I wanted an a server VM environment (see above),
+   where both the hosts and guests are managed using the awesome NixOps
+   deployment tool. I also wanted it to be trivial to create new VMs as
+   needed, without having to install anything manually.
+
+The Usual NixOps Boilerplate
+
+   Before we get into virtualization we need to create a physical network
+   description, so that NixOps can find all our hosts. We'll also create a
+   definition of the guests we plan to run:
+
+ let
+   machine = {host, port ? 22, name, hostNic, guests ? {}}: {pkgs, lib, ...}@args:
+     {
+       imports = [ ./baseline.nix ];
+
+       # We still want to be able to boot, adjust as needed based on your setup
+       boot = {
+         loader = {
+           systemd-boot.enable = true;
+           efi.canTouchEfiVariables = true;
+         };
+         kernelParams = [ "nomodeset" ];
+       };
+       fileSystems = {
+         "/" = {
+           device = "/dev/disk/by-label/${name}-root";
+         };
+         "/boot" = {
+           device = "/dev/disk/by-label/${name}-boot";
+         };
+       };
+       boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+
+       # Tell NixOps how to find the machine
+       deployment.targetEnv = "none";
+       deployment.targetHost = host;
+       deployment.targetPort = port;
+       networking.privateIPv4 = host;
+     };
+ in
+   {
+     # Tell NixOps about the hosts it should manage
+     athens = machine {
+       host = "192.168.0.2";
+       name = "athens";
+       hostNic = "enp30s0";
+       guests = {
+         some-athens-guest = {
+           memory = "4"; # GB
+           diskSize = "50"; # GB
+           mac = "D2:91:69:C0:14:9A";
+           ip = "192.168.0.101"; # Ignored, only for personal reference
+         };
+     };
+     rome = machine {
+       host = "192.168.0.3";
+       name = "rome";
+       hostNic = "enp3s0";
+     };
+   }
+
+   We'll also declare a common baseline that we'd like to share with all VMs
+   as well. This mostly boils down to making sure that we always have SSH
+   access to the machines. Let's call this file baseline.nix:
+
+ {
+   # Make sure that we still have admin access to the machine
+   services.openssh.enable = true;
+   networking.firewall.allowedTCPPorts = [ 22 ];
+   users = {
+     mutableUsers = false;
+     users.root.openssh.authorizedKeys.keyFiles = [ ./teozkr_id_rsa.pub ];
+   };
+ }
+
+   Then tell NixOps about the new network, and make sure that it deploys
+   correctly:
+
+ $ NIXOPS_DEPLOYMENT=vm-test-hosts nixops create network-hosts.nix
+ $ NIXOPS_DEPLOYMENT=vm-test-hosts nixops deploy
+
+Picking a Hypervisor
+
+   NixOS supports three different hypervisors out of the box: VirtualBox,
+   Xen, and libvirt (backed by QEMU/KVM). I chose libvirt, because KVM is an
+   upstream kernel project where VirtualBox requires custom kernel modules
+   and NixOS doesn't currently support running Xen when booting in UEFI mode.
+
+   Also, as far as I can tell, libvirt's virt-manager is the only relevant
+   graphical management utility that supports remote management out of the
+   box. This is pretty much a hard requirement, since I'm also running a few
+   non-NixOS VMs on the server.
+
+Installing the Hypervisor
+
+   Thankfully, NixOS makes this step very simple: simply enable the relevant
+   NixOS module and activate your new configuration.
+
+   In our case, we want to enable the libvirtd service, as well as the
+   relevant KVM kernel module. This means adding two new attrs to machine:
+
+ boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
+ virtualisation.libvirtd.enable = true;
+
+   You can skip enabling kvm-amd if you're running a pure Intel cluster, and
+   vice versa. But keeping both enabled won't hurt either.
+
+   Afterwards, deploy again and check that everything still works.
+
+Setting Up the Guests
+
+  Surely NixOps Will Handle This?
+
+   NixOps actually has a libvirt back-end. However, it turns out that this
+   only works for deploying to a local libvirtd install, so we'll have to do
+   things manually.
+
+  Surely NixOS Will Handle This?
+
+   NixOS only has modules for managing the hypervisors, not for managing
+   their guests declaratively. We'll have to set this up ourselves.
+
+  Okay, Okay, I'll Do It Myself
+
+   I chose to make a systemd unit per guest, which automatically configures
+   and starts the VM. This means that NixOS will automatically restart the VM
+   when the configuration changes.
+
+   To do this, we map over the guests argument that we previously ignored to
+   create the services:
+
+ systemd.services = lib.mapAttrs' (name: guest: lib.nameValuePair "libvirtd-guest-${name}" {
+   after = [ "libvirtd.service" ];
+   requires = [ "libvirtd.service" ];
+   wantedBy = [ "multi-user.target" ];
+   serviceConfig = {
+     Type = "oneshot";
+     RemainAfterExit = "yes";
+   };
+   script =
+     let
+       xml = pkgs.writeText "libvirt-guest-${name}.xml"
+         ''
+           <domain type="kvm">
+             <name>${name}</name>
+             <uuid>UUID</uuid>
+             <os>
+               <type>hvm</type>
+             </os>
+             <memory unit="GiB">${guest.memory}</memory>
+             <devices>
+               <disk type="volume">
+                 <source volume="guest-${name}"/>
+                 <target dev="vda" bus="virtio"/>
+               </disk>
+               <graphics type="spice" autoport="yes"/>
+               <input type="keyboard" bus="usb"/>
+               <interface type="direct">
+                 <source dev="${hostNic}" mode="bridge"/>
+                 <mac address="${guest.mac}"/>
+                 <model type="virtio"/>
+               </interface>
+             </devices>
+             <features>
+               <acpi/>
+             </features>
+           </domain>
+         '';
+     in
+       ''
+         uuid="$(${pkgs.libvirt}/bin/virsh domuuid '${name}' || true)"
+         ${pkgs.libvirt}/bin/virsh define <(sed "s/UUID/$uuid/" '${xml}')
+         ${pkgs.libvirt}/bin/virsh start '${name}'
+       '';
+   preStop =
+     ''
+       ${pkgs.libvirt}/bin/virsh shutdown '${name}'
+       let "timeout = $(date +%s) + 10"
+       while [ "$(${pkgs.libvirt}/bin/virsh list --name | grep --count '^${name}$')" -gt 0 ]; do
+         if [ "$(date +%s)" -ge "$timeout" ]; then
+           # Meh, we warned it...
+           ${pkgs.libvirt}/bin/virsh destroy '${name}'
+         else
+           # The machine is still running, let's give it some time to shut down
+           sleep 0.5
+         fi
+       done
+     '';
+ }) guests;
+
+   The UUID trickery is required because virsh define will overwrite based on
+   the UUID, but we only care about the human-readable names. So we lock in
+   on the first UUID and then reuse it each time we start the VM.
+
+   We could call it a day here, and just create the disks manually. But this
+   is NixOS, dammit: this should be declarative! Which gets us to...
+
+Building a NixOS base image
+
+   We'd like to have a common base image that VMs should be based on, which
+   should contain just enough so that we can then deploy our actual setup
+   using NixOps. Let's start with defining a baseline image baseline-qemu.nix
+   for our guests, which sets up the appropriate kernel modules, and which
+   has a common partition layout:
+
+ {
+   imports = [ ./baseline.nix ];
+   fileSystems."/".device = "/dev/disk/by-label/nixos";
+   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "virtio_balloon" "virtio_blk" "virtio_pci" "virtio_ring" ];
+   boot.loader = {
+     grub = {
+       version = 2;
+       device = "/dev/vda";
+     };
+     timeout = 0;
+   };
+ }
+
+   Then we can build an image, let's call it image.nix. We need to build our
+   image in a VM since Nix builders don't usually have root access, but
+   thankfully Nixpkgs has a convenient utility for that. This bit is very
+   much inspired by NixOps' libvirt image.
+
+ { pkgs ? import <nixpkgs> {}, system ? builtins.currentSystem, ... }:
+ let
+   config = (import <nixpkgs/nixos/lib/eval-config.nix> {
+     inherit system;
+     modules = [ {
+       imports = [ ./baseline-qemu.nix ];
+
+       # We want our template image to be as small as possible, but the deployed image should be able to be
+       # of any size. Hence we resize on the first boot.
+       systemd.services.resize-main-fs = {
+         wantedBy = [ "multi-user.target" ];
+         serviceConfig.Type = "oneshot";
+         script =
+           ''
+             # Resize main partition to fill whole disk
+             echo ", +" | ${pkgs.utillinux}/bin/sfdisk /dev/vda --no-reread -N 1
+             ${pkgs.parted}/bin/partprobe
+             # Resize filesystem
+             ${pkgs.e2fsprogs}/bin/resize2fs /dev/vda1
+           '';
+       };
+     } ];
+   }).config;
+ in pkgs.vmTools.runInLinuxVM (
+   pkgs.runCommand "nixos-sun-baseline-image"
+     {
+       memSize = 768;
+       preVM =
+         ''
+           mkdir $out
+           diskImage=image.qcow2
+           ${pkgs.vmTools.qemu}/bin/qemu-img create -f qcow2 $diskImage 1G
+           mv closure xchg/
+         '';
+       postVM =
+         ''
+           echo compressing VM image...
+           ${pkgs.vmTools.qemu}/bin/qemu-img convert -c $diskImage -O qcow2 $out/baseline.qcow2
+         '';
+       buildInputs = [ pkgs.utillinux pkgs.perl pkgs.parted pkgs.e2fsprogs ];
+       exportReferencesGraph =
+         [ "closure" config.system.build.toplevel ];
+     }
+     ''
+       # Create the partition
+       parted /dev/vda mklabel msdos
+       parted /dev/vda -- mkpart primary ext4 1M -1s
+       . /sys/class/block/vda1/uevent
+       mknod /dev/vda1 b $MAJOR $MINOR
+
+       # Format the partition
+       mkfs.ext4 -L nixos /dev/vda1
+       mkdir /mnt
+       mount /dev/vda1 /mnt
+
+       for dir in dev proc sys; do
+         mkdir /mnt/$dir
+         mount --bind /$dir /mnt/$dir
+       done
+
+       storePaths=$(perl ${pkgs.pathsFromGraph} /tmp/xchg/closure)
+       echo filling Nix store...
+       mkdir -p /mnt/nix/store
+       set -f
+       cp -prd $storePaths /mnt/nix/store
+       # The permissions will be set up incorrectly if the host machine is not running NixOS
+       chown -R 0:30000 /mnt/nix/store
+
+       mkdir -p /mnt/etc/nix
+       echo 'build-users-group = ' > /mnt/etc/nix/nix.conf
+
+      # at least since nix-2.3.16 we need a root user in the chroot
+      # or else `nix-store --load-db` will fail with "cannot figure out user name"
+      chroot /mnt ${pkgs.shadow}/bin/useradd -u 0 root
+
+       # Register the paths in the Nix database.
+       printRegistration=1 perl ${pkgs.pathsFromGraph} /tmp/xchg/closure | \
+           chroot /mnt ${config.nix.package.out}/bin/nix-store --load-db
+
+       # Create the system profile to allow nixos-rebuild to work.
+       chroot /mnt ${config.nix.package.out}/bin/nix-env \
+           -p /nix/var/nix/profiles/system --set ${config.system.build.toplevel}
+
+       # `nixos-rebuild' requires an /etc/NIXOS.
+       mkdir -p /mnt/etc/nixos
+       touch /mnt/etc/NIXOS
+
+       # `switch-to-configuration' requires a /bin/sh
+       mkdir -p /mnt/bin
+       ln -s ${config.system.build.binsh}/bin/sh /mnt/bin/sh
+
+       # Generate the GRUB menu.
+       chroot /mnt ${config.system.build.toplevel}/bin/switch-to-configuration boot
+
+       umount /mnt/{proc,dev,sys}
+       umount /mnt
+     ''
+ )
+
+   Then we want to use this image whenever a disk does not exist, so we need
+   to send it to each host. We can do this by adding the following attr to
+   machine:
+
+ environment.etc."virt/base-images/baseline.qcow2".source = "${import ./image.nix args}/baseline.qcow2";
+
+   Then we want to make the VM services create the disk images, by prepending
+   the following to the unit script attribute:
+
+ if ! ${pkgs.libvirt}/bin/virsh vol-key 'guest-${name}' --pool guests &> /dev/null; then
+   ${pkgs.libvirt}/bin/virsh vol-create-as guests 'guest-${name}' '${guest.diskSize}GiB'
+   ${pkgs.qemu}/bin/qemu-img convert /etc/virt/base-images/baseline.qcow2 '/dev/${hostName}/guest-${name}'
+ fi
+
+   Now try deploying it again, and the VMs should be up and running,
+   congratulations! You can confirm this by connecting with either
+   virt-manager or virsh.
+
+   Why did we add a symlink to the base image, rather than use it directly in
+   the service? Because this means that modifying the base image won't cause
+   NixOS to restart the services. That would have been pointless since the
+   base image is only used on the first boot anyway. Afterwards updates will
+   be handled by regular NixOps deployments to the guests.
+
+Deploying the guests
+
+   Now you can finally define a physical network for our guests! You'll want
+   to use the ~"none"~ targetEnv again, since you already manage it
+   declaratively. Also, you'll want to import the baseline-qemu.nix file for
+   each VM, to teach it about the file system layout layout, and to make sure
+   that all the relevant drivers are loaded.
+
+   Have fun! :D
+
+Drawbacks
+
+   Of course, this approach has a few drawbacks too. If any of these are a
+   dealbreaker for you then it's probably not a good fit for you.
+
+     * Every rebuild of the template image will cause a ~1GB file to be
+       transmitted to each host. This could be a problem if you're using a
+       metered internet connection, or if you're on a low-bandwidth
+       connection.
+     * Removed VMs are shut down, but not removed automatically. I personally
+       like this since I don't want content to delete itself silently, but it
+       could be a problem if you have a large number of stateless VMs.
+     * Each VM has its own disk image. In theory multiple identical stateless
+       VMs could run from the same read-only disk, but that would take some
+       refactoring.
+     * systemd can't tell if an outside source has shut down the VM, so it
+       can get confused if a VM shuts itself down, or if you do it yourself
+       from virsh/virt-manager.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOps/Virtualization&oldid=9193"
+   Categories:
+     * NixOps
+     * Virtualization
+     * Server
+     * This page was last edited on 3 May 2022, at 12:50.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

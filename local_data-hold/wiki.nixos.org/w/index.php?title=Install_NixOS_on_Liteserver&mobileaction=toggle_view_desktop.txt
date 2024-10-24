@@ -1,0 +1,234 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installing the ISO on the vps
+     * 2 NixOS installation process
+          * 2.1 Networking in the Installer
+          * 2.2 Partitioning and formatting
+          * 2.3 Config
+               * 2.3.1 Boot
+               * 2.3.2 Networking
+          * 2.4 Install and (re)Boot
+   [ ] Toggle the table of contents
+
+                          Install NixOS on Liteserver
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This guide describes how to install NixOS on liteserver, paying special
+   attention to networking using liteserver's provided IPV6 subnets.
+
+Installing the ISO on the vps
+
+   Register for a VPS with liteserver. You can't select NixOS at this point,
+   but whatever you do select will be overwritten later (by the NixOS ISO) so
+   it doesn't matter what you choose.
+
+   Once you have a VPS with liteserver, follow their manual installation
+   guide. The most appropriate ISO is generally the minimal one. By the end
+   of this process, the 'Boot Order' under Settings/VPS Configuration should
+   have 'CDROM1' (or something similar) first (on top) and then 'DISK1' (or
+   something similar) second. This is important.
+
+NixOS installation process
+
+   Liteserver provides shell access to your VPS with an in-browser terminal
+   emulator. The icon is a stylised 'VNC' under the 'server information' tab
+   on the page for your VPS. Click the icon to open the terminal emulator.
+   Now follow the NixOS manual, with specific guidance below. Given the above
+   process of installing on the VPS, you should begin at Manual Installation.
+   As the manual suggests, you should run:
+
+ sudo -i
+
+  Networking in the Installer
+
+   You must connect to the internet before proceeding. Even if you intend (as
+   you should) to eventually configure network access declaratively in
+   /etc/nixos/configuration.nix, during the installation process you will
+   need to configure it non-declaratively by issuing commands in the
+   terminal.
+
+   Your liteserver VPS will come with an IPV6 subnet (as described here).
+   Find the IP address of your subnet in the information area for your VPS:
+   under the 'Server Information' tab, go the 'Settings' subtab (lower down),
+   then on the left go to 'Manage IPV6 Subnets'. There should be one subnet
+   listed, with an IPV6 address. Now to add access to the subnet run:
+
+   Your subnet will look something like this: 2a04:52c0:118:fe87::1/64.
+   Replace the 1 with 2, and the 64 with 48. Then run:
+
+ ip addr add <YOUR MODIFIED SUBNET> dev ens3
+
+   such as:
+
+ ip addr add 2a04:52c0:118:fe87::2/48 dev ens3
+
+   You must then add a gateway. The gateway will be the identical with the
+   IPV6 address above, but without the last clause from the initial part, and
+   without the /<number> at the very end. So if your IPV6 address is
+   2a04:52c0:118:fe87::1/64 then the gateway is 2a04:52c0:118::1.
+
+ ip route add default via 2a04:52c0:118::1
+
+   Finally, you must configure DNS nameservers. The recommended nameservers
+   for liteserver are listed at the bottom of this knowledgebase article,
+   under the heading 'Recommended IPv6 DNS Resolvers'. Edit the file
+   /etc/resolv.conf (e.g. with nano /etc/resolv.conf) and for every DNS
+   resolver address add a new line of the following form:
+
+ nameserver <NAMESERVER ADDRESS>
+
+   For example, at the time of writing the recommended DNS nameservers are
+   2a01:6340:1:20:4::10 and 2a04:52c0:130:2a5c::10. So the lines to add look
+   like this:
+
+ nameserver 2a01:6340:1:20:4::10
+ nameserver 2a04:52c0:130:2a5c::10
+
+   For more about this process, see the baeldung article on DNS
+   configuration, and the man page resolv.conf(5)
+
+   To test the connection try something like ping www.example.com. If this
+   returns something meaningful, then the network is succesfully connected.
+
+  Partitioning and formatting
+
+   Liteserver's VPSs are non-UEFI systems (i.e. 'legacy'). Follow the manual
+   for this type. The manual assumes that /dev/sda exists (as well as friends
+   like /dev/sda1, /dev/sda2, etc.). On VPSs like Liteserver provides,
+   /dev/sda doesn't exist, but /dev/vda plays the same role (see this
+   baeldung article for a good explanation of this). Accordingly, substitute
+   /dev/vda, /dev/vda1, /dev/vda2, etc for /dev/sda, /dev/sda1, /dev/sda2,
+   etc in the manual's instructions.
+
+  Config
+
+   This section deals with what you should put in your
+   /etc/nixos/configuration.nix.
+
+    Boot
+
+   Set the following:
+
+ boot.loader.grub.enable = true;
+ boot.loader.grub.version = 2;
+ boot.loader.grub.device = "/dev/vda";
+
+    Networking
+
+   The below setup does not include DHCP, and instead statically configures
+   both IPV6 and IPV4. The IPV4 is especially important if you want to ssh
+   into your server (which you almost certainly will -- the qemu portal
+   offered by liteserver is not particularly nice to work with). We disable
+   DHCP because it inteferes with such static configuration.
+
+   You can find your IPV4 address listed as the 'Primary IP' on the front
+   dashboard after you login to Liteserver's client area. It will look
+   something like '192.0.2.0'. Your IPV4 gateway is your IPV4, with a '1'
+   instead of the final number. So if your IPV4 address is '192.0.2.0', then
+   your gateway is '192.0.2.1'.
+
+   # We have to use static config (no DHCP)
+   # to deal with Liteserver and enable proper SSH
+   networking.useDHCP = false;
+   systemd.network.enable = true;
+   systemd.network.networks."10-wan" = {
+     matchConfig.Name = "ens3";
+     address = [
+       "<YOUR IPV4 ADDRESS>/24" # the '/24' is *not* a typo
+       "<YOUR MODIFIED SUBNET (from above)>" # e.g. 2a04:52c0:118:fe87::2/48
+     ];
+     gateway = [
+       "<YOUR IPV4 GATEWAY>"
+       "<YOUR GATEWAY (from above)>"
+     ];
+   };
+
+   This is a declarative equivalent of the networking done in the CLI above.
+
+  Install and (re)Boot
+
+   As the end of the manual says, once you've finished the configuration, run
+   nixos-install. Don't run reboot as the manual tells you to. Instead, go to
+   the server settings and 'stop' the VPS. Then go to 'Boot Order' under
+   Settings/VPS Configuration, and switch the order of the two entries.
+
+   You should now have 'DISK1' (or something similar) first (on top) and then
+   'CDROM1' (or something similar) second.
+
+   Now 'start' the VPS with the start button. If all went well, you should
+   see a new GRUB menu and boot into a fresh Nixos system.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Install_NixOS_on_Liteserver&oldid=11066"
+   Category:
+     * Guide
+     * This page was last edited on 23 March 2024, at 23:13.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

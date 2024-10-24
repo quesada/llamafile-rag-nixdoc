@@ -1,0 +1,138 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Wireplumber configuration example discrepancies
+       3 comments
+   [ ] Toggle the table of contents
+
+                                 Talk:PipeWire
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 10 May by Akaihola in topic Wireplumber configuration
+   example discrepancies
+
+       - The option definition `services.pipewire.config' in `/etc/nixos/configuration.nix' no longer has any effect; please remove it.
+       Overriding default Pipewire configuration through NixOS options never worked correctly and is no longer supported.
+       Please create drop-in files in /etc/pipewire/pipewire.conf.d/ to make the desired setting changes instead.
+
+Wireplumber configuration example discrepancies
+
+   Latest comment: 10 May3 comments1 person in discussion
+
+   The configuration examples for wireplumber have confusing differences
+   compared to Wireplumber Bluetooth configuration documentation. For example
+   this one on the wiki page:
+
+ environment.etc = {
+         "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+                 bluez_monitor.properties = {
+                         ["bluez5.enable-sbc-xq"] = true,
+                         ["bluez5.enable-msbc"] = true,
+                         ["bluez5.enable-hw-volume"] = true,
+                         ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+                 }
+         '';
+ };
+
+   The differences are:
+
+    1. Instead of bluez_monitor.properties,
+       Wireplumber documentation uses monitor.bluez.properties.
+    2. Instead of ["bracketed.and.quoted.property.names"],
+       Wireplumber documentation uses plain.property.names.
+    3. Instead of ending each property line with a comma (... = true,),
+       Wireplumber documentation omits the comma (... = true).
+
+   Akaihola (talk) 19:30, 10 May 2024 (UTC)Reply
+
+           Ah, Pipewire configuration format changed between versions 0.4 and
+           0.5, and NixOS 23.11 has:
+
+ $ wireplumber --version
+ wireplumber
+ Compiled with libwireplumber 0.4.17
+ Linked with libwireplumber 0.4.17
+ $ ls -l `which wpctl`
+ lrwxrwxrwx 1 root root 72  1. 1.  1970 /run/current-system/sw/bin/wpctl -> /nix/store/a13fw6xw8fmpf39blrp86w6r7nkfrim5-wireplumber-0.4.17/bin/wpctl
+
+           Akaihola (talk) 19:40, 10 May 2024 (UTC)Reply
+
+                        (Although I don't yet understand why I still get:)
+
+ $ nix derivation show 'nixpkgs#wireplumber'
+ {
+   "/nix/store/cawvgg6wk42xmhpg2dm0ax9hxbxfdsfm-wireplumber-0.5.2.drv": {
+ [...]
+
+           Akaihola (talk) 19:48, 10 May 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:PipeWire&oldid=12728"
+     * This page was last edited on 11 May 2024, at 09:15.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

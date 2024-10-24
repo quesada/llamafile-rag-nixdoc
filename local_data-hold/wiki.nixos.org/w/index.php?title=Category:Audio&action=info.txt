@@ -1,0 +1,108 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Information for "Category:Audio"
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Category:Audio 
+   Default sort key                 Audio          
+   Page length (in bytes)           75             
+   Namespace ID                     14             
+   Namespace                        Category       
+   Page ID                          225            
+   Page content language            en - English   
+   Page content model               wikitext       
+   Indexing by robots               Allowed        
+   Number of redirects to this page 2              
+
+Category information
+
+   Total number of members 8 
+   Number of pages         8 
+   Number of subcategories 0 
+   Number of files         0 
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>HLandau       
+   Date of page creation                        16:31, 24 October 2017 
+   Latest editor                                imported>Toraritte     
+   Date of latest edit                          01:23, 3 August 2022   
+   Total number of edits                        3                      
+   Total number of distinct authors             3                      
+   Recent number of edits (within past 90 days) 0                      
+   Recent number of distinct authors            0                      
+
+   Retrieved from "https://wiki.nixos.org/wiki/Category:Audio"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,322 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Cheatsheet: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    10 October 2024
+
+     * curprev [ ] [ ] 19:5219:52, 10 October 2024‎ Frontear talk contribs‎
+       14,507 bytes 0‎ change an unnecessarily complicated example and link
+       to main cross compiling page, which I am going to overhaul. Tag:
+       Visual edit
+
+    15 June 2024
+
+     * curprev [ ] [ ] 18:4518:45, 15 June 2024‎ Rhendric talk contribs‎
+       14,507 bytes +230‎ →‎Explore a NixOS configuration in the REPL Tag:
+       Visual edit
+     * curprev [ ] [ ] 18:4018:40, 15 June 2024‎ Rhendric talk contribs‎
+       14,277 bytes +954‎ No edit summary Tag: Visual edit: Switched
+
+    6 June 2024
+
+     * curprev [ ] [ ] 08:5008:50, 6 June 2024‎ Cdro talk contribs‎ m 13,323
+       bytes +110‎ Replace backticks with proper formatting Tag: Visual edit
+     * curprev [ ] [ ] 08:4708:47, 6 June 2024‎ Cdro talk contribs‎ m 13,213
+       bytes 0‎ →‎See also: Fix list formatting Tag: Visual edit
+     * curprev [ ] [ ] 08:4608:46, 6 June 2024‎ Cdro talk contribs‎ 13,213
+       bytes 0‎ Replace nixos with NixOS Tag: Visual edit
+     * curprev [ ] [ ] 08:4408:44, 6 June 2024‎ Cdro talk contribs‎ 13,213
+       bytes +586‎ →‎Working with the nix store: Add section Tag: Visual edit
+     * curprev [ ] [ ] 08:2308:23, 6 June 2024‎ Cdro talk contribs‎ 12,627
+       bytes −6‎ →‎Adding files to the store: Fix heading Tag: Visual edit
+
+    3 April 2024
+
+     * curprev [ ] [ ] 22:3322:33, 3 April 2024‎ Jopejoe1 talk contribs‎ m
+       12,633 bytes −1‎ Convert Markdown link to mediawiki link Tag: Visual
+       edit: Switched
+
+    13 September 2023
+
+     * curprev [ ] [ ] 20:4620:46, 13 September 2023‎ imported>Mib‎ m 12,634
+       bytes +19‎ Fix indentation in code example
+
+    10 July 2023
+
+     * curprev [ ] [ ] 04:5604:56, 10 July 2023‎ imported>ErnstderLage‎ m
+       12,615 bytes +70‎ add flake repl load
+     * curprev [ ] [ ] 04:5104:51, 10 July 2023‎ imported>ErnstderLage‎ m
+       12,545 bytes +117‎ add load none flakes configuration
+
+    13 November 2022
+
+     * curprev [ ] [ ] 13:3313:33, 13 November 2022‎ imported>Visortelle‎
+       12,428 bytes 0‎ No edit summary
+
+    18 August 2022
+
+     * curprev [ ] [ ] 15:4615:46, 18 August 2022‎ imported>Nix‎ 12,428 bytes
+       +209‎ Restore the original main section which was broken out into a
+       new page
+
+    7 July 2022
+
+     * curprev [ ] [ ] 22:3922:39, 7 July 2022‎ imported>Fricklerhandwerk‎
+       12,219 bytes −295‎ remove redundant mention of secrets management
+       overview
+     * curprev [ ] [ ] 22:3522:35, 7 July 2022‎ imported>Fricklerhandwerk‎
+       12,514 bytes −14,469‎ move comparison table to Ubuntu vs. NixOS
+
+    1 April 2022
+
+     * curprev [ ] [ ] 04:0504:05, 1 April 2022‎ imported>DerickEddington‎ m
+       26,983 bytes +16‎ Fix command for getting patched sources.
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:2806:28, 20 September 2021‎ imported>Nix‎ m 26,967
+       bytes +45‎ add to Software and Cookbook categories
+     * curprev [ ] [ ] 04:5004:50, 20 September 2021‎ imported>Nix‎ m 26,922
+       bytes +4‎ →‎A NixOS cheat sheet and comparison to Ubuntu: move TODO to
+       a comment
+     * curprev [ ] [ ] 03:4703:47, 20 September 2021‎ imported>Nix‎ 26,918
+       bytes −158‎ add a wide page notice
+
+    17 August 2021
+
+     * curprev [ ] [ ] 20:5120:51, 17 August 2021‎ imported>Sorrel‎ 27,076
+       bytes −9‎ →‎A NixOS cheat sheet and comparison to Ubuntu: stdenv.lib
+       is deprecated, https://github.com/NixOS/nixpkgs/issues/108938
+
+    6 June 2021
+
+     * curprev [ ] [ ] 02:5002:50, 6 June 2021‎ imported>Artturin‎ 27,085
+       bytes +336‎ add Using override with nix-build
+
+    23 April 2021
+
+     * curprev [ ] [ ] 05:3505:35, 23 April 2021‎ imported>Legendofmiracles‎
+       m 26,749 bytes −1‎ small issues
+
+    2 April 2021
+
+     * curprev [ ] [ ] 18:3218:32, 2 April 2021‎ imported>Mkohler‎ m 26,750
+       bytes −3‎ "direct dependencies" is more clear than "immediate
+       dependencies"
+     * curprev [ ] [ ] 17:4017:40, 2 April 2021‎ imported>Mkohler‎ 26,753
+       bytes +231‎ Simplify command for showing the package dependencies of
+       the system
+
+    28 March 2021
+
+     * curprev [ ] [ ] 13:5713:57, 28 March 2021‎ imported>InLaw‎ m 26,522
+       bytes +297‎ add Comparison_of_secret_managing_schemes
+     * curprev [ ] [ ] 13:5013:50, 28 March 2021‎ imported>InLaw‎ m 26,225
+       bytes +58‎ Install a binary package - nix-ld
+
+    24 March 2021
+
+     * curprev [ ] [ ] 08:1608:16, 24 March 2021‎ imported>Dramforever‎
+       26,167 bytes +131‎ No edit summary
+
+    22 March 2021
+
+     * curprev [ ] [ ] 09:3009:30, 22 March 2021‎ imported>Dramforever‎
+       26,036 bytes +1,157‎ No edit summary
+
+    1 February 2021
+
+     * curprev [ ] [ ] 15:2715:27, 1 February 2021‎ imported>Dschrempf‎ m
+       24,879 bytes +22‎ Bolden todo items
+     * curprev [ ] [ ] 15:2515:25, 1 February 2021‎ imported>Dschrempf‎ m
+       24,857 bytes −34‎ →‎A NixOS cheat sheet and comparison to Ubuntu: Bold
+       table headlines; sort out some mess at "Package management"
+     * curprev [ ] [ ] 15:1615:16, 1 February 2021‎ imported>Dschrempf‎ m
+       24,891 bytes −12‎ Reduce headline
+     * curprev [ ] [ ] 15:1315:13, 1 February 2021‎ imported>Dschrempf‎ m
+       24,903 bytes +35‎ Readd horizontal line (sorry was using other theme),
+       some grammatical fixes.
+     * curprev [ ] [ ] 15:0615:06, 1 February 2021‎ imported>Dschrempf‎ m
+       24,868 bytes −5‎ Remove unnecessary horizontal line.
+
+    31 January 2021
+
+     * curprev [ ] [ ] 00:3600:36, 31 January 2021‎ imported>Jtojnar‎ 24,873
+       bytes −9‎ avoid deprecated github:NixOS/nixpkgs-channels
+
+    15 December 2020
+
+     * curprev [ ] [ ] 12:4612:46, 15 December 2020‎ imported>Fab‎ m 24,882
+       bytes +6‎ Update naming
+
+    19 November 2020
+
+     * curprev [ ] [ ] 18:0918:09, 19 November 2020‎ imported>Nh2‎ 24,876
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 18:0918:09, 19 November 2020‎ imported>Nh2‎ 24,876
+       bytes +379‎ Add "Evaluating NixOS configuration without building"
+
+    17 November 2020
+
+     * curprev [ ] [ ] 20:5820:58, 17 November 2020‎ imported>Nh2‎ 24,497
+       bytes +461‎ Add "Evaluate packages for a different platform"
+
+    16 September 2020
+
+     * curprev [ ] [ ] 16:3116:31, 16 September 2020‎ imported>Balsoft‎ m
+       24,036 bytes +21‎ nix-env -i is slow, replace with nix-env -iA
+     * curprev [ ] [ ] 16:2916:29, 16 September 2020‎ imported>Balsoft‎ m
+       24,015 bytes +142‎ Add information about nix-locate
+
+    17 August 2020
+
+     * curprev [ ] [ ] 08:0008:00, 17 August 2020‎ imported>Flokli‎ 23,873
+       bytes −232‎ →‎Building a service as a VM (for testing):
+       systemd-getty-generator with console=ttyS0 starts getty automatically
+
+    27 June 2020
+
+     * curprev [ ] [ ] 11:3711:37, 27 June 2020‎ imported>Patryk27‎ 24,105
+       bytes +481‎ Elaborate a bit on the Nix's concept of package versioning
+
+    4 June 2020
+
+     * curprev [ ] [ ] 04:5604:56, 4 June 2020‎ imported>Peterhoeg‎ 23,624
+       bytes +17‎ No edit summary
+
+    15 May 2020
+
+     * curprev [ ] [ ] 20:4020:40, 15 May 2020‎ imported>Samuela‎ 23,607
+       bytes −65‎ →‎A cheat sheet and rough mapping between Ubuntu and NixOS
+
+    2 May 2020
+
+     * curprev [ ] [ ] 08:0808:08, 2 May 2020‎ imported>Jluttine‎ 23,672
+       bytes +144‎ Add nix search as an option in finding packages
+
+    25 April 2020
+
+     * curprev [ ] [ ] 21:0921:09, 25 April 2020‎ imported>Kimat‎ 23,528
+       bytes +671‎ nixos-rebuild switch was missing from install a package +
+       split install pacakge from install service + use real examples like
+       rest of the file in place of things like <other_packages> or
+       <username>
+
+    24 January 2020
+
+     * curprev [ ] [ ] 10:0710:07, 24 January 2020‎ imported>Rovanion‎ 22,857
+       bytes +83‎ Gathered from IRC.
+
+    17 July 2019
+
+     * curprev [ ] [ ] 09:1909:19, 17 July 2019‎ imported>Mic92‎ 22,774 bytes
+       0‎ fix syntax check
+     * curprev [ ] [ ] 09:1509:15, 17 July 2019‎ imported>Mic92‎ 22,774 bytes
+       +232‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Cheatsheet"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

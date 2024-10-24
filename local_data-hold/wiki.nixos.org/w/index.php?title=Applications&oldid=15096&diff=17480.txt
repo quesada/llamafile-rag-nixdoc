@@ -1,0 +1,88 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                   Applications: Difference between revisions
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+   ← Older edit
+   VisualWikitext
+
+Revision as of 06:49, 21 July 2024 view source                                   Latest revision as of 08:38, 15 September 2024 view source
+Haruki7049 (talk | contribs)                                                     Phanirithvij (talk | contribs)
+89 edits                                                                         86 edits
+Marked this version for translation                                              m fix the broken link
+← Older edit                                                                      
+(3 intermediate revisions by 2 users not shown)
+Line 176:                                                                        Line 176:
+ * [https://github.com/nix-community/rnix-parser rnix] (rust, parser)             * [https://github.com/nix-community/rnix-parser rnix] (rust, parser)             
+ * [https://github.com/orivej/go-nix go-nix] (go, parser & nix-compatible file    * [https://github.com/orivej/go-nix go-nix] (go, parser & nix-compatible file    
+ hasher)                                                                          hasher)                                                                          
+ *                                                                                *                                                                                
+ [https://github.com/NixOS/nix-idea/tree/master/src/gen/java/org/nixos/idea/lang  [https://github.com/NixOS/nix-idea/tree/master/src/main/java/org/nixos/idea/lang 
+ nix-idea] (java, parser)                                                         nix-idea] (java, parser)                                                         
+ == Additional inofficial ecosystem == <!--T:54-->                                == Additional unofficial ecosystem == <!--T:54-->                                
+ <!--T:55-->                                                                      <!--T:55-->                                                                      
+
+   Retrieved from "https://wiki.nixos.org/wiki/Applications"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

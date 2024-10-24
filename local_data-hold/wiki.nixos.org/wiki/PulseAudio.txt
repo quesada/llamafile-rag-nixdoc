@@ -1,0 +1,224 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Enabling PulseAudio
+     * 2 Explicit PulseAudio support in applications
+     * 3 Enabling modules
+     * 4 Disabling unwanted modules
+     * 5 Using Pulseaudio Equalizer
+     * 6 Using Bauer stereophonic-to-binaural DSP library
+     * 7 Troubleshooting
+          * 7.1 General troubleshooting
+          * 7.2 Clicking and Garbled Audio
+          * 7.3 Paprefs doesn't work on KDE
+     * 8 See also
+   [ ] Toggle the table of contents
+
+                                   PulseAudio
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   PulseAudio is a popular sound server for Linux. It is now required by a
+   number of applications, and should be enabled if audio support is desired
+   on NixOS. Enabling PulseAudio is sufficient to enable audio support on
+   NixOS in most cases.
+
+Enabling PulseAudio
+
+   Add to your configuration:
+
+ hardware.pulseaudio.enable = true;
+ hardware.pulseaudio.support32Bit = true;    ## If compatibility with 32-bit applications is desired.
+
+   You may need to add users to the audio group for them to be able to use
+   audio devices:
+
+ users.extraUsers.alice.extraGroups = [ "audio" ... ];
+
+Explicit PulseAudio support in applications
+
+   Normally, the system-wide ALSA configuration (/etc/asound.conf) redirects
+   the audio of applications which use the ALSA API through PulseAudio. For
+   this reason, most applications do not need to be PulseAudio-aware. Some
+   NixOS packages can be built with explicit PulseAudio support which is
+   disabled by default. This support can be enabled in all applicable
+   packages by setting:
+
+ nixpkgs.config.pulseaudio = true;
+
+Enabling modules
+
+   Modules can be loaded manually:
+
+ pactl load-module module-combine-sink
+
+   Or automatically:
+
+ hardware.pulseaudio.extraConfig = "load-module module-combine-sink";
+
+Disabling unwanted modules
+
+ hardware.pulseaudio.extraConfig = "unload-module module-suspend-on-idle";
+
+Using Pulseaudio Equalizer
+
+   Currently (2017-11-29 [IMG]#8384) the qpaeq command does not work out of
+   the box, use the following commands to get it running:
+
+ $ pactl load-module module-equalizer-sink
+ $ pactl load-module module-dbus-protocol
+ $ nix-shell -p python27Full python27Packages.pyqt4 python27Packages.dbus-python --command qpaeq
+
+Using Bauer stereophonic-to-binaural DSP library
+
+   This module re-creates on a headset what you would hear in real-life,
+   improving sound quality and decreasing brain fatigue.
+
+   See the description of the project for more details:
+   https://bs2b.sourceforge.net/
+
+   The nix package to use is: libbs2b
+
+   FIXME: getting an error while running:
+
+ $ pactl load-module module-ladspa-sink sink_name=binaural master=bluez_sink.AA_BB_CC_DD_EE_FF.a2dp_sink plugin=bs2b label=bs2b control=700,4.5
+
+Troubleshooting
+
+  General troubleshooting
+
+   Before troubleshooting PulseAudio, determine that the kernel-level sound
+   APIs (ALSA) are functional; see ALSA.
+
+   If ALSA-level audio is working, determine whether audio is being routed
+   via PulseAudio.
+
+   To determine what processes are using the sound devices:
+
+ $ sudo lsof /dev/snd/*
+ COMMAND     PID     USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+ pulseaudi 14080 goibhniu   30u   CHR  116,7      0t0 5169 /dev/snd/controlC0
+ pulseaudi 14080 goibhniu   37u   CHR  116,7      0t0 5169 /dev/snd/controlC0
+
+   In this example, only pulseaudio processes are using sound devices.
+
+   If other processes (such as plugin-container) are using sound devices,
+   this indicates they are bypassing PulseAudio; check that you don't have a
+   local ~/.asoundrc file directing audio to somewhere else.
+
+   Note that you may need to enable the full pulseaudio package using:
+
+ hardware.pulseaudio.package = pkgs.pulseaudioFull;
+
+ For example I had to enable this package in order to solve an error:
+
+ snd_pcm_open failed: Device or resource busy
+
+   (The problem is that also also tries to connect to the card that is
+   already used by pulseaudio, so we need a module pulseaudio-alsa on
+   pulseaudio to redirect also calls to pulseaudio)
+
+  Clicking and Garbled Audio
+
+   The newer implementation of the PulseAudio sound server uses timer-based
+   audio scheduling instead of the traditional, interrupt-driven approach.
+
+   Timer-based scheduling may expose issues in some ALSA drivers. On the
+   other hand, other drivers might be glitchy without it on, so check to see
+   what works on your system.
+
+   To turn timer-based scheduling off add this to your configuration:
+
+ hardware.pulseaudio.configFile = pkgs.runCommand "default.pa" {} ''
+   sed 's/module-udev-detect$/module-udev-detect tsched=0/' \
+     ${pkgs.pulseaudio}/etc/pulse/default.pa > $out
+ '';
+
+   Then perform # nixos-rebuild switch, followed by $ pulseaudio -k.
+
+   The difference should be directly noticeable. This is a known issue
+   related to quality of Creative driver [1], but it can also happen with
+   other sound cards.
+
+  Paprefs doesn't work on KDE
+
+   If you run KDE (Plasma) and paprefs util doesn't work complaining about
+   dconf, make sure you have programs.dconf.enable = true; in your NixOS
+   configuration. Source.
+
+See also
+
+     * Using JACK with PulseAudio
+     * PipeWire
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=PulseAudio&oldid=17509"
+   Category:
+     * Audio
+     * This page was last edited on 15 September 2024, at 22:16.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

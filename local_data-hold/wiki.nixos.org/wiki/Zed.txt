@@ -1,0 +1,124 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 LSP Support
+          * 2.1 rust-analyzer
+   [ ] Toggle the table of contents
+
+                                      Zed
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Zed is a graphical text editor focusing on speed and collaborative
+   editing.
+
+   Its Linux support is fairly recent, the NixOS support even more so.
+
+Installation
+
+   The package zed-editor is available only from channel 24.11 onward.
+
+   CLI support is installed and aliased to zeditor
+
+LSP Support
+
+   By default, Zed will try to download pre-built LSP servers in
+   ~/.local/share/zed/languages/. This does not work for NixOS.
+
+   There's sadly no way to inject those from $PATH for now. Worse, the way to
+   point to the language server is language-specific, there is no global
+   configuration flag for now.
+
+   The following sections contain some language-specific setup working on
+   NixOS.
+
+  rust-analyzer
+
+   Here, we'll assume rust-analyzer is globally installed in your system
+   profile at /run/current-system/sw/bin/rust-analyzer. You may want to adapt
+   this path in the following code snippet to something more relevant to your
+   use case.
+
+   Add the following snippet to your zed configuration file:
+
+  "lsp": {
+    "rust-analyzer": {
+      "binary": {
+        "path": "/run/current-system/sw/bin/rust-analyzer",
+      },
+    }
+  }
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Zed&oldid=17686"
+   Categories:
+     * Applications
+     * Text Editor
+     * This page was last edited on 30 September 2024, at 12:11.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

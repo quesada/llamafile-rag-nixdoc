@@ -1,0 +1,110 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board Specific Installation Notes
+   [ ] Toggle the table of contents
+
+                        NixOS on ARM/Apple Silicon Macs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   Apple Silicon Macs are supported in large part by the efforts of the Asahi
+   Linux project. All M1 Macs and most M2 Macs are supported currently, with
+   M3 Mac support in progress.
+
+   Apple Silicon Macs
+   Manufacturer Apple                             
+   Architecture AArch64                           
+   Bootloader   Asahi Linux Project m1n1 + U-Boot 
+   Maintainer   tpwrules                          
+
+Status
+
+   NixOS should be at least as well supported as the official Asahi Linux
+   distribution. Enough hardware works currently for a pleasant desktop and
+   laptop Linux experience, including booting off the internal NVMe drive.
+
+Board Specific Installation Notes
+
+   Apple's boot and security architecture is complex, but abstracting all
+   that away into a standard UEFI environment is handled by the Asahi Linux
+   installer and project. Those who want to learn more may want to read
+   Introduction to Apple Silicon.
+
+   Currently, not enough hardware support is upstream for the official NixOS
+   installer to work properly on Apple Silicon Macs. A comprehensive guide to
+   using the Asahi Linux installer to install NixOS with a customized NixOS
+   ISO is available.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Apple_Silicon_Macs&oldid=11318"
+     * This page was last edited on 2 April 2024, at 16:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,128 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+   [ ] Toggle the table of contents
+
+                                   Paperless
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Paperless-ngx is a community-supported open-source document management
+   system that transforms your physical documents into a searchable online
+   archive, allowing you to reduce paper clutter.
+
+Setup
+
+   The following example configuration will enable Paperless locally
+
+    
+
+ /etc/nixos/configuration.nix
+
+ environment.etc."paperless-admin-pass".text = "admin";
+ services.paperless = {
+   enable = true;
+   passwordFile = "/etc/paperless-admin-pass";
+ };
+
+   After applying the configuration you can access the instance via
+   http://localhost:28981 and login with username admin and password admin.
+   Another example below could be used on a server with an actual URL and
+   some extra settings.
+
+ services.paperless = {
+   enable = true;
+   consumptionDirIsPublic = true;
+   address = "paperless.example.com";
+   settings = {
+     PAPERLESS_CONSUMER_IGNORE_PATTERN = [
+       ".DS_STORE/*"
+       "desktop.ini"
+     ];
+     PAPERLESS_OCR_LANGUAGE = "deu+eng";
+     PAPERLESS_OCR_USER_ARGS = {
+       optimize = 1;
+       pdfa_image_compression = "lossless";
+     };
+   };
+ };
+
+   After the installation, you can set an admin user yourself via the
+   following command on the server
+
+ sudo /var/lib/paperless/paperless-manage createsuperuser
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Paperless&oldid=16457"
+   Categories:
+     * Server
+     * Web Applications
+     * This page was last edited on 7 August 2024, at 14:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

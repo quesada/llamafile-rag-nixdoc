@@ -1,0 +1,152 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Manual of Style: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 September 2024
+
+     * curprev [ ] [ ] 18:5618:56, 2 September 2024‎ Klinger talk contribs‎
+       30,637 bytes +175‎ 5 / 5 (table editing with GUI mode) Tag: Visual
+       edit
+     * curprev [ ] [ ] 18:4018:40, 2 September 2024‎ Klinger talk contribs‎
+       30,462 bytes +197‎ 4 / X Tag: Visual edit
+     * curprev [ ] [ ] 18:3218:32, 2 September 2024‎ Klinger talk contribs‎
+       30,265 bytes 0‎ 3 / X (sentence case for the MoS) Tag: Visual edit
+     * curprev [ ] [ ] 18:2718:27, 2 September 2024‎ Klinger talk contribs‎
+       30,265 bytes +50‎ 2 / X (title case to sentence case) Tag: Visual edit
+     * curprev [ ] [ ] 18:1318:13, 2 September 2024‎ Klinger talk contribs‎
+       30,215 bytes +414‎ Agreed changes from
+       https://github.com/NixOS/nixos-wiki-infra/issues/98 - part 1 of X Tag:
+       Visual edit
+
+    30 July 2024
+
+     * curprev [ ] [ ] 19:1719:17, 30 July 2024‎ Layer-09 talk contribs‎ m
+       29,801 bytes 0‎ No edit summary
+     * curprev [ ] [ ] 19:1119:11, 30 July 2024‎ Layer-09 talk contribs‎ m
+       29,801 bytes −503‎ Minor changes to "Videos" section and "Article
+       sections"
+
+    28 July 2024
+
+     * curprev [ ] [ ] 20:4820:48, 28 July 2024‎ Layer-09 talk contribs‎
+       30,304 bytes +7,711‎ The Manual of Style is completed.
+
+    6 July 2024
+
+     * curprev [ ] [ ] 20:0820:08, 6 July 2024‎ Layer-09 talk contribs‎
+       22,593 bytes +12,690‎ Improved documentation instructions. Check note.
+
+    4 July 2024
+
+     * curprev [ ] [ ] 18:2218:22, 4 July 2024‎ Layer-09 talk contribs‎ m
+       9,903 bytes −22‎ No edit summary
+     * curprev [ ] [ ] 15:5115:51, 4 July 2024‎ Layer-09 talk contribs‎ m
+       9,925 bytes +29‎ No edit summary
+     * curprev [ ] [ ] 15:4215:42, 4 July 2024‎ Layer-09 talk contribs‎ 9,896
+       bytes +9,896‎ Assembled the structure for the manual Tag: Visual edit:
+       Switched
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Manual_of_Style"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

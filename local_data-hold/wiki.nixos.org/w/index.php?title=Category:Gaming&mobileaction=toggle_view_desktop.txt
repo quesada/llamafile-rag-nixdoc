@@ -1,0 +1,188 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                Category:Gaming
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+   NixOS is a good Linux distribution for gaming. But it also has some
+   difficulties because most self downloaded programs will not run without a
+   little additional configuration like running it with steam-run.
+
+   With a simple module like this its possible to install the programs needed
+   for gaming.
+
+ { pkgs, config, ... }:
+ {
+   imports = [
+   ];
+
+   options = {
+   };
+
+   config = {
+     programs.gamemode.enable = true; # for performance mode
+
+     programs.steam = {
+       enable = true; # install steam
+       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+     };
+
+     environment.systemPackages = with pkgs; [
+       heroic # install heroic launcher
+       lutris # install lutris launcher
+       mumble # install voice-chat
+       protonup-qt # GUI for installing custom Proton versions like GE_Proton
+       (retroarch.override {
+         cores = with libretro; [ # decide what emulators you want to include
+           puae # Amiga 500
+           scummvm
+           dosbox
+         ];
+       })
+       teamspeak_client # install voice-chat
+     ];
+   };
+ }
+
+Pages in category "Gaming"
+
+   The following 22 pages are in this category, out of 22 total.
+
+  A
+
+     * Ambermoon
+     * Augustus
+
+  B
+
+     * Battle.net
+
+  D
+
+     * Discord
+     * Dolphin Emulator
+
+  F
+
+     * Factorio
+
+  G
+
+     * GameMode
+     * Games
+
+  K
+
+     * Katago
+
+  L
+
+     * Lutris
+
+  M
+
+     * Minecraft
+     * Minetest Server
+     * Mumble
+
+  O
+
+     * OpenArena
+
+  P
+
+     * PlayStation 2
+
+  Q
+
+     * QuakeJS
+
+  R
+
+     * RetroArch
+
+  S
+
+     * Star Citizen
+     * Steam
+     * Sunshine
+
+  T
+
+     * Teamspeak
+
+  W
+
+     * Wine
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Gaming&oldid=12228"
+   Category:
+     * Software
+     * This page was last edited on 19 April 2024, at 17:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,215 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+      Yubikey based Full Disk Encryption (FDE) on NixOS: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 March 2024
+
+     * curprev [ ] [ ] 07:4707:47, 2 March 2024‎ imported>Jthoward64‎ m
+       13,171 bytes −1‎ Fix typo in prev edit
+     * curprev [ ] [ ] 07:4607:46, 2 March 2024‎ imported>Jthoward64‎ 13,172
+       bytes +597‎ Add information about encrypting multiple drives
+
+    4 September 2023
+
+     * curprev [ ] [ ] 05:3105:31, 4 September 2023‎ imported>Laxect‎ 12,575
+       bytes −11‎ No edit summary
+
+    5 May 2023
+
+     * curprev [ ] [ ] 07:0007:00, 5 May 2023‎ imported>Frederictobiasc‎
+       12,586 bytes +126‎ →‎Maintenance
+
+    28 April 2023
+
+     * curprev [ ] [ ] 10:3710:37, 28 April 2023‎ imported>Frederictobiasc‎
+       12,460 bytes +767‎ No edit summary
+
+    19 January 2023
+
+     * curprev [ ] [ ] 12:0312:03, 19 January 2023‎ imported>Frederictobiasc‎
+       m 11,693 bytes +2‎ Update test date, fix spelling
+
+    27 February 2021
+
+     * curprev [ ] [ ] 10:2010:20, 27 February 2021‎ imported>Seylerius‎
+       11,691 bytes −84‎ Update configuration syntax to correct errors
+
+    24 September 2020
+
+     * curprev [ ] [ ] 20:3920:39, 24 September 2020‎ imported>Garbas‎ m
+       11,775 bytes +3‎ No edit summary
+
+    30 December 2019
+
+     * curprev [ ] [ ] 17:4917:49, 30 December 2019‎ imported>Rkrzr‎ m 11,772
+       bytes −1‎ Remove trailing "
+     * curprev [ ] [ ] 10:2510:25, 30 December 2019‎ imported>Rkrzr‎ m 11,773
+       bytes +1‎ Missing $ in `mount "EFI_PART"` leading to wrong command
+
+    20 August 2019
+
+     * curprev [ ] [ ] 17:5217:52, 20 August 2019‎ imported>Sgillespie‎ m
+       11,772 bytes +154‎ No edit summary
+     * curprev [ ] [ ] 17:3317:33, 20 August 2019‎ imported>Sgillespie‎
+       11,618 bytes −590‎ No edit summary
+
+    6 August 2019
+
+     * curprev [ ] [ ] 21:1021:10, 6 August 2019‎ imported>Ryanorendorff‎ m
+       12,208 bytes +588‎ No edit summary
+
+    5 August 2019
+
+     * curprev [ ] [ ] 20:4020:40, 5 August 2019‎ imported>Ryanorendorff‎
+       11,620 bytes 0‎ No edit summary
+     * curprev [ ] [ ] 20:3620:36, 5 August 2019‎ imported>Ryanorendorff‎
+       11,620 bytes +321‎ Move yubikey directions to top since they can be
+       done independently.
+     * curprev [ ] [ ] 20:2920:29, 5 August 2019‎ imported>Ryanorendorff‎
+       11,299 bytes +18‎ No edit summary
+     * curprev [ ] [ ] 20:2820:28, 5 August 2019‎ imported>Ryanorendorff‎ m
+       11,281 bytes 0‎ Moved luksFormat to end of the yubikey setup section
+       since it can be done independently.
+     * curprev [ ] [ ] 20:0020:00, 5 August 2019‎ imported>Ryanorendorff‎ m
+       11,281 bytes +17‎ No edit summary
+     * curprev [ ] [ ] 19:5319:53, 5 August 2019‎ imported>Ryanorendorff‎ m
+       11,264 bytes +151‎ No edit summary
+     * curprev [ ] [ ] 19:3819:38, 5 August 2019‎ imported>Ryanorendorff‎ m
+       11,113 bytes +116‎ No edit summary
+
+    25 July 2019
+
+     * curprev [ ] [ ] 09:0709:07, 25 July 2019‎ imported>Mic92‎ 10,997 bytes
+       −1‎ No edit summary
+     * curprev [ ] [ ] 09:0609:06, 25 July 2019‎ imported>Mic92‎ 10,998 bytes
+       +142‎ No edit summary
+
+    2 July 2019
+
+     * curprev [ ] [ ] 23:3623:36, 2 July 2019‎ imported>Ryanorendorff‎
+       10,856 bytes +188‎ No edit summary
+     * curprev [ ] [ ] 07:0907:09, 2 July 2019‎ imported>Ryanorendorff‎
+       10,668 bytes +39‎ No edit summary
+     * curprev [ ] [ ] 07:0007:00, 2 July 2019‎ imported>Ryanorendorff‎ m
+       10,629 bytes 0‎ Ryanorendorff moved page Luks-based FDE with Yubikey
+       PBA and btrfs on UEFI NixOS to Yubikey based Full Disk Encryption
+       (FDE) on NixOS: Simplify and generalize page name to reflect the two
+       important pieces: Yubikey and FDE.
+     * curprev [ ] [ ] 06:5706:57, 2 July 2019‎ imported>Ryanorendorff‎
+       10,629 bytes +1,961‎ Tested the instructions.
+
+    28 June 2019
+
+     * curprev [ ] [ ] 00:0900:09, 28 June 2019‎ imported>Ryanorendorff‎
+       8,668 bytes +158‎ No edit summary
+     * curprev [ ] [ ] 00:0800:08, 28 June 2019‎ imported>Ryanorendorff‎
+       8,510 bytes +8,510‎ Created page with "'''This is a copy of the page
+       from the original wiki.''' This page is a minimalistic guide for
+       setting up luks-based full disk encryption with YubiKey pre-boot
+       authenticatio..."
+   [ Compare selected revisions ]
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Yubikey_based_Full_Disk_Encryption_(FDE)_on_NixOS"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,47 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                                 Xfce in NixOS
+
+   Published on Sat Sep 18 2010
+
+                                 Xfce in NixOS
+
+   NixOS now supports Xfce, a modern, light-weight desktop environment. It
+   can be enabled by setting the NixOS configuration value
+   services.xserver.desktopManager.xfce.enable to true. (Screenshot)
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

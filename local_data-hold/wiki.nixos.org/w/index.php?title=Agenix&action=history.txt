@@ -1,0 +1,189 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Agenix: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    15 February 2024
+
+     * curprev [ ] [ ] 10:4510:45, 15 February 2024‎ imported>Dafitt‎ 7,479
+       bytes +1,036‎ Alternate way to access secrets inside container
+
+    13 January 2024
+
+     * curprev [ ] [ ] 12:2112:21, 13 January 2024‎ imported>Onny‎ 6,443
+       bytes +755‎ Add note on using secrets in initrd
+
+    12 January 2024
+
+     * curprev [ ] [ ] 14:5314:53, 12 January 2024‎ imported>Onny‎ 5,688
+       bytes +369‎ Note on how to access secrets inside container
+
+    21 December 2023
+
+     * curprev [ ] [ ] 16:0116:01, 21 December 2023‎ imported>Onny‎ m 5,319
+       bytes 0‎ No edit summary
+
+    6 November 2023
+
+     * curprev [ ] [ ] 07:4207:42, 6 November 2023‎ imported>Lc787‎ m 5,319
+       bytes +1‎ closed code field
+
+    11 April 2023
+
+     * curprev [ ] [ ] 15:5015:50, 11 April 2023‎ imported>Paulj‎ m 5,318
+       bytes 0‎ Typo correction
+
+    29 March 2023
+
+     * curprev [ ] [ ] 11:0211:02, 29 March 2023‎ imported>Onny‎ m 5,318
+       bytes −9‎ No edit summary
+
+    28 March 2023
+
+     * curprev [ ] [ ] 11:0211:02, 28 March 2023‎ imported>Onny‎ 5,327 bytes
+       +919‎ Add tips and tricks
+
+    26 March 2023
+
+     * curprev [ ] [ ] 12:1712:17, 26 March 2023‎ imported>Onny‎ 4,408 bytes
+       +456‎ Add example sourcing files
+
+    15 March 2023
+
+     * curprev [ ] [ ] 10:5810:58, 15 March 2023‎ imported>Onny‎ m 3,952
+       bytes +1‎ No edit summary
+
+    13 March 2023
+
+     * curprev [ ] [ ] 18:5118:51, 13 March 2023‎ imported>Onny‎ 3,951 bytes
+       +159‎ More detailed explaination
+     * curprev [ ] [ ] 18:4518:45, 13 March 2023‎ imported>Onny‎ m 3,792
+       bytes +15‎ No edit summary
+     * curprev [ ] [ ] 18:4018:40, 13 March 2023‎ imported>Onny‎ m 3,777
+       bytes +26‎ No edit summary
+
+    3 February 2023
+
+     * curprev [ ] [ ] 14:1214:12, 3 February 2023‎ imported>Onny‎ m 3,751
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 13:5613:56, 3 February 2023‎ imported>Onny‎ m 3,749
+       bytes +9‎ No edit summary
+
+    29 December 2022
+
+     * curprev [ ] [ ] 11:4211:42, 29 December 2022‎ imported>Onny‎ m 3,740
+       bytes +212‎ No edit summary
+     * curprev [ ] [ ] 11:2811:28, 29 December 2022‎ imported>Onny‎ 3,528
+       bytes +60‎ Add see also section
+     * curprev [ ] [ ] 11:2311:23, 29 December 2022‎ imported>Onny‎ 3,468
+       bytes +1,208‎ Add example configuration
+     * curprev [ ] [ ] 11:0211:02, 29 December 2022‎ imported>Onny‎ 2,260
+       bytes −387‎ Add more informations to configure section
+     * curprev [ ] [ ] 10:5710:57, 29 December 2022‎ imported>Onny‎ 2,647
+       bytes +1,359‎ Start adding configuration section
+     * curprev [ ] [ ] 10:4510:45, 29 December 2022‎ imported>Onny‎ 1,288
+       bytes +1,288‎ Initial page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Agenix"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

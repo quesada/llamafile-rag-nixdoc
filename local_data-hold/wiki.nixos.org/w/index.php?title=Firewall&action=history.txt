@@ -1,0 +1,150 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Firewall: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:4317:43, 19 April 2024‎ Klinger talk contribs‎ m
+       1,654 bytes +47‎ Category:Server Category:Applications
+
+    10 December 2023
+
+     * curprev [ ] [ ] 21:5021:50, 10 December 2023‎ imported>Bowmanjd‎ m
+       1,607 bytes +13‎ So minor, but I was confused if networking.nftables
+       _replaced_ or _supplemented_ networking.firewall, and I noticed
+       example configs online that suggested others may be confused as well.
+
+    11 November 2023
+
+     * curprev [ ] [ ] 11:2211:22, 11 November 2023‎ imported>CryoMyst‎ 1,594
+       bytes +38‎ No edit summary
+
+    19 October 2023
+
+     * curprev [ ] [ ] 08:4508:45, 19 October 2023‎ imported>Skylark‎ 1,556
+       bytes −113‎ State that iptables is the default
+
+    31 January 2023
+
+     * curprev [ ] [ ] 14:2614:26, 31 January 2023‎ imported>N8henrie‎ m
+       1,669 bytes +245‎ Incorrectly says it is based on ntfables, which is
+       not true by default.
+
+    15 July 2022
+
+     * curprev [ ] [ ] 08:3408:34, 15 July 2022‎ imported>Rascal999‎ m 1,424
+       bytes +115‎ No edit summary
+
+    23 June 2022
+
+     * curprev [ ] [ ] 13:2813:28, 23 June 2022‎ imported>Onny‎ 1,309 bytes
+       +72‎ No edit summary
+     * curprev [ ] [ ] 13:2613:26, 23 June 2022‎ imported>Onny‎ 1,237 bytes
+       +183‎ Note about opening firewall ports through service option
+     * curprev [ ] [ ] 13:2013:20, 23 June 2022‎ imported>Onny‎ 1,054 bytes
+       +1,054‎ Initial page for configuring the firewall
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Firewall"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

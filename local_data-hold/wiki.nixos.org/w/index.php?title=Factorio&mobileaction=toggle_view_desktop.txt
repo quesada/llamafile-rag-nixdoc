@@ -1,0 +1,161 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Default Server Installation
+     * 2 Configuration
+     * 3 Mods
+   [ ] Toggle the table of contents
+
+                                    Factorio
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Factorio is a video game created by Wube Software. Factorio has a
+   multiplayer mode that requires a dedicated server, which is what this
+   guide is about. If you have tips for installing the Factorio client,
+   please feel free to expand this wiki page.
+
+   For more specific information about Factorio multiplayer, see:
+   https://wiki.factorio.com/Multiplayer
+
+Default Server Installation
+
+   To install the Factorio server, add "factorio-headless" to your
+   "systemPackages" in your NixOS configuration:
+
+ environment.systemPackages = with pkgs; [
+   factorio-headless
+ ];
+ # Also enable non-free packages or else the factorio download will fail:
+ nixpkgs.config.allowUnfree = true;
+
+   It's important to only install "factorio-headless" instead of "factorio"
+   because the headless version is a free download that does not require
+   login credentials.
+
+Configuration
+
+   Here is a minimum viable configuration for the Factorio server (add this
+   to your NixOS configuration):
+
+ services.factorio = {
+   enable = true;
+   openFirewall = true;
+ };
+
+   This will run a non-password-protected server that binds to "0.0.0.0" and
+   uses the default UDP port of 34197, with an auto-generated save file.
+   Factorio servers support IPv6 by setting bind = "[::]";. All default
+   settings can be seen here:
+   https://search.nixos.org/options?&query=factorio
+
+Mods
+
+   The NixOS module for Factorio supports Factorio mods, which are just zip
+   files. While technically you can create a full derivation for mods, in
+   practice this can get complicated, especially since authentication is
+   required to download mods from the official mod site.
+
+   Instead, you can download the mods you need separately from
+   https://mods.factorio.com/, place them in a folder such as
+   /home/username/factorio-mods, and put this code in your configuration.nix
+   (credit to nicball):
+
+ services.factorio = {
+   # --omitted--
+   mods =
+     let
+       inherit (pkgs) lib;
+       modDir = /home/username/factorio-mods;
+       modList = lib.pipe modDir [
+         builtins.readDir
+         (lib.filterAttrs (k: v: v == "regular"))
+         (lib.mapAttrsToList (k: v: k))
+         (builtins.filter (lib.hasSuffix ".zip"))
+       ];
+       modToDrv = modFileName:
+         pkgs.runCommand "copy-factorio-mods" {} ''
+           mkdir $out
+           cp ${modDir + "/${modFileName}"} $out/${modFileName}
+         ''
+         // { deps = []; };
+     in
+       builtins.map modToDrv modList;
+ };
+
+   Note that any changes to the list of mods in the "factorio-mods" folder
+   require running nixos-rebuild switch.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Factorio&oldid=12258"
+   Categories:
+     * Gaming
+     * Server
+     * This page was last edited on 19 April 2024, at 19:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

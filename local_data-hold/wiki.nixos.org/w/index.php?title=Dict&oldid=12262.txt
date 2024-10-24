@@ -1,0 +1,117 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Usage
+     * 3 See Also
+   [ ] Toggle the table of contents
+
+                                      Dict
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 19:55, 19 April 2024 by Klinger (talk | contribs) (reduced
+   categories to Category:Applications Category:Networking)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   The dict utility does network dictionary lookups from the command-line, it
+   is part of the dictd software distribution.
+
+Setup
+
+   Add `dict` to your list of packages in /etc/nixos/configuration.nix:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   environment = {
+     etc."dict.conf".text = "server dict.org";
+     systemPackages = with pkgs; [ dict ];
+   };
+ }
+
+   and rebuild your system.
+
+Usage
+
+   To lookup a word, run, for example:
+
+ dict snowflake
+
+See Also
+
+     * The dictd software suite
+     * The dict.org web dictionary lookup tool
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Dict&oldid=12262"
+   Categories:
+     * Applications
+     * Networking
+     * This page was last edited on 19 April 2024, at 19:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

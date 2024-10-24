@@ -1,0 +1,132 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Conda
+     * 2 shellHook explanation
+     * 3 How to use specific Python version?
+       1 comment
+     * 4 Flake example for use with nix develop
+   [ ] Toggle the table of contents
+
+                                  Talk:Python
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 19 September 2021 by L0b0 in topic How to use specific
+   Python version?
+
+Conda
+
+   conda-env does not exist after entering the conda-shell without first
+   calling conda-install, so I think the wiki is missleading here, or the
+   package has a bug. conda-shell, conda-install have no effect and nothing
+   happens. Bash just says it can't find that command.
+
+shellHook explanation
+
+   It's not clear what the meaning of all the `shellHook` stuff is for, esp.
+   the unset SOURCE_DATE_EPOCH bit.
+
+How to use specific Python version?
+
+   Latest comment: 19 September 20211 comment1 person in discussion
+
+   I'm working on a project where we're using a specific patch version of
+   Python. How would I set this up? This uses a Python fork, but I'm looking
+   for a specific version of the official Python package.
+
+   L0b0 (talk) 22:01, 19 September 2021 (UTC)Reply
+
+Flake example for use with nix develop
+
+   I was trying to get python with packages as defined by a flake, and found
+   https://dev.to/deciduously/workspace-management-with-nix-flakes-jupyter-notebook-example-2kke
+   a useful discussion. I propose to add an example:
+
+ {
+   description = "Python environment";
+   inputs.nixpkgs.url = "nixpkgs/nixos-22.11";
+   outputs = {nixpkgs, ...}: let
+     system = "x86_64-linux";
+     pkgs = import nixpkgs {inherit system;};
+   in {
+     devShells.${system}.default = pkgs.mkShell {
+       buildInputs = [
+         (pkgs.python3.withPackages (p: [
+           p.requests
+         ]))
+       ];
+       shellHook = "python";
+     };
+   };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Python&oldid=7055"
+     * This page was last edited on 23 March 2023, at 11:46.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

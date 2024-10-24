@@ -1,0 +1,328 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration
+          * 1.1 Static IP for network adapter
+          * 1.2 Hosts file
+          * 1.3 Port forwarding
+     * 2 IPv6
+          * 2.1 Prefix delegation with fixed DUID
+          * 2.2 IPv6-mostly
+     * 3 VLANs
+   [ ] Toggle the table of contents
+
+                                   Networking
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Networking config always goes in your system configuration. This can be
+   done declaratively as shown in the following sections or through
+   non-declarative tools such as NetworkManager.
+
+Configuration
+
+  Static IP for network adapter
+
+   The following example configures a static IPv4 and IPv6 address and a
+   default gateway for the interface ens3
+
+ networking = {
+   interfaces.ens3 = {
+     ipv6.addresses = [{
+       address = "2a01:4f8:1c1b:16d0::1";
+       prefixLength = 64;
+     }];
+     ipv4.addresses = [{
+       address = "192.0.2.2";
+       prefixLength = 24;
+     }];
+   };
+   defaultGateway = {
+     address = "192.0.2.1";
+     interface = "ens3";
+   };
+   defaultGateway6 = {
+     address = "fe80::1";
+     interface = "ens3";
+   };
+ };
+
+  Hosts file
+
+   To edit /etc/hosts just add something like this to your configuration.nix:
+
+ networking.hosts = {
+   "127.0.0.2" = ["other-localhost"];
+   "192.0.2.1" = ["mail.example.com" "imap.example.com"];
+ };
+
+  Port forwarding
+
+   In this example we're going to forward the port 80 via NAT from our
+   internal network interface ens3 to the host 10.100.0.3 on our external
+   interface wg0.
+
+ networking = {
+   nftables = {
+     enable = true;
+     ruleset = ''
+         table ip nat {
+           chain PREROUTING {
+             type nat hook prerouting priority dstnat; policy accept;
+             iifname "ens3" tcp dport 80 dnat to 10.100.0.3:80
+           }
+         }
+     '';
+   };
+   firewall = {
+     enable = true;
+     allowedTCPPorts = [ 80 ];
+   };
+   nat = {
+     enable = true;
+     internalInterfaces = [ "ens3" ];
+     externalInterface = "wg0";
+     forwardPorts = [
+       {
+         sourcePort = 80;
+         proto = "tcp";
+         destination = "10.100.0.3:80";
+       }
+     ];
+   };
+ };
+
+   For IPv6 port forwarding, the example would look like this. Incoming
+   connections on the address 2001:db8:: and port 80 will be forwarded to
+   [fe80::1234:5678:9abc:def0]:80.
+
+ networking = {
+   nftables = {
+     enable = true;
+     ruleset = ''
+         table ip6 nat {
+           chain PREROUTING {
+             type nat hook prerouting priority dstnat; policy accept;
+             iifname "ens3" ip6 daddr [2001:db8::] tcp dport 80 dnat to [fe80::1234:5678:9abc:def0]:80
+           }
+         }
+     '';
+   };
+   firewall = {
+     enable = true;
+     allowedTCPPorts = [ 80 ];
+   };
+   nat = {
+     enable = true;
+     internalInterfaces = [ "ens3" ];
+     externalInterface = "wg0";
+     enableIPv6 = true;
+     internalIPv6s = [ "2001:db8::/64" ];
+     externalIPv6 = "fe80::1234:5678:9abc:def0";
+     forwardPorts = [
+       {
+         sourcePort = 80;
+         proto = "tcp";
+         destination = "fe80::1234:5678:9abc:def0]:80";
+       }
+     ];
+   };
+ };
+
+                                      IPv6
+
+Prefix delegation with fixed DUID
+
+   Sometimes the hosting provider manages IPv6 networks via a so-called DUID
+   or clientid. This snippet is required to make the network routable:
+
+ { config, pkgs, ... }:
+
+ let
+   # Get this from your hosting provider
+   clientid = "00:11:22:33:44:55:66:77:88:99";
+   interface = "enp2s0";
+   subnet =  "56";
+   network = "2001:bbb:3333:1111::/${subnet}";
+   own_ip =  "2001:bbb:3333:1111::1/${subnet}";
+ in {
+   # ... snip ...
+
+   networking.enableIPv6 = true;
+   networking.useDHCP = true;
+   networking.dhcpcd.persistent = true;
+   networking.dhcpcd.extraConfig = ''
+     clientid "${clientid}"
+     noipv6rs
+     interface ${interface}
+     ia_pd 1/${network} ${interface}
+     static ip6_address=${own_ip}
+   '';
+   environment.etc."dhcpcd.duid".text = clientid;
+
+ }
+
+   Source: gleber gist for online.net IPv6 config in NixOS
+
+   Note: Recent versions of dhcpcd move the duid file to /var/db/dcpcd/duid.
+   For that to work, you have to replace the above environment.etc line with
+   something like:
+
+ systemd.services.dhcpcd.preStart = ''
+   cp ${pkgs.writeText "duid" "<ID>"} /var/db/dhcpcd/duid
+ '';
+
+IPv6-mostly
+
+   For IPv6 mostly networks the situation in Linux is a little bit dire. A
+   464XLAT CLAT implementation on the client device has to be running.
+
+   For example run clatd:
+
+ {
+   services.clatd.enable = true;
+ }
+
+   Caveats:
+
+     * disable IPv4 manually for DHCPv4 clients that do not accept Option 108
+       (IPv6-Only Preferred Option)
+     * set NAT64 prefix manually, if client doesn't support RA/PREF64 (RFC
+       8781) or DNS64 (RFC 7050):
+
+ {
+   services.clatd.settings = {
+     plat-prefix = "64:ff9b::/96";
+   };
+ }
+
+     * clatd needs to be restarted, if the network has changed
+
+   Sources:
+
+     * https://labs.ripe.net/author/ondrej_caletka_1/deploying-ipv6-mostly-access-networks/
+     * https://ripe85.ripe.net/presentations/9-RIPE85-Deploying_IPv6_mostly.pdf
+     * https://github.com/systemd/systemd/issues/23674
+     * https://github.com/toreanderson/clatd
+     * https://gist.github.com/oskar456/d898bf2e11b642757800a5ccdc2415aa
+     * https://fosdem.org/2024/schedule/event/fosdem-2024-1798-improving-ipv6-only-experience-on-linux/
+     * https://nlnet.nl/project/IPv6-monostack/
+
+                                     VLANs
+
+   Refer to networking.vlans in the manual.
+
+   Below is a complete networking example showing two interfaces, one with
+   VLAN trunk tagging and one without.
+
+   enp2s1 is a normal network interface at 192.168.1.2 with no VLAN
+   information.
+
+   enp2s0 is the virtual LAN trunk with two tagged VLANs, vlan100 and
+   vlan101.
+
+   vlan100 is in the 10.1.1.X network and vlan101 is in the 10.10.10.X
+   network.
+
+   The hostID should be unique among your machines, as mentioned in the
+   manual.
+
+   Complete networking section example:
+
+     networking = {
+       hostId = "deadb33f";
+       hostName = "nixos";
+       domain = "example.com";
+       dhcpcd.enable = false;
+       interfaces.enp2s1.ipv4.addresses = [{
+         address = "192.168.1.2";
+         prefixLength = 28;
+       }];
+       vlans = {
+         vlan100 = { id=100; interface="enp2s0"; };
+         vlan101 = { id=101; interface="enp2s0"; };
+       };
+       interfaces.vlan100.ipv4.addresses = [{
+         address = "10.1.1.2";
+         prefixLength = 24;
+       }];
+       interfaces.vlan101.ipv4.addresses = [{
+         address = "10.10.10.3";
+         prefixLength = 24;
+       }];
+       defaultGateway = "192.168.1.1";
+       nameservers = [ "1.1.1.1" "8.8.8.8" ];
+     };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Networking&oldid=12899"
+   Category:
+     * Networking
+     * This page was last edited on 22 May 2024, at 08:30.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

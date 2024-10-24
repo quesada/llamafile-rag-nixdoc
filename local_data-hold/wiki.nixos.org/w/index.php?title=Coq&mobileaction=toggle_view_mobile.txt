@@ -1,0 +1,180 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 ProofGeneral
+     * 3 Using libraries
+          * 3.1 Using non-default versions of packaged libraries
+          * 3.2 Global installation of libraries
+     * 4 See also…
+   [ ] Toggle the table of contents
+
+                                      Coq
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Installation
+
+   The Coq proof assistant and associated tools (coqtop, coqc, coq_makefile,
+   …) may be installed globally, by a user, in its profile:
+
+   nix-env -iA nixpkgs.coq
+
+   If you want CoqIDE:
+
+   nix-env -iA nixpkgs.coqPackages.coqide
+
+   Coq can also be run in a local, ephemeral, environment. For instance, the
+   following command will launch coqtop or CoqIDE without installing it in
+   the user profile:
+
+   nix-shell -p coq -c coqtop
+
+   nix-shell -p coqPackages.coqide -c coqide
+
+ProofGeneral
+
+   ProofGeneral is a “generic Emacs interface for proof assistants”. A
+   working Emacs is needed.
+
+   To install ProofGeneral, you can use the corresponding attribute:
+
+   nix-env -iA nixpkgs.emacsPackages.proofgeneral_HEAD
+
+   Then, the following line should be added to Emacs configuration (aka
+   .emacs):
+
+   (require 'proof-site
+   "~/.nix-profile/share/emacs/site-lisp/ProofGeneral/generic/proof-site")
+
+   The ProofGeneral mode automatically sets the electric-indent-mode
+   (recomputes the indentation of a line when leaving it), that some find
+   extremely annoying. To disable it, the following line may be added to the
+   .emacs file:
+
+   (when (fboundp 'electric-indent-mode) (electric-indent-mode 0))
+
+   There is an additional annoyance with evil-mode; see two discussions
+   describing a work-around, namely to include the following before loading
+   evil-mode:
+
+   (setq evil-want-abbrev-expand-on-insert-exit nil)
+
+Using libraries
+
+   A few third-party libraries are available under the coqPackages attribute
+   set.
+
+   A simple way to use such a library is within a temporary shell, e.g.,
+
+   nix-shell --packages coq coqPackages.mathcomp
+
+   This will open a shell in which both Coq and the Mathematical Components
+   library are available. Notice that even if Coq is globally installed, it
+   is required to list it as an input of the shell.
+
+  Using non-default versions of packaged libraries
+
+   For some libraries, several versions are available in nixpkgs. However,
+   there is a default one and accessing non-default versions is non trivial.
+   For instance, at the time of writing (February 2024, nixos 23.11)
+   coqPackages.mathcomp refers to the mathcomp library at version 1.18.0 (for
+   Coq 8.18). An other version of this library may be accessed by overriding
+   its version argument, as follows: coqPackages.mathcomp.override { version
+   = "2.1.0"; }.
+
+   In more complex situations, it may be necessary to override several
+   packages, or to use an overridden package as input to an other one. In
+   order to get a consistent set of Coq libraries, one can use the
+   overrideScope' function; for instance coqPackages.overrideScope' (self:
+   super: { mathcomp = super.mathcomp.override { version = "2.1.0"; }; }) is
+   a set of Coq packages in which mathcomp is at version 2.1.0 (i.e., any
+   package in this set that uses mathcomp will use that version).
+
+  Global installation of libraries
+
+   It is possible to globally install a Coq library as any other Nix package.
+   Notice however that it will not be automatically visible to Coq. Coq
+   search for libraries in the directories that are listed in the COQPATH
+   environment variable. When using Coq in a Nix shell (as described above),
+   this variable is automatically populated with paths to the Coq libraries
+   that are provided by the shell inputs. You may manually define this
+   variable to point to your profile, e.g.,
+
+   export COQPATH=$HOME/.nix-profile/lib/coq/8.7/user-contrib
+
+See also…
+
+   Related blog post: https://yannherklotz.com/nix-for-coq/
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Coq&oldid=5241"
+   Category:
+     * Applications
+     * This page was last edited on 11 March 2024, at 09:41.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

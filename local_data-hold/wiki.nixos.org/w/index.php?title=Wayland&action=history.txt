@@ -1,0 +1,146 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Wayland: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 March 2024
+
+     * curprev [ ] [ ] 03:1103:11, 19 March 2024‎ imported>Spitzeqc‎ 3,184
+       bytes +2,367‎ Added basics for enabling Wayland
+
+    18 March 2024
+
+     * curprev [ ] [ ] 21:1721:17, 18 March 2024‎ imported>Lumarius‎ 817
+       bytes +57‎ Added an explanatory note to those not familiar with Ozone.
+
+    10 October 2023
+
+     * curprev [ ] [ ] 12:2412:24, 10 October 2023‎ imported>Niahex‎ 760
+       bytes +26‎ →‎Compositors
+     * curprev [ ] [ ] 09:3409:34, 10 October 2023‎ imported>Niahex‎ 734
+       bytes +4‎ →‎Applications
+     * curprev [ ] [ ] 09:3309:33, 10 October 2023‎ imported>Niahex‎ 730
+       bytes +2‎ →‎Compositors
+     * curprev [ ] [ ] 09:3209:32, 10 October 2023‎ imported>Niahex‎ 728
+       bytes +54‎ →‎Compositors
+
+    21 August 2023
+
+     * curprev [ ] [ ] 22:3222:32, 21 August 2023‎ imported>Qyriad‎ m 674
+       bytes +12‎ fix code snippet from prev edit
+     * curprev [ ] [ ] 21:4521:45, 21 August 2023‎ imported>Qyriad‎ 662 bytes
+       +547‎ add note about NIXOS_OZONE_WL
+
+    23 April 2023
+
+     * curprev [ ] [ ] 06:1606:16, 23 April 2023‎ imported>Winny‎ 115 bytes
+       +64‎ noticed somebody linked this article in a chat, add it here
+
+    21 April 2023
+
+     * curprev [ ] [ ] 06:2406:24, 21 April 2023‎ imported>Winny‎ 51 bytes
+       +51‎ Might be a good page or redirect page.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Wayland"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

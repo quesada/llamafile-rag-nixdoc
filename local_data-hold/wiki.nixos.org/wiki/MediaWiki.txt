@@ -1,0 +1,163 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration Examples
+          * 1.1 Small Configuration
+     * 2 Web Server
+     * 3 Troubleshooting
+          * 3.1 Edit php.ini
+     * 4 See Also
+   [ ] Toggle the table of contents
+
+                                   MediaWiki
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   MediaWiki (wikipedia:en:MediaWiki) is available as a module.
+
+Configuration Examples
+
+  Small Configuration
+
+ services.mediawiki = {
+   enable = true;
+   name = "Sample MediaWiki";
+   httpd.virtualHost = {
+     hostName = "example.com";
+     adminAddr = "admin@example.com";
+   };
+   # Administrator account username is admin.
+   # Set initial password to "cardbotnine" for the account admin.
+   passwordFile = pkgs.writeText "password" "cardbotnine";
+   extraConfig = ''
+     # Disable anonymous editing
+     $wgGroupPermissions['*']['edit'] = false;
+   '';
+
+   extensions = {
+     # some extensions are included and can enabled by passing null
+     VisualEditor = null;
+
+     # https://www.mediawiki.org/wiki/Extension:TemplateStyles
+     TemplateStyles = pkgs.fetchzip {
+       url = "https://extdist.wmflabs.org/dist/extensions/TemplateStyles-REL1_40-5c3234a.tar.gz";
+       hash = "sha256-IygCDgwJ+hZ1d39OXuJMrkaxPhVuxSkHy9bWU5NeM/E=";
+     };
+   };
+ };
+
+Web Server
+
+   By default, the services.mediawiki module creates a
+   services.httpd.virtualHost which can be configured via the
+   services.mediawiki.httpd.virtualHost submodule.
+
+   If you are using another web server (like Nginx), you can configure
+   MediaWiki for a reverse proxy with the
+   services.mediawiki.virtualHost.listen option:
+
+ services.mediawiki.httpd.virtualHost.listen = [
+   {
+     ip = "127.0.0.1";
+     port = 8080;
+     ssl = false;
+   }
+ ];
+
+   Alternatively, services.mediawiki.webserver can be set to "nginx" to use
+   nginx instead of apache.
+
+Troubleshooting
+
+  Edit php.ini
+
+   A php-fpm pool is automatically created when Mediawiki is enabled. The
+   php.ini file can be modified by using phpOptions. The following example
+   shows how to increase the allowed file upload size.
+
+ services.phpfpm.pools.mediawiki.phpOptions = ''
+     upload_max_filesize = 10M
+     post_max_size = 15M
+ '';
+
+See Also
+
+     * Configuration of the NixOS wiki
+     * nixos/tests/mediawiki.nix
+     * Dokuwiki, simple PHP- and web-based wiki software which uses file
+       based storage for its content.
+     * Outline, a modern web based wiki and knowledge base for teams.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=MediaWiki&oldid=17565"
+   Categories:
+     * Guide
+     * Server
+     * Web Applications
+     * This page was last edited on 18 September 2024, at 05:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

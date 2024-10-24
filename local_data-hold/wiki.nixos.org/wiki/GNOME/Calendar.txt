@@ -1,0 +1,128 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Using Gnome Calendar outside of GNOME
+   [ ] Toggle the table of contents
+
+                                 GNOME/Calendar
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The Gnome calendar is the desktop calendar application built into GNOME.
+
+Using Gnome Calendar outside of GNOME
+
+   To use the gnome calendar outside of gnome, you need the following lines
+   in your configuration.nix:
+
+ {
+   programs.dconf.enable = true;
+   services.gnome.evolution-data-server.enable = true;
+   # optional to use google/nextcloud calendar
+   services.gnome.gnome-online-accounts.enable = true;
+   # optional to use google/nextcloud calendar
+   services.gnome.gnome-keyring.enable = true;
+ }
+
+   External calendar such as google/nextcloud can be only added via the
+   gnome-control-center:
+
+ $ nix-shell -p gnome.gnome-control-center --run "gnome-control-center"
+
+   then add your accounts in the "Online Accounts" submenu.
+
+   If gnome-control-center will not launch, it's possible the value of
+   XDG_CURRENT_DESKTOP needs to be changed to GNOME during launch. This is
+   the case when using the Hyprland window manager.
+
+ $ XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+
+   This should launch gnome-control-center and allow you to access the Online
+   Accounts submenu.
+
+   To get alarm reminders you need to start the evolution-alarm-notify daemon
+   provided by the gnome.evolution-data-server package. When you enable
+   services.gnome.evolution-data-server.enable it will add a desktop
+   autostart entry to
+   /run/current-system/sw/etc/xdg/autostart/org.gnome.Evolution-alarm-notify.desktop.
+   If your desktop manager does not process autostart entries, you can use
+   dex instead:
+
+ $ dex --autostart
+
+   As an alternative you can start
+   libexec/evolution-data-server/evolution-alarm-notify from the
+   gnome.evolution-data-server directly.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=GNOME/Calendar&oldid=7666"
+   Category:
+     * Applications
+     * This page was last edited on 20 October 2023, at 14:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

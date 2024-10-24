@@ -1,0 +1,97 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Preview
+   [ ] Toggle the table of contents
+
+                          Template:Hardware/breadcrumb
+
+     * Template
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This template adds a breadcrumb link to the main NixOS on ARM article to
+   sub-pages. This has to be added to the top.
+
+   Right now not much is done, but when / if it is possible to do fancier or
+   automated things, it will be done here.
+
+   In the future, it is expected to have Manufacturers hubs or something like
+   that, when the wiki and nixos gets many more users.
+
+ {{Hardware/breadcrumb}}
+
+Preview
+
+   ← Back to Hardware Hub
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Template:Hardware/breadcrumb&oldid=4850"
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 27 December 2017, at 21:00.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

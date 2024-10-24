@@ -1,0 +1,122 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       File:Raspberry Pi 5, 8 GB RAM.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:Raspberry Pi 5, 8 GB RAM.jpg
+   Size of this preview: 600 × 600 pixels. Other resolution: 1,000 × 1,000
+   pixels.
+
+   Original file ‎(1,000 × 1,000 pixels, file size: 372 KB, MIME type:
+   image/jpeg)
+
+   From Sparkfun product page. Licensed under CC BY 2.0.
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail    Dimensions User              Comment        
+                     Thumbnail                                 From Sparkfun  
+           20:23, 5  for version  1,000 ×                      product page.  
+   current January   as of 20:23, 1,000 (372 Imported>Leo60228 Licensed under 
+           2024      5 January    KB)                          CC BY 2.0.     
+                     2024         
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following file is a duplicate of this file (more details):
+
+     * File:23551-Raspberry-Pi-5-8G-feature.jpg from Wikimedia Commons
+
+   The following 2 pages use this file:
+
+     * NixOS on ARM/Raspberry Pi 5
+     * File:23551-Raspberry-Pi-5-8G-feature.jpg (file redirect)
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   IIM version 2 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Raspberry_Pi_5,_8_GB_RAM.jpg&oldid=11965"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

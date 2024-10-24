@@ -1,0 +1,142 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Creating an override
+          * 2.1 Patching dwm
+          * 2.2 Using custom sources
+     * 3 Troubleshooting
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                      Dwm
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   dwm is a window manager made by the suckless team.
+
+Installation
+
+   Enable dwm in your system configuration:
+
+ services.xserver.windowManager.dwm.enable = true;
+
+Creating an override
+
+  Patching dwm
+
+   To patch dwm, override services.xserver.windowManager.dwm.package as
+   below:
+
+ services.xserver.windowManager.dwm.package = pkgs.dwm.override {
+   patches = [
+     # for local patch files, replace with relative path to patch file
+     ./path/to/local.patch
+     # for external patches
+     (pkgs.fetchpatch {
+       # replace with actual URL
+       url = "https://dwm.suckless.org/patches/path/to/patch.diff";
+       # replace hash with the value from `nix-prefetch-url "https://dwm.suckless.org/patches/path/to/patch.diff" | xargs nix hash to-sri --type sha256`
+       # or just leave it blank, rebuild, and use the hash value from the error
+       hash = "";
+     })
+   ];
+ };
+
+  Using custom sources
+
+   If you have a locally stored source tree for dwm with changes already
+   applied, you can use that instead:
+
+ services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
+   src = ./path/to/dwm/source/tree;
+ };
+
+   Alternatively, you can set src to the output of a fetcher, if you have the
+   source tree stored online.
+
+Troubleshooting
+
+   If your change does not appear to take effect:
+
+     * You must not have dwm listed anywhere in your
+       environment.systemPackages or home.packages.
+     * Remove any packages installed via nix-env or nix profile.
+     * After rebuilding and switching, reboot and check again.
+
+See also
+
+     * St
+     * DMenu
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Dwm&oldid=11169"
+   Categories:
+     * Window managers
+     * Applications
+     * This page was last edited on 1 April 2024, at 13:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

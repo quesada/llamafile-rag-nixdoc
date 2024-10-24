@@ -1,0 +1,183 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                    Installing from Linux: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 September 2024
+
+     * curprev [ ] [ ] 09:0109:01, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 8,043 bytes −69‎ change iso url
+
+    1 August 2024
+
+     * curprev [ ] [ ] 12:1712:17, 1 August 2024‎ Mic92 talk contribs‎ 8,112
+       bytes +4‎ import from old wiki
+
+    19 April 2024
+
+     * curprev [ ] [ ] 11:4511:45, 19 April 2024‎ Klinger talk contribs‎ m
+       8,108 bytes +23‎ attached to Category:Tutorial
+
+    1 October 2023
+
+     * curprev [ ] [ ] 18:2218:22, 1 October 2023‎ imported>Sdht‎ 8,085 bytes
+       −7‎ Reword
+     * curprev [ ] [ ] 18:1618:16, 1 October 2023‎ imported>Sdht‎ 8,092 bytes
+       −11‎ Official manual has instructions now
+
+    30 July 2023
+
+     * curprev [ ] [ ] 09:1809:18, 30 July 2023‎ imported>Raboof‎ m 8,103
+       bytes −44‎ No edit summary
+     * curprev [ ] [ ] 09:1509:15, 30 July 2023‎ imported>Raboof‎ 8,147 bytes
+       +395‎ point to the official instructions
+
+    29 July 2023
+
+     * curprev [ ] [ ] 18:4618:46, 29 July 2023‎ imported>Alanweber22‎ m
+       7,752 bytes +1‎ fix sed command from previous edit
+     * curprev [ ] [ ] 18:4518:45, 29 July 2023‎ imported>Alanweber22‎ m
+       7,751 bytes +2‎ The init script has a full path to systemd, so sed
+       needs to match the full path name.
+
+    13 April 2022
+
+     * curprev [ ] [ ] 20:2520:25, 13 April 2022‎ imported>Kim Bruning‎ m
+       7,749 bytes −40‎ shorter
+     * curprev [ ] [ ] 20:2220:22, 13 April 2022‎ imported>Kim Bruning‎ 7,789
+       bytes +131‎ Just discovered the chroot method doesn't always work.
+
+    31 December 2021
+
+     * curprev [ ] [ ] 15:2015:20, 31 December 2021‎ imported>Guisanpea‎ m
+       7,658 bytes 0‎ Update to nixos 21.11
+
+    20 December 2021
+
+     * curprev [ ] [ ] 20:2820:28, 20 December 2021‎ imported>Chuangzhu‎
+       7,658 bytes +103‎ chroot works well on some systems
+
+    15 December 2021
+
+     * curprev [ ] [ ] 14:1914:19, 15 December 2021‎ imported>Ndt‎ m 7,555
+       bytes +8‎ quote "${fn}" in bind mounts to properly handle spaces in
+       directories & other edge cases
+
+    17 September 2021
+
+     * curprev [ ] [ ] 03:0603:06, 17 September 2021‎ imported>Chuangzhu‎
+       7,547 bytes −90‎ Remove template outdated
+     * curprev [ ] [ ] 03:0403:04, 17 September 2021‎ imported>Chuangzhu‎
+       7,637 bytes −1‎ Chroot doesn't work for now, use pivot_root
+     * curprev [ ] [ ] 03:0203:02, 17 September 2021‎ imported>Chuangzhu‎
+       7,638 bytes +1‎ Chroot doesn't work for now, use pivot_root
+
+    25 November 2017
+
+     * curprev [ ] [ ] 20:2220:22, 25 November 2017‎ imported>Samueldr‎ 7,637
+       bytes +7,637‎ Moves "Installing from Linux" out of "NixOS Installation
+       Guide"
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Installing_from_Linux"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

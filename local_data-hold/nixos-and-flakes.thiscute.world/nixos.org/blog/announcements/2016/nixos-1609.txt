@@ -1,0 +1,49 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              NixOS 16.09 released
+
+   Published on Mon Oct 03 2016
+
+                              NixOS 16.09 released
+
+   NixOS 16.09 “Flounder” has been released, the sixth stable release branch.
+   See the release notes for details. You can get NixOS 16.09 ISOs and
+   VirtualBox appliances from the download page. For information on how to
+   upgrade from older release branches to 16.09, check out the manual section
+   on upgrading.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

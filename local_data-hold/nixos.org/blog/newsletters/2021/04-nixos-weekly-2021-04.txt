@@ -1,0 +1,150 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #04 - NixOS Weekly
+
+   Published on Tue Jun 08 2021
+
+                               #04 - NixOS Weekly
+
+                                      News
+
+Announcements
+
+     * NixOS 21.05 released!
+
+       Jonathan Ringer, release manager, announces NixOS 21.05 release with
+       1745 contributors in 33474 commits.
+
+     * How we went from supporting 50 languages to all of them
+
+       Replit replaces Docker with Nix and drastically improves support for
+       languages.
+
+     * Peter Simons has retired from Haskell maintenance in Nixpkgs
+
+       Please thank him for all his hard work!
+
+     * The Changelog #437
+
+       Domen Kožar introduces the Nix ecosystem.
+
+     * Compositional podcast
+
+       Nix in Production with Domen Kožar
+
+     * NixNG, a late sibling distribution to NixOS, without systemd!
+
+       NixNG is a proof-of-concept distribution which works very similarly to
+       NixOS, but aims to run well in containers and also smells more
+       BSD-esque. Currently, it uses runit instead of systemd, but we’re open
+       to multi-init support and also to our own init system.
+
+     * Nix 🖤 macOS May Update
+
+Tutorials & Resources
+
+     * Introduction to the Nix language for OO-Programmers
+
+     * CS SYD - The ci.nix pattern
+
+     * Data Science with Nix: Parameter Sweeps
+
+     * Nix-ifying Rust projects
+
+       A template Nix setup for new Rust projects.
+
+     * Nix syntax basics
+
+       Everything that you need to read, write and understand Nix
+       expressions.
+
+     * Nix Cargo integration
+
+       Utility to easily integrate Cargo projects with Nix. Tries to handle
+       (almost) everything for you and enables configuration from Cargo.toml
+       files.
+
+     * Rust Nix templater
+
+       Utility to set up a template that uses nix-cargo-integration.
+
+     * flake-utils-plus
+
+       Use Nix flakes without any fluff! (extension of flake-utils)
+
+     * Practical Nix Flakes
+
+       Learn about Nix, Nix flakes, and how to use Nix flakes to build
+       applications in various languages.
+
+     * A test framework for the Nix process management framework
+
+       With the Nix process management framework you can write high-level
+       deployment specifications of running processes, that can be managed
+       with a variety of process managers (e.g. systemd, supervisord,
+       launchd, s6-rc). Furthermore, you can construct multiple instances of
+       the same processes and deploy them as an unprivileged user. The
+       testing framework allows you to validate a service under all these
+       conditions.
+
+     * Tutorial: Installing NixOS on a Raspberry Pi
+
+     * Tutorial: Integration testing using virtual machines (VMs)
+
+     * My Homelab Build
+
+     * Writing a “Hello World” RiscV Kernel with Nix in Rust
+
+       Use Nix Flakes to build and run a 64 bit RiscV Kernel written in Rust.
+
+Jobs
+
+     * Backend Engineer (Haskell/Nix) at Feeld
+
+     * Senior Site Reliability Engineer at Serokell
+
+     * Software Engineer (Developer Productivity) at Tweag
+
+                           Contribute to NixOS Weekly
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

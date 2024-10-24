@@ -1,0 +1,293 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Haskell: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    8 October 2024
+
+     * curprev [ ] [ ] 14:4314:43, 8 October 2024‎ Mic92 talk contribs‎
+       20,315 bytes −2‎ imported from old wiki
+     * curprev [ ] [ ] 14:4214:42, 8 October 2024‎ Mic92 talk contribs‎
+       20,317 bytes 0‎ imported from old wiki
+
+    15 September 2024
+
+     * curprev [ ] [ ] 09:0609:06, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 20,317 bytes +17‎ update cabal docs link for index-state
+     * curprev [ ] [ ] 05:1205:12, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 20,300 bytes +7‎ fix the broken docs link
+
+    20 August 2024
+
+     * curprev [ ] [ ] 08:0308:03, 20 August 2024‎ Mic92 talk contribs‎
+       20,293 bytes −2‎ imported from old wiki
+     * curprev [ ] [ ] 08:0308:03, 20 August 2024‎ Mic92 talk contribs‎
+       20,295 bytes +11‎ imported from old wiki
+
+    1 April 2024
+
+     * curprev [ ] [ ] 21:0121:01, 1 April 2024‎ Srid talk contribs‎ m 20,284
+       bytes +16‎ →‎Using haskell-flake (flake-parts): Update link Tag:
+       Visual edit
+     * curprev [ ] [ ] 21:0021:00, 1 April 2024‎ Srid talk contribs‎ m 20,268
+       bytes +6‎ Formatting for consistency in the list Tag: Visual edit
+     * curprev [ ] [ ] 20:5820:58, 1 April 2024‎ Srid talk contribs‎ 20,262
+       bytes +183‎ Add https://nixos.asia/en/nixify-haskell-nixpkgs Tag:
+       Visual edit
+
+    30 September 2023
+
+     * curprev [ ] [ ] 09:3009:30, 30 September 2023‎ imported>IgorM‎ m
+       20,079 bytes +210‎ Fixed syntax highlighting
+
+    7 September 2023
+
+     * curprev [ ] [ ] 18:3118:31, 7 September 2023‎ imported>Kintrix‎ 19,869
+       bytes +22‎ No edit summary
+     * curprev [ ] [ ] 17:5717:57, 7 September 2023‎ imported>Kintrix‎ m
+       19,847 bytes +827‎ I added a disclaimer that highlights a potential
+       problem and solution with Stack for the users of NixOS on a stable
+       channel
+
+    3 August 2023
+
+     * curprev [ ] [ ] 22:2722:27, 3 August 2023‎ imported>Maralorn‎ 19,020
+       bytes −47‎ Fix links to official documentation
+
+    18 May 2023
+
+     * curprev [ ] [ ] 14:1414:14, 18 May 2023‎ imported>Srid‎ 19,067 bytes
+       +21‎ haskell-flake: uses callCabal2nix directly, not developPackage
+       anymore
+
+    5 March 2023
+
+     * curprev [ ] [ ] 22:5122:51, 5 March 2023‎ imported>Srid‎ 19,046 bytes
+       +282‎ Add haskell-flake
+
+    25 January 2023
+
+     * curprev [ ] [ ] 04:4304:43, 25 January 2023‎ imported>Andreabedini‎
+       18,764 bytes +266‎ Mention new features in cabal 2.0
+
+    2 December 2022
+
+     * curprev [ ] [ ] 02:4402:44, 2 December 2022‎ imported>Garethstokes‎ m
+       18,498 bytes 0‎ replacing haskell.packages.ghc884 with
+       haskell.compiler.ghc844 as the original does not build
+
+    25 October 2022
+
+     * curprev [ ] [ ] 13:2713:27, 25 October 2022‎ imported>Dschrempf‎ m
+       18,498 bytes −3‎ →‎Using haskell.nix (for complex projects): rm
+       indefinite article
+
+    5 October 2022
+
+     * curprev [ ] [ ] 10:3410:34, 5 October 2022‎ imported>Sternenseemann‎
+       18,501 bytes −30‎ cabal2nix is not deprecated
+
+    4 October 2022
+
+     * curprev [ ] [ ] 18:4618:46, 4 October 2022‎ imported>Tobias.bora‎
+       18,531 bytes +847‎ No edit summary
+     * curprev [ ] [ ] 18:2618:26, 4 October 2022‎ imported>Tobias.bora‎
+       17,684 bytes +17‎ No edit summary
+     * curprev [ ] [ ] 18:2418:24, 4 October 2022‎ imported>Tobias.bora‎
+       17,667 bytes +1,476‎ No edit summary
+     * curprev [ ] [ ] 17:2717:27, 4 October 2022‎ imported>Tobias.bora‎
+       16,191 bytes 0‎ No edit summary
+     * curprev [ ] [ ] 17:2217:22, 4 October 2022‎ imported>Tobias.bora‎
+       16,191 bytes +331‎ No edit summary
+     * curprev [ ] [ ] 16:4616:46, 4 October 2022‎ imported>Tobias.bora‎
+       15,860 bytes +80‎ No edit summary
+     * curprev [ ] [ ] 15:2915:29, 4 October 2022‎ imported>Tobias.bora‎
+       15,780 bytes +9,410‎ No edit summary
+     * curprev [ ] [ ] 10:1210:12, 4 October 2022‎ imported>Tobias.bora‎
+       6,370 bytes +1,007‎ No edit summary
+
+    3 October 2022
+
+     * curprev [ ] [ ] 20:2220:22, 3 October 2022‎ imported>Tobias.bora‎
+       5,363 bytes −8‎ No edit summary
+     * curprev [ ] [ ] 20:1920:19, 3 October 2022‎ imported>Tobias.bora‎
+       5,371 bytes +3,398‎ No edit summary
+
+    26 September 2022
+
+     * curprev [ ] [ ] 17:3117:31, 26 September 2022‎ imported>Yvan-sraka‎ m
+       1,973 bytes −28‎ No edit summary
+     * curprev [ ] [ ] 17:3017:30, 26 September 2022‎ imported>Yvan-sraka‎
+       2,001 bytes +213‎ Add Haskell.nix section
+
+    4 May 2022
+
+     * curprev [ ] [ ] 14:0814:08, 4 May 2022‎ imported>Srid‎ 1,788 bytes
+       +541‎ Note about IFD
+
+    19 January 2022
+
+     * curprev [ ] [ ] 22:0422:04, 19 January 2022‎ imported>Ozkutuk‎ m 1,247
+       bytes −2‎ Fix broken link
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5205:52, 20 September 2021‎ imported>Nix‎ m 1,249
+       bytes +50‎ add languages and applications categories
+
+    4 April 2021
+
+     * curprev [ ] [ ] 18:5718:57, 4 April 2021‎ imported>George‎ m 1,199
+       bytes +1‎ Fix broken link
+
+    3 April 2021
+
+     * curprev [ ] [ ] 04:4904:49, 3 April 2021‎ imported>Samuela‎ 1,198
+       bytes +362‎ No edit summary
+
+    11 August 2020
+
+     * curprev [ ] [ ] 21:4021:40, 11 August 2020‎ imported>Srid‎ m 836 bytes
+       +15‎ formatting
+
+    5 August 2020
+
+     * curprev [ ] [ ] 01:3501:35, 5 August 2020‎ imported>Srid‎ m 821 bytes
+       −4‎ Update URL
+
+    23 January 2020
+
+     * curprev [ ] [ ] 13:4913:49, 23 January 2020‎ imported>Srid‎ 825 bytes
+       +105‎ new link
+
+    20 January 2020
+
+     * curprev [ ] [ ] 14:5614:56, 20 January 2020‎ imported>Srid‎ 720 bytes
+       +44‎ callCabal2nix
+
+    10 January 2020
+
+     * curprev [ ] [ ] 21:4021:40, 10 January 2020‎ imported>Srid‎ 676 bytes
+       +142‎ Link to an explanation by cdepillabout
+     * curprev [ ] [ ] 21:3921:39, 10 January 2020‎ imported>Srid‎ m 534
+       bytes +7‎ Formatting
+     * curprev [ ] [ ] 21:3721:37, 10 January 2020‎ imported>Srid‎ 527 bytes
+       +124‎ Update link, and add blurb
+
+    13 October 2019
+
+     * curprev [ ] [ ] 02:5002:50, 13 October 2019‎ imported>Srid‎ 403 bytes
+       +61‎ Add basic tutorial
+
+    24 August 2019
+
+     * curprev [ ] [ ] 21:3121:31, 24 August 2019‎ imported>Chrissound‎ 342
+       bytes −2‎ No edit summary
+     * curprev [ ] [ ] 21:2721:27, 24 August 2019‎ imported>Chrissound‎ 344
+       bytes +344‎ Created page with "# Limitations When using cabal2nix, Nix
+       does not pull a cabal package by respecting the constraint specified
+       in the cabal file. As an example: https://github.com/chrissound/C..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Haskell"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,221 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                      Ceph
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The below wiki instructions still have some troubles; read ahead to see
+   some of the remaining issues this guide should address. Please make a Wiki
+   account and add your experiences.
+
+   Another distributed filesystem alternative you may evaluate is SeaweedFS.
+
+     ----------------------------------------------------------------------
+
+   Here is a quick collection of commands I used on a 3-node Ceph mesh. The
+   examples have been reduced to a single node, `mesh-a`, for simplicity.
+
+   Describe your ceph user, alongside your normal login user:
+
+   users.users = {
+     mesh = { isNormalUser = true; extraGroups = [ "wheel" "docker" ]; };
+     ceph = { isNormalUser = true; extraGroups = [ "wheel" "ceph" ]; };
+   };
+   users.groups.ceph = {};
+
+   Be sure you rebuild so you can assign some paths to the ceph user.
+
+   Run uuidgen and assign the response as your fsid; describe your Ceph
+   nodes:
+
+   services.ceph = {
+     global.fsid = "4b687c5c-5a20-4a77-8774-487989fd0bc7";
+     osd = {
+       enable = true;
+       daemons = ["0"];
+     };
+     mon = {
+       enable = false;
+       extraConfig = {
+         "mon initial members" = "mesh-a";
+         "mon host" = "10.0.0.11";
+       };
+     };
+   };
+
+   Some preparation is needed so Ceph can run the monitors. You'll need to
+   run these commands on each node (based on
+   https://docs.ceph.com/en/quincy/install/manual-deployment/ ):
+
+ export IP=<your-node-IP-on-local-LAN>
+ export FSID=4b687c5c-5a20-4a77-8774-487989fd0bc7
+
+ # Make your paths!
+ sudo -u ceph mkdir -p /etc/ceph
+ sudo -u ceph mkdir -p /var/lib/ceph/bootstrap-osd
+ sudo -u ceph mkdir -p /tmp/monmap
+ sudo -u ceph mkdir -p /var/lib/ceph/mon/ceph-$(hostname)
+ sudo -u ceph mkdir /var/lib/ceph/mon/ceph-mon-$(hostname)
+
+ # Make a keyring!
+ sudo ceph-authtool --create-keyring /etc/ceph/ceph.client.admin.keyring --gen-key -n client.admin --cap mon 'allow *' --cap osd 'allow *' --cap mds 'allow *' --cap mgr 'allow *'
+ sudo mkdir -p /var/lib/ceph/bootstrap-osd && sudo ceph-authtool --create-keyring /var/lib/ceph/bootstrap-osd/ceph.keyring --gen-key -n client.bootstrap-osd --cap mon 'profile bootstrap-osd' --cap mgr 'allow r'
+ sudo ceph-authtool /tmp/ceph.mon.keyring --import-keyring /etc/ceph/ceph.client.admin.keyring sudo ceph-authtool /tmp/ceph.mon.keyring --import-keyring /var/lib/ceph/bootstrap-osd/ceph.keyring
+ sudo chown ceph:ceph /tmp/ceph.mon.keyring
+
+ # Make a monitor!
+ sudo monmaptool --create --add mesh-a $IP --fsid $FSID /tmp/monmap
+ sudo -u ceph ceph-mon --mkfs -i mon-$(hostname) --monmap /tmp/monmap --keyring /tmp/ceph.mon.keyring
+
+   Prepare systemd to bind all Ceph OSD shares (based on u/imspacekitteh's
+   example, see links):
+
+   systemd.services.ceph-mesh = {
+     enable = true;
+     description = "Ceph OSD Bindings";
+     unitConfig = {
+       After = "local-fs.target";
+       Wants = "local-fs.target";
+     };
+     serviceConfig = {
+       Type = "oneshot";
+       KillMode = "none";
+       Environment = "CEPH_VOLUME_TIMEOUT=10000 PATH=$PATH:/run/current-system/sw/bin/";
+       ExecStart = "/bin/sh -c 'timeout $CEPH_VOLUME_TIMEOUT /run/current-system/sw/bin/ceph-volume lvm activate --all --no-systemd'";
+       TimeoutSec = 0;
+     };
+     wantedBy = ["multi-user.target"];
+   };
+
+   Though these commands seem reliable enough, there are some issues...
+
+ mesh@mesh-c:~/.build/ > sudo ceph -s
+ Error initializing cluster client: ObjectNotFound('RADOS object not found (error calling conf_read_file)')
+
+   Clearly, Ceph is concerned that the `/etc/ceph/ceph.conf` file is missing.
+   So am I! The Nixpkgs module should be upgraded to handle this someday,
+   based on our supplied extraConfig options.
+
+   Bypass the error by making the necessary config; this should be minimally
+   enough to load Ceph:
+
+ sudo su -c "echo '
+ [global]
+ fsid=$FSID
+ mon initial members = mesh-a
+ mon host = 10.0.0.11
+ cluster network = 10.0.0.0/24
+ ' > /etc/ceph/ceph.conf" -
+
+ # Double-check!
+ cat /etc/ceph/ceph.conf
+
+   We can now see that Ceph is ready for us to make a volume!
+
+ mesh@mesh-a:~/.build/ > sudo systemctl restart ceph-mesh
+
+ mesh@mesh-a:~/.build/ > sudo systemctl status ceph-mesh
+ ○ ceph-mesh.service - Ceph OSD Bindings
+      Loaded: loaded (/etc/systemd/system/ceph-mesh.service; enabled; preset: enabled)
+      Active: inactive (dead) since Tue 2023-12-19 16:12:51 EST; 4s ago
+     Process: 37570 ExecStart=/bin/sh -c timeout $CEPH_VOLUME_TIMEOUT /run/current-system/sw/bin/ceph-volume lvm activate --all --no-systemd (code=exited, status=0/SUCCESS)
+    Main PID: 37570 (code=exited, status=0/SUCCESS)
+          IP: 0B in, 0B out
+         CPU: 162ms
+
+ Dec 19 16:12:51 mesh-a systemd[1]: Starting Ceph OSD Bindings...
+ Dec 19 16:12:51 mesh-a sh[37571]: --> Was unable to find any OSDs to activate
+ Dec 19 16:12:51 mesh-a sh[37571]: --> Verify OSDs are present with "ceph-volume lvm list"
+ Dec 19 16:12:51 mesh-a systemd[1]: ceph-mesh.service: Deactivated successfully.
+ Dec 19 16:12:51 mesh-a systemd[1]: Finished Ceph OSD Bindings.
+
+ mesh@mesh-a:~/.build/ > sudo ceph-volume lvm list
+ No valid Ceph lvm devices found
+
+   Go ahead and make one.
+
+ mesh@mesh-a:~/.build/ > sudo ceph-volume lvm create --data /dev/nvme0n1p4 --no-systemd
+ Running command: /nix/store/x645fiz9vzkkwyf08agprl9h25fkqw7g-ceph-18.2.0/bin/ceph-authtool --gen-print-key
+ Running command: /nix/store/x645fiz9vzkkwyf08agprl9h25fkqw7g-ceph-18.2.0/bin/ceph --cluster ceph --name client.bootstrap-osd --keyring /var/lib/ceph/bootstrap-osd/ceph.keyring -i - osd new a0d4c3db-cc9c-416a-b209-72b9bad3be40
+
+   OOPS! This command hangs endlessly, as does sudo ceph -s.
+
+   Your help is needed to make more progress here!
+
+     ----------------------------------------------------------------------
+
+   Many users aspire to run Ceph on NixOS, and recommend varying approaches
+   in different forums online. Here is a collection of links that can lead
+   you along, though please consider; these experiences come from older
+   versions of Ceph, such as v10, while (as of 2023-12) Ceph is on v18.
+
+     * https://d.moonfire.us/blog/2022/12/10/ceph-and-nixos/
+     * https://github.com/NixOS/nixpkgs/issues/147801
+     * https://www.reddit.com/r/ceph/comments/14otjyo/ceph_on_nixos/
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Ceph&oldid=11038"
+     * This page was last edited on 17 February 2024, at 04:57.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

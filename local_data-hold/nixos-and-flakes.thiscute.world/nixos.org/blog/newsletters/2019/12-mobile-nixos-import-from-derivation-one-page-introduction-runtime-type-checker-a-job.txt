@@ -1,0 +1,109 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+   #12 - Mobile NixOS, import-from-derivation, one-page introduction, runtime
+                              type-checker, a job
+
+   Published on Wed Sep 04 2019
+
+   #12 - Mobile NixOS, import-from-derivation, one-page introduction, runtime
+                              type-checker, a job
+
+                                      News
+
+     * One-page Nix expression language overview
+
+       Vincent wrote a one-page introduction to Nix language, covering
+       language features you’ll most likely encounter from day one.
+
+     * Encrypted ZFS mirror with mirrored boot on NixOS
+
+       Using the boot.loader.grub.mirroredBoots module to have redundant
+       boots with an encrypted ZFS mirror.
+
+     * Serokell is hiring Nix DevOps Engineers
+
+       Serokell is looking for remote full-time Nix SREs.
+
+     * Yants - Yet Another Nix Type System
+
+       Yants is a small runtime type-checker for Nix that can check
+       primitives (int, string, etc.) , simple polymorphic types (option,
+       list, attrs), structs/records, enums, functions and more.
+
+       It features pattern matching for enum variants, pretty-printed
+       function types and other niceties! Check out the link for screenshots.
+
+     * NixOS RFC Process
+
+       Robin goes into the details of RFC process that Nix community
+       established last year.
+
+     * Easy IHaskell Docker Images with Nix
+
+       Vaibhav shows how to use Nix to package iHaskell into a docker
+       container.
+
+     * Mobile NixOS: the Present and the Future
+
+       Samuel announced full-time involvement into NixOS mobile and the
+       current state of the project.
+
+     * Pre-commit git hooks with Nix
+
+       Git hooks, packaged with Nix, enforced at development time and on a
+       CI.
+
+     * All the versions with Nix
+
+       Matthew explains how to use multiple revisions of nixpkgs to mix
+       stable vs. bleeding edge packages.
+
+     * Native support for import-from-derivation
+
+       Hercules CI gained a crucial feature for development teams. The post
+       goes into the detail how evaluation and realization phases work in Nix
+       and why sometimes mixing the two makes sense.
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

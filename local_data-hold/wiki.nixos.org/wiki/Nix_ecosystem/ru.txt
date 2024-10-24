@@ -1,0 +1,178 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Официальная экосистема
+     * 2 Использование NixOS
+     * 3 Разработка NixOS
+   [ ] Toggle the table of contents
+
+                                 Экосистема Nix
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Nix ecosystem and the
+   translation is 100% complete.
+   Other languages:
+     * English
+     * français
+     * русский
+     * 中文（中国大陆）
+     * 日本語
+
+   Экосистема Core Nix - это набор технологий, предназначенных для
+   воспроизводимой сборки и декларативного конфигурирования и управления
+   пакетами и системами, а также их зависимостями. Это достигается путем
+   переноса функциональной парадигмы из области программ в область систем с
+   помощью динамического, функционального и ленивого DSL, называемого Nix
+   Language для определения воспроизводимых сборок
+
+   Кроме того, существует множество других applications (Extended Nix
+   Ecosystem), разработанных сообществом Nix, использующих и поддерживающих
+   эти основные технологии.
+
+Официальная экосистема
+
+                       Основные компоненты экосистемы Nix
+   Компонент Руководство    Описание              Используйте        Лицензия 
+                            Дистрибутив Linux со                              
+                            всеми компонентами,                      
+                            собранными Nix, и,                       
+                            таким образом,        Декларативная      
+                            поддерживающий        конфигурация       
+   NixOS     NixOS Manual   воспроизводимое и     настольных         MIT
+                            декларативное         компьютеров,
+                            управление            серверов и
+                            конфигурацией всей    кластеров
+                            системы, а также      
+                            атомарное обновление  
+                            и откат.              
+                            Крупнейший                                        
+                            поддерживаемый                           
+                            сообществом           Распространение    
+   Nixpkgs   Nixpkgs Manual репозиторий пакетов   пакетов Nix и      MIT
+                            Nix и модулей NixOS;  модулей NixOS
+                            здесь размещаются     
+                            стандартные выпуски   
+                            NixOS.                
+   Hydra     Hydra Manual   Система непрерывной   Фермы сборки CI    GPL-3.0  
+                            сборки на базе Nix.   
+                            Менеджер пакетов,                                 
+                            который анализирует                      
+                            выражения Nix,                           
+                            указывающие на                           
+                            воспроизводимую       Воспроизводимые    
+                            сборку, помещая       сборки и
+   Nix       Nix Manual     результат в адрес     управление         LGPL-2.1
+                            хранилища с хэшем     пакетами в Linux и
+                            дерева зависимостей,  Darwin
+                            обходя ад             
+                            зависимостей и        
+                            поддерживая           
+                            многоверсионную       
+                            установку и откат.    
+
+                         Основной стек экосистемы NixOS
+   NixOS                                          
+                                                  
+   Дистрибутив Linux и система конфигурирования,  
+   построенная с использованием Nixpkgs           
+   Nixpkgs                                        Hydra                       
+                                                                              
+   Большой, поддерживаемый сообществом            Система непрерывной сборки, 
+   репозиторий пакетов                            построенная на базе Nix     
+   Nix                                            
+                                                  
+   Чистая и функциональная система сборки         
+
+Использование NixOS
+
+   Пользователи устанавливают дистрибутив NixOS на свои компьютеры так же,
+   как и любой другой дистрибутив Linux. Они читают о пакетах для установки и
+   параметрах конфигурации в Nixpkgs на сайте https://search.nixos.org и в
+   этой вики. Они используют язык Nix, чтобы декларативно описать в текстовом
+   файле, какие пакеты программ должны быть установлены и как должна быть
+   настроена система. Они запускают 2 программы командной строки в терминале,
+   чтобы преобразовать систему в описанную систему. Они используют систему
+   как любую другую систему Linux.
+
+Разработка NixOS
+
+   Разработчики NixOS в основном работают над Nixpkgs, чтобы описать в
+   текстовых файлах на языке Nix, как должны быть собраны программные пакеты.
+   После экспертной оценки эти изменения интегрируются в Nixpkgs. Некоторые
+   из этих пакетов предварительно собираются на Hydra, чтобы сократить время
+   обновления для пользователей NixOS.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_ecosystem/ru&oldid=15353"
+   Categories:
+     * Pedias
+     * NixOS
+     * Nix
+     * This page was last edited on 22 July 2024, at 12:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,48 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                                Moving to GitHub
+
+   Published on Mon Nov 28 2011
+
+                                Moving to GitHub
+
+   The NixOS project is (slowly) migrating from Subversion to Git! The master
+   repositories will be hosted in the NixOS organization on GitHub. For the
+   moment, just a few subprojects have been migrated, such as Hydra and
+   Charon. Thanks to Tianyi Cui for donating the NixOS GitHub organization.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

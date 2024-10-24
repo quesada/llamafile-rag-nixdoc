@@ -1,0 +1,153 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  Using Clang instead of GCC: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    15 October 2023
+
+     * curprev [ ] [ ] 03:0803:08, 15 October 2023‎ imported>Artturin‎ 3,184
+       bytes −255‎ Undoing a edit because it's not exactly true and is
+       because of a bug, linked the issue
+
+    13 October 2023
+
+     * curprev [ ] [ ] 08:3408:34, 13 October 2023‎ imported>Widlarizer‎
+       3,439 bytes +450‎ Clang is not a C++ compiler
+
+    1 September 2023
+
+     * curprev [ ] [ ] 02:4802:48, 1 September 2023‎ imported>Artturin‎ 2,989
+       bytes +169‎ add replaceStdenv
+
+    24 January 2023
+
+     * curprev [ ] [ ] 15:1915:19, 24 January 2023‎ imported>Milahu‎ 2,820
+       bytes −219‎ revert my last edit: add section: ld: cannot find -lstdc++
+     * curprev [ ] [ ] 15:1115:11, 24 January 2023‎ imported>Milahu‎ 3,039
+       bytes +219‎ add section: ld: cannot find -lstdc++
+
+    13 July 2022
+
+     * curprev [ ] [ ] 07:5507:55, 13 July 2022‎ imported>Milahu‎ 2,820 bytes
+       +94‎ add link to C#Use_a_different_compiler_version
+
+    11 August 2020
+
+     * curprev [ ] [ ] 12:3812:38, 11 August 2020‎ imported>Symphorien‎ 2,726
+       bytes +124‎ explain how to get a specific version of clang
+     * curprev [ ] [ ] 12:3212:32, 11 August 2020‎ imported>Symphorien‎ 2,602
+       bytes +264‎ add an example of nix-shell with clang
+
+    31 August 2018
+
+     * curprev [ ] [ ] 12:5512:55, 31 August 2018‎ imported>Mickours‎ 2,338
+       bytes +2,072‎ Adding more details + different scenario
+
+    2 May 2018
+
+     * curprev [ ] [ ] 15:0315:03, 2 May 2018‎ imported>Mickours‎ 266 bytes
+       +266‎ Add the trick to override package and build with Clang
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Using_Clang_instead_of_GCC"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

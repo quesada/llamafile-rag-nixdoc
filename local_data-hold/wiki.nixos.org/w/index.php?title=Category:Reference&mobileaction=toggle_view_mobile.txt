@@ -1,0 +1,141 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Comparison to other resource page types
+   [ ] Toggle the table of contents
+
+                               Category:Reference
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+   Reference is one of the five primary resource categories for the wiki.
+
+   Reference guides are technical descriptions of the machinery and how to
+   operate it.
+
+   Reference guides have one job only: to describe. They are code-determined,
+   because ultimately that's what they describe: key classes, functions,
+   APIs, and so they should list things like functions, fields, attributes
+   and methods, and set out how to use them.
+
+   Reference material is information-oriented.
+
+   By all means technical reference can contain examples to illustrate usage,
+   but it should not attempt to explain basic concepts, or how to achieve
+   achieve common tasks.
+
+   Reference material should be austere and to the point.
+
+   Normally Reference guides have no place in the wiki as they should be part
+   of the project documentation itself. Under very special circumstances it
+   might be the case that Reference Documentation is stored as an wiki
+   article for a short time e.g. upstream project currently has no place for
+   said documentation or the first draft for a reference document will be
+   written here before being transferred.
+
+   Content of this category should be moved to the manuals or https://nix.dev
+
+     * NixOS manual
+     * Nix manual
+     * Nixpkgs manual
+     * Hydra manual
+
+Comparison to other resource page types
+
+     * If information is more encyclopedic (with a similar scope and tone to
+       pages on Wikipedia), a page would be considered a pedia.
+     * If information is less encyclopedic and more similar to a compendium,
+       study guide, or a bibliographic guide, a page would be considered a
+       guide.
+     * If information is more about direct instruction to achieve a specific
+       task, a page would be considered a tutorial.
+     * If a page is more just a set of tips and tricks (less instructive than
+       a tutorial), it would be a cookbook.
+     * If a page is a detailed reference (like a man page or full software
+       manual), it would fit under references.
+
+Pages in category "Reference"
+
+   The following 3 pages are in this category, out of 3 total.
+
+  N
+
+     * NixOS:config argument
+     * NixOS modules
+
+  S
+
+     * Searching packages
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Reference&oldid=12173"
+   Category:
+     * Resource
+     * This page was last edited on 18 April 2024, at 20:51.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

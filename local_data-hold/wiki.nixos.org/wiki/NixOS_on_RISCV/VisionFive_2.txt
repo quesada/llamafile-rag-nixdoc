@@ -1,0 +1,285 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Setup
+          * 2.1 Manually build a SD-card image
+          * 2.2 Flashing the image
+     * 3 Usage
+          * 3.1 Tips and tricks
+               * 3.1.1 Using the Visionfive 2 as a remote builder to build
+                 native RISCV packages for e.g. the Visionfive 2
+               * 3.1.2 Deploy and Update the Visionfive 2 NixOS system once
+                 it's running NixOS
+          * 3.2 See also
+   [ ] Toggle the table of contents
+
+                          NixOS on RISCV/VisionFive 2
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to RISC-V
+
+   VisionFive 2 
+   A VisionFive 2.
+   Manufacturer StarFive                       
+   Architecture RISC-V                         
+   Bootloader   Custom or UEFI                 
+   Boot order   Configurable; SD, USB, Netboot 
+   Maintainer   onny                           
+   VisionFive 2 
+   SoC          JH7110                         
+
+   The VisionFive 2 is a single board computer (SBC) that uses a RISC-V
+   processor with an integrated GPU. It supports Linux operating system and
+   various multimedia features, such as 4K video decoding and OpenGL ES
+   3.212.
+
+Status
+
+   See https://rvspace.org/en/project/JH7110_Upstream_Plan for an overview of
+   which features are already supported by the latest mainline kernel used by
+   NixOS.
+
+   Please note that HDMI display patches haven't been merged yet.
+
+                                     Setup
+
+   Precompiled SD-card images can be found on the Hydra instance my NickCao.
+   Before flashing the image, use unzstd to unpack the downloaded archive.
+
+  Manually build a SD-card image
+
+   First create this Flake file
+
+ flake.nix
+
+ {
+   # FIXME: Switch to nixos-24.11 as soon as released
+   inputs.nixpkgs.url = "nixpkgs/master";
+   inputs.nixos-hardware.url = "github:nixos/nixos-hardware";
+
+   # Some dependencies of this flake are not yet available on non linux systems
+   inputs.systems.url = "github:nix-systems/x86_64-linux";
+   inputs.flake-utils.url = "github:numtide/flake-utils";
+   inputs.flake-utils.inputs.systems.follows = "systems";
+
+   outputs = { self, nixpkgs, nixos-hardware, flake-utils, ... }:
+     flake-utils.lib.eachDefaultSystem (system:
+       rec {
+         packages.default = packages.sd-image;
+         packages.sd-image = (import "${nixpkgs}/nixos" {
+           configuration =
+             { config, ... }: {
+               imports = [
+                 "${nixos-hardware}/starfive/visionfive/v2/sd-image-installer.nix"
+               ];
+
+               # If you want to use ssh set a password
+               users.users.nixos.password = "test123";
+               # OR add your public ssh key
+               # users.users.nixos.openssh.authorizedKeys.keys = [ "ssh-rsa ..." ];
+
+               # AND configure networking
+               networking.interfaces.end0.useDHCP = true;
+               networking.interfaces.end1.useDHCP = true;
+
+               # Additional configuration goes here
+
+               sdImage.compressImage = false;
+
+               nixpkgs.crossSystem = {
+                 config = "riscv64-unknown-linux-gnu";
+                 system = "riscv64-linux";
+               };
+
+               system.stateVersion = "24.05";
+             };
+           inherit system;
+         }).config.system.build.sdImage;
+       });
+ }
+
+   Run following command to build the SD-card image
+
+ nix build .#
+
+  Flashing the image
+
+   After successfull build or unpack, flash the resulting file (build file is
+   in the directory results/sd-image) to the target device such as a NVME SSD
+   or in this example the SD-card (/dev/mmcblk*). Note that everything on the
+   target device gets erased.
+
+ dd if=result/sd-image/nixos-sd-image-23.11pre-git-riscv64-linux-starfive-visionfive2.img of=/dev/mmcblk0 status=progress
+
+                                     Usage
+
+   The board has "boot mode pins", from which we can control what device
+   should be booted from.
+
+   See official documentation
+   https://doc-en.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_SDK_QSG/boot_mode_settings.html
+   .
+
+   First enable booting from SD-card or NVME SSD by setting jumper 1 and 2 to
+   "FLASH/QSPI mode" (both QSPI and SDIO mode support booting from an SD
+   card):
+
+   [IMG]
+
+   For UART access, wire GND (black), RX (blue) and TX (purple) to your
+   adapter
+
+   [IMG]
+
+   Update board firmware
+
+ sudo visionfive2-firmware-update-flash
+
+   Bootstrap NixOS system configuration at /etc/nixos/configuration.nix
+
+ nixos-generate-config
+
+Tips and tricks
+
+  Using the Visionfive 2 as a remote builder to build native RISCV packages for
+  e.g. the Visionfive 2
+
+   Building an NixOS system image that can be flashed to an SD card or NVMe
+   SSD requires to build RISCV binaries, more specifically for the
+   "riscv64-linux"platform. From a typical Intel/AMD computer we can either
+
+     * emulated native compile using QEMU virtualization by enabling the
+       binfmt kernel feature on NixOS configuration setting
+       boot.binfmt.emulatedSystems = [ "riscv64-linux" ];). This can be fast
+       if everything is downloaded pre-compiled from the cache.nixos.org
+       cache (not supported yet though) and only few packages really need
+       local compilation. In reality it can be extremely slow, e.g. compiling
+       a Linux kernel alone can take days.
+     * cross-compile to RISCV from another (e.g. "x86_64-linux) machine using
+       the setup in the example above. However very few packages will be
+       cached from cache.nixos.org as cross-compiled packages are less likely
+       to be pre-build than native compiled. So the compile itself is fast
+       but there will be a lot more to compile locally. In practice this can
+       be quite fragile, because you may encounter packages that don't really
+       support cross-compilation get stuck.
+     * native compile on an remote builder like the Visionfive 2 itself
+       running its custom Debian Linux at the beginning or later NixOS. This
+       is quite simple to setup and reasonably fast as most packages can be
+       pre-build and cached on cache.nixos.org, and building a remaining
+       Linux kernel only takes 3h on the Visionfive 2.
+
+   Setting up the Visionfive 2 as a remote native builder can be done
+   following the steps at https://wiki.nixos.org/wiki/Distributed_build. The
+   rough steps are as follows:
+
+    1. Install the Nix package manager on Visionfive 2 Debian OS the normal,
+       multi-user way with sh <(curl -L https://nixos.org/nix/install)
+       --daemon. If you already have NixOS running on the Visionfive 2, then
+       you can skip this step.
+    2. Setup a ssh connection from your local machine to the Visionfive 2,
+       especially adding SetEnv
+       PATH=/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+       to the Pi's /etc/ssh/sshd_config file. If you already have NixOS
+       running on the Visionfive 2, then you can skip this step.
+    3. Make the remote Visionfive 2 known to you local computer by adding it
+       as a nix.buildMachines entry to your /etc/nix/configuration.nix file
+       and use connection protocol ssh-ng(!).
+    4. You can then build, e.g. an NixOS sd card image with a call similar to
+       nix build
+       .\#nixosConfigurations.visionfive2.config.system.build.sdImage
+    5. flash that resulting image onto an SD card or NVMe SSD using a call
+       similar to zstdcat
+       result/sd-image/nixos-sd-image-23.11.20230703.ea4c80b-riscv64-linux.img.zst
+       | sudo dd of=/dev/mmcblk0 bs=100M status=progress and place that card
+       into the Visionfive 2.
+
+  Deploy and Update the Visionfive 2 NixOS system once it's running NixOS
+
+   Once the Pi 5 is running NixOS, you can update it with newer NixOS system
+   configurations using e.g. the usual nix-rebuild
+
+   tool with a call similar to
+
+   nixos-rebuild --flake .#visionfive2 --build-host piuser@visionfive2
+   --target-host piuser@visionfive2 --use-remote-sudo switch
+
+   that uses the SSH connection from the remote builder section.
+
+   See this guide for a good explanation of this terminal call.
+
+See also
+
+     * There's also a port of the UEFI reference implementation EDK2
+       available at https://github.com/starfive-tech/edk2 to support a future
+       generic RISCV Linux image that can be booted from any RISCV device.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_RISCV/VisionFive_2&oldid=17598"
+     * This page was last edited on 22 September 2024, at 20:15.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

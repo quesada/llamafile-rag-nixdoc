@@ -1,0 +1,140 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Supported codecs
+          * 1.1 Video
+          * 1.2 Audio
+     * 2 Installation
+     * 3 Troubleshooting
+          * 3.1 libnvidia-fbc.so.1: cannot open shared object file: No such
+            file or directory
+   [ ] Toggle the table of contents
+
+                              Gpu-screen-recorder
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   gpu-screen-recorder is a screen recorder that has minimal impact on system
+   performance by recording your monitor using the GPU only, similar to
+   ShadowPlay on Windows.
+
+    Supported codecs
+
+      Video
+
+     * H264 (default on Intel)
+     * HEVC (default on AMD and NVIDIA)
+     * AV1
+
+      Audio
+
+     * Opus (default)
+     * AAC
+     * FLAC
+
+Installation
+
+   environment.systemPackages = with pkgs; [
+     gpu-screen-recorder # CLI
+     gpu-screen-recorder-gtk # GUI
+   ];
+
+Troubleshooting
+
+    libnvidia-fbc.so.1: cannot open shared object file: No such file or
+    directory
+
+   The possibility of this error arising exists if you possess an NVIDIA
+   graphics card, as the package does not include the NVIDIA X11 libraries in
+   its wrapper by default.
+
+    1. Make sure your drivers are installed.
+    2. Install the missing the NVENC patch for your card. nvidia-patch is a
+       great overlay which you can use
+    3. Override the package build inputs and add the library to the wrapper.
+
+ {
+   environment.systemPackages = [
+     (pkgs.runCommand "gpu-screen-recorder" {
+       nativeBuildInputs = [ pkgs.makeWrapper ];
+     } ''
+       mkdir -p $out/bin
+       makeWrapper ${pkgs.gpu-screen-recorder}/bin/gpu-screen-recorder $out/bin/gpu-screen-recorder \
+         --prefix LD_LIBRARY_PATH : ${pkgs.libglvnd}/lib \
+         --prefix LD_LIBRARY_PATH : ${config.boot.kernelPackages.nvidia_x11}/lib
+     '')
+   ];
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Gpu-screen-recorder&oldid=12206"
+   Category:
+     * Applications
+     * This page was last edited on 19 April 2024, at 15:59.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

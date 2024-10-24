@@ -1,0 +1,115 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                    Solokey
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This article describes how you can integrate Solokeys with NixOS. For the
+   most part you can follow the guide for Yubikey.
+
+   Important, of you want to e.g. upgrade your solokey you also need some
+   additonal udev rules. So the following setup allows you to use your key
+   for sudo as well as you are able to update your solokey
+
+  { config, pkgs, ... }:Italic text
+  {
+  programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+  };
+  security.pam.services = {
+      login.u2fAuth = true;
+      sudo.u2fAuth = true;
+  };
+  # https://github.com/solokeys/solo2-cli/blob/main/70-solo2.rules
+  services.udev.packages = [
+      pkgs.yubikey-personalization
+      (pkgs.writeTextFile {
+      name = "wally_udev";
+      text =
+          # NXP LPC55 ROM bootloader (unmodified)
+          SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1fc9", ATTRS{idProduct}=="0021", TAG+="uaccess"
+          # NXP LPC55 ROM bootloader (with Solo 2 VID:PID)
+          SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="b000", TAG+="uaccess"
+          # Solo 2
+          SUBSYSTEM=="tty", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="beee", TAG+="uaccess"
+          # Solo 2
+          SUBSYSTEM=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="beee", TAG+="uaccess"
+      ;
+      destination = "/etc/udev/rules.d/70-solo2.rules";
+      })
+  ];
+  }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Solokey&oldid=12443"
+   Categories:
+     * Cookbook
+     * Security
+     * Hardware
+     * This page was last edited on 24 April 2024, at 19:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

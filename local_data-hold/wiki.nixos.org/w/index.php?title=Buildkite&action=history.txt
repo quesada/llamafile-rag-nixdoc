@@ -1,0 +1,140 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Buildkite: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    9 August 2022
+
+     * curprev [ ] [ ] 19:1119:11, 9 August 2022‎ imported>Fufexan‎ m 2,410
+       bytes +7‎ Fix position of runtimePackages
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4005:40, 20 September 2021‎ imported>Nix‎ m 2,403
+       bytes +27‎ add Software/Applications subcategory
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:4221:42, 24 September 2020‎ imported>Garbas‎ m
+       2,376 bytes +3‎ No edit summary
+
+    2 August 2020
+
+     * curprev [ ] [ ] 08:5208:52, 2 August 2020‎ imported>Mic92‎ 2,373 bytes
+       +51‎ No edit summary
+     * curprev [ ] [ ] 08:5008:50, 2 August 2020‎ imported>Mic92‎ 2,322 bytes
+       −1‎ No edit summary
+     * curprev [ ] [ ] 08:5008:50, 2 August 2020‎ imported>Mic92‎ 2,323 bytes
+       +1‎ No edit summary
+     * curprev [ ] [ ] 08:5008:50, 2 August 2020‎ imported>Mic92‎ 2,322 bytes
+       +35‎ No edit summary
+     * curprev [ ] [ ] 08:4908:49, 2 August 2020‎ imported>Mic92‎ 2,287 bytes
+       +1,837‎ add sandbox builds
+     * curprev [ ] [ ] 08:3808:38, 2 August 2020‎ imported>Mic92‎ 450 bytes
+       +450‎ Created page with "NixOS comes with a module to run
+       [https://buildkite.com build-kite] agents: <syntaxHighlight lang=nix>
+       { services.buildkite-agents.builder = { enable = true; # stor..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Buildkite"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,899 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Rules of thumb
+     * 2 Content policy
+          * 2.1 Plagiarizing
+          * 2.2 Vandalism
+          * 2.3 Spam and advertisement
+          * 2.4 Unofficial wikis
+     * 3 Article titles, headings, and sections
+          * 3.1 Article titles
+          * 3.2 Section organization
+               * 3.2.1 Hierarchy and structure
+               * 3.2.2 Standard section structure (applications)
+               * 3.2.3 Flexibility
+          * 3.3 Section headers
+          * 3.4 Length restrictions
+     * 4 Text formatting
+          * 4.1 Title of works
+          * 4.2 Quotations
+          * 4.3 Capital letters
+          * 4.4 Boldface
+          * 4.5 Italic
+          * 4.6 Spacing
+          * 4.7 Numbers and dates
+          * 4.8 Abbreviations
+          * 4.9 Grammar and punctuation
+          * 4.10 Wording and tone
+          * 4.11 Common examples of tone
+     * 5 Vocabulary
+     * 6 Linking
+          * 6.1 Wikilinks
+          * 6.2 External linking
+          * 6.3 Category links
+     * 7 Images
+          * 7.1 Image file names
+     * 8 Videos
+     * 9 Lists
+          * 9.1 Unordered lists
+          * 9.2 Ordered lists
+          * 9.3 List guidelines
+     * 10 Tables
+          * 10.1 Basic table structure
+          * 10.2 Table formatting
+          * 10.3 Table guidelines
+     * 11 Translation
+          * 11.1 General principles
+          * 11.2 Translation process
+               * 11.2.1 Preparation
+               * 11.2.2 Translation
+               * 11.2.3 Review and refinement
+          * 11.3 Language-specific guidelines
+          * 11.4 Handling untranslatable content
+          * 11.5 Metadata and navigation
+          * 11.6 Quality assurance
+     * 12 Templates
+          * 12.1 Common templates
+          * 12.2 Using templates
+               * 12.2.1 Template markup
+     * 13 References
+          * 13.1 Citation styles
+          * 13.2 General guidelines
+   [ ] Toggle the table of contents
+
+                                Manual of Style
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ✦
+   Editors are generally expected to adhere to this standard, applying common
+   sense and allowing for occasional exceptions. Significant edits to this
+   page should reflect a consensus. If uncertain, please discuss on the talk
+   page first.
+
+   This Manual of Style (hereinafter referred to as "MoS" or "MOS") is
+   designed to ensure that all content on the NixOS Wiki is presented in a
+   clear and consistent manner. It provides guidelines on language usage,
+   article structure, formatting, and other stylistic elements to maintain a
+   high standard of quality across the wiki. This guide is intended for all
+   contributors, whether they are new to editing or have extensive
+   experience, to assist them in creating content that is both informative
+   and accessible.
+
+   Technical writing is a skill that gets better with practice. This Manual
+   of Style will help editors do that. It's OK to try to stick to it for the
+   most part at first. A wiki thrives on all users helping each other to
+   create better content.
+
+   Editors should compose articles using language that is clear, concise, and
+   readily comprehensible. Articles must be organized with consistent,
+   reader-friendly layouts and formatting, as delineated in this guide.
+
+   Any new content incorporated into this page must directly address a
+   persistently recurring style issue.
+
+Rules of thumb
+
+     * Use common sense: Always apply logic and reason when contributing to
+       the wiki.
+     * Cite reliable sources: Aim to ensure that all information added is
+       verifiable and comes from reliable sources.
+     * Maintain neutrality: Strive to present information in a neutral and
+       unbiased manner.
+     * Be clear and concise: Use clear, concise, and grammatically correct
+       language to ensure readability and understanding.
+     * Follow site guidelines: Adhere to the site's guidelines and policies
+       at all times.
+     * Avoid edit wars: Engage in constructive discussions to resolve content
+       disputes rather than engaging in edit wars.
+     * Protect privacy: Do not share personal information about yourself or
+       others without consent.
+     * Contribute constructively: Aim to improve the quality of the content
+       and the overall user experience.
+     * Use proper formatting: Follow the wiki's formatting guidelines to
+       ensure consistency and readability.
+     * Stay on topic: Ensure that contributions are relevant to the subject
+       matter of the page.
+     * Report issues: Report any issues or inappropriate behavior to the
+       administrators promptly.
+     * Be patient and helpful: Assist new users and be patient with those who
+       are still learning the ropes.
+     * Respect others: Treat all users with respect and courtesy. Personal
+       attacks and harassment are strictly prohibited.
+     * No advertising, vandalism, or spamming: Contributions should be
+       constructive and relevant. Any form of advertising, vandalism, or
+       spamming will not be tolerated.
+     * Stay on topic: This wiki is only about NixOS, Nixpkgs, Nix and the
+       Nix-ecosystem.
+
+Content policy
+
+  Plagiarizing
+
+   Plagiarizing involves using someone else’s work without proper attribution
+   and presenting it as your own. This practice is strictly prohibited on
+   this wiki.
+
+     * Definition: Plagiarism includes copying text, images, or other media
+       without crediting the original source.
+     * Consequences: Plagiarized content will be removed immediately.
+       Contributors who repeatedly plagiarize may be banned.
+     * Prevention: Always cite your sources. Use quotation marks for direct
+       quotes and provide proper references. Don't just copy&paste a single
+       sentence, but change it at least a little.
+
+  Vandalism
+
+   Vandalism refers to any act of deliberately adding false or misleading
+   information, deleting content, or otherwise compromising the integrity of
+   the wiki.
+
+     * Types of vandalism: This includes adding false information, deleting
+       pages, inserting inappropriate content, and spamming links.
+     * Response: Vandalized pages will be promptly reverted to their previous
+       state. Persistent vandals will be blocked from editing.
+     * Reporting: Users are encouraged to report vandalism immediately.
+
+  Spam and advertisement
+
+   Spamming and advertising are prohibited to keep the wiki free from clutter
+   and irrelevant content.
+
+     * Definition: Spam includes repetitive content, irrelevant links, and
+       advertisements for external products or services.
+     * Detection: Automated filters and manual reviews help identify and
+       remove spam.
+     * Action: Spammers will have their content removed and may be banned
+       from editing. Legitimate contributions should not include promotional
+       content.
+
+  Unofficial wikis
+
+   Hostility towards other wikis is not tolerated. Editors who make hostile
+   comments about other wikis will be warned and may be blocked.
+
+     * Linking to other wikis: Linking to other wikis is not prohibited if
+       such links contribute to the quality of the content.
+     * Contribution recommendation: It is recommended that editors only
+       contribute to one wiki at a time to ensure they do not inadvertently
+       violate the copyright policies of the wikis they edit.
+
+Article titles, headings, and sections
+
+   Article titles and section headings should reflect the content they
+   contain. Titles and section headings should be concise and precise. Titles
+   should be consistent with the titles of related content.
+
+  Article titles
+
+   Article titles should be clear and descriptive, providing a succinct
+   summary of the article's content. Avoid using jargon or overly technical
+   terms unless they are widely understood within the context of the wiki.
+   Titles should be formatted in sentence case with capitalizing only the
+   first letter of the first word.
+
+     * Consistency: Ensure that article titles are consistent with the titles
+       of related content to maintain a cohesive structure across the wiki.
+     * Avoid redundancy: Do not include unnecessary words or phrases that do
+       not add value to the title.
+
+  Section organization
+
+   Proper section organization is crucial for creating well-structured,
+   easily navigable articles. A logical and consistent structure helps
+   readers find information quickly and understand the content more
+   effectively.
+
+    Hierarchy and structure
+
+     * Use a clear hierarchy of headings to organize content:
+
+  * Level 2 (==) for main sections
+  * Level 3 (===) for subsections
+  * Level 4 (====) for sub-subsections
+  * Avoid going deeper than level 4 unless absolutely necessary
+
+     * Begin each article with an introduction (without a heading) that
+       summarizes the topic.
+     * Arrange sections in a logical order, typically following this pattern:
+
+  1. Introduction (the introduction has no heading)
+  2. Installation
+  3. Configuration
+  4. Tips and tricks
+  5. Troubleshooting
+  6. References
+
+    Standard section structure (applications)
+
+   For consistency across the wiki, use the following structure where
+   applicable:
+
+ (Introduction)
+
+ == Installation ==
+ ==== Using nix-shell ====
+ ==== Using global configuration ====
+ ==== Using home configuration ====
+
+ == Configuration ==
+ ==== Basic ====
+ ==== Advanced ====
+
+ == Tips and tricks ==
+ ==== Location of options ====
+
+ == Troubleshooting ==
+ ==== Issue 1 ====
+
+ == References ==
+
+    Flexibility
+
+   While consistency is important, remember that different topics may require
+   different structures. Use your judgment to adapt the standard structure
+   when necessary, always prioritizing clarity for the reader.
+
+  Section headers
+
+   Section headers should be concise and accurately reflect the content of
+   the section. They should provide a clear indication of what the reader can
+   expect to find in that section.
+
+     * Clarity: Use clear and descriptive language for section headers. Avoid
+       vague or ambiguous terms.
+     * Consistency: Maintain consistency in the formatting and style of
+       section headers throughout the article.
+
+  Length restrictions
+
+   Be mindful of length restrictions when crafting titles and section
+   headings. Excessively long names can make navigation difficult and
+   negatively impact readability.
+
+     * Limit characters: Section headings should ideally remain under 40
+       characters.
+     * Conciseness: Strive for brevity without sacrificing clarity. Consider
+       rephrasing complex ideas or breaking them down into multiple sections.
+
+Text formatting
+
+   Proper text formatting is essential for maintaining consistency,
+   readability, and professionalism across the NixOS Wiki. This section
+   outlines the guidelines for various text formatting elements to ensure a
+   uniform presentation of information.
+
+    Title of works
+
+   When referencing titles of various works, follow these guidelines:
+
+     * Articles, blog posts, and short stories: Use double quotation marks
+          * Example: "Understanding Nix Flakes", "The NixOS installation
+            guide"
+     * Software names, tools, and commands: Use regular text, typically with
+       initial capitalization
+          * Example: Nix, NixOS, nixpkgs, nix-shell
+     * Website names: Use regular text without quotes or italics
+          * Example: Visit the NixOS website for more information.
+
+   When in doubt, prioritize clarity and consistency within the article.
+
+    Quotations
+
+   Proper quotation formatting helps distinguish cited material from original
+   content:
+
+     * Short quotes (less than 40 words): Use double quotation marks ("") and
+       incorporate into the text.
+          * Example: According to the documentation, "NixOS is a Linux
+            distribution built on top of the Nix Package Manager."
+     * Long quotes (40 words or more): Use block quotes by indenting the
+       entire quote or using the blockquote tag.
+     * Quotes within quotes: Use single quotation marks (') for the inner
+       quote.
+          * Example: "The developer explained, 'Nix provides a purely
+            functional approach to package management,' which revolutionized
+            the field."
+     * Citations: Always provide a source for quotations, either inline or as
+       a footnote.
+          * Example: "NixOS offers reproducible builds"[1].
+     * Alterations and omissions: Use square brackets [] to indicate changes
+       or additions to quotes, and ellipsis (...) for omissions.
+          * Example: "NixOS [provides] a unique approach to ... configuration
+            management."
+
+    Capital letters
+
+   Proper capitalization improves readability and maintains a professional
+   appearance:
+
+     * Article titles: Use sentence case, capitalizing only the first word.
+          * Example: Installing NixOS on a virtual machine
+     * Section headers:
+          * Main sections (==): Use sentence case
+          * Subsections (===, ====): Use sentence case
+     * Proper nouns: Always capitalize names of specific people, places,
+       organizations, and NixOS-specific components.
+          * Example: Nix, NixOS, Nixpkgs, Eelco Dolstra
+     * Common nouns: Do not capitalize unless they are part of an official
+       name or at the beginning of a sentence.
+          * Example: "Every distribution has a package manager." but "Nix
+            Package Manager"
+     * Acronyms and initialisms: Generally use all caps, but follow official
+       styling if different.
+          * Example: RAM, CPU, NixOS (not NIXOS)
+
+    Boldface
+
+   Use bold text sparingly to emphasize important information:
+
+     * First mention: Bold the first occurrence of the article's main topic
+       in the introduction.
+          * Example: <strong>NixOS</strong> is a Linux distribution built on
+            top of the Nix package manager.
+     * Key terms: Use bold for important terms being defined.
+          * Example: A '''derivation''' in Nix is a description of how to
+            build a package.
+     * User interface elements: Bold names of buttons, menu items, or other
+       UI elements.
+          * Example: Click the Save button to apply your changes.
+     * Avoid overuse: Do not use bold for entire sentences or paragraphs, as
+       this reduces its effectiveness.
+
+    Italic
+
+   Italic text serves several purposes in technical writing:
+
+     * Emphasis: Use italics to stress particular words when appropriate.
+          * Example: It is crucial to back up your configuration before
+            making major changes.
+     * Non-English words: Italicize words or phrases from languages other
+       than the primary language of the article.
+          * Example: In programming, we often use the term de facto to
+            describe widely accepted standards.
+     * Do not italicize: Proper names, technical terms after their first use,
+       or entire paragraphs.
+
+    Spacing
+
+   Consistent spacing improves readability and maintains a clean appearance:
+
+     * Single space after periods: Use only one space after a period at the
+       end of a sentence.
+     * No spaces around slashes: In constructions like "and/or" or "TCP/IP",
+       do not add spaces around the slash.
+     * Space after commas: Always include a space after a comma, but not
+       before.
+     * Lists: Add a space after the list marker (*, #) in bulleted or
+       numbered lists.
+     * Parentheses: No spaces inside parentheses, but do use spaces outside
+       when in a sentence.
+          * Example: NixOS (a Linux distribution) offers many advantages.
+     * Code blocks: Use consistent indentation within code blocks for
+       readability.
+
+    Numbers and dates
+
+   Consistent formatting of numbers and dates is crucial for clarity:
+
+     * Numbers:
+          * Spell out numbers zero through nine in prose.
+          * Use numerals for 10 and above.
+          * Use commas for numbers with four or more digits (e.g., 1,000,
+            10,000).
+          * Use dots as decimal separator (e.g. 1,000.23 )
+          * For very large numbers, consider using words (e.g., 1 million
+            instead of 1,000,000).
+     * Percentages: Use the % symbol with numerals (e.g., 50%), but spell out
+       "percent" when the number is also spelled out (e.g., five percent).
+     * Dates:
+          * Use the format: Month Day, Year (e.g., January 1, 2024).
+          * For numeric dates, use ISO 8601 format: YYYY-MM-DD (e.g.,
+            2024-01-01).
+     * Time:
+          * Use 24-hour clock format to avoid ambiguity (e.g., 14:30 instead
+            of 2:30 PM).
+          * Include the time zone when relevant (e.g., 14:30 UTC).
+     * Software versions:
+          * Software versions are subject to change. Only add software
+            versions when required by the content.
+
+    Abbreviations
+
+   Proper use of abbreviations ensures clarity while maintaining brevity:
+
+     * First use: When first using an abbreviation, write out the full term
+       followed by the abbreviation in parentheses.
+          * Example: The Nix Expression Language (NEL) is used to define
+            packages.
+     * Common abbreviations: Well-known abbreviations (e.g., RAM, CPU) don't
+       need to be spelled out on first use.
+     * Plurals of abbreviations: Add 's' without an apostrophe (e.g., SSDs,
+       not SSD's).
+     * Periods in abbreviations:
+          * Generally, omit periods in abbreviations (e.g., PhD, AM/PM).
+          * Use periods for lowercase abbreviations (e.g., i.e., etc.).
+     * Units of measurement: Use standard abbreviations without periods
+       (e.g., 5 GB, 10 MHz).
+
+    Grammar and punctuation
+
+   Correct grammar and punctuation are essential for clear communication:
+
+     * Comma usage:
+          * Use the Oxford comma in lists of three or more items.
+     * Semicolons: Use to separate closely related independent clauses or in
+       complex lists.
+     * Colons: Use to introduce lists or explanations.
+     * Hyphens and dashes:
+          * Use hyphens (-) for compound modifiers (e.g., well-known
+            package).
+          * Use en dashes (–) for ranges (e.g., 5–10 minutes).
+          * Use em dashes (—) for parenthetical thoughts—like this one—in
+            sentences.
+     * Parentheses: Use sparingly to include additional information without
+       disrupting the flow of the sentence.
+     * Quotation marks: Place periods and commas inside quotation marks.
+       Place other punctuation outside unless it's part of the quoted
+       material.
+     * Active voice: Prefer active voice over passive voice for clearer, more
+       direct writing.
+
+    Wording and tone
+
+   Maintain a consistent and appropriate tone throughout the wiki:
+
+     * Formal but approachable: Strike a balance between professional and
+       friendly.
+     * Clarity: Use clear, concise language. Avoid jargon unless necessary,
+       and explain technical terms.
+     * Objectivity: Present information neutrally, avoiding bias or personal
+       opinions.
+     * Consistency: Maintain consistent terminology throughout articles and
+       across the wiki.
+     * International audience: Consider that readers may not be native
+       English speakers. Avoid colloquialisms or culture-specific references.
+     * Direct address: Use "you" to address the reader directly when
+       providing instructions or explanations.
+
+    Common examples of tone
+
+   Here are some examples of appropriate and inappropriate tone:
+
+     * Appropriate: "To install NixOS, follow these steps carefully."
+     * Inappropriate: "Installing NixOS is super easy! Here's how to do it."
+     * Appropriate: "If you encounter an error, consult the troubleshooting
+       section."
+     * Inappropriate: "If you get an error, check the solution below!"
+
+   Remember, the goal is to provide clear, helpful information in a
+   professional manner.
+
+Vocabulary
+
+   Consistent use of terminology is crucial for maintaining clarity across
+   the NixOS Wiki. This section outlines key terms and their preferred usage:
+
+     * Nix: The package manager and build system at the core of NixOS.
+     * NixOS: The Linux distribution built on top of the Nix package manager.
+     * Nixpkgs: The collection of packages available for Nix and NixOS.
+     * Derivation: A description of how to build a package in Nix.
+     * Expression: A piece of Nix code that describes how to build something.
+     * Channel: A versioned set of Nix expressions and binaries.
+     * Flake: A newer way to package Nix code with explicit dependencies and
+       outputs.
+     * Attribute: A named value in a Nix expression, often used to refer to
+       packages or configuration options.
+     * Configuration.nix: The main configuration file for a NixOS system.
+
+   When using these terms:
+
+     * Be consistent in capitalization (e.g., always "NixOS", never "Nixos"
+       or "NIXOS").
+     * Use the full term on first mention, followed by any abbreviation in
+       parentheses if it will be used later.
+
+Linking
+
+   Proper linking improves navigation and provides additional context for
+   readers. This section covers different types of links used in the NixOS
+   Wiki.
+
+    Wikilinks
+
+   Wikilinks are internal links to other pages within the NixOS Wiki.
+
+     * Use double square brackets to create a wikilink:
+
+ [[Page Name]]
+
+     * If the link text should differ from the page name, use a pipe
+       character:
+
+ [[Page Name|displayed text]]
+
+     * For section links, use a hash symbol. Please note: Section headings
+       are sometimes changed during editing - it may be overlooked to change
+       all the necessary references to them as well. Section links should
+       therefore be used sparingly:
+
+ [[Page Name#Section Name]]
+
+    External linking
+
+   External links point to resources outside the NixOS Wiki.
+
+     * Use single square brackets for external links:
+
+ [https://example.com Link text]
+
+     * If no link text is provided, the URL itself will be displayed:
+
+ [https://example.com]
+
+     * For bare URLs, no brackets are needed:
+
+ https://example.com
+
+    Category links
+
+   Category links help organize pages into groups.
+
+     * Add category links at the bottom of the page:
+
+ [[Category:Category Name]]
+
+     * Multiple categories can be added to a single page.
+     * To link to a category page without adding the current page to that
+       category, use a colon before "Category":
+
+ [[:Category:Category Name]]
+
+Images
+
+   Images can greatly improve the content of wiki articles. When using
+   images, follow these guidelines:
+
+     * File types: Use PNG for screenshots and diagrams, JPEG for
+       photographs, and SVG for logos and icons when available.
+     * Size: Keep file sizes reasonable. Aim for under 1MB for most images.
+     * Alt text: Always provide descriptive alt text for accessibility.
+     * Captions: Use clear, concise captions to describe the image content.
+     * Alignment: Generally, align images to the right of text unless a
+       different alignment better serves the content.
+
+   To add an image:
+
+ [[File:Example.png|thumb|right|250px|Alt text: Description of image content]]
+
+    Image file names
+
+   Proper image file naming helps with organization and searchability:
+
+     * Descriptive names: Use clear, descriptive file names (e.g.,
+       "nixos-installation-partitioning.png").
+     * Lowercase: Use lowercase letters to avoid case-sensitivity issues.
+     * Hyphens: Use hyphens (-) to separate words, not underscores or spaces.
+     * Avoid special characters: Stick to alphanumeric characters and
+       hyphens.
+     * Version numbers: If updating an image, consider adding a version
+       number (e.g., "nixos-logo-v2.svg").
+
+   Examples of good file names:
+
+     * nixos-boot-screen.png
+     * package-management-diagram.svg
+     * user-home-directory-structure.jpg
+
+Videos
+
+   Videos can be a valuable addition to wiki articles, especially for
+   tutorials or demonstrations. Follow these guidelines:
+
+     * Relevance: Only include videos that directly support the article's
+       content.
+     * Linking: Use reputable video hosting platforms (e.g., YouTube, Vimeo)
+       to link videos.
+     * Permissions: Ensure you have the right to use and link the video
+       content.
+     * Captions: Include a descriptive caption below the video.
+     * Alternative: Always provide a text-based alternative or summary of the
+       video content within the article.
+
+Lists
+
+   Lists help organize information in a clear, readable format. The NixOS
+   Wiki uses two types of lists:
+
+  Unordered lists
+
+   Use asterisks (*) for bullet points. Indent with additional asterisks for
+   nested lists.
+
+ * First item
+ * Second item
+ ** Subitem 1
+ ** Subitem 2
+ * Third item
+
+  Ordered lists
+
+   Use hash symbols (#) for numbered lists. Indent with additional hash
+   symbols for nested lists.
+
+ # First step
+ # Second step
+ ## Substep 1
+ ## Substep 2
+ # Third step
+
+  List guidelines
+
+     * Use sentence case for list items.
+     * Be consistent with punctuation (either use periods at the end of all
+       items or none).
+     * Keep list items parallel in structure.
+     * Avoid mixing ordered and unordered lists unless necessary for clarity.
+
+Tables
+
+   Tables are useful for presenting structured data. Here's how to create and
+   format tables in the NixOS Wiki:
+
+  Basic table structure
+
+   Use the following syntax to create a basic table:
+
+ {| class="wikitable" style="text-align: center; width: 500px;"
+ |-
+ ! Header 1 !! Header 2 !! Header 3
+ |-
+ | Row 1, Cell 1 || Row 1, Cell 2 || Row 1, Cell 3
+ |-
+ | Row 2, Cell 1 || Row 2, Cell 2 || Row 2, Cell 3
+ |}
+
+   Writers who use the GUI editor must then add (using the „Edit source“
+   mode):
+
+ style="text-align: center; width: 500px;"
+
+  Table formatting
+
+     * Use class="wikitable" for consistent styling.
+     * Start each row with |-
+     * Use ! for header cells and | for regular cells.
+     * Align cell content using style="text-align: left/center/right;"
+
+  Table guidelines
+
+     * Keep tables simple and easy to read.
+     * Use headers to clearly describe the content of each column.
+     * Avoid excessive use of tables when prose or lists would suffice.
+     * For complex tables, consider using additional CSS classes or inline
+       styles for better formatting.​​​​​​​​​​​​​​​​
+
+Translation
+
+   Translating wiki content is crucial for making information accessible to a
+   global audience. Proper translation not only conveys information
+   accurately but also respects cultural nuances.
+
+  General principles
+
+     * Accuracy: Strive for translations that faithfully represent the
+       original content without altering meaning or omitting information.
+     * Clarity: Prioritize clear, understandable language over literal
+       translations.
+     * Consistency: Maintain consistent terminology and style across all
+       translated pages.
+     * Cultural sensitivity: Be mindful of cultural differences and adapt
+       content appropriately.
+
+  Translation process
+
+    Preparation
+
+     * Familiarize: Read the entire original article to understand context
+       and technical terms.
+     * Research: Identify established translations for NixOS-specific terms
+       in your target language.
+     * Tools: Machine translation is allowed for a general foundation, but it
+       must be reviewed.
+
+    Translation
+
+     * Translate content: Begin with the main body of the article.
+     * Maintain structure: Preserve the original article's structure and
+       formatting.
+     * Technical terms: Use glossaries for consistent translation of
+       technical terms.
+     * Proper nouns: Generally, do not translate names of tools, projects, or
+       people.
+
+    Review and refinement
+
+     * Self-review: Proofread your translation for accuracy and fluency.
+     * Peer review: If possible, have a native speaker review the
+       translation.
+     * Technical review: Ensure technical accuracy, especially for code
+       snippets and commands.
+
+  Language-specific guidelines
+
+     * Maintain a separate page for language-specific translation guidelines.
+     * Address unique challenges or conventions for each language.
+     * Provide guidance on translating or adapting idiomatic expressions.
+
+  Handling untranslatable content
+
+     * Code snippets: Generally, do not translate code. Provide translated
+       comments if necessary.
+     * Commands: Keep command syntax unchanged, but translate descriptions
+       and explanations.
+
+  Metadata and navigation
+
+     * Page titles: Use translated titles, but include the original title in
+       parentheses.
+     * Categories: Create and use translated category names.
+     * Interlanguage links: Add appropriate interlanguage links to connect
+       corresponding articles across languages.
+
+  Quality assurance
+
+     * Regularly review and update translations to ensure they remain
+       accurate and up-to-date.
+     * Encourage feedback from readers and act on suggestions for
+       improvement.
+     * Conduct periodic audits of translated content to maintain overall
+       quality and consistency.
+
+Templates
+
+   Templates are pre-formatted pieces of content that can be reused across
+   multiple pages. They help maintain consistency and reduce repetitive work.
+
+  Common templates
+
+     * Warning: A warning box used to report potential danger.
+     * Note: A note box used to emphasize important information.
+     * Tip: A tip box used to share helpful hints.
+     * Expansion: An expansion flag used to indicate incomplete articles.
+
+  Using templates
+
+   To use a template, enclose its name in double curly braces:
+
+ {{TemplateName}}
+
+   For templates with parameters:
+
+ {{TemplateName|parameter1=value1|parameter2=value2}}
+
+    Template markup
+
+   When creating new templates:
+
+     * Use clear, descriptive names for templates.
+     * Document the purpose and usage of the template on its talk page.
+     * Use tags for content that should only appear on the template page
+       itself.
+
+References
+
+   Proper referencing is crucial for maintaining the credibility and
+   verifiability of wiki content. Follow these guidelines for references:
+
+  Citation styles
+
+     * Use inline citations with numbered references:
+
+ This is a statement that needs a reference.<ref>Author Name, "Article Title", Publication, Date. URL</ref>
+
+     * For multiple uses of the same reference, use named references:
+
+ First use of the reference.<ref name="example">Author Name, "Article Title", Publication, Date. URL</ref>
+ ...
+ Later use of the same reference.<ref name="example" />
+
+  General guidelines
+
+     * Prefer primary sources and official documentation when available.
+     * Avoid referencing personal blogs or unreliable sources.
+     * For software-specific information, link to the official documentation
+       or repository.
+     * When referencing specific versions of software, include the version
+       number in the citation.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Manual_of_Style&oldid=17058"
+   Category:
+     * Contributions
+     * This page was last edited on 2 September 2024, at 18:56.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

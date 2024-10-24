@@ -1,0 +1,187 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Command Shell: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 April 2024
+
+     * curprev [ ] [ ] 08:2108:21, 6 April 2024‎ Claes talk contribs‎ 1,660
+       bytes +19‎ Add category shell Tag: Visual edit
+
+    29 November 2023
+
+     * curprev [ ] [ ] 16:1016:10, 29 November 2023‎ imported>Hypnosis2839‎
+       1,641 bytes −853‎ If users are using the wiki, they do not "know what
+       they're doing", especially with an undocumented option...
+
+    11 November 2023
+
+     * curprev [ ] [ ] 02:1002:10, 11 November 2023‎ imported>Liassica‎ 2,494
+       bytes +21‎ →‎For a specific user: Fix <name>.shell link
+     * curprev [ ] [ ] 01:2201:22, 11 November 2023‎ imported>Liassica‎ 2,473
+       bytes +482‎ →‎Changing the default shell: Expand on how to change the
+       default shell
+     * curprev [ ] [ ] 01:1201:12, 11 November 2023‎ imported>Liassica‎ 1,991
+       bytes +52‎ →‎Enable: Specify when to enable the shell and example line
+     * curprev [ ] [ ] 01:1001:10, 11 November 2023‎ imported>Liassica‎ 1,939
+       bytes +9‎ →‎Enable: Changed vague "home.nix" wording
+
+    16 October 2023
+
+     * curprev [ ] [ ] 17:1517:15, 16 October 2023‎ imported>Skylark‎ m 1,930
+       bytes +7‎ Minor copyedit throughout
+
+    11 October 2023
+
+     * curprev [ ] [ ] 02:3602:36, 11 October 2023‎ imported>Artturin‎ 1,923
+       bytes −392‎ Link to options search. Remove unnecessary note which is
+       already warned about in nix code.
+
+    13 September 2023
+
+     * curprev [ ] [ ] 19:0319:03, 13 September 2023‎ imported>Vieta‎ m 2,315
+       bytes +3‎ typo
+     * curprev [ ] [ ] 19:0219:02, 13 September 2023‎ imported>Vieta‎ m 2,312
+       bytes +1‎ typo
+     * curprev [ ] [ ] 19:0019:00, 13 September 2023‎ imported>Vieta‎ m 2,311
+       bytes +24‎ Nushell mentioning
+
+    19 August 2022
+
+     * curprev [ ] [ ] 16:4716:47, 19 August 2022‎ imported>Pfeiferj‎ 2,287
+       bytes +337‎ →‎Changing default shell
+
+    28 April 2022
+
+     * curprev [ ] [ ] 19:0819:08, 28 April 2022‎ imported>Klaymore‎ m 1,950
+       bytes −3‎ Small wording fix
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4205:42, 20 September 2021‎ imported>Nix‎ m 1,953
+       bytes +50‎ add software and configuration categories
+
+    19 June 2021
+
+     * curprev [ ] [ ] 13:5213:52, 19 June 2021‎ imported>Flexagoon‎ 1,903
+       bytes +72‎ No edit summary
+
+    12 June 2021
+
+     * curprev [ ] [ ] 05:5805:58, 12 June 2021‎ imported>Flexagoon‎ 1,831
+       bytes +11‎ No edit summary
+     * curprev [ ] [ ] 05:5505:55, 12 June 2021‎ imported>Flexagoon‎ 1,820
+       bytes +860‎ No edit summary
+     * curprev [ ] [ ] 05:4705:47, 12 June 2021‎ imported>Artturin‎ 960 bytes
+       +17‎ add enable
+     * curprev [ ] [ ] 05:3505:35, 12 June 2021‎ imported>Flexagoon‎ 943
+       bytes +26‎ No edit summary
+     * curprev [ ] [ ] 05:2905:29, 12 June 2021‎ imported>Flexagoon‎ 917
+       bytes +917‎ Created page with "A shell is a program that translates
+       text commands (like {{ic|ls}}, {{ic|vim}}, {{ic|reboot}} etc) into
+       instructions for your computer. The default shell on NixOS is
+       bash,..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Command_Shell"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

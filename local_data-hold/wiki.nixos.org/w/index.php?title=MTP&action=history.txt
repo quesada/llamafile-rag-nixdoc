@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             MTP: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    26 September 2023
+
+     * curprev [ ] [ ] 09:3709:37, 26 September 2023‎ imported>IgorM‎ m 1,937
+       bytes +6‎ Fixed link
+
+    16 September 2022
+
+     * curprev [ ] [ ] 05:5605:56, 16 September 2022‎ imported>Phrogg‎ m
+       1,931 bytes +47‎ No edit summary
+
+    22 December 2021
+
+     * curprev [ ] [ ] 23:0823:08, 22 December 2021‎
+       imported>SuperSandro2000‎ m 1,884 bytes −1‎ fix typo
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:0606:06, 20 September 2021‎ imported>Nix‎ m 1,885
+       bytes +27‎ add Software/Applications subcategory
+
+    23 August 2021
+
+     * curprev [ ] [ ] 04:4004:40, 23 August 2021‎ imported>Infinidoge‎ m
+       1,858 bytes 0‎ Fix typo (gfvs should be gvfs)
+
+    21 August 2021
+
+     * curprev [ ] [ ] 17:3917:39, 21 August 2021‎ imported>Rski‎ 1,858 bytes
+       +287‎ No edit summary
+
+    16 June 2018
+
+     * curprev [ ] [ ] 10:0110:01, 16 June 2018‎ imported>Symphorien‎ 1,571
+       bytes +1,571‎ how to mount an mtp device with jmtpfs and gvfs
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/MTP"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

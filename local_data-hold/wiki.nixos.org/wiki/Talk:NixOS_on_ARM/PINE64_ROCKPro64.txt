@@ -1,0 +1,88 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Talk:NixOS on ARM/PINE64 ROCKPro64
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   < Talk:NixOS on ARM
+   Latest comment: 22 August 2019 by Thra11
+
+     Note: It is not recommended to connect the serial adapter to pin 10 (RX)
+     while booting, as this often causes the board to hang early in the
+     bootloader. Disconnecting pin 10 still allows the serial console to be
+     viewed, and it can be reconnected after the board boots, allowing
+     interaction with the console.
+
+   Was this observed using the Pine64 USB Serial Console? I have a different
+   make of USB-serial adaptor and haven't noticed any such issues. Is it
+   possible this is a quirk of a specific serial adaptor rather than an issue
+   with the RockPro64 itself? (Or maybe it's been fixed in u-boot or
+   something?) Thra11 (talk) 12:32, 22 August 2019 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:NixOS_on_ARM/PINE64_ROCKPro64&oldid=6984"
+     * This page was last edited on 22 August 2019, at 12:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

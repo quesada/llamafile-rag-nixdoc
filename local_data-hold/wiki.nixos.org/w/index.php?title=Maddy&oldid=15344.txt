@@ -1,0 +1,509 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+          * 2.1 TLS
+          * 2.2 DNS records
+          * 2.3 rDNS
+          * 2.4 MTA-STS
+          * 2.5 TLSA (DANE)
+          * 2.6 Users and inboxes
+          * 2.7 Spam filtering
+          * 2.8 Mail attachement size
+          * 2.9 Alias addresses
+     * 3 Tips & tricks
+          * 3.1 Test mail server
+          * 3.2 Autoconfig
+     * 4 Troubleshooting
+          * 4.1 TLS it not available or unauthenticated but required
+     * 5 See also
+   [ ] Toggle the table of contents
+
+                                     Maddy
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 00:19, 22 July 2024 by Dave (talk | contribs) (Add
+   alternate way of generating TLSA)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Maddy is a composable, modern mail server written in Go. It includes
+   everything required to manage users, inboxes, send and receive mails while
+   supporting all important secure protocols and standards.
+
+Installation
+
+   The following example enables the Maddy mail server on localhost,
+   listening on mail delivery SMTP/Submission ports (25, 587) and IMAP port
+   (143) for mail clients to connect to. Mailboxes for the accounts
+   postmaster@example.org and user1@example.org get created if they don't
+   exist yet.
+
+ /etc/nixos/configuration.nix
+
+ services.maddy = {
+   enable = true;
+   primaryDomain = "localhost";
+   ensureAccounts = [
+     "user1@example.org"
+     "postmaster@example.org"
+   ];
+   ensureCredentials = {
+     # Do not use this in production. This will make passwords world-readable
+     # in the Nix store
+     "user1@example.org".passwordFile = "${pkgs.writeText "postmaster" "test"}";
+     "postmaster@example.org".passwordFile = "${pkgs.writeText "postmaster" "test"}";
+   };
+ };
+
+   This local test setup doesn't provide secure TLS connections and should be
+   used only for testing purpose.
+
+Configuration
+
+  TLS
+
+   The following example changes the hostname for the mail server to the
+   public domain example.org. TLS certificates are obtained using using the
+   ACME dns-01 challenge. This requires API access to your domain provider.
+   See upstream documentation for a list on supported providers and how to
+   configure them.
+
+   Further the TLS connection is enabled on IMAP port 993 and Submission port
+   465.
+
+ /etc/nixos/configuration.nix
+
+ services.maddy = {
+   enable = true;
+   openFirewall = true;
+   primaryDomain = "example.org";
+   tls = {
+     loader = "acme";
+     extraConfig = ''
+       email put-your-email-here@example.org
+       agreed # indicate your agreement with Let's Encrypt ToS
+       host ${config.services.maddy.primaryDomain}
+       challenge dns-01
+       dns gandi {
+         api_token "{env:GANDI_API_KEY}"
+       }
+     '';
+   };
+   # Enable TLS listeners. Configuring this via the module is not yet
+   # implemented, see https://github.com/NixOS/nixpkgs/pull/153372
+   config = builtins.replaceStrings [
+     "imap tcp://0.0.0.0:143"
+     "submission tcp://0.0.0.0:587"
+   ] [
+     "imap tls://0.0.0.0:993 tcp://0.0.0.0:143"
+     "submission tls://0.0.0.0:465 tcp://0.0.0.0:587"
+   ] options.services.maddy.config.default;
+   # Reading secrets from a file. Do not use this example in production
+   # since it stores the keys world-readable in the Nix store.
+   secrets = [ "${pkgs.writeText "secrets" ''
+     GANDI_API_KEY=1234
+   ''}" ];
+ };
+
+ # Opening ports for additional TLS listeners. This is not yet
+ # implemented in the module.
+ networking.firewall.allowedTCPPorts = [ 993 465 ];
+
+   Alternativley certificates can be manually loaded with setting tls.loader
+   = "file"; and manually specifiying key and certificates file paths using
+   the tls.certificates = []; option. In this case, more ACME protocols and
+   providers are available when using the native NixOS ACME module or manual
+   client tools like Certbot.
+
+  DNS records
+
+   It is possibly easier to configure our own authoritative-only DNS server,
+   which provides important setup information to other mail servers and
+   clients. For details about the meaning of the specific DNS records or
+   manual setup instructions see the Maddy setup tutorial.
+
+ /etc/nixos/configuration.nix
+
+ services.nsd = {
+   enable = true;
+   interfaces = [
+     "0.0.0.0"
+     "::"
+   ];
+   zones."example.org.".data = let
+     domainkey = ''
+       v=DKIM1; k=rsa; p=${
+         lib.fileContents( /var/lib/maddy/dkim_keys/example.org_default.dns )}'';
+     segments = ((lib.stringLength domainkey) / 255);
+     domainkeySplitted = map (x: lib.substring (x*255) 255 domainkey) (lib.range 0 segments);
+   in ''
+     @ SOA ns.example.org noc.example.org 666 7200 3600 1209600 3600
+     @ A 1.2.3.4
+     @ AAAA abcd::eeff
+     @ MX 10 mx1
+     mx1 A 1.2.3.4
+     mx1 AAAA abcd::eeff
+     @ TXT "v=spf1 mx ~all"
+     mx1 TXT "v=spf1 mx ~all"
+     _dmarc TXT "v=DMARC1; p=quarantine; ruf=mailto:postmaster@example.org
+     _mta-sts TXT "v=STSv1; id=1"
+     _smtp._tls TXT "v=TLSRPTv1;rua=mailto:postmaster@example.org"
+     default._domainkey TXT "${lib.concatStringsSep "\" \"" domainkeySplitted}"
+   '';
+ };
+
+   Update the IPv4 and IPv6 addresses after A and AAAA to the one which
+   points to the publc IP addresses of your mail server. The last entry is
+   used by the DKIM authentication mechanism which enables recipients to
+   verify the authenticity of mails send by your server. They key is read
+   from the file generated by Maddy on the first startup at
+   /var/lib/maddy/dkim_keys/example.org_default.dns and spitted in segments
+   of 255 chars length to fulfill the DNS record requirements.
+
+   Now that your server also runs a DNS daemon besides the mail server, you
+   have to configure it as the external nameserver of your domain
+   example.org. Please consult your domain provider on how to do that.
+
+  rDNS
+
+   It is important that the public facing IP of your mail server resolves to
+   the MX domain name. This is something you would normally configure on your
+   server provider site. You can check if it's resolving correctly by running
+   this command
+
+ # nix shell nixpkgs#bind --command dig -x 1.2.3.4
+ [...]
+ ;; ANSWER SECTION:
+ 1.2.3.4.in-addr.arpa. 6244      IN      PTR     mx1.example.org.
+
+   Replace the IP 1.2.3.4 with the IP of your mail server.
+
+  MTA-STS
+
+   MTA-STS enforces secure TLS configuration for servers which support this
+   standard. We already advertised this feature in the DNS records above, but
+   we also have to serve a static configuration file using a web server. We
+   use the web server Caddy to do this but of course you can other Web
+   Servers too.
+
+ /etc/nixos/configuration.nix
+
+ caddy = {
+   enable = true;
+   virtualHosts."mta-sts.example.org".extraConfig = ''
+     encode gzip
+     file_server
+     root * ${
+       pkgs.runCommand "testdir" {} ''
+         mkdir -p "$out/.well-known"
+         echo "
+           version: STSv1
+           mode: enforce
+           max_age: 604800
+           mx: mx1.example.org
+         " &gt; "$out/.well-known/mta-sts.txt"
+       ''
+     }
+   '';
+ };
+
+   Replace the domain mta-sts.example.org and the domain mx1.example.org with
+   the ones you're using.
+
+  TLSA (DANE)
+
+   Using a TLSA (DANE) record is recommended to bind TLS-certificates to a
+   server. Your nameserver needs DNSSEC support for it. You can generate the
+   key using following command
+
+ # nix shell nixpkgs#hash-slinger --command tlsa  --create --selector 1 --protocol tcp -p 25 --create mx1.example.org
+
+   Or you can generate it directly from the TLS-certificate that you are
+   using with maddy:
+
+ # openssl x509 -in cert.pem -pubkey -noout | openssl ec -pubin -outform der | sha256sum
+
+   Add the key to a new TLSA record in your nameserver
+
+ /etc/nixos/configuration.nix
+
+ services.nsd.zones."example.org.".data = ''
+   [...]
+   _25._tcp.mx1.example.org. TLSA 3 1 1 7f59d873a70e224b184c95a4eb54caa9621e47d48b4a25d312d83d96e3498238
+ '';
+
+   To verify if the record is set correctly
+
+ # nix shell nixpkgs#dnsutils --command dig _25._tcp.mx1.example.org TLSA +short
+ 3 1 1 7f59d873a70e224b184c95a4eb54caa9621e47d48b4a25d312d83d96 e3498238
+
+   Check if DNSSEC is working correctly for your new TLSA record
+
+ # nix shell nixpkgs#dnsutils --command delv _25._tcp.mx1.example.org TLSA @1.1.1.1
+ ; fully validated
+ _25._tcp.mx1.example.org. 10800 IN TLSA 3 1 1 7f59d873a70e224b184c95a4eb54caa9621e47d48b4a25d312d83d96 e3498238
+ _25._tcp.mx1.example.org. 10800 IN RRSIG        TLSA 13 5 10800 20230601000000 20230511000000 39688 example.org. He9VYZ35xTC3fNo8GJa6swPrZodSnjjIWPG6Th2YbsOEKTV1E8eGtJ2A +eyBd9jgG+B3cA/jw8EJHmpvy/buCw==
+
+   To verify that the TLSA record matches the TLS certificate of the mail
+   server, issue following openssl command
+
+ # openssl s_client -connect mx1.example.org:25 -starttls smtp -dane_tlsa_domain mx1.example.org -dane_tlsa_rrdata "3 1 1 7f59d873a70e224b184c95a4eb54caa9621e47d48b4a25d312d83d96"
+ [...]
+ Verify return code: 0 (ok)
+ [...]
+
+   Replace the hostnames and the TLSA hash according to your configuration.
+
+  Users and inboxes
+
+   Creating credentials and inboxes for a specific account. The first command
+   creates the user postmaster@example.org and will prompt for a password.
+
+ # maddyctl creds create postmaster@example.org
+ # maddyctl imap-acct create postmaster@example.org
+
+   Change password of an existing account
+
+ # maddyctl creds password postmaster@example.org
+
+  Spam filtering
+
+   You can enable and use rspamd spam filtering daemon like this
+
+ /etc/nixos/configuration.nix
+
+ { options, lib, ... }: {
+
+ services.maddy.config = builtins.replaceStrings ["msgpipeline local_routing {"] [''msgpipeline local_routing {
+   check {
+     rspamd {
+       api_path http://localhost:11334
+     }
+   }''] options.services.maddy.config.default;
+
+ services.rspamd = {
+   enable = true;
+   locals."dkim_signing.conf".text = ''
+     selector = "default";
+     domain = "project-insanity.org";
+     path = "/var/lib/maddy/dkim_keys/$domain_$selector.key";
+   '';
+ };
+
+ systemd.services.rspamd.serviceConfig.SupplementaryGroups = [ "maddy" ];
+
+ [...]
+
+   The second part in this example replaces a part in the default config of
+   the Maddy module and inserts the rspamd check to the message pipeline as
+   described in the upstream documentation.
+
+   The rspamd article also has some notes on how to achieve training for
+   spam/ham mails using an additional helper script.
+
+  Mail attachement size
+
+   The default max mail attachement size is set to 32MB, for a higher value
+   (in this case 64MB) change the default configuration via this workaround
+
+ /etc/nixos/configuration.nix
+
+ { options, lib, ... }: {
+
+ services.maddy.config = builtins.replaceStrings [
+   "dmarc yes"
+ ] [
+   ''dmarc yes
+    max_message_size 64M''] options.services.maddy.config.default;
+
+ [...]
+
+  Alias addresses
+
+   The following example will add an alias mailA@example.org for the local
+   mail address mailB@example.org meaning that every mail send to mailA will
+   get delivered to mailB.
+
+ /etc/nixos/configuration.nix
+
+ { options, lib, ... }: {
+
+ services.maddy.config = builtins.replaceStrings [
+   "optional_step file /etc/maddy/aliases"
+ ] [
+   "optional_step static {
+      entry mailA@example.org mailB@example.org
+    }"] options.services.maddy.config.default;
+
+ [...]
+
+Tips & tricks
+
+  Test mail server
+
+   You can use several online tools to test your mail server configuration:
+
+     * en.internet.nl/test-mail: Test your mail server configuration for
+       validity and security.
+     * mail-tester.com: Send a mail to this service and get a rating about
+       the "spaminess" of your mail server.
+     * Send a mail to the echo server echo@univie.ac.at. You should receive a
+       response containing your message in several seconds.
+
+  Autoconfig
+
+   Since Maddy does not support this feature yet, you can run an additional
+   web service which provides autoconfig or autodiscover files for various
+   mail clients like Thunderbird, iOS Mail or Outlook, so you don't have to
+   manually configure your server settings into these apps. In this example,
+   we're going to tell the clients, that our mail server is running on the
+   domain example.org and which IMAP/SMTP ports to use
+
+ /etc/nixos/configuration.nix
+
+ services.go-autoconfig = {
+   enable = true;
+   settings = {
+     service_addr = ":1323";
+     domain = "autoconfig.example.org";
+     imap = {
+       server = "example.org";
+       port = 993;
+     };
+     smtp = {
+       server = "example.org";
+       port = 587;
+     };
+   };
+ };
+
+   After that the autoconfig service based on program go-autoconfig will
+   listen on http://localhost:1323 , serving the configuration informations
+   used by the clients.
+
+   You can use your preferred web server, for example Caddy to proxy this
+   service to an outside facing domain like https://autoconfig.example.org
+
+ /etc/nixos/configuration.nix
+
+ caddy = {                                 
+   enable = true;                                             
+   virtualHosts."autoconfig.example.org".extraConfig = ''
+     reverse_proxy http://localhost:1323             
+   '';            
+ };
+
+   Further we need to add an additional DNS record to the nsd service to get
+   Outlook and Thunderbird working:
+
+ /etc/nixos/configuration.nix
+
+ services.nsd.zones."example.org.".data = ''
+   [...]
+   _autodiscover._tcp SRV 0 0 443 autoconfig
+ '';
+
+   Of course autoconfig.example.org domain should point to your server
+   running the SSL enabled web service.
+
+Troubleshooting
+
+  TLS it not available or unauthenticated but required
+
+   This error occurs if the receiving mail server has a invalid or none TLS
+   configuration. The default configuration of Maddy enforces a valid TLS
+   connection to the remote server for delivery. If you want to disable this
+   default policy, apply following configuration hack
+
+ /etc/nixos/configuration.nix
+
+ { options, lib, ... }: {
+
+ services.maddy.config = builtins.replaceStrings [
+   "min_tls_level encrypted"
+ ] [
+   "min_tls_level none"] options.services.maddy.config.default;
+
+ [...]
+
+See also
+
+     * Maddy homepage and documentation
+     * Stalwart, an open-source, all-in-one mail server solution that
+       supports JMAP, IMAP4, and SMTP protocols
+     * Simple NixOS Mailserver
+     * Imapsync, useful tool to migrate mailboxes to a new server
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Maddy&oldid=15344"
+   Categories:
+     * Mail Server
+     * Server
+     * This page was last edited on 22 July 2024, at 00:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

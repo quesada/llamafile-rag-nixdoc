@@ -1,0 +1,342 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Graphical interface for user.
+          * 1.2 Server instaltation
+     * 2 Configuration
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                      GNS3
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   GNS3 is used by network engineers worldwide to emulate, configure, test
+   and troubleshoot virtual and real networks. GNS3 allows to run a small
+   topology consisting of only a few devices on laptop, to those that have
+   many devices hosted on multiple servers or even hosted in the cloud.
+
+Installation
+
+      Graphical interface for user.
+
+ /etc/nixos/configuration.nix
+
+ users.users.myuser= {
+      ...
+         packages = with pkgs; [
+         ...
+         gns3-gui
+         ];
+ };
+
+      Server instaltation
+
+ /etc/nixos/configuration.nix
+
+ environment.systemPackages = with pkgs; [
+     ...
+         gns3-server
+ ];
+
+Configuration
+
+   In order to use appliances, e.g. VirtualBox appliances, you need to
+   specify the path to specific executables such as VBoxManage in the GNS3
+   preferences (Ctrl+Shift+P). For example, specify following under
+   Preferences > VirtualBox, for VBoxManage :
+
+ /run/current-system/sw/bin/VBoxManage
+
+   The same applies for VMware, Dynamips, …
+
+   Configuration files can be found at the home file under:
+
+ ~/.config/GNS3/versionNumber
+
+ appliances
+ │   ├── 6wind-turbo-router.gns3a
+ │   ├── a10-vthunder.gns3a
+ │   ├── aaa.gns3a
+ │   ├── alcatel-7750.gns3a
+ │   ├── almalinux.gns3a
+ │   ├── alpine-linux.gns3a
+ │   ├── alpine-linux-virt.gns3a
+ │   ├── arista-ceos.gns3a
+ │   ├── arista-veos.gns3a
+ │   ├── aruba-arubaoscx.gns3a
+ │   ├── aruba-vgw.gns3a
+ │   ├── aruba-vmc.gns3a
+ │   ├── asterisk.gns3a
+ │   ├── bigswitch-bigcloud-fabric.gns3a
+ │   ├── bird2.gns3a
+ │   ├── bird.gns3a
+ │   ├── brocade-vadx.gns3a
+ │   ├── brocade-vrouter.gns3a
+ │   ├── brocade-vtm.gns3a
+ │   ├── bsdrp.gns3a
+ │   ├── centos7.gns3a
+ │   ├── centos-cloud.gns3a
+ │   ├── checkpoint-gaia.gns3a
+ │   ├── chromium.gns3a
+ │   ├── cisco-1700.gns3a
+ │   ├── cisco-2600.gns3a
+ │   ├── cisco-2691.gns3a
+ │   ├── cisco-3620.gns3a
+ │   ├── cisco-3640.gns3a
+ │   ├── cisco-3660.gns3a
+ │   ├── cisco-3725.gns3a
+ │   ├── cisco-3745.gns3a
+ │   ├── cisco-7200.gns3a
+ │   ├── cisco-asa.gns3a
+ │   ├── cisco-asav.gns3a
+ │   ├── cisco-c8000v.gns3a
+ │   ├── cisco-cat9k.gns3a
+ │   ├── cisco-csr1000v.gns3a
+ │   ├── cisco-dcnm.gns3a
+ │   ├── cisco-fcnf.gns3a
+ │   ├── cisco-fmcv.gns3a
+ │   ├── cisco-fsve.gns3a
+ │   ├── cisco-ftdv.gns3a
+ │   ├── cisco-iosv.gns3a
+ │   ├── cisco-iosvl2.gns3a
+ │   ├── cisco-iosxrv9k.gns3a
+ │   ├── cisco-iosxrv.gns3a
+ │   ├── cisco-iou-l2.gns3a
+ │   ├── cisco-iou-l3.gns3a
+ │   ├── cisco-ise.gns3a
+ │   ├── cisco-ngipsv.gns3a
+ │   ├── cisco-nxosv9k.gns3a
+ │   ├── cisco-nxosv.gns3a
+ │   ├── cisco-pyats.gns3a
+ │   ├── cisco-smc.gns3a
+ │   ├── cisco-vWLC.gns3a
+ │   ├── cisco-wsav.gns3a
+ │   ├── citrix-netscaler-vpx.gns3a
+ │   ├── citrix-sdwan-center.gns3a
+ │   ├── citrix-sd-wan.gns3a
+ │   ├── clavister-netsheild.gns3a
+ │   ├── clavister-netwall.gns3a
+ │   ├── clearos.gns3a
+ │   ├── cloudrouter.gns3a
+ │   ├── coreos.gns3a
+ │   ├── cumulus-vx.gns3a
+ │   ├── danos.gns3a
+ │   ├── debian.gns3a
+ │   ├── deft-linux.gns3a
+ │   ├── dell-ftos.gns3a
+ │   ├── dns.gns3a
+ │   ├── empty-vm.gns3a
+ │   ├── endhost.gns3a
+ │   ├── exos.gns3a
+ │   ├── extreme-networks-voss.gns3a
+ │   ├── f5-bigip.gns3a
+ │   ├── f5-bigiq.gns3a
+ │   ├── fedora-cloud.gns3a
+ │   ├── firefox.gns3a
+ │   ├── fortiadc.gns3a
+ │   ├── fortiadc-manager.gns3a
+ │   ├── fortianalyzer.gns3a
+ │   ├── fortiauthenticator.gns3a
+ │   ├── forticache.gns3a
+ │   ├── fortigate.gns3a
+ │   ├── fortimail.gns3a
+ │   ├── fortimanager.gns3a
+ │   ├── fortiproxy.gns3a
+ │   ├── fortirecorder.gns3a
+ │   ├── fortisandbox.gns3a
+ │   ├── fortisiem-super_worker.gns3a
+ │   ├── fortiweb.gns3a
+ │   ├── freebsd.gns3a
+ │   ├── freenas.gns3a
+ │   ├── freeRouter.gns3a
+ │   ├── frr.gns3a
+ │   ├── haproxy.gns3a
+ │   ├── hp-vsr1001.gns3a
+ │   ├── huawei-ar1kv.gns3a
+ │   ├── huawei-ce12800.gns3a
+ │   ├── huawei-ne40e.gns3a
+ │   ├── huawei-usg6kv.gns3a
+ │   ├── IPCop.gns3a
+ │   ├── ipfire.gns3a
+ │   ├── ipterm.gns3a
+ │   ├── ipxe.gns3a
+ │   ├── juniper-junos-space.gns3a
+ │   ├── juniper-vmx-legacy.gns3a
+ │   ├── juniper-vmx-vcp.gns3a
+ │   ├── juniper-vmx-vfp.gns3a
+ │   ├── juniper-vqfx-pfe.gns3a
+ │   ├── juniper-vqfx-re.gns3a
+ │   ├── juniper-vrr.gns3a
+ │   ├── juniper-vsrx.gns3a
+ │   ├── jupyter27.gns3a
+ │   ├── jupyter.gns3a
+ │   ├── kali-linux-cli.gns3a
+ │   ├── kali-linux.gns3a
+ │   ├── kemp-vlm.gns3a
+ │   ├── kerio-connect.gns3a
+ │   ├── kerio-control.gns3a
+ │   ├── kerio-operator.gns3a
+ │   ├── lancom-vrouter.gns3a
+ │   ├── loadbalancer_org-va.gns3a
+ │   ├── macos-install.gns3a
+ │   ├── mcjoin.gns3a
+ │   ├── microcore-linux.gns3a
+ │   ├── mikrotik-ccr1036-8g-2s+.gns3a
+ │   ├── mikrotik-ccr1072-1g-8s+.gns3a
+ │   ├── mikrotik-chr.gns3a
+ │   ├── mikrotik-crs328-24p-4s+.gns3a
+ │   ├── mikrotik-crs328-4c-20s-4s+.gns3a
+ │   ├── mikrotik-rb1100ahx4-dude-edition.gns3a
+ │   ├── mikrotik-rb2011uias.gns3a
+ │   ├── mikrotik-rb3011uias.gns3a
+ │   ├── mikrotik-rb4011igs+.gns3a
+ │   ├── mikrotik-rb450g.gns3a
+ │   ├── mikrotik-rb450gx4.gns3a
+ │   ├── mikrotik-winbox.gns3a
+ │   ├── mininet.gns3a
+ │   ├── netapp-ontapsim.gns3a
+ │   ├── netem.gns3a
+ │   ├── net_toolbox.gns3a
+ │   ├── network_automation.gns3a
+ │   ├── nokia-vsim.gns3a
+ │   ├── ntopng.gns3a
+ │   ├── onos.gns3a
+ │   ├── op5-monitor.gns3a
+ │   ├── openbsd.gns3a
+ │   ├── open-media-vault.gns3a
+ │   ├── opennac.gns3a
+ │   ├── opensuse.gns3a
+ │   ├── openvswitch.gns3a
+ │   ├── openvswitch-management.gns3a
+ │   ├── openwrt.gns3a
+ │   ├── openwrt-realview.gns3a
+ │   ├── opnsense.gns3a
+ │   ├── oracle-linux-cloud.gns3a
+ │   ├── ostinato.gns3a
+ │   ├── ostinato-wireshark.gns3a
+ │   ├── ovs-snmp.gns3a
+ │   ├── packetfence-zen.gns3a
+ │   ├── pan-vm-fw.gns3a
+ │   ├── parrot-os.gns3a
+ │   ├── pfsense.gns3a
+ │   ├── proxmox-mg.gns3a
+ │   ├── puppy-linux.gns3a
+ │   ├── python-go-perl-php.gns3a
+ │   ├── raspian.gns3a
+ │   ├── reactos.gns3a
+ │   ├── rhel.gns3a
+ │   ├── riverbed-steelhead-ng-vcx.gns3a
+ │   ├── rockylinux.gns3a
+ │   ├── security-onion.gns3a
+ │   ├── smoothwall.gns3a
+ │   ├── sophos-iview.gns3a
+ │   ├── sophos-utm.gns3a
+ │   ├── sophos-xg.gns3a
+ │   ├── stonework.gns3a
+ │   ├── tacacs-gui.gns3a
+ │   ├── tinycore-linux.gns3a
+ │   ├── trendmicro-imsva.gns3a
+ │   ├── trendmicro-iwsva.gns3a
+ │   ├── turnkey-wordpress.gns3a
+ │   ├── ubuntu-cloud.gns3a
+ │   ├── ubuntu-docker.gns3a
+ │   ├── ubuntu-gui.gns3a
+ │   ├── untangle.gns3a
+ │   ├── viptela-edge-genericx86-64.gns3a
+ │   ├── viptela-smart-genericx86-64.gns3a
+ │   ├── viptela-vmanage-genericx86-64.gns3a
+ │   ├── vpp.gns3a
+ │   ├── vrin.gns3a
+ │   ├── vyos.gns3a
+ │   ├── watchguard-fireboxv.gns3a
+ │   ├── watchguard-xtmv.gns3a
+ │   ├── webterm.gns3a
+ │   ├── windows-11-dev-env.gns3a
+ │   ├── windows.gns3a
+ │   ├── windows_server.gns3a
+ │   ├── windows-xp+ie.gns3a
+ │   ├── zentyal-server.gns3a
+ │   └── zeroshell.gns3a
+ ├── gns3_controller.conf
+ ├── gns3_gui.conf
+ ├── gns3_gui.log
+ ├── gns3_gui.pid
+ ├── gns3_server.conf
+ └── gns3_server.log
+
+See also
+
+     * [1]
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=GNS3&oldid=12204"
+   Category:
+     * Applications
+     * This page was last edited on 19 April 2024, at 15:57.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

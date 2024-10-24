@@ -1,0 +1,138 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             IRC: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    1 August 2024
+
+     * curprev [ ] [ ] 18:1818:18, 1 August 2024‎ Tomodachi94 talk contribs‎
+       m 1,243 bytes −120‎ switch wikipedia links to interwikis
+     * curprev [ ] [ ] 18:1218:12, 1 August 2024‎ Tomodachi94 talk contribs‎
+       m 1,363 bytes +12‎ →‎Clients: add irssi
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:2820:28, 24 April 2024‎ Klinger talk contribs‎ m
+       1,351 bytes +47‎ No edit summary
+
+    7 August 2019
+
+     * curprev [ ] [ ] 13:5313:53, 7 August 2019‎ imported>Adisbladis‎ 1,304
+       bytes −401‎ No edit summary
+     * curprev [ ] [ ] 13:5213:52, 7 August 2019‎ imported>Adisbladis‎ 1,705
+       bytes +20‎ No edit summary
+     * curprev [ ] [ ] 13:5113:51, 7 August 2019‎ imported>Adisbladis‎ 1,685
+       bytes +381‎ No edit summary
+
+    12 April 2019
+
+     * curprev [ ] [ ] 18:4418:44, 12 April 2019‎ imported>Mth‎ m 1,304 bytes
+       +52‎ No edit summary
+     * curprev [ ] [ ] 18:2918:29, 12 April 2019‎ imported>Mth‎ 1,252 bytes
+       +1,252‎ Created page with "{{Note|For the NixOS community chat, see
+       Get In Touch.}} From Wikipedia: <blockquote> Internet Relay Chat (IRC)
+       is an [https://en.wikipedia.org/wiki/Application_layer app..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/IRC"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

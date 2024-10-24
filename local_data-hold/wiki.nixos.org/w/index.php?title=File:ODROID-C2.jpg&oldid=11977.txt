@@ -1,0 +1,108 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                               File:ODROID-C2.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 05:22, 8 April 2024 by Samueldr (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+     * File
+     * File history
+     * File usage
+   File:ODROID-C2.jpg
+   No higher resolution available.
+
+   ODROID-C2.jpg ‎(529 × 375 pixels, file size: 52 KB, MIME type: image/jpeg)
+
+   An image of the ODROID-C2 from its product page:
+   https://www.hardkernel.com/shop/odroid-c2/
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+        Date/Time Thumbnail Dimensions User                Comment                                    
+                  Thumbnail                                                                           
+                  for                                                                                 
+        05:07, 6  version   529 × 375                      An image of the ODROID-C2 from its product 
+current December  as of     (52 KB)    Imported>Lopsided98 page:
+        2019      05:07, 6                                 https://www.hardkernel.com/shop/odroid-c2/
+                  December  
+                  2019      
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/ODROID-C2
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:ODROID-C2.jpg&oldid=11977"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

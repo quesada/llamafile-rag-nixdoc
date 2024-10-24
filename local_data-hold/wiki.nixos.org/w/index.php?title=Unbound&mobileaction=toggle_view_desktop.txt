@@ -1,0 +1,126 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Example configuration
+   [ ] Toggle the table of contents
+
+                                    Unbound
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Unbound#)                
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+Example configuration
+
+ services.unbound = {
+     enable = true;
+     settings = {
+       server = {
+         # When only using Unbound as DNS, make sure to replace 127.0.0.1 with your ip address
+         # When using Unbound in combination with pi-hole or Adguard, leave 127.0.0.1, and point Adguard to 127.0.0.1:PORT
+         interface = [ "127.0.0.1" ];
+         port = 5335;
+         access-control = [ "127.0.0.1 allow" ];
+         # Based on recommended settings in https://docs.pi-hole.net/guides/dns/unbound/#configure-unbound
+         harden-glue = true;
+         harden-dnssec-stripped = true;
+         use-caps-for-id = false;
+         prefetch = true;
+         edns-buffer-size = 1232;
+
+         # Custom settings
+         hide-identity = true;
+         hide-version = true;
+       };
+       forward-zone = [
+         # Example config with quad9
+         {
+           name = ".";
+           forward-addr = [
+             "9.9.9.9#dns.quad9.net"
+             "149.112.112.112#dns.quad9.net"
+           ];
+           forward-tls-upstream = true;  # Protected DNS
+         }
+       ];
+     };
+   };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Unbound&oldid=13562"
+   Categories:
+     * Applications
+     * Networking
+     * Server
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 26 June 2024, at 09:46.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

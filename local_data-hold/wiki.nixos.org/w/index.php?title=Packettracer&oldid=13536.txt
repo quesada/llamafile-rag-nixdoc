@@ -1,0 +1,101 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+   [ ] Toggle the table of contents
+
+                                  Packettracer
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 20:23, 25 June 2024 by Klinger (talk | contribs) (fixed
+   link to „Unfree software“ (capitalization))
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Packettracer is a network simulation software. The tool from Cisco is
+   suitable, for example, for training as an IT specialist to learn how to
+   deal with networks and, in particular, how to behave in the event of
+   problems. A free and open source alternative would be GNS3
+
+Installation
+
+   You need to enable unfree and prefetch the .deb file from Packettracer
+   before you are able to installing it. The Package is allready available
+   for Nix. Other Unix/Linux Distros with Nix installed can installing it on
+   their system aswell.
+
+  $nix-store --add-fixed sha256 CiscoPacketTracer_"version"_Ubuntu_64bit.deb
+  # or with
+  $nix-prefetch-url --type sha256 file:///path/to/CiscoPacketTracer_"version"_Ubuntu_64bit.deb
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Packettracer&oldid=13536"
+   Category:
+     * Applications
+     * This page was last edited on 25 June 2024, at 20:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,164 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        File:Pinebook-a64-11-glamour.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 05:21, 8 April 2024 by Samueldr (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:Pinebook-a64-11-glamour.jpg
+   Size of this preview: 573 × 600 pixels. Other resolutions: 1,957 × 2,048
+   pixels | 3,166 × 3,314 pixels.
+
+   Original file ‎(3,166 × 3,314 pixels, file size: 867 KB, MIME type:
+   image/jpeg)
+
+   Taken by myself (samueldr) made available for the Wiki under the Wiki's
+   own License.
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail   Dimensions User              Comment         
+                     Thumbnail                                Taken by myself 
+                     for version 3,166 ×                      (samueldr) made 
+   current 21:29, 18 as of       3,314 (867 Imported>Samueldr available for   
+           May 2019  21:29, 18   KB)                          the Wiki under  
+                     May 2019                                 the Wiki's own  
+                                                              License.        
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following 2 pages use this file:
+
+     * Hardware/Acer/One 10
+     * NixOS on ARM/PINE64 Pinebook
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Camera manufacturer              motorola                                  
+   Camera model                     XT1635-02                                 
+   Exposure time                    1/120 sec (0.0083333333333333)            
+   F Number                         f/2                                       
+   ISO speed rating                 125                                       
+   Date and time of data generation 14:46, 18 May 2019                        
+   Lens focal length                4.68 mm                                   
+   Horizontal resolution            72 dpi                                    
+   Vertical resolution              72 dpi                                    
+   Software used                    GIMP 2.10.8                               
+   File change date and time        16:20, 18 May 2019                        
+   Y and C positioning              Centered                                  
+   Exposure Program                 Normal program                            
+   Exif version                     2.2                                       
+   Date and time of digitizing      14:46, 18 May 2019                        
+                                     1. Y                                     
+   Meaning of each component         2. Cb                                    
+                                     3. Cr                                    
+                                     4. does not exist                        
+   APEX shutter speed               6.9                                       
+   APEX aperture                    2                                         
+   APEX brightness                  −1                                        
+   APEX exposure bias               0                                         
+   Maximum land aperture            2 APEX (f/2)                              
+   Metering mode                    Average                                   
+   Flash                            Flash did not fire, compulsory flash      
+                                    suppression                               
+   DateTime subseconds              370126                                    
+   DateTimeOriginal subseconds      370126                                    
+   DateTimeDigitized subseconds     370126                                    
+   Supported Flashpix version       1                                         
+   Color space                      sRGB                                      
+   Scene type                       A directly photographed image             
+   Custom image processing          Normal process                            
+   Exposure mode                    Auto exposure                             
+   White balance                    Manual white balance                      
+   Digital zoom ratio               1                                         
+   Scene capture type               Standard                                  
+   Contrast                         Normal                                    
+   Saturation                       Low saturation                            
+   Sharpness                        Soft                                      
+   Geodetic survey data used        WGS-84                                    
+   GPS tag version                  0.0.2.2                                   
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Pinebook-a64-11-glamour.jpg&oldid=11971"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

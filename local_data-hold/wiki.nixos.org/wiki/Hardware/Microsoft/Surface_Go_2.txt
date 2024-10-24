@@ -1,0 +1,138 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+   [ ] Toggle the table of contents
+
+                             Microsoft Surface Go 2
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to Hardware Hub
+
+   Microsoft Surface Go 2
+   A Pinebook 11".
+   Manufacturer Microsoft   
+   Architecture x86_64      
+   Bootloader   64-bit GRUB 
+   Maintainer   onny        
+
+   The Surface Go 2 is a portable 2-in-1 detachable tablet computer by
+   Microsoft, featuring a 10.5-inch PixelSense Display, Intel® Pentium® Gold
+   or Pentium® M processors, and optional LTE connectivity.
+
+Setup
+
+   Support for webcam and LTE modem requires a custom kernel from the
+   linux-surface project. Adapt the flake.nix of your system configuration to
+   include the nixos-hardware repository and the specific module for your
+   device: nixos-hardware.nixosModules.microsoft-surface-go.
+
+ {
+   description = "NixOS configuration with flakes";
+   inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+   outputs = { self, nixpkgs, nixos-hardware }: {
+     # replace <your-hostname> with your actual hostname
+     nixosConfigurations.<your-hostname> = nixpkgs.lib.nixosSystem {
+       # ...
+       modules = [
+         # ...
+         nixos-hardware.nixosModules.microsoft-surface-go
+       ];
+     };
+   };
+ }
+
+   After that rebuild your system and reboot the machine. If the LTE modem
+   does not appear in your network manager directly, a small workaround
+   script is required. Add this to your system configuration
+
+ systemd.services.lte_modem_fix = let
+   modemFixScript = pkgs.writeScriptBin "fix_lte_modem" ''
+     #!${pkgs.stdenv.shell}
+     echo -n 16383 > /sys/bus/usb/devices/2-3:1.0/net/wwp0s20f0u3/cdc_ncm/rx_max
+     echo -n 16383 > /sys/bus/usb/devices/2-3:1.0/net/wwp0s20f0u3/cdc_ncm/tx_max
+     echo -n 16384 > /sys/bus/usb/devices/2-3:1.0/net/wwp0s20f0u3/cdc_ncm/rx_max
+     echo -n 16384 > /sys/bus/usb/devices/2-3:1.0/net/wwp0s20f0u3/cdc_ncm/tx_max
+   '';
+ in {
+   wantedBy = ["multi-user.target"];
+   serviceConfig = {
+     Type = "oneshot";
+     ExecStart = "${modemFixScript}/bin/fix_lte_modem";
+   };
+ };
+ systemd.services.ModemManager.wantedBy = ["multi-user.target"];
+
+   It will take a couple of seconds for the modem to appear.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/Microsoft/Surface_Go_2&oldid=12795"
+     * This page was last edited on 15 May 2024, at 15:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,136 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Mtr: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    22 October 2022
+
+     * curprev [ ] [ ] 16:2816:28, 22 October 2022‎ imported>Longregen‎ m 607
+       bytes +326‎ Add a description of `mtr` and usage.
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:1106:11, 20 September 2021‎ imported>Nix‎ m 281
+       bytes +27‎ add Software/Applications subcategory
+
+    24 October 2017
+
+     * curprev [ ] [ ] 20:1020:10, 24 October 2017‎ imported>HLandau‎ 254
+       bytes +21‎ No edit summary
+
+    27 August 2017
+
+     * curprev [ ] [ ] 09:2409:24, 27 August 2017‎ imported>Fadenb‎ m 233
+       bytes +33‎ Syntaxhighlight
+
+    1 July 2017
+
+     * curprev [ ] [ ] 12:1112:11, 1 July 2017‎ imported>Fadenb‎ 200 bytes
+       +200‎ Created page with "== Issues == === mtr needs to be called with
+       sudo === To avoid the need to escalate privileges when calling
+       <code>mtr</code> create a setcap wrapper by setting
+       <code>programs...."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Mtr"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

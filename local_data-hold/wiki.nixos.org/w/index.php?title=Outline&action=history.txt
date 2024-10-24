@@ -1,0 +1,177 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Outline: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:1619:16, 24 April 2024‎ Klinger talk contribs‎
+       6,265 bytes +20‎ No edit summary
+
+    30 January 2024
+
+     * curprev [ ] [ ] 13:1413:14, 30 January 2024‎ imported>Onny‎ 6,245
+       bytes −9‎ No edit summary
+     * curprev [ ] [ ] 13:1013:10, 30 January 2024‎ imported>Onny‎ 6,254
+       bytes −76‎ Restructuring
+     * curprev [ ] [ ] 09:4909:49, 30 January 2024‎ imported>Sleepful‎ 6,330
+       bytes +1,354‎ using staticpasswords instead
+
+    29 January 2024
+
+     * curprev [ ] [ ] 07:0407:04, 29 January 2024‎ imported>Sleepful‎ 4,976
+       bytes +188‎ No edit summary
+     * curprev [ ] [ ] 06:5606:56, 29 January 2024‎ imported>Sleepful‎ m
+       4,788 bytes +2,398‎ adds nginx example
+
+    11 December 2023
+
+     * curprev [ ] [ ] 10:2210:22, 11 December 2023‎ imported>Onny‎ 2,390
+       bytes −115‎ Remove unstable notice
+
+    19 November 2023
+
+     * curprev [ ] [ ] 12:4112:41, 19 November 2023‎ imported>Onny‎ 2,505
+       bytes −139‎ Simplified Dex setup
+
+    18 November 2023
+
+     * curprev [ ] [ ] 08:2408:24, 18 November 2023‎ imported>Onny‎ 2,644
+       bytes −1,350‎ Simplified storage configuration
+     * curprev [ ] [ ] 08:1608:16, 18 November 2023‎ imported>Onny‎ 3,994
+       bytes −6‎ Fix configuration example
+
+    10 April 2023
+
+     * curprev [ ] [ ] 11:3411:34, 10 April 2023‎ imported>Onny‎ m 4,000
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 11:3111:31, 10 April 2023‎ imported>Onny‎ m 4,000
+       bytes +314‎ No edit summary
+     * curprev [ ] [ ] 10:5910:59, 10 April 2023‎ imported>Onny‎ m 3,686
+       bytes +76‎ No edit summary
+     * curprev [ ] [ ] 10:5710:57, 10 April 2023‎ imported>Onny‎ 3,610 bytes
+       −3‎ No edit summary
+     * curprev [ ] [ ] 10:5010:50, 10 April 2023‎ imported>Onny‎ m 3,613
+       bytes +349‎ No edit summary
+     * curprev [ ] [ ] 10:4310:43, 10 April 2023‎ imported>Onny‎ 3,264 bytes
+       +541‎ Add section on storage backend configuration
+
+    21 January 2023
+
+     * curprev [ ] [ ] 11:4211:42, 21 January 2023‎ imported>Onny‎ 2,723
+       bytes +136‎ Fix config
+
+    19 January 2023
+
+     * curprev [ ] [ ] 17:1217:12, 19 January 2023‎ imported>Onny‎ m 2,587
+       bytes +142‎ No edit summary
+     * curprev [ ] [ ] 16:4616:46, 19 January 2023‎ imported>Onny‎ m 2,445
+       bytes +1‎ No edit summary
+     * curprev [ ] [ ] 16:4016:40, 19 January 2023‎ imported>Onny‎ m 2,444
+       bytes +26‎ No edit summary
+     * curprev [ ] [ ] 16:3816:38, 19 January 2023‎ imported>Onny‎ 2,418
+       bytes +2,418‎ Inital page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Outline"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

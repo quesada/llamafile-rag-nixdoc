@@ -1,0 +1,219 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+     * 3 Maintenance
+          * 3.1 Update Android
+          * 3.2 Resetting Android Container
+     * 4 Troubleshooting
+          * 4.1 GPU Adjustments
+          * 4.2 Linux 5.18+
+          * 4.3 Changing keyboard layout
+          * 4.4 Missing UTF-8 support
+          * 4.5 Waydroid interferes with suspend/hybernation
+          * 4.6 Clipboard sharing
+     * 5 See Also:
+   [ ] Toggle the table of contents
+
+                                    Waydroid
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Waydroid is an application which uses LXC containers to run Android
+   applications on a non-Android system.
+
+   Warning: Waydroid requires a Wayland desktop session and cannot be used on
+   X11 directly, but can be run in a nested Wayland session, using e.g. cage.
+   Warning: Installing Waydroid on your system before running
+   nixos-generate-config will create unnecessary fstab entries that may
+   interfere with system functionality.
+
+Installation
+
+   Enable Waydroid in your system configuration:
+
+ /etc/nixos/configuration.nix
+
+ {
+   virtualisation.waydroid.enable = true;
+ }
+
+   After rebuilding and switching, finish the Waydroid install in your shell.
+
+ Fetch Waydroid images.
+ You can add the parameters "-s GAPPS -f" to have GApps support.
+ $ sudo waydroid init
+
+   Before the following steps, you might need to do some GPU adjustments. See
+   the troubleshooting section.
+
+Usage
+
+   Start the container
+
+ Start the Waydroid LXC container
+ $ sudo systemctl start waydroid-container
+
+ You'll know it worked by checking the journal You should see "Started Waydroid Container".
+ $ sudo journalctl -u waydroid-container
+
+ Start Waydroid session
+ You'll know it is finished when you see the message "Android with user 0 is ready".
+ $ waydroid session start
+
+   General usage
+
+ Start Android UI
+ $ waydroid show-full-ui
+
+ List Android apps
+ $ waydroid app list
+
+ Start an Android app
+ $ waydroid app launch <application name>
+
+ Install an Android app
+ $ waydroid app install </path/to/app.apk>
+
+ Enter the LXC shell
+ $ sudo waydroid shell
+
+ Overrides the full-ui width
+ $ waydroid prop set persist.waydroid.width 608
+
+Maintenance
+
+  Update Android
+
+   Use following command to upgrade Android (LineageOS) to a newer version if
+   available
+
+ $ sudo waydroid upgrade
+
+  Resetting Android Container
+
+   Warning: All files of your Android container will be lost
+
+ Stop Waydroid container
+ $ sudo systemctl stop waydroid-container
+
+ Removing images and user data
+ $sudo rm -r /var/lib/waydroid/* ~/.local/share/waydroid
+
+Troubleshooting
+
+  GPU Adjustments
+
+   In case you have an NVIDIA card or an RX 6800 series, you'll need to
+   disable GBM and mesa-drivers:
+
+ /var/lib/waydroid/waydroid_base.prop
+
+ ro.hardware.gralloc=default
+ ro.hardware.egl=swiftshader
+
+  Linux 5.18+
+
+   Linux 5.18 and later removed ashmem in favor of memfd, so you may need to
+   tell Waydroid (1.2.1 and later) to use the new module:
+
+ /var/lib/waydroid/waydroid_base.prop
+
+ sys.use_memfd=true
+
+  Changing keyboard layout
+
+   According to an upstream issue, changing the keyboard layout doesn't seem
+   possible at the moment.
+
+  Missing UTF-8 support
+
+   According to an upstream issue, Android might fail to display special
+   characters correctly.
+
+  Waydroid interferes with suspend/hybernation
+
+   According to an upstream issue, Waydroid might interfere with suspend or
+   hybernation. You might have to stop the Android session and container to
+   suspend your machine correctly.
+
+  Clipboard sharing
+
+   Add wl-clipboard to environment.systemPackages.
+
+See Also:
+
+     * Waydroid article on the Archlinux Wiki
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Waydroid&oldid=11381"
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 3 April 2024, at 14:36.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

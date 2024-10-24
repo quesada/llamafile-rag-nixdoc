@@ -1,0 +1,243 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Build software with Autotools
+     * 2 Configure Scripts that are using pkg-config
+     * 3 Package simple python scripts
+     * 4 Caveats
+          * 4.1 GLib-GIO-Message: Using the 'memory' GSettings backend. Your
+            settings will not be saved or shared with
+          * 4.2 Namespace Gdk not available
+          * 4.3 ImportError: libstdc++.so.6: cannot open shared object file:
+            No such file
+          * 4.4 Test cannot access /etc/protocols, /etc/services or expects a
+            special /etc/passwd when building in sandbox
+   [ ] Toggle the table of contents
+
+                          Packaging/Quirks and Caveats
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This article is about the quirks on how to package software where the
+   source code is available.
+
+   A good start for packaging your first piece if software is the Quickstart
+   Chapter in the nixpkgs manual Also see the Generic Algorithm on doing
+   Packaging
+
+   For packaging executable without building them from source check out the
+   article Packaging Binaries.
+
+Build software with Autotools
+
+   Add autoreconfHook to nativeBuildInputs to automatically build software
+   which uses automake and autoconf:
+
+ nativeBuildInputs = [ ...  autoreconfHook ];
+
+   Examples in nixpkgs:
+
+     * samplicator
+
+Configure Scripts that are using pkg-config
+
+   Some configure scripts are using pkg-config to determine the location of
+   libraries and headers. Nixpkgs supports this by adding pkg-config to
+   nativeBuildInputs
+
+ nativeBuildInputs = [ ...  pkg-config ];
+
+   Examples in nixpkgs:
+
+     * libmms
+
+   One typical error when pkg-config is required but not in the
+   nativeBuildInputs is the following during the configure phase:
+
+ ./configure: line 20832: syntax error near unexpected token `nss,'
+ ./configure: line 20832: `                      PKG_CHECK_MODULES(nss, nss)'
+
+Package simple python scripts
+
+   For scripts like a single Python file, it is not necessary to specify src
+   in mkDerivation. When you want to use buildPythonPackage the sources need
+   to provide a setup.py file which also is overkill for a lot of projects.
+   The default mkDerivation will attempt to unpack your source code. This can
+   be prevented by applying unpackPhase = ":"; (: is a no-op in shell
+   scripts).
+
+ myscript-package = pkgs.stdenv.mkDerivation {
+   name = "myscript";
+   buildInputs = [
+     (pkgs.python36.withPackages (pythonPackages: with pythonPackages; [
+       consul
+       six
+       requests
+     ]))
+   ];
+   unpackPhase = ":";
+   installPhase = "install -m755 -D ${./myscript.py} $out/bin/myscript";
+ };
+
+   stdenv's patchShebangs will automatically replace shebangs in the fixup
+   phase, for ex. #!/usr/bin/env python3 with dependencies given in
+   buildInputs. As the derivation got pkgs.python36.withPackages (...) in
+   buildInputs, it will create a virtualenv-like python wrapper. The python
+   wrapper will have all specified dependencies and will be used to call the
+   script.
+
+   In NixOS, the package can be put into environment.systemPackages, and
+   myscript will be available as a global command.
+
+   Source: nh2 @ StackOverflow
+
+   A more lightweight alternative is to use nix-shell in the shebang line as
+   described in this blog post. This causes the expression to be evaluated
+   and built every time the script is run; this means that the dependencies
+   will always be kept up to date, but since nix-shell only creates a
+   temporary GC root the dependencies may be removed by a garbage collection,
+   so this approach is not advisable for users who don't have an internet
+   connection available all the time.
+
+Caveats
+
+   After packaging software and successfully generating an executable some
+   functions of the package might still not work. This is a collection of
+   error and how to fix them:
+
+  GLib-GIO-Message: Using the 'memory' GSettings backend. Your settings will not
+  be saved or shared with
+
+   Sometime the error mesage might be also:
+
+ GLib-GIO-ERROR **: No GSettings schemas are installed on the system
+
+   Fixed by adding wrapGAppsHook to buildInputs:
+
+ nativeBuildInputs = [ ...  wrapGAppsHook ];
+
+   Sample PR in nixpkgs:
+
+     * networkmanagerapplet
+
+  Namespace Gdk not available
+
+   You will need /nix/store/*-gtk+3-*/lib/girepository-1.0 in
+   GI_TYPELIB_PATH.
+
+   Similar solution as above, solved by:
+
+   nativeBuildInputs = [ ...  wrapGAppsHook ];
+   buildInputs = [ gtk3 ];
+
+  ImportError: libstdc++.so.6: cannot open shared object file: No such file
+
+   This can happen when importing python libraries: Solution: add
+   ${stdenv.cc.cc.lib}/lib/libstdc++.so.6 to the LD_LIBRARY_PATH.
+
+   A sample shell.nix:
+
+ { pkgs ? (import <nixpkgs> {}).pkgs }:
+ with pkgs;
+ mkShell {
+   buildInputs = [
+     python3Packages.virtualenv # run virtualenv .
+     python3Packages.pyqt5 # avoid installing via pip
+     python3Packages.pyusb # fixes the pyusb 'No backend available' when installed directly via pip
+   ];
+   shellHook = ''
+     # fixes libstdc++ issues and libgl.so issues
+     LD_LIBRARY_PATH=${stdenv.cc.cc.lib}/lib/:/run/opengl-driver/lib/
+     # fixes xcb issues :
+     QT_PLUGIN_PATH=${qt5.qtbase}/${qt5.qtbase.qtPluginPrefix}
+   '';
+ }
+
+  Test cannot access /etc/protocols, /etc/services or expects a special
+  /etc/passwd when building in sandbox
+
+   Sometimes libraries try to fetch protocol specs via
+   socket.getprotobyname('tcp') which fails in sandboxes because
+   /etc/protocols is unaccessible. Override pre- and postCheck phases with
+   this:
+
+      preCheck = ''
+        export NIX_REDIRECTS=/etc/protocols=${pkgs.iana-etc}/etc/protocols \
+          LD_PRELOAD=${pkgs.libredirect}/lib/libredirect.so
+      '';
+      postCheck = ''
+        unset NIX_REDIRECTS LD_PRELOAD
+      '';
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Packaging/Quirks_and_Caveats&oldid=17407"
+   Category:
+     * Cookbook
+     * This page was last edited on 14 September 2024, at 06:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

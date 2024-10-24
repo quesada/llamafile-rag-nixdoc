@@ -1,0 +1,267 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Official Clients
+          * 1.2 Unofficial Clients
+               * 1.2.1 Legcord (formerly ArmCord)^[1]
+               * 1.2.2 BetterDiscord^[2]
+               * 1.2.3 OpenAsar^[3]
+               * 1.2.4 Vencord^[4]
+               * 1.2.5 Webcord^[5]
+     * 2 Troubleshooting
+          * 2.1 Screensharing on Wayland
+          * 2.2 Notifications causing crashes
+          * 2.3 "Must be your lucky day" popup
+          * 2.4 Krisp noise suppression
+          * 2.5 Text-to-Speech
+   [ ] Toggle the table of contents
+
+                                    Discord
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Discord is an instant messaging and VoIP application with lots of
+   functionality. It provides a web interface, though most users would prefer
+   to use a client for interoperability with their system.
+
+Installation
+
+   Note: This package is unfree and requires extra steps to install.
+
+  Official Clients
+
+   Nixpkgs provides all three of Discord's release channels, accessible as
+   pkgs.discord, pkgs.discord-ptb, and pkgs.discord-canary respectively. Add
+   any of the previous derivations to your package's configuration. For NixOS
+   this will be in environment.systemPackages or users.users.<name>.packages.
+
+ # configuration.nix
+ { config, lib, pkgs, ... }: {
+   # This will install Discord PTB for all users of the system
+   environment.systemPackages = with pkgs; [
+     discord-ptb
+   ];
+
+   # This installs Discord PTB only for the user "alice"
+   users.users.alice.packages = with pkgs; [
+     discord-ptb
+   ];
+ }
+
+  Unofficial Clients
+
+   Nixpkgs also provides a vast variety of community developed/modded Discord
+   clients, which can usually serve as drop-in replacements for the official
+   discord client with an extended set of features.
+
+   Warning: The usage of such client's goes against Discord's TOS, and can
+   result in your account being permanently suspended from the platform!
+
+    Legcord (formerly ArmCord)^[1]
+
+   Lightweight, alternative desktop client with built-in modding
+   extensibility. Nixpkgs provides this client via pkgs.legcord.
+
+ { config, lib, pkgs, ... }: {
+   environment.systemPackages = with pkgs; [
+     legcord
+   ];
+ }
+
+    BetterDiscord^[2]
+
+   Enhances Discord desktop app with new features. Nixpkgs provides the
+   installer via pkgs.betterdiscordctl. This can be added to your
+   configuration, though users may prefer to instead run it one-off via the
+   Nix cli.
+
+ $ nix-shell -p betterdiscordctl --command 'betterdiscordctl install' # nix-legacy
+ $ nix run nixpkgs#betterdiscordctl -- install # nix3
+
+ $ nix-shell -p betterdiscordctl --command 'betterdiscordctl self-upgrade' # nix-legacy
+ $ nix run nixpkgs#betterdiscordctl -- self-upgrade # nix3
+
+    OpenAsar^[3]
+
+   Open-source alternative to Discord's app.asar. Nixpkgs provides this via
+   pkgs.openasar, though this doesn't provide a usable client. Users should
+   instead prefer overriding the official discord package and add
+   withOpenASAR = true.
+
+ { config, lib, pkgs, ... }: {
+   environment.systemPackages = with pkgs; [
+     (discord.override {
+       withOpenASAR = true;
+       # withVencord = true; # can do this here too
+     })
+   ];
+ }
+
+    Vencord^[4]
+
+   The cutest Discord client mod. Nixpkgs provides their custom client
+   Vesktop viapkgs.vesktop, or as an override for the official discord
+   package via withVencord = true.
+
+ { config, lib, pkgs, ... }: {
+   environment.systemPackages = with pkgs; [
+     # vesktop # If you prefer this
+
+     (discord.override {
+       # withOpenASAR = true; # can do this here too
+       withVencord = true;
+     })
+   ];
+ }
+
+    Webcord^[5]
+
+   Discord and Spacebar client implemented without using the official Discord
+   API. Nixpkgs provides this client via pkgs.webcord.
+
+ { config, lib, pkgs, ... }: {
+   environment.systemPackages = with pkgs; [
+     webcord
+   ];
+ }
+
+Troubleshooting
+
+  Screensharing on Wayland
+
+   Discord's screen sharing capabilities have been broken for 5 years with no
+   official fix. The most consistent fix involves using the web version of
+   Discord alongside a browser that supports screen sharing in Wayland, like
+   Firefox. Alternatively, you can use an unofficial client like Webcord or
+   Vesktop, both of which have fixed this issue in their own ways.
+
+   Note: Remember to configure an XDG Desktop Portal with screen cast
+   capabilities!
+
+  Notifications causing crashes
+
+   Discord will crash if there is no compatible notification daemon running.
+   This issue is only prevalent in custom desktop environments, such as Sway
+   or Hyprland. Comprehensive documentation usually exists for most window
+   managers/compositors and can be found on their respective wikis. Nixpkgs
+   provides a few standalone notification daemons such as pkgs.dunst and
+   pkgs.mako. You may optionally use a notification daemon from a larger DE,
+   such as pkgs.lxqt.lxqt-notificationd, however it is unclear how effective
+   these will be outside of their normal environment.
+
+ { config, lib, pkgs, ... }: {
+   # You will need to add a call for the daemon to actually function.
+   # This is usually done within the configuration of your respective WM.
+   # See the official wiki/documentation for your WM for more info.
+   environment.systemPackages = with pkgs; [
+     mako
+   ];
+ }
+
+  "Must be your lucky day" popup
+
+   Although Nixpkgs is usually very fast with updates (if you use
+   nixos-unstable), you may still run into this issue intermittently. You may
+   override the discord package with a more up-to-date source, or you may
+   disable this popup entirely by adding "SKIP_HOST_UPDATE": true to
+   ~/.config/discord/settings.json.
+
+ ~/.config/discord/settings.json
+
+ {
+   "SKIP_HOST_UPDATE": true
+ }
+
+  Krisp noise suppression
+
+   The Krisp noise suppression option will not work on NixOS because the
+   Discord binary is patched before installation, and there is a DRM-style
+   integrity check in the Krisp binary which prevents Krisp from working if
+   the Discord binary is modified. See
+   https://github.com/NixOS/nixpkgs/issues/195512 for details.
+
+  Text-to-Speech
+
+   TTS is disabled by default; you may enable it via an override:
+
+ (pkgs.discord.override { withTTS = true; })
+
+    1. ↑ https://github.com/Legcord/Legcord
+    2. ↑ https://betterdiscord.app/
+    3. ↑ https://github.com/GooseMod/OpenAsar
+    4. ↑ https://vencord.dev/
+    5. ↑ https://github.com/SpacingBat3/WebCord
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Discord&oldid=17885"
+   Categories:
+     * Applications
+     * Gaming
+     * This page was last edited on 18 October 2024, at 00:33.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

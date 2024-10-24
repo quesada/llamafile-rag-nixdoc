@@ -1,0 +1,112 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Basic configuration
+     * 2 Enable libpurple plugins for bitlbee
+   [ ] Toggle the table of contents
+
+                                    BitlBee
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   BitlBee is a gateway (daemon / client) for IRC.
+
+Basic configuration
+
+   Configure bitlbee as a service running, with plugins enabled. All options
+   nixos-option services.bitlbee.
+
+ services.bitlbee = {
+   enable = true;
+   plugins = [
+     pkgs.bitlbee-facebook
+     # all plugins: `nix-env -qaP | grep bitlbee-`
+   ];
+ }
+
+Enable libpurple plugins for bitlbee
+
+   There is a build option to enable libpurple's plugin for bitlbee.
+
+ nixpkgs.config.bitlbee.enableLibPurple = true;
+
+ services.bitlbee = {
+   enable = true;
+   libpurple_plugins = [
+     pkgs.purple-hangout
+     # all plugins: `nix-env -qaP | grep purple-`
+   ];
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=BitlBee&oldid=1592"
+   Category:
+     * Applications
+     * This page was last edited on 20 September 2021, at 05:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

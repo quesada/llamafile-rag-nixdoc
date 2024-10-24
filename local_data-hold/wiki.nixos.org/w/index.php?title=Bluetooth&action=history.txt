@@ -1,0 +1,340 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Bluetooth: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    19 October 2024
+
+     * curprev [ ] [ ] 20:0620:06, 19 October 2024‎ Onny talk contribs‎ 9,546
+       bytes −180‎ Cleanup Tag: Visual edit
+
+    15 September 2024
+
+     * curprev [ ] [ ] 22:0222:02, 15 September 2024‎ H7x4 talk contribs‎ m
+       9,726 bytes +1‎ Fix link
+     * curprev [ ] [ ] 22:0122:01, 15 September 2024‎ H7x4 talk contribs‎
+       9,725 bytes +37‎ Add a few links
+
+    14 September 2024
+
+     * curprev [ ] [ ] 18:5918:59, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 9,688 bytes +43‎ update url to wayback machine url
+
+    1 July 2024
+
+     * curprev [ ] [ ] 03:4803:48, 1 July 2024‎ Sakshatshinde talk contribs‎
+       9,645 bytes +508‎ Added overskirde as an option for Bluetooth GUI
+       management and a couple of TUI options as well Tag: Visual edit
+
+    28 June 2024
+
+     * curprev [ ] [ ] 15:0115:01, 28 June 2024‎ AndersonTorres talk
+       contribs‎ m 9,137 bytes +67‎ →‎See also Tag: Visual edit: Switched
+
+    9 January 2024
+
+     * curprev [ ] [ ] 14:0214:02, 9 January 2024‎ imported>Fadenb‎ m 9,070
+       bytes −118‎ Removed warning as 19.03 is quite old by now
+
+    8 January 2024
+
+     * curprev [ ] [ ] 20:3920:39, 8 January 2024‎ imported>Mastermindaxe‎ m
+       9,188 bytes −1‎ Removed a point at the end of a code block
+     * curprev [ ] [ ] 20:3620:36, 8 January 2024‎ imported>Mastermindaxe‎
+       9,189 bytes +663‎ Added a section called "Showing battery charge of
+       bluetooth devices" to give easy access to enable showing the battery
+       charge of bluetooth devices
+
+    10 October 2023
+
+     * curprev [ ] [ ] 14:5414:54, 10 October 2023‎ imported>Jiltq‎ m 8,526
+       bytes +104‎ syntax + clarification (will work on the rest of the page
+       later)
+
+    8 September 2023
+
+     * curprev [ ] [ ] 21:1521:15, 8 September 2023‎ imported>Pyrox0‎ 8,422
+       bytes −1‎ Fix syntax highlighting
+
+    24 August 2023
+
+     * curprev [ ] [ ] 14:3314:33, 24 August 2023‎ imported>Laxect‎ 8,423
+       bytes −4‎ No edit summary
+
+    28 June 2023
+
+     * curprev [ ] [ ] 11:4811:48, 28 June 2023‎ imported>Aktaboot‎ m 8,427
+       bytes −51‎ No edit summary
+
+    21 September 2021
+
+     * curprev [ ] [ ] 02:0602:06, 21 September 2021‎ imported>Artturin‎
+       8,478 bytes +2‎ Undo revision 6547 by Toastal (talk)
+     * curprev [ ] [ ] 01:5401:54, 21 September 2021‎ imported>Toastal‎ 8,476
+       bytes −2‎ settings is no longer an option
+
+    4 August 2021
+
+     * curprev [ ] [ ] 16:0516:05, 4 August 2021‎ imported>Earnestma‎ m 8,478
+       bytes +2‎ hardware.bluetooth.config was renamed to
+       hardware.bluetooth.settings
+
+    11 May 2021
+
+     * curprev [ ] [ ] 10:1010:10, 11 May 2021‎ imported>ThibautMarty‎ m
+       8,476 bytes +84‎ mpris-proxy: mention the new home-manager service
+       (eventually we should remove the snippet)
+
+    22 April 2021
+
+     * curprev [ ] [ ] 09:0909:09, 22 April 2021‎ imported>ThibautMarty‎
+       8,392 bytes −229‎ Bluetooth support is enabled by default in
+       pulseaudio (e41f3d9ef3f2), including in last (20.03) and current
+       release (20.09)
+
+    7 November 2020
+
+     * curprev [ ] [ ] 07:3107:31, 7 November 2020‎ imported>Artturin‎ 8,621
+       bytes −7‎ remove from the installation category and add to the audio
+       category
+
+    28 October 2020
+
+     * curprev [ ] [ ] 09:5709:57, 28 October 2020‎ imported>Sbock‎ m 8,628
+       bytes +9‎ bluetooth extraConfig option is deprecated in favor of
+       config, which requires a set to passed instead of a string.
+
+    2 May 2020
+
+     * curprev [ ] [ ] 11:2011:20, 2 May 2020‎ imported>Mdedetrich‎ m 8,619
+       bytes +9‎ Grammer
+     * curprev [ ] [ ] 11:1911:19, 2 May 2020‎ imported>Mdedetrich‎ m 8,610
+       bytes −2‎ Minor syntax issues
+     * curprev [ ] [ ] 11:1811:18, 2 May 2020‎ imported>Mdedetrich‎ 8,612
+       bytes +569‎ Add information on how to automatically switch to
+       bluetooth audio headset on connect
+
+    26 March 2020
+
+     * curprev [ ] [ ] 14:1614:16, 26 March 2020‎ imported>Rskew‎ 8,043 bytes
+       +414‎ Add troubleshooting step showing when/how to enable Broadcom
+       firmware
+
+    27 January 2020
+
+     * curprev [ ] [ ] 18:0018:00, 27 January 2020‎ imported>Mic92‎ 7,629
+       bytes +61‎ fix grammar; add link
+     * curprev [ ] [ ] 17:0617:06, 27 January 2020‎ imported>Mic92‎ 7,568
+       bytes +669‎ add mpris-proxy snippet.
+
+    5 December 2019
+
+     * curprev [ ] [ ] 02:5302:53, 5 December 2019‎ imported>Worldofpeace‎ m
+       6,899 bytes −84‎ GDM doesn't cause issues with A2DP anymore.
+
+    13 October 2019
+
+     * curprev [ ] [ ] 12:3212:32, 13 October 2019‎ imported>Vdot0x23‎ 6,983
+       bytes +36‎ Replace blueman package recommendation with blueman service
+
+    25 April 2019
+
+     * curprev [ ] [ ] 13:0413:04, 25 April 2019‎ imported>Grahamc‎ 6,947
+       bytes +177‎ Indicate how to have devices automatically connect with
+       bluetoothctl trust.
+
+    8 April 2019
+
+     * curprev [ ] [ ] 07:5207:52, 8 April 2019‎ imported>Mickours‎ 6,770
+       bytes +119‎ →‎Enabling extra codecs: add a worning on the Nixpkgs
+       version
+
+    9 November 2018
+
+     * curprev [ ] [ ] 13:0813:08, 9 November 2018‎ imported>Adisbladis‎
+       6,651 bytes +441‎ No edit summary
+
+    31 July 2018
+
+     * curprev [ ] [ ] 09:1109:11, 31 July 2018‎ imported>Zhen-hao‎ 6,210
+       bytes +83‎ No edit summary
+
+    20 April 2018
+
+     * curprev [ ] [ ] 17:3517:35, 20 April 2018‎ imported>SimonAlling‎ m
+       6,127 bytes −13‎ error: The option `hardware.pulseAudio' does not
+       exist.
+
+    19 March 2018
+
+     * curprev [ ] [ ] 09:5409:54, 19 March 2018‎ imported>Makefu‎ 6,140
+       bytes +248‎ add notes about failing load
+     * curprev [ ] [ ] 09:3909:39, 19 March 2018‎ imported>Makefu‎ 5,892
+       bytes +262‎ No edit summary
+
+    16 March 2018
+
+     * curprev [ ] [ ] 10:4510:45, 16 March 2018‎ imported>Mickours‎ m 5,630
+       bytes +1‎ Add a ;
+
+    12 March 2018
+
+     * curprev [ ] [ ] 03:0703:07, 12 March 2018‎ imported>Samueldr‎ m 5,629
+       bytes +615‎ Adds workaround for an issue I just "debugged", I don't
+       know why it didn't register, but it didn't!
+
+    19 February 2018
+
+     * curprev [ ] [ ] 17:3817:38, 19 February 2018‎ imported>Makefu‎ 5,014
+       bytes +435‎ No edit summary
+     * curprev [ ] [ ] 15:1915:19, 19 February 2018‎ imported>Grahamc‎ 4,579
+       bytes +506‎ Add troubleshooting info for a disabled bluetooth
+       controller
+     * curprev [ ] [ ] 15:1415:14, 19 February 2018‎ imported>Grahamc‎ m
+       4,073 bytes +5‎ Update anchor
+     * curprev [ ] [ ] 15:1115:11, 19 February 2018‎ imported>Grahamc‎ 4,068
+       bytes +211‎ Indicate connection failures to audio devices is due to
+       the pulesaudio package.
+
+    8 February 2018
+
+     * curprev [ ] [ ] 18:1118:11, 8 February 2018‎ imported>Qfjp‎ 3,857
+       bytes +343‎ →‎Using Bluetooth headsets with PulseAudio
+
+    24 October 2017
+
+     * curprev [ ] [ ] 17:1617:16, 24 October 2017‎ imported>HLandau‎ 3,514
+       bytes +411‎ No edit summary
+
+    14 October 2017
+
+     * curprev [ ] [ ] 20:3720:37, 14 October 2017‎ imported>Samueldr‎ m
+       3,103 bytes +483‎ Adds a troubleshooting section for bad bluetooth usb
+       dongles.
+     * curprev [ ] [ ] 20:1620:16, 14 October 2017‎ imported>Samueldr‎ m
+       2,620 bytes +249‎ Adds a generalized "enabling" section, points
+       archwiki link to the generic bluetooth pairing instructions.
+     * curprev [ ] [ ] 20:1120:11, 14 October 2017‎ imported>Samueldr‎ m
+       2,371 bytes +1,119‎ re-worked the page; added non-gui and gui variants
+       of pairing and for pulseaudio management.
+     * curprev [ ] [ ] 19:3719:37, 14 October 2017‎ imported>Samueldr‎ m
+       1,252 bytes +9‎ Updates sectoin name to External resources, fixes
+       article name in link
+
+    27 August 2017
+
+     * curprev [ ] [ ] 18:3118:31, 27 August 2017‎ imported>Fadenb‎ m 1,243
+       bytes −10‎ replace html entities
+     * curprev [ ] [ ] 16:2916:29, 27 August 2017‎ imported>Fadenb‎ m 1,253
+       bytes +3‎ use correct syntaxhighlight lexer
+
+    23 August 2017
+
+     * curprev [ ] [ ] 18:2718:27, 23 August 2017‎ imported>Fadenb‎ m 1,250
+       bytes −1‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Bluetooth"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

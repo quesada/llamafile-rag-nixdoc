@@ -1,0 +1,151 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 On *BSD/Linux Host
+     * 2 NixOS
+   [ ] Toggle the table of contents
+
+                        Move Nix Store to new partition
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The tutorial will teach you how to relocate /nix to a new device on non
+   NixOS Hosts. A summary of how this could be done on NixOS is at the
+   bottom. This has not been tested on NixOS but there may still be a way:
+
+                               On *BSD/Linux Host
+
+   The device that /nix is on has no more space
+
+ $ du -h
+ Filesystem      Size  Used Avail Use% Mounted on
+ /dev/sda1       182G  180G    2G  99% /
+
+   Stop nix daemon
+
+ $ sudo systemctl stop nix-daemon.service
+
+   Move backup /nix; mv /nix to /nix.bak
+
+ $ ls -alF /nix
+ total 1068
+ drwxr-xr-x    4 root root      4096 Jan 22 02:43 ./
+ drwxr-xr-x   26 root root      4096 Feb  8 12:17 ../
+ drwxrwxr-t 1555 root nixbld 1077248 Feb  8 12:05 store/
+ drwxr-xr-x    4 root root      4096 Jan 22 02:43 var/
+
+ $ cd /
+ $ tar -afp /nix.tgz /nix /nix.bak
+ $ sudo mv /nix /nix.bak # in case something goes horribly wrong
+
+   Mount new device. You will need to add this device to `/etc/fstab`
+
+ $ mount /nix
+ $ du -h
+ Filesystem      Size  Used Avail Use% Mounted on
+ /dev/sdb1       300G    0G  300G   0% /nix
+
+   Restore /nix from /nix.tgz; verify contents
+
+ $ cd /
+ $ sudo tar -xf /nix.tgz
+ $ nix-store --verify --check-contents
+
+   Start nix-daemon
+
+ $ sudo systemctl start nix-daemon.service
+
+                                     NixOS
+
+    This article or section is a candidate for merging with                   
+    Storage_optimization#Moving_the_store.                                    
+    Notes: There is some overlap between this page and the subsection of      
+    Article Storage Optimization (Discuss in                                  
+    Talk:Move_Nix_Store_to_new_partition)                                     
+
+   Add rescue-boot.nix to your imports section.
+
+   nixos-rebuild (and pray you have ~300mb free on /boot/)
+
+   run the installer from grub at any time.
+
+   adjust your configuration.nix so it expects /nix to be at the new place,
+   and nixos-rebuild boot, so it doesnt break after you move it
+
+   Now reboot and move it.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Move_Nix_Store_to_new_partition&oldid=6619"
+   Categories:
+     * Tutorial
+     * NixOS
+   Hidden category:
+     * Pages or sections flagged with Template:Merge
+     * This page was last edited on 29 February 2024, at 20:26.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

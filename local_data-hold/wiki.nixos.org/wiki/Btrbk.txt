@@ -1,0 +1,254 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Configuration
+          * 2.1 Basic example
+          * 2.2 Local /home Snapshots
+          * 2.3 Retention policy
+     * 3 Manual usage
+   [ ] Toggle the table of contents
+
+                                     Btrbk
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Btrbk, a tool for creating snapshots and remote backups of btrfs
+   subvolumes.
+
+Setup
+
+   When transferring backups of root filesystem snapshots using Btrbk, it is
+   recommended to mount the root Btrfs drive with subvolume id 5 (in this
+   example /dev/sda1) to a specific mountpoint where Btrbk can operate with.
+   So in this case all subvolumes will be available as a subdirectory in
+   /btr_pool.
+
+ /etc/nixos/hardware-configuration.nix
+
+ fileSystems = {
+   "/btr_pool" = {
+     device = "/dev/sda1";
+     fsType = "btrfs";
+     options = [ "subvolid=5" ];
+   };
+ };
+
+Configuration
+
+  Basic example
+
+   Following example configuration will create a weekly incremental backup of
+   a local Btrfs subvolume called nixos and sends it compressed to the remote
+   host myhost. The mount point /btr_pool, as referenced above, contains the
+   subvolume.
+
+   The user btrbk together with the private key /etc/btrbk_key is used for
+   authentication.
+
+ /etc/nixos/configuration.nix
+
+ services.btrbk = {
+   instances."remote_myhost" = {
+     onCalendar = "weekly";
+     settings = {
+       ssh_identity = "/etc/btrbk_key"; # NOTE: must be readable by user/group btrbk
+       ssh_user = "btrbk";
+       stream_compress = "lz4";
+       volume."/btr_pool" = {
+         target = "ssh://myhost/mnt/mybackups";
+         subvolume = "nixos";
+         # "nixos" could instead be an attribute set with other volumes to
+         # back up and to give subvolume specific configuration.
+         # See man btrbk.conf for possible options.
+         /*
+         subvolume = {
+           home = { snapshot_create = "always"; };
+           nixos = {};
+         };
+         */
+       };
+     };
+   };
+ };
+
+   The user has to be created on the remote host and needs root permissions
+   on the commands btrfs, readlink and test, for example via sudo. For
+   transport stream compression using lz4 to work, the package must also be
+   installed on the target host. The target host configuration for Btrbk
+   could look like this:
+
+ /etc/nixos/configuration.nix
+
+ security.sudo = {
+   enable = true;
+   extraRules = [{
+     commands = [
+       {
+         command = "${pkgs.coreutils-full}/bin/test";
+         options = [ "NOPASSWD" ];
+       }
+       {
+         command = "${pkgs.coreutils-full}/bin/readlink";
+         options = [ "NOPASSWD" ];
+       }
+       {
+         command = "${pkgs.btrfs-progs}/bin/btrfs";
+         options = [ "NOPASSWD" ];
+       }
+     ];
+     users = [ "btrbk" ];
+   }];
+   extraConfig = with pkgs; ''
+     Defaults:picloud secure_path="${lib.makeBinPath [
+       btrfs-progs coreutils-full
+     ]}:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
+   '';
+ };
+
+ environment.systemPackages = [ pkgs.lz4 ];
+
+  Local /home Snapshots
+
+   Warning: This is not a backup solution alone. If the entire disk fails,
+   local snapshots will be lost along with it.
+
+   If /home is its own subvolume and important files are backed up separately
+   or combined with the above section, this configuration takes snapshots
+   hourly, retains them for at least a week, and keeps weekly snapshots for
+   two weeks under /snapshots.
+
+ /etc/nixos/configuration.nix
+
+ services.btrbk = {
+   instances."home" = {
+     onCalendar = "hourly";
+     settings = {
+       snapshot_preserve_min = "1w";
+       snapshot_preserve = "2w";
+       volume = {
+           "/" = {
+             snapshot_dir = "/snapshots";
+             subvolume = "home";
+           };
+         };
+       };
+   };
+ };
+ # Btrbk does not create snapshot directories automatically, so create one here.
+ systemd.tmpfiles.rules = [
+   "d /snapshots 0755 root root"
+ ];
+
+  Retention policy
+
+   The following example takes daily snapshot but won't store them forever
+   with the given retention policy:
+
+     * 7d: For the most recent week, you will have a daily snapshot stored
+       from each day.
+     * 4w: After a week, you'll only keep one snapshot per week for the next
+       4 weeks (so older daily snapshots get removed).
+     * 12m: After a month, the policy will keep only monthly snapshots for
+       the next 12 months.
+
+   The option snapshot_preserve_minensures that all daily snapshots from the
+   last 7 days are preserved, regardless of the other retention rules. It's a
+   safety net to guarantee that no daily snapshot from the past week is
+   deleted prematurely.
+
+ services.btrbk.instances."remote_myhost" = {
+   onCalendar = "daily";
+   settings = {
+       snapshot_preserve = "7d 4w 12m";
+       snapshot_preserve_min = "7d";
+       target_preserve = "7d 4w 12m";
+   };
+ };
+
+   This retention policy will ensure you have a balance between recent,
+   frequent backups (daily) and older, more spaced-out backups
+   (weekly/monthly) while preserving space.
+
+Manual usage
+
+   Manually dry running and testing a btrbk configuration
+
+ btrbk -c /etc/btrbk/remote_myhost.conf --dry-run --progress --verbose run
+
+   The filename remote_myhost.conf references the instance name choosen in
+   the example configuration above.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Btrbk&oldid=17910"
+   Categories:
+     * Applications
+     * Backup
+     * This page was last edited on 20 October 2024, at 15:52.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

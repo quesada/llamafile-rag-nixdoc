@@ -1,0 +1,153 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            RISC-V: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    26 July 2024
+
+     * curprev [ ] [ ] 22:4222:42, 26 July 2024‎ 0x4A6F talk contribs‎ 3,876
+       bytes +40‎ Adding link to hydra, which shows information for binary
+       cache by nickcao
+
+    4 April 2024
+
+     * curprev [ ] [ ] 21:5721:57, 4 April 2024‎ Samueldr talk contribs‎ m
+       3,836 bytes −3‎ No edit summary
+     * curprev [ ] [ ] 21:5621:56, 4 April 2024‎ Samueldr talk contribs‎ m
+       3,839 bytes −11‎ No edit summary
+     * curprev [ ] [ ] 20:4420:44, 4 April 2024‎ 0x4A6F talk contribs‎ 3,850
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 20:4220:42, 4 April 2024‎ 0x4A6F talk contribs‎ 3,850
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 09:0609:06, 4 April 2024‎ Fgaz talk contribs‎ 3,850
+       bytes −415‎ Move GHC links to the GHC page
+
+    3 April 2024
+
+     * curprev [ ] [ ] 19:3419:34, 3 April 2024‎ Alexical talk contribs‎ m
+       4,265 bytes +18‎ Give references their own section Tag: Visual edit
+     * curprev [ ] [ ] 18:2418:24, 3 April 2024‎ Alexical talk contribs‎
+       4,247 bytes +259‎ Mention that QEMU-run programs sometimes segfault.
+       If anyone figures out exactly why this happens, replacing this change
+       with an explanation would be helpful. Tag: Visual edit
+     * curprev [ ] [ ] 07:1007:10, 3 April 2024‎ 0x4A6F talk contribs‎ 3,988
+       bytes +16‎ No edit summary
+
+    2 April 2024
+
+     * curprev [ ] [ ] 22:1722:17, 2 April 2024‎ 0x4A6F talk contribs‎ 3,972
+       bytes +53‎ No edit summary
+     * curprev [ ] [ ] 22:1222:12, 2 April 2024‎ 0x4A6F talk contribs‎ 3,919
+       bytes +11‎ No edit summary
+     * curprev [ ] [ ] 21:5921:59, 2 April 2024‎ 0x4A6F talk contribs‎ 3,908
+       bytes +2,547‎ Rework on RISC-V landing page
+
+    1 April 2024
+
+     * curprev [ ] [ ] 21:2721:27, 1 April 2024‎ Fgaz talk contribs‎ 1,361
+       bytes +1,361‎ Import from https://pad.lassul.us/NixOS-riscv64-linux
+       Tag: Visual edit: Switched
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/RISC-V"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

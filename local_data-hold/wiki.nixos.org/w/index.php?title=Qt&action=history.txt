@@ -1,0 +1,227 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                              Qt: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    18 November 2022
+
+     * curprev [ ] [ ] 01:3001:30, 18 November 2022‎ imported>Tobias.bora‎
+       9,457 bytes +110‎ No edit summary
+     * curprev [ ] [ ] 01:2901:29, 18 November 2022‎ imported>Tobias.bora‎
+       9,347 bytes +16‎ No edit summary
+     * curprev [ ] [ ] 01:0401:04, 18 November 2022‎ imported>Tobias.bora‎
+       9,331 bytes +119‎ No edit summary
+
+    17 November 2022
+
+     * curprev [ ] [ ] 23:5923:59, 17 November 2022‎ imported>Tobias.bora‎
+       9,212 bytes +26‎ No edit summary
+     * curprev [ ] [ ] 23:5723:57, 17 November 2022‎ imported>Tobias.bora‎
+       9,186 bytes +882‎ No edit summary
+
+    16 July 2022
+
+     * curprev [ ] [ ] 13:3013:30, 16 July 2022‎ imported>Mic92‎ 8,304 bytes
+       +240‎ add hint on how to add new qt targets
+
+    3 June 2022
+
+     * curprev [ ] [ ] 23:1123:11, 3 June 2022‎ imported>SuperSamus‎ 8,064
+       bytes +1‎ No edit summary
+
+    27 January 2022
+
+     * curprev [ ] [ ] 23:4123:41, 27 January 2022‎ imported>Milahu‎ m 8,063
+       bytes +5‎ typo
+
+    6 November 2021
+
+     * curprev [ ] [ ] 09:5209:52, 6 November 2021‎ imported>Milahu‎ 8,058
+       bytes +340‎ + Conditional blocks in qmake *.pro files
+
+    4 November 2021
+
+     * curprev [ ] [ ] 12:1212:12, 4 November 2021‎ imported>Milahu‎ 7,718
+       bytes +132‎ qt5to6: add links to qt.io
+
+    3 November 2021
+
+     * curprev [ ] [ ] 17:0917:09, 3 November 2021‎ imported>Milahu‎ 7,586
+       bytes +335‎ + Migrating apps from Qt5 to Qt6
+
+    29 October 2021
+
+     * curprev [ ] [ ] 12:2412:24, 29 October 2021‎ imported>Tobias.bora‎
+       7,251 bytes +211‎ No edit summary
+     * curprev [ ] [ ] 12:2012:20, 29 October 2021‎ imported>Tobias.bora‎
+       7,040 bytes −94‎ No edit summary
+     * curprev [ ] [ ] 12:1812:18, 29 October 2021‎ imported>Tobias.bora‎
+       7,134 bytes +508‎ No edit summary
+     * curprev [ ] [ ] 12:1612:16, 29 October 2021‎ imported>Tobias.bora‎
+       6,626 bytes +1,934‎ No edit summary
+
+    11 August 2021
+
+     * curprev [ ] [ ] 16:0216:02, 11 August 2021‎ imported>Bryanhonof‎ 4,692
+       bytes +809‎ No edit summary
+
+    28 December 2019
+
+     * curprev [ ] [ ] 15:4615:46, 28 December 2019‎ imported>Makefu‎ 3,883
+       bytes +304‎ No edit summary
+
+    8 August 2019
+
+     * curprev [ ] [ ] 20:4220:42, 8 August 2019‎ imported>Samueldr‎ m 3,579
+       bytes +78‎ Adds link to the fix... keep this until 20.03 for
+       stragglers on 19.03 and before→‎Cannot mix incompatible Qt library
+       (version 0x_____) with this library (version 0x_____)
+     * curprev [ ] [ ] 20:4020:40, 8 August 2019‎ imported>Samueldr‎ m 3,501
+       bytes +17‎ Adds moment to deprecation notice
+     * curprev [ ] [ ] 20:3920:39, 8 August 2019‎ imported>Samueldr‎ m 3,484
+       bytes +140‎ Adds deprecation warning→‎This application failed to start
+       because it could not find or load the Qt platform plugin ??? in ""
+     * curprev [ ] [ ] 20:3620:36, 8 August 2019‎ imported>Samueldr‎ m 3,344
+       bytes −434‎ Links to the new solution →‎qt.qpa.plugin: Could not find
+       the Qt platform plugin "xcb" in ""
+
+    15 April 2019
+
+     * curprev [ ] [ ] 07:4507:45, 15 April 2019‎ imported>LinArcX‎ m 3,778
+       bytes +86‎ No edit summary
+     * curprev [ ] [ ] 07:2607:26, 15 April 2019‎ imported>LinArcX‎ 3,692
+       bytes +719‎ Development with qt and qt creator
+
+    29 October 2018
+
+     * curprev [ ] [ ] 14:0114:01, 29 October 2018‎ imported>Das-g‎ m 2,973
+       bytes +17‎ fix gratuitous HTML escaping
+     * curprev [ ] [ ] 13:5913:59, 29 October 2018‎ imported>Das-g‎ m 2,956
+       bytes +13‎ →‎qt.qpa.plugin: Could not find the Qt platform plugin
+       "xcb" in "": add filename & programming language for example shell.nix
+       (for workaround)
+
+    9 July 2018
+
+     * curprev [ ] [ ] 16:4916:49, 9 July 2018‎ imported>V3vAP‎ 2,943 bytes
+       +852‎ Added some error troubleshooting info
+
+    3 June 2018
+
+     * curprev [ ] [ ] 20:3720:37, 3 June 2018‎ imported>Samueldr‎ m 2,091
+       bytes −1‎ →‎qt5: fix <code>
+
+    31 May 2018
+
+     * curprev [ ] [ ] 14:0314:03, 31 May 2018‎ imported>Symphorien‎ 2,092
+       bytes +1,890‎ explain how to launch qt apps from a systemd user
+       service
+
+    20 December 2017
+
+     * curprev [ ] [ ] 22:5422:54, 20 December 2017‎ imported>Samueldr‎ 202
+       bytes +202‎ Inits with with link to incompatible Qt library issue
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Qt"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

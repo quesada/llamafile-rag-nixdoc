@@ -1,0 +1,34 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS & Flakes Book
+   SearchK
+   Main NavigationHomePrefaceGet StartedBest Practices
+
+   English
+
+   简体中文
+
+   English
+
+   简体中文
+
+   Appearance
+
+                              NixOS & Flakes Book
+
+   An unofficial book for beginners
+
+   Want to know NixOS & Flakes in detail? Looking for a beginner-friendly
+   tutorial? Then you've come to the right place!
+
+   Preface
+   Get Started
+   View on GitHub
+   NixOS Flakes
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

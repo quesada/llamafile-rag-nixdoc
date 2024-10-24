@@ -1,0 +1,242 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Fish: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    4 July 2024
+
+     * curprev [ ] [ ] 18:1718:17, 4 July 2024‎ DavidRambo talk contribs‎
+       5,890 bytes +571‎ →‎Setting fish as your shell Tag: Visual edit:
+       Switched
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:1819:18, 24 April 2024‎ Klinger talk contribs‎ m
+       5,319 bytes −25‎ removed category applications
+
+    6 April 2024
+
+     * curprev [ ] [ ] 08:1908:19, 6 April 2024‎ Claes talk contribs‎ 5,344
+       bytes +19‎ Add category shell Tag: Visual edit
+
+    9 February 2024
+
+     * curprev [ ] [ ] 05:2605:26, 9 February 2024‎ imported>Cyounkins‎ 5,325
+       bytes +1,119‎ Adding section Setting fish as your shell
+
+    23 January 2024
+
+     * curprev [ ] [ ] 13:0213:02, 23 January 2024‎ imported>Haemeah‎ m 4,206
+       bytes +10‎ better link for option reference
+     * curprev [ ] [ ] 12:5712:57, 23 January 2024‎ imported>Haemeah‎ m 4,196
+       bytes +148‎ add link to home-manager options list
+
+    21 January 2024
+
+     * curprev [ ] [ ] 18:5318:53, 21 January 2024‎ imported>Haemeah‎ m 4,048
+       bytes +23‎ fix missing bracket
+
+    11 November 2023
+
+     * curprev [ ] [ ] 01:0701:07, 11 November 2023‎ imported>Liassica‎ 4,025
+       bytes +35‎ Various cleanup and rewording
+
+    18 May 2023
+
+     * curprev [ ] [ ] 23:4523:45, 18 May 2023‎ imported>TigerbyteDev‎ m
+       3,990 bytes +3‎ added a missing bracket in the home manager config
+
+    2 February 2023
+
+     * curprev [ ] [ ] 09:2609:26, 2 February 2023‎ imported>Onny‎ 3,987
+       bytes +379‎ Add notes on installing plugins system wide
+
+    27 January 2023
+
+     * curprev [ ] [ ] 11:0911:09, 27 January 2023‎ imported>Onny‎ 3,608
+       bytes +213‎ Cleanup
+
+    2 June 2022
+
+     * curprev [ ] [ ] 17:1017:10, 2 June 2022‎ imported>Onny‎ m 3,395 bytes
+       +24‎ No edit summary
+     * curprev [ ] [ ] 17:0917:09, 2 June 2022‎ imported>Onny‎ 3,371 bytes
+       +54‎ Add further example for plugin configuration
+
+    8 November 2021
+
+     * curprev [ ] [ ] 18:4518:45, 8 November 2021‎ imported>Jhh‎ 3,317 bytes
+       +5‎ No edit summary
+     * curprev [ ] [ ] 18:4418:44, 8 November 2021‎ imported>Jhh‎ 3,312 bytes
+       +37‎ No edit summary
+     * curprev [ ] [ ] 18:4118:41, 8 November 2021‎ imported>Jhh‎ 3,275 bytes
+       0‎ No edit summary
+     * curprev [ ] [ ] 18:4018:40, 8 November 2021‎ imported>Jhh‎ 3,275 bytes
+       +300‎ No edit summary
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4805:48, 20 September 2021‎ imported>Nix‎ m 2,975
+       bytes +27‎ add Software/Applications subcategory
+
+    12 June 2021
+
+     * curprev [ ] [ ] 06:0006:00, 12 June 2021‎ imported>Flexagoon‎ 2,948
+       bytes +36‎ No edit summary
+     * curprev [ ] [ ] 05:5905:59, 12 June 2021‎ imported>Flexagoon‎ 2,912
+       bytes −247‎ No edit summary
+
+    4 May 2021
+
+     * curprev [ ] [ ] 08:5508:55, 4 May 2021‎ imported>Legendofmiracles‎ m
+       3,159 bytes +32‎ home-manager fish.plugins doesn't support pkgs yet
+
+    26 April 2021
+
+     * curprev [ ] [ ] 11:1611:16, 26 April 2021‎ imported>Legendofmiracles‎
+       3,127 bytes +390‎ fish plugins in nixkpgs
+
+    28 March 2021
+
+     * curprev [ ] [ ] 18:1018:10, 28 March 2021‎ imported>Legendofmiracles‎
+       m 2,737 bytes +38‎ fixed the small mess i created ;-;
+     * curprev [ ] [ ] 18:0618:06, 28 March 2021‎ imported>Legendofmiracles‎
+       2,699 bytes +789‎ adds a bit of examples of how to configure fish with
+       home-manager
+
+    17 April 2020
+
+     * curprev [ ] [ ] 01:3001:30, 17 April 2020‎ imported>Jtojnar‎ 1,910
+       bytes −29‎ modernize shell setiing
+     * curprev [ ] [ ] 01:2801:28, 17 April 2020‎ imported>Jtojnar‎ m 1,939
+       bytes 0‎ spacing
+     * curprev [ ] [ ] 01:2701:27, 17 April 2020‎ imported>Jtojnar‎ 1,939
+       bytes +78‎ clarify fish_prompt location
+
+    27 February 2020
+
+     * curprev [ ] [ ] 16:2416:24, 27 February 2020‎ imported>T-gebauer‎ m
+       1,861 bytes −3‎ Since Nix 2.0 the values are "pure" and "impure"
+
+    24 October 2017
+
+     * curprev [ ] [ ] 20:5220:52, 24 October 2017‎ imported>HLandau‎ 1,864
+       bytes +85‎ No edit summary
+
+    22 August 2017
+
+     * curprev [ ] [ ] 22:0622:06, 22 August 2017‎ imported>Mic92‎ 1,779
+       bytes +216‎ No edit summary
+     * curprev [ ] [ ] 22:0122:01, 22 August 2017‎ imported>Mic92‎ 1,563
+       bytes +123‎ No edit summary
+
+    30 June 2017
+
+     * curprev [ ] [ ] 17:2617:26, 30 June 2017‎ imported>Fadenb‎ 1,440 bytes
+       +1,440‎ Created page with "Fish is the [http://fishshell.com/ Friendly
+       Interactive SHell]. At the moment it’s not possible to use fish as
+       login shell. But you can always start it as default shell of..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Fish"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

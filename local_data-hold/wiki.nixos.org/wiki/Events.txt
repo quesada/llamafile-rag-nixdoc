@@ -1,0 +1,246 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixCon
+          * 1.1 NixCon 2024
+          * 1.2 NixCon North America 2024
+          * 1.3 NixCon 2023
+          * 1.4 NixCon 2022
+          * 1.5 NixCon 2020
+          * 1.6 NixCon 2019
+          * 1.7 NixCon 2018
+          * 1.8 NixCon 2017
+          * 1.9 NixCon 2015
+     * 2 Nix Camp
+          * 2.1 Nix Camp 2022
+          * 2.2 Nix Camp 2021
+     * 3 Events organized by others
+          * 3.1 FOSDEM
+          * 3.2 Chemnitz Linux Days
+          * 3.3 GPN
+          * 3.4 FrOSCon
+          * 3.5 SCaLE
+     * 4 References
+   [ ] Toggle the table of contents
+
+                                     Events
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   At several conferences people meet and talk about Nix/NixOS. This article
+   is an extension of https://nixos.org/community/.
+
+  NixCon
+
+    NixCon 2024
+
+   ^[1]
+
+     * https://2024.nixcon.org/
+     * 2024-09-28 -30
+     * Europe, Switzerland (, Zürich District), Zurich
+          * OST (Ostschweizer Fachhochschule)
+               * wikipedia:de:OST – Ostschweizer Fachhochschule
+
+    NixCon North America 2024
+
+     * 2024-03-14 -15
+     * United States, California, Pasadena
+          * Pasadena Convention Center
+     * https://sessionize.com/nixcon-na-2024/
+
+    NixCon 2023
+
+     * https://2023.nixcon.org/
+     * 2023-09-08 -10
+     * Europe, Germany (, Hesse), Darmstadt
+          * TU Darmstadt
+
+    NixCon 2022
+
+     * https://2022.nixcon.org/
+     * 2022-09-20 -22
+     * Europe, France, Paris
+          * ENS Paris
+
+    NixCon 2020
+
+    NixCon 2019
+
+    NixCon 2018
+
+    NixCon 2017
+
+    NixCon 2015
+
+  Nix Camp
+
+     * Nix Camp
+
+    Nix Camp 2022
+
+    Nix Camp 2021
+
+     * Nix Camp "Nix Camp is a 2 week long event from September 12th to
+       September 26th [2021].[...] in the midst of Wales [...]"
+
+  Events organized by others
+
+    FOSDEM
+
+           wikipedia:en:FOSDEM
+           *-W5-6 -7
+
+                2024
+                        2024-02-03 -04
+
+                2023
+                        2023-02-04 -05
+                        Nix and NixOS devroom^[2]
+
+    Chemnitz Linux Days
+
+           wikipedia:en:Chemnitz Linux Days (wikipedia:de:Chemnitzer
+           Linux-Tage)
+           *-W10-6 -7
+
+                2024
+                        2024-03-16 -17
+                        presentation (stand) NixOS^[3]
+
+                2023
+                        2023-03-11 -12
+                        presentation (stand) NixOS^[4]
+
+    GPN
+
+           wikipedia:en:Gulaschprogrammiernacht
+           (wikipedia:de:Gulaschprogrammiernacht)
+
+                2024
+                        2024-05-30 -06-02
+                        2024-06-01T10:45 -11:45 (German) Talk Von Nix kommt
+                        Nix
+                        2024-06-01T21:00 -22:30 (English) Talk NixOS Meetup
+
+                2023
+                        2023-06-08 -11
+                        2023-06-09T16:20 -17:20 (German) Talk Eine
+                        interaktive Übersicht über das Nix Ökosystem
+                        2023-06-09T21:00 -22:00 (German) Talk NixOS Meetup
+
+    FrOSCon
+
+           wikipedia:en:FrOSCon (wikipedia:de:FrOSCon)
+           *-W31-6 -7
+
+                2024
+                        2024-08-17 -18
+                        NixOS devroom (room C130)^[5]
+                        NixOS (presentation) stand^[6]
+
+                2023^[7]
+                        2023-08-05 -06
+                        NixOS devroom (room C130)^[8]
+                        NixOS (presentation) stand^[9]^[10]^[11]^[12]
+                        (German) Lecture Einstieg in Nix & NixOS^[13]
+
+    SCaLE
+
+           https://www.socallinuxexpo.org
+
+                2024
+                        CFP - Reproducible and Immutable Software - Deadline
+                        2023-11-01
+                        Expo - 2023-03-14 to 2023-03-17
+
+                2023
+                        2023-03-11 Matthew Croughan - What Nix Can Do
+
+References
+
+    1. ↑ https://discourse.nixos.org/t/nixcon-2024-preparation-meetings/41837
+    2. ↑ https://fosdem.org/2023/schedule/track/nix_and_nixos/
+    3. ↑ https://chemnitzer.linux-tage.de/2024/de/programm/beitrag/204
+    4. ↑ https://chemnitzer.linux-tage.de/2023/en/programm/beitrag/154
+    5. ↑ https://froscon.org/en/program/project-rooms/
+    6. ↑ https://froscon.org/en/program/exhibitors/
+    7. ↑ https://discourse.nixos.org/t/30572
+    8. ↑ https://froscon.org/en/program/project-rooms/
+    9. ↑ https://froscon.org/en/program/exhibitors/
+   10. ↑ https://c3d2.social/@n00b0ss@chaos.social/110836201350981349
+   11. ↑ https://c3d2.social/@laalsaas/110844666145269636
+   12. ↑ https://c3d2.social/@c3d2/110844723615290243
+   13. ↑ https://programm.froscon.org/2023/events/2919.html
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Events&oldid=13028"
+   Category:
+     * Community
+     * This page was last edited on 2 June 2024, at 10:14.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

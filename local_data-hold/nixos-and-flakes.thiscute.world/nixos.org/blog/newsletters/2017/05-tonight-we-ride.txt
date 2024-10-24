@@ -1,0 +1,99 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                             #05 - Tonight We Ride
+
+   Published on Mon Apr 03 2017
+
+                             #05 - Tonight We Ride
+
+   The 17.03 “Gorilla” release has been tagged! There are too many good
+   things in this release to pick favourites. I refer you to the release
+   notes instead.
+
+   Some fun stats:
+
+     * ~ 900 new packages since 16.09
+     * ~ 80 new contributors (very inexact science this)
+     * ~ 60 new services
+
+                                      News
+
+     * Did I mention the release? Robin has been doing a fantastic job, thank
+       him when you meet him! He’s also had a lot of help of course, so
+       thanks to all those people as well. It’s a pretty long list and you
+       can get it with “git shortlog 8def08..17.03”.
+     * Extra capacity is coming for Hydra OSX builds, thanks to all the great
+       people that have donated to NixOS Foundation.
+     * We now have an official RFC process. Thanks to zimbatm for writing our
+       first ever RFC. We already have three pull requests so go forth and
+       comment.
+     * remove-perl branch just got merged to master. Time to celebrate.
+     * Sander released Disnix 0.7
+     * Théophane has started his work on typing Nix. You can follow along
+       here. He’s also answering some questions in this mailing list thread.
+
+                                    Reading
+
+     * One long-standing issue in Nix has been the storage of secrets. Right
+       now many of our services store their secrets in /nix where they are
+       world readable. This means you can’t have root-only secrets,
+       multi-user systems are problematic, and if one of your services is
+       compromised it can be used to steal all your other secrets. Eelco
+       created an RFC for encrypting secrets at rest.
+     * Monte is a dynamic language inspired by Python and E. It uses Nix,
+       under the hook, for its packaging. Worth checking out if you are
+       writing a new languge and want to see how Nix help you.
+     * A Gentle Introduction to the Nix Family by Rommel Martinez.
+
+                                    Meetups
+
+     * Apr 4, 2017, NixOS April Meetup, Dublin, Ireland
+
+       Two presentations:
+
+          * Immutable deployments in Rapid7 by Ulrich Dangel
+          * Basics of Nix by Kevin Cox
+     * (Future) Let us know if you are organizing a Nix / NixOS event.
+
+                                Editor’s corner
+
+   A substantial part of the effort of publishing the “weekly” news is
+   collecting the news in the first place. If you see anything cool, want to
+   share a job, meetup or presentation add a comment with your item at
+   https://github.com/NixOS/nixos-weekly. It’s super helpful!
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

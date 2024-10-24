@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration
+   [ ] Toggle the table of contents
+
+                                      Doas
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 15:09, 11 August 2024 by Unabomberlive (talk | contribs)
+   (Marked this version for translation)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   doas is a utility to execute commands as a different user, typically the
+   super user. It is often installed as a replacement for sudo, due to its
+   ease of configuration and greater simplicity. It is not recommended to use
+   doas due to compatibility issues with sudo. Flake based configurations
+   require git to be installed as a system package in order to rebuild.
+
+Configuration
+
+   The following configuration will give the user foo the ability to execute
+   commands as the super user via doas, while disabling the sudo command.
+
+ security.doas.enable = true;
+ security.sudo.enable = false;
+ security.doas.extraRules = [{
+   users = ["foo"];
+   # Optional, retains environment variables while running commands
+   # e.g. retains your NIX_PATH when applying your config
+   keepEnv = true;
+   persist = true;  # Optional, don't ask for the password for some time, after a successfully authentication
+ }];
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Doas&oldid=16595"
+   Categories:
+     * Applications
+     * Security
+     * This page was last edited on 11 August 2024, at 15:09.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

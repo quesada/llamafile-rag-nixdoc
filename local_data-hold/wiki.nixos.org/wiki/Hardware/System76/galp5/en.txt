@@ -1,0 +1,137 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Known issues
+     * 3 Configuration
+          * 3.1 BIOS
+          * 3.2 galp5
+               * 3.2.1 GTX 1650/1650 Ti
+          * 3.3 Tech Docs
+   [ ] Toggle the table of contents
+
+                              System76 Galago Pro
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Translate this page
+
+   Warning: Display title "System76 Galago Pro" overrides earlier display
+   title "Hardware/System76/galp5".
+
+   ← Back to Hardware Hub
+
+   System76 Galago Pro
+   Manufacturer System76     
+   Architecture x86_64-linux 
+   galp5        
+   Status       supported    
+   Maintainer   Ahoneybun    
+
+   The System76 Galago Pro is a Linux laptop running System76 Open Firmware
+   (based on coreboot+EDK2) from System76
+
+Status
+
+   The device boots NixOS.
+
+Known issues
+
+Configuration
+
+  BIOS
+
+   These are handled by the firmware-manager package which can be enabled in
+   your configuration like this:
+
+ configuration.nix
+
+ {
+   hardware.system76.enableAll = true;
+ };
+
+  galp5
+
+    GTX 1650/1650 Ti
+
+     * NixOS Hardware module for flakes:
+       nixos-hardware.nixosModules.system76-galp5-1650
+     * NixOS Hardware module for channels:
+       <nixos-hardware/system76/galp5-1650>
+
+  Tech Docs
+
+   This goes over replacing and upgrading components such as RAM and drives.
+   https://tech-docs.system76.com/models/galp5/README.html
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/System76/galp5/en&oldid=17854"
+   Category:
+     * Incomplete
+     * This page was last edited on 15 October 2024, at 18:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

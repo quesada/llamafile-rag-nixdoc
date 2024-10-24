@@ -1,0 +1,109 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 how to log as little as possible
+   [ ] Toggle the table of contents
+
+                                   Talk:Nginx
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+how to log as little as possible
+
+   error_log
+
+   https://nginx.org/en/docs/ngx_core_module.html#error_log
+
+   log as less as possible errors
+
+   services.nginx.logError = ''stderr emerg'';
+
+   log as less as possible errors and write them to nowhere
+
+   services.nginx.logError = ''/dev/null emerg'';
+
+   ?log as less as possible errors for (a or maybe) all virtualHosts and
+   write them to nowhere?
+
+   services.nginx.virtualHosts."domain.tld".extraConfig = ''
+ error_log /dev/null emerg;
+   '';
+
+   access_log
+
+   https://nginx.org/en/docs/http/ngx_http_log_module.html#access_log
+
+   services.nginx.virtualHosts."domain.tld".extraConfig = ''
+ access_log off;
+   '';
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Nginx&oldid=9571"
+     * This page was last edited on 20 February 2022, at 11:00.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

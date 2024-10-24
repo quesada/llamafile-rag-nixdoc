@@ -1,0 +1,114 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        File:Microsoft surface go 2.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:Microsoft surface go 2.jpg
+   Size of this preview: 625 × 599 pixels. Other resolution: 2,048 × 1,964
+   pixels.
+
+   Original file ‎(2,048 × 1,964 pixels, file size: 489 KB, MIME type:
+   image/jpeg)
+
+   Photo of a Microsoft Surface Go 2 device
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time     Thumbnail         Dimensions    User         Comment 
+                         Thumbnail for                                
+   current 14:27, 15 May version as of     2,048 × 1,964 Onny (talk | 
+           2024          14:27, 15 May     (489 KB)      contribs)
+                         2024              
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * Hardware/Microsoft/Surface Go 2
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Color space sRGB 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Microsoft_surface_go_2.jpg&oldid=12789"
+     * This page was last edited on 15 May 2024, at 14:27.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

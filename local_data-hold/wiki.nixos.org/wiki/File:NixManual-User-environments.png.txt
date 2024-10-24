@@ -1,0 +1,116 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      File:NixManual-User-environments.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:NixManual-User-environments.png
+   No higher resolution available.
+
+   NixManual-User-environments.png ‎(741 × 428 pixels, file size: 83 KB, MIME
+   type: image/png)
+
+   User environments figure from Chapter 10 of the Nix manual.
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail    Dimensions User         Comment             
+                     Thumbnail                            User environments   
+           06:51, 21 for version  741 × 428               figure from Chapter 
+   current September as of 06:51, (83 KB)    Imported>Nix 10 of the Nix       
+           2021      21 September                         manual.             
+                     2021         
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * User Environment
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Horizontal resolution     49.6 dpc              
+   Vertical resolution       49.61 dpc             
+   File change date and time 10:47, 21 August 2013 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:NixManual-User-environments.png&oldid=9257"
+     * This page was last edited on 1 April 2024, at 11:53.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

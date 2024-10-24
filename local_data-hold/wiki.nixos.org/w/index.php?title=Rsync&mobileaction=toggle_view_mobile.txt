@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Running a server
+   [ ] Toggle the table of contents
+
+                                     Rsync
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   rsync is a utility for efficiently transferring and synchronizing files
+   between a computer and an external hard drive and across networked
+   computers by comparing the modification times and sizes of files.
+
+Running a server
+
+   Running rsync via SSH is recommended for security reasons.
+
+   You can restrict an SSH user to rsync command using pkgs.rrsync:
+
+ users.users.backup = {
+   isNormalUser = true;
+   openssh.authorizedKeys.keys = [
+     ''command="${pkgs.rrsync}/bin/rrsync /home/backup/dir/",restrict ssh-ed25519 AAAAC3NzaCetcetera/etceteraJZMfk3QPfQ''
+   ];
+ };
+
+   Now you should be able to backup to your directory with the rsync client:
+
+ $ rsync -Pav -e "ssh -i $HOME/.ssh/somekeys" photos backup@server:
+
+   See rrsync.1 for additional options, such as enforcing read-only or
+   write-only access.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Rsync&oldid=13265"
+   Categories:
+     * Applications
+     * Backup
+     * This page was last edited on 20 June 2024, at 14:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

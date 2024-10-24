@@ -1,0 +1,242 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 U-Boot in Nixpkgs
+          * 1.1 Building a packaged U-Boot
+               * 1.1.1 Example build
+          * 1.2 Installing U-Boot
+               * 1.2.1 SBC and related projects in NixOS
+     * 2 Using NixOS with U-Boot
+          * 2.1 Quick overview about the Generic Distro Configuration support
+     * 3 Vendor U-Boot
+     * 4 Other U-Boot distributions
+          * 4.1 Tow-Boot
+     * 5 See also
+   [ ] Toggle the table of contents
+
+                                     U-Boot
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   U-Boot is a common platform firmware implementation for embedded and
+   embedded-like devices.
+
+   It may also be used as a bootloader, but with modern U-Boot, UEFI boot is
+   generally possible too.
+
+U-Boot in Nixpkgs
+
+   Mainline U-Boot is packaged in Nixpkgs.
+
+     * [IMG]﻿pkgs/misc/uboot/default.nix
+
+   Vendor forks of U-Boot are generally not packaged in Nixpkgs, and
+   generally unwelcome.
+
+   U-Boot may be patched for compatibility reasons mainly, and work should be
+   taken to send them to mainline U-Boot.
+
+  Building a packaged U-Boot
+
+   You need to know two things:
+
+    1. The target ISA (Instruction Set Architecture)
+    2. If you need to cross-compile
+
+   The target ISA is the ISA of the target board. This would be defined by
+   the CPU used on the board.
+
+   You will need to cross-compile if you are not building on the same
+   architecture as the target board. For example, if you are building for an
+   AArch64 target board on a standard x86_64 laptop, you would need to
+   cross-compile.
+
+   With those facts known, you can build the appropriate attribute from a
+   Nixpkgs checkout.
+
+   The general format is:
+
+ $ nix-build -A [pkgsCross.$cross_name.]$packageName
+ $ # Where the part in [brackets] is needed for cross-compilation.
+
+                      pkgsCross attribute name cheat sheet
+   Architecture Package Set             
+   aarch64      aarch64-multiplatform   
+   armv7l       armv7l-hf-multiplatform 
+   armv6l       raspberryPi [sic]       
+
+    Example build
+
+   The following examples use the U-Boot package for a LibreTech CC
+   ‘LePotato’, which uses an S905X SoC. This SoC uses an AArch64 ISA.
+
+   To build the package with cross-compilation, you need to prefix with the
+   correct cross-compilation package set:
+
+ $ # Example running on x86_64.
+ $ uname -m
+ x86_64
+ $ nix-build -A pkgsCross.aarch64-multiplatform.ubootLibreTechCC
+
+   If, instead, you are building natively (same architecture) you can refer
+   to the package attribute name directly:
+
+ $ # Example output for an AArch64 system.
+ $ uname -m
+ aarch64
+ $ nix-build -A ubootLibreTechCC
+
+  Installing U-Boot
+
+   You will need to consult either the Official U-Boot documentation, or a
+   board-specific page to find out how to use the produced output.
+
+   The large variety of ecosystems supported by U-Boot makes it impossible to
+   document succinctly.
+
+    SBC and related projects in NixOS
+
+     * NixOS on ARM
+     * NixOS on RISCV
+
+Using NixOS with U-Boot
+
+   Note: This section assumes U-Boot is installed already.
+
+   With U-Boot, NixOS currently still assumes use of U-Boot's Generic Distro
+   Configuration Concept as the mechanism for discoverable boot. The
+   preferred scheme is extlinux-compatible. This is how the kernel Image,
+   initrd, dtb, and Kernel command-line arguments are provided with complete
+   support for the lifecycles of generations.
+
+   Note that U-Boot is moving to U-Boot Standard Boot. How it affects the
+   assumptions from NixOS is still not documented.
+
+   Booting through UEFI with U-Boot should work. Booting with UEFI is
+   tentatively supported, with intent of being the only fully supported boot
+   method in the future. See NixOS on ARM/UEFI, which describes part of the
+   drawbacks.
+
+  Quick overview about the Generic Distro Configuration support
+
+   U-Boot is scripted to scan all attached storage devices and partitions,
+   and look for a file named /extlinux/extlinux.conf or
+   /boot/extlinux/extlinux.conf. This will will be generated by NixOS when
+   configured with boot.loader.generic-extlinux-compatible.enable.
+
+   The partition also needs to have its "bootable" flag set. This is true for
+   both MBR and GPT partitioning schemes.
+
+Vendor U-Boot
+
+   The term vendor U-Boot means the provided pre-built U-Boot binaries and
+   the source as well. It generally implies use of an older fork of U-Boot
+   from a BSP (Board Support Package).
+
+   Vendor U-Boot may or may not work to boot and use NixOS.
+
+   The answer is actually really complicated, and depends not only about
+   U-Boot, but the intended Linux kernel to be booted, and the boot method in
+   use.
+
+   The buildUBoot implementation in Nixpkgs may or may not work to build a
+   vendor U-Boot, and this usage is unsupported.
+
+   A few vendors ship good pre-built modern U-Boot implementations. Booting
+   NixOS with those should work. If it does not, things may need to be fixed
+   on any of the end. But also, this depends on the kernel, and boot method
+   in use.
+
+Other U-Boot distributions
+
+   There exists other pre-built U-Boot distributions. As long as they follow
+   the mainline U-Boot semantics, and are close enough in age to the current
+   releases, they should work to boot NixOS.
+
+  Tow-Boot
+
+   Aside: Tow-Boot is not a NixOS project.
+   Though it is built with Nix expressions, and made by authors involved with
+   the NixOS project.
+
+   Stock NixOS should be assumed to work with Tow-Boot, always depending on
+   the boot method and kernel in use.
+
+   Tow-Boot is currently used as a reference as the only distro-agnostic
+   U-Boot build, for support purposes.
+
+See also
+
+     * NixOS on ARM/UEFI
+     * Official U-Boot source repo
+     * Official U-Boot documentation
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=U-Boot&oldid=11856"
+     * This page was last edited on 7 April 2024, at 04:58.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

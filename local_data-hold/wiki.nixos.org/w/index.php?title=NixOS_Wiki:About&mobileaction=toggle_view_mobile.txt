@@ -1,0 +1,139 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 What?
+     * 2 Why?
+     * 3 Who?
+     * 4 Logo
+     * 5 Icons
+     * 6 License
+     * 7 References
+   [ ] Toggle the table of contents
+
+                                NixOS Wiki:About
+
+     * Project page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+What?
+
+   The NixOS Wiki is a community-run documentation resource for NixOS users.
+
+   NixOS is a Linux distribution based on the Nix package manager and the
+   Nixpkgs software repository. All three are part of the Nix ecosystem.
+
+Why?
+
+   Reference documentation in NixOS manual, Nixpkgs manual, Nix manual is
+   maintained with the source code, can be used for looking up technical
+   details, and primarily serves the needs of power users, developers, and
+   contributors. The introductory guides on nix.dev are meant to help getting
+   started with Nix on other Linux distributions.
+
+   These primary resources are actively developed, but cannot possibly
+   account for the full spectrum of use cases NixOS supports. The NixOS Wiki
+   is there for users to collect practical guides, configuration examples,
+   and troubleshooting tips.
+
+   See the history of NixOS wikis for background information.
+
+Who?
+
+   Who?        Role?                                                  
+   makefu      Contributor of the NixOS Wiki                          
+   mic92       Nixpkgs maintainer and contributor of the NixOS Wiki   
+   JulienMalka Non-critical-infra lead, maintainer of the NixOS wiki. 
+   You?        Contact us! we use the #wiki:nixos.org room on Matrix. 
+
+Logo
+
+   The NixOS logo is licensed under the Creative Commons Attribution 4.0
+   International License. To view a copy of this license, visit
+   http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative
+   Commons, PO Box 1866, Mountain View, CA 94042, USA.^[1]
+
+Icons
+
+   Icons are based-off or directly taken from the Breeze Icons project.
+   Adaptations and creations in the style of Breeze and KDE's HIG are
+   released under the same license. See their license for more details about
+   usage rights, it's LGPL with a special mention about what it means for the
+   icons.
+
+License
+
+   Content on the NixOS Wiki is licensed under the MIT License. For more
+   information, see NixOS Wiki:Copyrights.
+
+References
+
+    1. ↑ commit 525ade227e23f2b54975021553eeb3c6b57c04bd
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Wiki:About&oldid=13470"
+     * This page was last edited on 24 June 2024, at 00:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

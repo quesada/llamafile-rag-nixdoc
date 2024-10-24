@@ -1,0 +1,329 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Firefox: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    26 September 2024
+
+     * curprev [ ] [ ] 20:4320:43, 26 September 2024‎ Klinger talk contribs‎
+       m 11,541 bytes +25‎ Category:Web Browser added
+
+    20 August 2024
+
+     * curprev [ ] [ ] 05:5205:52, 20 August 2024‎ Unabomberlive talk
+       contribs‎ 11,516 bytes +24‎ Marked this version for translation
+
+    18 August 2024
+
+     * curprev [ ] [ ] 11:1811:18, 18 August 2024‎ Zocker1999 talk contribs‎
+       11,492 bytes +125‎ added hint to programs.firefox.wrapperConfig for
+       screen sharing in Wayland Tag: Visual edit
+
+    5 August 2024
+
+     * curprev [ ] [ ] 12:3112:31, 5 August 2024‎ Unabomberlive talk
+       contribs‎ m 11,367 bytes 0‎ No edit summary
+     * curprev [ ] [ ] 12:2912:29, 5 August 2024‎ Unabomberlive talk
+       contribs‎ m 11,367 bytes 0‎ No edit summary
+     * curprev [ ] [ ] 12:2512:25, 5 August 2024‎ Unabomberlive talk
+       contribs‎ 11,367 bytes +627‎ Marked this version for translation
+     * curprev [ ] [ ] 12:2412:24, 5 August 2024‎ Unabomberlive talk
+       contribs‎ 10,740 bytes +25‎ No edit summary
+     * curprev [ ] [ ] 12:2412:24, 5 August 2024‎ Unabomberlive talk
+       contribs‎ 10,715 bytes +47‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 12:2112:21, 5 August 2024‎ Unabomberlive talk
+       contribs‎ 10,668 bytes +24‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 12:1812:18, 5 August 2024‎ Unabomberlive talk
+       contribs‎ 10,644 bytes +1,158‎ No edit summary Tag: Visual edit:
+       Switched
+
+    27 May 2024
+
+     * curprev [ ] [ ] 08:3108:31, 27 May 2024‎ Eljamm talk contribs‎ 9,486
+       bytes +1,653‎ →‎Variant: Nightly: Add more details on how to set up
+       Firefox nightly
+
+    16 May 2024
+
+     * curprev [ ] [ ] 15:3415:34, 16 May 2024‎ Klinger talk contribs‎ m
+       7,833 bytes +47‎ added link to firefox sync server
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:0320:03, 19 April 2024‎ Klinger talk contribs‎ m
+       7,786 bytes −5‎ Category:Cookbook Category:Applications
+
+    5 April 2024
+
+     * curprev [ ] [ ] 07:1107:11, 5 April 2024‎ Jopejoe1 talk contribs‎
+       7,791 bytes −412‎ our firefox paclage is not branded nightly anymore
+       Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 04:4104:41, 5 April 2024‎ Tekkical talk contribs‎
+       8,203 bytes +13‎ changed home manager site link to the options
+       appendix Tag: Visual edit
+     * curprev [ ] [ ] 01:2801:28, 5 April 2024‎ Tekkical talk contribs‎
+       8,190 bytes −69‎ →‎Customizing with Home Manager: Removed useless
+       params from code block Tag: Visual edit
+     * curprev [ ] [ ] 01:2101:21, 5 April 2024‎ Tekkical talk contribs‎
+       8,259 bytes +1,418‎ Hey, I'm still new to this but I want to expand
+       the wiki to the max :) I have added a little section as an example of
+       using home-manager to customize firefox. I hope this is a good start
+       and will stay on the page and be expanded by other wiki users! Tag:
+       Visual edit
+
+    13 February 2024
+
+     * curprev [ ] [ ] 17:5817:58, 13 February 2024‎ imported>Ppom‎ m 6,841
+       bytes −2‎ moved new item up
+     * curprev [ ] [ ] 17:5517:55, 13 February 2024‎ imported>Ppom‎ 6,843
+       bytes +248‎ Pipewire support must be manually added to Firefox
+
+    30 October 2023
+
+     * curprev [ ] [ ] 19:3519:35, 30 October 2023‎ imported>Hypnosis2839‎
+       6,595 bytes −35‎ →‎Screen Sharing under Wayland: firefox-wayland is
+       just an alias for firefox
+
+    27 October 2023
+
+     * curprev [ ] [ ] 09:4709:47, 27 October 2023‎ imported>SuperSamus‎
+       6,630 bytes −368‎ No edit summary
+
+    3 October 2023
+
+     * curprev [ ] [ ] 08:5008:50, 3 October 2023‎ imported>Writer‎ 6,998
+       bytes −186‎ Remove reduncancy and use "variant" throughout and in
+       title to make separation clearer and easier to navigate
+     * curprev [ ] [ ] 08:3308:33, 3 October 2023‎ imported>Writer‎ m 7,184
+       bytes −12‎ Remove empty section
+     * curprev [ ] [ ] 08:2808:28, 3 October 2023‎ imported>Writer‎ 7,196
+       bytes +609‎ Add how to use KDE file picker
+
+    6 August 2023
+
+     * curprev [ ] [ ] 17:0117:01, 6 August 2023‎ imported>Hypnosis2839‎ m
+       6,587 bytes −2,134‎ remove mentions of nix-env, java, and simplify
+       explanations; remove repetitive text
+
+    2 April 2023
+
+     * curprev [ ] [ ] 19:2419:24, 2 April 2023‎ imported>Aktaboot‎ m 8,721
+       bytes −25‎ remove deprecated gtkUsePortal
+
+    3 December 2022
+
+     * curprev [ ] [ ] 12:3312:33, 3 December 2022‎ imported>Sebastiant‎
+       8,746 bytes −25‎ forceWayland is a removed setting in
+       firefox-unwrapped since Nov 17th: support is now always enabled
+
+    31 July 2022
+
+     * curprev [ ] [ ] 03:1303:13, 31 July 2022‎ imported>Dartagan‎ 8,771
+       bytes +66‎ Note that phantom scrolling is cured by switching to the
+       Firefox Wayland build.
+
+    14 April 2022
+
+     * curprev [ ] [ ] 16:0016:00, 14 April 2022‎ imported>SuperSamus‎ 8,705
+       bytes +73‎ Specify that enabling Plasma automatically enables Plasma
+       Integration
+
+    2 March 2022
+
+     * curprev [ ] [ ] 02:5402:54, 2 March 2022‎ imported>Wackbyte‎ 8,632
+       bytes +109‎ formatting
+
+    16 November 2021
+
+     * curprev [ ] [ ] 20:3820:38, 16 November 2021‎ imported>Patryk27‎ m
+       8,523 bytes −115‎ No edit summary
+     * curprev [ ] [ ] 09:1809:18, 16 November 2021‎ imported>Coolshaurya‎
+       8,638 bytes +447‎ Add xinput2 tip
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4805:48, 20 September 2021‎ imported>Nix‎ m 8,191
+       bytes +26‎ add Software/Applications subcategory
+
+    8 September 2021
+
+     * curprev [ ] [ ] 06:3006:30, 8 September 2021‎ imported>Chanbakjsd‎
+       8,165 bytes +23‎ Clean up installation section
+
+    20 March 2021
+
+     * curprev [ ] [ ] 13:0913:09, 20 March 2021‎ imported>Mvoggu‎ m 8,142
+       bytes −65‎ Manually setting XDG_SESSION_TYPE to "wayland" prevents
+       login into GNOME + Xorg. In most wayland systems, it seems to be set
+       automatically anyway: https://unix.stackexchange.com/a/355476
+
+    8 February 2021
+
+     * curprev [ ] [ ] 13:1513:15, 8 February 2021‎ imported>Efx‎ m 8,207
+       bytes −166‎ I have verified firefox wayland + pipewire + gnome 3 +
+       stable works without the patch.
+
+    25 December 2020
+
+     * curprev [ ] [ ] 17:2617:26, 25 December 2020‎ imported>Fadenb‎ m 8,373
+       bytes −50‎ →‎Screen Sharing: attempt at rewording to reflect different
+       capabilities depending on the exact setup
+     * curprev [ ] [ ] 15:1115:11, 25 December 2020‎ imported>Fadenb‎ 8,423
+       bytes +2,237‎ →‎Wayland: Document what is needed to make Firefox
+       screen sharing work with Wayland
+
+    16 November 2020
+
+     * curprev [ ] [ ] 07:0907:09, 16 November 2020‎ imported>Artturin‎ m
+       6,186 bytes +28‎ Add to the configuration category
+     * curprev [ ] [ ] 07:0607:06, 16 November 2020‎ imported>Artturin‎ 6,158
+       bytes +101‎ revise installation and remove stub tag since the page has
+       been expanded much since 2017
+
+    15 November 2020
+
+     * curprev [ ] [ ] 21:4521:45, 15 November 2020‎ imported>Artturin‎ 6,057
+       bytes −844‎ was messed up | Undo revision 4990 by Vater (talk)
+     * curprev [ ] [ ] 20:2120:21, 15 November 2020‎ imported>Vater‎ 6,901
+       bytes +844‎ No edit summary
+
+    14 November 2020
+
+     * curprev [ ] [ ] 06:5006:50, 14 November 2020‎ imported>Artturin‎ m
+       6,057 bytes +58‎ add reference and organize
+     * curprev [ ] [ ] 06:1006:10, 14 November 2020‎ imported>Artturin‎ 5,999
+       bytes +214‎ No edit summary
+
+    8 November 2020
+
+     * curprev [ ] [ ] 04:4604:46, 8 November 2020‎ imported>Artturin‎ m
+       5,785 bytes +2‎ capitalize correctly and change one word
+     * curprev [ ] [ ] 04:4304:43, 8 November 2020‎ imported>Artturin‎ 5,783
+       bytes +534‎ No edit summary
+
+    25 October 2020
+
+     * curprev [ ] [ ] 08:0408:04, 25 October 2020‎ imported>Pickfire‎ m
+       5,249 bytes +44‎ →‎Enabling Plasma Browser Integration: mention this
+       is already available in unstable
+
+    22 June 2020
+
+     * curprev [ ] [ ] 22:5422:54, 22 June 2020‎ imported>Constfun‎ m 5,205
+       bytes 0‎ No edit summary
+
+    7 May 2020
+
+     * curprev [ ] [ ] 13:1913:19, 7 May 2020‎ imported>Infix‎ m 5,205 bytes
+       +7‎ fix typos
+
+    4 May 2020
+
+     * curprev [ ] [ ] 13:4013:40, 4 May 2020‎ imported>Kvtb‎ 5,198 bytes
+       +717‎ Firefox without pulseaudio
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Firefox"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

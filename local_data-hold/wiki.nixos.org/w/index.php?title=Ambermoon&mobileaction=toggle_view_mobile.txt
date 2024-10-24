@@ -1,0 +1,140 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Ambermoon.net
+     * 2 Install and run game
+     * 3 Install modifications
+     * 4 Troubleshooting
+     * 5 References
+   [ ] Toggle the table of contents
+
+                                   Ambermoon
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Ambermoon is a role-playing game developed and published by Thalion
+   Software, released in 1993 for the Amiga. It was the second part of an
+   unfinished trilogy (Amberstar, released in 1992, being the first). It is
+   considered to be one of the best RPGs for this platform.
+
+   Its possible to run the original Ambermoon with an emulator for the Amiga
+   computers (possible via Amiga Emulator Core in RetroArch).
+
+Ambermoon.net
+
+   Ambermoon.net is an open source rewrite for Windows, Linux and Mac. Its
+   available with two flavours:
+
+     * Ambermoon.net: with modern enhancement but almost the same gameplay
+     * Ambermoon.net Advanced: With some improvements and changes to gameplay
+       and content.
+
+   Ambermoon.net is stable, but also still in active development.
+
+   You do not need the orginal Ambermoon game files to run Ambermoon.net.
+
+Install and run game
+
+   There is no nixpkgs yet, manually running it or running the Lutris version
+   will not work on NixOS due to the needed libraries. A very easy way to run
+   it is via steam-run.
+
+     * Install the steam-run commandline tool: just add the package to your
+       NixOS configuration and rebuild:
+
+ environment.systemPackages = with pkgs; [ steam-run ];
+
+     * Download the latest release from:
+       https://github.com/Pyrdacor/Ambermoon.net
+     * Extract it in some directory
+     * use a terminal and execute in this directory
+
+ steam-run Ambermoon.net
+
+Install modifications
+
+   The game itself has an optional auto-updater and you can choose, whether
+   you want to run Ambermoon.net or Ambermoon.net Advance.
+
+Troubleshooting
+
+   (nothing yet)
+
+References
+
+     * Ambermoon.net (Source and description):
+       https://github.com/Pyrdacor/Ambermoon.net
+     * Wikipedia about Ambermoon: https://en.wikipedia.org/wiki/Ambermoon
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Ambermoon&oldid=12609"
+   Categories:
+     * Applications
+     * Gaming
+     * This page was last edited on 1 May 2024, at 12:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

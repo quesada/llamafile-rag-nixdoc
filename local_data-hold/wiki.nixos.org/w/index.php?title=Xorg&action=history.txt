@@ -1,0 +1,202 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Xorg: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    27 September 2024
+
+     * curprev [ ] [ ] 10:0810:08, 27 September 2024‎ Lassulus talk contribs‎
+       2,177 bytes −978‎ Undo revision 17656 by Levitsky (talk) Tag: Undo
+
+    26 September 2024
+
+     * curprev [ ] [ ] 22:1122:11, 26 September 2024‎ Levitsky talk contribs‎
+       3,155 bytes +978‎ Translate to ukrainian Tags: Reverted Visual edit
+
+    11 September 2024
+
+     * curprev [ ] [ ] 20:3720:37, 11 September 2024‎ Erikarvstedt talk
+       contribs‎ 2,177 bytes +146‎ Add Qt 6 support Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 20:3220:32, 11 September 2024‎ Erikarvstedt talk
+       contribs‎ 2,031 bytes +342‎ Add comments, add Qt5-related variable,
+       add systemd user support Tag: Visual edit
+     * curprev [ ] [ ] 20:2620:26, 11 September 2024‎ Erikarvstedt talk
+       contribs‎ m 1,689 bytes −515‎ Remove obsolete hidpi.nix module. This
+       has been removed in NixOS 23.05 (#222236). Tag: Visual edit: Switched
+
+    25 August 2024
+
+     * curprev [ ] [ ] 17:4017:40, 25 August 2024‎ Klinger talk contribs‎ m
+       2,204 bytes −22‎ removed Category:Hardware
+     * curprev [ ] [ ] 17:3617:36, 25 August 2024‎ Klinger talk contribs‎ m
+       2,226 bytes +42‎ Category:Video Category:Hardware
+
+    5 July 2024
+
+     * curprev [ ] [ ] 17:5817:58, 5 July 2024‎ Klinger talk contribs‎ m
+       2,184 bytes 0‎ →‎See also: link uppercase
+
+    7 June 2023
+
+     * curprev [ ] [ ] 21:1721:17, 7 June 2023‎ imported>AmnesiaAmesia‎ 2,184
+       bytes +345‎ Added information on how to exclude packages with and
+       example excluding xtem
+
+    10 January 2022
+
+     * curprev [ ] [ ] 06:0506:05, 10 January 2022‎ imported>Equirosa‎ m
+       1,839 bytes +105‎ Add syntax highlighting to code snippets
+
+    25 August 2021
+
+     * curprev [ ] [ ] 19:2019:20, 25 August 2021‎ imported>Cas1no‎ 1,734
+       bytes +65‎ No edit summary
+     * curprev [ ] [ ] 19:1619:16, 25 August 2021‎ imported>Cas1no‎ 1,669
+       bytes −63‎ No edit summary
+
+    6 August 2020
+
+     * curprev [ ] [ ] 05:5505:55, 6 August 2020‎ imported>Mic92‎ 1,732 bytes
+       +65‎ link to graphic cards
+
+    31 July 2020
+
+     * curprev [ ] [ ] 15:5515:55, 31 July 2020‎ imported>Jiehong‎ 1,667
+       bytes +9‎ No edit summary
+
+    28 July 2020
+
+     * curprev [ ] [ ] 10:1710:17, 28 July 2020‎ imported>Mic92‎ 1,658 bytes
+       −1‎ No edit summary
+     * curprev [ ] [ ] 10:1610:16, 28 July 2020‎ imported>Mic92‎ 1,659 bytes
+       +472‎ No edit summary
+
+    17 March 2020
+
+     * curprev [ ] [ ] 11:1011:10, 17 March 2020‎ imported>Mic92‎ 1,187 bytes
+       +46‎ hidpi: add java
+
+    4 February 2020
+
+     * curprev [ ] [ ] 13:5213:52, 4 February 2020‎ imported>Mic92‎ 1,141
+       bytes +598‎ No edit summary
+
+    11 March 2019
+
+     * curprev [ ] [ ] 15:0215:02, 11 March 2019‎ imported>Makefu‎ m 543
+       bytes +35‎ add heading
+     * curprev [ ] [ ] 15:0115:01, 11 March 2019‎ imported>Makefu‎ m 508
+       bytes 0‎ Makefu moved page Disabling mouse acceleration to Xorg: will
+       become new Xorg Page
+
+    10 March 2019
+
+     * curprev [ ] [ ] 16:2616:26, 10 March 2019‎ imported>Ar1a‎ 508 bytes
+       +508‎ Created page with "To disable mouse acceleration for a touchpad,
+       it's as simple as <pre> services.xserver.libinput.enable = true;
+       services.xserver.libinput.accelProfile = "flat"; </pre> B..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Xorg"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

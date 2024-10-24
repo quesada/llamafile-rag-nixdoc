@@ -1,0 +1,161 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Connect to serial device
+          * 1.1 With tio
+          * 1.2 With screen
+     * 2 Serial devices
+     * 3 Use serial interface as TTY
+     * 4 Unprivileged access to serial device
+     * 5 Tips
+          * 5.1 Serial console wrapping
+   [ ] Toggle the table of contents
+
+                                 Serial Console
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Serial Console#)         
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+Connect to serial device
+
+   Most serial console programs require you to specify a serial device and a
+   baud rate.
+
+  With tio
+
+  tio -b 115200 /dev/ttyS0
+
+  With screen
+
+  screen /dev/ttyS0 115200
+
+Serial devices
+
+   Serial devices under NixOS will get expose with the following file names.
+   The file names relate to the driver used for the serial interface.
+
+     * /dev/ttyS*
+     * /dev/ttyUSB*
+     * /dev/ttyACM*
+
+Use serial interface as TTY
+
+   To use a serial device ttyS0 as a TTY to log into the device, you have to
+   tell the kernel and you boot loader about the serial configuration.
+
+   An example for GRUB bootloader:
+
+  boot.kernelParams = [ "console=ttyS0,115200n8" ];
+  boot.loader.grub.extraConfig = "
+    serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1
+    terminal_input serial
+    terminal_output serial
+  ";
+
+Unprivileged access to serial device
+
+   Serial devices under NixOS are created with the group dialout by default.
+
+   All users that are part of the group dialout can access serial devices.
+
+   Add a user to group dialout:
+
+    users.users.<name>.extraGroups = [ "dialout" ];
+
+Tips
+
+  Serial console wrapping
+
+   The remote serial console has no knowledge of your local console. This
+   means that it will wrap with safe defaults.
+
+   You can configure the columns/rows of your serial console using stty.
+
+   In a console sized like yours, e.g. a new tab or tmux window:
+
+ $ echo "stty rows $(tput lines) cols $(tput cols)"
+
+   This will give you the exact invocation for your current terminal size.
+
+   In case tmux is used an alternative is to add the following snippet to the
+   tmux.conf
+
+  bind R run "echo \"stty columns $(tmux display -p \#{pane_width}); stty rows $(tmux display -p \#{pane_height})\" | tmux load-buffer - ; tmux paste-buffer"
+
+   In this case fixing the terminal size can be achieved by pressing R.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Serial_Console&oldid=7309"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 17 December 2023, at 18:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

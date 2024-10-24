@@ -1,0 +1,114 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Example configurations
+     * 2 Work in Progress
+     * 3 Blog posts
+   [ ] Toggle the table of contents
+
+                                Workgroup:Router
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The router working group is various people who collaborate and share ideas
+   in #networking:nixos.org on Matrix.
+
+Example configurations
+
+     * disassembler's router config:
+       https://github.com/disassembler/network/blob/master/nixos/portal/configuration.nix
+
+Work in Progress
+
+   A couple of projekts are in development for this topic:
+
+     * liminix - A Nix-based system for configuring consumer wifi routers or
+       IoT device devices, of the kind that OpenWrt or DD-WRT or Gargoyle or
+       Tomato run on.
+     * NixWRT - replacing OpenWRT with the nix toolchain.
+          * This project has been archived
+          * NixWRT Project Update 2018-01-16
+          * Musl support in nixpkgs
+     * dewclaw - generate OpenWRT UCI config from Nix
+     * Not-OS - an operating system generator, based on NixOS, that, given a
+       config, outputs a small (47 MB), read-only squashfs for a runit-based
+       operating system
+
+Blog posts
+
+     * https://dataswamp.org/~solene/2022-08-03-nixos-with-live-usb-router.html
+     * https://francis.begyn.be/blog/nixos-home-router
+     * https://skogsbrus.xyz/building-a-router-with-nixos
+     * https://www.jjpdev.com/posts/home-router-nixos/
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Workgroup:Router&oldid=17430"
+   Category:
+     * Community
+     * This page was last edited on 14 September 2024, at 10:18.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

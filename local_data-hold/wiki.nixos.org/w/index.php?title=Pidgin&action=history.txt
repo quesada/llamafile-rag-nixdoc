@@ -1,0 +1,151 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Pidgin: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:0920:09, 19 April 2024‎ Klinger talk contribs‎
+       1,770 bytes +53‎ Beginning added and Category:Applications
+
+    29 November 2022
+
+     * curprev [ ] [ ] 22:0922:09, 29 November 2022‎ imported>Shawn8901‎
+       1,717 bytes −13‎ No edit summary
+     * curprev [ ] [ ] 21:5221:52, 29 November 2022‎ imported>Shawn8901‎
+       1,730 bytes −11‎ No edit summary
+
+    24 October 2017
+
+     * curprev [ ] [ ] 16:0416:04, 24 October 2017‎ imported>HLandau‎ 1,741
+       bytes +206‎ No edit summary
+
+    23 October 2017
+
+     * curprev [ ] [ ] 20:0220:02, 23 October 2017‎ imported>Makefu‎ 1,535
+       bytes +35‎ No edit summary
+     * curprev [ ] [ ] 20:0020:00, 23 October 2017‎ imported>Makefu‎ m 1,500
+       bytes 0‎ Makefu moved page Pidgin with OTR to Pidgin: make generic
+       page
+
+    22 October 2017
+
+     * curprev [ ] [ ] 14:2814:28, 22 October 2017‎ imported>Castilma‎ 1,500
+       bytes +779‎ Include the solution from the old wiki.
+     * curprev [ ] [ ] 13:5913:59, 22 October 2017‎ imported>Castilma‎ m 721
+       bytes +29‎ use syntaxhighlight
+     * curprev [ ] [ ] 13:5513:55, 22 October 2017‎ imported>Castilma‎ m 692
+       bytes +7‎ No edit summary
+     * curprev [ ] [ ] 13:5213:52, 22 October 2017‎ imported>Castilma‎ m 685
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 13:5113:51, 22 October 2017‎ imported>Castilma‎ m 685
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 13:5013:50, 22 October 2017‎ imported>Castilma‎ 686
+       bytes +686‎ Created page with "If you want to use pidgin with the otr
+       plugin, you will find out, that installing the plugin with
+       <code>nix-env -iA nixos.pidginotr</code> does not work. The plugin
+       doesn't ap..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Pidgin"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

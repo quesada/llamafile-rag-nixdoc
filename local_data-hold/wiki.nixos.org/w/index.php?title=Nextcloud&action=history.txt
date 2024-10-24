@@ -1,0 +1,343 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Nextcloud: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    21 October 2024
+
+     * curprev [ ] [ ] 16:0816:08, 21 October 2024‎ Onny talk contribs‎
+       22,165 bytes +729‎ Add app specific configuration Tag: Visual edit
+
+    13 October 2024
+
+     * curprev [ ] [ ] 13:5913:59, 13 October 2024‎ Raboof talk contribs‎ m
+       21,436 bytes +71‎ →‎Dynamic configuration: clarification on how those
+       options are normally set Tag: Visual edit
+     * curprev [ ] [ ] 10:1210:12, 13 October 2024‎ Raboof talk contribs‎ m
+       21,365 bytes −4‎ →‎Dynamic configuration
+     * curprev [ ] [ ] 10:1210:12, 13 October 2024‎ Raboof talk contribs‎
+       21,369 bytes +1,040‎ →‎Configuration: 'dynamic' configuration Tag:
+       Visual edit: Switched
+
+    23 September 2024
+
+     * curprev [ ] [ ] 19:1419:14, 23 September 2024‎ Onny talk contribs‎
+       20,329 bytes −4‎ →‎Enable HEIC image preview Tag: Visual edit
+
+    11 September 2024
+
+     * curprev [ ] [ ] 14:2014:20, 11 September 2024‎ Raboof talk contribs‎
+       20,333 bytes −12‎ →‎the documentserver_community Nextcloud app: double
+       Tag: Visual edit
+     * curprev [ ] [ ] 13:2113:21, 11 September 2024‎ Raboof talk contribs‎
+       20,345 bytes 0‎ →‎Collabora Online: fix typo Tag: Visual edit
+     * curprev [ ] [ ] 13:0013:00, 11 September 2024‎ Britter talk contribs‎
+       20,345 bytes +1,519‎ Better explain the difference between
+       richdocuments, Collabora Online, and Collabora Online Development
+       Edition. Tag: Visual edit
+     * curprev [ ] [ ] 11:5111:51, 11 September 2024‎ Britter talk contribs‎
+       m 18,826 bytes −4‎ Fix minor typo Tag: Visual edit
+
+    8 September 2024
+
+     * curprev [ ] [ ] 06:5906:59, 8 September 2024‎ Raboof talk contribs‎
+       18,830 bytes +213‎ →‎Rich document editing: more information about the
+       state of rich document editing Tag: Visual edit
+
+    22 August 2024
+
+     * curprev [ ] [ ] 01:3001:30, 22 August 2024‎ Vuhoanghuynh02 talk
+       contribs‎ m 18,617 bytes −34‎ Update link to nextcloud-apps.json Tag:
+       Visual edit
+
+    21 August 2024
+
+     * curprev [ ] [ ] 16:5216:52, 21 August 2024‎ Sandro talk contribs‎
+       18,651 bytes 0‎ SSL -> TLS Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 16:5116:51, 21 August 2024‎ Sandro talk contribs‎
+       18,651 bytes −88‎ Drop insecure netrc example Tags: Mobile edit Mobile
+       web edit
+     * curprev [ ] [ ] 16:5016:50, 21 August 2024‎ Sandro talk contribs‎
+       18,739 bytes −7‎ Drop useless runuser Tags: Mobile edit Mobile web
+       edit
+     * curprev [ ] [ ] 16:4916:49, 21 August 2024‎ Sandro talk contribs‎
+       18,746 bytes +16‎ /SSL -> TLS, improve examples, write out virtualhost
+       Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 08:3808:38, 21 August 2024‎ Raboof talk contribs‎
+       18,730 bytes +2‎ →‎ONLYOFFICE: warning that saving currently doesn't
+       actually work Tag: Visual edit
+
+    20 August 2024
+
+     * curprev [ ] [ ] 07:2207:22, 20 August 2024‎ Raboof talk contribs‎
+       18,728 bytes +185‎ →‎ONLYOFFICE: warning: saving may not work Tag:
+       Visual edit
+
+    19 August 2024
+
+     * curprev [ ] [ ] 21:2721:27, 19 August 2024‎ Raboof talk contribs‎
+       18,543 bytes +704‎ adding rich text editing Tag: Visual edit
+
+    1 July 2024
+
+     * curprev [ ] [ ] 13:1613:16, 1 July 2024‎ SkuggaKisa talk contribs‎ m
+       17,839 bytes +3‎ fixed link to Nextcloud NixOS manual (it was pointing
+       to Matomo) Tag: Visual edit: Switched
+
+    5 June 2024
+
+     * curprev [ ] [ ] 19:5919:59, 5 June 2024‎ Onny talk contribs‎ 17,836
+       bytes +5‎ Use the default package in services.nextcloud.package Tag:
+       Visual edit
+     * curprev [ ] [ ] 11:2811:28, 5 June 2024‎ Onny talk contribs‎ 17,831
+       bytes +21‎ Automatically select latest Nextcloud package for your
+       release Tag: Visual edit
+
+    24 May 2024
+
+     * curprev [ ] [ ] 23:5523:55, 24 May 2024‎ PopeRigby talk contribs‎
+       17,810 bytes −985‎ Remove Adding missing indices section, as
+       https://github.com/NixOS/nixpkgs/pull/308291 was merged Tag: Visual
+       edit
+
+    16 May 2024
+
+     * curprev [ ] [ ] 19:1119:11, 16 May 2024‎ Klinger talk contribs‎ m
+       18,795 bytes +151‎ added link to manual Tag: Visual edit: Switched
+
+    6 May 2024
+
+     * curprev [ ] [ ] 08:3708:37, 6 May 2024‎ RTUnreal talk contribs‎ m
+       18,644 bytes +17‎ →‎Nextcloudcmd: Remove link to imaginary example
+     * curprev [ ] [ ] 08:3608:36, 6 May 2024‎ RTUnreal talk contribs‎ m
+       18,627 bytes +29‎ →‎Installation: Remove link to immaginary example
+
+    2 May 2024
+
+     * curprev [ ] [ ] 08:4808:48, 2 May 2024‎ Onny talk contribs‎ 18,598
+       bytes +132‎ →‎Add missing indices: Add note on upstream pull request
+       Tag: Visual edit
+
+    17 April 2024
+
+     * curprev [ ] [ ] 01:2401:24, 17 April 2024‎ Writer talk contribs‎
+       18,466 bytes +852‎ Automatically add missing indices
+
+    2 April 2024
+
+     * curprev [ ] [ ] 11:1011:10, 2 April 2024‎ Kaya talk contribs‎ 17,614
+       bytes +4‎ agpl3Only is preferred now Tag: Visual edit
+
+    30 March 2024
+
+     * curprev [ ] [ ] 12:3612:36, 30 March 2024‎ imported>Onny‎ 17,610 bytes
+       +1,300‎ Add examples on configuring users and Caddy webserver
+
+    15 March 2024
+
+     * curprev [ ] [ ] 11:5811:58, 15 March 2024‎ imported>Fabi1926‎ m 16,310
+       bytes −1‎ corrected default user
+
+    11 March 2024
+
+     * curprev [ ] [ ] 18:2418:24, 11 March 2024‎ imported>Writer‎ 16,311
+       bytes +156‎ No edit summary
+
+    6 March 2024
+
+     * curprev [ ] [ ] 19:1819:18, 6 March 2024‎ imported>Montyz‎ m 16,155
+       bytes +196‎ The example password will be rejected by nextcloud and not
+       allow login. Also note the default user is admin, not root.
+     * curprev [ ] [ ] 11:3211:32, 6 March 2024‎ imported>Onny‎ m 15,959
+       bytes −33‎ No edit summary
+
+    19 February 2024
+
+     * curprev [ ] [ ] 22:0322:03, 19 February 2024‎ imported>Pschwede‎
+       15,992 bytes +134‎ →‎Run nextcloud in a sub-directory: I changed my
+       previous wording a bit.
+     * curprev [ ] [ ] 21:2821:28, 19 February 2024‎ imported>Pschwede‎
+       15,858 bytes +2,716‎ →‎Tips and tricks: How to run nextcloud in a
+       sub-directory
+
+    14 February 2024
+
+     * curprev [ ] [ ] 11:5611:56, 14 February 2024‎ imported>Onny‎ 13,142
+       bytes +1,317‎ Add objectstore example
+
+    12 January 2024
+
+     * curprev [ ] [ ] 15:0415:04, 12 January 2024‎ imported>Onny‎ 11,825
+       bytes −1,013‎ Removed old closed issue
+
+    11 January 2024
+
+     * curprev [ ] [ ] 12:3612:36, 11 January 2024‎ imported>Alicimo‎ m
+       12,838 bytes −4‎ Formatting fix
+     * curprev [ ] [ ] 12:3512:35, 11 January 2024‎ imported>Alicimo‎ 12,842
+       bytes +27‎ Missing the license variable in fetchNextcloudApp causes
+       the example to fail. Also expanded the given example to show the use
+       of combining packaged apps with those additionally fetched.
+
+    25 December 2023
+
+     * curprev [ ] [ ] 08:2508:25, 25 December 2023‎ imported>Heartbeast42‎ m
+       12,815 bytes +1‎ No edit summary
+
+    18 December 2023
+
+     * curprev [ ] [ ] 16:3416:34, 18 December 2023‎ imported>Onny‎ 12,814
+       bytes 0‎ Update Nextcloud version
+
+    3 December 2023
+
+     * curprev [ ] [ ] 10:0210:02, 3 December 2023‎ imported>Moredread‎ m
+       12,814 bytes +1‎ fix spelling: imae -> image
+
+    25 November 2023
+
+     * curprev [ ] [ ] 11:2411:24, 25 November 2023‎ imported>Onny‎ 12,813
+       bytes −139‎ use correct option for setting maxuploadsize
+
+    24 November 2023
+
+     * curprev [ ] [ ] 14:2314:23, 24 November 2023‎ imported>A-m-s‎ 12,952
+       bytes +188‎ →‎Maintenance: Database access recipe.
+
+    18 November 2023
+
+     * curprev [ ] [ ] 14:5114:51, 18 November 2023‎ imported>Onny‎ 12,764
+       bytes +5‎ Update example building app from source with upstream repo
+
+    16 November 2023
+
+     * curprev [ ] [ ] 14:3914:39, 16 November 2023‎ imported>Onny‎ 12,759
+       bytes +908‎ Add example build app from source
+
+    4 November 2023
+
+     * curprev [ ] [ ] 14:4914:49, 4 November 2023‎ imported>MoKe12g‎ 11,851
+       bytes +226‎ added nextcloud client and note that a keyring is
+       necessary for it to save the login token
+
+    15 October 2023
+
+     * curprev [ ] [ ] 17:5817:58, 15 October 2023‎ imported>Luelista‎ 11,625
+       bytes −103‎ nextcloud-setup enables/disables maintenance mode by
+       itself, and fails if it is already enabled externally
+
+    13 October 2023
+
+     * curprev [ ] [ ] 11:4511:45, 13 October 2023‎ imported>Onny‎ 11,728
+       bytes +698‎ Tip: How to enable HEIC image preview
+
+    29 September 2023
+
+     * curprev [ ] [ ] 08:4608:46, 29 September 2023‎ imported>Onny‎ m 11,030
+       bytes −12‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Nextcloud"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

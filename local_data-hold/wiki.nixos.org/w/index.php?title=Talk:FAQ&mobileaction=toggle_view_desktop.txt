@@ -1,0 +1,113 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                    Talk:FAQ
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   I fixed the syntax in the section on "How can I manage software with
+   nix-env like with configuration.nix?" but it still doesn't work for me and
+   there are lines of code there that are not explained (so probably should
+   be bu I don't understand).
+
+   ```
+
+      inherit ((import <nixpkgs/nixos> {}).config.system.path)
+      pathsToLink ignoreCollisions postBuild;
+      extraOutputsToInstall = [ "man" ];
+
+   ```
+
+   What does all that mean? And is it compulsory? If I leave it in I get
+   this:
+
+   ``` $ nix-env -iA userPackages -f '<nixpkgs>' installing 'user-packages'
+   error: file 'nixos-config' was not found in the Nix search path (add it
+   using $NIX_PATH or -I), at
+   /home/dsyer/.nix-defexpr/channels/nixpkgs/nixos/default.nix:1:60 (use
+   '--show-trace' to show detailed location information ```
+
+   If I remove it I get:
+
+   ``` $ nix-env -iA userPackages -f '<nixpkgs>' installing 'user-packages'
+   building
+   '/nix/store/59z3yxcxnm2cs2922gwnjk882v5n9rk9-user-environment.drv'...
+   error: packages
+   '/nix/store/fjm4sqv4ms737c7jsv36l3y8b320vqfg-git-2.25.1/share/man/man7/gittutorial-2.7.gz'
+   and
+   '/nix/store/5yxbj5d6w10rrxi9r33954qayxyipykf-git-2.25.1/share/man/man7/gittutorial-2.7.gz'
+   have the same priority 5; use 'nix-env --set-flag priority NUMBER
+   INSTALLED_PKGNAME' to change the priority of one of the conflicting
+   packages (0 being the highest priority) builder for
+   '/nix/store/59z3yxcxnm2cs2922gwnjk882v5n9rk9-user-environment.drv' failed
+   with exit code 1 error: build of
+   '/nix/store/59z3yxcxnm2cs2922gwnjk882v5n9rk9-user-environment.drv' failed
+   ```
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:FAQ&oldid=7547"
+     * This page was last edited on 26 April 2020, at 21:00.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

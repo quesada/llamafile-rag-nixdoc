@@ -1,0 +1,139 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                 Install NixOS on Liteserver: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    23 March 2024
+
+     * curprev [ ] [ ] 23:1323:13, 23 March 2024‎ imported>Hugo-Heagren‎
+       7,092 bytes −5‎ No edit summary
+     * curprev [ ] [ ] 23:1023:10, 23 March 2024‎ imported>Hugo-Heagren‎
+       7,097 bytes −505‎ No edit summary
+     * curprev [ ] [ ] 23:1023:10, 23 March 2024‎ imported>Hugo-Heagren‎
+       7,602 bytes +1,159‎ Change networking config to allow for SSH.
+
+    23 February 2024
+
+     * curprev [ ] [ ] 23:0123:01, 23 February 2024‎ imported>Hugo-Heagren‎ m
+       6,443 bytes +1‎ No edit summary
+     * curprev [ ] [ ] 22:5622:56, 23 February 2024‎ imported>Hugo-Heagren‎
+       6,442 bytes +1‎ No edit summary
+     * curprev [ ] [ ] 22:5622:56, 23 February 2024‎ imported>Hugo-Heagren‎
+       6,441 bytes +2,010‎ Update and finish
+
+    11 January 2024
+
+     * curprev [ ] [ ] 21:5421:54, 11 January 2024‎ imported>Hugo-Heagren‎
+       4,431 bytes +2‎ No edit summary
+     * curprev [ ] [ ] 21:5121:51, 11 January 2024‎ imported>Hugo-Heagren‎
+       4,429 bytes +564‎ No edit summary
+     * curprev [ ] [ ] 21:4421:44, 11 January 2024‎ imported>Hugo-Heagren‎
+       3,865 bytes +126‎ No edit summary
+     * curprev [ ] [ ] 20:3320:33, 11 January 2024‎ imported>Hugo-Heagren‎ m
+       3,739 bytes −8‎ No edit summary
+     * curprev [ ] [ ] 20:2920:29, 11 January 2024‎ imported>Hugo-Heagren‎
+       3,747 bytes +3,747‎ Begin guide for installation on liteserver.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Install_NixOS_on_Liteserver"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

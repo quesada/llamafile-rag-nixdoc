@@ -1,0 +1,154 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           OneDrive: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 April 2024
+
+     * curprev [ ] [ ] 19:5419:54, 19 April 2024‎ Klinger talk contribs‎ m
+       1,797 bytes −54‎ reduced categories to Category:Applications
+
+    21 December 2023
+
+     * curprev [ ] [ ] 21:3321:33, 21 December 2023‎ imported>Pizzapim‎ 1,851
+       bytes +150‎ No edit summary
+
+    6 September 2023
+
+     * curprev [ ] [ ] 12:2312:23, 6 September 2023‎ imported>Nadimkobeissi‎
+       1,701 bytes −41‎ No edit summary
+     * curprev [ ] [ ] 12:1112:11, 6 September 2023‎ imported>Nadimkobeissi‎
+       1,742 bytes +8‎ Undo revision 10103 by Nadimkobeissi (talk)
+
+    25 August 2023
+
+     * curprev [ ] [ ] 12:4612:46, 25 August 2023‎ imported>Nadimkobeissi‎ m
+       1,734 bytes −8‎ Remove unexplained -0 suffix
+
+    26 July 2022
+
+     * curprev [ ] [ ] 11:4911:49, 26 July 2022‎ imported>Mipmip‎ 1,742 bytes
+       +65‎ Add additional information to prevent confussion how this service
+       works.
+
+    20 October 2021
+
+     * curprev [ ] [ ] 21:0221:02, 20 October 2021‎ imported>Crocodillian‎ m
+       1,677 bytes −11‎ Remove --no-pager, this is automatic with
+       redirection.
+
+    18 October 2021
+
+     * curprev [ ] [ ] 05:2905:29, 18 October 2021‎ imported>Rkitover‎ m
+       1,688 bytes +42‎ Add categories Networking and Sync, as in nixpkgs.
+     * curprev [ ] [ ] 05:1805:18, 18 October 2021‎ imported>Rkitover‎ m
+       1,646 bytes +7‎ Pipe log to less.
+     * curprev [ ] [ ] 05:1005:10, 18 October 2021‎ imported>Rkitover‎ 1,639
+       bytes +281‎ Add See Also section.
+     * curprev [ ] [ ] 05:0605:06, 18 October 2021‎ imported>Rkitover‎ 1,358
+       bytes +1,358‎ Create page describing how to set up and use OneDrive in
+       NixOS.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/OneDrive"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

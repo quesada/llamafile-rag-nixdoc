@@ -1,0 +1,146 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 What is 3proxy
+     * 2 Sample configuration
+     * 3 Firewall
+     * 4 Firefox
+   [ ] Toggle the table of contents
+
+                                     3proxy
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+What is 3proxy
+
+   3proxy is universal proxy server. It can be used to provide internal users
+   with fully controllable access to external resources or to provide
+   external users with access to internal resources. 3proxy is not developed
+   to replace squid, but it can extend functionality of existing cashing
+   proxy. It can be used to route requests between different types of clients
+   and proxy servers. Think about it as application level gateway with
+   configuration like hardware router has for network layer. It can establish
+   multiple gateways with HTTP and HTTPS proxy with FTP over HTTP support,
+   SOCKS v4, v4.5 and v5, POP3 proxy, UDP and TCP portmappers.
+
+Sample configuration
+
+   Just add the following to your configuration.nix file:
+
+   services._3proxy = {
+     enable = true;
+     services = [
+       {
+         type = "socks";
+           auth = [ "strong" ];
+           acl = [ {
+             rule = "allow";
+             users = [ "test1" ];
+           }
+         ];
+       }
+     ];
+     usersFile = "/etc/3proxy.passwd";
+   };
+
+   environment.etc = {
+     "3proxy.passwd".text = ''
+       test1:CL:password1
+       test2:CR:$1$rkpibm5J$Aq1.9VtYAn0JrqZ8M.1ME.
+     '';
+   };
+
+   This sample configuration runs a single instance as socks proxy with
+   user/password auth. The password can be clear text, as indicated by the CL
+   for user test1 or it can be encrypted as indicated by the CR for user
+   test2. You can generate md5-crypted passwords via
+   https://unix4lyfe.org/crypt/
+
+   Note: The htpasswd tool generates incompatible md5-crypted passwords (see
+   https://github.com/z3APA3A/3proxy/wiki/How-To-(incomplete)#USERS )
+
+Firewall
+
+   If not set otherwise, open port 3128 on the firewall.
+
+Firefox
+
+   To use in Firefox, you can install the FoxyProxy addon and create a new
+   proxy. Give it a name, use SOCKS5 and provide the proxy's ip address or
+   domain name. If not set otherwise, use port 3128 and provider username and
+   password.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=3proxy&oldid=12429"
+   Categories:
+     * Applications
+     * Server
+     * Networking
+     * This page was last edited on 24 April 2024, at 19:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

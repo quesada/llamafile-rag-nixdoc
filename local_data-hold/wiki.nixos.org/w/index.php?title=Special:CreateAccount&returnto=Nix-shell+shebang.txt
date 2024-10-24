@@ -1,0 +1,93 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                 Create account
+
+   [ ] English
+   [ ] Tools
+   Tools
+   Actions
+   General
+     * Special pages
+     * Printable version
+   Username
+   _____________________
+   Password
+   _____________________
+   It is recommended to use a unique password that you are not using on any
+   other website.
+   Confirm password
+   _____________________
+   Email address (optional)
+   _____________________
+   Real name (optional)
+   _____________________
+   Real name is optional. If provided, it may be used to give you attribution
+   for your work.
+   To protect the wiki against automated account creation, we kindly ask you
+   to answer the question that appears below (more info):
+   What Linux distribution is this wiki about?
+   ______________________________________________
+   Create your account
+   Register with github (only fill out username)
+
+NixOS Wiki is made by people like you.
+
+  18,011
+
+   edits
+
+  148
+
+   pages
+
+  82
+
+   recent contributors
+
+   Retrieved from "https://wiki.nixos.org/wiki/Special:CreateAccount"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

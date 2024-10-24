@@ -1,0 +1,645 @@
+   [ ]
+    1. 1. Introduction
+    2. 2. Quick Start
+    3. 3. Installation
+    4.   1. 3.1. Supported Platforms
+         2. 3.2. Installing a Binary Distribution
+         3. 3.3. Installing Nix from Source
+         4.   1. 3.3.1. Prerequisites
+              2. 3.3.2. Obtaining a Source Distribution
+              3. 3.3.3. Building Nix from Source
+         5. 3.4. Using Nix within Docker
+         6. 3.5. Security
+         7.   1. 3.5.1. Single-User Mode
+              2. 3.5.2. Multi-User Mode
+         8. 3.6. Environment Variables
+         9. 3.7. Upgrading Nix
+        10. 3.8. Uninstalling Nix
+    5. 4. Nix Store
+    6.   1. 4.1. File System Object
+         2. 4.2. Store Object
+         3. 4.3. Store Path
+         4. 4.4. Store Types
+         5.   1. 4.4.1. Dummy Store
+              2. 4.4.2. Experimental Local Overlay Store
+              3. 4.4.3. Experimental SSH Store
+              4. 4.4.4. Experimental SSH Store with filesytem mounted
+              5. 4.4.5. HTTP Binary Cache Store
+              6. 4.4.6. Local Binary Cache Store
+              7. 4.4.7. Local Daemon Store
+              8. 4.4.8. Local Store
+              9. 4.4.9. S3 Binary Cache Store
+             10. 4.4.10. SSH Store
+    7. 5. Nix Language
+    8.   1. 5.1. Data Types
+         2. 5.2. Language Constructs
+         3.   1. 5.2.1. String interpolation
+              2. 5.2.2. Lookup path
+         4. 5.3. Operators
+         5. 5.4. Derivations
+         6.   1. 5.4.1. Advanced Attributes
+              2. 5.4.2. Import From Derivation
+         7. 5.5. Built-in Constants
+         8. 5.6. Built-in Functions
+    9. 6. Package Management
+   10.   1. 6.1. Profiles
+         2. 6.2. Garbage Collection
+         3.   1. 6.2.1. Garbage Collector Roots
+   11. 7. Advanced Topics
+   12.   1. 7.1. Sharing Packages Between Machines
+         2.   1. 7.1.1. Serving a Nix store via HTTP
+              2. 7.1.2. Copying Closures via SSH
+              3. 7.1.3. Serving a Nix store via SSH
+         3. 7.2. Remote Builds
+         4. 7.3. Tuning Cores and Jobs
+         5. 7.4. Verifying Build Reproducibility
+         6. 7.5. Using the post-build-hook
+   13. 8. Command Reference
+   14.   1. 8.1. Common Options
+         2. 8.2. Common Environment Variables
+         3. 8.3. Main Commands
+         4.   1. 8.3.1. nix-build
+              2. 8.3.2. nix-shell
+              3. 8.3.3. nix-store
+              4.   1. 8.3.3.1. nix-store --add-fixed
+                   2. 8.3.3.2. nix-store --add
+                   3. 8.3.3.3. nix-store --delete
+                   4. 8.3.3.4. nix-store --dump-db
+                   5. 8.3.3.5. nix-store --dump
+                   6. 8.3.3.6. nix-store --export
+                   7. 8.3.3.7. nix-store --gc
+                   8. 8.3.3.8. nix-store --generate-binary-cache-key
+                   9. 8.3.3.9. nix-store --import
+                  10. 8.3.3.10. nix-store --load-db
+                  11. 8.3.3.11. nix-store --optimise
+                  12. 8.3.3.12. nix-store --print-env
+                  13. 8.3.3.13. nix-store --query
+                  14. 8.3.3.14. nix-store --read-log
+                  15. 8.3.3.15. nix-store --realise
+                  16. 8.3.3.16. nix-store --repair-path
+                  17. 8.3.3.17. nix-store --restore
+                  18. 8.3.3.18. nix-store --serve
+                  19. 8.3.3.19. nix-store --verify-path
+                  20. 8.3.3.20. nix-store --verify
+              5. 8.3.4. nix-env
+              6.   1. 8.3.4.1. nix-env --delete-generations
+                   2. 8.3.4.2. nix-env --install
+                   3. 8.3.4.3. nix-env --list-generations
+                   4. 8.3.4.4. nix-env --query
+                   5. 8.3.4.5. nix-env --rollback
+                   6. 8.3.4.6. nix-env --set-flag
+                   7. 8.3.4.7. nix-env --set
+                   8. 8.3.4.8. nix-env --switch-generation
+                   9. 8.3.4.9. nix-env --switch-profile
+                  10. 8.3.4.10. nix-env --uninstall
+                  11. 8.3.4.11. nix-env --upgrade
+         5. 8.4. Utilities
+         6.   1. 8.4.1. nix-channel
+              2. 8.4.2. nix-collect-garbage
+              3. 8.4.3. nix-copy-closure
+              4. 8.4.4. nix-daemon
+              5. 8.4.5. nix-hash
+              6. 8.4.6. nix-instantiate
+              7. 8.4.7. nix-prefetch-url
+         7. 8.5. Experimental Commands
+         8.   1. 8.5.1. nix
+              2. 8.5.2. nix build
+              3. 8.5.3. nix bundle
+              4. 8.5.4. nix config
+              5. 8.5.5. nix config check
+              6. 8.5.6. nix config show
+              7. 8.5.7. nix copy
+              8. 8.5.8. nix daemon
+              9. 8.5.9. nix derivation
+             10. 8.5.10. nix derivation add
+             11. 8.5.11. nix derivation show
+             12. 8.5.12. nix develop
+             13. 8.5.13. nix edit
+             14. 8.5.14. nix eval
+             15. 8.5.15. nix flake
+             16. 8.5.16. nix flake archive
+             17. 8.5.17. nix flake check
+             18. 8.5.18. nix flake clone
+             19. 8.5.19. nix flake info
+             20. 8.5.20. nix flake init
+             21. 8.5.21. nix flake lock
+             22. 8.5.22. nix flake metadata
+             23. 8.5.23. nix flake new
+             24. 8.5.24. nix flake prefetch
+             25. 8.5.25. nix flake show
+             26. 8.5.26. nix flake update
+             27. 8.5.27. nix fmt
+             28. 8.5.28. nix hash
+             29. 8.5.29. nix hash convert
+             30. 8.5.30. nix hash file
+             31. 8.5.31. nix hash path
+             32. 8.5.32. nix hash to-base16
+             33. 8.5.33. nix hash to-base32
+             34. 8.5.34. nix hash to-base64
+             35. 8.5.35. nix hash to-sri
+             36. 8.5.36. nix help
+             37. 8.5.37. nix help-stores
+             38. 8.5.38. nix key
+             39. 8.5.39. nix key convert-secret-to-public
+             40. 8.5.40. nix key generate-secret
+             41. 8.5.41. nix log
+             42. 8.5.42. nix nar
+             43. 8.5.43. nix nar cat
+             44. 8.5.44. nix nar dump-path
+             45. 8.5.45. nix nar ls
+             46. 8.5.46. nix nar pack
+             47. 8.5.47. nix path-info
+             48. 8.5.48. nix print-dev-env
+             49. 8.5.49. nix profile
+             50. 8.5.50. nix profile diff-closures
+             51. 8.5.51. nix profile history
+             52. 8.5.52. nix profile install
+             53. 8.5.53. nix profile list
+             54. 8.5.54. nix profile remove
+             55. 8.5.55. nix profile rollback
+             56. 8.5.56. nix profile upgrade
+             57. 8.5.57. nix profile wipe-history
+             58. 8.5.58. nix realisation
+             59. 8.5.59. nix realisation info
+             60. 8.5.60. nix registry
+             61. 8.5.61. nix registry add
+             62. 8.5.62. nix registry list
+             63. 8.5.63. nix registry pin
+             64. 8.5.64. nix registry remove
+             65. 8.5.65. nix repl
+             66. 8.5.66. nix run
+             67. 8.5.67. nix search
+             68. 8.5.68. nix shell
+             69. 8.5.69. nix store
+             70. 8.5.70. nix store add
+             71. 8.5.71. nix store add-file
+             72. 8.5.72. nix store add-path
+             73. 8.5.73. nix store cat
+             74. 8.5.74. nix store copy-log
+             75. 8.5.75. nix store copy-sigs
+             76. 8.5.76. nix store delete
+             77. 8.5.77. nix store diff-closures
+             78. 8.5.78. nix store dump-path
+             79. 8.5.79. nix store gc
+             80. 8.5.80. nix store info
+             81. 8.5.81. nix store ls
+             82. 8.5.82. nix store make-content-addressed
+             83. 8.5.83. nix store optimise
+             84. 8.5.84. nix store path-from-hash-part
+             85. 8.5.85. nix store ping
+             86. 8.5.86. nix store prefetch-file
+             87. 8.5.87. nix store repair
+             88. 8.5.88. nix store sign
+             89. 8.5.89. nix store verify
+             90. 8.5.90. nix upgrade-nix
+             91. 8.5.91. nix why-depends
+         9. 8.6. Files
+        10.   1. 8.6.1. nix.conf
+              2. 8.6.2. Profiles
+              3.   1. 8.6.2.1. manifest.nix
+                   2. 8.6.2.2. manifest.json
+              4. 8.6.3. Channels
+              5. 8.6.4. Default Nix expression
+   15. 9. Architecture and Design
+   16. 10. Formats and Protocols
+   17.   1. 10.1. JSON Formats
+         2.   1. 10.1.1. Store Object Info
+              2. 10.1.2. Derivation
+         3. 10.2. Serving Tarball Flakes
+         4. 10.3. Store Path Specification
+         5. 10.4. Nix Archive (NAR) Format
+         6. 10.5. Derivation "ATerm" file format
+   18. 11. Glossary
+   19. 12. Contributing
+   20.   1. 12.1. Hacking
+         2. 12.2. Testing
+         3. 12.3. Documentation
+         4. 12.4. Experimental Features
+         5. 12.5. CLI guideline
+         6. 12.6. C++ style guide
+   21. 13. Releases
+   22.   1. 13.1. Release 2.22 (2024-04-23)
+         2. 13.2. Release 2.21 (2024-03-11)
+         3. 13.3. Release 2.20 (2024-01-29)
+         4. 13.4. Release 2.19 (2023-11-17)
+         5. 13.5. Release 2.18 (2023-09-20)
+         6. 13.6. Release 2.17 (2023-07-24)
+         7. 13.7. Release 2.16 (2023-05-31)
+         8. 13.8. Release 2.15 (2023-04-11)
+         9. 13.9. Release 2.14 (2023-02-28)
+        10. 13.10. Release 2.13 (2023-01-17)
+        11. 13.11. Release 2.12 (2022-12-06)
+        12. 13.12. Release 2.11 (2022-08-25)
+        13. 13.13. Release 2.10 (2022-07-11)
+        14. 13.14. Release 2.9 (2022-05-30)
+        15. 13.15. Release 2.8 (2022-04-19)
+        16. 13.16. Release 2.7 (2022-03-07)
+        17. 13.17. Release 2.6 (2022-01-24)
+        18. 13.18. Release 2.5 (2021-12-13)
+        19. 13.19. Release 2.4 (2021-11-01)
+        20. 13.20. Release 2.3 (2019-09-04)
+        21. 13.21. Release 2.2 (2019-01-11)
+        22. 13.22. Release 2.1 (2018-09-02)
+        23. 13.23. Release 2.0 (2018-02-22)
+        24. 13.24. Release 1.11.10 (2017-06-12)
+        25. 13.25. Release 1.11 (2016-01-19)
+        26. 13.26. Release 1.10 (2015-09-03)
+        27. 13.27. Release 1.9 (2015-06-12)
+        28. 13.28. Release 1.8 (2014-12-14)
+        29. 13.29. Release 1.7 (2014-04-11)
+        30. 13.30. Release 1.6.1 (2013-10-28)
+        31. 13.31. Release 1.6 (2013-09-10)
+        32. 13.32. Release 1.5.2 (2013-05-13)
+        33. 13.33. Release 1.5 (2013-02-27)
+        34. 13.34. Release 1.4 (2013-02-26)
+        35. 13.35. Release 1.3 (2013-01-04)
+        36. 13.36. Release 1.2 (2012-12-06)
+        37. 13.37. Release 1.1 (2012-07-18)
+        38. 13.38. Release 1.0 (2012-05-11)
+        39. 13.39. Release 0.16 (2010-08-17)
+        40. 13.40. Release 0.15 (2010-03-17)
+        41. 13.41. Release 0.14 (2010-02-04)
+        42. 13.42. Release 0.13 (2009-11-05)
+        43. 13.43. Release 0.12 (2008-11-20)
+        44. 13.44. Release 0.11 (2007-12-31)
+        45. 13.45. Release 0.10.1 (2006-10-11)
+        46. 13.46. Release 0.10 (2006-10-06)
+        47. 13.47. Release 0.9.2 (2005-09-21)
+        48. 13.48. Release 0.9.1 (2005-09-20)
+        49. 13.49. Release 0.9 (2005-09-16)
+        50. 13.50. Release 0.8.1 (2005-04-13)
+        51. 13.51. Release 0.8 (2005-04-11)
+        52. 13.52. Release 0.7 (2005-01-12)
+        53. 13.53. Release 0.6 (2004-11-14)
+        54. 13.54. Release 0.5 and earlier
+     * Light
+     * Rust
+     * Coal
+     * Navy
+     * Ayu
+
+                              Nix Reference Manual
+
+   _____________________
+
+                                    Hacking
+
+   This section provides some notes on how to hack on Nix. To get the latest
+   version of Nix from GitHub:
+
+ $ git clone https://github.com/NixOS/nix.git
+ $ cd nix
+
+   The following instructions assume you already have some version of Nix
+   installed locally, so that you can use it to set up the development
+   environment. If you don't have it installed, follow the installation
+   instructions.
+
+Building Nix with flakes
+
+   This section assumes you are using Nix with the flakes and nix-command
+   experimental features enabled. See the Building Nix section for equivalent
+   instructions using stable Nix interfaces.
+
+   To build all dependencies and start a shell in which all environment
+   variables are set up so that those dependencies can be found:
+
+ $ nix develop
+
+   This shell also adds ./outputs/bin/nix to your $PATH so you can run nix
+   immediately after building it.
+
+   To get a shell with one of the other supported compilation environments:
+
+ $ nix develop .#native-clangStdenvPackages
+
+     Note
+
+     Use ccacheStdenv to drastically improve rebuild time. By default, ccache
+     keeps artifacts in ~/.cache/ccache/.
+
+   To build Nix itself in this shell:
+
+ [nix-shell]$ autoreconfPhase
+ [nix-shell]$ configurePhase
+ [nix-shell]$ make -j $NIX_BUILD_CORES OPTIMIZE=0
+
+   To install it in $(pwd)/outputs and test it:
+
+ [nix-shell]$ make install OPTIMIZE=0
+ [nix-shell]$ make installcheck check -j $NIX_BUILD_CORES
+ [nix-shell]$ nix --version
+ nix (Nix) 2.12
+
+   For more information on running and filtering tests, see testing.md.
+
+   To build a release version of Nix for the current operating system and CPU
+   architecture:
+
+ $ nix build
+
+   You can also build Nix for one of the supported platforms.
+
+Building Nix
+
+   To build all dependencies and start a shell in which all environment
+   variables are set up so that those dependencies can be found:
+
+ $ nix-shell
+
+   To get a shell with one of the other supported compilation environments:
+
+ $ nix-shell --attr devShells.x86_64-linux.native-clangStdenvPackages
+
+     Note
+
+     You can use native-ccacheStdenvPackages to drastically improve rebuild
+     time. By default, ccache keeps artifacts in ~/.cache/ccache/.
+
+   To build Nix itself in this shell:
+
+ [nix-shell]$ autoreconfPhase
+ [nix-shell]$ ./configure $configureFlags --prefix=$(pwd)/outputs/out
+ [nix-shell]$ make -j $NIX_BUILD_CORES
+
+   To install it in $(pwd)/outputs and test it:
+
+ [nix-shell]$ make install
+ [nix-shell]$ make installcheck -j $NIX_BUILD_CORES
+ [nix-shell]$ ./outputs/out/bin/nix --version
+ nix (Nix) 2.12
+
+   To build a release version of Nix for the current operating system and CPU
+   architecture:
+
+ $ nix-build
+
+   You can also build Nix for one of the supported platforms.
+
+Makefile variables
+
+   You may need profiledir=$out/etc/profile.d and sysconfdir=$out/etc to run
+   make install.
+
+   Run make with -e / --environment-overrides to allow environment variables
+   to override Makefile variables:
+
+     * ENABLE_BUILD=yes to enable building the C++ code.
+
+     * ENABLE_DOC_GEN=yes to enable building the documentation (manual, man
+       pages, etc.).
+
+       The docs can take a while to build, so you may want to disable this
+       for local development.
+
+     * ENABLE_FUNCTIONAL_TESTS=yes to enable building the functional tests.
+
+     * ENABLE_UNIT_TESTS=yes to enable building the unit tests.
+
+     * OPTIMIZE=1 to enable optimizations.
+
+     * libraries=libutil programs= to only build a specific library.
+
+       This will fail in the linking phase if the other libraries haven't
+       been built, but is useful for checking types.
+
+     * libraries= programs=nix to only build a specific program.
+
+       This will not work in general, because the programs need the
+       libraries.
+
+Platforms
+
+   Nix can be built for various platforms, as specified in flake.nix:
+
+     * x86_64-linux
+     * x86_64-darwin
+     * i686-linux
+     * aarch64-linux
+     * aarch64-darwin
+     * armv6l-linux
+     * armv7l-linux
+     * riscv64-linux
+
+   In order to build Nix for a different platform than the one you're
+   currently on, you need a way for your current Nix installation to build
+   code for that platform. Common solutions include [remote build machines]
+   and binary format emulation (only supported on NixOS).
+
+   Given such a setup, executing the build only requires selecting the
+   respective attribute. For example, to compile for aarch64-linux:
+
+ $ nix-build --attr packages.aarch64-linux.default
+
+   or for Nix with the flakes and nix-command experimental features enabled:
+
+ $ nix build .#packages.aarch64-linux.default
+
+   Cross-compiled builds are available for:
+
+     * armv6l-linux
+     * armv7l-linux
+     * riscv64-linux Add more system types to crossSystems in flake.nix to
+       bootstrap Nix on unsupported platforms.
+
+  Building for multiple platforms at once
+
+   It is useful to perform multiple cross and native builds on the same
+   source tree, for example to ensure that better support for one platform
+   doesn't break the build for another. In order to facilitate this, Nix has
+   some support for being built out of tree – that is, placing build
+   artefacts in a different directory than the source code:
+
+    1. Create a directory for the build, e.g.
+
+ mkdir build
+
+    2. Run the configure script from that directory, e.g.
+
+ cd build
+ ../configure <configure flags>
+
+    3. Run make from the source directory, but with the build directory
+       specified, e.g.
+
+ make builddir=build <make flags>
+
+System type
+
+   Nix uses a string with the following format to identify the system type or
+   platform it runs on:
+
+ <cpu>-<os>[-<abi>]
+
+   It is set when Nix is compiled for the given system, and based on the
+   output of config.guess (upstream):
+
+ <cpu>-<vendor>-<os>[<version>][-<abi>]
+
+   When Nix is built such that ./configure is passed any of the --host,
+   --build, --target options, the value is based on the output of config.sub
+   (upstream):
+
+ <cpu>-<vendor>[-<kernel>]-<os>
+
+   For historic reasons and backward-compatibility, some CPU and OS
+   identifiers are translated from the GNU Autotools naming convention in
+   configure.ac as follows:
+
+   config.guess Nix    
+   amd64        x86_64 
+   i*86         i686   
+   arm6         arm6l  
+   arm7         arm7l  
+   linux-gnu*   linux  
+   linux-musl*  linux  
+
+Compilation environments
+
+   Nix can be compiled using multiple environments:
+
+     * stdenv: default;
+     * gccStdenv: force the use of gcc compiler;
+     * clangStdenv: force the use of clang compiler;
+     * ccacheStdenv: enable [ccache], a compiler cache to speed up
+       compilation.
+
+   To build with one of those environments, you can use
+
+ $ nix build .#nix-ccacheStdenv
+
+   for flake-enabled Nix, or
+
+ $ nix-build --attr nix-ccacheStdenv
+
+   for classic Nix.
+
+   You can use any of the other supported environments in place of
+   nix-ccacheStdenv.
+
+Editor integration
+
+   The clangd LSP server is installed by default on the clang-based
+   devShells. See supported compilation environments and instructions how to
+   set up a shell with flakes or in classic Nix.
+
+   To use the LSP with your editor, you first need to set up clangd by
+   running:
+
+ make compile_commands.json
+
+   Configure your editor to use the clangd from the
+   .#native-clangStdenvPackages shell. You can do that either by running it
+   inside the development shell, or by using nix-direnv and the appropriate
+   editor plugin.
+
+     Note
+
+     For some editors (e.g. Visual Studio Code), you may need to install a
+     special extension for the editor to interact with clangd. Some other
+     editors (e.g. Emacs, Vim) need a plugin to support LSP servers in
+     general (e.g. lsp-mode for Emacs and vim-lsp for vim). Editor-specific
+     setup is typically opinionated, so we will not cover it here in more
+     detail.
+
+Formatting and pre-commit hooks
+
+   You may run the formatters as a one-off using:
+
+ make format
+
+   If you'd like to run the formatters before every commit, install the
+   hooks:
+
+ pre-commit-hooks-install
+
+   This installs pre-commit using cachix/git-hooks.nix.
+
+   When making a commit, pay attention to the console output. If it fails,
+   run git add --patch to approve the suggestions and commit again.
+
+   To refresh pre-commit hook's config file, do the following:
+
+    1. Exit the development shell and start it again by running nix develop.
+    2. If you also use the pre-commit hook, also run pre-commit-hooks-install
+       again.
+
+Add a release note
+
+   doc/manual/rl-next contains release notes entries for all unreleased
+   changes.
+
+   User-visible changes should come with a release note.
+
+  Add an entry
+
+   Here's what a complete entry looks like. The file name is not incorporated
+   in the document.
+
+ ---
+ synopsis: Basically a title
+ issues: 1234
+ prs: 1238
+ ---
+
+ Here's one or more paragraphs that describe the change.
+
+ - It's markdown
+ - Add references to the manual using ..
+
+   Significant changes should add the following header, which moves them to
+   the top.
+
+ significance: significant
+
+   See also the format documentation.
+
+  Build process
+
+   Releases have a precomputed rl-MAJOR.MINOR.md, and no rl-next.md.
+
+Branches
+
+     * master
+
+       The main development branch. All changes are approved and merged here.
+       When developing a change, create a branch based on the latest master.
+
+       Maintainers try to keep it in a release-worthy state.
+
+     * maintenance-*.*
+
+       These branches are the subject of backports only, and are also kept in
+       a release-worthy state.
+
+       See maintainers/backporting.md
+
+     * latest-release
+
+       The latest patch release of the latest minor version.
+
+       See maintainers/release-process.md
+
+     * backport-*-to-*
+
+       Generally branches created by the backport action.
+
+       See maintainers/backporting.md
+
+     * other
+
+       Branches that do not conform to the above patterns should be feature
+       branches.
+
+Reverting
+
+   If a change turns out to be merged by mistake, or contain a regression, it
+   may be reverted. A revert is not a rejection of the contribution, but
+   merely part of an effective development process. It makes sure that
+   development keeps running smoothly, with minimal uncertainty, and less
+   overhead. If maintainers have to worry too much about avoiding reverts,
+   they would not be able to merge as much. By embracing reverts as a good
+   part of the development process, everyone wins.
+
+   However, taking a step back may be frustrating, so maintainers will be
+   extra supportive on the next try.

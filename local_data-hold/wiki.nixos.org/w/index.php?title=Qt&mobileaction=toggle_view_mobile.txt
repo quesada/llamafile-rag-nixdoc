@@ -1,0 +1,357 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Development
+     * 2 Packaging
+     * 3 Projects using python (e.g. PyQt5)
+     * 4 Migrating apps from Qt5 to Qt6
+     * 5 Hello world involving QML, Qt5, nix and cmake, qmake or meson
+     * 6 Troubleshooting
+          * 6.1 Cannot mix incompatible Qt library (version 0x_____) with
+            this library (version 0x_____)
+          * 6.2 This application failed to start because it could not find or
+            load the Qt platform plugin ??? in ""
+               * 6.2.1 qt4
+               * 6.2.2 qt5
+               * 6.2.3 qt.qpa.plugin: Could not find the Qt platform plugin
+                 "xcb" in ""
+               * 6.2.4 Debugging methods
+   [ ] Toggle the table of contents
+
+                                       Qt
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Qt#)                     
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+Development
+
+   If you want to develop qt applications in nixos you have to use nix-shell
+   or direnv. For using nix-shell just run this command in the terminal:
+
+   nix-shell -p qt5Full -p qtcreator --run qtcreator
+
+   Tip: if it finds no Qt Kits, rm -rf ~/.config/QtProject* and start again.
+   Sometimes it finds a kit, but cannot find a suitable qt version for it, in
+   this case you can also type which qmake in your nix-shell and add a new
+   entry in the QT-Versions tab in Tools->Options->Kits.
+
+   For using direnv, create a shell.nix file in the root of your project and
+   paste these lines into it:
+
+ # shell.nix
+ { pkgs ? import <nixpkgs> {} }:
+   pkgs.mkShell {
+     buildInputs = [
+                     pkgs.qt5.full
+                     pkgs.qtcreator
+                   ];
+ }
+
+   Tip: if you want use clang-format, add clang-format to buildinputs list.
+
+   Also create .envrc file and paste: use_nix into it.
+
+   Happy qt coding :)
+
+Packaging
+
+   See for the entry in the nixpkgs manual.
+
+   Qt applications can't be called with callPackage, since they expect more
+   inputs. Namely qtbase and wrapQtAppsHook. Instead they should be called
+   with libsForQt5.callPackage.
+
+    
+
+ ./build/default.nix
+
+ { stdenv, lib, qtbase, wrapQtAppsHook }:
+
+ stdenv.mkDerivation {
+   pname = "myapp";
+   version = "1.0";
+
+   buildInputs = [ qtbase ];
+   nativeBuildInputs = [ wrapQtAppsHook ];
+ }
+
+ #nix-repl
+ myapp = callPackage ./build/myapp/default.nix { } # Will complain it wasn't called with qtbase, etc.
+ myapp = libsForQt5.callPackage ./build/myapp/default.nix { } # Should work
+
+Projects using python (e.g. PyQt5)
+
+   It's possible to package a program that uses internally python and Qt
+   (like PyQt5) by providing a python executable with the appropriate
+   libraries like that myPython = python3.withPackages (pkgs: with pkgs; [
+   pyqt5 ]);. `wrapQtAppsHook` even seems to be optional when using
+   `mkderivation` (at least this program can be run without) since anyway it
+   does not patch scripts.
+
+ { mkDerivation,
+   lib,
+   stdenv,
+   fetchFromGitHub,
+   jack2,
+   which,
+   python3,
+   qtbase,
+   qttools,
+   wrapQtAppsHook,
+   liblo,
+   git,
+ }:
+ let
+   myPython = python3.withPackages (pkgs: with pkgs; [ pyqt5 liblo pyliblo pyxdg ]);
+ in
+ mkDerivation rec {
+   pname = "RaySession";
+   version = "0.11.1";
+
+   src = fetchFromGitHub {
+     owner = "Houston4444";
+     repo = pname;
+     rev = "v${version}";
+     sha256 = "sha256-EbDBuOcF0JQq/LOrakb040Yfrpdi3FOB1iczQTeXBkc=";
+   };
+
+   # This patch is required to be able to create a new session, but not a problem to compile and start the program
+   # patches = [ ./copy_template_writable.patch ];
+
+   # Otherwise lrelease-qt is not found:
+   postPatch = ''
+    substituteInPlace Makefile \
+      --replace "lrelease-qt4" "${qttools.dev}/bin/lrelease" \
+      --replace '$(DESTDIR)/' '$(DESTDIR)$(PREFIX)' # Otherwise problem with installing manual etc...
+   '';
+
+   nativeBuildInputs = [
+     myPython
+     wrapQtAppsHook # Not really useful since it will not pack scripts. And actually it seems that it's not required?
+     which
+     qttools
+   ];
+   propagatedBuildInputs = [ myPython qtbase jack2 git ];
+
+   # Prefix must be set correctly due to sed -i "s?X-PREFIX-X?$(PREFIX)?"
+   makeFlags = [ "PREFIX=$(out)" ]; # prefix does not work since due to line "install -d $(DESTDIR)/etc/xdg/"
+ }
+
+   Call it with
+
+ { pkgs ? import <nixpkgs> {} }:
+ pkgs.libsForQt5.callPackage ./derivation.nix {}
+
+   For actual python applications, you may also use something like that (to
+   test) :
+
+ python3.pkgs.buildPythonApplication {
+   pname = "blabla";
+   version = "3.32.2";
+
+   nativeBuildInputs = [
+     wrapQtAppsHook
+     ...
+   ];
+
+   dontWrapQtApps = true; # wrapQtApps won't patch script anyway. TODO: save to use if it contains executables?
+
+   # Arguments to be passed to `makeWrapper`, only used by buildPython*
+   preFixup = ''
+         qtWrapperArgs+=("''${gappsWrapperArgs[@]}")
+         # You can manually patch scripts using: wrapQtApp "$out/bin/myapp". TODO: check when it's required.
+   '';
+ }
+
+Migrating apps from Qt5 to Qt6
+
+    1. Replace libsForQt5.callPackage with qt6Packages.callPackage
+    2. Add the dependency qt5compat
+    3. Hope for the best ; )
+
+   qt5compat is only needed for Qt5 projects, which are not-yet migrated to
+   Qt6.
+
+   Maybe add libraries like qtwayland
+
+   Conditional blocks in qmake *.pro files
+
+ lessThan(QT_MAJOR_VERSION, 6) {
+   # qt5, qt4, ...
+   QT += x11extras
+ }
+ equals(QT_MAJOR_VERSION, 6) {
+   # qt6
+   QT += core-private
+ }
+
+   See also:
+
+     * Porting to Qt 6
+     * How to check the selected version of Qt in a .pro file?
+
+Hello world involving QML, Qt5, nix and cmake, qmake or meson
+
+   You can find here a minimal example to use QML, cmake, nix and Qt5, and
+   here is the same example with qmake instead and here is the same with
+   meson instead. There is nothing special to nix there, but note that if you
+   provide the qml file using something like qrc:///main.qml, then you need
+   to write a qrc file that lists all the resources that must be included in
+   the qt resource manager. This file is then used to compile the resources
+   and include them in the binary (you have to compile the binaries, either
+   automatically with cmake or qmake, or manually using rcc). With cmake you
+   compile it using qt5_add_resources(SOURCES qml.qrc) (doc) as illustrated
+   in the above example (make sure to use a variable as the source and to
+   reuse the same variable in add_executable).
+
+Troubleshooting
+
+  Cannot mix incompatible Qt library (version 0x_____) with this library
+  (version 0x_____)
+
+   This is a known issue, see [IMG] #30551 for the current status.
+
+   Starting with the 19.09 release, the issue should be fixed by [IMG] #65526
+
+  This application failed to start because it could not find or load the Qt
+  platform plugin ??? in ""
+
+    qt4
+
+   Qt4 depends on the environment variable QT_PLUGIN_PATH to find plugins. It
+   is normally already
+
+   present in the environment on NixOS at least, but for example systemd user
+   units are launched in a pretty empty environment. A solution is to use the
+   command
+
+ systemctl --user import-environment QT_PLUGIN_PATH
+
+   from a sane environment. For example add it to the
+   services.xserver.displayManager.sessionCommands option.
+
+    qt5
+
+   Warning: This recommendation is deprecated for 19.09 and up, see
+   [IMG] #65399. Failing packages should be updated to use wrapQtAppsHook.
+
+   Qt5 seems (?) to look for plugins in the PATH. This will fail from a
+   systemd user unit for example, because their path is nearly empty by
+   default. As an example, here is a workaround to have usbguard-applet
+   launched from a systemd user unit:
+
+    
+
+ /etc/nixos/configuration.nix
+
+   systemd.user.services.usbguard-applet = {
+     description = "USBGuard applet";
+     partOf = [ "graphical-session.target" ];
+     wantedBy = [ "graphical-session.target" ];
+     path = [ "/run/current-system/sw/" ]; ### Fix empty PATH to find qt plugins
+     serviceConfig = {
+       ExecStart = "${pkgs.usbguard}/bin/usbguard-applet-qt";
+     };
+   };
+
+    qt.qpa.plugin: Could not find the Qt platform plugin "xcb" in ""
+
+   Here is a concrete example:
+
+ qt.qpa.plugin: Could not find the Qt platform plugin "xcb" in ""
+ This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+
+   The package will need to be fixed to use [the new
+   https://github.com/NixOS/nixpkgs/issues/65399 wrapQtAppsHook]. The hook
+   wraps every qt application with adding QT_PLUGIN_PATH and XDG_DATA_DIRS as
+   well as XDG_CONFIG_DIRS.See wrap-qt-apps-hook.sh in nixpkgs
+
+    Debugging methods
+
+   As a general rule, exporting QT_DEBUG_PLUGINS=1 make qt print where it
+   looks for plugins.
+
+   If a plugin exists in a directory but is ignored with a message like
+   QLibraryPrivate::loadPlugin failed on
+   "/nix/store/...-teamspeak-client-3.1.6/lib/teamspeak/platforms/libqxcb.so" :
+   "Cannot load library
+   /nix/store/...-client-3.1.6/lib/teamspeak/platforms/libqxcb.so: " it can
+   be that the library cannot be dlopen()ed because of dependencies/rpath
+   issues and needs patchelfing. Exporting LD_DEBUG=libs may prove helpful in
+   this scenario.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Qt&oldid=4836"
+   Hidden categories:
+     * Pages with syntax highlighting errors
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 18 November 2022, at 01:30.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

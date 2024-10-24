@@ -1,0 +1,260 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Motivation
+     * 2 Building
+          * 2.1 Testing the image
+          * 2.2 SSH
+          * 2.3 Static IP Address
+          * 2.4 Building faster
+     * 3 See also
+   [ ] Toggle the table of contents
+
+             Creating a NixOS live CD: Difference between revisions
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   ← Older edit
+   VisualWikitext
+
+                                  Latest revision as of 21:33, 1 August 2024
+   Revision as of 12:44, 30 July  view source
+   2024 view source               JadeTheDragon (talk | contribs)
+   Jopejoe1 (talk | contribs)     4 edits
+   trusted                        m →‎Static IP Address: Changed
+   118 edits                      networking.interfaces.eth0.ip4 to
+   Marked this version for        networking.interfaces.eth0.ipv4.addresses
+   translation                    to be consistent with the current proper
+   ← Older edit                   usage ( as of 24.05 )
+                                  Tag: Visual edit
+                                     
+   Line 140:                      Line 140:
+    </translate>                     </translate>                             
+    <syntaxhighlight lang="nix">     <syntaxhighlight lang="nix" line="1">    
+    {                                {                                        
+       ...                              ...                                   
+       networking = {                   networking = {                        
+                                          usePredictableInterfaceNames =      
+    usePredictableInterfaceNames     false;                                   
+    = false;                      
+         interfaces.eth0.ip4 = [{         interfaces.eth0.ipv4.addresses = [{ 
+           address =                        address = "64.137.201.46";        
+    "64.137.201.46";              
+           prefixLength = 24;               prefixLength = 24;                
+
+     ----------------------------------------------------------------------
+
+Latest revision as of 21:33, 1 August 2024
+
+Motivation
+
+   Creating a modified NixOS LiveCD out of an existing working NixOS
+   installation has a number of benefits:
+
+     * Ensures authenticity.
+     * No need for internet access.
+     * It is easy to add your own packages and configuration changes to the
+       image.
+
+Building
+
+   Building minimal NixOS installation CD with the nix-build command by
+   creating this iso.nix-file. In this example with Neovim preinstalled.
+
+ { config, pkgs, ... }:
+ {
+   imports = [
+     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
+
+     # Provide an initial copy of the NixOS channel so that the user
+     # doesn't need to run "nix-channel --update" first.
+     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
+   ];
+   environment.systemPackages = [ pkgs.neovim ];
+ }
+
+   Build the image via:
+
+ nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=iso.nix
+
+   Alternatively, use Nix Flakes to generate a ISO installation image, using
+   the nixos-24.05 branch as nixpkgs source:
+
+ flake.nix
+
+ {
+   description = "Minimal NixOS installation media";
+   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+   outputs = { self, nixpkgs }: {
+     nixosConfigurations = {
+       exampleIso = nixpkgs.lib.nixosSystem {
+         system = "x86_64-linux";
+         modules = [
+           ({ pkgs, modulesPath, ... }: {
+             imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+             environment.systemPackages = [ pkgs.neovim ];
+           })
+         ];
+       };
+     };
+   };
+ }
+
+   The following commands will generate the iso-image:
+
+ # git init
+ # git add flake.nix
+ # nix build .#nixosConfigurations.exampleIso.config.system.build.isoImage
+
+   The resulting image can be found in result:
+
+ $ ls result/iso/
+ nixos-24.05.20240721.63d37cc-x86_64-linux.iso
+
+  Testing the image
+
+   To inspect the contents of the ISO image:
+
+ $ mkdir mnt
+ $ sudo mount -o loop result/iso/nixos-*.iso mnt
+ $ ls mnt
+ boot  EFI  isolinux  nix-store.squashfs  version.txt
+ $ umount mnt
+
+   To boot the ISO image in an emulator:
+
+ $ nix-shell -p qemu
+ $ qemu-system-x86_64 -enable-kvm -m 256 -cdrom result/iso/nixos-*.iso
+
+  SSH
+
+   In your iso.nix:
+
+ {
+   ...
+   # Enable SSH in the boot process.
+   systemd.services.sshd.wantedBy = pkgs.lib.mkForce [ "multi-user.target" ];
+   users.users.root.openssh.authorizedKeys.keys = [
+     "ssh-ed25519 AaAeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee username@host"
+   ];
+   ...
+ }
+
+  Static IP Address
+
+   Static IP addresses can be set in the image itself. This can be useful for
+   VPS installation.
+
+ {
+   ...
+   networking = {
+     usePredictableInterfaceNames = false;
+     interfaces.eth0.ipv4.addresses = [{
+       address = "64.137.201.46";
+       prefixLength = 24;
+     }];
+     defaultGateway = "64.137.201.1";
+     nameservers = [ "8.8.8.8" ];
+   };
+   ...
+ }
+
+  Building faster
+
+   The build process is slow because of compression.
+
+   Here are some timings for nix-build:
+
+                              Compression results
+   squashfsCompression           Time Size 
+   lz4                           100s 59%  
+   gzip -Xcompression-level 1    105s 52%  
+   gzip                          210s 49%  
+   xz -Xdict-size 100% (default) 450s 43%  
+
+   See also: mksquashfs benchmarks
+
+   If you don't care about file size, you can use a faster compression by
+   adding this to your iso.nix:
+
+ {
+   isoImage.squashfsCompression = "gzip -Xcompression-level 1";
+ }
+
+See also
+
+     * NixOS Manual: Building a NixOS (Live) ISO.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Creating_a_NixOS_live_CD&oldid=16149"
+   Categories:
+     * NixOS
+     * Deployment
+     * Cookbook
+     * This page was last edited on 1 August 2024, at 21:33.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

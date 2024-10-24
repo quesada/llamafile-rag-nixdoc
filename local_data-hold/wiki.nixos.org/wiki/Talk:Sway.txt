@@ -1,0 +1,164 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Calls to dbus-update-activation-environment
+     * 2 Change of Wiki
+       3 comments
+   [ ] Toggle the table of contents
+
+                                   Talk:Sway
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 3 May by RafTeog in topic Change of Wiki
+
+Calls to dbus-update-activation-environment
+
+   Note that the default sway configuration template /etc/sway/config
+   includes /etc/sway/config.d/*, and specifically includes
+   /etc/sway/config.d/nixos.conf, which has the following contents:
+
+    # Import the most important environment variables into the D-Bus and systemd
+    # user environments (e.g. required for screen sharing and Pinentry prompts):
+    exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+
+   Likewise, the example configuration in the wiki creates a script
+   /bin/dbus-sway-environment that attempts to call
+   dbus-update-activation-environment. (In spite of the partial redundancy
+   with /etc/sway/config.d/nixos.conf, the dbus-sway-environment script still
+   seems to be necessary to get the required user dbus services successfully
+   started.) However, neither of these attempts to execute
+
+    dbus-update-activation-environment
+
+   works unless dbus-update-activation-environment is in the path (e.g.,
+   unless there is a symlink
+   /run/current-system/sw/bin/dbus-update-activation-environment pointing at
+   the executable somewhere under /nix/store/). To get
+   dbus-update-activation-environment and the other binaries from the dbus
+   package into the general path, one should add pkgs.dbus to the
+   environment.systemPackages list in configuration.nix. (If using home
+   manager, this might be accomplished by other means.)
+
+Change of Wiki
+
+   Latest comment: 3 May3 comments2 people in discussion
+
+   Scenario:
+
+   On real hardware, I installed nixos with calamares but no desktop
+   environment selected. Then, I proceeded with flakes and home manager
+   proper configuration. Then I tried to follow the sway guide for home
+   manager. It was then that I ran into this issue
+   <https://discourse.nixos.org/t/wlr-errors-when-trying-to-start-sway/28698>.
+   The solution of that thread worked for me.
+
+   So, I propose that <hardware.opengl.enable = true> to be added in the sway
+   with home manager session,
+
+   To set up Sway using Home Manager, first you must enable Polkit in your
+   nix configuration:
+
+   security.polkit.enable = true;
+
+   Additionally, you must enable opengl in your nix configuration //<<<<NEW
+   LINE 1>>>>
+
+   hardware.opengl.enable = true; //<<<<NEW LINE 2>>>>
+
+   A general suggestion of 2 new lines can be seen above.
+
+   I just registered and I am new to nixos. I don't know the rules about
+   editing the page, so I decided to post it as discussion first.
+
+   Thank you! RafTeog (talk) 19:31, 2 May 2024 (UTC)Reply
+
+           Hello RafTeog,
+           you can just start to edit the main page here. Its sometimes
+           difficult to see whether a fix is just needed because you have
+           some special circumstances. I am not a Sway user - maybe there are
+           some circumstances where you dont need OpenGL, because you have an
+           xserver enabled?
+           It may be a good way to just add a „Troubleshooting“ chapter and
+           add your information about opengl and a link to the
+           discource-discussion as a subsection. And: The troubleshooting
+           chapter is already in this article. Maybe a subchapter like
+           „Errors when trying to start sway?“.
+           Just start to contribute - have fun while doing it. Lets make this
+           wiki ready for the 24.5 release together. Klinger (talk) 21:04, 2
+           May 2024 (UTC)Reply
+
+                        Greetings,
+                        I will do that, and follow all the advices provided.
+                        Thank you very much, glad to be here! RafTeog (talk)
+                        00:47, 3 May 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Sway&oldid=12630"
+     * This page was last edited on 3 May 2024, at 00:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,179 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      Terms and Definitions in Nix Project
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   If you come across a term or word you don't know, add it here.
+
+Term               Context     Meaning                                             Related Links     
+                                                                                   Nix Manual -      
+                                                                                   Basic Package     
+                               A set of "active" applications. These applications  Management        
+User Environment   Nix         usually exist in the Nix store. A single Nix user   chapter           
+                               may have multiple user environments. Profiles and   Nix Manual -      
+                               generations are closely related.                    Profiles chapter  
+                                                                                   Nix Manual -      
+                                                                                   nix-env           
+                               Profiles simplify managing and switching between                      
+                               user environments, and thus control which                             
+                               applications and system configurations are in                         
+                               active use. Generally, a profile is a link to a                       
+                               generation, and the corresponding profiles folder   
+                               collects a list of generations. A standalone Nix    
+                               installation (i.e. on a Linux distro that is not    Nix Manual:
+                               NixOS) operates mainly on user profiles. In NixOS,  Profiles
+(User) Profile     Nix         there is also a system profile that manages the     Nix Pills - The
+                               system-wide configuration (e.g. /etc, the kernel,   first profile
+                               initrd, systemd). Other tools like Home Manager may 
+                               also have their own profiles. By default, a user's  
+                               active profile is stored at ~/.nix-profile:         
+                                                                                   
+                               $ ls -l ~/.nix-profile                              
+                               lrwxrwxrwx ... /home/username/.nix-profile ->       
+                               /nix/var/nix/profiles/per-user/username/profile     
+                               An instance of a user environment. When a user                        
+                               makes any change to their environment, such as                        
+                               installing or removing packages, a new generation   
+                               of the environment is created instead of modifying  Nix Manual:
+Generation         Nix         the environment in-place. This ensures that updates Profiles
+                               are atomic and the user can easily roll-back to any 
+                               previous generation if something goes wrong. The    
+                               current generation is a user's currently active     
+                               user profile.                                       
+                               A Nix expression which describes a build action.                      
+                               Derivations are analogous to package definitions in                   
+                               other package managers. High-level derivations,                       
+                               such as the ones describing packages in Nixpkgs,    Nix Manual:       
+                               get evaluated into low-level derivations (called    Glossary -        
+Derivation         Nix         store derivations), for instance by using the       Derivation
+                               nix-instantiate command. nix-store --realise runs   Nix Manual:
+                               the build commands described in the low-level       Derivation
+                               derivation, producing one or more output paths.     
+                               nix-build is a user-friendly wrapper for the        
+                               previous two commands.                              
+                               A store path produced by a derivation. These are                      
+                               generally analogous to built packages, or pieces of                   
+Output path        Nix         them.                                               Nix Manual:
+                                                                                   Derivation
+                               $ ls -ld /nix/store/*-firefox-9*/                   
+                               dr-xr-xr-x ... /nix/store/v4b8...3d0w-firefox-92.0/ 
+                               The { } block contains "mutually recursive"         Nix Manual:       
+rec { }            Nix         attributes, which means they can refer to each      Syntax and        
+                   expressions other.                                              semantics:        
+                                                                                   Recursive sets    
+                                                                                   Nix Manual:       
+                                                                                   Common            
+expression         Nix         The part of the Nix program which reads and         Options --arg     
+evaluator                      evaluates a Nix expression.                         Nix Manual:       
+                                                                                   Built-in          
+                                                                                   Functions         
+                   Nix         An attribute which contains things expected in the  all-packages.nix: 
+stdenv             expressions most basic Unix environment. (e.g. Bash shell, gcc, stdenv =]         
+                               cp, tar, grep, etc.)                                
+                               A Nix expression retrieved by and applied to the                      
+                               all-packages.nix Nix expression. This file enables  all-packages.nix: 
+config.nix or                  an end-user to customize the Nix expressions        config            
+nixpkgs-config.nix NixOS Wiki  contained in the community-owned NixPkgs list or to                   
+                               define entirely new Nix expressions to use with Nix NixPkgs Release   
+                               commands. This file's path can be overridden by the Notes
+                               NIXPKGS_CONFIG environment variable.                
+                   nix-env                                                         
+                   takes this  
+attribute path     if you pass an unambiguous identifier for a package
+                   the `-A`    
+                   flag [1]    
+symbolic package               This string represents what you commonly think of   
+name               [2]         as a package. There can be multiple packages with   
+                               the symbolic name "hello".                          
+                   this term                                                       
+                   is used in  
+                   nix-env     
+                   error       
+                   messages    
+                   [3], it     
+selector           seems to be see "symbolic package name"
+                   actually a  
+                   DrvName     
+                   struct [4]  
+                   (a          
+                   derivation  
+                   name)       
+                   nix-shell                                                       
+selection path     error       see "attribute path"[6]
+                   message [5] 
+                   manual[7],                                                      
+derivation name    source code see "symbolic package name"
+                   [8]         
+package name       IRC[9]      see "symbolic package name"                         
+attribute          source[10]  see "attribute path"                                
+selection path     
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Terms_and_Definitions_in_Nix_Project&oldid=17052"
+     * This page was last edited on 2 September 2024, at 15:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

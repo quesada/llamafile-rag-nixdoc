@@ -1,0 +1,135 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                        #06 - I never wished a man dead
+
+   Published on Fri Apr 14 2017
+
+                        #06 - I never wished a man dead
+
+   Or in other words: no more Perl in Nix! Shea Levy’s last branch for his
+   long-ongoing work to remove Perl from the Nix tool has finally been merged
+
+                                      News
+
+     * NixOS on Packet.net
+
+       Over the past several months, Graham Christensen (grahamc), Tuomas
+       Tynkkynen (dezgeg), and many wonderful people from Packet.net have
+       collaborated on bringing NixOS to Packet.net.
+
+       Our collaboratioon started in January with Packet sponsoring many
+       Hydra build servers. It continued by bringing ARMv8 builders to
+       hydra.nixos.org. It is continued again today by launching first-class
+       support for NixOS on the Packet.net platform, directly from their
+       panel.
+
+         …launching first-class support for NixOS…
+
+       This allows any user to quickly provision four different types of
+       powerful, bare metal x86-64 servers in minutes.
+
+         Sign up now at https://www.packet.net/promo/nixos/
+
+       or use the promo code “nixos” for $25 in credit.
+
+     * NixOS Security Advisory: Docker Local Privilege Escalation
+
+       This is a fun one because it is the first CVE taken against NixOS. A
+       milestone!
+
+       At this point we also must thank @grahamc and the security team for
+       their heroic efforts. Their work makes NixOS a more reliable solution.
+
+       To help them please head to Vulnerability Roundup 26.
+
+     * New node2nix (v1.2.0) released.
+
+     * Takt has open-sourced a tool to deploy their services from hydra.
+
+     * New pypi2nix (v1.8.0) release.
+
+                                    Reading
+
+     * One Magic Line of Code that fixes Nix syntax highlighting in Vim
+     * NixOS Spring-Summer Collection 17 / NixOS, collection printemps-été 17
+     * Using Nix to manage multiple Ruby versions
+     * With alternative package management: Linux distribution NixOS 17.03
+       published / Mit alternativer Paketverwaltung: Linux-Distribution NixOS
+       17.03 erschienen
+     * Using NixOS (As Your Main Desktop OS
+     * Using Nix (NixOS) as a build system for Rust, and caching binary
+       crates
+     * NixOS troubleshooting with git bisect
+     * Install NixOS on Vultr
+
+                                Events / Meetups
+
+     * Apr 22, 2017, Augsburger Linux-Infotag, Augsburg, Germany
+
+       The Augsburger Linux Infotag is a one-day conference with about 20
+       lectures and 9 workshops on Linux, open source software and the
+       digital society. Admission is free. We are representing NixOS with a
+       booth at the conference.
+
+     * May 27, 2017, Reproducible development environments with Nix: Johannes
+       Bornhold, Munich, Germany
+
+       Providing build and development environments for Python based projects
+       is typically not without challenges. This talk presents how Nix - The
+       Purely Functional Package Manager can be used to provide reproducible
+       environments for development and deployment of Python based Web
+       projects.
+
+     * May 01, 2017, Munich NixOS Meetup - Hackathon & Barbecue, Augsburg,
+       Germany
+
+       Bring the Nix project you are currently working on or struggling with
+       and discuss it with other people. Followed by a barbecue in the
+       evening.
+
+                                Editor’s corner
+
+   As you can see last weeks were quite busy for NixOS community. What does
+   that mean in numbers for last month?
+
+   Monthly activity in NixOS/nixpkgs
+
+   Source: https://github.com/NixOS/nixpkgs/pulse/monthly
+
+   Help us shape next issue of NixOS weekly newslettter.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

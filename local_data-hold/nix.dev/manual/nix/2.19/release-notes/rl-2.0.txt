@@ -1,0 +1,757 @@
+    1. 1. Introduction
+    2. 2. Quick Start
+    3. 3. Installation
+    4.   1. 3.1. Supported Platforms
+         2. 3.2. Installing a Binary Distribution
+         3. 3.3. Installing Nix from Source
+         4.   1. 3.3.1. Prerequisites
+              2. 3.3.2. Obtaining a Source Distribution
+              3. 3.3.3. Building Nix from Source
+         5. 3.4. Using Nix within Docker
+         6. 3.5. Security
+         7.   1. 3.5.1. Single-User Mode
+              2. 3.5.2. Multi-User Mode
+         8. 3.6. Environment Variables
+         9. 3.7. Upgrading Nix
+        10. 3.8. Uninstalling Nix
+    5. 4. Nix Store
+    6.   1. 4.1. File System Object
+         2. 4.2. Store Object
+         3. 4.3. Store Path
+    7. 5. Nix Language
+    8.   1. 5.1. Data Types
+         2. 5.2. Language Constructs
+         3.   1. 5.2.1. String interpolation
+              2. 5.2.2. Lookup path
+         4. 5.3. Operators
+         5. 5.4. Derivations
+         6.   1. 5.4.1. Advanced Attributes
+              2. 5.4.2. Import From Derivation
+         7. 5.5. Built-in Constants
+         8. 5.6. Built-in Functions
+    9. 6. Package Management
+   10.   1. 6.1. Profiles
+         2. 6.2. Garbage Collection
+         3.   1. 6.2.1. Garbage Collector Roots
+   11. 7. Advanced Topics
+   12.   1. 7.1. Sharing Packages Between Machines
+         2.   1. 7.1.1. Serving a Nix store via HTTP
+              2. 7.1.2. Copying Closures via SSH
+              3. 7.1.3. Serving a Nix store via SSH
+         3. 7.2. Remote Builds
+         4. 7.3. Tuning Cores and Jobs
+         5. 7.4. Verifying Build Reproducibility
+         6. 7.5. Using the post-build-hook
+   13. 8. Command Reference
+   14.   1. 8.1. Common Options
+         2. 8.2. Common Environment Variables
+         3. 8.3. Main Commands
+         4.   1. 8.3.1. nix-build
+              2. 8.3.2. nix-shell
+              3. 8.3.3. nix-store
+              4.   1. 8.3.3.1. nix-store --add-fixed
+                   2. 8.3.3.2. nix-store --add
+                   3. 8.3.3.3. nix-store --delete
+                   4. 8.3.3.4. nix-store --dump-db
+                   5. 8.3.3.5. nix-store --dump
+                   6. 8.3.3.6. nix-store --export
+                   7. 8.3.3.7. nix-store --gc
+                   8. 8.3.3.8. nix-store --generate-binary-cache-key
+                   9. 8.3.3.9. nix-store --import
+                  10. 8.3.3.10. nix-store --load-db
+                  11. 8.3.3.11. nix-store --optimise
+                  12. 8.3.3.12. nix-store --print-env
+                  13. 8.3.3.13. nix-store --query
+                  14. 8.3.3.14. nix-store --read-log
+                  15. 8.3.3.15. nix-store --realise
+                  16. 8.3.3.16. nix-store --repair-path
+                  17. 8.3.3.17. nix-store --restore
+                  18. 8.3.3.18. nix-store --serve
+                  19. 8.3.3.19. nix-store --verify-path
+                  20. 8.3.3.20. nix-store --verify
+              5. 8.3.4. nix-env
+              6.   1. 8.3.4.1. nix-env --delete-generations
+                   2. 8.3.4.2. nix-env --install
+                   3. 8.3.4.3. nix-env --list-generations
+                   4. 8.3.4.4. nix-env --query
+                   5. 8.3.4.5. nix-env --rollback
+                   6. 8.3.4.6. nix-env --set-flag
+                   7. 8.3.4.7. nix-env --set
+                   8. 8.3.4.8. nix-env --switch-generation
+                   9. 8.3.4.9. nix-env --switch-profile
+                  10. 8.3.4.10. nix-env --uninstall
+                  11. 8.3.4.11. nix-env --upgrade
+         5. 8.4. Utilities
+         6.   1. 8.4.1. nix-channel
+              2. 8.4.2. nix-collect-garbage
+              3. 8.4.3. nix-copy-closure
+              4. 8.4.4. nix-daemon
+              5. 8.4.5. nix-hash
+              6. 8.4.6. nix-instantiate
+              7. 8.4.7. nix-prefetch-url
+         7. 8.5. Experimental Commands
+         8.   1. 8.5.1. nix
+              2. 8.5.2. nix build
+              3. 8.5.3. nix bundle
+              4. 8.5.4. nix copy
+              5. 8.5.5. nix daemon
+              6. 8.5.6. nix derivation
+              7. 8.5.7. nix derivation add
+              8. 8.5.8. nix derivation show
+              9. 8.5.9. nix develop
+             10. 8.5.10. nix doctor
+             11. 8.5.11. nix edit
+             12. 8.5.12. nix eval
+             13. 8.5.13. nix flake
+             14. 8.5.14. nix flake archive
+             15. 8.5.15. nix flake check
+             16. 8.5.16. nix flake clone
+             17. 8.5.17. nix flake info
+             18. 8.5.18. nix flake init
+             19. 8.5.19. nix flake lock
+             20. 8.5.20. nix flake metadata
+             21. 8.5.21. nix flake new
+             22. 8.5.22. nix flake prefetch
+             23. 8.5.23. nix flake show
+             24. 8.5.24. nix flake update
+             25. 8.5.25. nix fmt
+             26. 8.5.26. nix hash
+             27. 8.5.27. nix hash file
+             28. 8.5.28. nix hash path
+             29. 8.5.29. nix hash to-base16
+             30. 8.5.30. nix hash to-base32
+             31. 8.5.31. nix hash to-base64
+             32. 8.5.32. nix hash to-sri
+             33. 8.5.33. nix help
+             34. 8.5.34. nix help-stores
+             35. 8.5.35. nix key
+             36. 8.5.36. nix key convert-secret-to-public
+             37. 8.5.37. nix key generate-secret
+             38. 8.5.38. nix log
+             39. 8.5.39. nix nar
+             40. 8.5.40. nix nar cat
+             41. 8.5.41. nix nar dump-path
+             42. 8.5.42. nix nar ls
+             43. 8.5.43. nix nar pack
+             44. 8.5.44. nix path-info
+             45. 8.5.45. nix print-dev-env
+             46. 8.5.46. nix profile
+             47. 8.5.47. nix profile diff-closures
+             48. 8.5.48. nix profile history
+             49. 8.5.49. nix profile install
+             50. 8.5.50. nix profile list
+             51. 8.5.51. nix profile remove
+             52. 8.5.52. nix profile rollback
+             53. 8.5.53. nix profile upgrade
+             54. 8.5.54. nix profile wipe-history
+             55. 8.5.55. nix realisation
+             56. 8.5.56. nix realisation info
+             57. 8.5.57. nix registry
+             58. 8.5.58. nix registry add
+             59. 8.5.59. nix registry list
+             60. 8.5.60. nix registry pin
+             61. 8.5.61. nix registry remove
+             62. 8.5.62. nix repl
+             63. 8.5.63. nix run
+             64. 8.5.64. nix search
+             65. 8.5.65. nix shell
+             66. 8.5.66. nix show-config
+             67. 8.5.67. nix store
+             68. 8.5.68. nix store add
+             69. 8.5.69. nix store add-file
+             70. 8.5.70. nix store add-path
+             71. 8.5.71. nix store cat
+             72. 8.5.72. nix store copy-log
+             73. 8.5.73. nix store copy-sigs
+             74. 8.5.74. nix store delete
+             75. 8.5.75. nix store diff-closures
+             76. 8.5.76. nix store dump-path
+             77. 8.5.77. nix store gc
+             78. 8.5.78. nix store info
+             79. 8.5.79. nix store ls
+             80. 8.5.80. nix store make-content-addressed
+             81. 8.5.81. nix store optimise
+             82. 8.5.82. nix store path-from-hash-part
+             83. 8.5.83. nix store ping
+             84. 8.5.84. nix store prefetch-file
+             85. 8.5.85. nix store repair
+             86. 8.5.86. nix store sign
+             87. 8.5.87. nix store verify
+             88. 8.5.88. nix upgrade-nix
+             89. 8.5.89. nix why-depends
+         9. 8.6. Files
+        10.   1. 8.6.1. nix.conf
+              2. 8.6.2. Profiles
+              3.   1. 8.6.2.1. manifest.nix
+                   2. 8.6.2.2. manifest.json
+              4. 8.6.3. Channels
+              5. 8.6.4. Default Nix expression
+   15. 9. Architecture and Design
+   16. 10. Protocols
+   17.   1. 10.1. Serving Tarball Flakes
+         2. 10.2. Derivation "ATerm" file format
+   18. 11. Glossary
+   19. 12. Contributing
+   20.   1. 12.1. Hacking
+         2. 12.2. Testing
+         3. 12.3. Documentation
+         4. 12.4. Experimental Features
+         5. 12.5. CLI guideline
+         6. 12.6. C++ style guide
+   21. 13. Release Notes
+   22.   1. 13.1. Release 2.19 (2023-11-17)
+         2. 13.2. Release 2.18 (2023-09-20)
+         3. 13.3. Release 2.17 (2023-07-24)
+         4. 13.4. Release 2.16 (2023-05-31)
+         5. 13.5. Release 2.15 (2023-04-11)
+         6. 13.6. Release 2.14 (2023-02-28)
+         7. 13.7. Release 2.13 (2023-01-17)
+         8. 13.8. Release 2.12 (2022-12-06)
+         9. 13.9. Release 2.11 (2022-08-25)
+        10. 13.10. Release 2.10 (2022-07-11)
+        11. 13.11. Release 2.9 (2022-05-30)
+        12. 13.12. Release 2.8 (2022-04-19)
+        13. 13.13. Release 2.7 (2022-03-07)
+        14. 13.14. Release 2.6 (2022-01-24)
+        15. 13.15. Release 2.5 (2021-12-13)
+        16. 13.16. Release 2.4 (2021-11-01)
+        17. 13.17. Release 2.3 (2019-09-04)
+        18. 13.18. Release 2.2 (2019-01-11)
+        19. 13.19. Release 2.1 (2018-09-02)
+        20. 13.20. Release 2.0 (2018-02-22)
+        21. 13.21. Release 1.11.10 (2017-06-12)
+        22. 13.22. Release 1.11 (2016-01-19)
+        23. 13.23. Release 1.10 (2015-09-03)
+        24. 13.24. Release 1.9 (2015-06-12)
+        25. 13.25. Release 1.8 (2014-12-14)
+        26. 13.26. Release 1.7 (2014-04-11)
+        27. 13.27. Release 1.6.1 (2013-10-28)
+        28. 13.28. Release 1.6 (2013-09-10)
+        29. 13.29. Release 1.5.2 (2013-05-13)
+        30. 13.30. Release 1.5 (2013-02-27)
+        31. 13.31. Release 1.4 (2013-02-26)
+        32. 13.32. Release 1.3 (2013-01-04)
+        33. 13.33. Release 1.2 (2012-12-06)
+        34. 13.34. Release 1.1 (2012-07-18)
+        35. 13.35. Release 1.0 (2012-05-11)
+        36. 13.36. Release 0.16 (2010-08-17)
+        37. 13.37. Release 0.15 (2010-03-17)
+        38. 13.38. Release 0.14 (2010-02-04)
+        39. 13.39. Release 0.13 (2009-11-05)
+        40. 13.40. Release 0.12 (2008-11-20)
+        41. 13.41. Release 0.11 (2007-12-31)
+        42. 13.42. Release 0.10.1 (2006-10-11)
+        43. 13.43. Release 0.10 (2006-10-06)
+        44. 13.44. Release 0.9.2 (2005-09-21)
+        45. 13.45. Release 0.9.1 (2005-09-20)
+        46. 13.46. Release 0.9 (2005-09-16)
+        47. 13.47. Release 0.8.1 (2005-04-13)
+        48. 13.48. Release 0.8 (2005-04-11)
+        49. 13.49. Release 0.7 (2005-01-12)
+        50. 13.50. Release 0.6 (2004-11-14)
+        51. 13.51. Release 0.5 and earlier
+     * Light
+     * Rust
+     * Coal
+     * Navy
+     * Ayu
+
+                              Nix Reference Manual
+
+   _____________________
+
+                            Release 2.0 (2018-02-22)
+
+   The following incompatible changes have been made:
+
+     * The manifest-based substituter mechanism (download-using-manifests)
+       has been removed. It has been superseded by the binary cache
+       substituter mechanism since several years. As a result, the following
+       programs have been removed:
+
+          * nix-pull
+
+          * nix-generate-patches
+
+          * bsdiff
+
+          * bspatch
+
+     * The “copy from other stores” substituter mechanism
+       (copy-from-other-stores and the NIX_OTHER_STORES environment variable)
+       has been removed. It was primarily used by the NixOS installer to copy
+       available paths from the installation medium. The replacement is to
+       use a chroot store as a substituter (e.g. --substituters /mnt), or to
+       build into a chroot store (e.g. --store /mnt --substituters /).
+
+     * The command nix-push has been removed as part of the effort to
+       eliminate Nix's dependency on Perl. You can use nix copy instead, e.g.
+       nix copy --to file:///tmp/my-binary-cache paths…
+
+     * The “nested” log output feature (--log-type pretty) has been removed.
+       As a result, nix-log2xml was also removed.
+
+     * OpenSSL-based signing has been removed. This feature was never
+       well-supported. A better alternative is provided by the
+       secret-key-files and trusted-public-keys options.
+
+     * Failed build caching has been removed. This feature was introduced to
+       support the Hydra continuous build system, but Hydra no longer uses
+       it.
+
+     * nix-mode.el has been removed from Nix. It is now a separate repository
+       and can be installed through the MELPA package repository.
+
+   This release has the following new features:
+
+     * It introduces a new command named nix, which is intended to eventually
+       replace all nix-* commands with a more consistent and better designed
+       user interface. It currently provides replacements for some (but not
+       all) of the functionality provided by nix-store, nix-build, nix-shell
+       -p, nix-env -qa, nix-instantiate --eval, nix-push and
+       nix-copy-closure. It has the following major features:
+
+          * Unlike the legacy commands, it has a consistent way to refer to
+            packages and package-like arguments (like store paths). For
+            example, the following commands all copy the GNU Hello package to
+            a remote machine:
+
+ nix copy --to ssh://machine nixpkgs.hello
+
+ nix copy --to ssh://machine /nix/store/0i2jd68mp5g6h2sa5k9c85rb80sn8hi9-hello-2.10
+
+ nix copy --to ssh://machine '(with import <nixpkgs> {}; hello)'
+
+            By contrast, nix-copy-closure only accepted store paths as
+            arguments.
+
+          * It is self-documenting: --help shows all available command-line
+            arguments. If --help is given after a subcommand, it shows
+            examples for that subcommand. nix --help-config shows all
+            configuration options.
+
+          * It is much less verbose. By default, it displays a single-line
+            progress indicator that shows how many packages are left to be
+            built or downloaded, and (if there are running builds) the most
+            recent line of builder output. If a build fails, it shows the
+            last few lines of builder output. The full build log can be
+            retrieved using nix log.
+
+          * It provides all nix.conf configuration options as command line
+            flags. For example, instead of --option http-connections 100 you
+            can write --http-connections 100. Boolean options can be written
+            as --foo or --no-foo (e.g. --no-auto-optimise-store).
+
+          * Many subcommands have a --json flag to write results to stdout in
+            JSON format.
+
+         Warning
+
+         Please note that the nix command is a work in progress and the
+         interface is subject to change.
+
+       It provides the following high-level (“porcelain”) subcommands:
+
+          * nix build is a replacement for nix-build.
+
+          * nix run executes a command in an environment in which the
+            specified packages are available. It is (roughly) a replacement
+            for nix-shell -p. Unlike that command, it does not execute the
+            command in a shell, and has a flag (-c) that specifies the
+            unquoted command line to be executed.
+
+            It is particularly useful in conjunction with chroot stores,
+            allowing Linux users who do not have permission to install Nix in
+            /nix/store to still use binary substitutes that assume
+            /nix/store. For example,
+
+ nix run --store ~/my-nix nixpkgs.hello -c hello --greeting 'Hi everybody!'
+
+            downloads (or if not substitutes are available, builds) the GNU
+            Hello package into ~/my-nix/nix/store, then runs hello in a mount
+            namespace where ~/my-nix/nix/store is mounted onto /nix/store.
+
+          * nix search replaces nix-env -qa. It searches the available
+            packages for occurrences of a search string in the attribute
+            name, package name or description. Unlike nix-env -qa, it has a
+            cache to speed up subsequent searches.
+
+          * nix copy copies paths between arbitrary Nix stores, generalising
+            nix-copy-closure and nix-push.
+
+          * nix repl replaces the external program nix-repl. It provides an
+            interactive environment for evaluating and building Nix
+            expressions. Note that it uses linenoise-ng instead of GNU
+            Readline.
+
+          * nix upgrade-nix upgrades Nix to the latest stable version. This
+            requires that Nix is installed in a profile. (Thus it won’t work
+            on NixOS, or if it’s installed outside of the Nix store.)
+
+          * nix verify checks whether store paths are unmodified and/or
+            “trusted” (see below). It replaces nix-store --verify and
+            nix-store --verify-path.
+
+          * nix log shows the build log of a package or path. If the build
+            log is not available locally, it will try to obtain it from the
+            configured substituters (such as cache.nixos.org, which now
+            provides build logs).
+
+          * nix edit opens the source code of a package in your editor.
+
+          * nix eval replaces nix-instantiate --eval.
+
+          * nix why-depends shows why one store path has another in its
+            closure. This is primarily useful to finding the causes of
+            closure bloat. For example,
+
+ nix why-depends nixpkgs.vlc nixpkgs.libdrm.dev
+
+            shows a chain of files and fragments of file contents that cause
+            the VLC package to have the “dev” output of libdrm in its closure
+            — an undesirable situation.
+
+          * nix path-info shows information about store paths, replacing
+            nix-store -q. A useful feature is the option --closure-size (-S).
+            For example, the following command show the closure sizes of
+            every path in the current NixOS system closure, sorted by size:
+
+ nix path-info -rS /run/current-system | sort -nk2
+
+          * nix optimise-store replaces nix-store --optimise. The main
+            difference is that it has a progress indicator.
+
+       A number of low-level (“plumbing”) commands are also available:
+
+          * nix ls-store and nix ls-nar list the contents of a store path or
+            NAR file. The former is primarily useful in conjunction with
+            remote stores, e.g.
+
+ nix ls-store --store https://cache.nixos.org/ -lR /nix/store/0i2jd68mp5g6h2sa5k9c85rb80sn8hi9-hello-2.10
+
+            lists the contents of path in a binary cache.
+
+          * nix cat-store and nix cat-nar allow extracting a file from a
+            store path or NAR file.
+
+          * nix dump-path writes the contents of a store path to stdout in
+            NAR format. This replaces nix-store --dump.
+
+          * nix show-derivation displays a store derivation in JSON format.
+            This is an alternative to pp-aterm.
+
+          * nix add-to-store replaces nix-store --add.
+
+          * nix sign-paths signs store paths.
+
+          * nix copy-sigs copies signatures from one store to another.
+
+          * nix show-config shows all configuration options and their current
+            values.
+
+     * The store abstraction that Nix has had for a long time to support
+       store access via the Nix daemon has been extended significantly. In
+       particular, substituters (which used to be external programs such as
+       download-from-binary-cache) are now subclasses of the abstract Store
+       class. This allows many Nix commands to operate on such store types.
+       For example, nix path-info shows information about paths in your local
+       Nix store, while nix path-info --store https://cache.nixos.org/ shows
+       information about paths in the specified binary cache. Similarly,
+       nix-copy-closure, nix-push and substitution are all instances of the
+       general notion of copying paths between different kinds of Nix stores.
+
+       Stores are specified using an URI-like syntax, e.g.
+       https://cache.nixos.org/ or ssh://machine. The following store types
+       are supported:
+
+          * LocalStore (stori URI local or an absolute path) and the misnamed
+            RemoteStore (daemon) provide access to a local Nix store, the
+            latter via the Nix daemon. You can use auto or the empty string
+            to auto-select a local or daemon store depending on whether you
+            have write permission to the Nix store. It is no longer necessary
+            to set the NIX_REMOTE environment variable to use the Nix daemon.
+
+            As noted above, LocalStore now supports chroot builds, allowing
+            the “physical” location of the Nix store (e.g.
+            /home/alice/nix/store) to differ from its “logical” location
+            (typically /nix/store). This allows non-root users to use Nix
+            while still getting the benefits from prebuilt binaries from
+            cache.nixos.org.
+
+          * BinaryCacheStore is the abstract superclass of all binary cache
+            stores. It supports writing build logs and NAR content listings
+            in JSON format.
+
+          * HttpBinaryCacheStore (http://, https://) supports binary caches
+            via HTTP or HTTPS. If the server supports PUT requests, it
+            supports uploading store paths via commands such as nix copy.
+
+          * LocalBinaryCacheStore (file://) supports binary caches in the
+            local filesystem.
+
+          * S3BinaryCacheStore (s3://) supports binary caches stored in
+            Amazon S3, if enabled at compile time.
+
+          * LegacySSHStore (ssh://) is used to implement remote builds and
+            nix-copy-closure.
+
+          * SSHStore (ssh-ng://) supports arbitrary Nix operations on a
+            remote machine via the same protocol used by nix-daemon.
+
+     * Security has been improved in various ways:
+
+          * Nix now stores signatures for local store paths. When paths are
+            copied between stores (e.g., copied from a binary cache to a
+            local store), signatures are propagated.
+
+            Locally-built paths are signed automatically using the secret
+            keys specified by the secret-key-files store option.
+            Secret/public key pairs can be generated using nix-store
+            --generate-binary-cache-key.
+
+            In addition, locally-built store paths are marked as “ultimately
+            trusted”, but this bit is not propagated when paths are copied
+            between stores.
+
+          * Content-addressable store paths no longer require signatures —
+            they can be imported into a store by unprivileged users even if
+            they lack signatures.
+
+          * The command nix verify checks whether the specified paths are
+            trusted, i.e., have a certain number of trusted signatures, are
+            ultimately trusted, or are content-addressed.
+
+          * Substitutions from binary caches now require signatures by
+            default. This was already the case on NixOS.
+
+          * In Linux sandbox builds, we now use /build instead of /tmp as the
+            temporary build directory. This fixes potential security problems
+            when a build accidentally stores its TMPDIR in some
+            security-sensitive place, such as an RPATH.
+
+     * Pure evaluation mode. With the --pure-eval flag, Nix enables a variant
+       of the existing restricted evaluation mode that forbids access to
+       anything that could cause different evaluations of the same command
+       line arguments to produce a different result. This includes builtin
+       functions such as builtins.getEnv, but more importantly, all
+       filesystem or network access unless a content hash or commit hash is
+       specified. For example, calls to builtins.fetchGit are only allowed if
+       a rev attribute is specified.
+
+       The goal of this feature is to enable true reproducibility and
+       traceability of builds (including NixOS system configurations) at the
+       evaluation level. For example, in the future, nixos-rebuild might
+       build configurations from a Nix expression in a Git repository in pure
+       mode. That expression might fetch other repositories such as Nixpkgs
+       via builtins.fetchGit. The commit hash of the top-level repository
+       then uniquely identifies a running system, and, in conjunction with
+       that repository, allows it to be reproduced or modified.
+
+     * There are several new features to support binary reproducibility (i.e.
+       to help ensure that multiple builds of the same derivation produce
+       exactly the same output). When enforce-determinism is set to false,
+       it’s no longer a fatal error if build rounds produce different output.
+       Also, a hook named diff-hook is provided to allow you to run tools
+       such as diffoscope when build rounds produce different output.
+
+     * Configuring remote builds is a lot easier now. Provided you are not
+       using the Nix daemon, you can now just specify a remote build machine
+       on the command line, e.g. --option builders 'ssh://my-mac
+       x86_64-darwin'. The environment variable NIX_BUILD_HOOK has been
+       removed and is no longer needed. The environment variable
+       NIX_REMOTE_SYSTEMS is still supported for compatibility, but it is
+       also possible to specify builders in nix.conf by setting the option
+       builders = @path.
+
+     * If a fixed-output derivation produces a result with an incorrect hash,
+       the output path is moved to the location corresponding to the actual
+       hash and registered as valid. Thus, a subsequent build of the
+       fixed-output derivation with the correct hash is unnecessary.
+
+     * nix-shell now sets the IN_NIX_SHELL environment variable during
+       evaluation and in the shell itself. This can be used to perform
+       different actions depending on whether you’re in a Nix shell or in a
+       regular build. Nixpkgs provides lib.inNixShell to check this variable
+       during evaluation.
+
+     * NIX_PATH is now lazy, so URIs in the path are only downloaded if they
+       are needed for evaluation.
+
+     * You can now use channel: as a short-hand for
+       https://nixos.org/channels//nixexprs.tar.xz. For example, nix-build
+       channel:nixos-15.09 -A hello will build the GNU Hello package from the
+       nixos-15.09 channel. In the future, this may use Git to fetch updates
+       more efficiently.
+
+     * When --no-build-output is given, the last 10 lines of the build log
+       will be shown if a build fails.
+
+     * Networking has been improved:
+
+          * HTTP/2 is now supported. This makes binary cache lookups much
+            more efficient.
+
+          * We now retry downloads on many HTTP errors, making binary caches
+            substituters more resilient to temporary failures.
+
+          * HTTP credentials can now be configured via the standard netrc
+            mechanism.
+
+          * If S3 support is enabled at compile time, s3:// URIs are
+            supported in all places where Nix allows URIs.
+
+          * Brotli compression is now supported. In particular,
+            cache.nixos.org build logs are now compressed using Brotli.
+
+     * nix-env now ignores packages with bad derivation names (in particular
+       those starting with a digit or containing a dot).
+
+     * Many configuration options have been renamed, either because they were
+       unnecessarily verbose (e.g. build-use-sandbox is now just sandbox) or
+       to reflect generalised behaviour (e.g. binary-caches is now
+       substituters because it allows arbitrary store URIs). The old names
+       are still supported for compatibility.
+
+     * The max-jobs option can now be set to auto to use the number of CPUs
+       in the system.
+
+     * Hashes can now be specified in base-64 format, in addition to base-16
+       and the non-standard base-32.
+
+     * nix-shell now uses bashInteractive from Nixpkgs, rather than the bash
+       command that happens to be in the caller’s PATH. This is especially
+       important on macOS where the bash provided by the system is seriously
+       outdated and cannot execute stdenv’s setup script.
+
+     * Nix can now automatically trigger a garbage collection if free disk
+       space drops below a certain level during a build. This is configured
+       using the min-free and max-free options.
+
+     * nix-store -q --roots and nix-store --gc --print-roots now show
+       temporary and in-memory roots.
+
+     * Nix can now be extended with plugins. See the documentation of the
+       plugin-files option for more details.
+
+   The Nix language has the following new features:
+
+     * It supports floating point numbers. They are based on the C++ float
+       type and are supported by the existing numerical operators. Export and
+       import to and from JSON and XML works, too.
+
+     * Derivation attributes can now reference the outputs of the derivation
+       using the placeholder builtin function. For example, the attribute
+
+ configureFlags = "--prefix=${placeholder "out"} --includedir=${placeholder "dev"}";
+
+       will cause the configureFlags environment variable to contain the
+       actual store paths corresponding to the out and dev outputs.
+
+   The following builtin functions are new or extended:
+
+     * builtins.fetchGit allows Git repositories to be fetched at evaluation
+       time. Thus it differs from the fetchgit function in Nixpkgs, which
+       fetches at build time and cannot be used to fetch Nix expressions
+       during evaluation. A typical use case is to import external NixOS
+       modules from your configuration, e.g.
+
+ imports = [ (builtins.fetchGit https://github.com/edolstra/dwarffs + "/module.nix") ];
+
+     * Similarly, builtins.fetchMercurial allows you to fetch Mercurial
+       repositories.
+
+     * builtins.path generalises builtins.filterSource and path literals
+       (e.g. ./foo). It allows specifying a store path name that differs from
+       the source path name (e.g. builtins.path { path = ./foo; name = "bar";
+       }) and also supports filtering out unwanted files.
+
+     * builtins.fetchurl and builtins.fetchTarball now support sha256 and
+       name attributes.
+
+     * builtins.split splits a string using a POSIX extended regular
+       expression as the separator.
+
+     * builtins.partition partitions the elements of a list into two lists,
+       depending on a Boolean predicate.
+
+     * <nix/fetchurl.nix> now uses the content-addressable tarball cache at
+       http://tarballs.nixos.org/, just like fetchurl in Nixpkgs.
+       (f2682e6e18a76ecbfb8a12c17e3a0ca15c084197)
+
+     * In restricted and pure evaluation mode, builtin functions that
+       download from the network (such as fetchGit) are permitted to fetch
+       underneath a list of URI prefixes specified in the option
+       allowed-uris.
+
+   The Nix build environment has the following changes:
+
+     * Values such as Booleans, integers, (nested) lists and attribute sets
+       can now be passed to builders in a non-lossy way. If the special
+       attribute __structuredAttrs is set to true, the other derivation
+       attributes are serialised in JSON format and made available to the
+       builder via the file .attrs.json in the builder’s temporary directory.
+       This obviates the need for passAsFile since JSON files have no size
+       restrictions, unlike process environments.
+
+       As a convenience to Bash builders, Nix writes a script named .attrs.sh
+       to the builder’s directory that initialises shell variables
+       corresponding to all attributes that are representable in Bash. This
+       includes non-nested (associative) arrays. For example, the attribute
+       hardening.format = true ends up as the Bash associative array element
+       ${hardening[format]}.
+
+     * Builders can now communicate what build phase they are in by writing
+       messages to the file descriptor specified in NIX_LOG_FD. The current
+       phase is shown by the nix progress indicator.
+
+     * In Linux sandbox builds, we now provide a default /bin/sh (namely ash
+       from BusyBox).
+
+     * In structured attribute mode, exportReferencesGraph exports extended
+       information about closures in JSON format. In particular, it includes
+       the sizes and hashes of paths. This is primarily useful for NixOS
+       image builders.
+
+     * Builds are now killed as soon as Nix receives EOF on the builder’s
+       stdout or stderr. This fixes a bug that allowed builds to hang Nix
+       indefinitely, regardless of timeouts.
+
+     * The sandbox-paths configuration option can now specify optional paths
+       by appending a ?, e.g. /dev/nvidiactl? will bind-mount /dev/nvidiactl
+       only if it exists.
+
+     * On Linux, builds are now executed in a user namespace with UID 1000
+       and GID 100.
+
+   A number of significant internal changes were made:
+
+     * Nix no longer depends on Perl and all Perl components have been
+       rewritten in C++ or removed. The Perl bindings that used to be part of
+       Nix have been moved to a separate package, nix-perl.
+
+     * All Store classes are now thread-safe. RemoteStore supports multiple
+       concurrent connections to the daemon. This is primarily useful in
+       multi-threaded programs such as hydra-queue-runner.
+
+   This release has contributions from Adrien Devresse, Alexander Ried, Alex
+   Cruice, Alexey Shmalko, AmineChikhaoui, Andy Wingo, Aneesh Agrawal,
+   Anthony Cowley, Armijn Hemel, aszlig, Ben Gamari, Benjamin Hipple,
+   Benjamin Staffin, Benno Fünfstück, Bjørn Forsman, Brian McKenna, Charles
+   Strahan, Chase Adams, Chris Martin, Christian Theune, Chris Warburton,
+   Daiderd Jordan, Dan Connolly, Daniel Peebles, Dan Peebles, davidak, David
+   McFarland, Dmitry Kalinkin, Domen Kožar, Eelco Dolstra, Emery Hemingway,
+   Eric Litak, Eric Wolf, Fabian Schmitthenner, Frederik Rietdijk, Gabriel
+   Gonzalez, Giorgio Gallo, Graham Christensen, Guillaume Maudoux, Harmen,
+   Iavael, James Broadhead, James Earl Douglas, Janus Troelsen, Jeremy Shaw,
+   Joachim Schiele, Joe Hermaszewski, Joel Moberg, Johannes 'fish' Ziemke,
+   Jörg Thalheim, Jude Taylor, kballou, Keshav Kini, Kjetil Orbekk, Langston
+   Barrett, Linus Heckemann, Ludovic Courtès, Manav Rathi, Marc Scholten,
+   Markus Hauck, Matt Audesse, Matthew Bauer, Matthias Beyer, Matthieu
+   Coudron, N1X, Nathan Zadoks, Neil Mayhew, Nicolas B. Pierron, Niklas
+   Hambüchen, Nikolay Amiantov, Ole Jørgen Brønner, Orivej Desh, Peter
+   Simons, Peter Stuart, Pyry Jahkola, regnat, Renzo Carbonara, Rhys, Robert
+   Vollmert, Scott Olson, Scott R. Parish, Sergei Trofimovich, Shea Levy,
+   Sheena Artrip, Spencer Baugh, Stefan Junker, Susan Potter, Thomas Tuegel,
+   Timothy Allen, Tristan Hume, Tuomas Tynkkynen, tv, Tyson Whitehead,
+   Vladimír Čunát, Will Dietz, wmertens, Wout Mertens, zimbatm and Zoran
+   Plesivčak.

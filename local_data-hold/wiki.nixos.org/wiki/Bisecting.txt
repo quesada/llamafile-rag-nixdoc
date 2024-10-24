@@ -1,0 +1,117 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Commit selection
+     * 2 Automating bisects
+     * 3 Flakes
+   [ ] Toggle the table of contents
+
+                                   Bisecting
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Bisecting is a feature of version control systems such as Git and
+   Mercurial to easily pinpoint regressions. Owing to their reproducibility,
+   Nix and NixOS are well-suited to this. As a result, we will list a few
+   tips for using tools like this in the Nix context.
+
+Commit selection
+
+   There are different ways to tweak git bisect's commit selection to reduce
+   the required builds:
+
+     * git bisect start flag --first-parent: select merge commits, which
+       depending on the repository can help for caching as well as commit
+       stability.
+     * hydrasect: select cached commits cached by Hydra - broken
+     * nixpkgs-staging-bisecter (nix-build only): reduce number of
+       derivations to be built.
+
+Automating bisects
+
+     * git bisect run: runs the selected command until the culprit is found.
+     * nix-bisect: helps better judge outcome (git bisect's good vs bad skip)
+       and gives nicer outputs than git bisect run.
+
+Flakes
+
+   Bisecting changes in a flake itself can just follow the regular bisecting
+   process. Bisecting regressions in flakes' inputs is a bit different in the
+   sense the repositories you are building is not the repository you are
+   bisecting. In this case you can use:
+
+     * --override-input: nix flag that enables bisecting flakes' inputs
+     * --flake flag on nix operations: allows overriding flake directory so
+       you can use nix flake operations from e.g. git bisect run
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Bisecting&oldid=13737"
+   Category:
+     * Version control
+     * This page was last edited on 5 July 2024, at 19:20.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

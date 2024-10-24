@@ -1,0 +1,50 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                                LDTA 2008 paper
+
+   Published on Mon May 05 2008
+
+                                LDTA 2008 paper
+
+   Eelco Dolstra presented the paper “Maximal Laziness — An Efficient
+   Interpretation Technique for Purely Functional DSLs” at 8th Workshop on
+   Language Description, Tools and Applications (LDTA 2008). It’s about
+   caching of evaluation results in the Nix expression evaluator as a
+   technique to make a simple term-rewriting evaluator efficient. Slides are
+   here.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

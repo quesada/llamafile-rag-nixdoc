@@ -1,0 +1,137 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Troubleshooting
+          * 2.1 Install and use missing corefonts
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                   ONLYOFFICE
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 05:43, 22 August 2024 by Vuhoanghuynh02 (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   ONLYOFFICE is a software suite that offers online and offline tools for
+   document editing, collaboration, and management. It is developed by
+   Ascensio System SIA, a company based in Riga, Latvia. ONLYOFFICE consists
+   of several components, such as Docs, Workspace, Desktop Editors, and
+   Mobile Apps. It is an open-source project that aims to provide a secure
+   and compatible alternative to other office suites.
+
+Installation
+
+   Add following line to your configuration to enable ONLYOFFICE
+
+    
+
+ /etc/nixos/configuration.nix
+
+ environment.systemPackages = [ pkgs.onlyoffice-bin ];
+
+Troubleshooting
+
+  Install and use missing corefonts
+
+   According to one upstream bug ONLYOFFICE is unable to locate font files on
+   NixOS. A workaround is to install missing or additional fonts and copy
+   them to the user directory
+
+    
+
+ /etc/nixos/configuration.nix
+
+ # Allow installation of unfree corefonts package
+ nixpkgs.config.allowUnfreePredicate = pkg:
+   builtins.elem (lib.getName pkg) [ "corefonts" ];
+
+ fonts.fonts = with pkgs; [
+   corefonts
+ ];
+
+ # mkdir -p ~/.local/share/fonts
+ Query store path to the corefonts package
+ # NIXPKGS_ALLOW_UNFREE=1 nix-store --query --outputs $(nix-instantiate '<nixpkgs>' -A corefonts)
+ Change the store path according to result of the command above
+ # cp /nix/store/ssw7d3cl2dzps6y1c88c01xclsigmjqf-corefonts-1/share/fonts/truetype/* ~/.local/share/fonts/
+ # chmod 644 ~/.local/share/fonts/*
+
+See also
+
+     * LibreOffice, personal productivity suite that gives you six
+       feature-rich applications for all your document production and data
+       processing needs: Writer, Calc, Impress, Draw, Math and Base.
+     * ONLYOFFICE DocumentServer
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=ONLYOFFICE&oldid=16871"
+   Category:
+     * Applications
+     * This page was last edited on 22 August 2024, at 05:43.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,157 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS & Flakes Book
+   SearchK
+   Main NavigationHomePrefaceGet StartedBest Practices
+
+   English
+
+   简体中文
+
+   English
+
+   简体中文
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+Preface
+
+   Preface
+
+Get Started
+
+   Introduction
+
+   Advantages and Disadvantages
+
+   Installation
+
+The Nix Language
+
+   Basics
+
+NixOS with Flakes
+
+   Get Started with NixOS
+
+   Introduction to Flakes
+
+   NixOS with Flakes Enabled
+
+   NixOS's flake.nix Explained
+
+   The combination ability of Flakes and Nixpkgs module system
+
+   Getting Started with Home Manager
+
+   Modularize the Configuration
+
+   Updating the System
+
+   Downgrading or Upgrading Packages
+
+   Other useful Tips
+
+Nixpkgs's Advanced Usage
+
+   Introduction
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   Multiple Nixpkgs Instances
+
+Nix Store & Binary Cache
+
+   Introduction
+
+   Add Binary Cache Servers
+
+   Host Your Own Binary Cache Server
+
+Best Practices
+
+   Introduction
+
+   Run downloaded binaries on NixOS
+
+   Simplify NixOS-related Commands
+
+   Accelerating Dotfiles Debugging
+
+   Custom NIX_PATH and Flake Registry
+
+   Remote Deployment
+
+   Debugging Derivations and Nix Expressions
+
+Other Usage of Flakes
+
+   Introduction
+
+   Flake Inputs
+
+   Flake Outputs
+
+   The New CLI
+
+   Module System & Custom Options
+
+   [WIP]Testing
+
+Dev Environments on NixOS
+
+   nix shell, nix develop & pkgs.runCommand
+
+   Dev Environments
+
+   [WIP]Packaging 101
+
+   Cross-platform Compilation
+
+   Distributed Building
+
+   [WIP]Kernel Development
+
+Advanced Topics
+
+   Advanced Topics
+
+Frequently Asked Questions
+
+   Frequently Asked Questions
+
+   On this page
+
+                                Best Practices ​
+
+   Nix is a powerful and flexible tool that offers various approaches to
+   accomplish tasks, which can sometimes make it challenging to determine the
+   most suitable method for a particular job. To assist you in navigating
+   through this vast ecosystem, I have compiled some best practices that I've
+   learned from the community. I hope these practices prove helpful to you.
+
+References ​
+
+     * Tips&Tricks for NixOS Desktop - NixOS Discourse
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous pageHost Your Own Binary Cache Server
+   Next pageRun downloaded binaries on NixOS
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

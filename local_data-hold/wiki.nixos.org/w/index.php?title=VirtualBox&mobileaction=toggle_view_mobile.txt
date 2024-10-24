@@ -1,0 +1,164 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS Installation
+     * 2 VirtualBox Oracle Extensions
+     * 3 VirtualBox Guest Additions
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                   VirtualBox
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   VirtualBox is a virtualisation hypervisor. It has powerful a GUI included
+   for managing virtual machines.
+
+NixOS Installation
+
+   VirtualBox can be installed on NixOS without problems, put this snippet in
+   your configuration.nix
+
+ {
+    virtualisation.virtualbox.host.enable = true;
+    users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+ }
+
+   Adding users to the group vboxusers allows them to use the virtualbox
+   functionality.
+
+     Tip                                                                      
+     In order to affect your system by your nix-language-specific changes you 
+     have to evaluate it, run (as root):                                      
+                                                                              
+     # nixos-rebuild switch                                                   
+
+     Tip                                                                      
+     When starting a VM, you may run into NS_ERROR_FAILURE. If you check the  
+     log you might see something like                                         
+                                                                              
+       00:00:00.616892 Audio: Initializing ALSA driver                        
+                                                                              
+     In this case, the audio driver causes a crash. This can be fixed by      
+     switching to another driver such as PULSE.                               
+
+   Warning: Ensure that you do not put virtualbox into your
+   environment.systemPackages when you've enabled it with
+   virtualisation.virtualbox.host.enable = true. If you put virtualbox into
+   your environment.systemPackages, VirtualBox won't be able to access it's
+   driver, and attempting to start a VM will fail with the error
+   NS_ERROR_FAILURE (0X80004005).
+
+VirtualBox Oracle Extensions
+
+   Note: This package is unfree and requires extra steps to install.
+
+   Oracle VirtualBox Extensions are required if you want to forward usb2 or
+   usb3 to your guests. The Extensions are unfree.
+
+ {
+    nixpkgs.config.allowUnfree = true;
+    virtualisation.virtualbox.host.enable = true;
+    virtualisation.virtualbox.host.enableExtensionPack = true;
+ }
+
+     Tip                                                                      
+     If USB forwarding is only advanced feature used in virtualization, then  
+     consider using an open-source virtualization solution such as GNOME      
+     Boxes or Virt-manager to avoid frequent recompilations..                 
+
+   Warning: Host extensions cause frequent recompilation.
+
+   Possible solutions:
+
+     * Use a pinned vbox module, see how to pin:
+       https://github.com/NixOS/nixpkgs/issues/41212
+     * Also see
+       https://stackoverflow.com/questions/48838411/install-virtualbox-modules-from-nixos-unstable-in-configuration-nix
+     * Use module from https://github.com/NixOS/nixpkgs/pull/71127 (unsafe)
+       if you'd like to avoid recompilation.
+     * Use Virt-manager instead of VirtualBox
+
+VirtualBox Guest Additions
+
+ {
+   virtualisation.virtualbox.guest.enable = true;
+   virtualisation.virtualbox.guest.dragAndDrop = true;
+ }
+
+See also
+
+     * virtualisation.virtualbox options
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=VirtualBox&oldid=16514"
+   Categories:
+     * Virtualization
+     * Software
+     * This page was last edited on 8 August 2024, at 09:29.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

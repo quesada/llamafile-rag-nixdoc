@@ -1,0 +1,145 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Mosh: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    13 November 2022
+
+     * curprev [ ] [ ] 02:5602:56, 13 November 2022‎ imported>Virchau13‎ m
+       3,277 bytes +61‎ Add clarification on why NixOS users are unlikely to
+       run into this error
+
+    30 May 2022
+
+     * curprev [ ] [ ] 09:5709:57, 30 May 2022‎ imported>Exyi‎ 3,216 bytes
+       +1,559‎ Add general info about mosh usage and instalation
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:1106:11, 20 September 2021‎ imported>Nix‎ m 1,657
+       bytes +27‎ add Software/Applications subcategory
+
+    14 December 2020
+
+     * curprev [ ] [ ] 09:2709:27, 14 December 2020‎ imported>Mjlbach‎ 1,630
+       bytes +397‎ No edit summary
+
+    18 January 2018
+
+     * curprev [ ] [ ] 09:1409:14, 18 January 2018‎ imported>Mic92‎ 1,233
+       bytes −18‎ No edit summary
+     * curprev [ ] [ ] 09:1209:12, 18 January 2018‎ imported>Mic92‎ 1,251
+       bytes +129‎ No edit summary
+     * curprev [ ] [ ] 03:0603:06, 18 January 2018‎ imported>Ghuntley‎ 1,122
+       bytes +88‎ No edit summary
+     * curprev [ ] [ ] 02:4602:46, 18 January 2018‎ imported>Ghuntley‎ m
+       1,034 bytes +2‎ No edit summary
+
+    20 December 2017
+
+     * curprev [ ] [ ] 00:1800:18, 20 December 2017‎ imported>Samueldr‎ 1,032
+       bytes +1,032‎ Inits with a non-obvious answer to a question
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Mosh"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

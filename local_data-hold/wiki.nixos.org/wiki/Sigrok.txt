@@ -1,0 +1,89 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                     Sigrok
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Sigrok is an open-source cross-platform signal analysis software suite
+   that supports device like oscilloscopes, thermometers and other data
+   logging devices.
+
+   For Sigrok and Sigrok related software such as PulseView to work properly
+   it is necessary to install udev rules that come with the libsigrok
+   package. To do so add the following to your config:
+
+ services.udev = {
+     enable = true;
+     packages = [ pkgs.libsigrok ];
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Sigrok&oldid=17634"
+   Category:
+     * Applications
+     * This page was last edited on 26 September 2024, at 20:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

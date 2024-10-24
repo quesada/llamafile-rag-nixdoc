@@ -1,0 +1,155 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Dropbox: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    8 October 2024
+
+     * curprev [ ] [ ] 14:3514:35, 8 October 2024‎ Mic92 talk contribs‎ 2,430
+       bytes +53‎ imported from old wiki
+     * curprev [ ] [ ] 14:3414:34, 8 October 2024‎ Mic92 talk contribs‎ 2,377
+       bytes +519‎ imported from old wiki
+
+    25 June 2024
+
+     * curprev [ ] [ ] 20:2520:25, 25 June 2024‎ Klinger talk contribs‎ m
+       1,858 bytes 0‎ fixed link to „Unfree software“ (capitalization)
+
+    1 April 2024
+
+     * curprev [ ] [ ] 13:3113:31, 1 April 2024‎ Mic92 talk contribs‎ 1,858
+       bytes −63‎ fix links
+
+    30 June 2023
+
+     * curprev [ ] [ ] 03:5603:56, 30 June 2023‎ imported>Peterhoeg‎ m 1,921
+       bytes +14‎ use getBin
+
+    19 June 2022
+
+     * curprev [ ] [ ] 08:2808:28, 19 June 2022‎ imported>Ward‎ 1,907 bytes
+       −149‎ Change maestral nixpkgs links to their package names
+     * curprev [ ] [ ] 08:0308:03, 19 June 2022‎ imported>Ward‎ 2,056 bytes
+       +584‎ Add note about the dropbox module PR as well as a reference to
+       the open source client alternative
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4405:44, 20 September 2021‎ imported>Nix‎ m 1,472
+       bytes +27‎ add Software/Applications subcategory
+
+    12 January 2019
+
+     * curprev [ ] [ ] 07:3507:35, 12 January 2019‎ imported>Mic92‎ 1,445
+       bytes −6‎ No edit summary
+     * curprev [ ] [ ] 07:3407:34, 12 January 2019‎ imported>Mic92‎ 1,451
+       bytes +278‎ No edit summary
+
+    2 January 2019
+
+     * curprev [ ] [ ] 18:3118:31, 2 January 2019‎ imported>Makefu‎ 1,173
+       bytes +1,173‎ add module config by peterhoeg
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Dropbox"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

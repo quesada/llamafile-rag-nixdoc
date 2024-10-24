@@ -1,0 +1,156 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         LibreOffice: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    18 April 2024
+
+     * curprev [ ] [ ] 20:1920:19, 18 April 2024‎ Klinger talk contribs‎
+       1,688 bytes +319‎ Better beginning (explaining what LibreOffice is).
+       Explain what uno.py is Tag: Visual edit: Switched
+
+    19 February 2024
+
+     * curprev [ ] [ ] 14:2014:20, 19 February 2024‎ imported>Klinger‎ m
+       1,369 bytes +53‎ No edit summary
+
+    31 January 2024
+
+     * curprev [ ] [ ] 05:4105:41, 31 January 2024‎ imported>BeardedTek‎ m
+       1,316 bytes +5‎ Change to pkgs.libreoffice-fresh-unwrapped; instead of
+       libreoffice-fresh-unwrapped. Will not build otherwise
+
+    27 May 2023
+
+     * curprev [ ] [ ] 14:4814:48, 27 May 2023‎ imported>Onny‎ 1,311 bytes
+       +141‎ Add see also section
+
+    22 October 2022
+
+     * curprev [ ] [ ] 10:3210:32, 22 October 2022‎ imported>Harärmat‎ 1,170
+       bytes +413‎ How to make spell check work
+
+    1 June 2022
+
+     * curprev [ ] [ ] 04:5404:54, 1 June 2022‎ imported>Haizaar‎ 757 bytes
+       +156‎ No edit summary
+
+    20 September 2021
+
+     * curprev [ ] [ ] 07:5307:53, 20 September 2021‎ imported>Nix‎ m 601
+       bytes 0‎ Nix moved page Libreoffice to LibreOffice: match official
+       casing
+     * curprev [ ] [ ] 06:0306:03, 20 September 2021‎ imported>Nix‎ m 601
+       bytes +27‎ add Software/Applications subcategory
+
+    26 July 2021
+
+     * curprev [ ] [ ] 14:3414:34, 26 July 2021‎ imported>Makefu‎ 574 bytes
+       +574‎ Created page with "LibreOffice is a multi-platform
+       Word-processor. == uno Python Library == For getting
+       <code>uno.py</code> python library to work the special path
+       <code>/lib/libreoffice/progra..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/LibreOffice"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,244 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                              I3: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    18 September 2024
+
+     * curprev [ ] [ ] 04:4904:49, 18 September 2024‎ Phanirithvij talk
+       contribs‎ m 8,207 bytes −31‎ remove old url
+
+    25 July 2024
+
+     * curprev [ ] [ ] 14:4414:44, 25 July 2024‎ Helmut Becker talk contribs‎
+       8,238 bytes +2,085‎ adding examples for i3status configuration in
+       home-manager Tag: Visual edit
+
+    9 May 2024
+
+     * curprev [ ] [ ] 10:2910:29, 9 May 2024‎ Mic92 talk contribs‎ 6,153
+       bytes +431‎ imported from old wiki
+
+    13 November 2022
+
+     * curprev [ ] [ ] 04:4504:45, 13 November 2022‎ imported>Lanny‎ 5,722
+       bytes +936‎ Add i3status-rust section
+
+    4 November 2022
+
+     * curprev [ ] [ ] 19:2619:26, 4 November 2022‎ imported>Dasnessie‎ m
+       4,786 bytes +8‎ Add missing bracket
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5405:54, 20 September 2021‎ imported>Nix‎ m 4,778
+       bytes +26‎ add Software/Applications subcategory
+
+    18 November 2020
+
+     * curprev [ ] [ ] 23:0923:09, 18 November 2020‎ imported>Artturin‎ 4,752
+       bytes +30‎ add to window managers
+     * curprev [ ] [ ] 21:3021:30, 18 November 2020‎ imported>Artturin‎ 4,722
+       bytes +20‎ lowercase title
+
+    12 October 2020
+
+     * curprev [ ] [ ] 21:2321:23, 12 October 2020‎ imported>Infix‎ m 4,702
+       bytes +99‎ updated broken link to show the version of the link at the
+       time of edit
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:1521:15, 24 September 2020‎ imported>Garbas‎ m
+       4,603 bytes +3‎ No edit summary
+
+    30 May 2020
+
+     * curprev [ ] [ ] 16:4716:47, 30 May 2020‎ imported>Ammkrn‎ 4,600 bytes
+       +46‎ Building on 20.03 with the previous code produces an error about
+       "displayManager.defaultSession not being of type session type". I took
+       this code from the PR about introductin defaultSession, and it works
+       on a fresh install of 20.03
+
+    21 January 2020
+
+     * curprev [ ] [ ] 01:0401:04, 21 January 2020‎ imported>Srid‎ m 4,554
+       bytes +4‎ No edit summary
+     * curprev [ ] [ ] 01:0301:03, 21 January 2020‎ imported>Srid‎ 4,550
+       bytes +102‎ home-manager example
+     * curprev [ ] [ ] 01:0301:03, 21 January 2020‎ imported>Srid‎ m 4,448
+       bytes +19‎ Actually
+     * curprev [ ] [ ] 01:0101:01, 21 January 2020‎ imported>Srid‎ m 4,429
+       bytes +2‎ Fix heading level
+
+    18 January 2020
+
+     * curprev [ ] [ ] 02:3702:37, 18 January 2020‎ imported>Jtojnar‎ 4,427
+       bytes −50‎ dconf: remove redundant environment.systemPackages
+
+    19 March 2019
+
+     * curprev [ ] [ ] 20:0820:08, 19 March 2019‎ imported>LinArcX‎ 4,477
+       bytes +567‎ Add i3blocks [BLOCK] sample after linking /libexec.
+     * curprev [ ] [ ] 19:5119:51, 19 March 2019‎ imported>LinArcX‎ 3,910
+       bytes +709‎ Show i3blocks [BLOCKS] properly.
+
+    10 March 2019
+
+     * curprev [ ] [ ] 14:3014:30, 10 March 2019‎ imported>LinArcX‎ m 3,201
+       bytes +4‎ No edit summary
+     * curprev [ ] [ ] 14:2814:28, 10 March 2019‎ imported>LinArcX‎ 3,197
+       bytes +1,004‎ Solve inconsistency between gtk2 and gtk3 themes
+     * curprev [ ] [ ] 13:5313:53, 10 March 2019‎ imported>Pstn‎ m 2,193
+       bytes +155‎ Added some comments about effects of i3.extraPackages.
+     * curprev [ ] [ ] 09:3409:34, 10 March 2019‎ imported>LinArcX‎ m 2,038
+       bytes +64‎ No edit summary
+     * curprev [ ] [ ] 09:3309:33, 10 March 2019‎ imported>LinArcX‎ m 1,974
+       bytes +89‎ No edit summary
+     * curprev [ ] [ ] 09:3109:31, 10 March 2019‎ imported>LinArcX‎ m 1,885
+       bytes +73‎ No edit summary
+     * curprev [ ] [ ] 09:3009:30, 10 March 2019‎ imported>LinArcX‎ m 1,812
+       bytes +1‎ No edit summary
+     * curprev [ ] [ ] 09:2709:27, 10 March 2019‎ imported>LinArcX‎ m 1,811
+       bytes +124‎ No edit summary
+
+    25 November 2018
+
+     * curprev [ ] [ ] 02:0902:09, 25 November 2018‎
+       imported>JosephTheEngineer‎ m 1,687 bytes +2‎ Changed
+       'service.xserver' to 'services.xserver'
+
+    29 August 2018
+
+     * curprev [ ] [ ] 12:3212:32, 29 August 2018‎ imported>Fadenb‎ m 1,685
+       bytes +40‎ highlighting + missing semicolon
+     * curprev [ ] [ ] 12:3012:30, 29 August 2018‎ imported>Fadenb‎ m 1,645
+       bytes 0‎ →‎I3-gaps frok: typo fix: fork
+     * curprev [ ] [ ] 11:2111:21, 29 August 2018‎ imported>Kjuvi‎ m 1,645
+       bytes +176‎ No edit summary
+
+    18 July 2018
+
+     * curprev [ ] [ ] 20:1420:14, 18 July 2018‎ imported>Iceychris‎ m 1,469
+       bytes 0‎ typo: "i2" -> "i3"
+
+    12 July 2018
+
+     * curprev [ ] [ ] 02:3902:39, 12 July 2018‎ imported>Samueldr‎ m 1,469
+       bytes +88‎ →‎DConf: Added a bit more details (gtk3 + firefox mainly)
+     * curprev [ ] [ ] 02:0202:02, 12 July 2018‎ imported>Grahamc‎ m 1,381
+       bytes +45‎ No edit summary
+     * curprev [ ] [ ] 02:0202:02, 12 July 2018‎ imported>Grahamc‎ 1,336
+       bytes +218‎ noted dconf
+
+    20 April 2018
+
+     * curprev [ ] [ ] 22:1922:19, 20 April 2018‎ imported>Symphorien‎ 1,118
+       bytes +1,118‎ Created page with "{{Expansion|there are a lot more
+       [https://nixos.org/nixos/options.html#i3 options]}} [https://i3wm.org/
+       i3] is a tiling window manager for X. == Enabling == To use i3 set
+       <co..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/I3"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

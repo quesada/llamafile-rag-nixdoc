@@ -1,0 +1,204 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Documentation Gaps
+          * 1.1 What are setup hooks?
+          * 1.2 What's the relationship between nix-env and buildEnv
+          * 1.3 How to add a new cross-compilation target/platform?
+          * 1.4 Does nix support binary grafting like guix?
+          * 1.5 Tips for using nix-shell for development
+          * 1.6 The structure and placement of nixpkgs
+          * 1.7 A list of all the trivial builders and build support
+          * 1.8 How do manpages work? Or: environment.pathsToLink and
+            buildEnv
+   [ ] Toggle the table of contents
+
+                               Documentation Gaps
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+                               Documentation Gaps
+
+   It's possible this is just me, but I find that there's several concepts
+   implied by the Nix manuals that aren't explained well there. I'd like to
+   contribute documentation for those myself, but there are cases where I
+   don't understand it myself. (Or else I wouldn't want there to be
+   documentation.)
+
+   There's no small danger that as I learn the answers to my questions, I'll
+   forget the question in the first place, so I'd like to keep a little list
+   of them here, by way of note taking.
+
+   I've noticed that several members of the community seem to know answers to
+   these questions off the top of their heads - I hope they don't take the
+   existence of this page personally: I'd love to bug them less on IRC.
+
+What are setup hooks?
+
+   http://nixos.org/nixpkgs/manual/#ssec-setup-hooks enumerates projects that
+   provide them. I think they're scripts that get run in dependent
+   derivations during $stdenv/setup
+
+     Answer:
+
+     Mostly yes. Some of them are automatically enabled by default. Others
+     you can enable on-demand, by adding them to your buildInputs — e.g.
+     buildInputs = [ makeWrapper ]; (to find the "proper" name for this use,
+     you must go top-level hunting). Then they will either auto-inject some
+     steps into build phases (e.g. pkg-config or autoconf), or allow you to
+     use some useful scripts during build easily (e.g. makeWrapper — see
+     wrapProgram and makeWrapper docs for details, then grep in nixpkgs for
+     numerous usage examples).
+
+     See also <nixpkgs>/pkgs/build-support/setup-hooks for a list of some
+     common setup hooks.
+
+What's the relationship between nix-env and buildEnv
+
+   AFAICT, nix-env somehow assembles a buildEnv expression and the
+   realization of that expression becomes a profile, somehow.
+
+    1. nix/user-env/
+    2. nix/src/nix-env/buildenv.nix
+    3. nix/src/libstore/builtins/buildenv.cc
+
+   #1 loads the nix file in #2 and uses it to merge everything together, and
+   #2 uses a copy of #3 that was compiled when nix got built.
+
+   Have a look also at nixpkgs/pkgs/build-support/buildenv/default.nix
+
+How to add a new cross-compilation target/platform?
+
+   Creating a new crossSystem requires many parameters, which are severely
+   undocumented. The official manual only glances over how to use cross
+   compilation for pre-existing platforms, but not how to define new
+   platforms.
+
+Does nix support binary grafting like guix?
+
+   Grafting in guix is the concept ofr replacing a dependency in a package
+   without needing to rebuild every package using it as build input. This
+   functionality can be used to significantly lower the time of rebuilding
+   packages with security updates.
+
+   In nixpkgs there is replace-dependency which provides this functionality
+   but it is neither used nor explicitly documented as of right now
+   (2017-06-22).
+
+     Answer: There is an open pull request and blog article to implement
+     security updates
+
+Tips for using nix-shell for development
+
+     mkShell is like stdenv.mkDerivationto dedicated for shell.nix. It adds
+     one more feature where multiple package build inputs can all be merged
+     together. This is useful when developing in a repo that has multiple
+     packages (micro-services).
+
+The structure and placement of nixpkgs
+
+   Basically something that documents what all the directories mean and where
+   things are placed and how they are structured and why.
+
+A list of all the trivial builders and build support
+
+   And an explanation of what they do and what they are used for.
+
+How do manpages work? Or: environment.pathsToLink and buildEnv
+
+   I'm trying to understand how manpages work in Nix/NixOS.
+
+   There is a pacakge called man-db, which seems to be looking in
+   /nix/var/nix/profiles/default/share/man for manpages. It can build a cache
+   at /var/cache/man/nixpkgs.
+
+   Under NixOS (on my machine, running NixOS 20.09), these paths do not
+   exist. man-db is installed as a NixOS module, the configuration is at
+   nixos/modules/misc/documentation.nix in the nixpkgs repository. Manpages
+   are in /run/current-system/sw/share/man, and the cache resides in
+   /var/cache/man/nixos.
+
+   What I don't understand is: How are these paths populated? In the module,
+   if man is enabled, environment.pathsToLink is set to [ "/share/man" ]. The
+   documentation describes this option as "List of directories to be
+   symlinked in /run/current-system/sw". Does this mean that for every
+   package in environment.systemPackages, it does something like for f in
+   ${pkg}/share/man/* ; do ln -s $f /run/current-system/sw/share/man/$fname ;
+   done? I could only find that environment.systemPackages is later used to
+   make a buildEnv, but what buildEnv does is a mystery to me.
+
+   So, to summarize my ramblings, I guess I would find a thorough
+   documentation of buildEnv very helpful.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Documentation_Gaps&oldid=17478"
+   Category:
+     * Community
+     * This page was last edited on 15 September 2024, at 08:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

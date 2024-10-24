@@ -1,0 +1,169 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Building a package for a specific CPU
+          * 1.1 Building a single package
+          * 1.2 Adapting a derivation to specific plaforms
+          * 1.3 Building the whole system on NixOS
+     * 2 Building an impure package with -march=native
+   [ ] Toggle the table of contents
+
+                                  Build flags
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+  Building a package for a specific CPU
+
+   By default, packages built for, say, x86_64 do not take advantage of the
+   feature of more recent cpus so that the executables you compile also work
+   on older cpus of the same architecture. This is essential because of the
+   binary cache feature of nix: if a package is compiled on hydra by a recent
+   CPU, older systems using hydra may download software that they can't run.
+
+   However, you can build some package or even all your system to take
+   advantage of the specific model of your cpu. Note that you will not be
+   able to take advantage of the binary cache and thus build everything
+   locally from scratch. The first step is to determine the -march and -mtune
+   arguments that you want to pass to gcc. In the following we want to target
+   a skylake cpu so -march=skylake -mtune=skylake.
+
+    Building a single package
+
+   You need to be a trusted user to override the local system feature.
+
+    
+
+ optimised_openssl.nix
+
+ let
+   pkgs = import <nixpkgs> {
+     localSystem = {
+       gcc.arch = "skylake";
+       gcc.tune = "skylake";
+       system = "x86_64-linux";
+     };
+   };
+ in
+   pkgs.openssl
+
+   Then build the file: nix-build optimised_openssl.nix --option
+   system-features gccarch-skylake
+
+    Adapting a derivation to specific plaforms
+
+   The technique above should pass the correct flags to gcc so that it uses
+   the processor to its fullest. However, some build systems or configure
+   scripts want to know whether to enable some processor-specific
+   instructions, for example sse. One way to do so is to inspect the
+   stdenv.hostPlatform.*Support predicates: here is an example from g2o:
+   cmakeFlags = [ "-DDISABLE_SSE3=${ if stdenv.hostPlatform.sse3Support then
+   "OFF" else "ON"}" ]
+
+   Available flags are defined in lib/systems/architectures.nix.
+
+    Building the whole system on NixOS
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, lib, ... }:
+ {
+     nixpkgs.hostPlatform = {
+       gcc.arch = "skylake";
+       gcc.tune = "skylake";
+       system = "x86_64-linux";
+     };
+ }
+
+  Building an impure package with -march=native
+
+     Tip                                                               
+     You should always prefer the previous method. This one is impure. 
+
+   To build an openssl specially tailored to the local CPU, build
+
+ let
+   pkgs = import <nixpkgs> {
+     overlays = [
+       (self: super: {
+         stdenv = super.impureUseNativeOptimizations super.stdenv;
+       })
+     ];
+   };
+ in
+   pkgs.openssl
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Build_flags&oldid=12469"
+   Categories:
+     * Development
+     * Nix
+     * This page was last edited on 24 April 2024, at 20:25.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

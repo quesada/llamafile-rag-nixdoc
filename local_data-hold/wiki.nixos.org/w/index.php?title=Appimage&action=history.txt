@@ -1,0 +1,173 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Appimage: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 August 2024
+
+     * curprev [ ] [ ] 08:2408:24, 14 August 2024‎ Unabomberlive talk
+       contribs‎ 3,292 bytes +88‎ Marked this version for translation
+
+    3 August 2024
+
+     * curprev [ ] [ ] 07:0307:03, 3 August 2024‎ Onny talk contribs‎ 3,204
+       bytes +6‎ →‎Packaging: Fix code example Tag: Visual edit
+
+    1 August 2024
+
+     * curprev [ ] [ ] 18:2318:23, 1 August 2024‎ Onny talk contribs‎ 3,198
+       bytes −95‎ Restructure page Tag: Visual edit
+     * curprev [ ] [ ] 18:2218:22, 1 August 2024‎ Onny talk contribs‎ 3,293
+       bytes +1,263‎ Add packaging example Tag: Visual edit
+     * curprev [ ] [ ] 18:2118:21, 1 August 2024‎ Onny talk contribs‎ 2,030
+       bytes −31‎ Restructure page Tag: Visual edit
+     * curprev [ ] [ ] 18:2118:21, 1 August 2024‎ Onny talk contribs‎ 2,061
+       bytes +36‎ Restructure page Tag: Visual edit
+
+    21 July 2024
+
+     * curprev [ ] [ ] 06:2106:21, 21 July 2024‎ Haruki7049 talk contribs‎
+       2,025 bytes +99‎ Marked this version for translation
+     * curprev [ ] [ ] 06:2106:21, 21 July 2024‎ Haruki7049 talk contribs‎
+       1,926 bytes +50‎ exclude the code block from translation
+     * curprev [ ] [ ] 06:1306:13, 21 July 2024‎ Haruki7049 talk contribs‎
+       1,876 bytes +55‎ Prepared the page for translation
+
+    21 June 2024
+
+     * curprev [ ] [ ] 19:0919:09, 21 June 2024‎ Jopejoe1 talk contribs‎
+       1,821 bytes +26‎ appimage also needs to be enabled for binfmt to work
+
+    9 June 2024
+
+     * curprev [ ] [ ] 07:5007:50, 9 June 2024‎ Mic92 talk contribs‎ 1,795
+       bytes −82‎ mention binfmt option (adapted from old wiki)
+
+    18 April 2024
+
+     * curprev [ ] [ ] 21:1821:18, 18 April 2024‎ Klinger talk contribs‎ m
+       1,877 bytes +23‎ attached to category:software
+
+    17 September 2023
+
+     * curprev [ ] [ ] 23:1023:10, 17 September 2023‎ imported>Chrillefkr‎
+       1,854 bytes +164‎ Adds information about why AppImages can't natively
+       run on NixOS
+     * curprev [ ] [ ] 22:5822:58, 17 September 2023‎ imported>Chrillefkr‎
+       1,690 bytes +858‎ Adding binfmt_misc method to run appimage files
+
+    24 December 2022
+
+     * curprev [ ] [ ] 20:3820:38, 24 December 2022‎ imported>Anoadragon453‎
+       832 bytes −17‎ Link to a slightly earlier section in the nixpkgs
+       manual, so that users see that there is a type 1 and 2 of appimages.
+
+    6 November 2022
+
+     * curprev [ ] [ ] 14:0614:06, 6 November 2022‎ imported>Harärmat‎ 849
+       bytes +849‎ Write first version explaining what they are, how to run
+       them, and how they are packaged
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Appimage"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

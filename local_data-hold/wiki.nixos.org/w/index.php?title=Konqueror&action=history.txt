@@ -1,0 +1,131 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Konqueror: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    12 July 2024
+
+     * curprev [ ] [ ] 16:5916:59, 12 July 2024‎ Klinger talk contribs‎ m 763
+       bytes +26‎ Category:File Manager
+     * curprev [ ] [ ] 13:5713:57, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 737 bytes +13‎ No edit summary
+     * curprev [ ] [ ] 13:5113:51, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 724 bytes +44‎ Marked this version for translation
+     * curprev [ ] [ ] 13:5113:51, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 680 bytes +25‎ No edit summary
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:3820:38, 19 April 2024‎ Klinger talk contribs‎ 655
+       bytes +96‎ Beginning sentence.
+
+    13 January 2023
+
+     * curprev [ ] [ ] 03:4303:43, 13 January 2023‎ imported>Darlingthorpe‎ m
+       559 bytes +8‎ No edit summary
+     * curprev [ ] [ ] 03:4103:41, 13 January 2023‎ imported>Darlingthorpe‎
+       551 bytes +551‎ how to see thumbnails in Konqueror
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Konqueror"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

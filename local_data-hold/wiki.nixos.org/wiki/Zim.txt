@@ -1,0 +1,118 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Plugins
+          * 2.1 Installing unbundled plugins
+   [ ] Toggle the table of contents
+
+                                      Zim
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Zim#)                    
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   Zim is a desktop note-taking application.
+
+Installation
+
+   Zim can be installed from the zim package.
+
+Plugins
+
+   Zim bundles many plugins by default.
+
+  Installing unbundled plugins
+
+   Plugins not included with Zim can be installed into
+   ~/.local/share/zim/plugins.
+
+   For example, here is how you would install the zim-auto-linker plugin with
+   Home Manager:
+
+ { pkgs, ... }:
+ {
+   xdg.dataDir."zim/plugins/zim-auto-linker".source = pkgs.fetchFromGitHub {
+     owner = "auralluring";
+     repo = "zim-auto-linker";
+     rev = "abcdefg1234"; # FIXME: replace with actual value
+     hash = pkgs.lib.fakeHash; # FIXME: replace with actual value
+   };
+ }
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Zim&oldid=13637"
+   Categories:
+     * Applications
+     * Note taking
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 30 June 2024, at 16:24.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

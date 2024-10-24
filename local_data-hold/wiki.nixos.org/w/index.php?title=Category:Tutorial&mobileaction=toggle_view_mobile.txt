@@ -1,0 +1,160 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Writing a tutorial
+     * 2 Comparison to other resource page types
+   [ ] Toggle the table of contents
+
+                               Category:Tutorial
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+   Tutorial is one of the five primary resource categories for the wiki.
+
+   Tutorials are lessons that take the reader by the hand through a series of
+   steps to complete a project of some kind. They are what your project needs
+   in order to show a beginner that they can achieve something with it.
+
+   They are wholly learning-oriented, and specifically, they are oriented
+   towards learning how rather than learning that.
+
+Writing a tutorial
+
+   You are the teacher, and you are responsible for what the student will do.
+   Under your instruction, the student will execute a series of actions to
+   achieve some end.
+
+   The end and the actions are up to you, but deciding what they should be
+   can be hard work. The end has to be meaningful, but also achievable for a
+   complete beginner.
+
+   Consider an analogy of teaching a child to cook.
+
+   What you teach the child to cook isn’t really important. What’s important
+   is that the child finds it enjoyable, and gains confidence, and wants to
+   do it again.
+
+   Through the things the child does, it will learn important things about
+   cooking. It will learn what it is like to be in the kitchen, to use the
+   utensils, to handle the food.
+
+   This is because using software, like cooking, is a matter of craft. It’s
+   knowledge - but it is practical knowledge, not theoretical knowledge. When
+   we learn a new craft or skill, we always begin learning it by doing.
+
+   The important thing is that having done the tutorial, the learner is in a
+   position to make sense of the rest of the documentation, and the software
+   itself.
+
+Comparison to other resource page types
+
+     * If information is more encyclopedic (with a similar scope and tone to
+       pages on Wikipedia), a page would be considered a pedia.
+     * If information is less encyclopedic and more similar to a compendium,
+       study guide, or a bibliographic guide, a page would be considered a
+       guide.
+     * If information is more about direct instruction to achieve a specific
+       task, a page would be considered a tutorial.
+     * If a page is more just a set of tips and tricks (less instructive than
+       a tutorial), it would be a cookbook.
+     * If a page is a detailed reference (like a man page or full software
+       manual), it would fit under references.
+
+Pages in category "Tutorial"
+
+   The following 7 pages are in this category, out of 7 total.
+
+  E
+
+     * Extend NixOS
+
+  I
+
+     * Installing from Linux
+
+  M
+
+     * Move Nix Store to new partition
+
+  N
+
+     * Nix For Lang Packaging
+     * NixOS Generations Trimmer
+     * NixOS virtual machines on macOS
+
+  P
+
+     * Packaging/Binaries
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Tutorial&oldid=12165"
+   Category:
+     * Resource
+     * This page was last edited on 18 April 2024, at 20:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

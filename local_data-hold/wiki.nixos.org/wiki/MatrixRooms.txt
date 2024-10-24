@@ -1,0 +1,178 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Topics
+     * 2 Written language
+     * 3 Location-specific
+   [ ] Toggle the table of contents
+
+                             Official Matrix rooms
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   If your Matrix client supports spaces, see NixOS Community Space for the
+   canonical list of rooms. If it does not, a best-effort list is maintained
+   below.
+
+   Room                       Description                                     
+   #users:nixos.org           Nix/NixOS Help Channel                          
+   #dev:nixos.org             Nixpkgs/NixOS Contributions                     
+   #offtopic:nixos.org        Nix Offtopic                                    
+   #review-requests:nixos.org Have a PR that is ready for review but remains  
+                              unreviewed for a week or longer? Post it here!  
+   #nix-lang:nixos.org        Nix Language                                    
+   #wiki:nixos.org            NixOS wiki chat                                 
+
+  Topics
+
+   Room                                 Description                           
+   #deployments:nixos.org               NixOS Deployment tooling              
+   #cloud-native:nixos.org              
+   #cross-compiling:nixos.org           Nix Cross Compiling                   
+   #datascience:nixos.org               Nix Data Science                      
+   #exotic:nixos.org                    Exotic Nix Targets                    
+   #homeautomation:nixos.org            Nix Home Automation                   
+   #cachix:nixos.org                    Cachix                                
+   #trustix:nixos.org                   Trustix                               
+   #robotnix:nixos.org                  Robotnix - Build Android (AOSP) using 
+                                        Nix                                   
+   #python:nixos.org                    Nixpkgs Python - Python packaging for 
+                                        and with Nixpkgs.                     
+   #nur:nixos.org                       Nix User Repository                   
+   #deploy-rs:nixos.org                 Nix deployments using deploy-rs       
+   #jvm:nixos.org                       JVM                                   
+   #flakes:nixos.org                    Nix Flakes                            
+   #tpm:nixos.org                       NixOS + TPMs                          
+   #dream2nix:nixos.org                 dream2nix                             
+   #rust:nixos.org                      Nix Rust                              
+   #rfc-98-chat:nixos.org               RFC 98 Chat                           
+   #systems-programming:nixos.org       Systems Programming                   
+   #agenix:nixos.org                    Agenix                                
+   #mozilla:nixos.org                   Nix Mozilla                           
+   #perl:nixos.org                      NixOS Perl                            
+   #wsl:nixos.org                       NixOS on WSL                          
+   #dotnet:nixos.org                    Dotnet                                
+   #bootspec:nixos.org                  Bootspec                              
+   #doom-emacs:nixos.org                Nix + Doom Emacs                      
+   #hpc:nixos.org                       Nix HPC                               
+   #testing:nixos.org                   Testing with Nix                      
+   #nix-formatting:nixos.org            Nix Formatting                        
+   #impermanence:nixos.org              Impermanence                          
+   #secure-boot:nixos.org               NixOS Secure Boot                     
+   #golang:nixos.org                    Nix + Go                              
+   #terranix:nixos.org                  Terranix                              
+   #nixos-anywhere:nixos.org            NixOS-anywhere                        
+   #riscv:nixos.org                     NixOS Risc-V                          
+   #binary-cache-selfhosting:nixos.org  NixOS Binary Cache Self-Hosting       
+   #nixcon-sponsor-discussion:nixos.org NixCon Sponsorship Policy Discussion  
+   #cosmic:nixos.org                    NixOS Cosmic                          
+   #modules:nixos.org                   NixOS Module System                   
+   #jupyter:nixos.org                   Nix Jupyter                           
+   #sysops:nixos.org                    NixOS System Operations               
+   #stdenv:nixos.org                    Nixpkgs Stdenv                        
+   #aws:nixos.org                       NixOS AWS                             
+   #networking:nixos.org                NixOS Networking                      
+   #emacs:nixos.org                     Nix Emacs                             
+   #flake-libraries:nixos.org           Flake Libraries                       
+   #audio:nixos.org                     NixOS Audio                           
+   #framework:nixos.org                 NixOS + Framework                     
+   #gaming:nixos.org                    NixOS Gaming                          
+
+  Written language
+
+   Room             Description 
+   #de:nixos.org    German      
+   #fi:nixos.org    Finnish     
+   #fr:nixos.org    French      
+   #it:nixos.org    Italian     
+   #pt:nixos.org    Portuguese  
+   #ru:nixos.org    Russian     
+   #zh-cn:nixos.org 中文          
+
+  Location-specific
+
+   Room                       Description           
+   #nixos-stuttgart:nixos.org Stuttgart (Germany)   
+   #ug-svnix:nixos.org        Sillicon Valley (USA) 
+   #oslo:nixos.org            Oslo (Norway)         
+   #bochum:nixos.org          Bochum (Germany)      
+   #at:nixos.org              Austria               
+   #aalen:nixos.org           Aalen (Germany)       
+   #zurich:nixos.org          Zürich (Switzerland)  
+   #nz:nixos.org              New Zealand           
+   #milan:nixos.org           Milan (Italy)         
+   #muenchen:nixos.org        Munich (Germany)      
+   #darmstadt:nixos.org       Darmstadt (Germany)   
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=MatrixRooms&oldid=17475"
+   Category:
+     * Community
+     * This page was last edited on 15 September 2024, at 06:17.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

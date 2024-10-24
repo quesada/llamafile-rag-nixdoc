@@ -1,0 +1,99 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 See also
+   [ ] Toggle the table of contents
+
+                           Valid Nix store path names
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 19:48, 13 September 2024 by Klinger (talk | contribs)
+   (Category:Nix added)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   All files and folders in /nix/store match the regular expression
+
+ [0-9a-z]{32}-[-.+_?=0-9a-zA-Z]+
+
+     * [0-9a-f]{32} is the hash
+     * [-.+_?=0-9a-zA-Z]+ is the name
+
+See also
+
+     * https://discourse.nixos.org/t/clarification-on-package-names-and-versions/9819/8
+     * function checkName in
+       https://github.com/NixOS/nix/blob/master/src/libstore/path.cc
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Valid_Nix_store_path_names&oldid=17394"
+   Category:
+     * Nix
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 13 September 2024, at 19:48.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

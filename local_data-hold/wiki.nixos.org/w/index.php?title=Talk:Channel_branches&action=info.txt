@@ -1,0 +1,103 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                    Information for "Talk:Channel branches"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Talk:Channel branches            
+   Default sort key                 Channel branches                 
+   Page length (in bytes)           0                                
+   Namespace ID                     1                                
+   Namespace                        Talk                             
+   Page ID                          1054                             
+   Page content language            en - English                     
+   Page content model               wikitext                         
+   Indexing by robots               Allowed                          
+   Number of redirects to this page 0                                
+   Number of subpages of this page  0 (0 redirects; 0 non-redirects) 
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                            imported>L0b0                      
+   Date of page creation                   05:47, 27 April 2023               
+   Latest editor                           Fricklerhandwerk (talk | contribs) 
+   Date of latest edit                     16:38, 1 April 2024                
+   Total number of edits                   3                                  
+   Total number of distinct authors        2                                  
+   Recent number of edits (within past 90  0                                  
+   days)                                   
+   Recent number of distinct authors       0                                  
+
+   Retrieved from "https://wiki.nixos.org/wiki/Talk:Channel_branches"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

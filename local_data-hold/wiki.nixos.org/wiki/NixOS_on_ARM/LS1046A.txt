@@ -1,0 +1,131 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 U-boot
+          * 1.1 Cross-compiling
+          * 1.2 Switching QSPI flash banks in u-boot
+          * 1.3 Flashing u-boot to QSPI flash
+          * 1.4 Flashing u-boot to flash
+   [ ] Toggle the table of contents
+
+                              NixOS on ARM/LS1046A
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+    This article or section needs expansion.                                  
+    Reason: Work in progress (Discuss in Talk:NixOS on ARM/LS1046A#)          
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+  U-boot
+
+    Cross-compiling
+
+
+ nix-shell --cores 0 '<nixpkgs>' --arg crossSystem '(import <nixpkgs> {}).lib.systems.examples.aarch64-multiplatform' -A ubootQemuAarch64
+ git clone git://git.denx.de/u-boot.git
+ cd u-boot
+ git checkout v2018.03
+ # find available defconfigs and pick one
+ ls configs/ | grep ls1046
+
+ make CROSS_COMPILE=aarch64-unknown-linux-gnu- ls1046ardb_sdcard_defconfig
+ make CROSS_COMPILE=aarch64-unknown-linux-gnu-
+
+
+    Switching QSPI flash banks in u-boot
+
+ cpld reset # switch to bank0 (default boot)
+ cpld reset altbank # switch to bank4 (reset to boot from alternative bank)
+ cpld reset sd # reset to boot from SD card
+
+    Flashing u-boot to QSPI flash
+
+ tftp <uboot_image_addr> <uboot_file_name>.bin
+ # use alternative bank
+ sf probe 0:1
+ sf erase 100000 +$filesize
+ sf write <uboot_image_addr> 100000 $filesize
+ # boot from altbank
+ cpld reset altbank
+
+   It is also possible to use sf probe 0:0 to flash current bank.
+
+    Flashing u-boot to flash
+
+   Replace /dev/sdX with correct device:
+
+ dd if=u-boot-with-spl-pbl-sd.bin of=/dev/sdX bs=512 seek=8
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/LS1046A&oldid=11566"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 4 April 2024, at 23:18.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

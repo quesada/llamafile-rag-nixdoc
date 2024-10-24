@@ -1,0 +1,278 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Nix Community: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 October 2024
+
+     * curprev [ ] [ ] 13:4113:41, 7 October 2024‎ Mightyiam talk contribs‎
+       3,619 bytes +61‎ Add (my) Full Time Nix podcast Tag: Visual edit
+
+    15 September 2024
+
+     * curprev [ ] [ ] 09:0109:01, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 3,558 bytes +144‎ remove logicblox (dead) and add shopify
+
+    15 April 2024
+
+     * curprev [ ] [ ] 17:3017:30, 15 April 2024‎ Klinger talk contribs‎ m
+       3,414 bytes +94‎ added gamers as „people“ Tag: Visual edit
+
+    8 April 2024
+
+     * curprev [ ] [ ] 05:4705:47, 8 April 2024‎ Samueldr talk contribs‎ m
+       3,320 bytes 0‎ →‎Contribute: → main
+
+    1 April 2024
+
+     * curprev [ ] [ ] 13:3813:38, 1 April 2024‎ Mic92 talk contribs‎ 3,320
+       bytes −50‎ drop mayflower from list of consultants
+
+    12 January 2024
+
+     * curprev [ ] [ ] 10:1310:13, 12 January 2024‎ imported>Henrik-ch‎ 3,370
+       bytes +35‎ Adding Replit as an industry user
+
+    15 December 2023
+
+     * curprev [ ] [ ] 12:3412:34, 15 December 2023‎ imported>Domtoro‎ m
+       3,335 bytes −42‎ Removed nixcloud entry: "nixcloud GmbH no longer
+       exists, we're doing different things now..."
+     * curprev [ ] [ ] 12:3112:31, 15 December 2023‎ imported>Domtoro‎ m
+       3,377 bytes −39‎ Remove enlambda entry, website is down.
+
+    5 September 2023
+
+     * curprev [ ] [ ] 09:5209:52, 5 September 2023‎ imported>Tfc‎ 3,416
+       bytes +37‎ Add nixcademy to consultants
+     * curprev [ ] [ ] 00:0200:02, 5 September 2023‎
+       imported>Fricklerhandwerk‎ 3,379 bytes +43‎ update the role of the
+       foundation to match its own words
+
+    24 April 2023
+
+     * curprev [ ] [ ] 02:4902:49, 24 April 2023‎ imported>Winny‎ 3,336 bytes
+       −830‎ →‎Contribute: refer to contributing article
+
+    25 September 2022
+
+     * curprev [ ] [ ] 14:2314:23, 25 September 2022‎ imported>Vater‎ m 4,166
+       bytes −4‎ →‎Consultants: they call thereself not camel-case-y :-D
+
+    20 September 2021
+
+     * curprev [ ] [ ] 11:5611:56, 20 September 2021‎ imported>Nix‎ m 4,170
+       bytes −4‎ grammar
+     * curprev [ ] [ ] 11:5511:55, 20 September 2021‎ imported>Nix‎ m 4,174
+       bytes +12‎ punctuation
+     * curprev [ ] [ ] 00:2500:25, 20 September 2021‎ imported>Nix‎ m 4,162
+       bytes −4‎ move to pedias category
+
+    6 August 2021
+
+     * curprev [ ] [ ] 16:2916:29, 6 August 2021‎ imported>0x4A6F‎ 4,166
+       bytes +49‎ No edit summary
+
+    28 April 2021
+
+     * curprev [ ] [ ] 16:3416:34, 28 April 2021‎ imported>Musicmatze‎ 4,117
+       bytes +205‎ Add paragraph about nixpkgs-dev mailinglist
+
+    2 April 2021
+
+     * curprev [ ] [ ] 10:5310:53, 2 April 2021‎ imported>Ldesgoui‎ 3,912
+       bytes +53‎ Add Determinate Systems to the list of Consutants,
+       announcement: https://twitter.com/grhmc/status/1377814396332863491
+
+    25 February 2020
+
+     * curprev [ ] [ ] 00:5600:56, 25 February 2020‎ imported>Orendorff-mi‎
+       3,859 bytes +81‎ No edit summary
+
+    1 February 2020
+
+     * curprev [ ] [ ] 13:3913:39, 1 February 2020‎ imported>Zimbatm‎ 3,778
+       bytes +86‎ update consultant list, alphabetize
+
+    20 May 2019
+
+     * curprev [ ] [ ] 20:2120:21, 20 May 2019‎ imported>Fadenb‎ m 3,692
+       bytes 0‎ →‎Industry: typo fix
+
+    11 September 2018
+
+     * curprev [ ] [ ] 20:3020:30, 11 September 2018‎ imported>Fpletz‎ m
+       3,692 bytes +11‎ No edit summary
+
+    11 June 2018
+
+     * curprev [ ] [ ] 17:0617:06, 11 June 2018‎ imported>Cransom‎ m 3,681
+       bytes −37‎ lookout is no longer a nixos user.
+
+    13 May 2018
+
+     * curprev [ ] [ ] 23:5723:57, 13 May 2018‎ imported>Jcrben‎ 3,718 bytes
+       +204‎ add pointer to nix-community Github repo
+
+    5 May 2018
+
+     * curprev [ ] [ ] 12:3412:34, 5 May 2018‎ imported>Puffnfresh‎ 3,514
+       bytes +41‎ Add Atlassian
+
+    14 December 2017
+
+     * curprev [ ] [ ] 19:4419:44, 14 December 2017‎ imported>Ixxie‎ 3,473
+       bytes +99‎ No edit summary
+
+    10 December 2017
+
+     * curprev [ ] [ ] 18:4418:44, 10 December 2017‎ imported>Ixxie‎ m 3,374
+       bytes +1‎ No edit summary
+
+    9 December 2017
+
+     * curprev [ ] [ ] 15:2515:25, 9 December 2017‎ imported>Ixxie‎ 3,373
+       bytes −63‎ Removed Incomplete stub/tag.
+     * curprev [ ] [ ] 15:2315:23, 9 December 2017‎ imported>Ixxie‎ 3,436
+       bytes +40‎ No edit summary
+     * curprev [ ] [ ] 15:2215:22, 9 December 2017‎ imported>Ixxie‎ 3,396
+       bytes +22‎ No edit summary
+     * curprev [ ] [ ] 15:1915:19, 9 December 2017‎ imported>Ixxie‎ 3,374
+       bytes +716‎ No edit summary
+     * curprev [ ] [ ] 14:0714:07, 9 December 2017‎ imported>Ixxie‎ 2,658
+       bytes +37‎ →‎NixOS Foundation
+     * curprev [ ] [ ] 14:0614:06, 9 December 2017‎ imported>Ixxie‎ 2,621
+       bytes +123‎ Added Serokell
+     * curprev [ ] [ ] 13:5813:58, 9 December 2017‎ imported>Fadenb‎ 2,498
+       bytes +39‎ →‎Consultants: Added Mayflower to list of consultants
+     * curprev [ ] [ ] 13:0813:08, 9 December 2017‎ imported>Ixxie‎ 2,459
+       bytes +8‎ No edit summary
+     * curprev [ ] [ ] 13:0613:06, 9 December 2017‎ imported>Ixxie‎ 2,451
+       bytes +1,169‎ Added Institutions section.
+     * curprev [ ] [ ] 12:2212:22, 9 December 2017‎ imported>Ixxie‎ 1,282
+       bytes +412‎ Moved Contribute section from the Get Involved article.
+     * curprev [ ] [ ] 11:3211:32, 9 December 2017‎ imported>Ixxie‎ 870 bytes
+       +73‎ No edit summary
+     * curprev [ ] [ ] 10:3310:33, 9 December 2017‎ imported>Ixxie‎ 797 bytes
+       −46‎ Moved events section to Get Involved article.
+
+    26 November 2017
+
+     * curprev [ ] [ ] 09:3009:30, 26 November 2017‎ imported>Ixxie‎ 843
+       bytes +734‎ Made framework for the article
+
+    6 September 2017
+
+     * curprev [ ] [ ] 01:2701:27, 6 September 2017‎ imported>Samueldr‎ 109
+       bytes −178‎ No edit summary
+
+    23 August 2017
+
+     * curprev [ ] [ ] 18:3618:36, 23 August 2017‎ imported>Ixxie‎ 287 bytes
+       +287‎ Created page with "{{warning|text="This discussion article is
+       incomplete, so contributions are welcome. Please consult the
+       discussion article metapage for guidelines on..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nix_Community"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

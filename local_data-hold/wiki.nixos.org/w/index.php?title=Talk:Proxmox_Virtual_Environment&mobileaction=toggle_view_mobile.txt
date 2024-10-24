@@ -1,0 +1,88 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 where to find the images
+   [ ] Toggle the table of contents
+
+                        Talk:Proxmox Virtual Environment
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+where to find the images
+
+   (NixOS 22.05) Proxmox Virtual Environment#LXC
+           https://hydra.nixos.org/job/nixos/release-22.05/nixos.proxmoxLXC.x86_64-linux
+
+   (NixOS 22.05) Proxmox Virtual Environment#KVM
+           https://hydra.nixos.org/job/nixos/release-22.05/nixos.proxmoxImage.x86_64-linux
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Proxmox_Virtual_Environment&oldid=10216"
+     * This page was last edited on 6 November 2022, at 16:37.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

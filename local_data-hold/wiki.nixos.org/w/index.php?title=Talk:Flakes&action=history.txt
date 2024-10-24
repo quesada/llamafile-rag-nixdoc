@@ -1,0 +1,149 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Talk:Flakes: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 April 2024
+
+     * curprev [ ] [ ] 21:3821:38, 5 April 2024‎ Dvntsemicolon talk contribs‎
+       1,531 bytes 0‎ No edit summary Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 21:3821:38, 5 April 2024‎ Dvntsemicolon talk contribs‎
+       1,531 bytes +8‎ No edit summary Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 21:3721:37, 5 April 2024‎ Dvntsemicolon talk contribs‎
+       1,523 bytes +20‎ →‎Making it more legible for newcomers Tags: Mobile
+       edit Mobile web edit
+     * curprev [ ] [ ] 19:4319:43, 5 April 2024‎ Danl2620 talk contribs‎
+       1,503 bytes +454‎ No edit summary
+
+    2 April 2024
+
+     * curprev [ ] [ ] 02:0602:06, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       1,049 bytes +470‎ →‎Making it more legible for newcomers: new section
+
+    19 March 2024
+
+     * curprev [ ] [ ] 01:1901:19, 19 March 2024‎ imported>Sid-code‎ 579
+       bytes 0‎ No edit summary
+
+    17 March 2024
+
+     * curprev [ ] [ ] 16:4216:42, 17 March 2024‎ imported>Sid-code‎ 579
+       bytes +10‎ No edit summary
+     * curprev [ ] [ ] 16:4116:41, 17 March 2024‎ imported>Sid-code‎ 569
+       bytes +11‎ No edit summary
+     * curprev [ ] [ ] 16:4016:40, 17 March 2024‎ imported>Sid-code‎ 558
+       bytes +342‎ No edit summary
+
+    22 January 2024
+
+     * curprev [ ] [ ] 20:2420:24, 22 January 2024‎ imported>Rubenmoor‎ 216
+       bytes +155‎ howto upgrade nixos using flakes
+
+    5 June 2022
+
+     * curprev [ ] [ ] 05:3305:33, 5 June 2022‎ imported>Psionic-editor‎ 61
+       bytes +61‎ Should we update this for Nix 2.8?
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Talk:Flakes"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

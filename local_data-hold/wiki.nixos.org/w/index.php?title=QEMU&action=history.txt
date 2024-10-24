@@ -1,0 +1,163 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             QEMU: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    13 August 2024
+
+     * curprev [ ] [ ] 10:3210:32, 13 August 2024‎ Onny talk contribs‎ 3,192
+       bytes +435‎ Register binfmt emulate different architectures Tag:
+       Visual edit
+
+    9 August 2024
+
+     * curprev [ ] [ ] 18:4518:45, 9 August 2024‎ Onny talk contribs‎ 2,757
+       bytes +113‎ →‎Emulate different architecture Tag: Visual edit
+
+    7 August 2024
+
+     * curprev [ ] [ ] 06:4606:46, 7 August 2024‎ Onny talk contribs‎ 2,644
+       bytes +1,296‎ Emulate different architectures Tag: Visual edit
+
+    18 June 2024
+
+     * curprev [ ] [ ] 18:1118:11, 18 June 2024‎ Klinger talk contribs‎ m
+       1,348 bytes +33‎ link to qemu added Tag: Visual edit
+
+    8 May 2024
+
+     * curprev [ ] [ ] 21:4821:48, 8 May 2024‎ Mic92 talk contribs‎ 1,315
+       bytes +38‎ imported from old wiki
+
+    18 March 2024
+
+     * curprev [ ] [ ] 00:0600:06, 18 March 2024‎ imported>NewAM‎ 1,277 bytes
+       +321‎ Added notes about possible errors when booting NixOS images with
+       UEFI.
+
+    15 February 2024
+
+     * curprev [ ] [ ] 10:2910:29, 15 February 2024‎ imported>Abowen‎ m 956
+       bytes +30‎ Add category
+     * curprev [ ] [ ] 10:2110:21, 15 February 2024‎ imported>Abowen‎ 926
+       bytes +39‎ No edit summary
+     * curprev [ ] [ ] 10:1710:17, 15 February 2024‎ imported>Abowen‎ 887
+       bytes +245‎ Add Quick EMU information
+
+    13 January 2024
+
+     * curprev [ ] [ ] 23:3923:39, 13 January 2024‎ imported>Mkg20001‎ m 642
+       bytes +94‎ Fix formatting
+
+    15 April 2023
+
+     * curprev [ ] [ ] 16:3516:35, 15 April 2023‎ imported>Rti‎ 548 bytes 0‎
+       No edit summary
+     * curprev [ ] [ ] 16:3416:34, 15 April 2023‎ imported>Rti‎ 548 bytes
+       +548‎ Created page with "A generic and open source machine emulator
+       and virtualizer == Install == environment = { systemPackages = [
+       pkgs.qemu ]; }; == Booting UEFI == To boot UEFI systems us..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/QEMU"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

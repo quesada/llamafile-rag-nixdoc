@@ -1,0 +1,301 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+     * 3 Configuration
+     * 4 Tips & tricks
+          * 4.1 Torify application traffic
+          * 4.2 Add Desktop Icons to Firejailed Apps
+   [ ] Toggle the table of contents
+
+                                    Firejail
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 21:01, 25 June 2024 by Klinger (talk | contribs) (→‎Torify
+   application traffic)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Firejail is an easy to use SUID sandbox program that reduces the risk of
+   security breaches by restricting the running environment of untrusted
+   applications using Linux namespaces, seccomp-bpf and Linux capabilities.
+
+Installation
+
+   Add the following line to your system configuration to install and enable
+   Firejail globally
+
+ programs.firejail.enable = true;
+
+Usage
+
+   To start an application in a sandboxed enviroment use Firejail like this
+
+ firejail bash
+
+   For a graphical application like Firefox web browser, it is recommended to
+   also use a profile
+
+ firejail --profile=$(nix --extra-experimental-features nix-command --extra-experimental-features flakes eval -f '<nixpkgs>' --raw 'firejail')/etc/firejail/firefox.profile firefox
+
+Configuration
+
+   You can also use the Firejail NixOS module for a persistent usage of
+   specific applications which should always run in Firejail. The following
+   example wraps the browser Librewolf and the messenger Signal in a Firejail
+   environment. The usual program path to librewolf and signal-desktop will
+   be overwritten by the Firejail-wrapper.
+
+ programs.firejail = {
+   enable = true;
+   wrappedBinaries = {
+     librewolf = {
+       executable = "${pkgs.librewolf}/bin/librewolf";
+       profile = "${pkgs.firejail}/etc/firejail/librewolf.profile";
+       extraArgs = [
+         # Required for U2F USB stick
+         "--ignore=private-dev"
+         # Enforce dark mode
+         "--env=GTK_THEME=Adwaita:dark"
+         # Enable system notifications
+         "--dbus-user.talk=org.freedesktop.Notifications"
+       ];
+     };
+     signal-desktop = {
+       # Enable tray icon otherwise Signal window might be hidden
+       executable = "${pkgs.signal-desktop}/bin/signal-desktop --use-tray-icon";
+       profile = "${pkgs.firejail}/etc/firejail/signal-desktop.profile";
+       extraArgs = [
+         # Enforce dark mode
+         "--env=GTK_THEME=Adwaita:dark"
+         # Enable Wayland mode
+         "--env=NIXOS_OZONE_WL=1"
+         # Allow tray icon (should be upstreamed into signal-desktop.profile)
+         "--dbus-user.talk=org.kde.StatusNotifierWatcher"
+       ];
+     };
+   };
+ };
+
+Tips & tricks
+
+  Torify application traffic
+
+   The following example configuration creates a virtual network bridge which
+   can be used in Firejail as an isolated network namespace. All traffic
+   originating from this interface will be routed through a local Tor service
+   which will therefore anonymize your internet traffic.
+
+ services.tor = {
+   enable = true;
+   openFirewall = true;
+   settings = {
+     TransPort = [ 9040 ];
+     DNSPort = 5353;
+     VirtualAddrNetworkIPv4 = "172.30.0.0/16";
+   };
+ };
+
+ networking = {
+   useNetworkd = true;
+   bridges."tornet".interfaces = [];
+   nftables = {
+     enable = true;
+     ruleset = ''
+       table ip nat {
+         chain PREROUTING {
+           type nat hook prerouting priority dstnat; policy accept;
+           iifname "tornet" meta l4proto tcp dnat to 127.0.0.1:9040
+           iifname "tornet" udp dport 53 dnat to 127.0.0.1:5353
+         }
+       }
+     '';
+   };
+   nat = {
+     internalInterfaces = [ "tornet " ];
+     forwardPorts = [
+       {
+         destination = "127.0.0.1:5353";
+         proto = "udp";
+         sourcePort = 53;
+       }
+     ];
+   };
+   firewall = {
+     enable = true;
+     interfaces.tornet = {
+       allowedTCPPorts = [ 9040 ];
+       allowedUDPPorts = [ 5353 ];
+     };
+   };
+ };
+
+ systemd.network = {
+   enable = true;
+   networks.tornet = {
+     matchConfig.Name = "tornet";
+     DHCP = "no";
+     networkConfig = {
+       ConfigureWithoutCarrier = true;
+       Address = "10.100.100.1/24";
+     };
+     linkConfig.ActivationPolicy = "always-up";
+   };
+ };
+
+ boot.kernel.sysctl = {
+   "net.ipv4.conf.tornet.route_localnet" = 1;
+ };
+
+   Run your preferred application inside the isolated Tor network
+
+ firejail --net=tornet --dns=46.182.19.48 --profile=$(nix --extra-experimental-features nix-command --extra-experimental-features flakes eval -f '<nixpkgs>' --raw 'firejail')/etc/firejail/firefox.profile firefox
+
+   You can use a custom DNS server if you don't want to use the one of your
+   system. In this example, it's a server by the German privacy NGO
+   Digitalcourage.
+
+   Using Systemd/networkd/dispatcher it is possible to restart the Tor daemon
+   every time network reconnect is performaed. This avoids having to wait for
+   Tor network timeouts and reastablishes a new connection faster.
+
+   For a detailed explanation on this setup refer the original guide. Please
+   note that this is a experimental setup which doesn't guarantee anonymity
+   or security in any circumstances.
+
+  Add Desktop Icons to Firejailed Apps
+
+   I wanted to use Firejail to lock down Google Chrome. It worked well,
+   however, I wanted a pretty icon for the application.
+
+   There are probably better ways to do this, but I accomplished it using
+   Home Manager to symlink Chrome's actual icon set into your local icon
+   directory.
+
+ ## Firejail Config
+ programs.firejail = {
+   enable = true;
+   wrappedBinaries = {
+     google-chrome-stable = {
+       executable = "${pkgs.google-chrome}/bin/google-chrome-stable";
+       profile = "${pkgs.firejail}/etc/firejail/google-chrome.profile";
+       desktop = "${pkgs.google-chrome}/share/applications/google-chrome.desktop";
+     };
+   };
+ };
+
+ ## Home Manager Config
+ home.file.".local/share/icons/hicolor/16x16/apps/google-chrome.png".source = "${pkgs.google-chrome}/share/icons/hicolor/16x16/apps/google-chrome.png";
+ home.file.".local/share/icons/hicolor/24x24/apps/google-chrome.png".source = "${pkgs.google-chrome}/share/icons/hicolor/24x24/apps/google-chrome.png";
+ home.file.".local/share/icons/hicolor/32x32/apps/google-chrome.png".source = "${pkgs.google-chrome}/share/icons/hicolor/32x32/apps/google-chrome.png";
+ home.file.".local/share/icons/hicolor/48x48/apps/google-chrome.png".source = "${pkgs.google-chrome}/share/icons/hicolor/48x48/apps/google-chrome.png";
+ home.file.".local/share/icons/hicolor/64x64/apps/google-chrome.png".source = "${pkgs.google-chrome}/share/icons/hicolor/64x64/apps/google-chrome.png";
+ home.file.".local/share/icons/hicolor/128x128/apps/google-chrome.png".source = "${pkgs.google-chrome}/share/icons/hicolor/128x128/apps/google-chrome.png";
+ home.file.".local/share/icons/hicolor/256x256/apps/google-chrome.png".source = "${pkgs.google-chrome}/share/icons/hicolor/256x256/apps/google-chrome.png";
+
+   Another way to do this is to create a package with the firejailed
+   application icons. This way, it can be done without home manager, and thus
+   have the icons for all users.
+
+ environment.systemPackages = [
+   (
+     let
+       packages = with pkgs; [
+         electrum
+         firefox
+         mpv
+         gajim
+         tor-browser
+         vlc
+       ];
+     in
+     pkgs.runCommand "firejail-icons"
+       {
+         preferLocalBuild = true;
+         allowSubstitutes = false;
+         meta.priority = -1;
+       }
+       ''
+         mkdir -p "$out/share/icons"
+         ${lib.concatLines (map (pkg: ''
+           tar -C "${pkg}" -c share/icons -h --mode 0755 -f - | tar -C "$out" -xf -
+         '') packages)}
+         find "$out/" -type f -print0 | xargs -0 chmod 0444
+         find "$out/" -type d -print0 | xargs -0 chmod 0555
+       ''
+   )
+ ];
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Firejail&oldid=13553"
+   Categories:
+     * Applications
+     * Security
+     * This page was last edited on 25 June 2024, at 21:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

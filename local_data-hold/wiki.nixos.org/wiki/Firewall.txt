@@ -1,0 +1,135 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Enable
+     * 2 Configuration
+     * 3 Warning
+   [ ] Toggle the table of contents
+
+                                    Firewall
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   NixOS provides an interface to configure the firewall through the option
+   networking.firewall.
+
+   The default firewall uses iptables. To use the newer nftables instead,
+   additionally set networking.nftables.enable = true;
+
+Enable
+
+   The firewall is enabled when not set. To explicitly enable it add the
+   following into your system configuration:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ networking.firewall.enable = true;
+
+   This will make all local ports and services unreachable from external
+   connections.
+
+Configuration
+
+   To allow specific TCP/UDP ports or port ranges on all interfaces, use
+   following syntax:
+
+ networking.firewall = {
+   enable = true;
+   allowedTCPPorts = [ 80 443 ];
+   allowedUDPPortRanges = [
+     { from = 4000; to = 4007; }
+     { from = 8000; to = 8010; }
+   ];
+ };
+
+   Note: Many services also provide an option to open the required firewall
+   ports automatically. For example, the media server Jellyfin offers the
+   option services.jellyfin.openFirewall = true; which will open the required
+   TCP ports.
+
+   Interface-specific firewall rules can be applied like this:
+
+ networking.firewall.interfaces."eth0".allowedTCPPorts = [ 80 443 ];
+
+   In this case, ports 80 and 443 will be allowed for the interface eth0.
+
+Warning
+
+   Firewall rules may be overwritten by Docker, as per
+   https://github.com/NixOS/nixpkgs/issues/111852
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Firewall&oldid=12241"
+   Categories:
+     * Server
+     * Applications
+     * This page was last edited on 19 April 2024, at 17:43.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

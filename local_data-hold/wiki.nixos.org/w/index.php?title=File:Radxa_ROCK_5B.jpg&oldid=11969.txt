@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             File:Radxa ROCK 5B.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 05:21, 8 April 2024 by Samueldr (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+     * File
+     * File history
+     * File usage
+   File:Radxa ROCK 5B.jpg
+   Size of this preview: 746 × 600 pixels. Other resolution: 973 × 782
+   pixels.
+
+   Original file ‎(973 × 782 pixels, file size: 116 KB, MIME type:
+   image/jpeg)
+
+   Radxa ROCK 5B SBC Photo
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail          Dimensions User             Comment   
+           21:31, 15 Thumbnail for                                  Radxa     
+   current November  version as of      973 × 782  Imported>Jakubgs ROCK 5B   
+           2023      21:31, 15 November (116 KB)                    SBC Photo 
+                     2023               
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/Radxa ROCK5 Model B
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Radxa_ROCK_5B.jpg&oldid=11969"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

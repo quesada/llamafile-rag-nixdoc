@@ -1,0 +1,211 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS 与 Flakes
+   SearchK
+   Main Navigation首页前言开始使用最佳实践
+
+   简体中文
+
+   English
+
+   简体中文
+
+   English
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+前言
+
+   前言
+
+开始使用
+
+   简介
+
+   优缺点
+
+   安装
+
+Nix 语言
+
+   快速入门
+
+NixOS 与 Flakes
+
+   开始使用 NixOS
+
+   Flakes 简介
+
+   使用 Flakes 管理 NixOS
+
+   NixOS 的 flake.nix 内容详解
+
+   Flakes 的组合能力与 Nixpkgs 模块系统
+
+   安装使用 Home Manager
+
+   模块化系统配置
+
+   更新系统
+
+   降级或升级软件包
+
+   其他杂七杂八的内容
+
+Nixpkgs 高级用法
+
+   简介
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   多 Nixpkgs 实例的妙用
+
+Nix Store 与二进制缓存
+
+   简介
+
+   添加二进制缓存服务器
+
+   搭建你自己的缓存服务器
+
+NixOS 最佳实践
+
+   简介
+
+   运行非 NixOS 的二进制文件
+
+   简化常用的 NixOS 相关命令
+
+   加速 Dotfiles 的调试
+
+   自定义 NIX_PATH 与 Flake Registry
+
+   远程部署 NixOS 配置
+
+   调试 Nix 软件包与 Nix 表达式
+
+Flakes 的其他玩法
+
+   简介
+
+   Flake Inputs
+
+   Flake Outputs
+
+   新一代 Nix 命令行工具的使用
+
+   模块系统与自定义 options
+
+   [WIP]Testing
+
+在 NixOS 上进行开发工作
+
+   nix shell, nix develop & pkgs.runCommand
+
+   各语言的开发环境
+
+   [WIP]软件打包
+
+   跨平台编译
+
+   分布式构建
+
+   [WIP]内核开发
+
+其他进阶话题
+
+   其他进阶话题
+
+常见问题 FAQ
+
+   常见问题 FAQ
+
+   On this page
+
+                        自定义 NIX_PATH 与 Flake Registry ​
+
+NIX_PATH 介绍 ​
+
+   Nix 搜索路径由环境变量 NIX_PATH 控制，它的格式与 Linux 的 PATH 环境变量一致，由冒号分隔的多个路径组成。
+
+   Nix 表达式中形如 <name> 的路径会被解析为 NIX_PATH 中名为 name 的路径。
+
+   这种使用方式在 Flakes 特性下已经不推荐使用了，因为它会导致 Flake 的构建结果依赖一个可变的环境变量
+   NIX_PATH，可复现能力大打折扣。
+
+   但是在某些场景下，我们还是需要使用 NIX_PATH，比如我们前面多次使用了 nix repl '<nixpkgs>' 命令，它就是使用了从
+   NIX_PATH 搜索到的 Nixpkgs。
+
+Flakes Registry 介绍 ​
+
+   Flake Registry 是一个 Flake 注册中心，它可以帮助我们在使用 nix run, nix shell 等命令时，使用一个简短的
+   id 来代替长长的 flake 仓库地址。
+
+   默认情况下，Nix 会从
+   https://github.com/NixOS/flake-registry/blob/master/flake-registry.json
+   中找到这个 id 对应的 github 仓库地址。
+
+   比如说我们执行 nix run nixpkgs#ponysay hello，nix 会自动从上述 json 文件中找到 nixpkgs 对应的
+   github 仓库地址，然后下载这个仓库，再通过其中的 flake.nix 查找对应的 ponysay 包并运行它。
+
+自定义 NIX_PATH 与 Flake Registry ​
+
+     注意：新手请先跳过这部分内容！因为配置如果抄得不对，关掉 nix-channel 可能会导致一些令人头疼的错误。
+
+   前面说明了 NIX_PATH 与 Flake Registry 的作用。在日常使用中，我们一般都会希望能在执行 nix repl
+   '<nixpkgs>', nix run nixpkgs#ponysay hello 等命令时，使用的 nixpkgs
+   与系统一致，这就需要我们自定义 NIX_PATH 与 Flake Registry。另外 nix-channel 虽然也能与 flakes
+   特性共存，但实际上 flakes 已经能够完全替代它了，所以我们也可以将其关闭。
+
+   在你的 NixOS 配置中，添加如下 module 即可实现上述需求：
+
+   [ Submit ]nix
+
+ {lib, nixpkgs, ...}: {
+   # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
+   nix.registry.nixpkgs.flake = nixpkgs;
+   nix.channel.enable = false; # remove nix-channel related tools & configs, we use flakes instead.
+   # but NIX_PATH is still used by many useful tools, so we set it to the same value as the one used by this flake.
+   # Make `nix repl '<nixpkgs>'` use the same nixpkgs as the one used by this flake.
+   environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";
+   # https://github.com/NixOS/nix/issues/9574
+   nix.settings.nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
+ }
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+
+参考 ​
+
+     * Chapter 15. Nix Search Paths - Nix Pills
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous page加速 Dotfiles 的调试
+   Next page远程部署 NixOS 配置
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

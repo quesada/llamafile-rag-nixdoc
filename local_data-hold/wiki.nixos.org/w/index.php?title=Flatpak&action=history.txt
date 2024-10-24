@@ -1,0 +1,201 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Flatpak: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    4 September 2024
+
+     * curprev [ ] [ ] 07:1807:18, 4 September 2024‎ Mic92 talk contribs‎
+       4,252 bytes +431‎ imported from old wiki
+
+    13 August 2024
+
+     * curprev [ ] [ ] 10:3310:33, 13 August 2024‎ Onny talk contribs‎ 3,821
+       bytes +546‎ Emulate Flatpaks different architecture Tag: Visual edit
+
+    15 May 2024
+
+     * curprev [ ] [ ] 18:4418:44, 15 May 2024‎ Klinger talk contribs‎ 3,275
+       bytes +152‎ added link to manual Tag: Visual edit: Switched
+
+    18 April 2024
+
+     * curprev [ ] [ ] 21:1721:17, 18 April 2024‎ Klinger talk contribs‎ m
+       3,123 bytes +23‎ attached to category:software Tag: Visual edit:
+       Switched
+
+    1 April 2024
+
+     * curprev [ ] [ ] 13:0213:02, 1 April 2024‎ Mic92 talk contribs‎ 3,100
+       bytes −57‎ fix links
+     * curprev [ ] [ ] 12:4012:40, 1 April 2024‎ Mic92 talk contribs‎ 3,157
+       bytes −29‎ No edit summary
+
+    22 November 2023
+
+     * curprev [ ] [ ] 21:3321:33, 22 November 2023‎ imported>Liassica‎ m
+       3,186 bytes 0‎ Fixed instances of incorrect capitalization ("flatpak"
+       instead of "Flatpak" outside of command contexts)
+     * curprev [ ] [ ] 21:3021:30, 22 November 2023‎ imported>Liassica‎ m
+       3,186 bytes −2‎ →‎Usage: Removed problematic angle brackets
+
+    16 October 2023
+
+     * curprev [ ] [ ] 17:2017:20, 16 October 2023‎ imported>Skylark‎ m 3,188
+       bytes −33‎ Missing small words
+
+    11 October 2023
+
+     * curprev [ ] [ ] 03:0803:08, 11 October 2023‎ imported>Ta1us‎ m 3,221
+       bytes −5‎ make nix user config more clear
+
+    1 October 2023
+
+     * curprev [ ] [ ] 12:4312:43, 1 October 2023‎ imported>IgorM‎ m 3,226
+       bytes +48‎ Fixed syntax highlighting
+
+    4 July 2023
+
+     * curprev [ ] [ ] 12:5512:55, 4 July 2023‎ imported>Onny‎ m 3,178 bytes
+       +174‎ No edit summary
+     * curprev [ ] [ ] 12:3612:36, 4 July 2023‎ imported>Onny‎ m 3,004 bytes
+       +149‎ No edit summary
+     * curprev [ ] [ ] 12:3212:32, 4 July 2023‎ imported>Onny‎ 2,855 bytes
+       +913‎ Add development example
+     * curprev [ ] [ ] 10:1610:16, 4 July 2023‎ imported>Onny‎ m 1,942 bytes
+       +46‎ No edit summary
+
+    29 June 2023
+
+     * curprev [ ] [ ] 17:4417:44, 29 June 2023‎ imported>Tormeh‎ 1,896 bytes
+       +557‎ Add instructions for how to enable flatpak on a single user
+       rather than globally
+     * curprev [ ] [ ] 17:3217:32, 29 June 2023‎ imported>Tormeh‎ m 1,339
+       bytes 0‎ Fix typo where `:` was used in place of `=`
+
+    26 March 2023
+
+     * curprev [ ] [ ] 14:2414:24, 26 March 2023‎
+       imported>SoGreatAndPowerful‎ 1,339 bytes 0‎ fix typo: yo -> to
+
+    14 February 2023
+
+     * curprev [ ] [ ] 21:3521:35, 14 February 2023‎ imported>Jmercouris‎
+       1,339 bytes +308‎ No edit summary
+
+    15 September 2022
+
+     * curprev [ ] [ ] 13:2113:21, 15 September 2022‎ imported>Phrogg‎ m
+       1,031 bytes +47‎ edited the link
+     * curprev [ ] [ ] 13:2013:20, 15 September 2022‎ imported>Phrogg‎ 984
+       bytes +122‎ Added a new Section for issues
+     * curprev [ ] [ ] 11:1911:19, 15 September 2022‎ imported>Phrogg‎ m 862
+       bytes −3‎ No edit summary
+     * curprev [ ] [ ] 11:1811:18, 15 September 2022‎ imported>Phrogg‎ 865
+       bytes +865‎ added this page with basic instructions on how to enable
+       flatpak and specific instructions on how to add it to the path on sway
+       and greetd
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Flatpak"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

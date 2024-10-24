@@ -1,0 +1,98 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Building software with 32bit gcc
+     * 2 Building software with both 32- and 64-bit executables
+   [ ] Toggle the table of contents
+
+                          Packaging/32bit Applications
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Building software with 32bit gcc
+
+   Question: I'm invoking gcc with -m32 and it fails to find `gnu/stubs-32.h`
+   Answer (clever): you want to use pkgsi686Linux instead of pkgs, so things
+   like pkgsi686Linux.stdenv.mkDerivation or pkgsi686Linux.callPackage then
+   nix will give you 32bit everything^[1]
+
+Building software with both 32- and 64-bit executables
+
+   If a package wants to compile both 32/64-bit executables, you need a
+   compiler with multilib support. Nixpkgs provides multiStdenv.mkDerivation
+   that should be used instead stdenv.mkDerivation. This is equivalent to
+   using gcc-multilib in debian derivatives.
+
+    1. ↑ clever, #nixos 2018-03-19
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Packaging/32bit_Applications&oldid=12498"
+   Category:
+     * Development
+     * This page was last edited on 24 April 2024, at 20:42.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

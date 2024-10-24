@@ -1,0 +1,329 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      Visual Studio Code: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    26 September 2024
+
+     * curprev [ ] [ ] 21:2221:22, 26 September 2024‎ Klinger talk contribs‎
+       m 14,746 bytes +18‎ Category:IDE added
+
+    14 September 2024
+
+     * curprev [ ] [ ] 06:2606:26, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 14,728 bytes +1‎ fix home-manager docs link
+
+    5 June 2024
+
+     * curprev [ ] [ ] 02:2002:20, 5 June 2024‎ Prince213 talk contribs‎ m
+       14,727 bytes +1‎ Fix typo. Tag: Visual edit: Switched
+
+    19 April 2024
+
+     * curprev [ ] [ ] 12:5412:54, 19 April 2024‎ Klinger talk contribs‎ m
+       14,726 bytes +28‎ Category:Applications
+
+    16 April 2024
+
+     * curprev [ ] [ ] 22:2222:22, 16 April 2024‎ Tekkical talk contribs‎
+       14,698 bytes +331‎ Added example for fetching the hash of an extension
+       Tag: Visual edit
+
+    1 April 2024
+
+     * curprev [ ] [ ] 14:1314:13, 1 April 2024‎ Mic92 talk contribs‎ 14,367
+       bytes −20‎ fix links Tag: Visual edit: Switched
+
+    2 March 2024
+
+     * curprev [ ] [ ] 00:1500:15, 2 March 2024‎ imported>Jmarmstrong1207‎
+       14,387 bytes +394‎ Add nix-direnv reference for automatic switching
+
+    19 February 2024
+
+     * curprev [ ] [ ] 01:5601:56, 19 February 2024‎
+       imported>Jmarmstrong1207‎ 13,993 bytes −2‎ Move out of installation
+       section. Makes more sense.
+     * curprev [ ] [ ] 01:5101:51, 19 February 2024‎
+       imported>Jmarmstrong1207‎ 13,995 bytes +503‎ Clarify the nix-shell
+       section especially for beginners. Move section to installation for a
+       more seamless installation process.
+
+    2 November 2023
+
+     * curprev [ ] [ ] 20:4720:47, 2 November 2023‎ imported>Atry‎ 13,492
+       bytes −73‎ No edit summary
+
+    25 September 2023
+
+     * curprev [ ] [ ] 17:4917:49, 25 September 2023‎ imported>Atry‎ m 13,565
+       bytes +1‎ Fix typo in path
+
+    7 August 2023
+
+     * curprev [ ] [ ] 06:2506:25, 7 August 2023‎ imported>Yinfeng‎ m 13,564
+       bytes −199‎ →‎nix-ld: remove NIX_LD and NIX_LD_LIBRARY_PATH envronment
+       variables, which will be set in the nixos module of nix-ld
+
+    2 August 2023
+
+     * curprev [ ] [ ] 18:2218:22, 2 August 2023‎ imported>Atry‎ 13,763 bytes
+       +322‎ No edit summary
+
+    29 July 2023
+
+     * curprev [ ] [ ] 04:0404:04, 29 July 2023‎ imported>Dezren39‎ m 13,441
+       bytes −22‎ No edit summary
+     * curprev [ ] [ ] 04:0204:02, 29 July 2023‎ imported>Dezren39‎ m 13,463
+       bytes +103‎ No edit summary
+     * curprev [ ] [ ] 03:5503:55, 29 July 2023‎ imported>Dezren39‎ 13,360
+       bytes +777‎ update for latest vscode insider issues
+
+    13 May 2023
+
+     * curprev [ ] [ ] 17:5817:58, 13 May 2023‎ imported>Blackpill0w‎ m
+       12,583 bytes +734‎ Added an example for getting the SHA256 of an
+       extension
+
+    28 April 2023
+
+     * curprev [ ] [ ] 14:5114:51, 28 April 2023‎ imported>Inclyc‎ m 11,849
+       bytes −5‎ nix-vscode-extensions: typo fix
+     * curprev [ ] [ ] 14:4914:49, 28 April 2023‎ imported>Inclyc‎ 11,854
+       bytes +369‎ mention nix-community/nix-vscode-extensions to keep
+       extensions updated & provide more extensions registry
+
+    15 February 2023
+
+     * curprev [ ] [ ] 00:2900:29, 15 February 2023‎ imported>Atry‎ 11,485
+       bytes +48‎ No edit summary
+     * curprev [ ] [ ] 00:2600:26, 15 February 2023‎ imported>Atry‎ 11,437
+       bytes +5‎ No edit summary
+     * curprev [ ] [ ] 00:2400:24, 15 February 2023‎ imported>Atry‎ 11,432
+       bytes +126‎ No edit summary
+     * curprev [ ] [ ] 00:1900:19, 15 February 2023‎ imported>Atry‎ 11,306
+       bytes +1,279‎ No edit summary
+
+    20 October 2022
+
+     * curprev [ ] [ ] 12:2712:27, 20 October 2022‎ imported>Poelzi‎ 10,027
+       bytes +41‎ No edit summary
+
+    15 October 2022
+
+     * curprev [ ] [ ] 18:1118:11, 15 October 2022‎ imported>Milahu‎ 9,986
+       bytes +1,113‎ add section: Server did not start successfully
+
+    10 October 2022
+
+     * curprev [ ] [ ] 11:1411:14, 10 October 2022‎ imported>Swaddle‎ m 8,873
+       bytes +2‎ Needs brackets to work
+
+    30 September 2022
+
+     * curprev [ ] [ ] 19:1119:11, 30 September 2022‎ imported>Edrex‎ m 8,871
+       bytes +8‎ Update URL for Insiders Build
+
+    8 July 2022
+
+     * curprev [ ] [ ] 13:5513:55, 8 July 2022‎ imported>SuperSamus‎ 8,863
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 13:3613:36, 8 July 2022‎ imported>SuperSamus‎ 8,863
+       bytes −982‎ Reorder and cleanup
+
+    14 June 2022
+
+     * curprev [ ] [ ] 18:1918:19, 14 June 2022‎ imported>Edrex‎ 9,845 bytes
+       +1,082‎ Add instructions for installing insiders build
+
+    26 May 2022
+
+     * curprev [ ] [ ] 07:1907:19, 26 May 2022‎ imported>Sirkonst‎ 8,763
+       bytes +124‎ Note about GUI for GNOME Keyring
+
+    19 April 2022
+
+     * curprev [ ] [ ] 21:1121:11, 19 April 2022‎ imported>Jessestricker‎ m
+       8,639 bytes +72‎ Improve formatting in Wayland section
+     * curprev [ ] [ ] 21:0821:08, 19 April 2022‎ imported>Jessestricker‎
+       8,567 bytes +453‎ Add information about usage with Wayland
+
+    5 April 2022
+
+     * curprev [ ] [ ] 15:2815:28, 5 April 2022‎ imported>JohannesRudolph‎ m
+       8,114 bytes +17‎ fix path to script
+
+    2 April 2022
+
+     * curprev [ ] [ ] 09:1109:11, 2 April 2022‎ imported>Iron-Bound‎ m 8,097
+       bytes −5‎ Required an update to nodejs-16, resolved the module version
+       93 error for the inbuilt terminal.
+
+    24 February 2022
+
+     * curprev [ ] [ ] 19:1419:14, 24 February 2022‎ imported>Shawn8901‎ m
+       8,102 bytes +32‎ Updated reference to update script, which was moved
+       in 8f868e1
+
+    6 January 2022
+
+     * curprev [ ] [ ] 18:2418:24, 6 January 2022‎ imported>Gduque‎ m 8,070
+       bytes 0‎ Switch
+
+    4 November 2021
+
+     * curprev [ ] [ ] 18:3318:33, 4 November 2021‎ imported>Daniel-beard‎ m
+       8,070 bytes 0‎ Fix spelling 'Sing' -> 'Sign'
+
+    21 October 2021
+
+     * curprev [ ] [ ] 08:3308:33, 21 October 2021‎ imported>Sirkonst‎ m
+       8,070 bytes −1‎ typo fix
+     * curprev [ ] [ ] 08:3208:32, 21 October 2021‎ imported>Sirkonst‎ 8,071
+       bytes +598‎ Add Troubleshooting section with Error after Sing On
+
+    10 October 2021
+
+     * curprev [ ] [ ] 12:3212:32, 10 October 2021‎ imported>Nix‎ 7,473 bytes
+       +1,057‎ →‎Managing extensions: more on updating extensions, clean up
+       section
+
+    30 September 2021
+
+     * curprev [ ] [ ] 14:1414:14, 30 September 2021‎ imported>Nix‎ 6,416
+       bytes +1,160‎ add Home Manager install
+     * curprev [ ] [ ] 07:3207:32, 30 September 2021‎ imported>Nix‎ m 5,256
+       bytes 0‎ Nix moved page Vscode to Visual Studio Code: match official
+       name
+
+    21 August 2021
+
+     * curprev [ ] [ ] 23:2123:21, 21 August 2021‎ imported>Samuela‎ 5,256
+       bytes +2‎ →‎Any client to NixOS host
+
+    29 May 2021
+
+     * curprev [ ] [ ] 01:3901:39, 29 May 2021‎ imported>Samuela‎ 5,254 bytes
+       +970‎ No edit summary
+
+    16 May 2021
+
+     * curprev [ ] [ ] 18:2818:28, 16 May 2021‎ imported>Sternenseemann‎
+       4,284 bytes +44‎ Fixed syntax of example module
+
+    14 May 2021
+
+     * curprev [ ] [ ] 08:1408:14, 14 May 2021‎ imported>Samuela‎ 4,240 bytes
+       −15‎ No edit summary
+     * curprev [ ] [ ] 08:1208:12, 14 May 2021‎ imported>Samuela‎ 4,255 bytes
+       0‎ No edit summary
+     * curprev [ ] [ ] 08:1108:11, 14 May 2021‎ imported>Samuela‎ 4,255 bytes
+       −407‎ No edit summary
+     * curprev [ ] [ ] 08:1008:10, 14 May 2021‎ imported>Samuela‎ 4,662 bytes
+       −20‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Visual_Studio_Code"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

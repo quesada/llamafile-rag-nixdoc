@@ -1,0 +1,177 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Finding key codes
+          * 1.1 Obtaining key codes with xev
+          * 1.2 Obtaining key codes with actkbd
+     * 2 Sample configuration
+   [ ] Toggle the table of contents
+
+                                     actkbd
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   actkbd is a keyboard shortcut daemon that works at the system level. It
+   does so through reading the events directly from the input devices, thus
+   working whether a graphical session is running or not.
+
+   Do note that this causes issues if it is expected to be used for
+   user-level shortcuts. actkbd is better used to provide global
+   user-agnostic shortcuts like volume or brightness control.
+
+   With NixOS, actkbd can be configured using the services.actkbd
+   configuration options.
+
+Finding key codes
+
+   The key codes used by actkbd when binding commands will not match with the
+   key code events xev reports.
+
+  Obtaining key codes with xev
+
+   While logged into an X session, using nix-shell -p xorg.xev --run "xev
+   -event keyboard" will run xev, with filtering for keyboard events.
+
+   In the following example output, the line with the key code event is
+   prefixed with an arrow. The keycode for that particular key is 41 with
+   xev.
+
+  |KeyRelease event, serial 28, synthetic NO, window 0x2a00001,
+  |    root 0x526, subw 0x0, time 263244557, (457,417), root:(1561,950),
+ →|    state 0x10, keycode 41 (keysym 0x66, f), same_screen YES,
+  |    XLookupString gives 1 bytes: (66) "f"
+  |    XFilterEvent returns: False
+
+    Tip                                                                       
+    While the previous statement may be true, it has been observed that for   
+    some, if not all, key code events, subtracting 8 to the xev key code will 
+    give the expected actkbd event.                                           
+
+  Obtaining key codes with actkbd
+
+   To read key codes with actkbd, you will need to select the right input
+   event provider from /dev/input/. Each input device generating input events
+   has its own entry there, enumerated with a number.
+
+   To find out which one generates the events from the hotkeys, it is
+   possible, while tedious, to run the following command with each available
+   entry, and see which one generates event notifications when pressing the
+   wanted key.
+
+   Alternatively, the lsinput from the input-utils package^[not upstreamed
+   yet] allows listing all /dev/input/ files with a useful name.
+
+   Another method, which does not require additional packages, will list all
+   the input devices recognized by the X server:
+
+ journalctl --unit display-manager.service -b0 | grep "Adding input device" | sed -e 's;.*config/udev: ;;' | sort | uniq
+
+   This command will also list all available input devices, two lines per.
+
+ cat /proc/bus/input/devices | grep "Name\|Handlers"
+
+   Finally, some device files will also be listed in the /dev/input/by-path/
+   and /dev/input/by-id/ directories with somewhat recognizable names.
+
+   Once the input device found, run the following command (replacing # with
+   the ID) to print the keycodes as actkbd sees them.
+
+ nix-shell -p actkbd --run "sudo actkbd -n -s -d /dev/input/event#"
+
+   It will report the keys this way:
+
+ fKeys: 33
+ Keys: 14
+ Keys: 29+46
+
+   Where key codes with a + represents combinations. The numbers, including
+   combinations can be used in the configuration.
+
+Sample configuration
+
+   The following configuration, from the Backlight page will configure the
+   brightness control keys to use light to control the brightness.
+
+   programs.light.enable = true; # Needed for the /run/wrappers/bin/light SUID wrapper.
+   services.actkbd = {
+     enable = true;
+     bindings = [
+       { keys = [ 224 ]; events = [ "key" ]; command = "/run/wrappers/bin/light -A 10"; }
+       { keys = [ 225 ]; events = [ "key" ]; command = "/run/wrappers/bin/light -U 10"; }
+     ];
+   };
+
+   Additionally, the sound.mediaKeys.enable option will use actkbd to control
+   the media volumes. See the configuration it generates for an additional
+   example.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Actkbd&oldid=12288"
+     * This page was last edited on 19 April 2024, at 20:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

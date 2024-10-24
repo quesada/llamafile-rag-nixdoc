@@ -1,0 +1,101 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+   [ ] Toggle the table of contents
+
+                                    Nitrokey
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Other languages:
+     * English
+     * français
+     * русский
+
+   This article describes how you can use your Nitrokey Nitrokey with NixOS
+
+Installation
+
+   You also want to add the nitrokey udev rules and enable the gpg agent
+
+ services.udev.packages = [ pkgs.nitrokey-udev-rules ];
+ programs = {
+   ssh.startAgent = false;
+   gnupg.agent = {
+     enable = true;
+     enableSSHSupport = true;
+   };
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nitrokey&oldid=14028"
+   Category:
+     * Hardware
+     * This page was last edited on 12 July 2024, at 13:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

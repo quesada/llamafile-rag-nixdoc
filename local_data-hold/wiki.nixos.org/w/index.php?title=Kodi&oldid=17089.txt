@@ -1,0 +1,163 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Basic module usage
+     * 2 Access from other machines
+     * 3 With Wayland
+     * 4 Plugins
+   [ ] Toggle the table of contents
+
+                                      Kodi
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 07:06, 4 September 2024 by Mic92 (talk | contribs)
+   (imported from old wiki)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Kodi (formerly known as XBMC) is an award-winning free and open source
+   (GPL) software media player and entertainment hub that can be installed on
+   Linux, OSX, Windows, iOS and Android, featuring a 10-foot user interface
+   for use with televisions and remote controls.
+
+Basic module usage
+
+   The NixOS module for Kodi sets Kodi up as a desktop session. With this
+   configuration Kodi will run automatically on boot:
+
+ {
+   services.xserver.enable = true;
+   services.xserver.desktopManager.kodi.enable = true;
+   services.xserver.displayManager.autoLogin.enable = true;
+   services.xserver.displayManager.autoLogin.user = "kodi";
+
+   services.xserver.displayManager.lightdm.greeter.enable = false;
+
+   # Define a user account
+   users.extraUsers.kodi.isNormalUser = true;
+ }
+
+Access from other machines
+
+   For this to work Kodi's remote interface must be enabled in the Kodi
+   configuration. Kodi uses by default udp/tcp port 8080, which must be
+   allowed in the firewall:
+
+ {
+   networking.firewall = {
+     allowedTCPPorts = [ 8080 ];
+     allowedUDPPorts = [ 8080 ];
+   };
+ }
+
+With Wayland
+
+   Especially on less-powerful ARM boards the wayland variant is faster. In
+   this example cage, kiosk compositor for Wayland, will run Kodi as its only
+   application:
+
+ { pkgs, ... }: {
+   # Define a user account
+   users.extraUsers.kodi.isNormalUser = true;
+   services.cage.user = "kodi";
+   services.cage.program = "${pkgs.kodi-wayland}/bin/kodi-standalone";
+   services.cage.enable = true;
+ }
+
+Plugins
+
+   There are two different ways to install plugins. You can either set the
+   relevant option (search pkgs/top-level/all-packages.nix for "wrapKodi" for
+   a list) through NixOS or home-manager:
+
+ nixpkgs.config.kodi.enableAdvancedLauncher = true;
+
+   or override Kodi to include the plugins (see
+   pkgs/applications/video/kodi/plugins.nix for a list or search in the
+   kodiPlugins namespace):
+
+ environment.systemPackages = [
+         (pkgs.kodi.withPackages (kodiPkgs: with kodiPkgs; [
+                 jellyfin
+         ]))
+ ];
+
+   Or if using as the startup desktop service:
+
+   services.xserver.desktopManager.kodi.package =
+     pkgs.kodi.withPackages (pkgs: with pkgs; [
+     jellycon
+         ]))
+ ];
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Kodi&oldid=17089"
+   Categories:
+     * Applications
+     * Server
+     * This page was last edited on 4 September 2024, at 07:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

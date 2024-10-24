@@ -1,0 +1,96 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Talk:Install NixOS on GCE
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This guide appears to not work. When I followed it I get the following
+   error from gcp when I "Create an image" :
+
+   "Object not available. Either it does not exist or you do not have access.
+   Try browsing for the object instead."
+
+   I will write a disclaimer that says the guide is outdated and not working,
+   please correct me if i'm wrong.
+
+   ---
+
+   Tubro: You're not wrong it is out dated and there is a new tool that is
+   common across all clouds for this. Ideally we should have a tutorial on
+   could shell like this one:
+
+   https://ssh.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/gitpod-io/openvscode-server&cloudshell_git_branch=docs&cloudshell_tutorial=guides/gcp-gce/cloud-shell-tutorial.md
+
+   Which runs a markdown tutorial via a this command: `cloudshell_open
+   --repo_url "https://github.com/gitpod-io/openvscode-server" --page
+   "editor" --tutorial "guides/gcp-gce/cloud-shell-tutorial.md" --git_branch
+   "docs" --force_new_clone`
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Install_NixOS_on_GCE&oldid=9777"
+     * This page was last edited on 26 January 2024, at 18:52.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

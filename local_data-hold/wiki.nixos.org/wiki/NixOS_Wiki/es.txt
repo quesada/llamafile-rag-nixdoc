@@ -1,0 +1,134 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                   NixOS Wiki
+
+     * Page
+     * Discussion
+   [ ] español
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page NixOS Wiki and the
+   translation is 21% complete.
+   Other languages:
+     * English
+     * español
+     * français
+     * русский
+     * 中文（中国大陆）
+     * 日本語
+     * 한국어
+
+    Getting started
+
+   {{{3}}}
+
+    Setting up NixOS
+     * On desktop, with NixOS as a desktop
+     * On ARM, with NixOS on ARM
+     * In the cloud, with NixOS friendly hosters
+
+    Documentation topics
+
+   {{{3}}}
+
+    Special pages
+     * Overview of special pages
+     * All pages of wiki.nixos.org
+     * All categories of wiki.nixos.org
+     * Unpatrolled changes of wiki.nixos.org
+
+    Get in touch
+
+   {{{3}}}
+
+    News
+
+    2024-09-02 — Wiki editors use Manual of Style
+
+   The Wiki team discussed and put into effect the Manual of Style for
+   editing wiki articles. This is a huge step towards clear and consistent
+   documentation. All editors are encouraged to follow this guide.
+
+    2024-08-22 — Wiki editors meeting
+
+   All interested wiki editors meet on 22th of August at 21:15 CEST in a
+   Jitsi conference.
+
+   Agenda: https://pad.lassul.us/wiki-agenda?view
+
+    2024-07-05 — Wiki editors meeting
+
+   All interested wiki editors meet on 5th of July at 13:00 CEST in a Jitsi
+   conference.
+
+    2024-04-01 — Launch of the wiki
+
+   The official NixOS wiki has taken off! If you want to find out why there
+   is a new wiki effort, check out the FAQ.
+
+   ... all news articles →
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Wiki/es&oldid=17168"
+     * This page was last edited on 5 September 2024, at 17:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,126 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS
+     * 2 Software notes
+     * 3 Hardware notes
+          * 3.1 Accelerometers
+   [ ] Toggle the table of contents
+
+                                      IIO
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   IIO stands for the Industrial I/O subsystem of the Linux Kernel. It
+   generally provides an interface to sensors like Accelerometers and Light
+   sensors.
+
+NixOS
+
+   The services using the subsystem can be enabled using this configuration
+   in configuration.nix:
+
+ { config }:
+ {
+   hardware.sensor.iio.enable = true;
+ }
+
+   This will enable iio-sensor-proxy.
+
+   To test, monitor-sensor can be used, it will print out the current values
+   of the sensors as they change, periodically. In the event nothing is
+   detected after enabling, rebooting may help.
+
+Software notes
+
+   It is unverified, but GNOME should automatically make use of the data when
+   enabled to handle the rotation and automatic brightness of the display.
+
+Hardware notes
+
+  Accelerometers
+
+   Sometimes, the accelerometers in different devices will be oriented in a
+   way that it specific to that hardware, this is not a problem, but it is an
+   issue to be considered. The Accelerometer orientation section on the
+   iio-sensor-proxy project page explains how to fix this properly for your
+   device. The NixOS specific note is that instead of creating an hwdb file,
+   you would add services.udev.extraHwdb to your configuration.nix file.
+
+ { config }:
+ {
+   services.udev.extraHwdb = ''
+     sensor:modalias:acpi:INVN6500*:dmi:*svn*ASUSTeK*:*pn*TP300LA*
+      ACCEL_MOUNT_MATRIX=0, 1, 0; 1, 0, 0; 0, 0, 1
+   '';
+ }
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=IIO&oldid=4854"
+     * This page was last edited on 18 January 2020, at 02:35.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

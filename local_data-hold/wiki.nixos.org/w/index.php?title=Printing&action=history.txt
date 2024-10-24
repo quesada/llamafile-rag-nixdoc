@@ -1,0 +1,319 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Printing: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    13 June 2024
+
+     * curprev [ ] [ ] 06:4706:47, 13 June 2024‎ Tomodachi94 talk contribs‎ m
+       12,558 bytes +1‎ →‎Configuration: services.avahi.nssmdns ->
+       services.avahi.nssmdns4
+
+    3 June 2024
+
+     * curprev [ ] [ ] 14:3414:34, 3 June 2024‎ Mic92 talk contribs‎ 12,557
+       bytes −1,033‎ drop 23.11 workaround.
+
+    20 April 2024
+
+     * curprev [ ] [ ] 21:5921:59, 20 April 2024‎ Bleetube talk contribs‎ m
+       13,590 bytes −1‎ nssmdns4 appears to have been renamed to nssmdns (or
+       it was a typo) Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:4320:43, 19 April 2024‎ Klinger talk contribs‎ m
+       13,591 bytes −22‎ No edit summary
+
+    11 April 2024
+
+     * curprev [ ] [ ] 19:1419:14, 11 April 2024‎ Tamiyo talk contribs‎ m
+       13,613 bytes +1‎ →‎Configuration: option was renamed Tag: Visual edit
+
+    5 March 2024
+
+     * curprev [ ] [ ] 17:1917:19, 5 March 2024‎ imported>Tobias.bora‎ 13,612
+       bytes +138‎ No edit summary
+
+    22 February 2024
+
+     * curprev [ ] [ ] 10:3110:31, 22 February 2024‎ imported>Onny‎ 13,474
+       bytes 0‎ move usage section behind configuration
+
+    21 February 2024
+
+     * curprev [ ] [ ] 09:5609:56, 21 February 2024‎ imported>Onny‎ m 13,474
+       bytes +69‎ No edit summary
+     * curprev [ ] [ ] 09:5209:52, 21 February 2024‎ imported>Onny‎ 13,405
+       bytes +352‎ Add command line usage examples
+
+    11 January 2024
+
+     * curprev [ ] [ ] 12:1212:12, 11 January 2024‎ imported>Wentasah‎ m
+       13,053 bytes +96‎ Add a note about removal of soon to be outdated
+       section.
+
+    7 January 2024
+
+     * curprev [ ] [ ] 16:2716:27, 7 January 2024‎ imported>Onny‎ 12,957
+       bytes −28‎ Add openFirewall option to printer sharing example
+
+    8 December 2023
+
+     * curprev [ ] [ ] 13:1313:13, 8 December 2023‎ imported>Cbergqvist‎ m
+       12,985 bytes −1‎ typo: conntected
+
+    28 November 2023
+
+     * curprev [ ] [ ] 21:3021:30, 28 November 2023‎ imported>SuperSamus‎
+       12,986 bytes 0‎ Move "Enable autodiscovery" section before "Adding
+       printers"
+
+    7 November 2023
+
+     * curprev [ ] [ ] 20:4520:45, 7 November 2023‎ imported>ShalokShalom‎ m
+       12,986 bytes +1‎ ; was needed in my configuration
+
+    20 October 2023
+
+     * curprev [ ] [ ] 10:0210:02, 20 October 2023‎ imported>Onny‎ m 12,985
+       bytes +29‎ No edit summary
+     * curprev [ ] [ ] 09:5509:55, 20 October 2023‎ imported>Onny‎ 12,956
+       bytes +50‎ Further cleanup
+     * curprev [ ] [ ] 09:5009:50, 20 October 2023‎ imported>Onny‎ 12,906
+       bytes +967‎ Further cleanup
+     * curprev [ ] [ ] 09:4309:43, 20 October 2023‎ imported>Onny‎ 11,939
+       bytes −115‎ Further cleanup
+     * curprev [ ] [ ] 09:3009:30, 20 October 2023‎ imported>Onny‎ 12,054
+       bytes −1,204‎ Further cleanup
+     * curprev [ ] [ ] 09:2509:25, 20 October 2023‎ imported>Onny‎ 13,258
+       bytes −523‎ Further cleanup
+     * curprev [ ] [ ] 09:2109:21, 20 October 2023‎ imported>Onny‎ m 13,781
+       bytes −289‎ No edit summary
+     * curprev [ ] [ ] 09:2009:20, 20 October 2023‎ imported>Onny‎ m 14,070
+       bytes −39‎ No edit summary
+     * curprev [ ] [ ] 09:1909:19, 20 October 2023‎ imported>Onny‎ 14,109
+       bytes −463‎ Further cleanup
+     * curprev [ ] [ ] 09:1109:11, 20 October 2023‎ imported>Onny‎ 14,572
+       bytes +692‎ First work on major cleanup of the page
+
+    4 October 2023
+
+     * curprev [ ] [ ] 14:0914:09, 4 October 2023‎ imported>IgorM‎ m 13,880
+       bytes +90‎ Fixed highlighting in console examples
+
+    3 October 2023
+
+     * curprev [ ] [ ] 17:4717:47, 3 October 2023‎ imported>Jiltq‎ m 13,790
+       bytes −4‎ formatting
+     * curprev [ ] [ ] 15:0715:07, 3 October 2023‎ imported>Jiltq‎ m 13,794
+       bytes +211‎ added info + made it clear what config changes do
+
+    28 February 2023
+
+     * curprev [ ] [ ] 18:4518:45, 28 February 2023‎ imported>VincentVanlaer‎
+       13,583 bytes +33‎ services.avahi.nssmdns needs to be enabled,
+       otherwise dnssd:// printer urls will not resolve
+
+    15 February 2023
+
+     * curprev [ ] [ ] 10:4910:49, 15 February 2023‎ imported>Milahu‎ 13,550
+       bytes +506‎ add section: Debugging a broken printer driver
+
+    30 January 2023
+
+     * curprev [ ] [ ] 20:4820:48, 30 January 2023‎ imported>Ahoneybun‎
+       13,044 bytes −57‎ ipp-usb is no longer exists per 22.11
+
+    23 January 2023
+
+     * curprev [ ] [ ] 23:0323:03, 23 January 2023‎ imported>Wentasah‎ 13,101
+       bytes −42‎ →‎Client (Linux): Update system.nssDatabases.hosts value to
+       match the one from current nixpkgs
+
+    11 December 2022
+
+     * curprev [ ] [ ] 16:5416:54, 11 December 2022‎ imported>Symphorien‎
+       13,143 bytes +243‎ make driverless priting more prominent, add usb
+       case
+
+    9 December 2022
+
+     * curprev [ ] [ ] 11:3111:31, 9 December 2022‎ imported>Chuangzhu‎
+       12,900 bytes +28‎ use stable nix-shell cli, use sudo -E to pass all
+       envvars so it works on wayland
+
+    1 November 2022
+
+     * curprev [ ] [ ] 10:2810:28, 1 November 2022‎ imported>Onny‎ m 12,872
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 10:2610:26, 1 November 2022‎ imported>Onny‎ 12,870
+       bytes +144‎ Add note on Samba printer sharing
+
+    15 September 2022
+
+     * curprev [ ] [ ] 22:0122:01, 15 September 2022‎ imported>Tobias.bora‎
+       12,726 bytes +296‎ No edit summary
+     * curprev [ ] [ ] 17:0217:02, 15 September 2022‎ imported>Tobias.bora‎
+       12,430 bytes +1‎ No edit summary
+     * curprev [ ] [ ] 17:0017:00, 15 September 2022‎ imported>Tobias.bora‎
+       12,429 bytes +2,424‎ No edit summary
+     * curprev [ ] [ ] 15:1415:14, 15 September 2022‎ imported>Tobias.bora‎
+       10,005 bytes +425‎ No edit summary
+
+    23 August 2022
+
+     * curprev [ ] [ ] 22:0722:07, 23 August 2022‎ imported>Eliasp‎ 9,580
+       bytes +74‎ Add `pkgs.postscript-lexmark` to list of printer driver
+       pkgs
+
+    3 June 2022
+
+     * curprev [ ] [ ] 20:1620:16, 3 June 2022‎ imported>Greg-hellings‎ 9,506
+       bytes +3‎ Package has been renamed
+
+    5 October 2021
+
+     * curprev [ ] [ ] 09:4109:41, 5 October 2021‎ imported>Mipmip‎ m 9,503
+       bytes +1‎ fix missing ;
+
+    7 July 2021
+
+     * curprev [ ] [ ] 21:2621:26, 7 July 2021‎ imported>Wentasah‎ 9,502
+       bytes +655‎ Client (Linux) - sometimes mdns4-only config is needed
+
+    22 June 2021
+
+     * curprev [ ] [ ] 20:3620:36, 22 June 2021‎ imported>Zarelit‎ m 8,847
+       bytes 0‎ use common lingo (many -> some)
+     * curprev [ ] [ ] 20:3620:36, 22 June 2021‎ imported>Zarelit‎ 8,847
+       bytes +94‎ Add common pixma driver
+
+    10 April 2021
+
+     * curprev [ ] [ ] 12:4412:44, 10 April 2021‎ imported>Juanibiapina‎
+       8,753 bytes +101‎ No edit summary
+
+    9 February 2021
+
+     * curprev [ ] [ ] 00:2200:22, 9 February 2021‎ imported>Madonius‎ 8,652
+       bytes +147‎ Added the allowFrom option
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:1721:17, 24 September 2020‎ imported>Garbas‎ m
+       8,505 bytes −4‎ No edit summary
+
+    7 September 2020
+
+     * curprev [ ] [ ] 18:4818:48, 7 September 2020‎ imported>Tobias.bora‎ m
+       8,509 bytes +1‎ No edit summary
+     * curprev [ ] [ ] 18:4618:46, 7 September 2020‎ imported>Tobias.bora‎
+       8,508 bytes +178‎ Oups, I just realized that is was already
+       documented... in the client version
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Printing"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

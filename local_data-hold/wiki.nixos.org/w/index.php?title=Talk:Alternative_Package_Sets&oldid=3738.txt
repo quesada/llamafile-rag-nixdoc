@@ -1,0 +1,93 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 TODOs
+       2 comments
+   [ ] Toggle the table of contents
+
+                         Talk:Alternative Package Sets
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 15:27, 2 August 2022 by imported>Toraritte
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+   Latest comment: 2 August 2022 by Toraritte in topic TODOs
+
+TODOs
+
+   Latest comment: 2 August 20222 comments2 people in discussion
+     * Describe how nixpkgs enhancements generally work
+       right now it is in the package sets article but it might be added to a
+       separate article to keep this Reference clean
+       --Makefu (talk) 14:04, 12 September 2017 (UTC)Reply
+          * Created new page Nixpkgs enhancements; see Discussion there
+            --Toraritte (talk) 15:27, 2 August 2022 (UTC)Reply
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Alternative_Package_Sets&oldid=3738"
+     * This page was last edited on 2 August 2022, at 15:27.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

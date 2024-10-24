@@ -1,0 +1,75 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+          #06 - Lorri, tree parser and formatter, patchelf 0.10, NixML
+
+   Published on Wed Apr 03 2019
+
+          #06 - Lorri, tree parser and formatter, patchelf 0.10, NixML
+
+                                      News
+
+     * NIXML: nix + YAML for easy reproducible environments
+
+     * Announcing the new Golang infrastructure: buildGoModule
+
+     * Why I use NixOS
+
+     * Announcing tree-sitter-nix
+
+     * A simple formatter for Nix using tree-sitter-nix
+
+     * Announcing Mixnix - Build Elixir projects with Nix
+
+     * Target and Tweag announce lorri, a nix-shell replacement for project
+       development
+
+       lorri is based around fast direnv integration for robust CLI and
+       editor integration.
+
+       Try it out
+
+     * PatchELF 0.10 released
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

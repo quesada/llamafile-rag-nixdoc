@@ -1,0 +1,128 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 sysctl net.ipv4.ip_forward=1 needed for server
+       6 comments
+          * 1.1 Regarding my addition:
+   [ ] Toggle the table of contents
+
+                                 Talk:WireGuard
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 8 December 2023 by Nrbray in topic sysctl
+   net.ipv4.ip_forward=1 needed for server
+
+sysctl net.ipv4.ip_forward=1 needed for server
+
+   Latest comment: 8 December 20236 comments4 people in discussion
+
+   done!
+
+   I could only make this work after running
+
+ sysctl net.ipv4.ip_forward=1
+
+   .
+
+   This is also mentioned in the Arch wiki.
+
+   I think it should be added here as well. Opinions? --Asymmetric (talk)
+   14:32, 18 May 2019 (UTC)Reply
+
+   This definitly needs to be in the article, just add a disclaimer that the
+   option is only needed for "supernodes" which route traffic, clients
+   normally do not need it set --Makefu (talk) 07:43, 18 May 2019 (UTC)Reply
+
+   I feel like the disclaimer is not necessary, since the article refers to a
+   client/server mode of operation. --Asymmetric (talk) 14:32, 18 May 2019
+   (UTC)Reply
+
+   Turns out the flag is already set by the nat module --Asymmetric (talk)
+   15:08, 18 May 2019 (UTC)Reply
+
+   It would be really cool to have examples for nftables as well, preferably
+   with conf files... --Devvythelopper (talk) 14:32, 18 May 2019 (UTC)Reply
+
+  Regarding my addition:
+
+   --Nrbray (talk) 10:35, 8 December 2023 (UTC)Reply
+
+  networking.useNetworkd = true;
+
+   avoids error:
+
+  trace: warning: The combination of `systemd.network.enable = true` [wireguard], `networking.useDHCP = true` and `networking.useNetworkd = false` can cause both networkd and dhcpcd to manage the same interfaces. This can lead to loss of networking. It is recommended you choose only one of networkd (by also enabling `networking.useNetworkd`) or scripting (by disabling `systemd.network.enable`)
+
+   Some hint found here:
+   https://discourse.nixos.org/t/systemd-services/31546/2
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:WireGuard&oldid=6777"
+     * This page was last edited on 8 December 2023, at 10:35.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

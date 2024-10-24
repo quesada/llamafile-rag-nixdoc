@@ -1,0 +1,114 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                              File:Bananapim64.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:Bananapim64.jpg
+   No higher resolution available.
+
+   Bananapim64.jpg ‎(750 × 526 pixels, file size: 85 KB, MIME type:
+   image/jpeg)
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time    Thumbnail         Dimensions User             Comment 
+                        Thumbnail for                                 
+   current 15:11, 29    version as of     750 × 526  Imported>Samrose
+           January 2019 15:11, 29 January (85 KB)
+                        2019              
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/Banana Pi M64
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Orientation   Normal        
+   Software used www.meitu.com 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Bananapim64.jpg&oldid=11957"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:20.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

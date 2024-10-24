@@ -1,0 +1,336 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+           Overview of the NixOS Linux distribution: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    14 September 2024
+
+     * curprev [ ] [ ] 08:5508:55, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 16,435 bytes +15‎ change manual url
+
+    1 July 2024
+
+     * curprev [ ] [ ] 20:2420:24, 1 July 2024‎ Klinger talk contribs‎ m
+       16,420 bytes +4‎ →‎Channels
+
+    30 June 2024
+
+     * curprev [ ] [ ] 20:2920:29, 30 June 2024‎ Klinger talk contribs‎ m
+       16,416 bytes −7‎ →‎See also Tag: Visual edit: Switched
+     * curprev [ ] [ ] 19:5519:55, 30 June 2024‎ Klinger talk contribs‎ m
+       16,423 bytes −12‎ →‎Declarative Configuration: git is recommended and
+       common. git in not just possible.
+
+    3 June 2024
+
+     * curprev [ ] [ ] 07:5207:52, 3 June 2024‎ Mic92 talk contribs‎ 16,435
+       bytes 0‎ Update nixos channel
+
+    21 April 2024
+
+     * curprev [ ] [ ] 17:0617:06, 21 April 2024‎ Sandro talk contribs‎
+       16,435 bytes −1‎ →‎Generations Tag: Visual edit
+
+    17 April 2024
+
+     * curprev [ ] [ ] 12:3612:36, 17 April 2024‎ Klinger talk contribs‎
+       16,436 bytes +165‎ nixos release months added, Foundation links to
+       wiki instead of nixos.org and INCOMPLETE Warning is now more specific
+       whats lacking
+
+    8 April 2024
+
+     * curprev [ ] [ ] 21:4821:48, 8 April 2024‎ Itslychee talk contribs‎
+       16,271 bytes −185‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 21:4321:43, 8 April 2024‎ Itslychee talk contribs‎
+       16,456 bytes +1‎ Add missing / to etc/nixos/blob.nix Tag: Visual edit
+
+    4 April 2024
+
+     * curprev [ ] [ ] 20:1120:11, 4 April 2024‎ Raboof talk contribs‎ 16,455
+       bytes −17‎ remove 'reproducible' - it doesn't really say much beyond
+       what 'declarative' already says, and has some connotations that are
+       inaccurate in this context Tag: Visual edit: Switched
+     * curprev [ ] [ ] 15:4615:46, 4 April 2024‎ Marte26 talk contribs‎ m
+       16,472 bytes 0‎ Fix NixOS download link Tag: Visual edit
+
+    3 April 2024
+
+     * curprev [ ] [ ] 14:2314:23, 3 April 2024‎ Qyriad talk contribs‎ 16,472
+       bytes +187‎ expand on NIX_PATH stuff Tag: Visual edit: Switched
+
+    2 April 2024
+
+     * curprev [ ] [ ] 17:3917:39, 2 April 2024‎ JulienMalka talk contribs‎
+       16,285 bytes −35‎ No edit summary Tag: Visual edit: Switched
+
+    1 April 2024
+
+     * curprev [ ] [ ] 21:5121:51, 1 April 2024‎ Rhendric talk contribs‎ m
+       16,320 bytes +18‎ →‎Modules
+
+    8 October 2023
+
+     * curprev [ ] [ ] 20:4920:49, 8 October 2023‎ imported>Winny‎ 16,302
+       bytes +1‎ testing faden's CF monkeying, add missing space
+
+    6 July 2023
+
+     * curprev [ ] [ ] 02:4702:47, 6 July 2023‎ imported>Ryan4yin‎ m 16,301
+       bytes 0‎ No edit summary
+
+    29 June 2023
+
+     * curprev [ ] [ ] 19:0019:00, 29 June 2023‎ imported>Toast‎ 16,301 bytes
+       −8‎ the old link was dead.
+
+    26 June 2023
+
+     * curprev [ ] [ ] 09:1109:11, 26 June 2023‎ imported>Ryan4yin‎ m 16,309
+       bytes 0‎ No edit summary
+
+    25 June 2023
+
+     * curprev [ ] [ ] 04:2604:26, 25 June 2023‎ imported>Ryan4yin‎ m 16,309
+       bytes −23‎ add link to 'see also'
+
+    5 June 2023
+
+     * curprev [ ] [ ] 19:3019:30, 5 June 2023‎ imported>Ryan4yin‎ 16,332
+       bytes +179‎ No edit summary
+
+    3 August 2022
+
+     * curprev [ ] [ ] 19:2819:28, 3 August 2022‎ imported>Toraritte‎ m
+       16,153 bytes +86‎ Some phrase changes (and learning wiki links...)
+     * curprev [ ] [ ] 19:1419:14, 3 August 2022‎ imported>Toraritte‎ m
+       16,067 bytes 0‎ Toraritte moved page NixOS to Overview of the NixOS
+       Linux distribution: Because what this article is about so just making
+       the title explicit, and also to disambiguate: there is already a
+       "NixOS" category
+     * curprev [ ] [ ] 19:0719:07, 3 August 2022‎ imported>Toraritte‎ 16,067
+       bytes +62‎ Partially tidy up the categories and convert Incomplete
+       category to flag
+
+    10 February 2022
+
+     * curprev [ ] [ ] 15:4715:47, 10 February 2022‎ imported>Ximon18‎ m
+       16,005 bytes 0‎ Update reference to latest stable NixOS.
+
+    26 October 2021
+
+     * curprev [ ] [ ] 13:5913:59, 26 October 2021‎ imported>YellowOnion‎
+       16,005 bytes +527‎ →‎Generations
+
+    21 October 2021
+
+     * curprev [ ] [ ] 20:4220:42, 21 October 2021‎ imported>Edrex‎ 15,478
+       bytes +162‎ add command to set current generation as boot default
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:5106:51, 20 September 2021‎ imported>Nix‎ 15,316
+       bytes +92‎ →‎Installation: add alternative installers note
+     * curprev [ ] [ ] 06:2306:23, 20 September 2021‎ imported>Nix‎ m 15,224
+       bytes +17‎ add Nix category
+     * curprev [ ] [ ] 06:1506:15, 20 September 2021‎ imported>Nix‎ m 15,207
+       bytes +22‎ add Software category
+     * curprev [ ] [ ] 02:3402:34, 20 September 2021‎ imported>Nix‎ 15,185
+       bytes +522‎ de-reference technical or potentially ambiguous terms in
+       intro. other convenience links
+     * curprev [ ] [ ] 00:3200:32, 20 September 2021‎ imported>Nix‎ m 14,663
+       bytes −4‎ move to pedias category
+
+    8 July 2021
+
+     * curprev [ ] [ ] 17:2717:27, 8 July 2021‎ imported>Yuu‎ 14,667 bytes
+       −2‎ No edit summary
+
+    12 June 2021
+
+     * curprev [ ] [ ] 15:3015:30, 12 June 2021‎ imported>Flexagoon‎ 14,669
+       bytes −1‎ Bump version number
+
+    21 March 2021
+
+     * curprev [ ] [ ] 09:3109:31, 21 March 2021‎ imported>Alttttt39933‎ m
+       14,670 bytes +1‎ adds a missing root /
+
+    1 October 2020
+
+     * curprev [ ] [ ] 06:2406:24, 1 October 2020‎ imported>Jakimfett‎ m
+       14,669 bytes 0‎ Bump stable version number, to align with
+       https://nixos.wiki/wiki/Nix_channels#The_official_channels
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:1321:13, 24 September 2020‎ imported>Garbas‎ m
+       14,669 bytes −2‎ No edit summary
+
+    24 July 2020
+
+     * curprev [ ] [ ] 21:4521:45, 24 July 2020‎ imported>Dali99‎ m 14,671
+       bytes −25‎ Azure blobs are no longer available on the Downloads page
+
+    10 June 2018
+
+     * curprev [ ] [ ] 06:5006:50, 10 June 2018‎ imported>Inquisitiv3‎ m
+       14,696 bytes −67‎ Remove redudant and unnecesary options
+
+    9 June 2018
+
+     * curprev [ ] [ ] 21:5121:51, 9 June 2018‎ imported>Ixxie‎ 14,763 bytes
+       +5‎ No edit summary
+
+    29 April 2018
+
+     * curprev [ ] [ ] 17:1817:18, 29 April 2018‎ imported>Palik‎ 14,758
+       bytes +7‎ →‎Channels: replace "nixos rebuild --upgrade" by
+       "nixos-rebuild --upgrade switch"
+
+    4 April 2018
+
+     * curprev [ ] [ ] 19:2919:29, 4 April 2018‎ imported>Fadenb‎ m 14,751
+       bytes 0‎ →‎Channels: bump stable channel to 18.03
+
+    19 March 2018
+
+     * curprev [ ] [ ] 08:4908:49, 19 March 2018‎ imported>Mic92‎ 14,751
+       bytes −7‎ we have a good article on modules
+     * curprev [ ] [ ] 07:5307:53, 19 March 2018‎ imported>Mickours‎ m 14,758
+       bytes +133‎ Add channel rollback
+
+    26 January 2018
+
+     * curprev [ ] [ ] 15:3315:33, 26 January 2018‎ imported>Toraritte‎ m
+       14,625 bytes −2‎ It sounds more consistent with the wikipedia link and
+       the description of nix.
+
+    9 December 2017
+
+     * curprev [ ] [ ] 11:5211:52, 9 December 2017‎ imported>Ixxie‎ 14,627
+       bytes −51‎ Rename Nix links.
+
+    26 November 2017
+
+     * curprev [ ] [ ] 09:0109:01, 26 November 2017‎ imported>Ixxie‎ m 14,678
+       bytes −98‎ Converted examples in modules section to the file template.
+
+    25 November 2017
+
+     * curprev [ ] [ ] 20:4820:48, 25 November 2017‎ imported>Samueldr‎ m
+       14,776 bytes +13‎ Use {{file}} template (first code block only)
+     * curprev [ ] [ ] 20:4520:45, 25 November 2017‎ imported>Ixxie‎ 14,763
+       bytes +4‎ Undo revision 1374 by Ixxie (talk)
+     * curprev [ ] [ ] 20:4520:45, 25 November 2017‎ imported>Ixxie‎ 14,759
+       bytes −4‎ No edit summary
+     * curprev [ ] [ ] 20:4320:43, 25 November 2017‎ imported>Ixxie‎ 14,763
+       bytes +36‎ Styling of the code boxes in the modules section: moved out
+       the file names.
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Overview_of_the_NixOS_Linux_distribution"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

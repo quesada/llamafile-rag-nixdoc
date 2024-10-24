@@ -1,0 +1,85 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                    Konqueror: Difference between revisions
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+   ← Older edit
+   VisualWikitext
+
+   Revision as of 13:57, 12 July 2024 Latest revision as of 16:59, 12 July
+   view source                        2024 view source
+   Nicolas-goudry (talk | contribs)   Klinger (talk | contribs)
+   trusted                            trusted
+   370 edits                          719 edits
+   No edit summary                    m Category:File Manager
+   ← Older edit                             
+   Line 17:                           Line 17:
+        <!--T:4-->                          <!--T:4-->                        
+        [[Category:Applications]]           [[Category:Applications]]         
+                                            [[Category:File Manager]]         
+        </translate>                        </translate>                      
+
+   Retrieved from "https://wiki.nixos.org/wiki/Konqueror"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,200 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Firefox
+     * 2 Google Chrome / Chromium
+     * 3 PKCS#11
+          * 3.1 Firefox
+          * 3.2 Google Chrome / Chromium
+   [ ] Toggle the table of contents
+
+                                    Web eID
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The Web eID project enables usage of European Union electronic identity
+   (eID) smart cards for secure authentication and digital signing of
+   documents on the web using public-key cryptography.
+
+   Check [1] for more details and an example application.
+
+   The application consists of the "Web eID" browser extension (available for
+   Chrom{e,ium} and Firefox), and a native messaging host / application
+   running on the system, which takes care of communication with the smart
+   card.
+
+   NixOS Unstable (and 23.05, once released) have the native messaging host
+   packaged. Some local system configuration is still necessary, so the
+   browsers know the extension is allowed to execute the native host
+   application, and where it can find it.
+
+   PCSCD also needs to be enabled:
+
+ {
+   services.pcscd.enable = true;
+ }
+
+   On the browser side, the "Web eID" browser extension needs to be
+   installed, and the browser needs to know about the native messaging host.
+
+Firefox
+
+   If you're using Firefox, and programs.firefox.enable = true to configure
+   your firefox, you can set:
+
+ programs.firefox.nativeMessagingHosts.euwebid = true;
+
+   If you're building a firefox derivation yourself, you can override it with
+   extraNativeMessagingHosts = [ pkgs.web-eid-app ];.
+
+Google Chrome / Chromium
+
+   Google Chrome and Chromium read JSON files from the
+   /etc/opt/chrome/native-messaging-hosts or
+   /etc/chromium/native-messaging-hosts directories (system-wide) /
+   ~/.config/google-chrome/NativeMessagingHosts or
+   ~/.config/chromium/NativeMessagingHosts (per user).
+
+   To configure system-wide, use the following snippet:
+
+ {
+   environment.etc."chromium/native-messaging-hosts/eu.webeid.json".source = "${pkgs.web-eid-app}/share/web-eid/eu.webeid.json";
+   environment.etc."opt/chrome/native-messaging-hosts/eu.webeid.json".source = "${pkgs.web-eid-app}/share/web-eid/eu.webeid.json";
+ }
+
+   For user-wide config (inside home-manager), use the following:
+
+ {
+   xdg.configFile."chromium/NativeMessagingHosts/eu.webeid.json".source = "${pkgs.web-eid-app}/share/web-eid/eu.webeid.json";
+   xdg.configFile."google-chrome/NativeMessagingHosts/eu.webeid.json".source = "${pkgs.web-eid-app}/share/web-eid/eu.webeid.json";
+ }
+
+PKCS#11
+
+   Note some websites still use PKCS#11 instead of Web eID (for Estonian ID
+   cards). This requires different configuration.
+
+   We configure the browser(s) to load PKCS#11 modules via the p11-kit-proxy
+   module as configured in /etc/pkcs11/modules, and configure
+   opensc-pkcs11.so in there.
+
+ {
+   # Tell p11-kit to load/proxy opensc-pkcs11.so, providing all available slots
+   # (PIN1 for authentication/decryption, PIN2 for signing).
+   environment.etc."pkcs11/modules/opensc-pkcs11".text = ''
+     module: ${pkgs.opensc}/lib/opensc-pkcs11.so
+   '';
+ }
+
+  Firefox
+
+   Firefox can be configured to load PKCS#11 tokens with the following
+   snippet:
+
+ {
+   programs.firefox.policies.SecurityDevices.p11-kit-proxy = "${pkgs.p11-kit}/lib/p11-kit-proxy.so";
+ }
+
+   If you're building a firefox derivation yourself, you can override it with
+   extraPolicies.SecurityDevices.p11-kit-proxy
+   "${pkgs.p11-kit}/lib/p11-kit-proxy.so";.
+
+  Google Chrome / Chromium
+
+   Unfortunately, Chrome and Chromium browsers can't be declaratively
+   configured for PKCS#11 tokens. We need to invoke the modutil command on
+   the nssdb, and render a script that'll reconfigure it:
+
+   environment.systemPackages = [
+     # Wrapper script to tell to Chrome/Chromium to use p11-kit-proxy to load
+     # security devices, so they can be used for TLS client auth.
+     # Each user needs to run this themselves, it does not work on a system level
+     # due to a bug in Chromium:
+     #
+     # https://bugs.chromium.org/p/chromium/issues/detail?id=16387
+     (pkgs.writeShellScriptBin "setup-browser-eid" ''
+       NSSDB="''${HOME}/.pki/nssdb"
+       mkdir -p ''${NSSDB}
+
+       ${pkgs.nssTools}/bin/modutil -force -dbdir sql:$NSSDB -add p11-kit-proxy \
+         -libfile ${pkgs.p11-kit}/lib/p11-kit-proxy.so
+     '')
+   ];
+
+   Invoke setup-browser-eid to configure (and whenever this gets
+   garbage-collected), and restart your browser.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Web_eID&oldid=13631"
+   Categories:
+     * Hardware
+     * Applications
+     * Web Applications
+     * This page was last edited on 29 June 2024, at 21:36.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

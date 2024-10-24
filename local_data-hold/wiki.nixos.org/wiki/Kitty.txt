@@ -1,0 +1,260 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Using nix-shell
+          * 1.2 Using Global Configuration
+          * 1.3 Using Home Configuration
+     * 2 Configuration
+          * 2.1 Basic
+          * 2.2 Advanced
+     * 3 Tips and Tricks
+          * 3.1 Location of Options
+          * 3.2 Stylix Integration
+          * 3.3 Keymaps
+     * 4 Troubleshooting
+     * 5 References
+   [ ] Toggle the table of contents
+
+                                     Kitty
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Kitty is a modern, fast, GPU-based terminal emulator that leverages modern
+   graphics hardware for high performance. It works on macOS and Linux,
+   supporting multiple tabs and windows for managing sessions. Kitty can be
+   extended with scripts, supports Unicode and emojis, and offers extensive
+   customization through its configuration file. It integrates well with the
+   operating system, including features like clipboard support and
+   drag-and-drop functionality. Known for its high performance and
+   responsiveness, Kitty is actively maintained with regular updates.
+
+   Overall, it is a powerful and flexible terminal emulator for advanced
+   users.
+
+Installation
+
+    Using nix-shell
+
+ nix-shell -p kitty
+
+    Using Global Configuration
+
+ environment.systemPackages = [
+   pkgs.kitty
+ ];
+
+   After modifying your configuration, apply the changes by running:
+
+ sudo nixos-rebuild switch
+
+    Using Home Configuration
+
+ home.packages = [
+   pkgs.kitty
+ ];
+
+   After updating your configuration, apply the changes by running:
+
+ home-manager switch
+
+Configuration
+
+   ✦
+   Kitty can be configured exclusively through the Home Manager.
+
+    Basic
+
+ programs.kitty = {
+     enable = true;
+ };
+
+    Advanced
+
+ programs.kitty = lib.mkForce {
+   enable = true;
+   settings = {
+     confirm_os_window_close = 0;
+     dynamic_background_opacity = true;
+     enable_audio_bell = false;
+     mouse_hide_wait = "-1.0";
+     window_padding_width = 10;
+     background_opacity = "0.5";
+     background_blur = 5;
+     symbol_map = let
+       mappings = [
+         "U+23FB-U+23FE"
+         "U+2B58"
+         "U+E200-U+E2A9"
+         "U+E0A0-U+E0A3"
+         "U+E0B0-U+E0BF"
+         "U+E0C0-U+E0C8"
+         "U+E0CC-U+E0CF"
+         "U+E0D0-U+E0D2"
+         "U+E0D4"
+         "U+E700-U+E7C5"
+         "U+F000-U+F2E0"
+         "U+2665"
+         "U+26A1"
+         "U+F400-U+F4A8"
+         "U+F67C"
+         "U+E000-U+E00A"
+         "U+F300-U+F313"
+         "U+E5FA-U+E62B"
+       ];
+     in
+       (builtins.concatStringsSep "," mappings) + " Symbols Nerd Font";
+   };
+ };
+
+Tips and Tricks
+
+    Location of Options
+
+   The home manager options are defined in the following Home Manager Options
+   Manual.
+
+    Stylix Integration
+
+   Yes, it can. See the following configuration:
+
+ extraConfig = with config.stylix.base16Scheme; ''
+   foreground #${base05}
+   background #${base00}
+   color0  #${base03}
+   color1  #${base08}
+   color2  #${base0B}
+   color3  #${base09}
+   color4  #${base0D}
+   color5  #${base0E}
+   color6  #${base0C}
+   color7  #${base06}
+   color8  #${base04}
+   color9  #${base08}
+   color10 #${base0B}
+   color11 #${base0A}
+   color12 #${base0C}
+   color13 #${base0E}
+   color14 #${base0C}
+   color15 #${base07}
+   color16 #${base00}
+   color17 #${base0F}
+   color18 #${base0B}
+   color19 #${base09}
+   color20 #${base0D}
+   color21 #${base0E}
+   color22 #${base0C}
+   color23 #${base06}
+   cursor  #${base07}
+   cursor_text_color #${base00}
+   selection_foreground #${base01}
+   selection_background #${base0D}
+   url_color #${base0C}
+   active_border_color #${base04}
+   inactive_border_color #${base00}
+   bell_border_color #${base03}
+   tab_bar_style fade
+   tab_fade 1
+   active_tab_foreground   #${base04}
+   active_tab_background   #${base00}
+   active_tab_font_style   bold
+   inactive_tab_foreground #${base07}
+   inactive_tab_background #${base08}
+   inactive_tab_font_style bold
+   tab_bar_background #${base00}
+ '';
+
+   Stylix can also do it automatically for you. You have to set:
+
+ stylix.targets.kitty.enable = true;
+
+    Keymaps
+
+   It depends on the window manager that you are using. On Hyprland it's
+   fairly easy:
+
+ bind = [
+   "$mod, Q, exec, kitty"
+ ];
+
+Troubleshooting
+
+References
+
+    1. https://github.com/kovidgoyal/kitty
+    2. https://sw.kovidgoyal.net/kitty/
+    3. https://nix-community.github.io/home-manager/options.xhtml#opt-programs.kitty.enable
+    4. https://stylix.danth.me/options/hm.html#stylixtargetskittyenable
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Kitty&oldid=13717"
+   Categories:
+     * Applications
+     * Terminal
+     * This page was last edited on 4 July 2024, at 17:41.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

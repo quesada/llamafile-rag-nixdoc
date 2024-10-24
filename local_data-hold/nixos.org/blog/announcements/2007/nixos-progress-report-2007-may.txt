@@ -1,0 +1,52 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                             NixOS progress report
+
+   Published on Wed May 02 2007
+
+                             NixOS progress report
+
+   KDE logo We now have KDE running on NixOS (obligatory screenshot). Just
+   kdebase for now (Martin Bravenboer already added kdelibs a long time ago
+   so that we could run the wonderful KCachegrind), but it contains all the
+   important stuff (Konqueror, KDesktop, Kicker, Konsole, Control Center,
+   etc.).
+
+   In related news, we can safely say that, rumours to the contrary
+   notwithstanding, NixOS is not an April Fools’ Joke.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,270 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Podman: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    26 September 2024
+
+     * curprev [ ] [ ] 20:4120:41, 26 September 2024‎ Klinger talk contribs‎
+       m 2,061 bytes +21‎ Added link to website Tag: Visual edit
+
+    17 September 2024
+
+     * curprev [ ] [ ] 07:5807:58, 17 September 2024‎ Onny talk contribs‎
+       2,040 bytes +228‎ Add user permissions Tag: Visual edit
+     * curprev [ ] [ ] 07:4307:43, 17 September 2024‎ Onny talk contribs‎
+       1,812 bytes −308‎ Cleanup Tag: Visual edit
+
+    15 September 2024
+
+     * curprev [ ] [ ] 22:2822:28, 15 September 2024‎ H7x4 talk contribs‎
+       2,120 bytes +8‎ Add a few links
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:0521:05, 19 April 2024‎ Klinger talk contribs‎ m
+       2,112 bytes +23‎ No edit summary
+     * curprev [ ] [ ] 17:3017:30, 19 April 2024‎ Klinger talk contribs‎
+       2,089 bytes +19‎ No edit summary
+
+    18 April 2024
+
+     * curprev [ ] [ ] 21:3221:32, 18 April 2024‎ Klinger talk contribs‎
+       2,070 bytes −4‎ No edit summary
+
+    7 April 2024
+
+     * curprev [ ] [ ] 13:4013:40, 7 April 2024‎ Malteneuss talk contribs‎ m
+       2,074 bytes +411‎ Align with old Wiki Tag: Visual edit
+
+    2 November 2023
+
+     * curprev [ ] [ ] 18:5418:54, 2 November 2023‎ imported>Nrabulinski‎ m
+       1,663 bytes −108‎ Removed a comment which depicted the same snipped
+       that's already present
+
+    22 September 2023
+
+     * curprev [ ] [ ] 18:3718:37, 22 September 2023‎
+       imported>PaulGrandperrin‎ 1,771 bytes −159‎ It's not necessary anymore
+       to set virtualisation.podman.extraPackages = [ pkgs.zfs ];
+
+    25 June 2023
+
+     * curprev [ ] [ ] 20:5120:51, 25 June 2023‎ imported>HippieMitch‎ m
+       1,930 bytes +6‎ Removed deprecated "defaultNetwork.dnsname" for
+       "defaultNetwork.settings.dns_enabled"
+
+    18 May 2023
+
+     * curprev [ ] [ ] 21:4821:48, 18 May 2023‎ imported>Andrewxhonson‎ m
+       1,924 bytes −20‎ fix syntax error
+
+    12 May 2023
+
+     * curprev [ ] [ ] 12:4212:42, 12 May 2023‎ imported>Melkor333‎ 1,944
+       bytes +128‎ Add configure for the podman defaultNetwork on NixOS
+       >22.11
+
+    5 May 2023
+
+     * curprev [ ] [ ] 07:4207:42, 5 May 2023‎ imported>MrVanDalo‎ 1,816
+       bytes +117‎ No edit summary
+
+    27 March 2023
+
+     * curprev [ ] [ ] 04:2904:29, 27 March 2023‎
+       imported>DVcWmsbFziLBuYvvtHcy‎ 1,699 bytes −6‎ fix invalid
+       defaultNetwork option for podman-compose
+
+    16 March 2023
+
+     * curprev [ ] [ ] 05:1305:13, 16 March 2023‎ imported>Capsule7163‎ 1,705
+       bytes +6‎ Changed setting name to enable DNS in containers
+
+    4 October 2022
+
+     * curprev [ ] [ ] 22:1822:18, 4 October 2022‎ imported>Aidalgol‎ m 1,699
+       bytes +241‎ Add notes about getting podman-compose DNS working
+
+    20 September 2022
+
+     * curprev [ ] [ ] 23:5123:51, 20 September 2022‎ imported>Das-g‎ 1,458
+       bytes −3‎ remove (presumably unintended) double negation (keep single
+       negation instead)
+
+    18 August 2022
+
+     * curprev [ ] [ ] 14:3114:31, 18 August 2022‎ imported>Nix‎ m 1,461
+       bytes +4‎ Fix category
+
+    9 August 2022
+
+     * curprev [ ] [ ] 20:3620:36, 9 August 2022‎ imported>Fufexan‎ m 1,457
+       bytes +24‎ Add page to Software category
+
+    9 February 2022
+
+     * curprev [ ] [ ] 04:2104:21, 9 February 2022‎ imported>RohanHart‎ m
+       1,433 bytes +1‎ No edit summary
+     * curprev [ ] [ ] 04:2004:20, 9 February 2022‎ imported>RohanHart‎ 1,432
+       bytes +331‎ podman with ZFS
+
+    25 January 2022
+
+     * curprev [ ] [ ] 14:5214:52, 25 January 2022‎ imported>TyberiusPrime‎
+       1,101 bytes +36‎ No edit summary
+
+    10 October 2021
+
+     * curprev [ ] [ ] 13:4013:40, 10 October 2021‎ imported>Chuangzhu‎ 1,065
+       bytes +334‎ Add instructions for using `virtualisation.oci-containers`
+
+    29 August 2021
+
+     * curprev [ ] [ ] 16:1516:15, 29 August 2021‎ imported>Mausch‎ 731 bytes
+       +238‎ Clarify setuid situation
+
+    28 August 2021
+
+     * curprev [ ] [ ] 11:3511:35, 28 August 2021‎ imported>Mausch‎ 493 bytes
+       +105‎ Link to nix-shell gist
+
+    26 June 2021
+
+     * curprev [ ] [ ] 07:0507:05, 26 June 2021‎ imported>Mic92‎ 388 bytes
+       −1,107‎ remove 20.03 configuration (just upgrade...)
+
+    25 June 2021
+
+     * curprev [ ] [ ] 22:0622:06, 25 June 2021‎ imported>Cyounkins‎ 1,495
+       bytes −93‎ Replace "unstable" with "20.09", remove unneeded reference
+       to the PR
+
+    17 August 2020
+
+     * curprev [ ] [ ] 17:0917:09, 17 August 2020‎ imported>Fumesover‎ 1,588
+       bytes −120‎ Removing `virtualisation.containers.users` since its
+       deprecated
+
+    11 May 2020
+
+     * curprev [ ] [ ] 08:4008:40, 11 May 2020‎ imported>JohnAZoidberg‎ 1,708
+       bytes +92‎ No edit summary
+     * curprev [ ] [ ] 08:3808:38, 11 May 2020‎ imported>JohnAZoidberg‎ 1,616
+       bytes +515‎ Add instructions for new Podman module
+
+    21 January 2020
+
+     * curprev [ ] [ ] 08:4608:46, 21 January 2020‎ imported>Eoli3n‎ 1,101
+       bytes +43‎ No edit summary
+     * curprev [ ] [ ] 08:4508:45, 21 January 2020‎ imported>Eoli3n‎ 1,058
+       bytes +64‎ No edit summary
+     * curprev [ ] [ ] 08:4308:43, 21 January 2020‎ imported>Eoli3n‎ 994
+       bytes +994‎ Created page with "== Install podman == <syntaxHighlight
+       lang="nix"> { pkgs, ... }: { environment.systemPackages = with pkgs; [
+       podman runc conmon slirp4netns fuse-overlayfs ]; } </syntaxHigh..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Podman"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

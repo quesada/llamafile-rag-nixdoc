@@ -1,0 +1,147 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installing plugins
+          * 1.1 User-scope installation
+          * 1.2 System-scope installation
+   [ ] Toggle the table of contents
+
+                                     Pidgin
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Pidgin is a multi-protocol messaging client.
+
+   Pidgin is available in NixOS, as are many popular plugins such as
+   pidgin-otr.
+
+Installing plugins
+
+   NixOS provides Pidgin plugins as packages such as pidginotr, but
+   installing them via nix-env or environment.systemPackages will not work.
+   The plugin packages must be configured as part of the pidgin-with-plugins
+   package via a package override.
+
+  User-scope installation
+
+   To install Pidgin with desired plugins only for the current user:
+
+    1. In ~/.config/nixpkgs/config.nix, add:
+
+ {
+   ...
+   packageOverrides = pkgs: rec {
+     pidgin-with-plugins = pkgs.pidgin.override {
+       ## Add whatever plugins are desired (see nixos.org package listing).
+       plugins = [ pkgs.pidgin-otr ];
+     };
+   };
+   ...
+ }
+
+    2. Install pidgin with nix-env -iA nixos.pidgin-with-plugins
+
+  System-scope installation
+
+   To install Pidgin with desired plugins for all users on the system:
+
+    1. Amend /etc/nixos/configuration.nix to add pidgin-with-plugins to
+       systemPackages:
+
+ {
+   ...
+   environment.systemPackages = with pkgs; [
+     pidgin-with-plugins
+   ];
+   ...
+ }
+
+    2. Override pidgin-with-plugins to add the desired plugins:
+
+ {
+   ...
+   nixpkgs.config = {
+     allowUnfree = true;
+     packageOverrides = pkgs: with pkgs; {
+       pidgin-with-plugins = pkgs.pidgin.override {
+         ## Add whatever plugins are desired (see nixos.org package listing).
+         plugins = [ pidgin-otr ];
+       };
+     };
+   };
+   ...
+ }
+
+    3. Run nixos-rebuild switch as root to apply changes.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Pidgin&oldid=12273"
+   Category:
+     * Applications
+     * This page was last edited on 19 April 2024, at 20:09.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

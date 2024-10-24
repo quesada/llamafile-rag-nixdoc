@@ -1,0 +1,266 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Emacs: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    29 August 2024
+
+     * curprev [ ] [ ] 08:5508:55, 29 August 2024‎ Pancho talk contribs‎ m
+       15,215 bytes −17‎ Update Doom Emacs URL
+
+    8 July 2024
+
+     * curprev [ ] [ ] 14:5314:53, 8 July 2024‎ Klinger talk contribs‎ m
+       15,232 bytes 0‎ (category is still uppercase)
+     * curprev [ ] [ ] 14:5214:52, 8 July 2024‎ Klinger talk contribs‎ m
+       15,232 bytes +25‎ Category:Text editor added
+
+    26 June 2024
+
+     * curprev [ ] [ ] 16:2516:25, 26 June 2024‎ Layer-09 talk contribs‎
+       15,207 bytes +539‎ Changed the structure into a more readable one.
+       Added tree-sitter in the tips and tricks section. Tag: Visual edit
+
+    15 May 2024
+
+     * curprev [ ] [ ] 18:5318:53, 15 May 2024‎ Klinger talk contribs‎ 14,668
+       bytes +111‎ link to manual added Tag: Visual edit: Switched
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:5220:52, 19 April 2024‎ Klinger talk contribs‎ m
+       14,557 bytes −20‎ Category:Incomplete Category:Applications
+
+    13 January 2024
+
+     * curprev [ ] [ ] 11:1611:16, 13 January 2024‎ imported>Nodupe‎ m 14,577
+       bytes +12‎ No edit summary
+     * curprev [ ] [ ] 11:1411:14, 13 January 2024‎ imported>Nodupe‎ m 14,565
+       bytes +113‎ Added where to find the main dictionaries for aspell
+
+    4 November 2023
+
+     * curprev [ ] [ ] 04:3304:33, 4 November 2023‎ imported>Aaronchall‎ m
+       14,452 bytes +30‎ reflow whitespace, was going outside of viewable
+       area
+
+    5 October 2023
+
+     * curprev [ ] [ ] 09:2509:25, 5 October 2023‎ imported>Hertz‎ m 14,422
+       bytes 0‎ Fix spelling mistake.
+
+    27 September 2023
+
+     * curprev [ ] [ ] 21:1821:18, 27 September 2023‎ imported>Ivvil‎ 14,422
+       bytes +2‎ Add instrucctions to fix spell checking
+     * curprev [ ] [ ] 21:1721:17, 27 September 2023‎ imported>Ivvil‎ 14,420
+       bytes +412‎ No edit summary
+
+    12 September 2023
+
+     * curprev [ ] [ ] 13:1713:17, 12 September 2023‎ imported>Binarycat‎ m
+       14,008 bytes −4‎ fix header level of previous edit
+     * curprev [ ] [ ] 13:1613:16, 12 September 2023‎ imported>Binarycat‎
+       14,012 bytes +565‎ add bugs section and a guide for fixing a problem i
+       encountered
+
+    25 February 2023
+
+     * curprev [ ] [ ] 20:1120:11, 25 February 2023‎ imported>Lord-Valen‎ m
+       13,447 bytes +2‎ Punctuation
+
+    4 January 2023
+
+     * curprev [ ] [ ] 17:5617:56, 4 January 2023‎ imported>Fxttr‎ 13,445
+       bytes +1,027‎ Adds a chapter regarding packing and testing emacs
+       nixpkgs
+
+    1 January 2023
+
+     * curprev [ ] [ ] 20:2820:28, 1 January 2023‎ imported>LoganWalls‎ m
+       12,418 bytes +1‎ Fix typo
+     * curprev [ ] [ ] 20:2720:27, 1 January 2023‎ imported>LoganWalls‎
+       12,417 bytes +3,066‎ Added info about darwin-specific issues
+     * curprev [ ] [ ] 17:4117:41, 1 January 2023‎ imported>LoganWalls‎ 9,351
+       bytes +4,029‎ Re-organized page and added additional info about
+       installing Emacs, the community overlay, and managing packages
+
+    23 October 2022
+
+     * curprev [ ] [ ] 10:5810:58, 23 October 2022‎ imported>Aarmn‎ m 5,322
+       bytes +35‎ No edit summary
+
+    20 September 2022
+
+     * curprev [ ] [ ] 15:2115:21, 20 September 2022‎ imported>Tobias.bora‎
+       5,287 bytes +642‎ No edit summary
+
+    19 September 2022
+
+     * curprev [ ] [ ] 18:5518:55, 19 September 2022‎ imported>Tobias.bora‎
+       4,645 bytes +322‎ No edit summary
+
+    11 May 2022
+
+     * curprev [ ] [ ] 16:1416:14, 11 May 2022‎ imported>ModdedGamers‎ m
+       4,323 bytes 0‎ I misspelled the link :(
+     * curprev [ ] [ ] 16:1316:13, 11 May 2022‎ imported>ModdedGamers‎ m
+       4,323 bytes +8‎ Update Nix-Doom-Emacs link to point to nix-community
+       instead.
+     * curprev [ ] [ ] 16:1116:11, 11 May 2022‎ imported>ModdedGamers‎ m
+       4,315 bytes +238‎ Add emacsGcc -> emacsNativeComp note
+
+    22 February 2022
+
+     * curprev [ ] [ ] 12:2912:29, 22 February 2022‎ imported>Jeslie0‎ 4,077
+       bytes +649‎ Added information on installing packages like vterm,
+       through Nix
+     * curprev [ ] [ ] 11:0711:07, 22 February 2022‎ imported>Jeslie0‎ 3,428
+       bytes +378‎ Added information on installing emacs when using a system
+       flake
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4705:47, 20 September 2021‎ imported>Nix‎ m 3,050
+       bytes +26‎ add Software/Applications subcategory
+
+    17 July 2021
+
+     * curprev [ ] [ ] 13:0913:09, 17 July 2021‎ imported>Mic92‎ 3,024 bytes
+       +361‎ link to nix-doom-emacs
+     * curprev [ ] [ ] 13:0113:01, 17 July 2021‎ imported>Appetrosyan‎ m
+       2,663 bytes +13‎ Added warning
+     * curprev [ ] [ ] 13:0013:00, 17 July 2021‎ imported>Appetrosyan‎ 2,650
+       bytes +8‎ Added formatting.
+     * curprev [ ] [ ] 12:5912:59, 17 July 2021‎ imported>Appetrosyan‎ 2,642
+       bytes +1,273‎ Added discussion of the different branches
+     * curprev [ ] [ ] 12:4812:48, 17 July 2021‎ imported>Appetrosyan‎ 1,369
+       bytes +2‎ Added use of the file template.
+     * curprev [ ] [ ] 12:4712:47, 17 July 2021‎ imported>Appetrosyan‎ 1,367
+       bytes +279‎ Added description.
+
+    8 July 2021
+
+     * curprev [ ] [ ] 16:5116:51, 8 July 2021‎ imported>Yuu‎ m 1,088 bytes
+       +4‎ No edit summary
+     * curprev [ ] [ ] 12:5912:59, 8 July 2021‎ imported>Yuu‎ m 1,084 bytes
+       +31‎ No edit summary
+
+    7 July 2021
+
+     * curprev [ ] [ ] 20:1820:18, 7 July 2021‎ imported>Yuu‎ 1,053 bytes
+       +12‎ No edit summary
+     * curprev [ ] [ ] 20:1720:17, 7 July 2021‎ imported>Yuu‎ 1,041 bytes
+       +831‎ add emacs overlay from nix community
+
+    7 September 2017
+
+     * curprev [ ] [ ] 12:3312:33, 7 September 2017‎ imported>Makefu‎ 210
+       bytes +210‎ Created page with "{{Expansion|This article is
+       incomplete.}} For reference use
+       [https://nixos.org/nixos/manual/index.html#module-services-emacs the
+       emacs chapter in the nixos manual]. Categ..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Emacs"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

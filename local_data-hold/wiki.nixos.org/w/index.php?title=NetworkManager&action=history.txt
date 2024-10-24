@@ -1,0 +1,154 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        NetworkManager: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    29 September 2024
+
+     * curprev [ ] [ ] 18:1018:10, 29 September 2024‎ Klinger talk contribs‎
+       m 2,511 bytes 0‎ typo
+     * curprev [ ] [ ] 17:5117:51, 29 September 2024‎ Klinger talk contribs‎
+       m 2,511 bytes +38‎ changed Categories from Server/Desktop to
+       Category:Networking Category:Desktop Category:Gnome Category:KDE
+
+    5 August 2024
+
+     * curprev [ ] [ ] 21:1621:16, 5 August 2024‎ Frontear talk contribs‎
+       2,473 bytes +1,606‎ add some configuration options for NetworkManager
+       Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:3819:38, 24 April 2024‎ Klinger talk contribs‎ m
+       867 bytes +44‎ Category: Server Category: Desktop
+
+    12 April 2024
+
+     * curprev [ ] [ ] 18:0618:06, 12 April 2024‎ Dvntsemicolon talk
+       contribs‎ 823 bytes +5‎ →‎Installation Tags: Mobile edit Mobile web
+       edit
+     * curprev [ ] [ ] 18:0518:05, 12 April 2024‎ Dvntsemicolon talk
+       contribs‎ 818 bytes +27‎ →‎Installation Tags: Mobile edit Mobile web
+       edit
+     * curprev [ ] [ ] 18:0418:04, 12 April 2024‎ Dvntsemicolon talk
+       contribs‎ 791 bytes +179‎ added usage section Tags: Mobile edit Mobile
+       web edit
+
+    2 April 2024
+
+     * curprev [ ] [ ] 04:0004:00, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       612 bytes −1‎ No edit summary
+     * curprev [ ] [ ] 04:0004:00, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       m 613 bytes +16‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 03:5903:59, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       597 bytes −22‎ removed curly brackets Tag: Visual edit
+     * curprev [ ] [ ] 02:3802:38, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       619 bytes −13‎ removed "suite" Tag: Visual edit
+     * curprev [ ] [ ] 02:3402:34, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       632 bytes +419‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 02:2402:24, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       213 bytes +213‎ initial creation Tag: Visual edit
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NetworkManager"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

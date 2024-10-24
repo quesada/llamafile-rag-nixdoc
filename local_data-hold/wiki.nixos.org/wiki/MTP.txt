@@ -1,0 +1,149 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 jmtpfs
+     * 2 gvfs
+   [ ] Toggle the table of contents
+
+                                      MTP
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The Media Transfer Protocol (MTP) can be used to transfer media files to
+   and from many mobile phones (most Windows Phone and Android devices) and
+   media players (e.g. Creative Zen).
+
+   MTP devices are usually mounted via FUSE and then appear as a more or less
+   regular file system.
+
+   This page lists some ways to mount a MTP device.
+
+    Tip                                                                       
+    You usually need to unlock and change the connection mode to "File        
+    Transfer" for an Android device to appear as an MTP device                
+
+  jmtpfs
+
+   Install jmtpfs:
+
+ $ nix-env -f "<nixpkgs>" -iA jmtpfs
+
+   To mount the only available device:
+
+ $ mkdir mountpoint
+ $ jmtpfs mountpoint
+
+   If there are several connected devices, use -l to find them and -device=
+   to specify which one to mount.
+
+   To unmount:
+
+ $ fusermount -u
+
+  gvfs
+
+   On NixOS, file managers that support gvfs, such as PCManFM, can mount mtp
+   devices by adding this to configuration.nix:
+
+ {
+   services.gvfs.enable = true;
+ }
+
+   The above should suffice, but there also exists a more manual method. This
+   method apparently only works well with gtk/gnome-based desktops like Gnome
+   Shell or Xfce. It relies on having gvfs listed in the environment variable
+   GIO_EXTRA_MODULES, for example:
+
+   GIO_EXTRA_MODULES=/nix/store/my9jjhq7s19l05zqk969h69jhrrijpkz-gvfs-1.34.2/lib/gio/modules
+
+   First identify your device with lsusb:
+
+ $ lsusb
+ Bus 002 Device 007: ID 1234:5678 The device
+ ...
+
+   The adress of the device will then be mtp://[usb:002,007]/.
+
+   You need the gio from the glib package. Then:
+
+ $ gio mount "mtp://[usb:002,007]/"
+
+   to mount and
+
+ $ gio mount -u "mtp://[usb:002,007]/"
+
+   to unmount.
+
+   The device will appear in your favorite file manager.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=MTP&oldid=6090"
+   Category:
+     * Applications
+     * This page was last edited on 26 September 2023, at 09:37.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,145 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Battle.net: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:0720:07, 19 April 2024‎ Klinger talk contribs‎
+       1,936 bytes +66‎ Beginning sentence added and Category:Applications
+       Category:Gaming Tag: Visual edit: Switched
+
+    6 December 2023
+
+     * curprev [ ] [ ] 12:3712:37, 6 December 2023‎ imported>Algi‎ 1,870
+       bytes +654‎ Adds alternative Steam launcher
+
+    20 November 2023
+
+     * curprev [ ] [ ] 13:2213:22, 20 November 2023‎ imported>Erictossell‎
+       1,216 bytes +273‎ No edit summary
+
+    4 June 2023
+
+     * curprev [ ] [ ] 06:3906:39, 4 June 2023‎ imported>Mweinelt‎ 943 bytes
+       −57‎ winetricks dependency removed in
+       68ca39a775a637f289c63248b64443ef7342f6ad
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:3805:38, 20 September 2021‎ imported>Nix‎ m 1,000
+       bytes +27‎ add Software/Applications subcategory
+
+    6 January 2021
+
+     * curprev [ ] [ ] 08:2608:26, 6 January 2021‎ imported>Mweinelt‎ m 973
+       bytes −6‎ remove de-de locale
+     * curprev [ ] [ ] 08:2408:24, 6 January 2021‎ imported>Mweinelt‎ 979
+       bytes +979‎ Created page with "The Battle.net Launcher can be
+       installed and launched via wine, which works pretty well. To play most
+       of its games a recent wine-staging version is recommended. == Setup
+       ==..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Battle.net"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

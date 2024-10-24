@@ -1,0 +1,175 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 People
+     * 2 Institutions
+          * 2.1 NixOS Foundation
+          * 2.2 Consultants
+          * 2.3 Industry
+          * 2.4 Academia
+          * 2.5 Podcasts
+     * 3 Contribute
+   [ ] Toggle the table of contents
+
+                                 Nix Community
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This article provides an overview of the Nix Community, to give an idea of
+   who we — the users and maintainers of the Nix Ecosystem — are. To find the
+   various ways to reach us, see get in touch.
+
+People
+
+   Nix Ecosystem users and contributors are a mixed bunch, ranging from
+   hobbyist to professional, from industry to academia. Typical user groups
+   include:
+
+     * desktop users using Nix and NixOS to make life on their personal
+       machines easier;
+     * power users duplicating their environment across their personal and
+       work machines;
+     * gamers using NixOS to declaratively configure unbreakable and sharable
+       gaming setups;
+     * developers using Nix to reproducibly build their software, and to
+       manage various development environments;
+     * system administrators declaratively configuring servers and clusters
+       with NixOS and NixOps;
+     * researchers interested in making the computation in their research
+       reproducible.
+
+Institutions
+
+  NixOS Foundation
+
+   The NixOS Foundation is responsible for providing operational and
+   organizational support to the Nix Ecosystem and community. It also funds
+   the official Hydra instance which builds the Nixpkgs collection.
+
+   The ecosystem is developed and maintained by many individuals and
+   self-organised community teams.
+
+  Consultants
+
+   There are a several qualified consultants that can provide support for
+   Nix-based systems:
+
+     * Determinate Systems
+     * Nixcademy
+     * Numtide
+     * Obsidian Systems
+     * Serokell
+     * Tweag I/O
+
+  Industry
+
+   Many companies utilize Nix-based systems for various purposes. Prominent
+   examples include:
+
+     * Mozilla (see also nixpkgs-mozilla)
+     * Tumblr
+     * Shopify also youtube playlist by @burke
+     * LumiGuide
+     * RhodeCode
+     * Awake Security
+     * Atlassian
+     * Replit
+     * Magnetic Insight, a medical imaging company.
+
+  Academia
+
+   Nix has its roots in academia; Nix was the result of Eelco Dolstra's PhD
+   thesis in the University of Utrecht, and Hydra was developed at the
+   Technical University of Delft. Some academic research continues to develop
+   the Nix Ecosystem further - notably some work is planned on incremental
+   builds by Guillaume Maudoux as part of his PhD.
+
+   Nix is also being extensively used to manage powerful computing clusters,
+   since its resolution of dependency problems allows letting users install
+   packages ad-hoc with greatly reduced risk of breaking things. Academic
+   clusters utilizing Nix-based software include some of the biggest clusters
+   in the world:
+
+     * Human Brain Project
+     * Blue Brain Project
+
+  Podcasts
+
+   - Full Time Nix
+
+Contribute
+
+   Main article: Contributing
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_Community&oldid=17736"
+   Categories:
+     * Pedias
+     * Community
+     * This page was last edited on 7 October 2024, at 13:41.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

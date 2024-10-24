@@ -1,0 +1,246 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                     Install NixOS on GCE: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    29 August 2024
+
+     * curprev [ ] [ ] 13:1313:13, 29 August 2024‎ Bmwagner18 talk contribs‎
+       m 4,874 bytes +87‎ To use the default script, the GCE bucket must have
+       specific permission settings. I added a phrase that specifies this.
+
+    1 May 2024
+
+     * curprev [ ] [ ] 15:4415:44, 1 May 2024‎ Mic92 talk contribs‎ 4,787
+       bytes +2‎ Install from old wiki
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:3517:35, 19 April 2024‎ Klinger talk contribs‎ m
+       4,785 bytes +21‎ Category:Cookbook
+
+    23 January 2024
+
+     * curprev [ ] [ ] 19:2519:25, 23 January 2024‎ imported>Tubro‎ m 4,764
+       bytes −14‎ typo
+     * curprev [ ] [ ] 19:2319:23, 23 January 2024‎ imported>Tubro‎ 4,778
+       bytes +535‎ Alternative Nix on GCP instructions
+
+    22 January 2024
+
+     * curprev [ ] [ ] 20:3220:32, 22 January 2024‎ imported>Tubro‎ m 4,243
+       bytes +152‎ Additional pre-requisites listed
+     * curprev [ ] [ ] 20:1520:15, 22 January 2024‎ imported>Tubro‎ m 4,091
+       bytes −12‎ Fix dir and bash styling
+     * curprev [ ] [ ] 20:1320:13, 22 January 2024‎ imported>Tubro‎ 4,103
+       bytes +86‎ Google Cloud Shell has a 5GB storage limit... the Git is
+       bigger, so shallow clone is needed
+
+    1 January 2023
+
+     * curprev [ ] [ ] 18:1418:14, 1 January 2023‎ imported>Wathiede‎ m 4,017
+       bytes −7‎ Removed gcloud stutter
+
+    11 July 2022
+
+     * curprev [ ] [ ] 15:1215:12, 11 July 2022‎ imported>Korfuri‎ m 4,024
+       bytes +251‎ Make it clear that create-gce.sh creates public images
+       only.
+     * curprev [ ] [ ] 15:0715:07, 11 July 2022‎ imported>Korfuri‎ 3,773
+       bytes −2,034‎ Update instructions for GCE NixOS setup, reflecting the
+       lack of updates since 20.09. Focus on the only current option,
+       build-your-own-image.
+
+    28 May 2022
+
+     * curprev [ ] [ ] 18:1918:19, 28 May 2022‎ imported>Jonas‎ 5,807 bytes
+       +8‎ No edit summary
+     * curprev [ ] [ ] 18:1818:18, 28 May 2022‎ imported>Jonas‎ m 5,799 bytes
+       +1‎ No edit summary
+     * curprev [ ] [ ] 18:1818:18, 28 May 2022‎ imported>Jonas‎ 5,798 bytes
+       +73‎ No edit summary
+
+    20 September 2021
+
+     * curprev [ ] [ ] 04:5804:58, 20 September 2021‎ imported>Nix‎ m 5,725
+       bytes +21‎ add Server category
+
+    5 May 2021
+
+     * curprev [ ] [ ] 10:3410:34, 5 May 2021‎ imported>Asymmetric‎ 5,704
+       bytes +86‎ mention that old image bucket is deprecated
+
+    31 January 2021
+
+     * curprev [ ] [ ] 00:4500:45, 31 January 2021‎ imported>Jtojnar‎ 5,618
+       bytes −9‎ avoid deprecated github:NixOS/nixpkgs-channels
+
+    6 November 2020
+
+     * curprev [ ] [ ] 17:2317:23, 6 November 2020‎ imported>Siriobalmelli‎
+       5,627 bytes −4,731‎ No edit summary
+
+    15 April 2020
+
+     * curprev [ ] [ ] 11:5711:57, 15 April 2020‎ imported>Baracoder‎ 10,358
+       bytes +252‎ Add a note on enable-oslogin
+
+    26 March 2020
+
+     * curprev [ ] [ ] 08:0208:02, 26 March 2020‎ imported>Mic92‎ 10,106
+       bytes −14‎ No edit summary
+     * curprev [ ] [ ] 08:0208:02, 26 March 2020‎ imported>Mic92‎ 10,120
+       bytes +121‎ No edit summary
+
+    17 March 2020
+
+     * curprev [ ] [ ] 14:2214:22, 17 March 2020‎ imported>Dsyer‎ 9,999 bytes
+       +335‎ Put a note at the top to point out that the content is out of
+       date/wrong
+
+    3 April 2019
+
+     * curprev [ ] [ ] 13:3413:34, 3 April 2019‎ imported>Mwilsoninsight‎ m
+       9,664 bytes +1,338‎ Added mention of nixos-cloud-images and associated
+       usage
+
+    24 November 2018
+
+     * curprev [ ] [ ] 19:3919:39, 24 November 2018‎ imported>Cyounkins‎ m
+       8,326 bytes +18‎ Path change for
+       nixos/maintainers/scripts/gce/create-gce.sh
+
+    9 October 2017
+
+     * curprev [ ] [ ] 19:5419:54, 9 October 2017‎ imported>Makefu‎ m 8,308
+       bytes 0‎ Makefu moved page Installing NixOS on GCE to Install NixOS on
+       GCE: match remaining articles
+
+    24 September 2017
+
+     * curprev [ ] [ ] 12:0812:08, 24 September 2017‎ imported>Fadenb‎ m
+       8,308 bytes +6‎ →‎Preparing a NixOS image: use correct syntax
+       highlight language
+
+    26 August 2017
+
+     * curprev [ ] [ ] 20:1420:14, 26 August 2017‎ imported>Fadenb‎ m 8,302
+       bytes +280‎ Syntax highlighting
+
+    21 August 2017
+
+     * curprev [ ] [ ] 19:3219:32, 21 August 2017‎ imported>Mic92‎ 8,022
+       bytes −1,046‎ →‎Bootstrapping a NixOS image from the build of your
+       choice
+
+    30 June 2017
+
+     * curprev [ ] [ ] 11:4111:41, 30 June 2017‎ imported>Fadenb‎ 9,068 bytes
+       +9,068‎ Created page with "This is a recipe for creating a NixOS
+       machine on Google Compute Engine (GCE) which is part of
+       [https://cloud.google.com/ Google Cloud Platform]. This tutorial
+       assumes you have..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Install_NixOS_on_GCE"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

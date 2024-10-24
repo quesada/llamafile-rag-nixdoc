@@ -1,0 +1,293 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Some recommendations for the NixOS NVIDIA usage
+     * 2 Non-NixOS section
+       1 comment
+     * 3 cudnn
+       1 comment
+     * 4 some old sections without a signature - cleanup?
+       1 comment
+   [ ] Toggle the table of contents
+
+                                  Talk:Nvidia
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 17 March 2022 by SomeoneSerge in topic cudnn
+
+Some recommendations for the NixOS NVIDIA usage
+
+   For a Gnome user it is useful to add the svicheroo-control application in
+   the package section of the configuration.nix and enable svicheroo-control
+   service.
+
+   If there are a kernel-panic, hanging or freezing of the system on poweroff
+   or rebooting with the NVIDIA 550 version driver, as it known
+   https://forums.developer.nvidia.com/t/series-550-freezes-laptop/284772 ,
+   it is necessary to use the beta version of the NVIDIA driver package.
+
+Non-NixOS section
+
+   Latest comment: 17 March 20221 comment1 person in discussion
+
+   The section cutrrently suggests using NixGL. In my limited experience, a
+   more "convenient" option has been to symlink (e.g. via systemd-tmpfiles)
+   the host's driver libraries to `/run/opengl-driver/lib` which is already
+   in all executable's RPATHs, but I don't know how robust that is when it
+   comes to libc. At least a mention of `/run/opengl-driver/lib` and RPATHs
+   existing would be quite appropriate on this page.
+
+   I would also mention that on darwin `nix run` seems to work out of the box
+   with opengl apps - for visibility
+
+   --SomeoneSerge (talk) 21:46, 17 March 2022 (UTC)Reply
+
+cudnn
+
+   Latest comment: 17 March 20221 comment1 person in discussion
+
+   We need a section that clarifies the correspondence between cudnn and
+   cudatoolkit, as well as how to properly override these in applications.
+   The cudnn-vs-cudatoolkit problem is that we now how multiple static
+   attributes of the form `cudnn_${cudnnVer}_cudatoolkit_${cudaVer}`, which
+   may cause confusion. For example, we package cudatoolkit=11.6 (and our
+   users may choose to build e.g. pytorch against cudatoolkit 11.6), but
+   there's no cudnn_X_cudatoolkit_11_6 attribute. Refer to this issue:
+   https://github.com/NixOS/nixpkgs/pull/164338
+
+   Another aspect of the problem is in overriding downstream derivations,
+   that take as inputs both cudnn and cudatoolkit. For example, (speaking of
+   nixpkgs-21.11) when a user overrides pytorch to use cudatoolkit_11, the
+   build fails because pytorch gets two conflicting versions of cuda:
+   cudatoolkit_11 from the user, and cudatoolkit_10 through the dependency on
+   cudnn. Until we've fixed these issues on nixpkgs, we should at least make
+   them and the workarounds visible to the users to reduce frustration. See
+   e.g.
+   https://discourse.nixos.org/t/cant-get-pytorch-to-recognise-override/12082
+
+   --SomeoneSerge (talk) 21:58, 17 March 2022 (UTC)Reply
+
+some old sections without a signature - cleanup?
+
+   Latest comment: 11 February 20211 comment1 person in discussion
+
+   I have a few issues with the By making a FHS user env section
+
+   first of some characters get replaced by html entities which makes it
+   annoying to copy the example and I'm not sure how to avoid that when
+   editing the page, specifically <nixpkgs>. Strangely I can't recreate this
+   behavior here.
+
+   Furthermore I changed the file like so:
+
+    
+
+ cuda-fsh.nix
+
+ { pkgs ? import &lt;nixpkgs&gt; {} }:
+
+ let fhs = pkgs.buildFHSUserEnv {
+         name = "cuda-env";
+         targetPkgs = pkgs: with pkgs;
+                [ git
+                  gitRepo
+                  gnupg
+                  autoconf
+                  curl
+                  procps
+                  gnumake
+                  gcc7
+                  utillinux
+                  m4
+                  gperf
+                  unzip
+                  cudatoolkit
+                  linuxPackages.nvidia_x11
+                  libGLU
+                  libGL
+                  xorg.libXi xorg.libXmu freeglut
+                  xorg.libXext xorg.libX11 xorg.libXv xorg.libXrandr zlib
+                  ncurses5
+                  stdenv.cc
+                  binutils
+                 ];
+           multiPkgs = pkgs: with pkgs; [ zlib ];
+           runScript = "bash";
+           profile = ''
+                   export CUDA_PATH=${pkgs.cudatoolkit}
+                   export PATH=$CUDA_PATH:$PATH
+                   # export LD_LIBRARY_PATH=${pkgs.linuxPackages.nvidia_x11}/lib
+                   export EXTRA_LDFLAGS="-L/lib -L${pkgs.linuxPackages.nvidia_x11}/lib"
+                   export EXTRA_CCFLAGS="-I/usr/include"
+             '';
+           };
+ in pkgs.stdenv.mkDerivation {
+    name = "cuda-env-shell";
+    nativeBuildInputs = [ fhs ];
+    shellHook = "exec cuda-env";
+ }
+
+   adding gcc7 since it otherwise nvcc wouldn't work and adding
+
+ export PATH=$CUDA_PATH:$PATH
+
+   since otherwise cicc wouldn't be found
+
+   Also LIBGLU_combined has been removed since 20.03, see
+   https://github.com/NixOS/nixpkgs/pull/73261#issue-339663290
+
+     ----------------------------------------------------------------------
+
+   moritz: libGLU_combined should be replaced with libGL and libGLU. I'm
+   fairly new with all this, so I don't dare to edit any wikipages as of yet.
+
+     ----------------------------------------------------------------------
+
+   I couldn't make this work successfully until I unset CUDA_HOME: that was
+   conflicting with CUDA_PATH and making CUDA devices undiscoverable.
+   --Akiross (talk) 16:08, 11 February 2021 (UTC)Reply
+
+     ----------------------------------------------------------------------
+
+   reverse PRIME with an integrated amdgpu and discrete nvidia card is
+   working as of nvidia driver version 470 beta, with improved functionality
+   in 495. it should work similarly for an intel integrated device.
+
+    
+
+ configuration.nix
+
+ { config, pkgs, ... }:
+ {
+   # do not include "amdgpu" here or the nvidia driver will not get loaded correctly.
+   services.xserver.videoDrivers = [ "nvidia" ]; 
+  
+   hardware.nvidia = {
+     # this will work on the 470 stable driver as well but I had issues getting the
+     # external monitors to be recognized unless I made sure the monitors were already
+     # on during the nvidia driver's initialization.
+     # see: https://github.com/NixOS/nixpkgs/pull/141685 for the 495 beta driver.
+     package = config.boot.kernelPackages.nvidiaPackages.beta;
+   
+     # make sure power management is on so the card doesn't stay on when displays
+     # (and presumably power) aren't connected.
+     powerManagement = {
+         enabled = true;
+        
+         # note: this option doesn't currently do the right thing when you have a pre-Ampere card.
+         # if you do, add "nvidia.NVreg_DynamicPowerManagement=0x02" to your kernelParams.
+         # for Ampere and newer cards, this option is on by default.
+         finegrained = true;
+     };
+
+     # ensure the kernel doesn't tear down the card/driver prior to X startup due to the card powering down.
+     nvidiaPersistenced = true;
+    
+     # the following is required for amdgpu/nvidia pairings.
+     modesetting.enable = true;
+     prime = {
+       offload.enable = true;
+
+       # Bus ID of the AMD GPU. You can find it using lspci, either under 3D or VGA
+       amdgpuBusId = "PCI:5:0:0";
+
+       # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
+       nvidiaBusId = "PCI:1:0:0";
+     };
+   };
+
+   # now set up reverse PRIME by configuring the NVIDIA provider's outputs as a source for the
+   # amdgpu. you'll need to get these providers from `xrandr --listproviders` AFTER switching to the
+   # above config AND rebooting.
+   services.xserver.displayManager.sessionCommands = ''
+     ${pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource NVIDIA-G0 "Unknown AMD Radeon GPU @ pci:0000:05:00.0"
+   '';
+ }
+
+   you'll need to restart your display manager session one more time after
+   setting up the xrandr provider output source. if you still don't see the
+   external displays attached to the NVIDIA card, it probably means the
+   providers weren't both initialized when the command was run. you'll need
+   to move setting up the output provider source to a later point, such as
+   after window manager start up.
+
+   this set up does carry one negative and it's that there's unavoidable high
+   CPU usage by the X server while monitors are connected in this way. see
+   the bug report here:
+   https://bugs.launchpad.net/ubuntu/+source/nvidia-graphics-drivers-470/+bug/1944667.
+   swapping to discrete mode (and disabling prime render offloading), with
+   the NVIDIA card set up as the primary output does away with this high
+   usage, at the cost of having the discrete card powered on even once the
+   external displays are disconnected. hopefully this is resolved in future
+   versions of the NVIDIA driver.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Nvidia&oldid=17356"
+     * This page was last edited on 11 September 2024, at 06:12.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

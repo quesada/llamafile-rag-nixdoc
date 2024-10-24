@@ -1,0 +1,173 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Plex: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 October 2024
+
+     * curprev [ ] [ ] 13:3313:33, 6 October 2024‎ TheToto talk contribs‎
+       7,769 bytes +266‎ Reorganize Plex clients Tag: Visual edit
+     * curprev [ ] [ ] 13:2913:29, 6 October 2024‎ TheToto talk contribs‎
+       7,503 bytes +109‎ Add plex-desktop package Tag: Visual edit
+
+    26 August 2024
+
+     * curprev [ ] [ ] 10:0110:01, 26 August 2024‎ Ponder talk contribs‎
+       7,394 bytes −172‎ Copyedit, add Plexamp client Tag: Visual edit
+
+    19 June 2024
+
+     * curprev [ ] [ ] 05:2905:29, 19 June 2024‎ Mic92 talk contribs‎ 7,566
+       bytes +68‎ link to package search for installation as it describes all
+       methods in one place
+     * curprev [ ] [ ] 05:2805:28, 19 June 2024‎ Mic92 talk contribs‎ 7,498
+       bytes 0‎ imported from old wiki
+
+    19 April 2024
+
+     * curprev [ ] [ ] 12:5512:55, 19 April 2024‎ Klinger talk contribs‎ m
+       7,498 bytes +28‎ Category:Applications
+
+    1 April 2024
+
+     * curprev [ ] [ ] 14:0814:08, 1 April 2024‎ Mic92 talk contribs‎ 7,470
+       bytes −34‎ fix links
+
+    19 February 2024
+
+     * curprev [ ] [ ] 06:5606:56, 19 February 2024‎
+       imported>Jmarmstrong1207‎ 7,504 bytes +1,349‎ Add section for allowing
+       plex to see external drives
+
+    26 November 2023
+
+     * curprev [ ] [ ] 06:5706:57, 26 November 2023‎ imported>Heartbeast42‎ m
+       6,155 bytes −1‎ Fix broken link
+
+    12 June 2022
+
+     * curprev [ ] [ ] 19:5819:58, 12 June 2022‎ imported>Robertsisaacp‎ m
+       6,156 bytes 0‎ Fixed typos
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:5921:59, 24 September 2020‎ imported>Garbas‎ m
+       6,156 bytes +3‎ No edit summary
+
+    25 June 2020
+
+     * curprev [ ] [ ] 20:3220:32, 25 June 2020‎ imported>Elitelinuxuser‎ m
+       6,153 bytes +365‎ Added the part about Plex Media Server which fits in
+       here.
+
+    12 October 2018
+
+     * curprev [ ] [ ] 11:2311:23, 12 October 2018‎ imported>Sjau‎ 5,788
+       bytes +5,788‎ Created page with "[https://www.plex.tv/ Plex media
+       server] allows you to aggregate all your personal media and access it
+       anywhere you go. Enjoy your own content on all your devices with
+       Plex...."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Plex"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

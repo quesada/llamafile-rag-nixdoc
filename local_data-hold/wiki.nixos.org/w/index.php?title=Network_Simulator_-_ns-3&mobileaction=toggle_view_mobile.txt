@@ -1,0 +1,140 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Developing with ns-3
+   [ ] Toggle the table of contents
+
+                            Network Simulator - ns-3
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This is for discrete-event network simulator ns-3.
+
+Developing with ns-3
+
+   ns-3 heavily relies on way for running simulations (examples, tutorials,
+   etc.), but we can start developing using a simple Makefile and a
+   shell.nix. We will use hello-simulator.cc for this example.
+
+   First create a shell.nix, with the requirements to compile our simulation.
+
+ with import <nixpkgs> {};
+
+ mkShell {
+   nativeBuildInputs = [
+     llvmPackages_latest.clang
+     pkg-config
+   ];
+   buildInputs = [ ns-3 ];
+ }
+
+   Then we can create our Makefile, do note the LIBS argument, which is the
+   modules required (not all are build by default, might have to override
+   some settings in ns-3).
+
+ # the compiler: gcc for C program, define as g++ for C++
+ CC = clang++
+
+ DEBUG=-DNS3_LOG_ENABLE
+
+ LIBS = libns3-dev-core-debug
+
+ # compiler flags:
+ #  -g    adds debugging information to the executable file
+ #  -Wall turns on most, but not all, compiler warnings
+ CFLAGS  = -g -Wall -Wextra $(shell pkg-config --cflags $(LIBS))
+ LDFLAGS=$(shell pkg-config --libs $(LIBS))
+
+ # the build target executable:
+ TARGET = hello-simulator
+
+ all: $(TARGET)
+
+ $(TARGET): $(TARGET).cc
+         $(CC) $(DEBUG) $(CFLAGS) $(LDFLAGS) -o $(TARGET) $(TARGET).cc
+
+ clean:
+         $(RM) $(TARGET)
+
+   Then just place hello-simulator.cc in the same directory as the other
+   files, then run the following commands.
+
+ $ nix-shell
+ $ make
+ $ ./hello-simulator
+
+   Please keep in mind our flag when we compile, regarding debug
+   NS3_LOG_ENABLE.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Network_Simulator_-_ns-3&oldid=12465"
+   Category:
+     * Applications
+     * This page was last edited on 24 April 2024, at 20:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

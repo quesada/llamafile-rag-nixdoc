@@ -1,0 +1,294 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Maddy: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    22 July 2024
+
+     * curprev [ ] [ ] 00:1900:19, 22 July 2024‎ Dave talk contribs‎ m 14,648
+       bytes +226‎ Add alternate way of generating TLSA Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:2320:23, 19 April 2024‎ Klinger talk contribs‎
+       14,422 bytes +2‎ Category:Mail Server Category:Server
+
+    21 January 2024
+
+     * curprev [ ] [ ] 13:2713:27, 21 January 2024‎ imported>Onny‎ 14,420
+       bytes +188‎ Add related mail server services
+
+    28 December 2023
+
+     * curprev [ ] [ ] 14:1014:10, 28 December 2023‎ imported>Onny‎ 14,232
+       bytes +125‎ Update rspamd section to include note on spam/ham training
+
+    13 November 2023
+
+     * curprev [ ] [ ] 15:2015:20, 13 November 2023‎ imported>Onny‎ 14,107
+       bytes +558‎ Add example for mail aliases
+
+    27 August 2023
+
+     * curprev [ ] [ ] 14:4714:47, 27 August 2023‎ imported>Onny‎ m 13,549
+       bytes +37‎ No edit summary
+     * curprev [ ] [ ] 11:5711:57, 27 August 2023‎ imported>Onny‎ 13,512
+       bytes +215‎ Add DKIM key to rspamd config
+
+    20 August 2023
+
+     * curprev [ ] [ ] 10:5910:59, 20 August 2023‎ imported>Onny‎ 13,297
+       bytes +40‎ Add note on TLS with certbot
+
+    6 July 2023
+
+     * curprev [ ] [ ] 18:3118:31, 6 July 2023‎ imported>Onny‎ m 13,257 bytes
+       +2‎ No edit summary
+     * curprev [ ] [ ] 18:2418:24, 6 July 2023‎ imported>Onny‎ 13,255 bytes
+       +63‎ Add note on Imapsync
+
+    20 June 2023
+
+     * curprev [ ] [ ] 13:3813:38, 20 June 2023‎ imported>MichaelBelsanti‎ m
+       13,192 bytes −1‎ No edit summary
+     * curprev [ ] [ ] 13:1713:17, 20 June 2023‎ imported>MichaelBelsanti‎ m
+       13,193 bytes +1‎ No edit summary
+     * curprev [ ] [ ] 13:1513:15, 20 June 2023‎ imported>MichaelBelsanti‎ m
+       13,192 bytes −1‎ No edit summary
+
+    14 June 2023
+
+     * curprev [ ] [ ] 16:4716:47, 14 June 2023‎ imported>Onny‎ 13,193 bytes
+       +595‎ Add troubleshooting section
+     * curprev [ ] [ ] 16:3616:36, 14 June 2023‎ imported>Onny‎ m 12,598
+       bytes −9‎ No edit summary
+     * curprev [ ] [ ] 16:2816:28, 14 June 2023‎ imported>Onny‎ 12,607 bytes
+       +421‎ Add note on mail attachement size
+     * curprev [ ] [ ] 16:2516:25, 14 June 2023‎ imported>Onny‎ 12,186 bytes
+       −158‎ Update work in progress note
+
+    5 June 2023
+
+     * curprev [ ] [ ] 17:3517:35, 5 June 2023‎ imported>Onny‎ 12,344 bytes
+       +471‎ Add section on verify TLSA record
+
+    30 May 2023
+
+     * curprev [ ] [ ] 18:0518:05, 30 May 2023‎ imported>Onny‎ m 11,873 bytes
+       0‎ No edit summary
+     * curprev [ ] [ ] 18:0218:02, 30 May 2023‎ imported>Onny‎ m 11,873 bytes
+       +4‎ No edit summary
+
+    22 May 2023
+
+     * curprev [ ] [ ] 12:0512:05, 22 May 2023‎ imported>Onny‎ 11,869 bytes
+       +525‎ Add notes on verify DNSSEC setup
+     * curprev [ ] [ ] 11:4011:40, 22 May 2023‎ imported>Onny‎ m 11,344 bytes
+       0‎ No edit summary
+     * curprev [ ] [ ] 11:3811:38, 22 May 2023‎ imported>Onny‎ 11,344 bytes
+       +248‎ Add note on how to verify DANE TLSA record
+
+    17 May 2023
+
+     * curprev [ ] [ ] 15:4615:46, 17 May 2023‎ imported>Onny‎ m 11,096 bytes
+       +27‎ No edit summary
+     * curprev [ ] [ ] 15:2715:27, 17 May 2023‎ imported>Onny‎ m 11,069 bytes
+       +23‎ No edit summary
+     * curprev [ ] [ ] 11:3911:39, 17 May 2023‎ imported>Onny‎ m 11,046 bytes
+       +143‎ No edit summary
+
+    13 May 2023
+
+     * curprev [ ] [ ] 15:5715:57, 13 May 2023‎ imported>Onny‎ 10,903 bytes
+       +748‎ Add updated TLS section
+
+    27 April 2023
+
+     * curprev [ ] [ ] 10:0110:01, 27 April 2023‎ imported>Onny‎ 10,155 bytes
+       +24‎ Update certificates option to latest upstream changes
+
+    25 April 2023
+
+     * curprev [ ] [ ] 13:5913:59, 25 April 2023‎ imported>Onny‎ m 10,131
+       bytes +4‎ No edit summary
+     * curprev [ ] [ ] 11:4911:49, 25 April 2023‎ imported>Onny‎ 10,127 bytes
+       +31‎ Update tls option to reflect upcoming changes
+
+    22 April 2023
+
+     * curprev [ ] [ ] 11:3911:39, 22 April 2023‎ imported>Onny‎ m 10,096
+       bytes 0‎ No edit summary
+
+    16 April 2023
+
+     * curprev [ ] [ ] 08:4608:46, 16 April 2023‎ imported>Onny‎ 10,096 bytes
+       +294‎ Add option ensureCredentials
+
+    14 April 2023
+
+     * curprev [ ] [ ] 08:0208:02, 14 April 2023‎ imported>Onny‎ m 9,802
+       bytes −2‎ No edit summary
+     * curprev [ ] [ ] 07:3207:32, 14 April 2023‎ imported>Onny‎ 9,804 bytes
+       +50‎ Switch to smtps for hash-slinger tlsa command
+
+    12 April 2023
+
+     * curprev [ ] [ ] 18:3818:38, 12 April 2023‎ imported>Onny‎ m 9,754
+       bytes −2‎ Better online test service
+
+    11 April 2023
+
+     * curprev [ ] [ ] 07:4007:40, 11 April 2023‎ imported>Onny‎ m 9,756
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 07:3907:39, 11 April 2023‎ imported>Onny‎ 9,756 bytes
+       +276‎ Updated instruction to include ensureAccounts option
+
+    3 December 2022
+
+     * curprev [ ] [ ] 14:5614:56, 3 December 2022‎ imported>Onny‎ 9,480
+       bytes +142‎ Add note on how to change Maddy passwords
+
+    2 November 2022
+
+     * curprev [ ] [ ] 16:0516:05, 2 November 2022‎ imported>Ppom‎ m 9,338
+       bytes +3‎ highilight that this doc is not accurate
+
+    25 September 2022
+
+     * curprev [ ] [ ] 18:3218:32, 25 September 2022‎ imported>Onny‎ m 9,335
+       bytes +46‎ No edit summary
+
+    12 September 2022
+
+     * curprev [ ] [ ] 16:1516:15, 12 September 2022‎ imported>Onny‎ m 9,289
+       bytes +76‎ No edit summary
+     * curprev [ ] [ ] 16:1216:12, 12 September 2022‎ imported>Onny‎ m 9,213
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 16:1116:11, 12 September 2022‎ imported>Onny‎ 9,213
+       bytes +426‎ Add info about configuring rDNS
+     * curprev [ ] [ ] 15:5715:57, 12 September 2022‎ imported>Onny‎ m 8,787
+       bytes −2‎ No edit summary
+     * curprev [ ] [ ] 15:5515:55, 12 September 2022‎ imported>Onny‎ m 8,789
+       bytes +533‎ Update on read permissions for certificates
+
+    29 August 2022
+
+     * curprev [ ] [ ] 14:0414:04, 29 August 2022‎ imported>Onny‎ 8,256 bytes
+       +346‎ Further mail server test links
+
+    18 August 2022
+
+     * curprev [ ] [ ] 15:3115:31, 18 August 2022‎ imported>Onny‎ m 7,910
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 15:3015:30, 18 August 2022‎ imported>Onny‎ 7,911 bytes
+       +84‎ Add homepage link
+     * curprev [ ] [ ] 15:2915:29, 18 August 2022‎ imported>Onny‎ 7,827 bytes
+       +158‎ Update rspamd example
+     * curprev [ ] [ ] 14:3114:31, 18 August 2022‎ imported>Onny‎ 7,669 bytes
+       +181‎ Added tipps and tricks for mail server config checking
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Maddy"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

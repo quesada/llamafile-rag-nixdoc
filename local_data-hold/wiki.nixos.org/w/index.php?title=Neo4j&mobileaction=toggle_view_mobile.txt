@@ -1,0 +1,98 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS
+          * 1.1 Setting the initial password
+   [ ] Toggle the table of contents
+
+                                     Neo4j
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Neo4j#)                  
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   Neo4j is a graph database implemented in Java.
+
+NixOS
+
+  Setting the initial password
+
+ export NEO4J_CONF=/var/lib/neo4j/conf/
+ neo4j-admin set-initial-password mySuperSecretPassword
+
+   Logging in using cypher-shell should now function.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Neo4j&oldid=13348"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 21 June 2024, at 06:38.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

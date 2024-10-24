@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Hedgedoc: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 July 2024
+
+     * curprev [ ] [ ] 14:4714:47, 7 July 2024‎ Musicmatze talk contribs‎ m
+       3,089 bytes +24‎ Make the first "Hedgedoc" a link to the software
+       website. Tag: Visual edit
+
+    10 May 2024
+
+     * curprev [ ] [ ] 18:4918:49, 10 May 2024‎ Klinger talk contribs‎ m
+       3,065 bytes +30‎ Category:Web Applications
+
+    6 May 2024
+
+     * curprev [ ] [ ] 21:1421:14, 6 May 2024‎ Klinger talk contribs‎ 3,035
+       bytes +177‎ Finished a unfinished sentence about disabling guest
+       users. Tag: Visual edit
+     * curprev [ ] [ ] 08:2908:29, 6 May 2024‎ RTUnreal talk contribs‎ m
+       2,858 bytes +30‎ →‎Nginx reverse proxy (virtualization host/server
+       with public IPv4): Remove link to immaginary example Tag: Visual edit
+
+    5 May 2024
+
+     * curprev [ ] [ ] 18:2718:27, 5 May 2024‎ Klinger talk contribs‎ m 2,828
+       bytes +22‎ Category:Server Category:Cookbook Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 18:0018:00, 5 May 2024‎ Klinger talk contribs‎ 2,806
+       bytes +2,806‎ Created page with "Hedgedoc is a is an open-source,
+       web-based, self-hosted, collaborative markdown editor. You can use it
+       to easily collaborate on notes, graphs and even presentations in
+       real-time. For this you can use a just the same link to the pad. ==
+       Install and run hedgedoc == You can just enable it. There are 15
+       options in Nixpkgs to configure it. <syntaxhighlight lang="nixos">
+       services.hedgedoc = { enable = true; } </syntaxhighlight> == Usage
+       with nginx reverse proxy == H..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Hedgedoc"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

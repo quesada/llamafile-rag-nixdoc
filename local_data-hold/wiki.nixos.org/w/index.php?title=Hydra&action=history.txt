@@ -1,0 +1,317 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Hydra: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    4 September 2024
+
+     * curprev [ ] [ ] 07:2707:27, 4 September 2024‎ Mic92 talk contribs‎
+       10,555 bytes +23‎ imported from old wiki
+
+    30 July 2024
+
+     * curprev [ ] [ ] 12:5112:51, 30 July 2024‎ Jopejoe1 talk contribs‎
+       10,532 bytes +432‎ Marked this version for translation
+     * curprev [ ] [ ] 12:4912:49, 30 July 2024‎ Jopejoe1 talk contribs‎ m
+       10,100 bytes +128‎ Improvements for translations
+
+    9 July 2024
+
+     * curprev [ ] [ ] 07:1707:17, 9 July 2024‎ Mic92 talk contribs‎ 9,972
+       bytes +36‎ Marked this version for translation
+     * curprev [ ] [ ] 07:1607:16, 9 July 2024‎ Mic92 talk contribs‎ 9,936
+       bytes −60‎ Installation: introduction date in NixOS doesn't matter
+       anymore 7 years later.
+     * curprev [ ] [ ] 04:5004:50, 9 July 2024‎ Fedora talk contribs‎ m 9,996
+       bytes +40‎ fix minor annoyances Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 04:1204:12, 9 July 2024‎ Fedora talk contribs‎ m 9,956
+       bytes 0‎ Capitalise Hydra and UNIX Tags: Mobile edit Mobile web edit
+
+    8 July 2024
+
+     * curprev [ ] [ ] 08:1708:17, 8 July 2024‎ Mic92 talk contribs‎ 9,956
+       bytes +387‎ Marked this version for translation
+
+    6 July 2024
+
+     * curprev [ ] [ ] 09:5309:53, 6 July 2024‎ Mic92 talk contribs‎ 9,569
+       bytes +1‎ mark whole page for translation
+     * curprev [ ] [ ] 09:4809:48, 6 July 2024‎ Mic92 talk contribs‎ 9,568
+       bytes +39‎ prepare for translation
+
+    25 May 2024
+
+     * curprev [ ] [ ] 19:2019:20, 25 May 2024‎ Sandro talk contribs‎ 9,529
+       bytes −102‎ Remove note
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:3019:30, 24 April 2024‎ Klinger talk contribs‎
+       9,631 bytes +20‎ No edit summary
+
+    18 April 2024
+
+     * curprev [ ] [ ] 17:0817:08, 18 April 2024‎ Klinger talk contribs‎
+       9,611 bytes +102‎ Note with the disclaimer: Hydra is for developers.
+
+    15 April 2024
+
+     * curprev [ ] [ ] 19:2719:27, 15 April 2024‎ Klinger talk contribs‎ m
+       9,509 bytes +46‎ removed citation (not necessary, even two different
+       links to manual)
+
+    3 April 2024
+
+     * curprev [ ] [ ] 14:5214:52, 3 April 2024‎ Weijia talk contribs‎ m
+       9,463 bytes −1‎ Fix typo
+
+    28 January 2024
+
+     * curprev [ ] [ ] 14:5314:53, 28 January 2024‎ imported>Jrobsonchase‎
+       9,464 bytes +521‎ Add note about flakes evaluating in restricted mode
+
+    4 January 2024
+
+     * curprev [ ] [ ] 14:0314:03, 4 January 2024‎ imported>Oux‎ m 8,943
+       bytes −1‎ No edit summary
+
+    8 July 2023
+
+     * curprev [ ] [ ] 20:4920:49, 8 July 2023‎ imported>Clerie‎ 8,944 bytes
+       +669‎ →‎Build a single Package from nixpkgs
+
+    23 October 2022
+
+     * curprev [ ] [ ] 01:4801:48, 23 October 2022‎ imported>Crawford‎ 8,275
+       bytes +537‎ Add workaround for git-fetch timeout
+
+    14 October 2022
+
+     * curprev [ ] [ ] 05:5105:51, 14 October 2022‎ imported>Crawford‎ m
+       7,738 bytes +4‎ Fix protocol for example inputs
+
+    7 June 2022
+
+     * curprev [ ] [ ] 17:1817:18, 7 June 2022‎ imported>Sohalt‎ m 7,734
+       bytes 0‎ Use --password-prompt instead of insecure and deprecated
+       --password
+
+    29 April 2022
+
+     * curprev [ ] [ ] 07:5407:54, 29 April 2022‎ imported>Ulrikstrid‎ 7,734
+       bytes +332‎ Add some known issues
+
+    21 January 2022
+
+     * curprev [ ] [ ] 07:5607:56, 21 January 2022‎
+       imported>Kenranunderscore‎ 7,402 bytes +9‎ Updated the nixpkgs branch
+       to 21.11, as nixos-18.03 doesn't exist anymore
+
+    20 September 2021
+
+     * curprev [ ] [ ] 14:1814:18, 20 September 2021‎ imported>Nix‎ 7,393
+       bytes +280‎ add hydra for NixOS releases section
+     * curprev [ ] [ ] 06:2606:26, 20 September 2021‎ imported>Nix‎ m 7,113
+       bytes +17‎ add Nix category
+     * curprev [ ] [ ] 05:5305:53, 20 September 2021‎ imported>Nix‎ 7,096
+       bytes +22‎ add Software category
+     * curprev [ ] [ ] 00:2400:24, 20 September 2021‎ imported>Nix‎ m 7,074
+       bytes −4‎ move to pedias category
+
+    31 January 2021
+
+     * curprev [ ] [ ] 00:4400:44, 31 January 2021‎ imported>Jtojnar‎ 7,078
+       bytes −9‎ avoid deprecated github:NixOS/nixpkgs-channels
+
+    1 November 2020
+
+     * curprev [ ] [ ] 09:1609:16, 1 November 2020‎ imported>Plutotulp‎ m
+       7,087 bytes +35‎ Change formatting of definitions from list items to
+       minor headings. The list version would render as ugly boxes of
+       verbatim text, with scroll bars in them.
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:1421:14, 24 September 2020‎ imported>Garbas‎ m
+       7,052 bytes +3‎ No edit summary
+
+    7 November 2018
+
+     * curprev [ ] [ ] 08:2508:25, 7 November 2018‎ imported>Ledettwy‎ 7,049
+       bytes +95‎ No edit summary
+
+    31 August 2018
+
+     * curprev [ ] [ ] 13:3013:30, 31 August 2018‎ imported>Tfc‎ 6,954 bytes
+       +218‎ No edit summary
+
+    17 July 2018
+
+     * curprev [ ] [ ] 23:4023:40, 17 July 2018‎ imported>Ledettwy‎ 6,736
+       bytes +322‎ Add a known issues section, document hydra-queue-runner
+       hang problem
+
+    21 May 2018
+
+     * curprev [ ] [ ] 22:2422:24, 21 May 2018‎ imported>Pacien‎ m 6,414
+       bytes +13‎ Remind reader to execute command as specific user
+     * curprev [ ] [ ] 22:2022:20, 21 May 2018‎ imported>Pacien‎ 6,401 bytes
+       +576‎ Add virtual machine note
+
+    4 April 2018
+
+     * curprev [ ] [ ] 19:2519:25, 4 April 2018‎ imported>Fadenb‎ m 5,825
+       bytes 0‎ →‎Imperative Building: change example to current stable
+       version
+
+    28 March 2018
+
+     * curprev [ ] [ ] 05:5905:59, 28 March 2018‎ imported>Makefu‎ 5,825
+       bytes −39‎ No edit summary
+
+    27 March 2018
+
+     * curprev [ ] [ ] 14:3714:37, 27 March 2018‎ imported>Makefu‎ 5,864
+       bytes +66‎ update evaluation description
+     * curprev [ ] [ ] 14:3414:34, 27 March 2018‎ imported>Makefu‎ 5,798
+       bytes +75‎ remove explicit hydra init, as
+     * curprev [ ] [ ] 14:0114:01, 27 March 2018‎ imported>Makefu‎ 5,723
+       bytes +202‎ add declarative building
+     * curprev [ ] [ ] 13:5213:52, 27 March 2018‎ imported>Makefu‎ 5,521
+       bytes +466‎ add note about evaluation
+     * curprev [ ] [ ] 13:1213:12, 27 March 2018‎ imported>Makefu‎ 5,055
+       bytes +126‎ No edit summary
+     * curprev [ ] [ ] 13:0713:07, 27 March 2018‎ imported>Makefu‎ 4,929
+       bytes +1,123‎ →‎Build a single Package from nixpkgs
+
+    26 February 2018
+
+     * curprev [ ] [ ] 14:2214:22, 26 February 2018‎ imported>Makefu‎ 3,806
+       bytes +153‎ No edit summary
+     * curprev [ ] [ ] 12:4012:40, 26 February 2018‎ imported>Makefu‎ 3,653
+       bytes +7‎ hydraSender -> notificationSender
+     * curprev [ ] [ ] 10:2910:29, 26 February 2018‎ imported>Makefu‎ m 3,646
+       bytes +1‎ ;
+
+    14 February 2018
+
+     * curprev [ ] [ ] 23:0323:03, 14 February 2018‎ imported>Makefu‎ 3,645
+       bytes +881‎ No edit summary
+
+    28 December 2017
+
+     * curprev [ ] [ ] 01:2001:20, 28 December 2017‎ imported>Makefu‎ 2,764
+       bytes +113‎ No edit summary
+
+    11 December 2017
+
+     * curprev [ ] [ ] 23:3423:34, 11 December 2017‎ imported>Makefu‎ 2,651
+       bytes +475‎ No edit summary
+     * curprev [ ] [ ] 23:1823:18, 11 December 2017‎ imported>Makefu‎ 2,176
+       bytes +311‎ add resources
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Hydra"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

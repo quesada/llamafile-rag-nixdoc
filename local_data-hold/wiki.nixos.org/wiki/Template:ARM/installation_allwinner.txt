@@ -1,0 +1,100 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Preview
+   [ ] Toggle the table of contents
+
+                      Template:ARM/installation allwinner
+
+     * Template
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This template provides generic installation instructions for NixOS on ARM
+   sub-pages. Look at the other installation instruction templates, there may
+   be one more appropriate for the lineage of your board!
+
+ {{ARM/installation allwinner|variant=EXAMPLE|u-boot=EXAMPLE-u-boot-sunxi-with-spl.bin}}
+
+Preview
+
+   To use the generic installation image for your board, you will need to
+   copy it verbatim to an SD card.
+
+ sudo dd if=sd-image-EXAMPLE-linux.img of=/dev/DEVICE conv=sync status=progress
+
+   This board requires the installation of u-boot at a specific location on
+   the storage where NixOS was written to.
+
+ sudo dd if=EXAMPLE-u-boot-sunxi-with-spl.bin of=/dev/DEVICE bs=1024 seek=8
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Template:ARM/installation_allwinner&oldid=7258"
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 1 July 2023, at 19:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

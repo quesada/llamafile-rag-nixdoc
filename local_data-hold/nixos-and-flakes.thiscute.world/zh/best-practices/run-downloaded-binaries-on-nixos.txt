@@ -1,0 +1,244 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS 与 Flakes
+   SearchK
+   Main Navigation首页前言开始使用最佳实践
+
+   简体中文
+
+   English
+
+   简体中文
+
+   English
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+前言
+
+   前言
+
+开始使用
+
+   简介
+
+   优缺点
+
+   安装
+
+Nix 语言
+
+   快速入门
+
+NixOS 与 Flakes
+
+   开始使用 NixOS
+
+   Flakes 简介
+
+   使用 Flakes 管理 NixOS
+
+   NixOS 的 flake.nix 内容详解
+
+   Flakes 的组合能力与 Nixpkgs 模块系统
+
+   安装使用 Home Manager
+
+   模块化系统配置
+
+   更新系统
+
+   降级或升级软件包
+
+   其他杂七杂八的内容
+
+Nixpkgs 高级用法
+
+   简介
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   多 Nixpkgs 实例的妙用
+
+Nix Store 与二进制缓存
+
+   简介
+
+   添加二进制缓存服务器
+
+   搭建你自己的缓存服务器
+
+NixOS 最佳实践
+
+   简介
+
+   运行非 NixOS 的二进制文件
+
+   简化常用的 NixOS 相关命令
+
+   加速 Dotfiles 的调试
+
+   自定义 NIX_PATH 与 Flake Registry
+
+   远程部署 NixOS 配置
+
+   调试 Nix 软件包与 Nix 表达式
+
+Flakes 的其他玩法
+
+   简介
+
+   Flake Inputs
+
+   Flake Outputs
+
+   新一代 Nix 命令行工具的使用
+
+   模块系统与自定义 options
+
+   [WIP]Testing
+
+在 NixOS 上进行开发工作
+
+   nix shell, nix develop & pkgs.runCommand
+
+   各语言的开发环境
+
+   [WIP]软件打包
+
+   跨平台编译
+
+   分布式构建
+
+   [WIP]内核开发
+
+其他进阶话题
+
+   其他进阶话题
+
+常见问题 FAQ
+
+   常见问题 FAQ
+
+   On this page
+
+                               运行非 NixOS 的二进制文件 ​
+
+   NixOS 不遵循 FHS 标准，因此你从网上下载的二进制程序在 NixOS 上大概率是跑不了的。为了在 NixOS 上跑这些非 NixOS
+   的二进制程序，需要做一些骚操作。有位老兄在这里总结了 10 种实现此目的的方法：Different methods to run a
+   non-nixos executable on Nixos，推荐一读。此外如果你懒得自己折腾，只想实现需求，也可以直接看看这个傻瓜式工具
+   nix-alien. 或者如果你熟悉 Docker，直接用 Docker 跑也是个不错的选择。
+
+   我个人用的比较多的方法是，直接创建一个 FHS 环境来运行二进制程序，这种方法非常方便易用。
+
+   大概玩法是这样的，首先在你的 environment.systemPackages 中添加这个包：
+
+   [ Submit ]nix
+
+ { config, pkgs, lib, ... }:
+ {
+   # ......
+   environment.systemPackages = with pkgs; [
+     # ......o
+     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
+     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+       pkgs.buildFHSUserEnv (base // {
+       name = "fhs";
+       targetPkgs = pkgs: (
+         # pkgs.buildFHSUserEnv 只提供一个最小的 FHS 环境，缺少很多常用软件所必须的基础包
+         # 所以直接使用它很可能会报错
+         #
+         # pkgs.appimageTools 提供了大多数程序常用的基础包，所以我们可以直接用它来补充
+         (base.targetPkgs pkgs) ++ with pkgs; [
+           pkg-config
+           ncurses
+           # 如果你的 FHS 程序还有其他依赖，把它们添加在这里
+         ]
+       );
+       profile = "export FHS=1";
+       runScript = "bash";
+       extraOutputsToInstall = ["dev"];
+     }))
+   ];
+   # ......
+ }
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+   12
+   13
+   14
+   15
+   16
+   17
+   18
+   19
+   20
+   21
+   22
+   23
+   24
+   25
+   26
+   27
+   28
+   29
+   30
+   31
+
+   部署好上面的配置后，你就能用 fhs 命令进入我们定义好的 FHS 环境了，然后就可以运行你下载的二进制程序了，比如：
+
+   [ Submit ]shell
+
+ # 进入我们定义好的 fhs 环境，它就跟其他 Linux 发行版一样了
+ $ fhs
+ # 看看我们的 /usr/bin 里是不是多了很多东西
+ (fhs) $ ls /usr/bin
+ # 尝试下跑一个非 nixos 的二进制程序
+ (fhs) $ ./bin/code
+
+   1
+   2
+   3
+   4
+   5
+   6
+
+参考 ​
+
+     * Tips&Tricks for NixOS Desktop - NixOS Discourse: Just as the title
+       says, it is a collection of tips and tricks for NixOS desktop.
+     * nix-alien: Run unpatched binaries on Nix/NixOS
+     * nix-ld: Run unpatched dynamic binaries on NixOS.
+     * 用 Nix 打包闭源软件 - Lan Tian @ Blog
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous page简介
+   Next page简化常用的 NixOS 相关命令
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

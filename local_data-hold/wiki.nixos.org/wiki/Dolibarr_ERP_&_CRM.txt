@@ -1,0 +1,226 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 First login for preinstalled installs
+     * 2 First login for manual installs
+          * 2.1 Configure the database (unless initialDbPasswordFile)
+          * 2.2 Start dolibarr install
+               * 2.2.1 Check page (1st)
+               * 2.2.2 Install page (2nd)
+               * 2.2.3 Install step 1 (3rd)
+               * 2.2.4 Install step 2 (4th)
+               * 2.2.5 Install step 4 (5th) (no that's not a typo XD)
+               * 2.2.6 Install step 5 (6th)
+     * 3 Nixops integration
+     * 4 Development
+     * 5 See more
+   [ ] Toggle the table of contents
+
+                               Dolibarr ERP & CRM
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Dolibarr ERP CRM is a modern software package to manage your company or
+   foundation's activity . Configuration is handled using the
+   services.dolibarr. options.
+
+First login for preinstalled installs
+
+   Assuming that myhost.org resolves to the ip address of your host, port 80
+   has been opened and /run/keys/dolibarr-db-ini-password contains the
+   plain-text password for the dolibarr mysql user.
+
+ services.dolibarr = {
+   enable = true;
+   domain = "myhost.org";
+   preInstalled = true;
+   initialDbPasswordFile = "/run/keys/dolibarr-db-ini-password";
+ };
+
+   This will configure dolibarr to serve on myhost.org, a prefilled database
+   will be provisioned. The following credentials will be configured for the
+   dolibarr admin user:
+
+   Login    dolibarrlogin         
+   Password 123dolibarrlogin_pass 
+
+   Once you're logged in, please make sure to change those default
+   credentials.
+
+First login for manual installs
+
+  Configure the database (unless initialDbPasswordFile)
+
+   If you've provided a non-null value for
+   services.dolibarr.initialDbPasswordFile, please skip to the next step.
+   Otherwise, you'll have to create the dolibarr user and configure its
+   password in mysql before going on. This can simply be done with:
+
+ $ mysql -u root # root is passwordless by default
+ MariaDB [(none)]>CREATE USER IF NOT EXISTS 'dolibarr'@'localhost' IDENTIFIED WITH mysql_native_password;
+ MariaDB [(none)]>GRANT ALL PRIVILEGES ON dolibarr.* TO 'dolibarr'@'localhost';
+ MariaDB [(none)]>SET PASSWORD FOR 'dolibarr'@'localhost' = PASSWORD('mytopsecretpassword');
+
+   Note: You should obiously replace mytopsecretpassword with your own
+   password.
+
+   Now that the database is configured, we can open dolibarr in the browser.
+
+  Start dolibarr install
+
+   Go to dolibarr's url in the browser with path /install. If we follow the
+   previous example, the url should be http://mydolibarurl/install.
+
+    Check page (1st)
+
+   On the check page a form should propose different installation options,
+   choose the FreshInstall option at the bottom of the list and click on
+   Start.
+
+    Install page (2nd)
+
+   On the install page :
+
+     * set the Directory to store uploaded and generated documents to
+       /var/lib/dolibarr/documents (unless you know what you're doing)
+     * ensure the Database name is dolibarr
+     * ensure the Driver type is mysqli
+     * ensure the Database server is localhost
+     * ensure the Database port is 3306
+     * ensure the Database Login is dolibarr
+     * ensure the Database password for dolibarr is the same as the one
+       you've configured manually or with
+       services.dolibarr.initialDbPasswordFile
+
+    Install step 1 (3rd)
+
+   Nothing to do here, just check that the displayed data is correct and
+   continue.
+
+    Install step 2 (4th)
+
+   Again, nothing to do here, just check that the displayed data is correct
+   and continue.
+
+    Install step 4 (5th) (no that's not a typo XD)
+
+   Setup your dolibarr admin user's login and password.
+
+    Install step 5 (6th)
+
+   That's it, you're done, dolibarr is installed.
+
+Nixops integration
+
+   If you're willing to deploy dolibarr threw NixOps, you can use its key
+   capabilities to delegate the configuration of the database entirely with
+   the help of the services.dolibarr.initialDbPasswordFile option. Here is a
+   nixops machine configuration:
+
+ {
+   deployment = {
+     keys.dolibarr-db-ini-password = {
+       text = "123dolibarr_pass";
+       user = "root";
+       group = "root";
+       permissions = "0440";
+     };
+   };
+
+   services.dolibarr = {
+     enable = true;
+     domain = "146.190.238.159";
+     preInstalled = true;
+     initialDbPasswordFile = "/run/keys/dolibarr-db-ini-password";
+   };
+ }
+
+Development
+
+   The services.dolibarr.preInstalled option is made possible by
+   automatically filling the install page form and then dumping the dolibarr
+   database to a file. The dolibarr nixosTests is made for that (and to test
+   if dolibarr still works obviously). To generate a new dump for a
+   preinstalled database, just run:
+
+ $ nix-build -A nixosTests.dolibarr
+ $ file result/result/dolibarr-db.sql
+
+   The dump file will be stored in ./result/dolibarr-db.sql
+
+See more
+
+     * Official Documentation
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Dolibarr_ERP_%26_CRM&oldid=12299"
+   Categories:
+     * Applications
+     * Server
+     * This page was last edited on 19 April 2024, at 20:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

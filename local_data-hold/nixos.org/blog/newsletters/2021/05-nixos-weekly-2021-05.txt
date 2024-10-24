@@ -1,0 +1,141 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #05 - NixOS Weekly
+
+   Published on Mon Sep 06 2021
+
+                               #05 - NixOS Weekly
+
+                                      News
+
+Announcements
+
+     * Makes
+
+       A DevSecOps framework powered by Nix and the NixOS module system. Our
+       goal is to help people setup a powerful CI/CD system in just a few
+       steps, in any provider, while lowering the barrier to entry for the
+       community.
+
+     * Mobile NixOS: July 2021 round-up
+
+     * Nix 🖤 macOS: June/July 2021 update
+
+       The Ongoing effort at bumping LLVM and macOS SDK.
+
+Tutorials & Resources
+
+     * terraform-provider-hydra
+
+       A Terraform provider for declaratively managing Hydra projects and
+       jobsets, Determinate Systems’ first open source release.
+
+     * Modded Minecraft Servers
+
+       A NixOS module to help run modded minecraft servers, as a Nix flake,
+       as well as a simple rsync wrapper script to help manage remote state
+       of such a server.
+
+     * stdenv.lib has been removed from Nixpkgs
+
+     * Unbreakable Builds On Container Schedulers Without Containers
+
+     * Cross compilation tutorial
+
+     * repl.it: Dynamic version for Nix derivations
+
+     * NixOS on the Framework
+
+     * Container assignment
+
+       University lecture + assignment + tutorial on how to build a shell for
+       the nix build sandbox with automated tests suite
+
+     * Gitpod has shipped a template
+
+       Configured for Nix, it gives you pre-built, ephemeral reproducible
+       development environments in the cloud.
+
+     * Paranoid NixOS Setup
+
+     * NixOS: build your system on Github actions!
+
+     * New laptop - ThinkPad P14s
+
+     * Bevy: getting started on NixOS
+
+     * Nix Citizen
+
+       Experimental attempt of packaging a demanding and somewhat complex (in
+       terms of wine setup) wine application by dynamically creating a wine
+       prefix from the nix store path of a generated wrapper script.
+
+     * Solving the y2038 Problem with NixOS and XFS
+
+       Or how to teach your initrd to add features to a filesystem on bootup.
+
+     * microvm.nix
+
+       A Nix Flake to build NixOS and run it on one of several
+       KVM-Hypervisors (cloud-hypervisor, qemu, firecracker, kvmtool,
+       crosvm).
+
+     * Inspecting coredumps like it’s 2021
+
+Jobs
+
+     * Seeking a Nix contractor
+
+     * Senior SRE position @ Serokell
+
+     * Two software engineer positions (remote) @ RJG
+
+     * Hiring Nix developers @ Tweag
+
+     * Nix Engineers @ Mercury Bank
+
+     * Build and Release Engineer @ The D. E. Shaw Group
+
+                           Contribute to NixOS Weekly
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

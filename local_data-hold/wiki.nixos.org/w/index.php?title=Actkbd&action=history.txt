@@ -1,0 +1,131 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Actkbd: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:4420:44, 19 April 2024‎ Klinger talk contribs‎ m
+       3,995 bytes −20‎ No edit summary Tag: Manual revert
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:1505:15, 20 September 2021‎ imported>Nix‎ m 4,015
+       bytes +20‎ add Input category
+
+    6 May 2018
+
+     * curprev [ ] [ ] 20:5120:51, 6 May 2018‎ imported>Samueldr‎ m 3,995
+       bytes −1‎ removes whitespace
+     * curprev [ ] [ ] 19:3719:37, 6 May 2018‎ imported>Samueldr‎ m 3,996
+       bytes +139‎ Adds an additional command to list input devices
+     * curprev [ ] [ ] 18:3518:35, 6 May 2018‎ imported>Samueldr‎ m 3,857
+       bytes +129‎ No edit summary
+     * curprev [ ] [ ] 18:3118:31, 6 May 2018‎ imported>Samueldr‎ m 3,728
+       bytes +1,315‎ Finishes up actkbd page
+     * curprev [ ] [ ] 18:1718:17, 6 May 2018‎ imported>Samueldr‎ 2,413 bytes
+       +2,413‎ WIP re-works sections
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Actkbd"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

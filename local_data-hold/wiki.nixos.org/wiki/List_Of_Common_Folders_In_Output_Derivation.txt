@@ -1,0 +1,200 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Goal of this page
+     * 2 How to add a new entry
+     * 3 Generic Nix-related folders
+          * 3.1 Folder $out/bin
+     * 4 For some specific language
+          * 4.1 Python
+     * 5 Specific to Kernel development
+   [ ] Toggle the table of contents
+
+                  List Of Common Folders In Output Derivation
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Goal of this page
+
+   IMPORTANT: this page is under development, and was created to support this
+   thread.
+
+   When creating a package, one need to copy stuff in various subfolders in
+   the $out directory. The most useful subfolder is certainly $out/bin in
+   which all executable must stay. However, there is many more such folders:
+   $out/share, $out/lib... and some folders are also quite specific to some
+   programs (python, emacs, ...).
+
+   This page is an attempt to give a (a non-exhaustive) list of these
+   "special" folders: they could be here either because they receive a
+   special treatment by nix or by any famous program, or because the name is
+   a well used convention.
+
+How to add a new entry
+
+   To add a new entry, you can start by copy pasting an existing entry.
+   Ideally, each folder in this page would come with
+
+     * a very short description that says who consider this folder as special
+       (nix, python, or just a convention), what kind of people can be
+       interested by that folder (everybody, kernel developpers, python
+       developpers...), how popular this folder is among these users (let's
+       say 3 is "much nix packager will need to write into that folder at
+       some point", 2 is "quite useful, but only if you create special
+       derivations, like graphical programs, python...", 1 is "used in very
+       specialized application", 0 is "very rare and specialized") and if we
+       usually expect the user to directly write manually into that folder or
+       if it will be done automatically by some helpers.
+     * a description of why it is useful
+     * an example of a file that could be put here (for instance, one can put
+       a library in $out/lib/mylib.so)
+     * a description of the special treatment they receive by nix or by the
+       software, and if possible a link to the code that is doing this
+       treatment. The treatment could be to be linked in some /run/ folders,
+       if the files are read recursively or not (for example can I put an
+       executable in $out/bin/myprogram/myexec), and if the files are
+       expected to live in $out/subfolder directly or in some sub-subfolders
+       like $out/subfolder/myprogram (or if it does not matter)...
+     * typical way to populate that folder (copy or helpers LIKE makeWrapper,
+       makeDesktopItem... Put most common first.)
+     * a simple example or a link to a (if possible simple) derivation in
+       nixpkgs that uses this folder.
+
+   In order to keep the list ordered, we try to put the group these folder in
+   different sections. If you add a folder, try to put it in a meaningful
+   section, and put the most important ones first. If you describe a folder
+   and its children, like $out/share and $out/share/applications, put the two
+   next to each other.
+
+Generic Nix-related folders
+
+  Folder $out/bin
+
+     * Name of the folder: $out/bin
+     * Handled by: nix, Concerning: everybody, Popularity: 3, How to
+       populate: manually (often) or via helpers (often)
+     * Description: It contains all the executables of a given software that
+       will be included in the PATH. Executables are put directly at the root
+       of the $out/bin folder.
+     * Example of a filename: $out/bin/mysoftware where mysoftware is usually
+       a script (bash...) or a binary.
+     * Treatment: Nix will add the $out/bin folder of the installed packaged
+       in the PATH variable environment. TODO: check Nix is not doing
+       anything else, and link to code.
+     * How to populate:
+          * Manually: after a build succeed, you can usually just copy the
+            executables via cp yourbinary $out/yourbinary (or using the
+            install -Dm755 -t $out/bin yourbinary program; if you use the cp
+            version, just ensure the program is executable. Nix should
+            automatically setup the permission propertly for read and write
+            part.). Note that if you choose to follow the more standard
+            configure/make install scheme, then the configure file will be
+            run with --prefix=$out by default. You can read how to change the
+            default flags in configure and Makefile here.
+          * writeShellScriptBin "my-file" echo 'my bash code'; to create
+            quickly a whole derivation with a simple bash script. See more in
+            the manual, and see variants/source/examples here (you have for
+            example writeCBin if you want to compile a C code).
+          * wrapProgram $out/bin/MYPROGRAM --set FOOBAR baz or makeWrapperto
+            wrap a given binary in order to add some environment variables.
+            See more here and in the source code.
+          * symlinkJoin { name = "myexample"; paths = [ pkgs.hello pkgs.stack
+            ];} will merge both derivations pkgs.hello and pkgs.stack into a
+            single derivation using symlinks (practical to combine it with
+            writeShellScriptBin in order to quickly add a script to an
+            existing derivation). See more in the manual or longer
+            description and examples in the source.
+          * Usual bash commands, like
+
+ cat > $out/yourcode <<EOF
+ your code
+ EOF
+
+            can be useful to add a script to an existing derivation.
+     * Example of use: To create a simple derivation with a bash script in
+       $out/myprogram:
+
+ { pkgs ? import <nixpkgs> {} }:
+ pkgs.writeShellScriptBin "myprogram" ''
+   echo "Hello world"
+ ''
+
+       To see example of use with install, see for instance the qcad
+       derivation.
+
+For some specific language
+
+  Python
+
+Specific to Kernel development
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=List_Of_Common_Folders_In_Output_Derivation&oldid=8645"
+     * This page was last edited on 4 April 2021, at 19:17.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,133 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration Examples
+     * 2 Adding Additional Functionality
+   [ ] Toggle the table of contents
+
+                                     Blocky
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 16:39, 12 September 2024 by Pascal (talk | contribs)
+   (Update to current blocky config format)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Blocky is a DNS proxy and ad-blocker for the local network written in Go.
+   It provides network wide adblocking similar to Pi-hole while offering
+   additional features (and it's in nixpkgs).
+
+Configuration Examples
+
+ services.blocky = {
+     enable = true;
+     settings = {
+       ports.dns = 53; # Port for incoming DNS Queries.
+       upstreams.groups.default = [
+         "https://one.one.one.one/dns-query" # Using Cloudflare's DNS over HTTPS server for resolving queries.
+       ];
+       # For initially solving DoH/DoT Requests when no system Resolver is available.
+       bootstrapDns = {
+         upstream = "https://one.one.one.one/dns-query";
+         ips = [ "1.1.1.1" "1.0.0.1" ];
+       };
+       #Enable Blocking of certain domains.
+       blocking = {
+         denylists = {
+           #Adblocking
+           ads = ["https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"];
+           #Another filter for blocking adult sites
+           adult = ["https://blocklistproject.github.io/Lists/porn.txt"];
+           #You can add additional categories
+         };
+         #Configure what block categories are used
+         clientGroupsBlock = {
+           default = [ "ads" ];
+           kids-ipad = ["ads" "adult"];
+         };
+       };
+     };
+   };
+
+Adding Additional Functionality
+
+   To add a cache of DNS Requests and Prefetching add:
+
+ caching = {
+   minTime = "5m";
+   maxTime = "30m"
+   prefetching = true;
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Blocky&oldid=17374"
+   Categories:
+     * Server
+     * Cookbook
+     * This page was last edited on 12 September 2024, at 16:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

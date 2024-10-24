@@ -1,0 +1,127 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Handling of power keys
+          * 1.1 Don’t shutdown on power button press
+          * 1.2 Ignore hardware keys when using systemd-inhibit
+   [ ] Toggle the table of contents
+
+                                 Systemd/logind
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Translate this page
+   ← Back to systemd
+
+   logind is systemd’s login manager. Its main manual page is
+   systemd-logind.service(8). Its configuration options are described in
+   logind.conf(5).
+
+Handling of power keys
+
+   logind handles power and standby hardware switches. The Arch wiki has a
+   good overview of which ACPI events are handled.
+
+  Don’t shutdown on power button press
+
+   When you use a laptop, often you don’t want an accidental short press of
+   the power button to shut down your system. You can add the following
+   snippet to your logind config:
+
+ services.logind.extraConfig = ''
+     # don’t shutdown when power button is short-pressed
+     HandlePowerKey=ignore
+   '';
+
+   Long-pressing your power button (5 seconds or longer) to do a hard reset
+   is handled by your machine’s BIOS/EFI and thus still possible.
+
+  Ignore hardware keys when using systemd-inhibit
+
+   systemd-inhibit allows you to put a lock on e.g. shutdown or sleep that is
+   in place as long the given process is running. By default, the hardware
+   key actions configured in logind override such inhibits. Say you want your
+   laptop to stay awake when closing the lid in some circumstances, for
+   example if you want to listen to music. If you start your lock screen with
+   an inhibit on the lid switch systemd-inhibit --what=handle-lid-switch
+   lock-screen-tool logind still overrides that user decision. For it to
+   work, you need to tell logind to ignore the lid switch in your system
+   config:
+
+ services.logind.extraConfig = ''
+   # want to be able to listen to music while laptop closed
+   LidSwitchIgnoreInhibited=no
+ '';
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Systemd/logind/en&oldid=16447"
+   Categories:
+     * Applications
+     * Systemd
+     * This page was last edited on 7 August 2024, at 07:26.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

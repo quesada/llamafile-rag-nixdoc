@@ -1,0 +1,185 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Guide scope
+     * 2 Comparison to other resource page types
+   [ ] Toggle the table of contents
+
+                                 Category:Guide
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+   Guide is one of the five primary resource categories for the wiki.
+
+  Guide scope
+
+   Guide can mean many things. In our case, we look at guides as a sort of
+   reference work. To understand what pages might be considered guides, look
+   to these sources in particular:
+
+    1. Compendium - "... a concise collection of information pertaining to a
+       body of knowledge. A compendium may summarize a larger work."
+    2. Study guide - "Study guides can be broad based to facilitate learning
+       in a number of areas, or be resources that foster comprehension...
+       Some will summarize ... the important elements of the subject."
+    3. Guide to information sources - "... (or a bibliographic guide, a
+       literature guide, a guide to reference materials, a subject gateway,
+       etc.) is a kind of metabibliography. Ideally it is not just a listing
+       of bibliographies, reference works and other information sources, but
+       more like a textbook introducing users to the information sources in a
+       given field (in general)."
+
+  Comparison to other resource page types
+
+     * If information is more encyclopedic (with a similar scope and tone to
+       pages on Wikipedia), a page would be considered a pedia.
+     * If information is less encyclopedic and more similar to a compendium,
+       study guide, or a bibliographic guide, a page would be considered a
+       guide.
+     * If information is more about direct instruction to achieve a specific
+       task, a page would be considered a tutorial.
+     * If a page is more just a set of tips and tricks (less instructive than
+       a tutorial), it would be a cookbook.
+     * If a page is a detailed reference (like a man page or full software
+       manual), it would fit under references.
+
+Pages in category "Guide"
+
+   The following 25 pages are in this category, out of 25 total.
+
+  A
+
+     * Applications
+     * Applications/en
+     * Applications/ja
+     * Applications/ru
+
+  C
+
+     * Comparison of secret managing schemes
+
+  D
+
+     * Distributed build
+
+  E
+
+     * Editor Modes for Nix Files
+     * ESP-IDF
+
+  I
+
+     * Install NixOS on Liteserver
+
+  M
+
+     * MediaWiki
+
+  N
+
+     * NetBox
+     * Nix Language: Learning resources
+     * NixOS as a desktop
+     * NixOS Installation Guide
+     * Nixpkgs/Create and debug packages
+
+  P
+
+     * PhotoPrism
+
+  R
+
+     * Redmine
+     * Resources
+
+  S
+
+     * Security
+     * SoftMaker Office
+     * Support
+
+  T
+
+     * Teamviewer
+     * Tt-rss
+
+  U
+
+     * User Environment
+
+  Z
+
+     * ZFS
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Guide&oldid=12166"
+   Category:
+     * Resource
+     * This page was last edited on 18 April 2024, at 20:36.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

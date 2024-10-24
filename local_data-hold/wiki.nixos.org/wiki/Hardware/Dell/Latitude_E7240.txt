@@ -1,0 +1,139 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Booting
+     * 2 Fingerprint reader
+     * 3 Firmware updates
+     * 4 S.M.A.R.T. monitoring
+     * 5 Smartcard reader
+     * 6 External links
+     * 7 References
+   [ ] Toggle the table of contents
+
+                          Hardware/Dell/Latitude E7240
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to Hardware Hub
+
+Booting
+
+   If the UEFI partitioning scheme is used when installing NixOS, the device
+   might throw an invalid partition table error when powered on.
+
+   To resolve this issue, enter the UEFI settings menu by holding F2,
+   navigate to the General > Boot Sequence section, then change the Boot List
+   Option setting from Legacy to UEFI.
+
+Fingerprint reader
+
+   The device has a built-in fingerprint reader, the BCM5880 Secure
+   Applications Processor with fingerprint swipe sensor.^[1]
+
+   Broadcom has not provided Linux drivers for the fingerprint reader as of
+   this writing (2024 July 31).^[2]^[3]^[4]^[5]^[6]
+
+Firmware updates
+
+   The device supports firmware updates through fwupd.
+
+S.M.A.R.T. monitoring
+
+   Main article: smartmontools
+
+   The device supports S.M.A.R.T. monitoring, but it must be turned on in the
+   UEFI settings.
+
+Smartcard reader
+
+   The device has a built-in smartcard reader through BCM5880 Secure
+   Applications Processor with fingerprint swipe sensor.^[1]
+
+   The CCID package does not support this reader.^[7]
+
+External links
+
+     * Dell page for the laptop
+
+References
+
+    1. ↑ ^1.0 ^1.1 [https://linux-hardware.org/?id=usb:0a5c-5801
+    2. ↑
+       https://bugs.launchpad.net/ubuntu/+source/libfprint/+bug/602071?comments=all
+    3. ↑
+       https://askubuntu.com/questions/879175/broadcom-bcm5880-ubuntu-compatibility
+    4. ↑ https://ubuntuforums.org/showthread.php?t=2274752
+    5. ↑
+       https://forum.level1techs.com/t/looking-for-help-with-linux-and-the-broadcom-bcm5880/111880
+    6. ↑
+       https://www.dell.com/community/en/conversations/latitude/fingerprint-driver-for-gnulinux/647f882ff4ccf8a8de7888c6
+    7. ↑ https://ccid.apdu.fr/ccid/section.html#696
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/Dell/Latitude_E7240&oldid=16106"
+     * This page was last edited on 1 August 2024, at 02:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,118 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Build SD-card images based on u-boot specific defconfig
+       1 comment
+   [ ] Toggle the table of contents
+
+                         Talk:NixOS on ARM/Installation
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   < Talk:NixOS on ARM
+   Latest comment: 13 September by Ppenguin in topic Build SD-card images
+   based on u-boot specific defconfig
+
+Build SD-card images based on u-boot specific defconfig
+
+   Latest comment: 13 September1 comment1 person in discussion
+
+   While trying to build an SD image for a `BananaPi-M2-Berry` I got almost
+   immediately stuck, because [this
+   article](https://wiki.nixos.org/wiki/NixOS_on_ARM/Banana_Pi) just starts
+   with how to build `u-boot` out of the blue, without providing any context
+   how this would relate to any `img` one might need. The "next step" refers
+   [here](https://wiki.nixos.org/wiki/NixOS_on_ARM#NixOS_installation_.26_configuration),
+   which essentially tells me that if I'm on a standard `aarch64` device I
+   can download an image, if not ... _<looks for banana pi, finds link and
+   clicks it>_ ... and we're back at the `u-boot` page.
+
+   It would be cool if we'd have a brief explanation how we can actually make
+   a booting SD card image based on `u-boot`. I'm starting to understand (?)
+   that the way forward might be something that overrides a
+   `pkgs.ubootSomething.override { defconfig = "bananapi_m2_berry_defconfig";
+   }` and then somehow use `populateFirmwareCommands` to copy the outputs of
+   that derivation to some intermediate `firmware/` directory???
+
+   Then there's the question what to do about `.dts` files? The one that
+   seems to be necessary in this case (`sun8i-v40-bananapi-m2-berry.dtb`) is
+   actually available within the rource of `u-boot`
+   (`./arch/arm/dts/sun8i-v40-bananapi-m2-berry.dtb`), so we can/should copy
+   it as well with `populateFirmwareCommands`? How? Where? (And looking at
+   the `armbian` image for this device, I noticed there is no separate
+   `FIRMWARE` partition. How does that relate to this?)
+
+   Does anyone have an idea how this is supposed to work? I guess the nice
+   thing is that if some actual context would be available, we would have all
+   `u-boot` supported systems instantly covered with an actual actionable
+   recipe? Ppenguin (talk) 13:57, 13 September 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:NixOS_on_ARM/Installation&oldid=17392"
+     * This page was last edited on 13 September 2024, at 13:57.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

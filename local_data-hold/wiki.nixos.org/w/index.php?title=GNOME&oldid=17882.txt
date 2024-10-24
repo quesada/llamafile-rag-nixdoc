@@ -1,0 +1,461 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Excluding GNOME Applications
+     * 2 Configuration
+          * 2.1 Managing extensions
+          * 2.2 dconf settings
+          * 2.3 Dark mode
+     * 3 Tips and tricks
+          * 3.1 To run GNOME programs outside of GNOME
+          * 3.2 Systray Icons
+          * 3.3 To run old applications
+          * 3.4 Dynamic triple buffering
+          * 3.5 Profiling (with sysprof)
+          * 3.6 Automatic screen rotation
+     * 4 Troubleshoots
+          * 4.1 Change user's profile picture
+               * 4.1.1 Change Profile Photo for Login and Lockscreen -
+                 Declarative
+          * 4.2 Automatic login
+     * 5 See also
+   [ ] Toggle the table of contents
+
+                                     GNOME
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 05:20, 17 October 2024 by Carschandler (talk | contribs)
+   (adwaita-icon-theme has moved to top-level)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   GNOME (/(ɡ)noʊm/) is a desktop environment known for its focus on being
+   simple, intuitive, and easy to use. It is made by The GNOME Project and is
+   composed entirely of free and open-source software. Its Mutter compositor
+   supports both Wayland and X server, and the GNOME Shell user interface is
+   customizable by extensions.
+
+   This article is an extension of the documentation in the NixOS manual.
+
+   GNOME is available as a module and can be enabled with
+   services.xserver.desktopManager.
+
+Installation
+
+   To use GNOME, add this to your configuration.nix:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   services.xserver.enable = true;
+   services.xserver.displayManager.gdm.enable = true;
+   services.xserver.desktopManager.gnome.enable = true;
+ }
+
+  Excluding GNOME Applications
+
+   To exclude certain applications that are installed by default with GNOME
+   edit configuration.nix as follows:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   environment.gnome.excludePackages = with pkgs; [
+     gnome-tour
+     gnome-connections
+     epiphany # web browser
+     gnome.geary # email reader. Up to 24.05. Starting from 24.11 the package name is just geary.
+     evince # document viewer
+   ];
+ }
+
+Configuration
+
+  Managing extensions
+
+   GNOME extensions are managed and configured by the program "Extensions"
+   that comes with GNOME. Some of them can be installed with Nix, however
+   they aren't enabled by default. To enable them the "Extensions" program
+   can be used.
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   environment.systemPackages = with pkgs.gnomeExtensions; [
+     blur-my-shell
+     pop-shell
+     # ...
+   ];
+ }
+
+   Installed extensions can be enabled and configured in Extension app that
+   comes preinstalled with GNOME. If you want to do that declaratively in
+   your configuration, you can use Home Manager dconf module by adding
+   following lines.
+
+    
+
+ ~/.config/home-manager/home.nix
+
+ {
+   dconf = {
+     enable = true;
+     settings = {
+       "org/gnome/shell" = {
+         disable-user-extensions = false; # enables user extensions
+         enabled-extensions = [
+           # Put UUIDs of extensions that you want to enable here.
+           # If the extension you want to enable is packaged in nixpkgs,
+           # you can easily get its UUID by accessing its extensionUuid
+           # field (look at the following example).
+           pkgs.gnomeExtensions.gsconnect.extensionUuid
+          
+           # Alternatively, you can manually pass UUID as a string. 
+           "blur-my-shell@aunetx"
+           # ...
+         ];
+       };
+
+       # Configure individual extensions
+       "org/gnome/shell/extensions/blur-my-shell" = {
+         brightness = 0.75;
+         noise-amount = 0;
+       };
+     };
+   };
+ }
+
+  dconf settings
+
+   Most of the GNOME settings are stored in dconf database. Settings are
+   stored as keys placed in folders.
+
+   To learn about settings that can be configured with dconf either look into
+   dconf-editor program (provided by gnome.dconf-editor package) or type
+   dconf watch / in the terminal and change settings from the GUI and see
+   which options are responsible for that component/element.
+
+   These settings can be changed by NixOS via programs.dconf module or by
+   Home Manager via dconf module. To so in Home Manager, you need to change
+   dconf.settings attribute set. This attribute set contains absolute folder
+   paths (without leading slash) as attributes' names which value is another
+   attribute set with keys (settings).
+
+   For example, to change the value of clock-show-weekday key that is located
+   in /org/gnome/desktop/interface, you need to the following:
+
+    
+
+ ~/.config/home-manager/home.nix
+
+ {
+   dconf.settings = {
+     enable = true;
+
+     # You need quotes to escape '/'
+     "org/gnome/desktop/interface" = {
+       clock-show-weekday = true;
+     };
+   };
+ }
+
+   Same can be achieved by using system configuration.
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   programs.dconf = {
+     enable = true;
+     profiles.user.databases = [
+       {
+         lockAll = true; # prevents overriding
+         settings = {
+           "org/gnome/desktop/interface" = {
+             clock-show-weekday = true;
+           };
+         };
+       }
+     ];
+   };
+ }
+
+   Note: Since dconf have more data types than Nix language (for example,
+   tuples), in some cases you'll need to convert Nix value to a GVariant
+   value. You can achieve that by using function defined in lib.gvariant,
+   they're documented here.
+
+  Dark mode
+
+   Change default color theme for all GTK4 applications to dark using Home
+   Manager.
+
+    
+
+ ~/.config/home-manager/home.nix
+
+ {
+   dconf = {
+     enable = true;
+     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+   };
+ }
+
+Tips and tricks
+
+  To run GNOME programs outside of GNOME
+
+   GNOME platform-based applications are largely self-contained, but they
+   still depend, for one reason or another, on some global configuration. The
+   gnome.nix module sets all the necessary options for you but if you are
+   running customized set-up, you might need to replicate that yourself.
+
+   For instance, if you see the following error:
+
+ dconf-WARNING **: failed to commit changes to dconf: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name ca.desrt.dconf was not provided by any .service files
+
+   you should enable dconf module:
+
+ {
+   programs.dconf.enable = true;
+ }
+
+   Many applications rely heavily on having an icon theme available, GNOME’s
+   Adwaita is a good choice but most recent icon themes should work as well.
+
+ {
+   environment.systemPackages = [ pkgs.adwaita-icon-theme ];
+ }
+
+  Systray Icons
+
+   To get systray icons, install the related GNOME shell extension
+
+ {
+   environment.systemPackages = [ pkgs.gnomeExtensions.appindicator ];
+ }
+
+   And ensure gnome-settings-daemon udev rules are enabled:
+
+ {
+   services.udev.packages = [ pkgs.gnome.gnome-settings-daemon ];
+ }
+
+  To run old applications
+
+   Some old applications use GConf service to store configuration. This has
+   been deprecated for many years but some applications were abandoned before
+   they managed to upgrade to a newer dconf system. If you are running such
+   application and getting an error like:
+
+ GLib.GException: Failed to contact configuration server; the most common cause is a missing or misconfigured D-Bus session bus daemon. See http://projects.gnome.org/gconf/ for information
+
+   you need to add gnome2.GConf to the list of dbus packages in your
+   configuration.nix:
+
+ {
+   services.dbus.packages = with pkgs; [ gnome2.GConf ];
+ }
+
+   After applying the update restart your desktop session to refresh the
+   user-specific dbus session.
+
+  Dynamic triple buffering
+
+   Warning: Dynamic triple buffering is a still developing feature that is
+   not merged into GNOME's mutter. Some bugs and unexpected behavior can
+   occur. Use at your own risk!
+
+   Big merge request against Mutter improves the performance of the window
+   manager by a lot (and is already used by Ubuntu). Not merged into nixpkgs
+   due to philosophy of nixpkgs, but users are free to add this overlay to
+   get it too.
+
+   If you wish to try this patch for yourself, add the following to your
+   NixOS configuration:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   nixpkgs.overlays = [
+     # GNOME 46: triple-buffering-v4-46
+     (final: prev: {
+       gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
+         mutter = gnomePrev.mutter.overrideAttrs (old: {
+           src = pkgs.fetchFromGitLab  {
+             domain = "gitlab.gnome.org";
+             owner = "vanvugt";
+             repo = "mutter";
+             rev = "triple-buffering-v4-46";
+             hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
+           };
+         });
+       });
+     })
+   ];
+ }
+
+   You might need to disable aliases to make it work:
+
+   nixpkgs.config.allowAliases = false;
+
+   NOTE - the "allowAliases" set to false has been known to break stylix (if
+   you use it).
+
+  Profiling (with sysprof)
+
+   Install sysprof as a system package (it won't work properly if installed
+   against users). Then enable the associated service with
+
+   services.sysprof.enable = true;
+
+  Automatic screen rotation
+
+   hardware.sensor.iio.enable = true;
+
+Troubleshoots
+
+  Change user's profile picture
+
+   Currently there is no way to change the user's profile picture using Gnome
+   Control Center (see this issue) and currently there is no plan to support
+   it officially in NixOS. However, you can modify it by copying the profile
+   picture that you want to the path /home/$USER/.face as a workaround, i.e.
+
+ $ mv /path/to/image.jpg ~/.face
+
+    Change Profile Photo for Login and Lockscreen - Declarative
+
+   This is admittedly a hack way of doing it, however does work.
+
+   Considerations:
+
+     * image must be a PNG
+     * permissions matter
+     * this is absolutely a workaround
+     * assumes you are already using a .face file
+     * you will need to update the paths and username as applicable to your
+       system (CAPITALIZED in the code)
+     * you cannot change the photo using Gnome Control Center
+
+   You can place this in your configuration.nix:
+
+ system.activationScripts.script.text = ''
+     mkdir -p /var/lib/AccountsService/{icons,users}
+     cp /home/YOUR-USER-NAME/PATH-TO/.face /var/lib/AccountsService/icons/YOUR-USER-NAME
+     echo -e "[User]\nIcon=/var/lib/AccountsService/icons/YOUR-USER-NAME\n" > /var/lib/AccountsService/users/YOUR-USER-NAME
+
+     chown root:root /var/lib/AccountsService/users/YOUR-USER-NAME
+     chmod 0600 /var/lib/AccountsService/users/YOUR-USER-NAME
+
+     chown root:root /var/lib/AccountsService/icons/YOUR-USER-NAME
+     chmod 0444 /var/lib/AccountsService/icons/YOUR-USER-NAME
+ '';
+
+  Automatic login
+
+   If you have enabled auto login (with GNOME) with something like
+
+ $ grep autoLogin /etc/nixos/configuration.nix
+
+ services.xserver.displayManager.autoLogin.enable = true;
+ services.xserver.displayManager.autoLogin.user = "account";
+
+   than add the following (as a workaround for a current (2023)^[1] problem)
+
+ # nano /etc/nixos/configuration.nix
+
+ {
+   systemd.services."getty@tty1".enable = false;
+   systemd.services."autovt@tty1".enable = false;
+ }
+
+See also
+
+     * GNOME/Calendar
+    1. ↑
+       https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=GNOME&oldid=17882"
+   Categories:
+     * Desktop environment
+     * Applications
+     * NixOS Manual
+     * GNOME
+     * This page was last edited on 17 October 2024, at 05:20.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,111 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              NixOS 22.05 released
+
+   Published on Mon May 30 2022
+
+                              NixOS 22.05 released
+
+   22.05 Quokka logo
+
+   Hey everyone, I’m Janne Heß, the release manager for 22.05. As promised,
+   the latest stable release is here: NixOS 22.05 “Quokka”.
+
+     * Release manual
+          * Highlights
+          * New Services
+          * Backward Incompatibilities
+          * Other Notable Changes
+     * Upgrade Instructions
+     * Image downloads
+
+   The 22.05 release was possible due to the efforts of 1611 contributors in
+   46727 commits. We would especially like to thank our top 10 contributors:
+   Fabian Affolter, Sandro Jäckel, Martin Weinelt, Bobby Rong, Mario Rodas,
+   Jonathan Ringer, Jan Tojnar, Jörg Thalheim, sternenseemann, and Robert
+   Schütz.
+
+   NixOS is already known as the most up to date distribution and is the
+   distribution with the most packages. This release saw 9345 new packages
+   and 10666 updated packages. Removal of unmaintained packages is also
+   important to keep the package set working and secure. This release removed
+   5874 packages that were available in 21.11. nixpkgs also includes a lot of
+   modules that make NixOS what it is. This release brought 89 new modules
+   and removed 27. In that process, the contributors added 1304 options and
+   removed 359.
+
+  Nix 2.8
+
+   This release brings nix 2.8 as the default nix package. This brings users
+   a lot of fixes, general improvements and increased performance. The main
+   feature that was awaited for a long time is the introduction of
+   experimental features, namely the flakes experimental feature. Users still
+   have to opt into the feature manually (as well as the nix-command feature
+   that was enabled by default in previous nix versions).
+
+  Graphical installer
+
+   Screenshot of the NixOS graphical installerImproving experience for new
+   users is something that the NixOS project has been working on for a long
+   time. After all, NixOS is a very different compared to traditional
+   distributions. To make it easier to get started with a new NixOS system, a
+   graphical installer based on Calamares is now provided. This installer
+   starts by default when launching the GNOME or Plasma ISO and allows for
+   one-time configuration of a new system.
+
+  Special Thanks
+
+   Thanks to Jörg Thalheim who helped with the changelog as the release
+   editor. Also to Jon Ringer for guiding the release process since NixOS
+   20.09. Vladimír Čunát and Martin Weinelt for their continued efforts
+   managing and stabilizing staging. More thanks go out to Martin Weinelt for
+   helping me with a lot of questions about the process and some subsystems,
+   your help was greatly appreciated. Also thanks a lot to Graham Christensen
+   for organizing with Equinix Metal to ensure we had enough compute
+   resources and the entire infrastructure team. Additional thanks go out to
+   Rick van Schijndel for going through all the pain of marking packages that
+   do not build anymore as broken. I hope we can make the process more
+   straightforward in future releases.
+
+  Reflections and Closing
+
+   This release brought a lot of features and improvements I’ve been waiting
+   to see in a release channel. It was a great pleasure working with the
+   community and seeing incredible amounts of work being done by the entire
+   community.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

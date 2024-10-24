@@ -1,0 +1,113 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+#13 - NixOS 19.09 release, cache.nixos.org improvements, github actions for Nix,
+                               a number of talks
+
+   Published on Thu Oct 10 2019
+
+#13 - NixOS 19.09 release, cache.nixos.org improvements, github actions for Nix,
+                               a number of talks
+
+                                      News
+
+     * NixOS 19.09 released
+
+     * ociTools in NixOS
+
+       Katharina explains her recently merged Open Container Initiative
+       support in NixOS.
+
+     * Industrial-strength Deployments in Three Commands
+
+       Vaibhav demonstrates how NixOps works by implementing a small deploy
+       script from scratch.
+
+     * nix-emacs-ci
+
+       Emacs installations for continuous integration
+
+     * Setting up a Custom Nix Channel
+
+     * How to put your /nix directory on a separate device
+
+     * Strange Loop 2019: “Functional DevOps in a Dysfunctional World” by
+       Vaibhav Sagar
+
+     * NixOS binary cache improvements
+
+     * Mobile NixOS Development Log (2)
+
+     * All Systems Go!: “Purely Functional Package Management” by Franz Pletz
+
+     * Post-mortem on recent Cachix downtime
+
+       On 6th of September, Cachix experienced 3 hours of downtime.
+
+       We’d like to let you know exactly what happened and what measures we
+       have taken to prevent such an event from happening in the future.
+
+     * Cachix & Nix Install actions for GitHub
+
+       Start using GitHub Actions with Nix&Cachix with a simple snippet of
+       YAML.
+
+     * Hercules CI Agent 0.5.0 with Terraform support and simpler
+       configuration
+
+       Hercules CI Agent can now be deployed with terraform with only a few
+       steps.
+
+     * RFC 0052 FCP, Away from static IDs
+
+       The Final Comment Period for RFC 0052 has started and, barring any
+       blocking issues, will be merged after 2019-10-18. Your opinions,
+       comments, and approvals are welcome!
+
+     * Tekton Pipelines - the Nix way
+
+       Building Docker images from Nix expressions in a Kubernetes cluster
+       with the Tekton Pipeline project.
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,355 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation target
+     * 2 Installation method
+     * 3 Making the installation media
+          * 3.1 "Burning" to USB drive
+               * 3.1.1 From Linux
+               * 3.1.2 From macOS
+               * 3.1.3 From Windows
+          * 3.2 Alternative installation media instructions
+     * 4 Booting the installation media
+          * 4.1 Legacy bios boot
+          * 4.2 UEFI boot
+     * 5 Connecting to the internet
+          * 5.1 Wired
+     * 6 Tethered (Internet Sharing)
+          * 6.1 Wireless
+     * 7 Partitioning
+          * 7.1 DOS
+          * 7.2 UEFI
+     * 8 Label partitions
+     * 9 Swap file
+     * 10 NixOS config
+     * 11 NixOS installation
+     * 12 Additional notes for specific hardware
+   [ ] Toggle the table of contents
+
+                            NixOS Installation Guide
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 16:00, 25 June 2024 by Rrdpad (talk | contribs) (Add blocks
+   for console commands)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   This guide is a companion guide for the official manual. It describes
+   installation of NixOS as a complete operating system. For installation of
+   Nix within an existing operating system, see Nix Installation Guide.
+
+   In addition to describing the steps from the official manual, it provides
+   known good instructions for common use cases. When there is a discrepancy
+   between the manual and this guide, the supported case is the one described
+   in the manual.
+
+   Use this guide as a step-by-step guide, choices will be presented, use
+   only the selected section, and continue at the section it tells you to at
+   the end.
+
+Installation target
+
+   NixOS can be installed on an increasing variety of hardware:
+
+     * regular (Intel or AMD) desktop computers, laptops or physically
+       accessible servers, covered on this page
+     * SBCs (like the Raspberry Pis) and other ARM boards, see NixOS on ARM
+     * cloud and remote servers, see NixOS friendly hosters
+
+Installation method
+
+   NixOS, as with most Linux-based operating systems, can be installed in
+   different ways.
+
+    1. The classic way, booting from the installation media. (Described
+       below.)
+    2. Booting the media from an existing Linux installation
+
+Making the installation media
+
+   Since NixOS 14.11 the installer ISO is hybrid. This means it is bootable
+   on both CD and USB drives. It also boots on EFI systems, like most modern
+   motherboards and apple systems. The following instructions will assume the
+   standard way of copying the image to a USB drive. When using a CD or DVD,
+   the usual methods to burn to disk should work with the iso.
+
+  "Burning" to USB drive
+
+   First, download a NixOS ISO image or create a custom ISO. Then plug in a
+   USB stick large enough to accommodate the image. Then follow the platform
+   instructions:
+
+    From Linux
+
+    1. Find the right device with lsblk or fdisk -l. Replace /dev/sdX with
+       the proper device in the following steps.
+    2. Copy to device: cp nixos-xxx.iso /dev/sdX
+   Note: do not use /dev/sdX1 or partitions of the disk, use the whole disk
+   /dev/sdX.
+
+   Writing the disk image with dd if=nixos.iso of=/dev/sdX bs=4M
+   status=progress conv=fdatasync also works.
+
+    From macOS
+
+    1. Find the right device with diskutil list, let's say diskX.
+    2. Unmount with diskutil unmountDisk diskX.
+    3. Burn with: sudo dd if=path_to_nixos.iso of=/dev/diskX
+
+    Tip                                                                       
+    Using rdiskX instead of diskX can makes a large speed difference. You can 
+    check the write speed with iostat 2 in another terminal.                  
+
+    From Windows
+
+    1. Download USBwriter.
+    2. Start USBwriter.
+    3. Choose the downloaded ISO as 'Source'
+    4. Choose the USB drive as 'Target'
+    5. Click 'Write'
+    6. When USBwriter has finished writing, safely unplug the USB drive.
+
+  Alternative installation media instructions
+
+   The previous methods are the supported methods of making the USB
+   installation media.
+
+   Those methods are also documented, they can allow using the USB drive to
+   boot multiple distributions. This is not supported, your mileage may vary.
+
+     * Using Unetbootin
+     * Manual USB Creation
+     * multibootusb
+
+Booting the installation media
+
+    This article or section needs expansion.                                  
+    Reason: Troubleshooting steps, and details are lacking. (Discuss in       
+    Talk:NixOS Installation Guide#)                                           
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   Since the installation media is hybrid, it will boot both in legacy bios
+   mode and UEFI mode.
+
+   Whatever mode is used to boot the installation media, your motherboard or
+   computer's configuration may need to be changed to allow booting from a
+   Optical Disk Drive (for CD/DVD) or an external USB drive.
+
+  Legacy bios boot
+
+   This is the only boot possible on machines lacking EFI/UEFI.
+
+  UEFI boot
+
+   The EFI bootloader of the installation media is not signed and is not
+   using a signed shim to boot. This means that Secure Boot will need to be
+   disabled to boot.
+
+Connecting to the internet
+
+   The installation will definitely need a working internet connection. It is
+   possible to install without one, but the available set of packages is
+   limited.
+
+  Wired
+
+   For network interfaces supported by the kernel, DHCP resolution should
+   already have happened once the shell is available.
+
+Tethered (Internet Sharing)
+
+   If you can not connect to the internet via cable or wifi, you may use
+   smartphone's tethering capability to share internet. Depending on your
+   smartphones capabilities, only stock kernel drivers may be required which
+   can help providing a working network connection.
+
+  Wireless
+
+   Network Manager is installed on the graphical ISO, meaning that it is
+   possible to use nmtui on the command line to connect to a network.
+
+   Using the "Applications" tab at top left or the launcher bar at bottom,
+   choose a terminal application and from there launch nmtui. This will allow
+   you to 'activate' a (wireless) connection - your local SSIDs should be
+   visible in the list, else you can add a new connection. When the wireless
+   connection is active and you have tested it, it is likely the install app
+   which launched on startup has not detected the new connection. Close down
+   the install app, and reopen it from the launcher bar at the bottom of the
+   screen. This should then find the new connection and proceed.
+
+   On the minimal ISO, or if you are more familiar with wpa_supplicant then
+   you can also run wpa_passphrase ESSID | sudo tee /etc/wpa_supplicant.conf,
+   then enter your password and systemctl restart wpa_supplicant.
+
+Partitioning
+
+   To partition the persistent storage run sudo fdisk /dev/diskX and follow
+   instructions for DOS or (U)EFI. A very simple example setup is given here.
+
+  DOS
+
+     * o (dos disk label)
+     * n new
+     * p primary (4 primary in total)
+     * 1 (partition number [1/4])
+     * 2048 first sector (alignment for performance)
+     * +500M last sector (boot sector size)
+     * rm signature (Y), if ex. => warning of overwriting existing system,
+       could use wipefs
+     * n
+     * p
+     * 2
+     * default (fill up partition)
+     * default (fill up partition)
+     * w (write)
+
+  UEFI
+
+     * g (gpt disk label)
+     * n
+     * 1 (partition number [1/128])
+     * 2048 first sector
+     * +500M last sector (boot sector size)
+     * t
+     * 1 (EFI System)
+     * n
+     * 2
+     * default (fill up partition)
+     * default (fill up partition)
+     * w (write)
+
+Label partitions
+
+   This is useful for having multiple setups and makes partitions easier to
+   handle
+
+ $ lsblk
+ $ sudo mkfs.fat -F 32 /dev/sdX1
+ $ sudo fatlabel /dev/sdX1 NIXBOOT
+ $ sudo mkfs.ext4 /dev/sdX2 -L NIXROOT
+ $ sudo mount /dev/disk/by-label/NIXROOT /mnt
+ $ sudo mkdir -p /mnt/boot
+ $ sudo mount /dev/disk/by-label/NIXBOOT /mnt/boot
+
+Swap file
+
+ $ sudo dd if=/dev/zero of=/mnt/.swapfile bs=1024 count=2097152 (2GB size)
+ $ sudo chmod 600 /mnt/.swapfile
+ $ sudo mkswap /mnt/.swapfile
+ $ sudo swapon /mnt/.swapfile
+
+NixOS config
+
+ $ sudo nixos-generate-config --root /mnt
+ $ cd /mnt/etc/nixos/
+ $ sudo vim configuration.nix
+
+   Most essential changes:
+
+     * keyboard layout, ie services.xserver.xkb.layout
+     * users.users.user with adding entry initialPassword = "pw123";
+     * networking (wifi), see below for fix if it breaks
+     * boot.loader.grub.device = "/dev/sda"; #or "nodev" for efi only
+     * install editor to edit the configuration
+     * change hardware config to use labels
+
+   The self-documenting NixOS options can be searched with NixOS options
+   search.
+
+NixOS installation
+
+ $ cd /mnt
+ $ sudo nixos-install
+
+   after installation: Run passwd to change user password. if internet
+   broke/breaks, try one of the following:
+
+ $ nixos-rebuild switch --option substitute false # no downloads
+ $ nixos-rebuild switch --option binary-caches "" # no downloads
+
+     * wpa_supplicant flags to connect to wifi
+
+     ----------------------------------------------------------------------
+
+Additional notes for specific hardware
+
+   These are collected notes or links for specific hardware issues.
+
+     * Blog post how to install NixOS on a Dell 9560
+     * Brand servers may require extra kernel modules be included into initrd
+       (boot.initrd.extraKernelModules in configuration.nix) For example HP
+       Proliant needs "hpsa" module to see the disk drive.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Installation_Guide&oldid=13513"
+   Categories:
+     * Guide
+     * Deployment
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 25 June 2024, at 16:00.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,169 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                  Category:Nix
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Note: This category collects all the pages which are primarily about Nix
+   and the Nix Language on the wiki.
+
+Pages in category "Nix"
+
+   The following 44 pages are in this category, out of 44 total.
+
+  A
+
+     * Applications
+
+  B
+
+     * Blessed
+     * Build flags
+
+  C
+
+     * Caching nix shell build inputs
+     * Ca-derivations
+     * Channel branches
+     * Cleaning the nix store
+     * Cross Compiling
+
+  D
+
+     * Development environment with nix-shell
+     * Distributed build
+
+  F
+
+     * Flakes
+     * Flakes/en
+     * Flakes/ja
+     * Flakes/ru
+
+  H
+
+     * How to fetch Nixpkgs with an empty NIX PATH
+     * Hydra
+     * Hydra/de
+     * Hydra/en
+     * Hydra/ru
+
+  I
+
+     * Import From Derivation
+
+  M
+
+     * Mirroring repos
+
+  N
+
+     * Nix by example
+     * Nix command
+     * Nix Cookbook
+     * Nix ecosystem
+     * Nix ecosystem/en
+     * Nix ecosystem/fr
+     * Nix ecosystem/ja
+     * Nix ecosystem/ru
+     * Nix ecosystem/zh-cn
+     * Nix Hash
+     * Nix Installation Guide
+     * NixOS search
+     * Nix package manager
+     * Nixpkgs
+     * Nix-shell shebang
+
+  O
+
+     * Overview of the NixOS Linux distribution
+
+  P
+
+     * Puredata
+
+  S
+
+     * Security
+     * Stolen Syntax
+     * String-parsing in Nix
+
+  T
+
+     * Testing the Nix installer
+
+  U
+
+     * User Environment
+
+  V
+
+     * Valid Nix store path names
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Nix&oldid=9265"
+     * This page was last edited on 23 September 2021, at 01:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

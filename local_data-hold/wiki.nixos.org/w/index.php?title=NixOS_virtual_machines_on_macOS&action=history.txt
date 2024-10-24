@@ -1,0 +1,140 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+               NixOS virtual machines on macOS: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    21 August 2024
+
+     * curprev [ ] [ ] 20:4620:46, 21 August 2024‎ Thu talk contribs‎ 11,740
+       bytes +4‎ No edit summary
+     * curprev [ ] [ ] 20:4420:44, 21 August 2024‎ Thu talk contribs‎ 11,736
+       bytes −17‎ No edit summary
+     * curprev [ ] [ ] 20:4420:44, 21 August 2024‎ Thu talk contribs‎ 11,753
+       bytes +38‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 20:4120:41, 21 August 2024‎ Thu talk contribs‎ 11,715
+       bytes −350‎ No edit summary
+     * curprev [ ] [ ] 20:3720:37, 21 August 2024‎ Thu talk contribs‎ m
+       12,065 bytes 0‎ Thu moved page Nix-darwin to NixOS virtual machines on
+       macOS
+     * curprev [ ] [ ] 20:3120:31, 21 August 2024‎ Thu talk contribs‎ m
+       12,065 bytes +66‎ No edit summary
+     * curprev [ ] [ ] 20:2920:29, 21 August 2024‎ Thu talk contribs‎ m
+       11,999 bytes +46‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 20:2620:26, 21 August 2024‎ Thu talk contribs‎ 11,953
+       bytes +11,489‎ Document how to install Nix, nix-darwin, and direnv on
+       a macOS system Tag: Visual edit: Switched
+
+    20 August 2024
+
+     * curprev [ ] [ ] 16:5716:57, 20 August 2024‎ Unabomberlive talk
+       contribs‎ m 464 bytes 0‎ Syntax highlight fix Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 16:0216:02, 20 August 2024‎ Mic92 talk contribs‎ 464
+       bytes +33‎ →‎Getting started
+     * curprev [ ] [ ] 13:1813:18, 20 August 2024‎ Zimbatm talk contribs‎ 431
+       bytes +431‎ Add nix-darwin page Tag: Visual edit: Switched
+   [ Compare selected revisions ]
+   Retrieved from
+   "https://wiki.nixos.org/wiki/NixOS_virtual_machines_on_macOS"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

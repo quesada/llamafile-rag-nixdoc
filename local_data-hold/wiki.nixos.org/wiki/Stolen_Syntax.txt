@@ -1,0 +1,124 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Nix language
+     * 2 nix-build
+     * 3 The wider ecosystem
+     * 4 Module system
+   [ ] Toggle the table of contents
+
+                                 Stolen Syntax
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The Nix language allows any name to be used in an attribute set, but Nix,
+   some libraries, and the ecosystem in general assign special meaning to
+   some names that appear in attribute sets that consist of otherwise freely
+   named variables.
+
+   This page presents a cross-section of well known "keywords" used in
+   attribute sets in various components.
+
+   Since neither the runtime, not the language reserve these keywords, these
+   keywords are described stolen rather than reserved.
+
+Nix language
+
+     * outPath
+     * __functor
+     * __toString
+
+nix-build
+
+     * recurseForDerivations
+
+The wider ecosystem
+
+     * _type for nominal typing. Should contain a string. Pioneered by the
+       module system (?)
+     * ~type~ in principle this one is available for domain specific use!
+       That is, unless you want the attrset to double as a "derivation" in
+       the CLI.
+
+Module system
+
+     * _type
+     * config, options (etc) (switches away from shorthand syntax)
+     * _module option tree is omitted from the returned config and is
+       intended for module system specific use
+     * _key
+     * _class
+     * _file
+     * ...
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Stolen_Syntax&oldid=11582"
+   Category:
+     * Nix
+     * This page was last edited on 4 April 2024, at 23:50.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

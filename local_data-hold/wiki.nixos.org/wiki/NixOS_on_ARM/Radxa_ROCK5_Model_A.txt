@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Rock 5A
+          * 1.1 System configuration
+               * 1.1.1 @ryan4yin's flake
+   [ ] Toggle the table of contents
+
+                        NixOS on ARM/Radxa ROCK5 Model A
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   Rock 5 Model A
+   Manufacturer  Radxa                   
+   Architecture  AArch64                 
+   Bootloader    vendor's u-boot         
+   Startup order SPI NOR Flash, SD, NVMe 
+   Maintainer    ryan4yin                
+
+                                    Rock 5A
+
+   The Rock 5A is a Single-Board Computer with a Rockchip RK3588s SoC.
+
+System configuration
+
+   None of the basic components (Kernel, HW acceleration drivers) are
+   available from upstream NixOS.
+
+   Building a working system requires additional configuration.
+
+  @ryan4yin's flake
+
+   A minimal flake that makes NixOS running on Orange Pi 5:
+   https://github.com/ryan4yin/nixos-rk3588
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Radxa_ROCK5_Model_A&oldid=10903"
+     * This page was last edited on 29 August 2023, at 03:36.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

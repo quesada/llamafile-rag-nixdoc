@@ -1,0 +1,126 @@
+   Link: Index
+   Link: Previous
+   Link: Next
+
+                [Nix-dev] Stackage Support Will Be Discontinued
+
+   Peter Simons simons at nospf.cryp.to
+   Wed Jun 8 13:34:00 CEST 2016
+
+     * Previous message: [Nix-dev] NixOS Hackathon Augsburg, June 25./26.
+     * Next message: [Nix-dev] Stackage Support Will Be Discontinued
+     * Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
+
+     ----------------------------------------------------------------------
+
+ Fellow Haskell Hackers,
+
+ once the LTS 7.x package set comes out, I intend to make the following
+ changes in "master":
+
+  - All haskell.packages.lts.* package sets will disappear.
+
+  - haskellPackages will loosely follow the most recent LTS release,
+
+ where "loosely" means that we'll honor the mandated version bounds for
+ libraries but tend to ignore them for executables.
+
+ Nixpkgs has shipped every single LTS Haskell version ever released as
+ well as an up-to-date copy of the Stackage Nightly package set for the
+ last 9 months or so, and during that time we've gained insights that
+ suggest this practice is an ineffective use of our resources [1].
+
+ 1. It's pointless to distribute LTS Haskell version x after the release
+ of version x+1.
+
+ Stackage does not "maintain" any of its LTS releases. Rather, the
+ Stackage volunteers compile a list of package versions, test and verify
+ them to the best of their abilities, release that list, and then they
+ never touch it again. For example, there won't be any update to LTS
+ Haskell 5.4. That update comes in the form of a new package set called
+ LTS 5.5. So if LTS 5.4 happens to recommend a package that has a serious
+ problem, then that problem will remain there forever. So what is the
+ point of distributing LTS 5.4 after the release of 5.5? Apparently,
+ Stackage intends LTS 5.5 to *replace* the previous version, so isn't
+ that what we should do, too?
+
+ Furthermore, a major release like LTS Haskell 5.x receives no updates
+ either after LTS 6.x has comes out, so by the same logic there is no
+ point in distributing LTS 5.x after LTS 6.x has become available.
+ Contrary to what the name suggests, LTS versions have no guaranteed
+ lifetime or support cycle. Stackage does not offer any "long-term
+ support" in the sense distributions use the word. "Releases" are merely
+ names for tested snapshots of a project that essentially follows a
+ rolling release model.
+
+ 2. Following LTS strictly may deprive us of important security updates.
+
+ Whether a package update goes into a minor LTS release or not depends on
+ whether that update increments the first or second segment of its
+ version number. 6.1.1 -> 6.1.2 will make it, but 6.1.1 -> 6.2 won't.
+ That is a pretty good rule based on the assumption that all LTS
+ contributors follow it, which -- as you will have guessed -- is not the
+ case. The tool git-annex, for example, uses version numbers that have
+ only two levels: <api>.<date>. Due to that scheme, git-annex updates
+ aren't considered for minor LTS releases, which means that security
+ relevant fixes don't reach LTS users until the next major LTS release
+ [2].
+
+ 3. Stackage Nightly is not a stable package set.
+
+ Our main package set, haskellPackages, corresponds to Stackage Nightly.
+ We made that choice assuming that it would guarantee us a good mixture
+ of a stable user experience on one hand and an up-to-date packages on
+ the other. Recent experience has shown, however, that Stackage Nightly
+ *will* break some of its packages knowingly on the occasion: the Nightly
+ package set recently moved to GHC 8.0.1, but a handful of libraries and
+ applications blocked that (desirable) update. At that point one would
+ expect people to postpone the compiler update, but what happened instead
+ is that the troublemakers were simply removed from Stackage [3].
+
+ Now, that is a perfectly legitimate decision to make, it just had the
+ unfortunate side effect of breaking all those builds for users of
+ Nixpkgs in the process, so arguably following Stackage Nightly with our
+ main package set might be a bad idea.
+
+ 4. Stackage does not provide a stable users experience for Nixpkgs.
+
+ Stackage releases come out only after a complete test build of all
+ packages has succeeded. Unfortunately, those tests don't always catch
+ all issues we might run into, because we compile packages in a different
+ environment. Stackage builds on Travis-CI using 64-bit Ubuntu Linux with
+ static linking. Our builds run on all kinds of Linuxes and on Darwin, we
+ support 32 bit platforms, and we link everything with shared libraries
+ by default. This means that some of our builds fail even though they
+ succeed in Stackage [4]. Now, we usually report these issues to Stackage
+ and on some occasions they've made an effort to fix the issue, but on
+ other occasions their response was, essentially, "works for me". That
+ leaves us in an odd place, because we're nominally following Stackage
+ (and our users rely on getting exactly those builds that Stackage
+ promises), but at the same time we have no choice but to deviate from
+ Stackage because the builds they want us to do just don't work.
+
+ As such, it's a good idea to use Stackage as a *recommendation* for our
+ package set, but we cannot expect to be 100% compliant to Stackage and
+ provide a stable user experience at the same time.
+
+ Best regards,
+ Peter
+
+
+ [1] https://github.com/NixOS/nixpkgs/issues/14897
+ [2] https://github.com/fpco/stackage/issues/1465
+ [3]
+ https://github.com/fpco/stackage/commit/cb54d78615c0e154913007e9437ff30de6e13661
+ [4] https://github.com/fpco/stackage/issues/1453
+
+
+     ----------------------------------------------------------------------
+
+     * Previous message: [Nix-dev] NixOS Hackathon Augsburg, June 25./26.
+     * Next message: [Nix-dev] Stackage Support Will Be Discontinued
+     * Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
+
+     ----------------------------------------------------------------------
+
+   More information about the nix-dev mailing list

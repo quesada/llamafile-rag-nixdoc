@@ -1,0 +1,101 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Information for "SCION"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    SCION        
+   Default sort key                 SCION        
+   Page length (in bytes)           6,017        
+   Namespace ID                     0            
+   Page ID                          1478         
+   Page content language            en - English 
+   Page content model               wikitext     
+   Indexing by robots               Allowed      
+   Number of redirects to this page 0            
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                             MatthewCroughan (talk | contribs) 
+   Date of page creation                    12:23, 25 June 2024               
+   Latest editor                            MatthewCroughan (talk | contribs) 
+   Date of latest edit                      12:50, 3 July 2024                
+   Total number of edits                    6                                 
+   Total number of distinct authors         1                                 
+   Recent number of edits (within past 90   0                                 
+   days)                                    
+   Recent number of distinct authors        0                                 
+
+   Retrieved from "https://wiki.nixos.org/wiki/SCION"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

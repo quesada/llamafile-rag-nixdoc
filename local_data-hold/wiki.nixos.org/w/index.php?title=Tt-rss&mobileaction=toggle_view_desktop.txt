@@ -1,0 +1,133 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Install
+     * 2 Configuration
+          * 2.1 Disabling the admin user completely
+          * 2.2 Enabling TLS for nginx virtual host
+   [ ] Toggle the table of contents
+
+                                     Tt-rss
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Tiny Tiny RSS is a free and open source web-based news feed (RSS/Atom)
+   reader and aggregator.
+
+Install
+
+ services.tt-rss = {
+   enable = true;
+   # to configure a nginx virtual host directly:
+   virtualHost = "tt-rss.example.com";
+   selfUrlPath = "https://tt-rss.example.com";
+   # or for hosting on sub-path:
+   selfUrlPath = "https://example.com/tt-rss";
+ };
+
+Configuration
+
+   By default tt-rss creates an admin user with password password. After
+   logging in for the first time, do not forget to change it!
+
+  Disabling the admin user completely
+
+   After installing and creating a new user, you can disable the admin by
+   setting its access level to -2 [1].
+
+   Either manually by running:
+
+ sudo -u tt_rss nix-shell -p php \
+   --run 'php /var/lib/tt-rss/www/update.php --user-set-access-level "admin:-2"'
+
+   You can even automate this to ensure it is always set to -2 by e.g.
+   utilising a PreStart snippet:
+
+ systemd.services.tt-rss.preStart = lib.mkAfter ''
+   ${pkgs.php}/bin/php ${config.services.tt-rss.root}/www/update.php \
+     --user-set-access-level "admin:-2"
+ '';
+
+  Enabling TLS for nginx virtual host
+
+   Assuming you have ACME set-up for example.com:
+
+ services.nginx.virtualHosts."${config.services.tt-rss.virtualHost}" = {
+   forceSSL = true;
+   useACMEHost = "example.com"
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Tt-rss&oldid=13521"
+   Categories:
+     * Guide
+     * Server
+     * Web Applications
+     * This page was last edited on 25 June 2024, at 19:02.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

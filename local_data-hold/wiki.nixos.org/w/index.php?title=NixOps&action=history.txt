@@ -1,0 +1,191 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            NixOps: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 September 2024
+
+     * curprev [ ] [ ] 08:1008:10, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 3,861 bytes −7‎ change manual url (got from github readme)
+
+    16 August 2024
+
+     * curprev [ ] [ ] 13:2113:21, 16 August 2024‎ Longregen talk contribs‎
+       3,868 bytes −1,042‎ "elbow grease" is not very informative for
+       non-English speakers. I wanted to rewrite this page in a
+       beginner-friendly way, to my best ability and understanding of its
+       current state. This is my first contribution to this wiki. Please let
+       me know how can I improve! Tag: Visual edit: Switched
+
+    21 June 2024
+
+     * curprev [ ] [ ] 03:4903:49, 21 June 2024‎ Tomodachi94 talk contribs‎ m
+       4,910 bytes +1‎ Category:Pedia -> Category:Pedias
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:1921:19, 19 April 2024‎ Klinger talk contribs‎ m
+       4,909 bytes +18‎ No edit summary
+     * curprev [ ] [ ] 21:1621:16, 19 April 2024‎ Klinger talk contribs‎ m
+       4,891 bytes −37‎ No edit summary
+     * curprev [ ] [ ] 21:1421:14, 19 April 2024‎ Klinger talk contribs‎
+       4,928 bytes −20‎ No edit summary
+
+    4 February 2024
+
+     * curprev [ ] [ ] 19:5119:51, 4 February 2024‎ imported>Hraban‎ 4,948
+       bytes +328‎ Mention the transition status of NixOps and link to the GH
+       issue
+
+    27 December 2022
+
+     * curprev [ ] [ ] 15:2715:27, 27 December 2022‎ imported>Harärmat‎ 4,620
+       bytes +44‎ Added the DevOps and Deployment categories
+
+    17 December 2022
+
+     * curprev [ ] [ ] 17:0817:08, 17 December 2022‎ imported>Harärmat‎ 4,576
+       bytes +54‎ Add links to similar tools
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:5606:56, 20 September 2021‎ imported>Nix‎ m 4,522
+       bytes +149‎ add See also with link to talk on NixOps in 2020
+     * curprev [ ] [ ] 06:2506:25, 20 September 2021‎ imported>Nix‎ m 4,373
+       bytes +17‎ add Nix category
+     * curprev [ ] [ ] 06:1506:15, 20 September 2021‎ imported>Nix‎ m 4,356
+       bytes +22‎ add Software category
+     * curprev [ ] [ ] 05:0105:01, 20 September 2021‎ imported>Nix‎ m 4,334
+       bytes +20‎ add Server category
+     * curprev [ ] [ ] 00:3100:31, 20 September 2021‎ imported>Nix‎ m 4,314
+       bytes −4‎ move to pedias category
+
+    18 September 2021
+
+     * curprev [ ] [ ] 12:3312:33, 18 September 2021‎ imported>Nix‎ 4,318
+       bytes +4,182‎ add summary from User's Guide, links, and summary of
+       user's guide.
+
+    11 December 2017
+
+     * curprev [ ] [ ] 20:1720:17, 11 December 2017‎ imported>Ixxie‎ 136
+       bytes +30‎ No edit summary
+
+    6 September 2017
+
+     * curprev [ ] [ ] 01:2601:26, 6 September 2017‎ imported>Samueldr‎ 106
+       bytes −111‎ No edit summary
+
+    3 September 2017
+
+     * curprev [ ] [ ] 17:3217:32, 3 September 2017‎ imported>Ixxie‎ 217
+       bytes −67‎ No edit summary
+
+    23 August 2017
+
+     * curprev [ ] [ ] 08:2708:27, 23 August 2017‎ imported>Ixxie‎ 284 bytes
+       +284‎ Created seed page.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NixOps"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

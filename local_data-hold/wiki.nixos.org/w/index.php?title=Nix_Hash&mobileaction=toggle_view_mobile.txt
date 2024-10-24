@@ -1,0 +1,163 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Usage
+          * 1.1 Updating packages
+     * 2 What exactly is hashed
+     * 3 Tools
+     * 4 Libraries
+     * 5 Further reading
+   [ ] Toggle the table of contents
+
+                                    Nix Hash
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Cryptographic hashes play an essential role in a lot of places in the Nix
+   ecosystem. When using a hash somewhere, two criteria are essential to do
+   so properly: the algorithm used and the encoding (and, to some extent,
+   what is hashed).
+
+   Supported algorithms are md5, sha1, sha256, sha512. The first two are
+   deprecated and should not be used anymore, but you may still stumble upon
+   them in existing code.
+
+   A hash – which is simply a sequence of bytes – is usually encoded in order
+   to be representable as string. Common encodings are base16 (commonly
+   called "hex"), base32 and base64. Note that the base32 is a custom one
+   that is not documented nor standardized in any way! If possible, use the
+   provided hashing tools to convert hashes to it (see below). base32 is used
+   by Nix in a lot of places because it is shorter than hex but can still
+   safely be part of a file path (as it contains no slashes).
+
+Usage
+
+   Many derivations are so-called fixed-output derivations, meaning that you
+   need to know and specify the hash of the output in advance. As an example,
+   let's look at nixpkgs function fetchurl:
+
+ src = fetchurl {
+   url = "https://example.org/downloads/source-code.zip";
+   hash = "sha256-IdU23rswdtT26QRL2e8VyMWLKfnL1K1AawWDEKVl3rw=";
+ };
+
+   The format of the hash follows the SRI (Subresource Integrity)
+   specification.
+
+  Updating packages
+
+   Using TOFU to get the new hash
+
+What exactly is hashed
+
+   Some content can either be hashed "flat" or "recursively". "flat"
+   (sometimes also called "file") is simply taking the hash of the file, byte
+   by byte, and will give you the same result as for example `sha256sum -b
+   myfile.zip`. "recursive" (or sometimes "path") hashing takes multiple
+   files, path names and metadata (attributes) into consideration. It works
+   by NARing the input before hashing.
+
+   For fetchurl, the option to switch between both is called recursiveHash
+   and defaults to false.
+
+   fetchzip on the other hand will download the file, unzip it and then
+   recursively hash the output. There's no option. The motivation behind this
+   is that sometimes, the content is always the same, but the archive may
+   change. This is because zip files are inherently non-deterministic, and
+   might be generated automatically. If they are regenerated, they'll have a
+   different hash, although the content is the same. recursiveHash works
+   around that.
+
+Tools
+
+     * nix-hash
+     * nix hash (nix command)
+
+   When dealing with remote files, nix-prefetch-url offers a handy shortcut
+   for downloading the file into the Nix store and printing out its hash.
+   (nix-prefetch-url --unpack is its fetchzip equivalent.)
+
+Libraries
+
+     * Original C++ implementation
+     * Rust implementation
+     * Go implementation
+     * PHP Implementation
+
+Further reading
+
+     * Eelco Dolstra's PhD thesis, section 5.1.
+     * Github Issue about which encoding is used where, and what pitfalls can
+       arise from it.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_Hash&oldid=12779"
+   Category:
+     * Nix
+     * This page was last edited on 15 May 2024, at 06:37.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

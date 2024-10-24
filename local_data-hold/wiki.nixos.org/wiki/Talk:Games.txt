@@ -1,0 +1,191 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Why list games?
+       2 comments
+     * 2 Using a games group
+   [ ] Toggle the table of contents
+
+                                   Talk:Games
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 20 October 2022 by Rapenne-s in topic Why list games?
+
+Why list games?
+
+   Latest comment: 20 October 20222 comments2 people in discussion
+
+   Listing individual games on this page is misleading, giving the impression
+   that only a handful of games work. I must've played about a dozen games on
+   NixOS, native, via WINE, and via Steam. It works just as well as on Arch
+   or Ubuntu; NixOS is in fact a great gaming platform. I'd vote to remove
+   this list, or at the very least change it to only include games which
+   explicitly require some kind of workaround.
+
+   L0b0 (talk) 06:04, 18 October 2022 (UTC)Reply
+
+   I agree this page should be deleted, most steam games runs without hack,
+   and for other games, it's mostly the same logic of using steam-run or
+   something like that, we don't need to list them one by one.
+
+   --Rapenne-s (talk) 20:00, 20 October 2022 (UTC)Reply
+
+Using a games group
+
+   I've been using a games group to handle permissions to adjust some limits
+   (through gamemoderun usage from steam and lutris/wine)
+
+   This is the excerpt of my config. In it's current form it might be helpful
+   to some, but it requires some additional work before it can be added to
+   the Wiki, like diving into the reasoning, and maybe explaining how to use
+   `gamemoderun` on steam and/or other platforms.
+
+   users.users.dietr1ch = {
+     extraGroups = [
+       "games"
+     ];
+   };
+
+   programs = {
+     gamemode = {
+       enable = true;
+
+       settings = {
+         general = {
+           inhibit_screensaver = 0;
+
+           renice = 0;
+           softrealtime = "auto";
+         };
+       };
+     };
+   };
+
+
+   users.groups = {
+     # Users that will play games
+     "games" = {
+       gid = 666;
+     };
+   };
+   environment = {
+     systemPackages = with pkgs; [
+       gamemode
+     ];
+   };
+
+   services = {
+     udev = {
+       extraRules = ''
+         KERNEL=="cpu_dma_latency", GROUP="games"
+       '';
+     };
+   };
+
+   security = {
+     sudo = {
+       extraRules = [
+         {
+           groups = [
+             "games"
+           ];
+           commands = [
+             {
+               command = "${pkgs.gamemode}/bin/gamemoderun";
+               options = [ "NOPASSWD" ];
+             }
+             {
+               command = "${pkgs.gamemode}/libexec/cpugovctl";
+               options = [ "NOPASSWD" ];
+             }
+             {
+               command = "${pkgs.gamemode}/libexec/gpuclockctl";
+               options = [ "NOPASSWD" ];
+             }
+           ];
+         }
+       ];
+     };
+
+     pam = {
+       # Higher resource limits. Used by Lutris/Wine.
+       loginLimits = [
+         { domain = "@games"; item = "nofile"; type = "soft"; value = "1048576"; }
+         { domain = "@games"; item = "nofile"; type = "hard"; value = "1048576"; }
+         { domain = "@games"; type = "-"; item = "rtprio"; value = 98; }
+         { domain = "@games"; type = "-"; item = "memlock"; value = "unlimited"; }
+         { domain = "@games"; type = "-"; item = "nice"; value = -11; }
+       ];
+     };
+   };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Games&oldid=10188"
+     * This page was last edited on 8 December 2023, at 04:48.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

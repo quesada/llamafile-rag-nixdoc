@@ -1,0 +1,114 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                    分类:桌面环境
+
+     * Category
+     * Discussion
+   [ ] 大陆简体
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   This page is a translated version of the page Category:Desktop environment
+   and the translation is 100% complete.
+   Other languages:
+     * English
+     * 中文（中国大陆）
+
+   linux 桌面环境是图形用户界面，也是PC设置的工具集。用于管理窗口，调整设置等，同时提供不同的特性和用户体验。
+
+   与大多数其他的Linux发行版相反，在NixOS中，安装或修改桌面环境只是件简单的小事。例如，要使用功能齐全的GNOME桌面环境，只需要在你的配置中添加如下几行。
+
+ /etc/nixos/configuration.nix
+
+ services.xserver.enable = true;
+ services.xserver.displayManager.gdm.enable = true;
+ services.xserver.desktopManager.gnome.enable = true;
+
+   更改 desktopManager 和 displayManager选项应该足以选择一个不同的桌面环境,
+   应用配置并重引导系统后，你就可以使用新环境了。一些环境要求配置组件选项。因为NixOS的工作方式，在实验不同桌面环境的各种工具和依赖关系时，系统不会变得臃肿:
+   桌面环境的默认应用程序只有在该桌面环境处于活动状态时，或者当你从其他桌面环境手动安装程序时才会出现。
+
+桌面环境        显式管理器(不匹配也可能通用) 桌面管理器    需求组件                                        
+Gnome       gdm             gnome    
+KDE/Plasma5 sddm            plasma5  
+KDE/Plasma6 sddm            plasma6  services.displayManager.sddm.wayland.enable 
+                                     = true;                                     
+Cinnamon    lightdm         cinnamon 
+Mate        lightdm         mate     
+XFCE        lightdm         xfce     
+Budgie      lightdm         budgie   
+Deepin      lightdm         deepin   
+Pantheon    lightdm         pantheon 
+CDE         lightdm         cde      
+COSMIC                               see COSMIC                                  
+LXQT        lightdm         lxqt     
+Lumina      lightdm         lumina   
+
+   This category currently contains no pages or media.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Desktop_environment/zh-cn&oldid=17131"
+   Category:
+     * Desktop
+     * This page was last edited on 4 September 2024, at 17:05.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

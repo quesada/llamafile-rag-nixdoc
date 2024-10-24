@@ -1,0 +1,122 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Additional features
+               * 1.1.1 USB Automounting
+               * 1.1.2 SAMBA mount support
+   [ ] Toggle the table of contents
+
+                                    PCManFM
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 16:44, 20 June 2024 by Klinger (talk | contribs) (broken
+   link --> changed to wikipedia. Added Category:File Manager)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   PCManFM is a free file manager application and the standard file manager
+   of LXDE.
+
+Installation
+
+   Install the pcmanfm package.
+
+  Additional features
+
+   Add lxmenu-data to be offered a list of "Installed applications" when
+   opening a file.
+
+   Add shared-mime-info to recognise different file types.
+
+    USB Automounting
+
+   For USB mounting support, add the following line to your configuration:
+
+     services.gvfs.enable = true;
+
+   If automounting still does not work you may need to explicitly enable
+   devmon and udisks2. Keep in mind that all removable media will
+   automatically mounted even without pcmanfm running.
+
+   configuration.nix
+
+     services.udisks2.enable = true;
+     services.devmon.enable = true;
+
+    SAMBA mount support
+
+   Configuration can be found under the Samba wiki page.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=PCManFM&oldid=13274"
+   Categories:
+     * Applications
+     * File Manager
+     * This page was last edited on 20 June 2024, at 16:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

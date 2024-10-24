@@ -1,0 +1,258 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       NixOS Containers: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    10 July 2024
+
+     * curprev [ ] [ ] 08:1508:15, 10 July 2024‎ Fricklerhandwerk talk
+       contribs‎ 6,628 bytes +90‎ mention microVMs as an alternative Tag:
+       Visual edit
+
+    19 June 2024
+
+     * curprev [ ] [ ] 11:0211:02, 19 June 2024‎ Denperidge talk contribs‎
+       6,538 bytes +132‎ Added Run interactive shell in running container
+       Tag: Visual edit
+
+    31 May 2024
+
+     * curprev [ ] [ ] 23:0823:08, 31 May 2024‎ Denperidge talk contribs‎
+       6,406 bytes +730‎ Added usage instructions for Declarative OCI
+       containers Tag: Visual edit
+     * curprev [ ] [ ] 22:5722:57, 31 May 2024‎ Denperidge talk contribs‎ m
+       5,676 bytes +39‎ Docker container heading change, example config
+       sub-heading & contents placed inside codeblock Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:0121:01, 19 April 2024‎ Klinger talk contribs‎
+       5,637 bytes +23‎ No edit summary
+
+    26 February 2024
+
+     * curprev [ ] [ ] 22:5722:57, 26 February 2024‎ imported>Brainwater‎
+       5,614 bytes +9‎ Fix missing lib import to allow using mkForce
+
+    25 December 2023
+
+     * curprev [ ] [ ] 17:4317:43, 25 December 2023‎ imported>Dafitt‎ 5,605
+       bytes +1,146‎ No edit summary
+
+    21 December 2023
+
+     * curprev [ ] [ ] 18:1618:16, 21 December 2023‎ imported>Lanjoni‎ m
+       4,459 bytes +18‎ fix: typo at github.com/tfc/nspawn-nixos
+
+    18 December 2023
+
+     * curprev [ ] [ ] 16:3316:33, 18 December 2023‎ imported>Onny‎ 4,441
+       bytes 0‎ Update example
+
+    9 December 2023
+
+     * curprev [ ] [ ] 09:2909:29, 9 December 2023‎ imported>Onny‎ 4,441
+       bytes +74‎ Add note to bug url
+
+    5 October 2023
+
+     * curprev [ ] [ ] 10:1910:19, 5 October 2023‎ imported>Onny‎ m 4,367
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 10:0710:07, 5 October 2023‎ imported>Onny‎ 4,367 bytes
+       −518‎ Updated nameserver workaround
+     * curprev [ ] [ ] 09:4009:40, 5 October 2023‎ imported>Onny‎ 4,885 bytes
+       +87‎ Additional example usage: List containers
+     * curprev [ ] [ ] 09:2509:25, 5 October 2023‎ imported>Onny‎ 4,798 bytes
+       −67‎ Remove whitespaces and update example
+
+    23 September 2023
+
+     * curprev [ ] [ ] 18:1118:11, 23 September 2023‎ imported>Vieta‎ 4,865
+       bytes −26‎ No edit summary
+     * curprev [ ] [ ] 18:0918:09, 23 September 2023‎ imported>Vieta‎ 4,891
+       bytes +128‎ nspawn-nixos as sources. TODO adding example for
+       configuration.nix
+
+    17 April 2023
+
+     * curprev [ ] [ ] 13:3013:30, 17 April 2023‎ imported>Srid‎ m 4,763
+       bytes +50‎ Link to https://wiki.archlinux.org/title/systemd-nspawn
+
+    5 April 2023
+
+     * curprev [ ] [ ] 11:5811:58, 5 April 2023‎ imported>Ptman‎ m 4,713
+       bytes +5‎ fix code example
+
+    11 October 2022
+
+     * curprev [ ] [ ] 20:2220:22, 11 October 2022‎ imported>Onny‎ 4,708
+       bytes +290‎ Add workarounds for nameserver and IPv6 connectivity
+
+    27 September 2022
+
+     * curprev [ ] [ ] 14:2314:23, 27 September 2022‎ imported>Onny‎ m 4,418
+       bytes +76‎ No edit summary
+
+    30 August 2022
+
+     * curprev [ ] [ ] 16:2316:23, 30 August 2022‎ imported>Onny‎ 4,342 bytes
+       +544‎ Add troubleshooting section for native NixOS containers
+
+    31 July 2022
+
+     * curprev [ ] [ ] 15:5115:51, 31 July 2022‎ imported>Alyaeanyx‎ m 3,798
+       bytes +86‎ Add warning and improve formatting
+
+    30 July 2022
+
+     * curprev [ ] [ ] 15:2515:25, 30 July 2022‎ imported>Onny‎ 3,712 bytes
+       +1,772‎ Added example for native NixOS containers
+
+    27 September 2021
+
+     * curprev [ ] [ ] 03:0603:06, 27 September 2021‎ imported>Nix‎ 1,940
+       bytes +611‎ add more see also references
+
+    20 September 2021
+
+     * curprev [ ] [ ] 04:5704:57, 20 September 2021‎ imported>Nix‎ m 1,329
+       bytes +20‎ add Server category
+
+    19 June 2021
+
+     * curprev [ ] [ ] 11:0611:06, 19 June 2021‎ imported>Frogamic‎ 1,309
+       bytes +23‎ Updated config option to reflect docker -> oci-containers
+       change
+
+    28 October 2020
+
+     * curprev [ ] [ ] 01:5301:53, 28 October 2020‎ imported>Asbachb‎ m 1,286
+       bytes −1‎ →‎Declarative docker contianers
+
+    19 June 2020
+
+     * curprev [ ] [ ] 16:5716:57, 19 June 2020‎ imported>Chrissound‎ 1,287
+       bytes +483‎ No edit summary
+
+    4 September 2018
+
+     * curprev [ ] [ ] 15:3115:31, 4 September 2018‎ imported>Roberth‎ m 804
+       bytes −1‎ NixOS manual chapter numbers change over time, so omit the
+       number
+
+    4 November 2017
+
+     * curprev [ ] [ ] 08:2208:22, 4 November 2017‎ imported>Mic92‎ m 805
+       bytes 0‎ Mic92 moved page Containers to NixOS Containers: containers
+       is a broader term
+     * curprev [ ] [ ] 08:2108:21, 4 November 2017‎ imported>Mic92‎ 805 bytes
+       +23‎ No edit summary
+     * curprev [ ] [ ] 00:5400:54, 4 November 2017‎ imported>Samueldr‎ m 782
+       bytes +1‎ typo :(
+     * curprev [ ] [ ] 00:5400:54, 4 November 2017‎ imported>Samueldr‎ 781
+       bytes +781‎ Created with troubleshooting section, for an issue I just
+       had.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_Containers"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

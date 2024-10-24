@@ -1,0 +1,125 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Project Discussion Channels
+          * 1.1 Users
+          * 1.2 Developers
+     * 2 Community Publications
+          * 2.1 This Week in NixOS
+          * 2.2 NixOS Weekly
+     * 3 Blogs & Social Networks
+   [ ] Toggle the table of contents
+
+                        Project Discussion & Newsletters
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Several channels exist for NixOS project discussion. Please subscribe to
+   those which match your interests.
+
+Project Discussion Channels
+
+  Users
+
+     * Nix-Dev Mailing List
+     * #nixos IRC Channel on Libera.Chat
+     * #nix:nixos.org on Matrix
+
+  Developers
+
+     * NixPkgs Issues
+     * Nix Issues
+     * NixOps Issues
+
+Community Publications
+
+  This Week in NixOS
+
+     * Week 5
+     * Week 4
+     * Week 3
+     * Week 2
+     * Week 1
+
+  NixOS Weekly
+
+   http://weekly.nixos.org
+
+Blogs & Social Networks
+
+     * @NixOS_org
+     * @NixOSTips
+     * @NixPkg
+     * Stream of Community Blogs - Planet NixOS
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Project_Discussion_%26_Newsletters&oldid=12478"
+   Category:
+     * Community
+     * This page was last edited on 24 April 2024, at 20:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,195 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration
+     * 2 Callers and Daemons
+     * 3 Remote command execution
+          * 3.1 Store path importing
+   [ ] Toggle the table of contents
+
+                                      NNCP
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+     NNCP (Node to Node copy) is a collection of utilities simplifying secure
+     store-and-forward files, mail and command exchanging.
+
+     These utilities are intended to help build up small size (dozens of
+     nodes) ad-hoc friend-to-friend (F2F) statically routed darknet
+     delay-tolerant networks for fire-and-forget secure reliable files, file
+     requests, Internet mail and commands transmission. All packets are
+     integrity checked, end-to-end encrypted, explicitly authenticated by
+     known participants public keys. Onion encryption is applied to relayed
+     packets. Each node acts both as a client and server, can use push and
+     poll behaviour model. Also there is multicasting areas support.
+
+     Out-of-box offline sneakernet/floppynet, dead drops, sequential and
+     append-only CD-ROM/tape storages, air-gapped computers support. But
+     online TCP daemon with full-duplex resumable data transmission exists.
+
+   http://www.nncpgo.org/
+
+Configuration
+
+   NNCP can be installed and configured manually or via NixOS configuration.
+
+   In any case the first step is to generate a configuration file.
+
+ $ nncp-cfgnew -nocomments > /etc/secrets/nncp.hjson
+
+   This file generated file be stripped down to include only the self and
+   neigh sections:
+
+ {
+   self: {
+     # DO NOT show anyone your private keys!!!
+     id: HFTEI…SITTA
+     exchpub: RG2SF…7JEYA
+     exchprv: 4YAON…LWCMA
+     signpub: ASKTA…EFVSQ
+     signprv: Z6Q4R…SC2ZI
+     noiseprv: ACJVW…7G7NA
+     noisepub: J2W5C…SZM6Q
+   }
+   neigh: {
+     self: {
+       id: HFTEI…SITTA
+       exchpub: RG2SF…7JEYA
+       signpub: ASKTA…EFVSQ
+       noisepub: J2W5C…SZM6Q
+     }
+   }
+ }
+
+   The location of this file should be defined in your NixOS configuration at
+   programs.nncp.secrets:
+
+ {
+   programs.nncp = {
+     enable = true;
+     secrets = [ "/etc/secrets/nncp.hjson" ];
+   };
+ }
+
+   In this example the secret keys are stored outside the Nix store an we
+   will add public keys for neighboring nodes in the NixOS configuration.
+
+ {
+   programs.nncp = {
+     enable = true;
+     secrets = [ "/etc/secrets/nncp.hjson" ];
+     neigh = {
+       alice = {
+         # information that Alice has given us about her "self".
+         id = "D6BOO…YTYWQ";
+         exchpub = "V4WJ6…4VA3Q";
+         signpub = "NZLTN…HCGOA";
+         noisepub = "UNL2J…7FRDA";
+         # We can connect directly to Alice over network.
+         addr = {
+           lan = "[fe80::1234%igb0]:5400";
+           internet = "alice.com:3389";
+           proxied = "|ssh remote.host nncp-daemon -ucspi";
+         };
+       };
+       bob = {
+         # information that Bob has given us about his "self".
+         id = "3I3HC…F4P4Q";
+         exchpub = "7VJN7…BWUTQ";
+         signpub = "E6XSC…5VYRA";
+         noisepub = "TAKXG…Z6MZQ";
+         # We cannoct connect to Bob but be can relay packets to him thru Alice.
+         via = [ "alice" ];
+       };
+     };
+   };
+ }
+
+Callers and Daemons
+
+   Automatically starting the nncp-caller and nncp-daemon programs is not yet
+   available from a NixOS module.
+
+Remote command execution
+
+  Store path importing
+
+   NNCP config:
+
+ {
+   programs.nncp.settings.neigh.${NODE}.exec.nix-store-import = "nix-store --import";
+ }
+
+   Export command:
+
+ $ nix-store --export ./result | nncp-exec "$NODE" nix-store-import
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=NNCP&oldid=10733"
+     * This page was last edited on 14 August 2023, at 08:25.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

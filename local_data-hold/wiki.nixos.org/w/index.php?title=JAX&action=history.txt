@@ -1,0 +1,155 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             JAX: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    31 March 2022
+
+     * curprev [ ] [ ] 19:2719:27, 31 March 2022‎ imported>Samuela‎ 3,252
+       bytes +284‎ No edit summary
+
+    31 January 2022
+
+     * curprev [ ] [ ] 21:2121:21, 31 January 2022‎ imported>Samuela‎ 2,968
+       bytes +11‎ No edit summary
+     * curprev [ ] [ ] 21:2021:20, 31 January 2022‎ imported>Samuela‎ 2,957
+       bytes +130‎ No edit summary
+     * curprev [ ] [ ] 21:1821:18, 31 January 2022‎ imported>Samuela‎ 2,827
+       bytes +268‎ No edit summary
+     * curprev [ ] [ ] 21:1521:15, 31 January 2022‎ imported>Samuela‎ 2,559
+       bytes −42‎ No edit summary
+     * curprev [ ] [ ] 21:1321:13, 31 January 2022‎ imported>Samuela‎ 2,601
+       bytes +293‎ No edit summary
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5805:58, 20 September 2021‎ imported>Nix‎ m 2,308
+       bytes +27‎ add Software/Applications subcategory
+
+    10 September 2021
+
+     * curprev [ ] [ ] 05:3005:30, 10 September 2021‎ imported>Samuela‎ 2,281
+       bytes −266‎ No edit summary
+
+    5 September 2021
+
+     * curprev [ ] [ ] 19:1519:15, 5 September 2021‎ imported>Samuela‎ 2,547
+       bytes +192‎ No edit summary
+
+    4 September 2021
+
+     * curprev [ ] [ ] 21:4421:44, 4 September 2021‎ imported>Samuela‎ 2,355
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 21:0021:00, 4 September 2021‎ imported>Samuela‎ 2,355
+       bytes +266‎ No edit summary
+     * curprev [ ] [ ] 18:5918:59, 4 September 2021‎ imported>Samuela‎ 2,089
+       bytes +81‎ No edit summary
+     * curprev [ ] [ ] 18:5618:56, 4 September 2021‎ imported>Samuela‎ 2,008
+       bytes +2,008‎ Created page with "[https://github.com/google/jax JAX]
+       is a framework for program transformation, esp. for automatic
+       differentiation and machine learning. It's available on Nix/NixOS in
+       the <cod..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/JAX"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,346 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Contributing to Nix
+     * 2 Contributing to the documentation
+     * 3 Contributing to the Official NixOS Wiki
+          * 3.1 2.1 Getting started
+          * 3.2 2.2 Contributing Content
+          * 3.3 2.3 writing and editing wiki pages
+          * 3.4 2.4 Submitting edits
+          * 3.5 2.5 Engaging in discussions
+          * 3.6 2.6 Advanced contributions
+          * 3.7 2.7 Conclusion
+     * 4 Contributing to Nixpkgs
+          * 4.1 1.1 Getting started
+          * 4.2 1.2 Setting up your development environment
+          * 4.3 1.3 Finding an issue or package to work on
+          * 4.4 1.4 Contributing code
+          * 4.5 1.5 Submitting a pull request (PR)
+          * 4.6 1.6 Collaboration and feedback
+          * 4.7 1.7 (Bonus) continuous learning and improvement
+          * 4.8 1.8 (Bonus) alternative contribution methods
+          * 4.9 1.9 Conclusion
+     * 5 References
+   [ ] Toggle the table of contents
+
+                                  Contributing
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 06:10, 3 September 2024 by Klinger (talk | contribs) (→‎2.4
+   Submitting edits: MoS link added)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   It is possible to contribute to Nix(OS) in different ways:
+
+     * Contributing to Nix
+     * Contributing to the documentation
+     * Contributing to the Official NixOS Wiki (see below)
+     * Contributing to Nixpkgs (see below)
+
+Contributing to Nix
+
+   See the Nix repository contribution guide.
+
+Contributing to the documentation
+
+   Reference documentation and learning materials for using Nix standalone
+   are maintained on nix.dev by the Nix documentation team.
+
+   See Contributing Documentation for how you can help.
+
+Contributing to the Official NixOS Wiki
+
+   Contributing to the official NixOS Wiki is an invaluable way to improve
+   documentation, share knowledge, and support users in navigating the NixOS
+   ecosystem. This guide provides clear steps to help you begin contributing
+   effectively to the NixOS Wiki.
+
+    2.1 Getting started
+
+   Before you start contributing, familiarize yourself with the structure and
+   purpose of the NixOS Wiki:
+
+     * Explore the wiki: Visit this Wiki's main categories to understand its
+       organization and the types of content it hosts. The wiki covers
+       installation guides, configuration tips, package management, and more.
+     * Engage with the community: Join discussions on platforms like the
+       GitHub Wiki Repository. Active participation can highlight areas where
+       documentation needs improvement.
+
+    2.2 Contributing Content
+
+   Contributions to the NixOS Wiki involve creating new pages or editing
+   existing ones to improve clarity and relevance:
+
+     * Create a wiki account: Register an account on the NixOS Wiki to start
+       contributing. This allows you to create and edit pages directly.
+     * Identify areas for improvement: Review current wiki pages to find gaps
+       or areas that could benefit from more detailed explanations. Focus on
+       topics that are frequently discussed or updated in the community
+       forums.
+     * Understand the wiki structure: Familiarize yourself with the wiki's
+       category system to ensure your contributions are properly organized
+       and easily discoverable.
+
+    2.3 writing and editing wiki pages
+
+   Follow these guidelines when writing or editing content on the NixOS Wiki:
+
+     * Learn the syntax: The NixOS Wiki uses MediaWiki markup. Familiarize
+       yourself with this syntax to format your contributions effectively.
+     * Provide context and examples: Ensure content is clear and
+       understandable. Include examples and practical advice to help users
+       implement solutions effectively. When possible, provide both simple
+       and advanced examples to cater to users of different skill levels.
+     * Linking: Use internal wiki links to connect related pages and external
+       links to reputable sources for further reading. This helps users
+       navigate through related topics seamlessly. Add them to the
+       "References" category too.
+     * Use templates: Use existing wiki templates to maintain consistency
+       across pages and provide standardized information.
+
+    2.4 Submitting edits
+
+   Once you've prepared your contributions, submit them to the NixOS Wiki:
+
+     * Save page: Use the wiki's editing interface to save the changes
+       directly. Preview your edits to ensure they appear as intended before
+       saving.
+     * Document changes: Write a concise summary of your edits in the edit
+       summary box. This informs other contributors about the purpose of your
+       changes and helps maintain a clear edit history.
+     * Follow the style guide: Adhere to the NixOS Manual of Style to ensure
+       consistency across the wiki.
+
+    2.5 Engaging in discussions
+
+   Stay connected with the NixOS Wiki community to foster collaboration and
+   knowledge sharing:
+
+     * Discuss changes: Participate in discussions on the wiki's discussion
+       pages or relevant community forums. Solicit feedback on proposed
+       changes to refine content and ensure accuracy.
+     * Review and update: Regularly review existing wiki pages to keep
+       information current. Update content based on new features, community
+       feedback, or changes in the NixOS environment.
+
+    2.6 Advanced contributions
+
+   For those looking to make more significant contributions:
+
+     * Create new sections: Identify and propose new sections or categories
+       that could benefit the wiki's structure and organization.
+     * Categorize articles: You can categorise pages adding one or more
+       category tags.
+     * Translate content: Help make the NixOS Wiki more accessible by
+       contributing translations to other languages.
+     * Develop wiki tools: If you have programming skills, consider
+       contributing to tools that can help maintain and improve the wiki,
+       such as bots for automated tasks or extensions to enhance wiki
+       functionality.
+
+    2.7 Conclusion
+
+   Contributing to the official NixOS Wiki allows you to improve the
+   community's knowledge base and support users in adopting and maintaining
+   NixOS effectively. By adhering to these guidelines and actively engaging
+   with the community, you play a vital role in improving the accessibility
+   and comprehensiveness of NixOS documentation.
+
+   Remember that the NixOS Wiki is a living document, continuously evolving
+   with the NixOS ecosystem. Your contributions, no matter how small, are
+   valuable in keeping this resource up-to-date and helpful for users
+   worldwide.
+
+Contributing to Nixpkgs
+
+   Contributing to Nixpkgs, the package repository for the Nix package
+   manager, allows you to help maintain and improve the ecosystem of software
+   available to Nix users. This guide outlines steps to get started with
+   contributing to Nixpkgs effectively.
+
+    1.1 Getting started
+
+   Before you begin, familiarize yourself with how Nixpkgs is structured. The
+   Nixpkgs manual provides detailed documentation on how packages are defined
+   and managed. It's essential to understand concepts like:
+
+     * Package derivations
+     * Nix expression language
+     * Nixpkgs architecture
+
+    1.2 Setting up your development environment
+
+   To start contributing to Nixpkgs, ensure your development environment is
+   properly configured:
+
+     * Install Nix: Install Nix on your local machine if you haven't already.
+       This allows you to build packages and test changes locally.
+     * Clone the repository: Fork and clone the Nixpkgs repository from
+       GitHub.
+
+    1.3 Finding an issue or package to work on
+
+   Contributions often begin by identifying an issue to address or a package
+   to update within Nixpkgs:
+
+     * Explore the issue tracker: Visit the Nixpkgs issue tracker on GitHub
+       to find open issues, package requests, or ongoing discussions. Look
+       for issues tagged as "good first issue", "help wanted", or "packaging
+       request" to get started.
+     * Check outdated packages: Use tools like nixpkgs-review to identify
+       outdated packages that need updating.
+
+    1.4 Contributing code
+
+   Once you've identified an issue or package to work on, you can start
+   contributing code:
+
+     * Branch: Create a new branch for your changes using a descriptive name.
+     * Make changes: Implement the necessary changes to the package
+       definition. Ensure your changes adhere to the Nixpkgs packaging
+       guidelines and maintain consistency with existing code.
+     * Testing: Test your changes locally using nix-build to verify
+       functionality and compatibility with other packages. Include
+       appropriate tests if required by the package's guidelines or to
+       validate new functionality.
+     * Documentation: Update relevant documentation, including the package's
+       meta attributes and any necessary usage instructions.
+
+    1.5 Submitting a pull request (PR)
+
+   When your changes are ready, submit a pull request to the Nixpkgs
+   repository for review:
+
+     * Push changes: Push your branch to your forked repository.
+     * Create a PR: Navigate to the Nixpkgs repository on GitHub, select your
+       branch, and create a pull request. Provide a clear title and detailed
+       description of your changes using the provided PR template. Reference
+       any relevant issues or discussions to facilitate review and feedback.
+     * CI Checks: Ensure your PR passes all continuous integration checks.
+       Address any failures promptly.
+
+    1.6 Collaboration and feedback
+
+   Collaborate with the Nixpkgs community and address feedback on your PR:
+
+     * Review and iterate: Respond promptly to comments and suggestions from
+       maintainers and contributors. Make necessary revisions to your code to
+       address any requested changes or improvements.
+     * Engage in discussions: Participate in discussions related to your
+       contribution and other ongoing developments within Nixpkgs.
+       Contributing isn't just about code; sharing insights and knowledge can
+       enrich the community.
+     * Be patient: The review process may take time due to the high volume of
+       contributions. Stay engaged and be prepared to make updates as needed.
+
+    1.7 (Bonus) continuous learning and improvement
+
+   Contributing to Nixpkgs is an ongoing learning process:
+
+     * Stay updated: Keep up with changes in Nixpkgs by following the NixOS
+       weekly newsletter and joining community channels on platforms like
+       Matrix or Discord.
+     * Attend community events: Participate in NixCon and other community
+       events to network and learn from experienced contributors.
+     * Explore advanced topics: Dive into advanced Nix topics like flakes and
+       overlays to enhance your contributions.
+
+    1.8 (Bonus) alternative contribution methods
+
+     * Mailing List: Submit patches via the Nixpkgs mailing list if you
+       prefer email-based contributions.
+     * Nix User Repositories (NUR): Consider creating your own NUR to share
+       packages that may not fit within Nixpkgs. This can be an excellent way
+       to experiment and receive community feedback.
+
+    1.9 Conclusion
+
+   Contributing to Nixpkgs offers an opportunity to impact a widely-used
+   package repository and collaborate with a diverse community of developers
+   and users. By following best practices, actively engaging with the
+   community, and continuously learning, you can make meaningful
+   contributions to the Nix ecosystem and help shape the future of
+   declarative package management.
+
+   For more detailed information, refer to the official Contributing to
+   nixpkgs guide in the Nixpkgs manual.
+
+References
+
+     * Types of documentation
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Contributing&oldid=17084"
+   Categories:
+     * Development
+     * Contributions
+     * This page was last edited on 3 September 2024, at 06:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,97 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+             Category:Pages or sections flagged with Template:Merge
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+   These pages are flagged with {{Merge}} and need special attention.
+
+Pages in category "Pages or sections flagged with Template:Merge"
+
+   The following 5 pages are in this category, out of 5 total.
+
+  M
+
+     * Template:Merge
+     * Move Nix Store to new partition
+
+  N
+
+     * Nix For Lang Packaging
+     * Nix Language Quirks
+
+  O
+
+     * OpenGL
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Pages_or_sections_flagged_with_Template:Merge&oldid=13432"
+   Categories:
+     * Hidden categories
+     * Maintenance
+     * This page was last edited on 23 June 2024, at 02:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

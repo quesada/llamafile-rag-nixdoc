@@ -1,0 +1,147 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS as VMWare Guest
+          * 1.1 VMWare Video Driver
+          * 1.2 VMware Guest Tools
+     * 2 Troubleshooting
+          * 2.1 Guest issues
+               * 2.1.1 Display issues
+                    * 2.1.1.1 Cannot change resolution in KDE Plasma ISO
+               * 2.1.2 Mouse issues
+                    * 2.1.2.1 Mouse buttons above 5 do not work
+   [ ] Toggle the table of contents
+
+                                     VMware
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+NixOS as VMWare Guest
+
+  VMWare Video Driver
+
+   Enable vmware video driver for better performance:
+
+ services.xserver.videoDrivers = [ "vmware" ];
+
+  VMware Guest Tools
+
+   Enable VMWare guest tools:
+
+ virtualisation.vmware.guest.enable = true;
+
+   And note that file copying, pasting, and dragging between guest and host
+   are only supported on Xorg, not Wayland.
+
+   For example, in the GDM and GNOME desktop environments, to use Xorg, click
+   on the settings button at the bottom right corner of the login screen and
+   select the "GNOME on Xorg" option.
+
+Troubleshooting
+
+  Guest issues
+
+   This section covers issues you might have running NixOS as a guest VM in
+   VMware Workstation or similar.
+
+    Display issues
+
+      Cannot change resolution in KDE Plasma ISO
+
+   If you are unable to change resolution in a guest VM while booted into the
+   NixOS Plasma graphical installer ISO...
+
+   This appears to be an issue where if KScreen is running as a service it
+   will instantly revert to the default resolution [1].
+
+   Disabling the KScreen 2 Service under Background Services allows
+   resolution settings to apply properly.
+
+   If you continue to have issues, running journalctl should print a system
+   log with debug info which might help in resolving the issue.
+
+    Mouse issues
+
+      Mouse buttons above 5 do not work
+
+   If your mouse's thumb buttons or other additional buttons do not work, set
+   guest to use advanced mouse. For your NixOS-based guest VM, add the below
+   lines to its .vmx configuration file:
+
+  mouse.vusb.enable = "TRUE"
+  mouse.vusb.useBasicMouse = "FALSE"
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=VMware&oldid=12380"
+   Categories:
+     * Cookbook
+     * Software
+     * Virtualization
+     * This page was last edited on 24 April 2024, at 09:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,498 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 FAQ and resources
+     * 2 How to develop with Haskell and Nix
+          * 2.1 Scripting
+          * 2.2 Directly using cabal (no nix caching/reproducibility)
+          * 2.3 Using Stack (no nix caching)
+          * 2.4 Using developPackage (use the nix packages set for haskell)
+          * 2.5 Using shellFor (multiple packages)
+          * 2.6 Using haskell.nix (for complex projects)
+          * 2.7 Using haskell-flake (flake-parts)
+     * 3 Overrides
+     * 4 Limitations
+     * 5 IFD and Haskell
+   [ ] Toggle the table of contents
+
+                                    Haskell
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+FAQ and resources
+
+     * Official Docs: The Haskell section in the nixpkgs manual
+     * Nix recipes for Haskellers aims to get a beginner comfortable managing
+       simple Haskell programs and projects using Nix.
+     * Nixifying a Haskell project using nixpkgs explains how to use Nix to
+       package and develop Haskell projects using nothing but nixpkgs.
+     * Super-Simple Haskell Development with Nix (and discussion that
+       provides interesting alternative methods together with there pro and
+       cons)
+     * Nix Haskell Development (2020)
+     * How are Haskell packages managed in nixpkgs?
+     * How to fix broken Haskell packages? (video)
+
+How to develop with Haskell and Nix
+
+   There are multiples ways to develop in Haskell on Nix depending on the
+   simplicity of the project and on whether one want to benefit from the
+   reproducibility offered by nix or not. Below is an image to help you in
+   your choice:
+
+   [IMG]
+
+   Note that in the following, haskellPackages is a synonym of
+   haskell.packages.ghcXYZ where XYZ is the current default version of GHC in
+   nixpkgs. However you can use a different version by replacing
+   haskellPackages with the wanted package, for instance use
+   haskell.compiler.ghc884 to use GHC 8.8.4. You can get the full list of
+   available GHC versions using:
+
+ $ nix-env -f "<nixpkgs>" -qaP -A haskell.compiler
+ haskell.compiler.ghc8107                 ghc-8.10.7
+ haskell.compiler.ghc884                  ghc-8.8.4
+ haskell.compiler.ghc902                  ghc-9.0.2
+ haskell.compiler.ghc924                  ghc-9.2.4
+ haskell.compiler.ghcHEAD                 ghc-9.3.20220406
+ haskell.compiler.ghc942                  ghc-9.4.2
+ …
+
+  Scripting
+
+   For simple scripts, you can directly use nix-shell to get a
+   redistributable Haskell script that you can run on any Nix system with
+   ./my-script.hs:
+
+ #!/usr/bin/env nix-shell
+ #!nix-shell --pure -i runghc -p "haskellPackages.ghcWithPackages (pkgs: [ pkgs.turtle ])"
+
+ main = do
+   # do stuff
+   putStrLn "Hello world from a distributable Haskell script!"
+
+   Read below if some packages are broken.
+
+  Directly using cabal (no nix caching/reproducibility)
+
+   Note that cabal is the basic Haskell tool used to configure builds and is
+   internally used by all the Haskell's packaging methods (including stack
+   and nix). If one does not care about the reproducibility/caching offered
+   by nix, it is always possible to use cabal like in a normal system:
+
+ $  nix-shell -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ cabal-install ])"
+ $ cabal init
+ …
+ $ cabal run
+ Up to date
+ Hello, Haskell!
+
+   Notes:
+
+     * some packages may need additional libraries/programs, notably zlib,
+       you should be able to add them as additional programs in the nix-shell
+       option
+     * since Cabal 2.0, cabal has acquired caching similar to nix (but not as
+       powerful) and reproducibility (via the cabal.project file and the
+       index-state option). See [1] for more information.
+
+  Using Stack (no nix caching)
+
+   Similarly you can use stack that let you find the appropriate version of
+   the libraries for you if you do not want the caching offered by nix (stack
+   will build all the dependencies):
+
+ $ nix-shell -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ stack ])"
+ $ stack new my-project
+ $ cd my-project
+ $ stack build
+ $ stack exec my-project-exe
+
+   You can also use the features offered by stack to enable nix integration
+   in order to use nix to install the non-haskell dependencies. You can read
+   more here.
+
+   If you want to package your program using stack in nix, you can actually
+   use haskell.lib.buildStackProject that is a wrapper around
+   stdenv.mkDerivation that will call stack build for you… However because
+   stack needs to download stuff you need to disable the sandbox using
+   nix-build --option sandbox false. For instance if you want to compile a
+   stack project that needs R, zeromq and zlib you can put the following into
+   default.nix:
+
+ with (import <nixpkgs> { });
+ haskell.lib.buildStackProject {
+   name = "HaskellR";
+   buildInputs = [ R zeromq zlib ];
+ }
+
+   Disclaimer: For users of a stable version of NixOS there could be a
+   problem where Stack tries to use a GHC version that is not yet in the
+   given channel of Nixpkgs. Example at the time of writing: When using NixOS
+   23.05, Stack defaults to using the LTS-21.10 resolver, which uses
+   ghc-9.4.6. However, the newest version of GHC in the 23.05 channel is
+   ghc-9.4.4, thus Stack fails to execute some commands.
+
+   As a solution, specify a resolver in your stack.yaml file that uses a GHC
+   version available for your channel. You can find a list of snapshots on
+   https://www.stackage.org/snapshots. Or alternatively, set the resolver as
+   a command line argument, which is required for running commands such as
+   stack new.
+
+  Using developPackage (use the nix packages set for haskell)
+
+   You can also use nix in place of stack to keep track of the dependencies
+   in a reproducible way (note that while stack uses a solver to find a
+   working set of dependencies, nix uses a fixed set of packages).
+   Additionally you can benefit from the caching system offered by Nix. To
+   that end, first create a cabal repository (nix also uses cabal
+   internally):
+
+ $ nix-shell -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ cabal-install ])" --run "cabal init"
+ …
+
+   And create a file default.nix containing:
+
+ let
+   pkgs = import <nixpkgs> { }; # pin the channel to ensure reproducibility!
+ in
+ pkgs.haskellPackages.developPackage {
+   root = ./.;
+ }
+
+   (You can find a list of options and documentation for developPackage in
+   pkgs/development/haskell-modules/make-package-set.nix, note that it is a
+   wrapper around callCabal2nixWithOptions with some additional functions to
+   setup a development shell.)
+
+   Then you can build and run the program using:
+
+ $ nix-build
+ $ ./result/bin/yourprogram
+
+   or run a nix-shell to use the standard development tools provided by
+   cabal:
+
+ $ nix-build
+ $ ./result/bin/yourprogram
+
+   Nix will automatically read the build-depends field in the *.cabal file to
+   get the name of the dependencies and use the haskell packages provided in
+   the configured package set provided by nix. Note that some of the packages
+   present in the nix repository are broken (for instance because a package
+   requires an older version of a library while nix only provides a recent
+   version). For this reason it may be necessary to override some packages
+   present in the nix package set as described below using the overrides and
+   source-overrides attribute. Note that the source-overrides attribute can
+   also turn out to be useful to load local libraries:
+
+ let
+   pkgs = import <nixpkgs> { }; # pin the channel to ensure reproducibility!
+ in
+ pkgs.haskellPackages.developPackage {
+   root = ./.;
+   source-overrides = {
+     mylibrary = ./mylibrary;
+   };
+ }
+
+   However as I understand I guess that you will not be able to enter the
+   shell before `mylibrary` fully compiles… hence the need for `shellFor` to
+   work simultaneously on multiple projects.
+
+   Note that you may want to add tools needed either at compile time or a
+   library at run time. For that, you can use the modifier field that is an
+   arbitrary function to apply to the final haskell package (in particular
+   you can apply the overrideCabal that we saw above). Notably, you can add
+   nativeBuildInputs using pkgs.haskell.lib.addBuildTools and buildInputs
+   using pkgs.haskell.lib.addExtraLibraries (for those of you that are
+   curious to see how they are used in the final derivation, see here):
+
+ let
+   pkgs = import <nixpkgs> { }; # pin the channel to ensure reproducibility!
+ in
+ pkgs.haskellPackages.developPackage {
+   root = ./.;
+   modifier = drv:
+     pkgs.haskell.lib.addBuildTools drv (with pkgs.haskellPackages;
+       [ cabal-install
+         ghcid
+       ]);
+ }
+
+   You can also get more details in this tutorial or in
+   pkgs/development/haskell-modules/make-package-set.nix.
+
+  Using shellFor (multiple packages)
+
+   shellFor is similar to developPackage but (slightly) more complicated to
+   also allow you to develop multiples packages at the same time (similar to
+   cabal.project). Note that contrary to developPackage I don't think that
+   shellFor can output a derivation.
+
+   The idea is to first extend/override the set of haskell packages in order
+   to add your projects as additional haskell packages (for instance using
+   haskellPackages.extend and packageSourceOverrides that just need the path
+   of the project to compile it), and then to use haskellPackages.shellFor
+   {packages= p: [p.myproject1 p.myproject2]} to create a shell with all
+   wanted packages.
+
+   For instance you can define your various projects in subfolders ./frontend
+   and ./backend (you can use cabal init to create the content in each
+   folder), then create a file cabal.project containing:
+
+ packages:
+   frontend/
+   backend/
+
+   Finally create a file shell.nix containing:
+
+ with import <nixpkgs> {};
+ # We add our packages to the haskell package set
+ (haskellPackages.extend (haskell.lib.compose.packageSourceOverrides {
+   frontend = ./frontend;
+   backend = ./backend;
+ }))
+ # We call on this set shellFor to drop us into a shell containing the dependencies of frontend and backend:
+   .shellFor {
+     packages = p: [p.frontend p.backend];
+     withHoogle = true;
+     buildInputs = [ pkgs.python pkgs.cabal-install ];
+   }
+
+   then you can use cabal to develop incrementally your projects using for
+   instance:
+
+ $ nix-shell
+ $ cabal new-build all
+
+   If you want to be able to compile a project non-incrementally with
+   nix-build (say the backend in the above example) you can put in
+   default.nix:
+
+ with import <nixpkgs> {};
+ # We add our packages to the haskell package set
+ (haskellPackages.extend (haskell.lib.compose.packageSourceOverrides {
+   frontend = ./frontend;
+   backend = ./backend;
+ })).backend
+
+   or if you want to create a single derivation file, you can use if
+   pkgs.lib.inNixShell then … else … to output the shell when we start a
+   shell and the packages when we want to build them. You can find here an
+   example.
+
+  Using haskell.nix (for complex projects)
+
+   The haskell.nix project allows you to have maximum flexibility (to create
+   your own package set or use in teams with diverse people, some of them
+   using stack, other using cabal, other using nix…). But this comes at the
+   price of additional complexity.
+
+  Using haskell-flake (flake-parts)
+
+   haskell-flake aims to simplify writing Nix for Haskell development through
+   use of flake-parts module system. It uses callCabal2nix and shellFor under
+   the hood while exposing friendly module options API.
+
+Overrides
+
+   Since nixpkgs tries to maintain a single package set (based on the package
+   set of stackage, while the remaining packages are picked from the latest
+   version on Hackage) instead of using a solver to meet all version
+   constraints for a specific project, it turns out that sometimes packages
+   are broken (they can also be broken for various other reasons). However,
+   you may be able to unbreak this package yourself.
+
+   The first thing to check to try to unbreak a package is to check which GHC
+   version is compatible with the package you want to use. You are maybe
+   using a too old version… or too new. You can change the version of ghc
+   using haskell.packages.ghcXYZ in place of haskellPackages as explained
+   above.
+
+   Then, you will surely need to change some packages. If you are using
+   developPackage as explained above you can either use a normal override
+   that will be described below or a simpler source override to override only
+   the source as:
+
+ pkgs.haskellPackages.developPackage {
+   root = ./.;
+   source-overrides = {
+     # Let's say the GHC haskellPackages uses 1.6.0.0 and your test suite is incompatible with >= 1.6.0.0
+     HUnit = "1.5.0.0";
+   };
+ };
+
+   You can provide to source-overrides either:
+
+     * a version number (it will be forwarded internally to callHackage, note
+       that you do not need to specify any hash as nix is using a package
+       all-cabal-hashes that contains all the cabal hashes, see
+       callHackageDirect below if your package is not yet in
+       all-cabal-hashes)
+     * a path (that will be forwarded internally to callCabal2nix), you can
+       use the usual fetchers like fetchurl or fetchFromGitHub to generate
+       that path, or a local path if you want to use a local library.
+
+   You can also use the more powerful override system to change any property
+   of the derivation. This works for instance with developPackage:
+
+ pkgs.haskellPackages.developPackage {
+   root = ./.;
+   overrides = self: super: { # self is the new package set, super is the old package set
+     random = pkgs.haskell.lib.overrideCabal super.random {
+       version = "1.1";
+       sha256 = "sha256-txikEFfiWjpx32k6sP4iY9SS51lnmzwv6m6jOxcdOlo="; # Use an empty string before knowing the hash
+       doCheck = false;
+     };
+   };
+ };
+
+   but you can also use overrides with ghcWithPackages. This example will for
+   instance create a nix-shell where the library quipper is available:
+
+ { pkgs ? import <nixpkgs> {} }:
+ with pkgs;
+ pkgs.mkShell {
+   buildInputs =
+     let
+       # Quipper does not work with GHC 7.10 or 8.10. The versions currently supported are GHC 8.0, 8.2, 8.4, 8.6, and 8.8.
+       myHaskell = pkgs.haskell.packages.ghc884.override {
+         overrides = self: super: {
+           # fixedprec needs random 1.1 or below
+           random = pkgs.haskell.lib.overrideCabal super.random {
+             version = "1.1";
+             sha256 = "sha256-txikEFfiWjpx32k6sP4iY9SS51lnmzwv6m6jOxcdOlo=";
+           };
+           fixedprec = haskell.lib.markUnbroken super.fixedprec;
+           quipper = haskell.lib.markUnbroken super.quipper;
+         };
+       };
+     in
+       [
+         (myHaskell.ghcWithPackages (hpkgs: [
+           hpkgs.quipper
+         ]))
+       ];
+ }
+
+   Note that overrideCabal takes as input the old package and the new
+   attributes of the new package and outputs the new package. To see the full
+   list of parameters that can be overridden, you can refer to this file.
+
+   Because some operations are very common, there exists some functions that
+   call overrideCabal for you. For instance if you only want to disable
+   checks and test suits for a package you can do mypackage =
+   pkgs.haskell.lib.dontCheck super.mypackage and the above code also shows
+   how to mark a package as unbroken. These functions are listed and
+   documented in pkgs/development/haskell-modules/lib/compose.nix.
+
+   You can also use callHackageDirect (source and documentation here, you can
+   see that it is a wrapper around callCabal2nix) to create a package using
+   the hackage repository:
+
+ myHaskell = pkgs.haskellPackages.override {
+   overrides = self: super: {
+     mypackage = self.callHackageDirect {
+       pkg = "mypackage";
+       ver = "0.1.2.3";
+       sha256 = ""; # The first time it will give you an error, replace the "" with the hash given in the error
+     } {};
+   };
+ };
+
+   Finally, if your package is not in hackage, you can simply use
+   callCabal2nix, or the more advanced callCabal2nixWithOptions:
+
+ mypackage = self.callCabal2nix "mypackage" /path/to/package/or/fetcher {};
+
+   This can be useful also when your package needs some libraries.
+
+Limitations
+
+   When using the cabal2nix tool, Nix does not pull a cabal package by
+   respecting the constraint specified in the cabal file (see example). Issue
+   is discussed here. You should be using `callCabal2nix` anyway.
+
+IFD and Haskell
+
+   callCabal2nix, which is implicitly used for building Haskell projects,
+   uses IFD.[2][3]. This means that since IFD is disabled by default in
+   certain nix commands,[4] the following commands will be broken for Haskell
+   projects whose flake output specifies multiple system attributes:
+
+     * nix flake show
+     * nix flake check
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Haskell&oldid=17752"
+   Categories:
+     * Languages
+     * Applications
+     * This page was last edited on 8 October 2024, at 14:43.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

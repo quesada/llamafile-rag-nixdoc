@@ -1,0 +1,129 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 "Steam fails to start. What do I do?" Paragraph needs improvements.
+     * 2 The comment under me lacks a section
+       1 comment
+     * 3 Thank you!
+       1 comment
+     * 4 if you get "error: lib not defined"
+     * 5 Failed to create SDL window
+   [ ] Toggle the table of contents
+
+                                   Talk:Steam
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 6 August 2022 by Toraritte in topic The comment under me
+   lacks a section
+
+"Steam fails to start. What do I do?" Paragraph needs improvements.
+
+   This paragraph is lacking useful information. For instance, where can one
+   obtain the package strace? As for bug reporting, where might one create a
+   bug report?
+
+The comment under me lacks a section
+
+   Latest comment: 6 August 20221 comment1 person in discussion
+
+   Elaborating on the incomplete flag (expansion template): Tried to install
+   steam the way it is described here, and even with nix-shell, but no joy.
+   Read a lot about steam-run but have no clue what it is, or how to use it,
+   and the package description is completely devoid of any info. --Toraritte
+   (talk) 19:05, 6 August 2022 (UTC)Reply
+
+Thank you!
+
+   Latest comment: 10 July 20191 comment1 person in discussion
+
+   Finally I can run GOG on NixOS without patching or repatching any
+   executable. Figured it out, hope it helps others. Big kudo's to
+   maintainers of steam and steam-run for the wonderful expression!! Cx405
+   (talk) 03:51, 10 July 2019 (UTC)Reply
+
+if you get "error: lib not defined"
+
+   The config code that includes lib.getName will error if simply included in
+   configuration.nix unless "lib" is included in the list of args at the top;
+   example: `{ config, pkgs, lib, ... }:`
+
+Failed to create SDL window
+
+   You may have `SDL_VIDEODRIVER=wayland` set in your environment, which
+   seems to bother some older titles (e.g. original Half-Life). Set the
+   launch options in the steam UI to 'SDL_VIDEODRIVER=x11 %command%' and it
+   should work.
+
+   Alternative fixes shown here:
+   https://github.com/ValveSoftware/Source-1-Games/issues/3455
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Steam&oldid=11660"
+     * This page was last edited on 5 April 2024, at 15:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

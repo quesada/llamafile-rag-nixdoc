@@ -1,0 +1,165 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #08 - NixOS Weekly
+
+   Published on Mon Oct 12 2020
+
+                               #08 - NixOS Weekly
+
+                                      News
+
+Announcements
+
+     * NixCon 2020 Call-for-Participation is open!
+
+       Conference dates: Oct. 16th – 18th, 2020. Live streaming on
+       2020.nixcon.org
+
+     * 20.09 Zero Hydra Failures has begun!
+
+       Help stabilize NixOS for the upcoming 20.09 Release
+
+     * Cachix: Changes to Garbage Collection
+
+       Based on your feedback there are two minor changes to how garbage
+       collection behaves in Cachix.
+
+     * nixbuild.net is Generally Available
+
+     * Nix × IPFS – Milestone 1
+
+Tutorials & Resources
+
+     * fromElisp
+
+       An Emacs Lisp reader in Nix.
+
+     * dconf2nix
+
+       Nixify your DConf files (Gnome3 configuration) as expected by Home
+       Manager’s dconf settings.
+
+     * pynixify - Nix expression generator for Python projects
+
+       A tool made to adopt Nix in your Python project, and to contribute to
+       Nixpkgs with package definitions.
+
+     * Experimenting with Nix and the service management properties of Docker
+
+       Demonstrates how we can combine Nix and Docker in unorthodox ways — we
+       can replace traditional Docker images for dependency management by a
+       shared Nix store, use Docker as a backend for my experimental Nix
+       process management framework and use Disnix as a simple orchestrator
+       for Docker containers.
+
+     * Manix - Documentation Searcher for Nix
+
+       A fast Documentation Searcher for Nix. Its database consists of
+       Nixpkgs Documentation, Nixpkgs Comments, Nixpkgs Tree (pkgs.,
+       pkgs.lib.), NixOS Options and Home-Manager Options.
+
+     * Searching and installing old versions of Nix packages
+
+       Installing older versions of packages in Nix is easy but currently
+       there is no official way to find out what revision has the package
+       version that I need.
+
+     * Local Nix without Root
+
+       Monkeying around with nix for HPC systems which have no root access
+       and NFS filesystems.
+
+     * BigBlueButton packaging and modules for NixOS
+
+       First preliminary release of bbb4nix, a way to run BigBlueButton on
+       NixOS.
+
+     * Working Through the Jepsen Tutorial with a NixOS Container Cluster
+
+     * Developing Python with Poetry & Poetry2nix: Reproducible flexible
+       Python environments
+
+     * “Cloud-like” Infrastructure at Home - Part 1: LoadBalancers on the
+       Metal
+
+     * The easiest way (I’ve found) to create your own Nix channel
+
+     * Caching your nix-shell
+
+     * Have you heard the good news about NixOS?
+
+     * Oneshot systemd tasks on NixOS
+
+     * A Tutorial Introduction to Nix
+
+     * Setting Up a Nix Binary Cache
+
+     * Thoughts on NixOS
+
+     * Building and Importing NixOS AMIs on EC2
+
+     * Niv and Mach-Nix for Nix Python
+
+     * 10 unoffical NixOS packages worth checking out
+
+     * Towards a content-addressed model for Nix
+
+     * swift2nix: Run Swift inside Nix builds
+
+     * cargo2nix: Dramatically simpler Rust inside Nix
+
+     * Publishing Doxygen and Sphinx with Nix and Rake
+
+     * Tailscale is magic; even more so with NixOS
+
+     * Assigning unique IDs to services in Disnix deployment models
+
+     * nix-copy-closure your nix-shell
+
+     * Fully statically linked Haskell binaries with Bazel and Nix
+
+     * Automated test on NixOS repository with Gitlab CI/CD
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

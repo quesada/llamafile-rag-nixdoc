@@ -1,0 +1,321 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Flakes: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    20 October 2024
+
+     * curprev [ ] [ ] 22:5322:53, 20 October 2024‎ Sandro talk contribs‎
+       28,659 bytes −4‎ Fix headlines order
+
+    30 July 2024
+
+     * curprev [ ] [ ] 12:3612:36, 30 July 2024‎ Jopejoe1 talk contribs‎
+       28,663 bytes +533‎ Marked this version for translation
+     * curprev [ ] [ ] 12:3312:33, 30 July 2024‎ Jopejoe1 talk contribs‎
+       28,130 bytes +566‎ Improve translation support
+     * curprev [ ] [ ] 09:5709:57, 30 July 2024‎ Natsukium talk contribs‎
+       27,564 bytes +14‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 09:4509:45, 30 July 2024‎ Natsukium talk contribs‎
+       27,550 bytes +1,712‎ Marked this version for translation
+     * curprev [ ] [ ] 09:3909:39, 30 July 2024‎ Natsukium talk contribs‎
+       25,838 bytes +25‎ No edit summary Tag: Visual edit: Switched
+
+    25 June 2024
+
+     * curprev [ ] [ ] 20:2520:25, 25 June 2024‎ Klinger talk contribs‎
+       25,813 bytes +16‎ fixed link to „Unfree software“ (capitalization)
+       Tag: Visual edit
+
+    18 June 2024
+
+     * curprev [ ] [ ] 12:3912:39, 18 June 2024‎ Fricklerhandwerk talk
+       contribs‎ 25,797 bytes +75‎ update the links, sort by recency Tag:
+       Visual edit
+
+    27 April 2024
+
+     * curprev [ ] [ ] 18:5318:53, 27 April 2024‎ Gerg-L talk contribs‎
+       25,722 bytes −668‎ Fix flake refs, remove system from lib.nixosSystem
+       remove flake-utils, clarify some examples Tag: Visual edit
+
+    17 April 2024
+
+     * curprev [ ] [ ] 18:5318:53, 17 April 2024‎ Fricklerhandwerk talk
+       contribs‎ 26,390 bytes −509‎ remove untrue or unqualified statements
+       Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 15:4315:43, 17 April 2024‎ Zetsu talk contribs‎ m
+       26,899 bytes +16‎ Minor edits to achieve more consistent formatting
+       Tag: Visual edit
+
+    6 April 2024
+
+     * curprev [ ] [ ] 23:2723:27, 6 April 2024‎ Sen talk contribs‎ m 26,883
+       bytes +33‎ →‎Input schema: Fixed broken codeblock formatting at
+       hyprland inputs example Tag: Visual edit: Switched
+     * curprev [ ] [ ] 23:1723:17, 6 April 2024‎ Sen talk contribs‎ m 26,850
+       bytes +77‎ First paragraph has more information about flakes Tag:
+       Visual edit
+
+    5 April 2024
+
+     * curprev [ ] [ ] 22:0222:02, 5 April 2024‎ Dvntsemicolon talk contribs‎
+       26,773 bytes −18‎ →‎Input schema Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 22:0122:01, 5 April 2024‎ Dvntsemicolon talk contribs‎
+       26,791 bytes +823‎ →‎Input schema Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 21:4721:47, 5 April 2024‎ Dvntsemicolon talk contribs‎
+       25,968 bytes +289‎ added more to the inputs schema section; newcomers
+       will not look through external documentation for flakes. Tags: Mobile
+       edit Mobile web edit
+
+    3 April 2024
+
+     * curprev [ ] [ ] 14:2514:25, 3 April 2024‎ Qyriad talk contribs‎ 25,679
+       bytes +83‎ add "flakes aren't real" blog post, which people seem to
+       find helpful Tag: 2017 source edit
+
+    2 April 2024
+
+     * curprev [ ] [ ] 18:4718:47, 2 April 2024‎ Console4852 talk contribs‎ m
+       25,596 bytes −6‎ Update location where output schema is defined in
+       src. Tag: Visual edit
+     * curprev [ ] [ ] 14:0714:07, 2 April 2024‎ Lucperkins talk contribs‎ m
+       25,602 bytes 0‎ Fix name of Determinate Nix Installer Tag: Visual edit
+     * curprev [ ] [ ] 02:5902:59, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       25,602 bytes −371‎ removed relevancy for desktop usage section Tags:
+       Manual revert Visual edit
+     * curprev [ ] [ ] 02:4902:49, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       25,973 bytes +37‎ edited line to make it more concise Tags: Reverted
+       Visual edit
+     * curprev [ ] [ ] 02:4602:46, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       25,936 bytes +334‎ added relevancy to desktop usage Tags: Reverted
+       Visual edit
+
+    1 April 2024
+
+     * curprev [ ] [ ] 13:5913:59, 1 April 2024‎ Mic92 talk contribs‎ 25,602
+       bytes −70‎ fix links
+
+    30 March 2024
+
+     * curprev [ ] [ ] 01:1501:15, 30 March 2024‎ imported>Lolbinarycat‎ m
+       25,672 bytes +1‎ →‎= Build a package added in a PR: fix typo
+     * curprev [ ] [ ] 01:1001:10, 30 March 2024‎ imported>Lolbinarycat‎
+       25,671 bytes +562‎ →‎Development tricks: add a cool trick i found
+
+    28 March 2024
+
+     * curprev [ ] [ ] 19:1019:10, 28 March 2024‎ imported>Lolbinarycat‎
+       25,109 bytes +755‎ →‎Pinning the registry to the system pkgs on NixOS:
+       add suggestion for how to make caching more reliable
+
+    17 March 2024
+
+     * curprev [ ] [ ] 16:3916:39, 17 March 2024‎ imported>Sid-code‎ 24,354
+       bytes +107‎ Rewrite introduction paragraph.
+
+    6 March 2024
+
+     * curprev [ ] [ ] 13:1613:16, 6 March 2024‎ imported>Emanueljg‎ 24,247
+       bytes +91‎ Add info about secret managing scheme to disclaimer
+
+    5 March 2024
+
+     * curprev [ ] [ ] 15:5215:52, 5 March 2024‎ imported>Emanueljg‎ 24,156
+       bytes +10‎ Add missing elipsis to broken nixosModules example.
+
+    1 March 2024
+
+     * curprev [ ] [ ] 04:3904:39, 1 March 2024‎ imported>Jmarmstrong1207‎ m
+       24,146 bytes −918‎ →‎Automatically switch nix shells with nix-direnv:
+       Forgot to remove sections related to direnv
+     * curprev [ ] [ ] 04:3704:37, 1 March 2024‎ imported>Jmarmstrong1207‎
+       25,064 bytes −855‎ →‎Super fast nix-shell: Change direnv section to
+       mention nix-direnv instead. It automatically does everything mentioned
+       and is cleaner.
+
+    25 February 2024
+
+     * curprev [ ] [ ] 00:0400:04, 25 February 2024‎ imported>JamesofScout‎ m
+       25,919 bytes +19‎ add assume unchanged to Dev Tricks
+
+    3 February 2024
+
+     * curprev [ ] [ ] 16:2016:20, 3 February 2024‎ imported>Chadac‎ m 25,900
+       bytes −1‎ fix typo
+
+    22 January 2024
+
+     * curprev [ ] [ ] 20:3020:30, 22 January 2024‎ imported>Rubenmoor‎
+       25,901 bytes −187‎ howto upgrade nixos using flakes
+     * curprev [ ] [ ] 20:2920:29, 22 January 2024‎ imported>Rubenmoor‎
+       26,088 bytes +187‎ howto upgrade nixos using flakes
+
+    17 January 2024
+
+     * curprev [ ] [ ] 19:3319:33, 17 January 2024‎ imported>Fd‎ m 25,901
+       bytes +7‎ Update cli use
+
+    26 December 2023
+
+     * curprev [ ] [ ] 15:2415:24, 26 December 2023‎ imported>JaviMerino‎
+       25,894 bytes +15‎ Use the nixos-unstable branch of nixpkgs as an
+       example of using nix flakes with NixOS instead of nixpkgs master
+
+    20 November 2023
+
+     * curprev [ ] [ ] 04:3404:34, 20 November 2023‎ imported>Jonah‎ m 25,879
+       bytes +77‎ Updated the note and workaround for cross-platform remote
+       nixos-rebuild
+
+    3 November 2023
+
+     * curprev [ ] [ ] 01:4701:47, 3 November 2023‎ imported>SjLambda‎ m
+       25,802 bytes −2‎ typo
+     * curprev [ ] [ ] 01:1701:17, 3 November 2023‎ imported>SjLambda‎ m
+       25,804 bytes +1‎ url typo
+     * curprev [ ] [ ] 01:1301:13, 3 November 2023‎ imported>SjLambda‎ 25,803
+       bytes +162‎ cleaned up the basic section, made it clearer
+
+    2 November 2023
+
+     * curprev [ ] [ ] 22:3722:37, 2 November 2023‎ imported>SjLambda‎ 25,641
+       bytes +32‎ Cleaned out introductory language, mostly style.
+
+    10 October 2023
+
+     * curprev [ ] [ ] 03:1203:12, 10 October 2023‎ imported>Artturin‎ 25,609
+       bytes −1,638‎ Replace input schema section with links
+     * curprev [ ] [ ] 02:5102:51, 10 October 2023‎ imported>Artturin‎ 27,247
+       bytes +198‎ pinning registry
+     * curprev [ ] [ ] 02:4402:44, 10 October 2023‎ imported>Artturin‎ 27,049
+       bytes −291‎ Link to manual
+
+    3 October 2023
+
+     * curprev [ ] [ ] 19:4719:47, 3 October 2023‎ imported>Deemp‎ m 27,340
+       bytes +70‎ Added a link to the flakes on NixOS section
+     * curprev [ ] [ ] 18:5918:59, 3 October 2023‎ imported>Deemp‎ m 27,270
+       bytes +93‎ Added a link to an article that explains what's the system
+       configuration
+
+    14 September 2023
+
+     * curprev [ ] [ ] 12:3312:33, 14 September 2023‎ imported>Kyaru‎ 27,177
+       bytes −2‎ Fix title level
+
+    9 September 2023
+
+     * curprev [ ] [ ] 22:3522:35, 9 September 2023‎ imported>SuperSamus‎
+       27,179 bytes +11‎ No edit summary
+
+    31 August 2023
+
+     * curprev [ ] [ ] 05:0805:08, 31 August 2023‎ imported>Sedlund‎ m 27,168
+       bytes 0‎ apparently there an order to the comments I missed.
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Flakes"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

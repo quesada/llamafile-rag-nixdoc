@@ -1,0 +1,341 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Home Manager: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    20 October 2024
+
+     * curprev [ ] [ ] 14:2314:23, 20 October 2024‎ Rrdpad talk contribs‎
+       9,626 bytes +568‎ fix home manager module and add home manager config
+       Tag: Visual edit
+
+    5 October 2024
+
+     * curprev [ ] [ ] 11:3411:34, 5 October 2024‎ Euxane talk contribs‎ m
+       9,058 bytes +65‎ Fix syntax highlight for some nix code snippets
+     * curprev [ ] [ ] 11:0911:09, 5 October 2024‎ Krutonium talk contribs‎ m
+       8,993 bytes −2‎ Remove accidental 11 at the end of the sentence. Tag:
+       Visual edit
+     * curprev [ ] [ ] 11:0711:07, 5 October 2024‎ Krutonium talk contribs‎
+       8,995 bytes +1,164‎ Show how to install Home Manager into your system
+       in a flake. Tag: Visual edit
+     * curprev [ ] [ ] 10:5010:50, 5 October 2024‎ Krutonium talk contribs‎ m
+       7,831 bytes +1‎ dotfile => dotfiles | plural Tag: Visual edit
+
+    14 September 2024
+
+     * curprev [ ] [ ] 06:0506:05, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 7,830 bytes +1‎ fix home-manager docs link
+
+    30 June 2024
+
+     * curprev [ ] [ ] 02:4702:47, 30 June 2024‎ AndersonTorres talk
+       contribs‎ m 7,829 bytes +124‎ →‎Alternatives
+
+    21 June 2024
+
+     * curprev [ ] [ ] 04:2104:21, 21 June 2024‎ Tomodachi94 talk contribs‎ m
+       7,705 bytes 0‎ Tomodachi94 moved page Home manager to Home Manager
+       over redirect: Misspelled title: the spelling "Home Manager" is
+       consistently used in documentation:
+       https://github.com/nix-community/home-manager?tab=readme-ov-file#home-manager-using-nix
+
+    22 May 2024
+
+     * curprev [ ] [ ] 23:2223:22, 22 May 2024‎ Samueldr talk contribs‎ m
+       7,705 bytes −68‎ Drop banned user's contribution
+
+    14 May 2024
+
+     * curprev [ ] [ ] 09:0709:07, 14 May 2024‎ Mic92 talk contribs‎ 7,773
+       bytes +261‎ imported from old wiki
+
+    27 April 2024
+
+     * curprev [ ] [ ] 20:3920:39, 27 April 2024‎ Drupol talk contribs‎ 7,512
+       bytes +70‎ No edit summary Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:2519:25, 24 April 2024‎ Klinger talk contribs‎ m
+       7,442 bytes +25‎ No edit summary
+     * curprev [ ] [ ] 06:1806:18, 24 April 2024‎ Ihaveahax talk contribs‎
+       7,417 bytes +10‎ →‎Configuration: ~/.config/nixpkgs is the old path,
+       ~/.config/home-manager is the new default
+
+    6 April 2024
+
+     * curprev [ ] [ ] 18:3618:36, 6 April 2024‎ Sdht0 talk contribs‎ m 7,407
+       bytes 0‎ Sdht0 moved page Home Manager to Home manager: Misspelled
+       title
+
+    6 January 2024
+
+     * curprev [ ] [ ] 13:2813:28, 6 January 2024‎ imported>Nyadiia‎ m 7,407
+       bytes +9‎ Update home manager options link
+
+    30 December 2023
+
+     * curprev [ ] [ ] 18:5218:52, 30 December 2023‎ imported>Paradx‎ m 7,398
+       bytes +1‎ switched url to xhtml since apearantly nobody cared to
+       update this change in the docu
+
+    15 December 2023
+
+     * curprev [ ] [ ] 09:4909:49, 15 December 2023‎ imported>Melkor333‎ m
+       7,397 bytes +1‎ fix link to official install guide
+
+    9 December 2023
+
+     * curprev [ ] [ ] 18:0518:05, 9 December 2023‎ imported>Srid‎ 7,396
+       bytes +145‎ add nix-dev-home
+
+    9 November 2023
+
+     * curprev [ ] [ ] 02:1802:18, 9 November 2023‎ imported>Oluceps‎ 7,251
+       bytes +61‎ add extra statement
+     * curprev [ ] [ ] 01:5001:50, 9 November 2023‎ imported>Oluceps‎ 7,190
+       bytes +883‎ add notice about home on tmpfs with standalone-installed
+       home-manager
+
+    6 July 2023
+
+     * curprev [ ] [ ] 11:3011:30, 6 July 2023‎ imported>Inifaisal‎ m 6,307
+       bytes +13‎ No edit summary
+
+    24 June 2023
+
+     * curprev [ ] [ ] 00:2500:25, 24 June 2023‎ imported>Hypnosis2839‎ 6,294
+       bytes +132‎ →‎I cannot set GNOME themes via home-manager: link to
+       official HM manual instead of reddit. add error message
+
+    18 April 2023
+
+     * curprev [ ] [ ] 14:4314:43, 18 April 2023‎ imported>Neilfulwiler‎ m
+       6,162 bytes +2‎ Updated srid's configs to point to new flake-based and
+       up-to-date repo
+
+    28 February 2023
+
+     * curprev [ ] [ ] 08:0808:08, 28 February 2023‎ imported>Edward‎ m 6,160
+       bytes +126‎ Include home.stateVersion
+
+    26 January 2023
+
+     * curprev [ ] [ ] 16:3816:38, 26 January 2023‎ imported>Saikatdas0790‎ m
+       6,034 bytes 0‎ Fix typo: "it" -> "is"
+
+    29 June 2022
+
+     * curprev [ ] [ ] 22:5422:54, 29 June 2022‎ imported>Grxnola‎ 6,034
+       bytes +206‎ Adds how to use in a Flake
+
+    22 November 2021
+
+     * curprev [ ] [ ] 10:4110:41, 22 November 2021‎ imported>DavidDudson‎ m
+       5,828 bytes +1‎ Missing Semicolon
+
+    23 September 2021
+
+     * curprev [ ] [ ] 03:3403:34, 23 September 2021‎ imported>Nix‎ m 5,827
+       bytes +8‎ update link
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5305:53, 20 September 2021‎ imported>Nix‎ m 5,819
+       bytes +23‎ add Software category
+
+    18 September 2021
+
+     * curprev [ ] [ ] 18:0018:00, 18 September 2021‎ imported>Nix‎ 5,796
+       bytes +308‎ add a good concise video guide
+
+    2 September 2021
+
+     * curprev [ ] [ ] 13:1613:16, 2 September 2021‎ imported>Fufexan‎ m
+       5,488 bytes 0‎ fix fetchTarball
+     * curprev [ ] [ ] 08:2008:20, 2 September 2021‎ imported>Fufexan‎ m
+       5,488 bytes −188‎ Change NixOS module fetcher
+
+    14 August 2021
+
+     * curprev [ ] [ ] 14:5114:51, 14 August 2021‎ imported>Symphorien‎ 5,676
+       bytes +799‎ make it clear that you need hm to manage your shell
+       configuration.
+     * curprev [ ] [ ] 14:4014:40, 14 August 2021‎ imported>Symphorien‎ 4,877
+       bytes +1,302‎ expand a bit, notably clearly say how to use hm to
+       replace nix-env
+
+    25 June 2021
+
+     * curprev [ ] [ ] 02:1302:13, 25 June 2021‎ imported>Scoder12‎ m 3,575
+       bytes −9‎ Use correct option name
+
+    25 February 2021
+
+     * curprev [ ] [ ] 04:2104:21, 25 February 2021‎ imported>Samuela‎ m
+       3,584 bytes 0‎ →‎installed apps don’t show up in Ubuntu's/GNOME's
+       "Show Applications"
+     * curprev [ ] [ ] 04:2004:20, 25 February 2021‎ imported>Samuela‎ 3,584
+       bytes +179‎ →‎FAQ
+
+    1 October 2020
+
+     * curprev [ ] [ ] 22:3522:35, 1 October 2020‎ imported>HoldenLucas‎
+       3,405 bytes −21‎ previous link to srid's config was broken
+
+    21 July 2020
+
+     * curprev [ ] [ ] 19:5619:56, 21 July 2020‎ imported>Extends‎ m 3,426
+       bytes +123‎ Added home-manager list of options
+     * curprev [ ] [ ] 19:4419:44, 21 July 2020‎ imported>Extends‎ 3,303
+       bytes +760‎ Added description of what we're doing, for beginners.
+
+    23 January 2020
+
+     * curprev [ ] [ ] 13:5713:57, 23 January 2020‎ imported>Srid‎ 2,543
+       bytes +87‎ →‎Examples: my config
+
+    18 January 2020
+
+     * curprev [ ] [ ] 02:3602:36, 18 January 2020‎ imported>Jtojnar‎ 2,456
+       bytes −24‎ fix dconf option
+
+    12 January 2020
+
+     * curprev [ ] [ ] 20:2120:21, 12 January 2020‎ imported>B4dM4n‎ 2,480
+       bytes +18‎ import module to avoid "string is not allowed to refer to a
+       store path" error on unstable
+
+    29 October 2019
+
+     * curprev [ ] [ ] 05:1805:18, 29 October 2019‎ imported>Tomatocream‎ m
+       2,462 bytes +1‎ indentation error, missing space in
+       "${home-manager}/nixos"
+
+    9 June 2019
+
+     * curprev [ ] [ ] 16:0216:02, 9 June 2019‎ imported>Asymmetric‎ m 2,461
+       bytes +9‎ No edit summary
+     * curprev [ ] [ ] 16:0116:01, 9 June 2019‎ imported>Asymmetric‎ 2,452
+       bytes −3‎ use xdg.configFile instead of home.file
+
+    17 March 2019
+
+     * curprev [ ] [ ] 17:4417:44, 17 March 2019‎ imported>Makefu‎ 2,455
+       bytes +308‎ add FAQ
+
+    13 March 2019
+
+     * curprev [ ] [ ] 10:2810:28, 13 March 2019‎ imported>Luis-Hebendanz‎ m
+       2,147 bytes 0‎ No edit summary
+     * curprev [ ] [ ] 10:2810:28, 13 March 2019‎ imported>Luis-Hebendanz‎ m
+       2,147 bytes −118‎ No edit summary
+     * curprev [ ] [ ] 10:2710:27, 13 March 2019‎ imported>Luis-Hebendanz‎ m
+       2,265 bytes −6‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Home_Manager"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

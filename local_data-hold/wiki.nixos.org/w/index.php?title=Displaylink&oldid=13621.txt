@@ -1,0 +1,122 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 DisplayLink monitors
+          * 1.1 Connecting a second external monitor
+   [ ] Toggle the table of contents
+
+                                  Displaylink
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 00:28, 28 June 2024 by Montchr (talk | contribs) (Note that
+   driver version 6.0.0 support is pending)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+  DisplayLink monitors
+
+   In order to use DisplayLink monitors over USB, such as the ASUS MB16AC,
+   the DisplayLink driver needs to be installed:
+
+ services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+
+   The module nixos/modules/hardware/video/displaylink.nix should also work
+   for wlroots compositors.
+
+   Since these drivers depend on binary unfree blobs, you will need to first
+   add it to your Nix store. Go to
+   https://www.displaylink.com/downloads/ubuntu to get the appropriate driver
+   version and note the download URL you get after accepting the EULA.
+
+   As of 2024-05-01, the current latest version for the driver can be found
+   at
+   https://www.synaptics.com/products/displaylink-graphics/downloads/ubuntu-6.0?filetype=exe.
+   As of 2024-06-27, version 6.0.0 support in NixOS is pending merge of
+   nixpkgs#317292
+
+   After you have downloaded the driver, run something like the following,
+   adjusting the version number in displaylink-600.zip to match the version
+   supported in NixOS at the moment:
+
+ $ nix-prefetch-url --name displaylink-600.zip https://www.synaptics.com/sites/default/files/exe_files/2024-05/DisplayLink%20USB%20Graphics%20Software%20for%20Ubuntu6.0-EXE.zip
+
+    Connecting a second external monitor
+
+   In order to add a second external monitor you can add the following to
+   your configuration:
+
+ services.xserver.displayManager.sessionCommands = ''
+     ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
+ '';
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Displaylink&oldid=13621"
+   Category:
+     * Video
+     * This page was last edited on 28 June 2024, at 00:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

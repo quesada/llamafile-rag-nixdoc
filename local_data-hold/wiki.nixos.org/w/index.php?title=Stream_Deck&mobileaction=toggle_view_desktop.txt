@@ -1,0 +1,97 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Stream Deck UI
+   [ ] Toggle the table of contents
+
+                                  Stream Deck
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Stream Deck UI
+
+   You can use streamdeck-linux-gui (also called streamdeck-ui) to control
+   Elgato Stream Deck devices.
+
+   To ensure udev rules are correctly enabled, use programs.streamdeck-ui to
+   enable the application:
+
+ {
+   programs.streamdeck-ui = {
+     enable = true;
+     autoStart = true; # optional
+   };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Stream_Deck&oldid=12637"
+   Category:
+     * Hardware
+     * This page was last edited on 4 May 2024, at 10:25.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,97 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Talk:Nixpkgs enhancements
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 2 August 2022 by Toraritte
+
+   Idea originally suggested by Makefu on 14:04, 12 September 2017 (UTC) in
+   Talk: Alternative Package Sets.Reply
+
+   I think it would be a great place to start it by introducing the plethora
+   of override methods and the overlay mechanism (what else?) in a high level
+   as a historical narrative by explaining what problems they were trying to
+   solve (or any other rationale) and what shortcomings they have (had) that
+   required the introduction to the next tool down the line.
+
+   All the tools mentioned will be linked to their own page.
+
+   For example:
+
+    1. tool 1 (we had to keep doing x manually or duplicate existing Nix
+       expression so we came up with this BUT we ran into issues with so we
+       came up with tool 2)
+    2. tool 2 (this was much nicer because of reasons BUT still had the
+       shortcomings of z. Which is why introduced the overlay mechanism)
+    3. overlays (the ultimate, case closed, etc.)
+
+   --Toraritte (talk) 15:45, 2 August 2022 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Nixpkgs_enhancements&oldid=9907"
+     * This page was last edited on 2 August 2022, at 15:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

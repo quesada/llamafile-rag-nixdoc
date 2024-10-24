@@ -1,0 +1,116 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Cursor Theme with Home Manager
+   [ ] Toggle the table of contents
+
+                                 Cursor Themes
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   To install the DMZ white cursor theme with home-manager, add this to your
+   home-manager config:
+
+   home.file.".icons/default".source =
+   "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
+
+   For a more fine-grained configuration, check the option
+   xsession.pointerCursor.
+
+Cursor Theme with Home Manager
+
+   Here's an example how you can get a cursor theme from a url and assign it
+   to HM's pointerCursor:
+
+   home.pointerCursor =
+     let
+       getFrom = url: hash: name: {
+           gtk.enable = true;
+           x11.enable = true;
+           name = name;
+           size = 48;
+           package =
+             pkgs.runCommand "moveUp" {} ''
+               mkdir -p $out/share/icons
+               ln -s ${pkgs.fetchzip {
+                 url = url;
+                 hash = hash;
+               }} $out/share/icons/${name}
+           '';
+         };
+     in
+       getFrom
+         "https://github.com/ful1e5/fuchsia-cursor/releases/download/v2.0.0/Fuchsia-Pop.tar.gz"
+         "sha256-BvVE9qupMjw7JRqFUj1J0a4ys6kc9fOLBPx2bGaapTk="
+         "Fuchsia-Pop";
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Cursor_Themes&oldid=6264"
+     * This page was last edited on 27 May 2023, at 09:18.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

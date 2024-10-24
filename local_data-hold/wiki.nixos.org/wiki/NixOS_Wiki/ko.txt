@@ -1,0 +1,155 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                    NixOS 위키
+
+     * Page
+     * Discussion
+   [ ] 한국어
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page NixOS Wiki and the
+   translation is 86% complete.
+   Other languages:
+     * English
+     * español
+     * français
+     * русский
+     * 中文（中国大陆）
+     * 日本語
+     * 한국어
+
+    시작하기
+
+   공식 NixOS 위키입니다. 여기에는 NixOS 매뉴얼에서 다루지 않은 주제가 포함되어 있습니다: NixOS 사용 안내서, 구성
+   예제, 문제 해결을 위한 팁
+
+   NixOS는 Nix 패키지 관리자와 Nixpkgs 패키지 저장소를 기반으로 하는 리눅스 운영 체제입니다.
+
+   NixOS를 처음 접하는 분들은 Nix 코어 생태계 개요 문서를 읽어보시고 포괄적인 방향을 잡으시길 바랍니다. 더 구체적인 소개는
+   다음을 참조하세요:
+
+     * NixOS
+     * Nix 패키지 관리자
+     * Nixpkgs 패키지 저장소
+     * Nix 언어
+
+   다른 리눅스 배포판이나 Mac에서 독립 실행형 Nix를 사용하려면 [nix.dev]에서 시작하세요.
+
+   Nix 생태계에는 다음과 같은 훌륭한 도구들이 많이 있습니다:
+
+     * 유저 프로필 및 홈 디렉토리 콘텐츠를 관리하는 홈 매니저
+     * nix-channel을 대체하는 Nix Flakes
+
+   이러한 기능은 복잡도를 더하고 처음에는 혼란스러울 수 있으며, 필요하지 않다고 판단할 수도 있습니다. 일반 Nix/NixOS로
+   시작하고, Nix/NixOS에 익숙해지고 그 중요성을 이해한 후에 홈 매니저 또는 Flakes를 구성에 통합하세요.
+
+    NixOS 설정하기
+     * 데스크탑에 설치하려면 NixOS as a desktop을 참조하세요
+     * ARM 기기에 설치하려면 NixOS on ARM을 참조하세요
+     * 클라우드에 설치하려면 NixOS friendly hosters을 참조하세요
+
+    Documentation topics
+
+   {{{3}}}
+
+    Special pages
+     * Overview of special pages
+     * All pages of wiki.nixos.org
+     * All categories of wiki.nixos.org
+     * Unpatrolled changes of wiki.nixos.org
+
+    Get in touch
+
+   {{{3}}}
+
+    News
+
+    2024-09-02 — Wiki editors use Manual of Style
+
+   The Wiki team discussed and put into effect the Manual of Style for
+   editing wiki articles. This is a huge step towards clear and consistent
+   documentation. All editors are encouraged to follow this guide.
+
+    2024-08-22 — Wiki editors meeting
+
+   All interested wiki editors meet on 22th of August at 21:15 CEST in a
+   Jitsi conference.
+
+   Agenda: https://pad.lassul.us/wiki-agenda?view
+
+    2024-07-05 — Wiki editors meeting
+
+   All interested wiki editors meet on 5th of July at 13:00 CEST in a Jitsi
+   conference.
+
+    2024-04-01 — Launch of the wiki
+
+   The official NixOS wiki has taken off! If you want to find out why there
+   is a new wiki effort, check out the FAQ.
+
+   ... all news articles →
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Wiki/ko&oldid=17561"
+     * This page was last edited on 18 September 2024, at 04:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

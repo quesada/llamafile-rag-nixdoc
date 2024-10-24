@@ -1,0 +1,212 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Comparison to other resource page types
+   [ ] Toggle the table of contents
+
+                               Category:Cookbook
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+   Cookbook is one of the five primary resource categories for the wiki.
+
+   Cookbooks are collections of recipes. The recipes it contains will provide
+   instructions on how to get a solution for a certain subject. They are goal
+   oriented and have a clear beginning and end. They show someone - who can
+   be assumed to have some basic knowledge already - how to achieve
+   something.
+
+   Cookbooks are different from Tutorials as they provide answers to a
+   question that a true beginner might not even be able to formulate.
+
+   They are arranged by theme / tool into separate articles.
+
+  Comparison to other resource page types
+
+     * If information is more encyclopedic (with a similar scope and tone to
+       pages on Wikipedia), a page would be considered a pedia.
+     * If information is less encyclopedic and more similar to a compendium,
+       study guide, or a bibliographic guide, a page would be considered a
+       guide.
+     * If information is more about direct instruction to achieve a specific
+       task, a page would be considered a tutorial.
+     * If a page is more just a set of tips and tricks (less instructive than
+       a tutorial), it would be a cookbook.
+     * If a page is a detailed reference (like a man page or full software
+       manual), it would fit under references.
+
+Pages in category "Cookbook"
+
+   The following 45 pages are in this category, out of 45 total.
+
+  B
+
+     * Blocky
+     * Borg backup
+     * Building ancient nixpkgs
+
+  C
+
+     * C
+     * CDE
+     * Cheatsheet
+     * Creating a NixOS live CD
+     * Creating a NixOS live CD/en
+     * Creating a NixOS live CD/ru
+
+  D
+
+     * Docker
+     * Dual Booting NixOS and Windows
+
+  F
+
+     * FAQ
+     * FAQ/en
+     * FAQ/zh-cn
+     * Firefox
+     * Firefox/en
+     * Firefox/ru
+
+  G
+
+     * Git http server
+
+  H
+
+     * Hardware/Dell/Wyse 3040
+     * Hardware/GPD/GPD Pocket
+     * Hedgedoc
+     * How to fetch Nixpkgs with an empty NIX PATH
+
+  I
+
+     * Install NixOS on GCE
+     * Install NixOS on Hetzner Cloud
+     * Install NixOS on Hetzner Online
+
+  L
+
+     * Laptop
+     * Linux kernel
+
+  N
+
+     * Nix Cookbook
+     * Nix Installation Guide
+     * Nix Language: Tips & Tricks
+     * NTP
+
+  O
+
+     * Overlays
+
+  P
+
+     * Packaging/Quirks and Caveats
+
+  R
+
+     * Remote disk unlocking
+
+  S
+
+     * Solokey
+     * Static Web Server
+     * Systemd/Hardening
+     * Systemd/Hardening/en
+     * Systemd/Hardening/ru
+
+  T
+
+     * Tor Browser in a Container
+
+  U
+
+     * Ubuntu vs. NixOS
+
+  V
+
+     * VMware
+
+  W
+
+     * Wiki-js
+     * Writing DVDs
+
+  Y
+
+     * Yubikey
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Cookbook&oldid=12174"
+   Category:
+     * Resource
+     * This page was last edited on 18 April 2024, at 21:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

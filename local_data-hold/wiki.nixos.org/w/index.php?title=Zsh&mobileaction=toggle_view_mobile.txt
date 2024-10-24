@@ -1,0 +1,293 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+          * 2.1 Basic
+          * 2.2 Advanced
+     * 3 Tips and Tricks
+          * 3.1 Where to see a list of options?
+          * 3.2 How to use plugins?
+     * 4 Troubleshooting
+          * 4.1 Zsh-autocomplete not working
+          * 4.2 SHA Mismatch during manual plugin installation
+          * 4.3 GDM does not show user when zsh is the default shell
+          * 4.4 Hide configuration for new users
+     * 5 References
+   [ ] Toggle the table of contents
+
+                                      Zsh
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Zsh is a powerful Unix shell that functions both as an interactive shell
+   and a scripting language interpreter. It extends the Bourne Shell (sh)
+   with features from bash, ksh, and tcsh, offering advanced tab completion,
+   improved globbing, and extensive customization options. Though not POSIX
+   sh-compatible by default, it can be configured to be so with emulate sh.
+
+   Key features include highly customizable prompts, enhanced command
+   history, spelling correction, and robust job control. The Oh My Zsh
+   framework simplifies managing plugins and themes. Zsh is cross-platform,
+   available on Unix-like systems including Linux and macOS, and is popular
+   among developers and system administrators for its advanced features and
+   user-friendly enhancements.
+
+   The Zsh FAQ offers more reasons to use Zsh.
+
+Installation
+
+   See Command Shell.
+
+Configuration
+
+    Basic
+
+ programs.zsh = {
+     enable = true;
+ };
+
+    Advanced
+
+   The configuration below is using home manager, but a more limited version
+   of it can be achieved if system-wide.
+
+ programs.zsh = {
+     enable = true;
+     enableCompletion = true;
+     autosuggestions.enable = true;
+     syntaxHighlighting.enable = true;
+
+     shellAliases = {
+       ll = "ls -l";
+       edit = "sudo -e";
+       update = "sudo nixos-rebuild switch";
+     };
+
+     history.size = 10000;
+     history.ignoreAllDups = true;
+     history.path = "$HOME/.zsh_history";
+     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
+ };
+
+Tips and Tricks
+
+    Where to see a list of options?
+
+   The home manager options are defined in the following Home Manager Options
+   Manual or can be looked up at Home Manager Option Search.
+
+   The system-wide options are listed on MyNixOS.
+
+    How to use plugins?
+
+   Home manager has four ways of managing plugins: Zplug, Oh-My-Zsh, Antidote
+   and Manual.
+
+ programs.zsh = {
+   enable = true;
+
+ # With Zplug:
+   zplug = {
+     enable = true;
+     plugins = [
+       {name = "zsh-users/zsh-autosuggestions";} # Simple plugin installation
+       {
+         name = "romkatv/powerlevel10k";
+         tags = [ "as:theme" "depth:1" ];
+       } # Installations with additional options. For the list of options, please refer to Zplug README.
+     ];
+   };
+
+ # With Oh-My-Zsh:
+   ohMyZsh = {
+     enable = true;
+     plugins = ["git" "thefuck"];
+     theme = "robbyrussell";
+   };
+
+ # With Antidote:
+   antidote = {
+     enable = true;
+     plugins = [''
+       zsh-users/zsh-autosuggestions
+       ohmyzsh/ohmyzsh path:lib/git.zsh
+     '']; # explanation of "path:..." and other options explained in Antidote README.
+
+ # Manual
+   plugins = [
+     {
+       name = "zsh-autocomplete";
+       src = pkgs.fetchFromGitHub {
+         owner = "marlonrichert";
+         repo = "zsh-autocomplete";
+         rev = "23.07.13";
+         sha256 = "sha256-/6V6IHwB5p0GT1u5SAiUa20LjFDSrMo731jFBq/bnpw=";
+       };
+     }
+     {
+       name = "powerlevel10k";
+       src = pkgs.zsh-powerlevel10k;
+       file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+     }
+     {
+       name = "powerlevel10k-config";
+       src = ./p10k-config;
+       file = "p10k.zsh";
+     }
+     {
+       name = "zsh-syntax-highlighting";
+       src = pkgs.fetchFromGitHub {
+         owner = "zsh-users";
+         repo = "zsh-syntax-highlighting";
+         rev = "0.8.0";
+         sha256 = "sha256-iJdWopZwHpSyYl5/FQXEW7gl/SrKaYDEtTH9cGP7iPo=";
+       };
+     }
+   ];
+ };
+
+Troubleshooting
+
+    Zsh-autocomplete not working
+
+   You may have some issues with the marlonrichert/zsh-autocomplete plugin on
+   NixOS. That's because the default NixOS configuration overrides keybinds
+   for up and down arrow keys. To fix this issue, you need to add this
+   somewhere in your .zshrc (either manually if your .zshrc is not managed by
+   Nix, or with packages.zsh.initExtra)
+
+ bindkey "''${key[Up]}" up-line-or-search
+
+    SHA Mismatch during manual plugin installation
+
+   If manual plugin installation fails with SHA mismatch, generating a valid
+   hash as part of the error message can be achieved by temporarily switching
+   to:
+
+ sha256 = lib.fakeSha256;
+
+   This will print a valid SHA to the console and then can be used as final
+   value for the sha256 field. Redoing this is mandatory if one wants to
+   update to a newer commit of the targeted plugin repository.
+
+    GDM does not show user when zsh is the default shell
+
+   GDM only shows users that have their default shell set to a shell listed
+   in /etc/shells. Setting the default shell using the following does not
+   update /etc/shells.
+
+ users.defaultUserShell = pkgs.zsh;
+
+   To add the zsh package to /etc/shells you must update environment.shells.
+
+ environment.shells = with pkgs; [ zsh ];
+
+    Hide configuration for new users
+
+   Meaning this message:
+
+ This is the Z Shell configuration function for new users,
+ zsh-newuser-install.
+ You are seeing this message because you have no zsh startup files
+ (the files .zshenv, .zprofile, .zshrc, .zlogin in the directory
+ ~).  This function can help you with a few settings that should
+ make your use of the shell easier.
+
+ You can:
+
+ (q)  Quit and do nothing.  The function will be run again next time.
+
+ (0)  Exit, creating the file ~/.zshrc containing just a comment.
+      That will prevent this function being run again.
+
+ (1)  Continue to the main menu.
+
+ --- Type one of the keys in parentheses ---
+
+   You can hide this message by adding following line to the system
+   configuration:
+
+ # Prevent the new user dialog in zsh
+ system.userActivationScripts.zshrc = "touch .zshrc";
+
+References
+
+    1. https://www.zsh.org/
+    2. http://zsh.sourceforge.net/Guide/zshguide06.html
+    3. http://zsh.sourceforge.net/Doc/Release/Expansion.html
+    4. http://zsh.sourceforge.net/FAQ/zshfaq01.html#l4
+    5. https://nix-community.github.io/home-manager/options.xhtml#opt-programs.zsh.enable
+    6. https://mynixos.com/search?q=zsh
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Zsh&oldid=16580"
+   Categories:
+     * Shell
+     * NixOS Manual
+     * This page was last edited on 10 August 2024, at 21:02.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

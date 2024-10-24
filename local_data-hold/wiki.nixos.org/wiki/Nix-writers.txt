@@ -1,0 +1,182 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Languages
+          * 1.1 bash
+          * 1.2 dash
+          * 1.3 Haskell
+          * 1.4 JavaScript
+          * 1.5 Perl
+          * 1.6 Python2
+          * 1.7 Python3
+   [ ] Toggle the table of contents
+
+                                  Nix-writers
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Nix-writers are a way to write other programming languages inline in
+   nix-code. They are like writeScript/writeScriptBin but for other
+   languages.
+
+   Every writer has a ...Bin variant which can be used inside
+   environment.systemPackages. Most of the writers take an attrributeset
+   where one can add libraries.
+
+Languages
+
+  bash
+
+   This is basically writeScript but with the shebang to bash already
+   included.
+
+ pkgs.writers.writeBash "hello_world" ''
+   echo 'hello world!'
+ ''
+
+  dash
+
+ pkgs.writers.writeDash "hello_world" ''
+   echo 'hello world!'
+ ''
+
+  Haskell
+
+ writeHaskell "missiles" {
+   libraries = [ pkgs.haskellPackages.acme-missiles ];
+ } ''
+   import Acme.Missiles
+
+   main = launchMissiles
+ ''
+
+  JavaScript
+
+ writeJS "example" {
+   libraries = [ pkgs.nodePackages.uglify-js ];
+ } ''
+   var UglifyJS = require("uglify-js");
+   var code = "function add(first, second) { return first + second; }";
+   var result = UglifyJS.minify(code);
+   console.log(result.code);
+ ''
+
+  Perl
+
+ writePerl "example" {
+   libraries = [ pkgs.perlPackages.boolean ];
+ } ''
+   use boolean;
+   print "Howdy!\n" if true;
+ ''
+
+  Python2
+
+ writePython2 "test_python2" {
+   deps = [ pkgs.python2Packages.enum ];
+ } ''
+   from enum import Enum
+
+   class Test(Enum):
+       a = "success"
+
+   print Test.a
+ ''
+
+  Python3
+
+ writePython3 "test_python3" {
+   libraries = [ pkgs.python3Packages.pyyaml ];
+ } ''
+   import yaml
+
+   y = yaml.load("""
+     - test: success
+   """)
+   print(y[0]['test'])
+ ''
+
+   To disable errors use 'flakeIgnore' like this:
+
+ writePython3 "test_python3" {
+   libraries = [ pkgs.python3Packages.pyyaml ];
+   flakeIgnore = [ "E265" "E225" ];
+ } ''
+   import yaml
+
+   y = yaml.load("""
+     - test: success
+   """)
+   print(y[0]['test'])
+ ''
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix-writers&oldid=6757"
+     * This page was last edited on 23 October 2023, at 18:33.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,121 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+   [ ] Toggle the table of contents
+
+                                    MongoDB
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 17:54, 16 October 2024 by Astralchroma (talk | contribs)
+   (Warn about `mongodb` not being pre-compiled)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   MongoDB is a NoSQL database program.
+
+Installation
+
+   If no extra configuration is needed, you'll only use the following line to
+   install and enable MongoDB. This will give you a mongodb with
+   authentication disabled, listening on 127.0.0.1 and the database path to
+   store the data is /var/db/mongodb.
+
+ ...
+ services.mongodb.enable = true;
+ ...
+
+   Warning: The default mongodb package does not provide pre-compiled
+   binaries, and the package will be compiled locally. The alternate package
+   mongodb-ce does however. You can configure the mongodb service to use this
+   package with the following:
+
+ services.mongodb.package = pkgs.mongodb-ce;
+
+Configuration
+
+   Here's an example with multiple options. Beware that putting your password
+   in cleartext into the config should not be done. Please check Comparison
+   of secret managing schemes for that matter.
+
+ services.mongodb = {
+   enable = true;
+   package = "mongodb-5_0";
+   enableAuth = true;
+   initialRootPassword = "YourSecurePassword";
+   bind_ip = "10.5.0.2";
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=MongoDB&oldid=17877"
+   Categories:
+     * Server
+     * Database
+     * This page was last edited on 16 October 2024, at 17:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

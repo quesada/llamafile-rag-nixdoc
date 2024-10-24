@@ -1,0 +1,312 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                 Overview of the Nix Language: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    7 October 2024
+
+     * curprev [ ] [ ] 01:1001:10, 7 October 2024‎ Fidgetingbits talk
+       contribs‎ m 785 bytes +2‎ Fix grammatical error Tag: Visual edit:
+       Switched
+
+    18 April 2024
+
+     * curprev [ ] [ ] 17:5817:58, 18 April 2024‎ Klinger talk contribs‎ 783
+       bytes +45‎ Removed the quote (there have been two links to the manual
+       directly behind each other. Added a sentence about what is written in
+       Nix.
+
+    1 April 2024
+
+     * curprev [ ] [ ] 12:1012:10, 1 April 2024‎ Mic92 talk contribs‎ 738
+       bytes −10‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 12:1012:10, 1 April 2024‎ Mic92 talk contribs‎ 748
+       bytes +9‎ No edit summary Tag: Visual edit
+
+    4 March 2024
+
+     * curprev [ ] [ ] 22:1322:13, 4 March 2024‎ imported>Fricklerhandwerk‎
+       739 bytes −97‎ no need to expand on that
+     * curprev [ ] [ ] 22:1322:13, 4 March 2024‎ imported>Fricklerhandwerk‎
+       836 bytes −15,626‎ there is nothing unique in this article that's not
+       covered in actively maintained upstream documentation
+
+    5 September 2023
+
+     * curprev [ ] [ ] 00:1400:14, 5 September 2023‎
+       imported>Fricklerhandwerk‎ 16,462 bytes −230‎ update high-level
+       overview and update links to official docs
+
+    10 August 2023
+
+     * curprev [ ] [ ] 00:5600:56, 10 August 2023‎ imported>Mateusauler‎ m
+       16,692 bytes −5‎ Fix minor grammar mistake
+
+    2 June 2023
+
+     * curprev [ ] [ ] 09:4509:45, 2 June 2023‎ imported>Johan-adriaans‎ m
+       16,697 bytes 0‎ Fixed Less than Operator, it was displaying the
+       Greater Than Operator.
+
+    18 May 2023
+
+     * curprev [ ] [ ] 16:0316:03, 18 May 2023‎ imported>Jeff-hykin‎ m 16,697
+       bytes +828‎ Expand/clarify the "or" operator
+
+    20 April 2023
+
+     * curprev [ ] [ ] 12:0312:03, 20 April 2023‎
+       imported>Gabriel-doriath-dohler‎ 15,869 bytes +35‎ No edit summary
+     * curprev [ ] [ ] 11:1411:14, 20 April 2023‎
+       imported>Gabriel-doriath-dohler‎ 15,834 bytes +31‎ No edit summary
+     * curprev [ ] [ ] 09:4809:48, 20 April 2023‎
+       imported>Gabriel-doriath-dohler‎ 15,803 bytes +382‎ No edit summary
+
+    2 March 2023
+
+     * curprev [ ] [ ] 03:3403:34, 2 March 2023‎ imported>Sitwon‎ m 15,421
+       bytes −5‎ Correcting the grammar of the sentence by removing an extra
+       occurrence of 'into'.
+
+    4 August 2022
+
+     * curprev [ ] [ ] 08:1808:18, 4 August 2022‎ imported>Fricklerhandwerk‎
+       15,426 bytes −22‎ nix expression language -> nix language
+     * curprev [ ] [ ] 08:1608:16, 4 August 2022‎ imported>Fricklerhandwerk‎
+       m 15,448 bytes 0‎ Fricklerhandwerk moved page Overview of the Nix
+       Expression Language to Overview of the Nix Language
+     * curprev [ ] [ ] 08:1608:16, 4 August 2022‎ imported>Fricklerhandwerk‎
+       15,448 bytes +26‎ link to Nix quirks
+
+    3 August 2022
+
+     * curprev [ ] [ ] 03:0903:09, 3 August 2022‎ imported>Toraritte‎ 15,422
+       bytes −7,249‎ Move section "Tips & Tricks" to their own page
+     * curprev [ ] [ ] 03:0603:06, 3 August 2022‎ imported>Toraritte‎ 22,671
+       bytes −209‎ Remove editor section but add that page as "see also" link
+     * curprev [ ] [ ] 02:4002:40, 3 August 2022‎ imported>Toraritte‎ 22,880
+       bytes −1,060‎ Move learning resources to its own page
+     * curprev [ ] [ ] 02:3302:33, 3 August 2022‎ imported>Toraritte‎ m
+       23,940 bytes 0‎ Toraritte moved page Nix Expression Language to
+       Overview of the Nix Expression Language: It was too vague, especially
+       if there is a category with the same name
+     * curprev [ ] [ ] 02:2902:29, 3 August 2022‎ imported>Toraritte‎ 23,940
+       bytes +44‎ Add incomplete flag (i.e., Expansion template) and culled
+       the categories
+
+    25 June 2022
+
+     * curprev [ ] [ ] 15:5115:51, 25 June 2022‎ imported>Obsidianical‎ m
+       23,896 bytes +2‎ Added a missing 'a'
+
+    15 March 2022
+
+     * curprev [ ] [ ] 19:3919:39, 15 March 2022‎ imported>Lucus16‎ m 23,894
+       bytes +3‎ Fix multine line string example formatting
+
+    19 November 2021
+
+     * curprev [ ] [ ] 01:3301:33, 19 November 2021‎ imported>Efx‎ 23,891
+       bytes +1‎ spacing
+     * curprev [ ] [ ] 01:3201:32, 19 November 2021‎ imported>Efx‎ 23,890
+       bytes +250‎ promote nix-snippets as a beginner learning resource
+
+    14 November 2021
+
+     * curprev [ ] [ ] 09:4709:47, 14 November 2021‎ imported>Milahu‎ m
+       23,640 bytes +17‎ add <nowiki> to url
+
+    23 September 2021
+
+     * curprev [ ] [ ] 03:0903:09, 23 September 2021‎ imported>Nix‎ 23,623
+       bytes +117‎ add see also link
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:2006:20, 20 September 2021‎ imported>Nix‎ m 23,506
+       bytes +39‎ add Software category and Nix
+     * curprev [ ] [ ] 00:2700:27, 20 September 2021‎ imported>Nix‎ m 23,467
+       bytes −13‎ move to pedias category
+
+    30 August 2021
+
+     * curprev [ ] [ ] 21:5721:57, 30 August 2021‎ imported>L0b0‎ 23,480
+       bytes −29‎ Correct and simplify link
+
+    19 June 2021
+
+     * curprev [ ] [ ] 10:3510:35, 19 June 2021‎ imported>Mweinelt‎ 23,509
+       bytes +107‎ Undo revision 5918 by HaoZeke (talk)
+     * curprev [ ] [ ] 00:0200:02, 19 June 2021‎ imported>HaoZeke‎ 23,402
+       bytes −107‎ Remove low effort medium post
+
+    3 May 2021
+
+     * curprev [ ] [ ] 21:5921:59, 3 May 2021‎ imported>Nh2‎ m 23,509 bytes
+       +46‎ →‎with statement
+     * curprev [ ] [ ] 21:5121:51, 3 May 2021‎ imported>Nh2‎ 23,463 bytes
+       +1,474‎ mention non-shadowing of `with` statement
+
+    10 February 2021
+
+     * curprev [ ] [ ] 21:1421:14, 10 February 2021‎ imported>Kcurtet‎ m
+       21,989 bytes −1‎ Typo. The dot is a copy paste error I think.
+
+    25 January 2021
+
+     * curprev [ ] [ ] 08:3008:30, 25 January 2021‎ imported>R-burns‎ m
+       21,990 bytes −41‎ Driveby stdenv.lib deprecation cleanup:
+       https://github.com/NixOS/nixpkgs/issues/108938
+
+    17 January 2021
+
+     * curprev [ ] [ ] 21:2021:20, 17 January 2021‎ imported>DieracDelta‎ m
+       22,031 bytes +128‎ Added scrive to resources
+
+    25 December 2020
+
+     * curprev [ ] [ ] 09:1009:10, 25 December 2020‎ imported>Colemickens‎ m
+       21,903 bytes +397‎ No edit summary
+     * curprev [ ] [ ] 09:0709:07, 25 December 2020‎ imported>Colemickens‎
+       21,506 bytes +812‎ add helpful bit about paths and interpolation
+
+    13 November 2020
+
+     * curprev [ ] [ ] 20:5220:52, 13 November 2020‎ imported>Caretcafe‎ m
+       20,694 bytes 0‎ No edit summary
+
+    20 June 2020
+
+     * curprev [ ] [ ] 21:3621:36, 20 June 2020‎ imported>Pdinges‎ m 20,694
+       bytes +1‎ Fix minor typos.
+
+    2 April 2020
+
+     * curprev [ ] [ ] 19:3619:36, 2 April 2020‎ imported>Vincentbernat‎
+       20,693 bytes −6‎ "@" pattern captures all arguments, not only the
+       extra ones
+
+    24 January 2020
+
+     * curprev [ ] [ ] 16:0716:07, 24 January 2020‎ imported>Rovanion‎ 20,699
+       bytes +156‎ Corrected the syntax highlighting in the new function
+       sections
+     * curprev [ ] [ ] 16:0216:02, 24 January 2020‎ imported>Rovanion‎ 20,543
+       bytes +975‎ Expanded on the function intro, made the introduction to
+       the more interesting function syntax gradual and understandable.
+     * curprev [ ] [ ] 15:1215:12, 24 January 2020‎ imported>Rovanion‎ m
+       19,568 bytes 0‎ Added a missing initial capital
+     * curprev [ ] [ ] 15:1115:11, 24 January 2020‎ imported>Rovanion‎ m
+       19,568 bytes −1‎ And removed a misedit.
+     * curprev [ ] [ ] 15:1115:11, 24 January 2020‎ imported>Rovanion‎ m
+       19,569 bytes +2‎ Added some missing punctuation.
+     * curprev [ ] [ ] 15:1015:10, 24 January 2020‎ imported>Rovanion‎ m
+       19,567 bytes +10‎ Clearified function structure
+     * curprev [ ] [ ] 13:4913:49, 24 January 2020‎ imported>Rovanion‎ 19,557
+       bytes +68‎ More language paralells.
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Overview_of_the_Nix_Language"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

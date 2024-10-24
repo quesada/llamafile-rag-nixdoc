@@ -1,0 +1,311 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Non-NixOS Distributions
+     * 2 Built with Nix
+     * 3 Nix Platform
+     * 4 Nix Tooling
+          * 4.1 General configuration
+     * 5 About
+          * 5.1 Flakes
+          * 5.2 Архивы
+          * 5.3 Clustering
+          * 5.4 Сравнение
+          * 5.5 Зависимости
+          * 5.6 Nix lang comprehension
+          * 5.7 Package maintenance
+          * 5.8 Отладка
+          * 5.9 Поиск
+          * 5.10 Shell
+          * 5.11 Другое
+     * 6 Nix Operations
+          * 6.1 Официальные
+          * 6.2 Развёртывание
+          * 6.3 Docker
+          * 6.4 Kubernetes
+     * 7 Альтернативные реализации nix и парсеры
+     * 8 Дополнительная неофициальная экосистема
+     * 9 См. Также
+   [ ] Toggle the table of contents
+
+                                   Приложения
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Applications and the
+   translation is 34% complete.
+   Other languages:
+     * English
+     * русский
+     * 日本語
+
+   В этой статье перечислены приложения, созданные для Nix и с его помощью;
+   она представляет собой список того, что можно назвать Extended Nix
+   Ecosystem (см. Nix Ecosystem для Core Nix Ecosystem).
+
+   Если вы ищете программное обеспечение/приложения для Linux, вам стоит
+   посмотреть Программное обеспечение или его подстатью Applications.
+
+Non-NixOS Distributions
+
+   Various applications built on top of Nix:
+
+     * not-os - build a system firmware for embedded devices
+
+Built with Nix
+
+   Проекты, использующие Nix.
+
+     * styx - Static site generator in Nix expression language
+     * bionix - manage and execute bioinformatics pipelines
+     * ethereum.nix - A collection of Nix packages and NixOS modules designed
+       to make it easier to operate Ethereum related services and
+       infrastructure
+     * nixos-mailserver - A complete and Simple NixOS Mailserver
+
+Nix Platform
+
+   Projects which add support (e.g. for extra platforms or major
+   capabilities) to Nix.
+
+     * nix-darwin - NixOS modules for Darwin
+     * musnix - real-time audio modules for NixOS
+     * nixGl - A wrapper to run OpenGL applications outside of NixOS
+
+Nix Tooling
+
+   Различные инструменты, созданные для работы с экосистемой Nix (например,
+   дополнения или альтернативы основным инструментам Nix).
+
+  General configuration
+
+     * home-manager - System for managing a user environment using Nix
+     * plasma-manager - manage KDE Plasma with Home-manager
+
+About
+
+  Flakes
+
+     * deploy-rs - Nix flake deployment tool
+     * flake-utils-plus - Flake templates and helper library. Extension of
+       below
+     * flake-utils - Set of flake-building utility functions
+     * flake-parts - Simplify Nix Flakes with the module system
+     * snowfall - Unified configuration for systems, packages, modules,
+       shells, templates, and more with Nix Flakes.
+
+  Архивы
+
+     * narfuse - FUSE filesystem for mounting Nix archive (NAR) files as a
+       virtual Nix store
+
+  Clustering
+
+     * nix-delegate - Convenient utility for distributed Nix builds
+
+  Сравнение
+
+     * nix-diff - Compare Nix derivations
+     * niff - Compare two Nix expressions to determine what attributes
+       changes
+     * nvd - Nix/NixOS package version diff tool
+
+  Зависимости
+
+     * nix-visualize - Visualize the dependencies of a given package
+     * niv - Painless dependencies for Nix projects
+
+  Nix lang comprehension
+
+     * deadnix - Removes unused code from .nix files
+     * statix - Linter and suggestions for the nix programming language
+     * nil - Nix Language server, an incremental analysis assistant for
+       writing in Nix.
+     * nixfmt - A formatter for Nix code
+     * nixpkgs-fmt - Nix code formatter for nixpkgs
+
+  Package maintenance
+
+     * nix-update - Swiss-knife for updating nix packages.
+     * nixpkgs-review - Review nixpkgs pull requests
+
+  Отладка
+
+     * dwarffs - Fetches DWARF debug info files for gdb automatically from
+       cache.nixos.org
+     * nixseparatedebuginfod - Fetches debug symbols and source files for
+       debuginfod-capables tools like gdb
+
+  Поиск
+
+     * nix-index - Quickly locate nix packages with specific files
+     * nix-du - Find which gc-roots take disk space in a nix store
+     * nix-info - Homebrew info querying for Nix
+     * userscan - Scans directories containing manually compiled programs and
+       registers them with the Nix garbage collector
+     * nix-search-cli - CLI for searching packages on search.nixos.org
+
+  Shell
+
+     * nix-bash-completions - Bash completion for nix* commands
+     * nixos-shell (Mic92) - Spawns lightweight nixos vms in a shell (like
+       vagrant)
+     * nixos-shell (chrisfarms) - like nix-shell, but for NixOS modules.
+       Buildable version can be found in this fork
+     * extra-container - Run declarative NixOS containers from the command
+       line. Similar to nixos-shell (chrisfarms)
+
+  Другое
+
+     * nix-bundle - package Nix attributes into single-file executables.
+     * nix-user-chroot - install Nix as an unpriviliged user on any system
+     * nh - a rewrite of nixos-rebuild featuring diffs with nvd and a tree of
+       builds with nix-output-manager, as well as other quality of life
+       features such as package searching.
+
+Nix Operations
+
+   Operations tools for the Nix Ecosystem:
+
+  Официальные
+
+     * Hydra - Nix's official continuous integration and build system.
+     * NixOps - Nix's official (but unmaintained) tool for deploying to NixOS
+       machines in a network or the cloud.
+
+  Развёртывание
+
+     * Bento - a NixOS fleet manager supporting remote systems not up 24/7
+     * colmena - a NixOS deployment tool
+     * comin - A deployment tool to continuously pull from Git repositories.
+     * deploy-rs - a simple multi-profile Nix-flake deploy tool
+     * krops - a lightweight toolkit to deploy NixOS systems, remotely or
+       locally
+     * lollypops - a parallel and stateless NixOS deployment tool
+     * Morph - a NixOS deployment tool
+     * Nixinate - A Nix flake library to provide app outputs for managing
+       existing NixOS hosts over SSH.
+     * nixos-build --target-host
+     * NixOps - [Not recommended for new projects] a tool for deploying to
+       NixOS machines in a network or cloud.
+     * Nixus - an experimental NixOS deployment tool
+
+  Docker
+
+     * Arion - configure Docker Compose with Nix modules
+     * Nixery - ad-hoc container images from Nix
+
+  Kubernetes
+
+     * kubenix - Kubernetes resource builder written in Nix
+     * nix-kubernetes - Kubernetes deployment manager written in nix
+
+Альтернативные реализации nix и парсеры
+
+     * hnix (haskell, parser & evaluator)
+     * rnix (rust, parser)
+     * go-nix (go, parser & nix-compatible file hasher)
+     * nix-idea (java, parser)
+
+Дополнительная неофициальная экосистема
+
+   Ни одна из этих служб не является обязательной для использования Nix. Ни
+   одна из этих служб не связана с Фонд NixOS.
+
+   Cachix
+           binary caches as a service. Free for public caches, subscription
+           for private token-protected caches.
+
+   Hercules CI
+           simplify your CI setup with stateless build agents. Free for open
+           source, per-user subscription for private repositories.
+
+   Garnix
+           nix CI, caching (open beta) and cloud hosting (private alpha)
+           based on Nix as a service. Currently free, but offers commerical
+           plans.
+
+   nixbuild.net
+           remote Nix builders as a service for x86_64 and AArch64.
+           Pay-per-use.
+
+См. Также
+
+     * awesome-nix
+     * Language-specific package helpers
+     * Alternative Package Sets
+     * Get inspiration from other peoples NixOS configuration
+     * NixOS Packages Search for searching through NixOS packages
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Applications/ru&oldid=16723"
+   Categories:
+     * Software
+     * Guide
+     * Nix/ru
+     * This page was last edited on 15 August 2024, at 06:56.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

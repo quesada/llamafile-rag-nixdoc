@@ -1,0 +1,180 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 A note to the reader
+          * 1.1 Read this if you are involved in nixos.wiki
+          * 1.2 Be respectful
+     * 2 Intended outcomes
+     * 3 Risks
+          * 3.1 Technical Risks
+          * 3.2 Usability Risks
+          * 3.3 Sustainability Risks
+   [ ] Toggle the table of contents
+
+                              User:Winny/WikiRisks
+
+     * User page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   < User:Winny
+
+   This outlines the issues with the current nixos.wiki deployment and
+   organization.
+
+                              A note to the reader
+
+   If you have any feedback, please visit the discussion page.
+
+Read this if you are involved in nixos.wiki
+
+   Thanks for being here and making this Wiki something we all hope continues
+   to succeed. Please have an open mind as we discuss the problems. Then we
+   can explore how to solve them.
+
+   If we want to continue our success, we should explore ways to reduce the
+   risk for failure.
+
+Be respectful
+
+   This discussion is possibly polarizing because nobody wants to feel like
+   they've done stuff wrong. We all make mistakes every day, please keep that
+   in mind when participating in this discussion. There should be no names in
+   this discussion. Only problems and possible resolutions.
+
+                               Intended outcomes
+
+   There are also possible outcomes which I will outline first:
+
+    1. This wiki remains neglected and full of risks to the NixOS project.
+       There remains many people interested in starting a more official wiki.
+       We could make this happen!
+    2. OR: The server admin finds some time to follow up, comes up with a
+       plan to help alleviate these concerns. This plan might include
+       onboarding more server admins, to reduce the sole server admin's
+       burden.
+
+   I hope for option 2.
+
+                                     Risks
+
+Technical Risks
+
+   Security, software compatibility, maintainability, and reliability risks.
+
+     * This MediaWiki install is vulnerable to many CVEs. See this list on
+       cvedetails.com. 1.29.0 was released April 2017. It was EOL late 2018
+       because it was not a long term support (LTS) release that are intended
+       for production. (See MW:Version lifecycle)
+     * The rest of the stack is also EOL:
+          * PHP 7.3.23 is EOL and has unpatched vulns too. [1]
+          * ICU has CVEs too [2]
+     * TODO rebuild the research that demonstrates this isn't even a NixOS
+       install because the versions above don't match up with NixOS releases.
+       At some point we established this is likely debian buster (oldstable).
+          * if it's debian oldstable, please note LTS supported Debian
+            releases aren't really a secure OS choice. It's just folks like
+            you and me making security updates when it is convenient. There
+            is no debian security team support for LTS.
+     * There is no documentation of how this server is backed up, or if a
+       restore was ever attempted. This means if anything happens to the
+       infrastructure, this wiki will be could be very difficult to near
+       impossible to restore (esp with EOL software dependencies).
+
+Usability Risks
+
+   Risks to users making best the use of this website.
+
+     * When the user clicks "Save page" the POST request often hangs for 30+
+       seconds. This website appears to have Cloudflare analytics, so one
+       with access will likely see high bounce rates after one visits the
+       edit page. This is going to be users who lost patience with waiting
+       for edits to go through, or other UX issues.
+     * There are likely some usability/flow related issues that could be
+       detected if somebody could review the Cloudflare analytics on a
+       routine basis.
+          * Example, I've been using this wiki for about a year now, only now
+            did I learn *much* of the discussion about this wiki happens not
+            on this wiki, but on GitHub at nix-community/wiki.
+
+Sustainability Risks
+
+   Risks to the long term success of this project.
+
+     * There do not appear to be any active server admins. To ensure
+       continuity there should be at least two active server admins. I
+       believe there are many users out there who are interested in helping,
+       if shown an opportunity.
+          * As a result, the server and infra doesn't seem maintained.
+     * There does not appear to be a way for the reader to support this
+       website short of contributing themselves. What if this website
+       collected donations for hosting and published transparency reports?
+       That could eliminate most costs, could even pay for all the admin's
+       time, depending on how effective campaigns are.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=User:Winny/WikiRisks&oldid=10908"
+     * This page was last edited on 3 September 2023, at 01:16.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

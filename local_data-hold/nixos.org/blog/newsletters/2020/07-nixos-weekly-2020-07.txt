@@ -1,0 +1,134 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #07 - NixOS Weekly
+
+   Published on Wed Aug 05 2020
+
+                               #07 - NixOS Weekly
+
+                                      News
+
+Announcements
+
+     * NixOS | Installation and First Impressions
+
+     * Why IHP is Using The Nix Package Manager
+
+     * Cachix Blog: Documentation and More Documentation
+
+     * Cachix Blog: Upstream caches: avoiding pushing paths in
+       cache.nixos.org
+
+     * Redox added to Nixpkgs
+
+       Nixpkgs now supports cross-compiling to the Redox operating system.
+       The redoxpkgs overlay has been created to fix packages for Redox
+
+Tutorials & Resources
+
+     * An introduction to nix-shell
+
+       What is nix-shell and how to use it.
+
+     * Windows Functional Virtual Machine
+
+       WFVM automatically bootstraps a Windows image inside QEMU that you can
+       use to run unit tests on Hydra for example.
+
+     * Nix-Bitcoin: A Security Focused Bitcoin Node
+
+     * django-nixos
+
+       NixOS-based Django deployment
+
+     * systemd2nix
+
+       Convert systemd service files to nixpkgs syntax
+
+     * On using Nix and Docker as deployment automation solutions:
+       similarities and differences
+
+       Explores the concepts behind Nix and Docker, explains in which ways
+       they are different and similar, and shows some examples how both tools
+       can be combined.
+
+     * nix-sops
+
+       Atomic secret provisioning for NixOS based on sops.
+
+     * Custom home-manager installation with NixOS
+
+     * Using Nix to build multi-package, full stack Haskell apps
+
+     * Gnome 3 on NixOS
+
+     * How to Setup Nextcloud on NixOS
+
+     * Can’t Hack This: A hard-headed introduction to Nix (slides)
+
+     * Migrate from RAID1 disk to ZFS on NixOS
+
+     * How to Make Sure Nixpkgs Can Evaluate
+
+     * NixOS Raspberry Pi 4 Google Fiber Router
+
+     * Setting up Buildkite for Nix-based projects using Terraform and GCP
+
+     * NixOS: the good, the bad, and the ugly
+
+     * mvn2nix
+
+       An alternative solution (in-development) to convert a pom.xml file
+       into a Nix expression to help package Maven applications within Nix.
+
+     * Packaging a maven application with Nix
+
+     * Nix’s Ruby & bundler ecosystem
+
+     * How to setup a Nix binary cache using S3
+
+     * Setting up LDAP Authentication with NixOS
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

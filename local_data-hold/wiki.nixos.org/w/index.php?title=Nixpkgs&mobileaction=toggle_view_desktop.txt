@@ -1,0 +1,145 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Subpages
+     * 2 Releases
+     * 3 Alternatives
+   [ ] Toggle the table of contents
+
+                                    Nixpkgs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Nixpkgs is the largest repository of Nix packages and NixOS modules. The
+   repository is hosted on GitHub and maintained by the community, with
+   official backing from the NixOS Foundation.
+
+   To search among available packages and options, see Searching packages.
+
+   As highlighted in the announcement of the NixOS 21.05 release, "NixOS is
+   already known as the most up to date distribution and is in the top three
+   by total number of packages." This is thanks to the community's continued
+   dedication to making Nixpkgs the preeminent Linux package repository.
+
+Subpages
+
+   There are a number of articles especially related to working with nixpkgs:
+
+     * Building RPM DEB with nixpkgs
+     * Contributing
+     * Create and debug packages
+     * Modifying Packages
+     * Patching Nixpkgs
+     * Reviewing changes
+     * Update Scripts
+
+Releases
+
+   Main article: Channel branches
+
+   The packages and modules hosted on Nixpkgs are distributed through various
+   channel branches intended for particular use-cases. In practice they are
+   differentiated by the level of testing updates must pass on the official
+   nixos.org Hydra instance and the number of updates they receive.
+
+   For NixOS users, nixos-unstable channel branch is the rolling release,
+   where packages pass build tests and integration tests on a VM, and are
+   tested from the perspective of being an operative system (this means
+   things like the X server, KDE, various servers, and lower level details
+   like installing bootloaders and runnning the NixOS installation steps are
+   also tested).
+
+   For standalone Nix users, nixpkgs-unstable channel branch is the rolling
+   release, where packages pass only basic build tests and are upgraded
+   continuously.
+
+   Both NixOS and Nix users can use stable channel branches - the latest
+   being nixos-23.11 - to receive only conservative updates for fixing
+   critical bugs and security vulnerabilities. Stable channel branches are
+   released bi-annually at the end of May and the end of November.
+
+   Using stable channels on NixOS is comparable to the user experience on
+   other Linux distributions.
+
+Alternatives
+
+   Due to the fact that Nixpkgs is only a Nix expression, it is possible to
+   extend or replace the logic with your own sources. In fact, there are a
+   number of extensions as well as complete replacements for Nixpkgs, see the
+   Alternative Package Sets article.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nixpkgs&oldid=13405"
+   Categories:
+     * Pedias
+     * Nixpkgs
+     * Nix
+     * Software
+     * This page was last edited on 22 June 2024, at 21:00.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

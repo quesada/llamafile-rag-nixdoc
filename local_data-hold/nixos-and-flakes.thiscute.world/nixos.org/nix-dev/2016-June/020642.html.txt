@@ -1,0 +1,140 @@
+   Link: Index
+   Link: Previous
+   Link: Next
+
+ [Nix-dev] Haskell Development and Deployment Strategies (was: Stackage Support
+                             Will Be Discontinued)
+
+   Peter Simons simons at nospf.cryp.to
+   Fri Jun 10 13:23:42 CEST 2016
+
+     * Previous message: [Nix-dev] Stackage Support Will Be Discontinued
+     * Next message: [Nix-dev] Haskell Development and Deployment Strategies
+       (was: Stackage Support Will Be Discontinued)
+     * Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
+
+     ----------------------------------------------------------------------
+
+ Fellow Haskell Hackers,
+
+ Nix gives you great freedom to choose how to develop and deploy your
+ Haskell software. That's good, but at the same time that flexibility can
+ be confusing and feel like a burden. Therefore, I'd like to shed some
+ light on this issue and discuss different types of strategies and their
+ respective pros and cons. Which strategy is best for you depends on what
+ you would like to achieve:
+
+   1. I want the latest version of every package as quickly as possible
+      because I love it when build attempts result in hundreds of
+      compiler errors that I can fix.
+
+   2. I want my Haskell packages to be up-to-date, but I also want my
+      builds to be reliable. I don't mind fixing the occasional build
+      error, but I mean, like, *occasionally*.
+
+   3. I want my Haskell package set to be rock solid. I don't want any
+      updates unless there is a major security issue or a severe bug that
+      threatens the integrity of my system.
+
+   4. I want total control over my entire package set.
+
+ Now, let's go through the options those types of users have.
+
+ If you favor features over stability as in (1), then you should develop
+ with 'cabal-install', really. Nixpkgs might be useful for installing
+ your favorite development tools like GHC, cabal, stack, alex, happy,
+ Emacs, vi, etc., but installing bleeding-edge Haskell libraries via Nix
+ is not a use-case we try to fulfill. If you absolutely *want* bleeding
+ edge libraries in Nix, then you'll have to define those builds yourself
+ with cabal2nix. The Nixpkgs user manual [1] explains how to do this.
+
+ Users who want a balance of features and stability as in (2) should base
+ their efforts on haskell.packages.lts, which will become haskellPackages
+ after the imminent re-organization. That package set is continuously
+ tested on hydra.nixos.org (or rather: it will be soon) and therefore
+ tends to compile successfully on all platforms. It receives point
+ updates that fix bugs and security issues, yet package APIs don't change
+ so updates are unlikely to cause trouble. On the rare occasion that
+ updates do cause trouble, Nixpkgs users usually commit fixes for these
+ issues rather quickly. Every now and then, a fundamental package like
+ "aeson" or "ghc" releases an update that breaks the API but that is
+ desirable to have for any number of reasons, and then API-breaking
+ updates *will* appear in that package set and they will require you to
+ deal with them in your software. That kind of thing happens once or
+ twice per year, and it's always announced and discussed beforehand by
+ the Stackage team.
+
+ If the term "API change" just caused your blood pressure to spike
+ because the last thing you want is to deal with any API-breaking
+ updates, then you belong into category (3) and you should never use the
+ 'unstable' version of Nixpkgs. Instead, work with haskell.packages.lts
+ in the release-16.03 branch (or haskellPackages in the release-16.09
+ branch, once it comes out). The Haskell package sets in release branches
+ hardly ever change, and if they do, then the changes will be (a) minor
+ and (b) important. API-breaking changes occur only in life-and-death
+ situations, and there will be some kind of announcement and discussion
+ before the change hits the release branch.
+
+ Last but not least, people who run high-profile production systems tend
+ prefer option (4). Now, if you want complete control over your system,
+ then by definition you'll have to manage that system yourself. You can
+ pick any version of Nixpkgs you like, check out the appropriate revision
+ from the Git repository, and configure:
+
+   export NIX_PATH="nixpkgs=$HOME/src/nixpkgs"
+
+ There you go: this system won't change unless you want it to. Suppose
+ you *do* want it to change for some reason, then you can ...
+
+  a) update the checkout to a different revision,
+
+  b) cherry-pick commits into your copy from other branches or even other
+     repositories, or
+
+  c) configure overrides in configuration.nix or ~/.nixpkgs/config.nix
+     that replace certain packages with those versions that you'd like to
+     have. The Nixpkgs manual explains how to do this at [2].
+
+ Obviously, there can be variations of those development strategies, i.e.
+ it's always possible to extend the Haskell package set in Nixpkgs with
+ an override that adds some particular package version you'd like to use
+ or which undoes an update Nixpkgs made but that you don't want to have.
+ To some extend you can also influence the decisions made in Nixpkgs by
+ editing the hackage2nix configuration file [3] or by committing an
+ override in [4]. Furthermore, the tools that generate the Haskell code
+ in Nixpkgs are all open-source [5] and you can use them to roll your own
+ personal distribution that does exactly what you want.
+
+ Now, no doubt there will be users who see themselves somewhere between
+ categories (3) and (4) who'd like to have the benefits of Nix available
+ but who don't want to bother extending or managing the package set
+ themselves in any way. These users probably run businesses and
+ production sites and they basically want Nix to solve their deployment
+ problems for them without having to acquire lots and lots of Nix
+ knowledge themselves. If you are one of those users, then your best bet
+ to get what you want is to pay some Nix developer money to do contract
+ work for you.
+
+ Best regards,
+ Peter
+
+
+ [1]
+ http://nixos.org/nixpkgs/manual/#how-to-create-nix-builds-for-your-own-private-haskell-packages
+ [2]
+ http://nixos.org/nixpkgs/manual/#how-to-override-package-versions-in-a-compiler-specific-package-set
+ [3] pkgs/development/haskell-modules/configuration-hackage2nix.yaml
+ [4] pkgs/development/haskell-modules/configuration-*.nix
+ [5] https://github.com/NixOS/cabal2nix/
+
+
+     ----------------------------------------------------------------------
+
+     * Previous message: [Nix-dev] Stackage Support Will Be Discontinued
+     * Next message: [Nix-dev] Haskell Development and Deployment Strategies
+       (was: Stackage Support Will Be Discontinued)
+     * Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
+
+     ----------------------------------------------------------------------
+
+   More information about the nix-dev mailing list

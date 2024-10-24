@@ -1,0 +1,412 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Getting started
+     * 2 Verify setup
+     * 3 Allow TCP/IP connections
+     * 4 Set the Postgresql versions
+     * 5 Security
+          * 5.1 Harden authentication
+          * 5.2 Limit Access
+     * 6 TLS
+     * 7 Debugging with psql
+     * 8 Troubleshooting
+          * 8.1 Connection rejected with "Role does not exist"
+          * 8.2 Connection rejected with "Peer authentication failed"
+          * 8.3 WARNING: database "XXX" has a collation version mismatch
+     * 9 Major upgrades
+     * 10 See also
+   [ ] Toggle the table of contents
+
+                                   PostgreSQL
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 11:39, 19 August 2024 by PedroHLC (talk | contribs) (Add
+   upgrade instructions)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   PostgreSQL also known as Postgres, is a free and open-source relational
+   database management system (RDBMS) emphasizing extensibility and SQL
+   compliance.
+
+   This article extends the documentation in the NixOS manual.
+
+  Getting started
+
+   To try out Postgresql add the following minimal example to your NixOS
+   module:
+
+ {
+   # ...
+   config.services.postgresql = {
+     enable = true;
+     ensureDatabases = [ "mydatabase" ];
+     authentication = pkgs.lib.mkOverride 10 ''
+       #type database  DBuser  auth-method
+       local all       all     trust
+     '';
+   };
+ }
+
+   This will setup Postgresql with a default DB superuser/admin "postgres", a
+   database "mydatabase" and let every DB user have access to it without a
+   password through a "local" Unix socket "/var/run/postgresql" (TCP/IP is
+   disabled by default because it's less performant and less secure).
+
+     * Available NixOS Postgresql service options
+
+   It's also possible to setup PostgreSQL with Nix Darwin similar to how you
+   would on NixOS, see the options.
+
+  Verify setup
+
+   You can use psql that comes with Postgres in the terminal to verify that
+   the DB setup is as expected:
+
+  $ sudo -u postgres psql
+ psql
+ Type "help" for help.
+
+ postgres=#
+
+   We have to switch to a system user like "postgres" with sudo -u postgres,
+   because by default psql logs you into the DB user of the same name as the
+   current Linux/system user. By default, NixOS creates a system and DB user
+   names "postgres". So the line postgres=# shows that we are now logged-in
+   as DB user "postgres".
+
+   Inside psql here the most frequent commands are:
+
+   List all databases running on this Postgres instance with \l:
+
+ postgres=# \l
+                                    List of databases
+     Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+ ------------+----------+----------+-------------+-------------+------------------------
+  mydatabase | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =Tc/postgres          +
+             |          |          |             |             | postgres=CTc/postgres +
+             |          |          |             |             | rustnixos=CTc/postgres
+  postgres   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+  template0  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres           +
+             |          |          |             |             | postgres=CTc/postgres
+  template1  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres           +
+             |          |          |             |             | postgres=CTc/postgres
+ (4 rows)
+
+   List all DB users (also called "roles" in Postgres) with \du:
+
+ postgres=# \du
+                                    List of roles
+  Role name |                         Attributes                         | Member of
+ -----------+------------------------------------------------------------+-----------
+  postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
+
+   List all authentication rules (called an "pg_hba.conf" file in Postgres )
+   with table pg_hba_file_rules;:
+
+ postgres=# table pg_hba_file_rules;
+  line_number | type  | database | user_name | address | netmask | auth_method | options | error
+ -------------+-------+----------+-----------+---------+---------+-------------+---------+-------
+            1 | local | {all}    | {all}     |         |         | peer        |         |
+ (1 row)
+
+     * Official Postgres authentication pg_hba.conf documentation
+
+  Allow TCP/IP connections
+
+   This example shows how to roll out a database with a default user and
+   password:
+
+ services.postgresql = {
+   enable = true;
+   ensureDatabases = [ "mydatabase" ];
+   enableTCPIP = true;
+   # port = 5432;
+   authentication = pkgs.lib.mkOverride 10 ''
+     #...
+     #type database DBuser origin-address auth-method
+     # ipv4
+     host  all      all     127.0.0.1/32   trust
+     # ipv6
+     host all       all     ::1/128        trust
+   '';
+   initialScript = pkgs.writeText "backend-initScript" ''
+     CREATE ROLE nixcloud WITH LOGIN PASSWORD 'nixcloud' CREATEDB;
+     CREATE DATABASE nixcloud;
+     GRANT ALL PRIVILEGES ON DATABASE nixcloud TO nixcloud;
+   '';
+ };
+
+   This will allow "host" based authentification only from other webservices
+   on the same computer ("127.0.0.1"), although any DB user will have access
+   to any database.
+
+  Set the Postgresql versions
+
+   By default, NixOS uses whatever Postgres version shipped as default for
+   your system.stateVersion. To use a different or more recent version, you
+   can set it manually:
+
+ services.postgresql = {
+   enable = true;
+   package = pkgs.postgresql_15;
+   # ...
+ };
+
+   Note that changing the package version does not trigger any automatic
+   migrations of your existing databases: if you update Postgres you should
+   be ready to migrate any existing databases manually.
+
+     * Available Nixpkgs Postgresql versions
+
+  Security
+
+   Letting every system and DB user have access to all data is dangerous.
+   Postgres supports several layers of protection. One is to prefer "local"
+   connections using Unix sockets, that aren't accessible from the internet,
+   whenever Postgres and your client app run on the same server.
+
+    Harden authentication
+
+   We can limit what system user can connect.
+
+   Postgres supports "user name maps", which limit which system users can log
+   in as which DB user:
+
+ services.postgresql = {
+   enable = true;
+   ensureDatabases = [ "mydatabase" ];
+ 
+   identMap = ''
+     # ArbitraryMapName systemUser DBUser
+        superuser_map      root      postgres
+        superuser_map      postgres  postgres
+        # Let other names login as themselves
+        superuser_map      /^(.*)$   \1
+   '';
+ };
+
+   This map can have an arbitrary name and defines which system user can
+   login as which DB user. Every other user and combination is rejected. For
+   example, with the above mapping if we are logged-in as system user "root"
+   but want enter the DB as DB user "postgres" we would be allowed:
+
+ root$ psql -U postgres
+ # ok
+
+    Limit Access
+
+   Once logged-in we can limit what DB users can access. With the
+   authentication we can limit what DB user can access which databases. A
+   good default setting is as follows:
+
+ services.postgresql = {
+   enable = true;
+   ensureDatabases = [ "mydatabase" ];
+   authentication = pkgs.lib.mkOverride 10 ''
+     #type database  DBuser  auth-method optional_ident_map
+     local sameuser  all     peer        map=superuser_map
+   '';
+ };
+
+   With "sameuser" Postgres will allow DB user access only to databases of
+   the same name. E.g. DB user "mydatabase" will get access to database
+   "mydatabase" and nothing else. The part map=superuser_map is optional. One
+   exception is the DB user "postgres", which by default is a superuser/admin
+   with access to everything.
+
+TLS
+
+   To turn TLS on in recent versions of postgres it's pretty easy. Their docs
+   are pretty good.
+
+   Create a simple cert just to make it work. If you are doing this in
+   production, you need to provide your own server.crt and server.key in the
+   main PGDATA dir (~postgres).
+
+   In a shell:
+
+ cd ~postgres
+ sudo -u postgres openssl req -new -x509 -days 365 -nodes -text -out server.crt  -keyout server.key -subj "/CN=dbhost.yourdomain.com"
+ chmod og-rwx server.key
+
+   Then in your nix configuration:
+
+   services.postgresql = {
+     enable = true;
+     package = pkgs.postgresql_16;
+     enableTCPIP = true;
+     ensureDatabases = [ "tootieapp" ];
+     settings = {
+         ssl = true;
+     };
+     authentication = pkgs.lib.mkOverride 10 ''
+       #type database  DBuser  auth-method
+       local all       all     trust
+       host  sameuser    all     127.0.0.1/32 scram-sha-256
+       host  sameuser    all     ::1/128 scram-sha-256
+     '';
+   };
+
+   the `sameuser` mentioned in the authentication section requires the
+   database name be the same as the username, which you may not want, you can
+   change that to `all` to allow an authenticated user the ability to connect
+   to any database.
+
+   `scram-sha-256` is the require a password option, but you can authenticate
+   a variety of different ways, see the official docs for other options as
+   part of pg_hba.conf.
+
+   user creation and permissions are best described in the PG manual under
+   `CREATE ROLE` and `GRANT` for example:
+
+ CREATE USER tootieapp WITH PASSWORD 'BIGLONGRANDOMSTRINGHERE';
+ GRANT ALL PRIVILEGES ON DATABASE tootieapp TO tootieapp;
+
+Debugging with psql
+
+   To debug the SQL statements futher, one can use systemctl cat postgresql
+   and see the
+   ExecStartPost=/nix/store/rnv1v95bbf2lsy9ncwg7jdwj2s71sqra-unit-script/bin/postgresql-post-start
+   line. Then open it with `cat` on the shell and see the psql command.
+
+   Then execute the complete statement on the shell, as:
+
+ /nix/store/3mqha1naji34i6iv78i90hc20dx0hld9-sudo-1.8.20p2/bin/sudo -u postgres psql -f "/nix/store/az5nglyw7j94blxwkn2rmpi2p6z9fbmy-backend-initScript" --port=5432 -d postgres
+ psql:/nix/store/az5nglyw7j94blxwkn2rmpi2p6z9fbmy-backend-initScript:1: ERROR:  syntax error at or near "-"
+ LINE 1: CREATE ROLE nixcloud-admin WITH LOGIN PASSWORD 'nixcloud' CR...
+                             ^
+ psql:/nix/store/az5nglyw7j94blxwkn2rmpi2p6z9fbmy-backend-initScript:2: ERROR:  database "nixcloud-db1" already exists
+ psql:/nix/store/az5nglyw7j94blxwkn2rmpi2p6z9fbmy-backend-initScript:3: ERROR:  syntax error at or near "-"
+ LINE 1: ...ALL PRIVILEGES ON DATABASE "nixcloud-db1" TO nixcloud-admin;
+                                                                 ^
+
+Troubleshooting
+
+  Connection rejected with "Role does not exist"
+
+ $ psql
+ psql: error: connection to server on socket "/run/postgresql/.s.PGSQL.5432" failed: FATAL:  role "root" does not exist
+
+   You are trying to login as a system user ("root" in this example) that has
+   no DB user of the same name. Try psql -U postgres or sudo -u postgres psql
+   to log in as a different DB user.
+
+  Connection rejected with "Peer authentication failed"
+
+ root$ psql -U postgres
+ psql: error: connection to server on socket "/run/postgresql/.s.PGSQL.5432" failed: FATAL:  Peer authentication failed for user "postgress"
+
+   You are trying to login as a DB user ("postgres" in this example) for
+   which your current system user ("root" in this example) has no permission
+   to switch to. Check your "user name map" in the identMap section.
+
+  WARNING: database "XXX" has a collation version mismatch
+
+   The complete error which appears in the system log might look similar to
+   this
+
+ WARNING:  database "outline" has a collation version mismatch
+ DETAIL:  The database was created using collation version 2.35, but the operating system provides version 2.38.
+ HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE outline REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
+
+   To fix it, run following commands in the psql console. Replace the
+   database name outline with the name of the database which you want to
+   migrate
+
+ sudo -u postgres psql
+ postgres=# \c outline;
+ outline=# REINDEX DATABASE outline;
+ outline=# ALTER DATABASE outline REFRESH COLLATION VERSION;
+
+Major upgrades
+
+   If you're using NixOS' modules for PostgreSQL and find yourself in a
+   boot/switch after a major bump of it, you'll need to upgrade your cluster.
+
+   Let the service successfully start once, and then stop it. Upon
+   completion, proceed with the following command, substituting the numbers
+   15 and 16 with the respective versions you previously used and the more
+   recent one:
+
+ sudo -u postgres pg_upgrade -b "$(nix build --no-link --print-out-paths nixpkgs#postgresql_15.out)/bin" -B /run/current-system/sw/bin -d /var/lib/postgresql/15 -D /var/lib/postgresql/16
+
+See also
+
+     * Available NixOS service options
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=PostgreSQL&oldid=16787"
+   Categories:
+     * Applications
+     * Database
+     * NixOS Manual
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 19 August 2024, at 11:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

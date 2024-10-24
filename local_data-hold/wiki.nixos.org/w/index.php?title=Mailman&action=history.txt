@@ -1,0 +1,175 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Mailman: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 September 2024
+
+     * curprev [ ] [ ] 19:3719:37, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 7,681 bytes −6‎ fix django-allauth docs links
+
+    15 May 2024
+
+     * curprev [ ] [ ] 18:5918:59, 15 May 2024‎ Klinger talk contribs‎ 7,687
+       bytes +378‎ added link to manual Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:5319:53, 24 April 2024‎ Klinger talk contribs‎ m
+       7,309 bytes −1‎ No edit summary
+
+    26 October 2023
+
+     * curprev [ ] [ ] 22:2222:22, 26 October 2023‎ imported>Fin444‎ m 7,310
+       bytes −105‎ remove outdated mentioned of NixOS 19.09
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:0606:06, 20 September 2021‎ imported>Nix‎ m 7,415
+       bytes +26‎ add Software/Applications subcategory
+     * curprev [ ] [ ] 05:0005:00, 20 September 2021‎ imported>Nix‎ m 7,389
+       bytes +21‎ add Server category
+
+    13 September 2020
+
+     * curprev [ ] [ ] 18:4618:46, 13 September 2020‎ imported>Caugner‎ 7,368
+       bytes +71‎ nginx: add recommendedGzipSettings + recommendedTlsSettings
+     * curprev [ ] [ ] 18:2818:28, 13 September 2020‎ imported>Caugner‎ 7,297
+       bytes +558‎ nginx: add locations for Mailman 2 redirects
+     * curprev [ ] [ ] 18:2118:21, 13 September 2020‎ imported>Caugner‎ 6,739
+       bytes +162‎ Postfix: add sslCert + sslKey
+
+    29 February 2020
+
+     * curprev [ ] [ ] 21:4621:46, 29 February 2020‎ imported>Benley‎ 6,577
+       bytes +3‎ Allow inbound port 25 so smtp works
+
+    27 February 2020
+
+     * curprev [ ] [ ] 03:2403:24, 27 February 2020‎ imported>Benley‎ 6,574
+       bytes +281‎ Bypass nginx for mailman->hyperkitty API so archiving
+       works
+
+    21 February 2020
+
+     * curprev [ ] [ ] 05:1305:13, 21 February 2020‎ imported>Benley‎ 6,293
+       bytes +10‎ Improved static assets permissions tweak
+
+    20 February 2020
+
+     * curprev [ ] [ ] 07:2407:24, 20 February 2020‎ imported>Benley‎ 6,283
+       bytes +1,642‎ Explain social logins
+     * curprev [ ] [ ] 07:0007:00, 20 February 2020‎ imported>Benley‎ 4,641
+       bytes +262‎ Add TOC and upstream docs link
+     * curprev [ ] [ ] 06:5006:50, 20 February 2020‎ imported>Benley‎ 4,379
+       bytes +84‎ Add more screenshots
+     * curprev [ ] [ ] 06:4006:40, 20 February 2020‎ imported>Benley‎ 4,295
+       bytes +41‎ Make editing configuration.nix a deployment step
+     * curprev [ ] [ ] 06:3506:35, 20 February 2020‎ imported>Benley‎ 4,254
+       bytes +1,630‎ Add most of the procedure to get it working
+     * curprev [ ] [ ] 05:2205:22, 20 February 2020‎ imported>Benley‎ 2,624
+       bytes +2,624‎ first draft (more to come)
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Mailman"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

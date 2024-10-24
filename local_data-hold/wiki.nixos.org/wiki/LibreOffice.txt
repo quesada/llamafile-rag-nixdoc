@@ -1,0 +1,129 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Spellcheck
+     * 2 uno Python Library for API access
+     * 3 KDE / Plasma
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                  LibreOffice
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   LibreOffice is a multi-platform office suite. It consists of programs for
+   word processing (Writer); creating and editing spreadsheets (Calc),
+   slideshows (Impress), diagrams and drawings (Draw); working with databases
+   (Base); and composing mathematical formulae (Math).
+
+Spellcheck
+
+   In order for spellcheck to work, you will need to install the hunspell
+   package as well as the hunspellDicts. packages for the languages that you
+   would like. For example this installs libreoffice with dictionaries for
+   Ukrainian and Central Thai.
+
+   environment.systemPackages = with pkgs; [
+     libreoffice-qt
+     hunspell
+     hunspellDicts.uk_UA
+     hunspellDicts.th_TH
+   ];
+
+uno Python Library for API access
+
+   With uno.py it is possible to access the LibreOffice API with Python. For
+   getting uno.py python library to work the special path
+   /lib/libreoffice/program needs to be included into the python path as well
+   as the URE_BOOTSTRAP variable must be set.
+
+ let
+   office = pkgs.libreoffice-fresh-unwrapped;
+ in {
+   environment.sessionVariables = {
+     PYTHONPATH = "${office}/lib/libreoffice/program";
+     URE_BOOTSTRAP = "vnd.sun.star.pathname:${office}/lib/libreoffice/program/fundamentalrc";
+   };
+ }
+
+KDE / Plasma
+
+   If you use KDE (Plasma) then you'll be better off with libreoffice-qt
+   package. Otherwise you may lack, e.g. main menu bar.
+
+See also
+
+     * Onlyoffice, software suite that offers online and offline tools for
+       document editing, collaboration, and management.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=LibreOffice&oldid=12161"
+   Category:
+     * Applications
+     * This page was last edited on 18 April 2024, at 20:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

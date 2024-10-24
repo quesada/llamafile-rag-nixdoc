@@ -1,0 +1,115 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Replacing outdated nix.cs.uu.nl
+     * 2 Replacing outdated package sources
+   [ ] Toggle the table of contents
+
+                            Building ancient nixpkgs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 12:02, 4 September 2022 by imported>Ckiee (fix my github
+   username)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Nix's reproducibility allows for easy building of ancient nixpkgs
+   checkouts.
+
+   An attempt to get firefox 2.0 running can be found here:
+   https://github.com/ckiee/nixpkgs/commits/2007-fixing
+
+Replacing outdated nix.cs.uu.nl
+
+   You may find that the build fails as it cannot find some tarballs. This is
+   solved by updating the primary mirror URL to one that is still running:
+
+ for x in $(find); do sed -i 's/nix.cs.uu.nl/tarballs.nixos.org/g' "$x"; done
+ for x in $(find); do sed -i 's/dist\/tarballs\///g' "$x"; done
+
+   You will also want to run nix-build with the --no-substitute flag to avoid
+   any outdated caches.
+
+Replacing outdated package sources
+
+   nix-build may fail while trying to fetch a package from a 3rd-party
+   mirror. If this happens, you will need to search the internet for another
+   mirror from which you can fetch the package; for certain nixpkgs versions
+   you will need to ensure it does not force-redirect to SSL as curl was not
+   built with SSL support in early versions.
+
+   You can manually add a tarball to the store by using nix-prefetch-url. You
+   have to use the same checksum algorithm used in the nixpkgs definition
+   with the --type parameter.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Building_ancient_nixpkgs&oldid=8778"
+   Category:
+     * Cookbook
+     * This page was last edited on 4 September 2022, at 12:02.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

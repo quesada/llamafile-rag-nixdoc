@@ -1,0 +1,128 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                               NixOS Wiki:History
+
+     * Project page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 15:53, 1 April 2024 by Sdht0 (talk | contribs) (Copyedit)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Sometime around 2010-2011, members of the Nix community decided to set up
+   a wiki. Everything went well until (supposedly) people lost interest in
+   maintaining the Wiki, and the overall quality of the Wiki began to dwindle
+   as obsolete information accumulated.
+
+   On the 14th of november 2015 Rok Garbas gave the infamous talk "Make Nix
+   Friendlier for Beginners" which to future generations became known as the
+   "Kill the Wiki" talk. This rekindled the discussion about the decaying
+   state of the official Wiki. An epic mailing-list discussion started 4 days
+   later and some core developers seemed to agree that the Nix* manuals are a
+   better place to put documentation, while others didn't.
+
+   Spam bots took over as there was no adequate protection mechanisms for the
+   Wiki, increasingly demotivating contributors while the admins seemed
+   lethargic towards the problem. Out of frustration Eelco announced the
+   "Lockdown" of the Wiki on the 29th of August 2016. On the 9th of February
+   user copumpkin opened an issue with the Request to unlock the wiki,
+   another epic discussion started with almost a hundred responses but no
+   outcome how to proceed with the official Wiki.
+
+   On May 9th the Wiki was permanently disabled when a PR by Graham
+   Christensen was merged by Eelco. People started referencing to the
+   Archive.org mirror of the Wiki. The last export of the original wiki is
+   mirrored at archive.org announced on the mailing list.
+
+   To fill the void in the community contributor Jörg Thalheim (Mic92)
+   started the nixos-users wiki on April 24th. Since Nixpkgs is hosted on
+   GitHub, he opted to use the GitHub native wiki, allowing everybody who
+   needed access to directly edit the wiki. This instance is known as the
+   "first unofficial" wiki. Only a very small number of selected wiki
+   articles were transferred from the original wiki.
+
+   Not long after, user Tristan Helmich (fadenb) started his own approach to
+   resurrect the wiki by setting up a MediaWiki on his own at [1], mostly out
+   of frustration of the bad UX of the github wiki (no table of contents, no
+   search, etc.). The Wiki went online somewhere before May 2017 "on a lazy
+   day at work" but he forgot to tell anybody about it. The only documented
+   announcement is the twitter message "You can now log into
+   https://nixos.wiki with your github account" with 8 likes and no retweets.
+   The Wiki now has captchas enabled.
+
+   Discovering that project on the 21st of August 2017, user Felix Richter
+   (makefu) decided to just transfer all articles written for the wiki as
+   nixos-users into the more powerful platform. With the migration of the old
+   MediaWiki to the new MediaWiki the project went a full circle.
+
+   In January 2024, an initiative to revive an official wiki instance was
+   undertaken and after a brief discussion culminated in the wiki instance
+   you're reading this on.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Wiki:History&oldid=11227"
+   Category:
+     * Pedias
+     * This page was last edited on 1 April 2024, at 15:53.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

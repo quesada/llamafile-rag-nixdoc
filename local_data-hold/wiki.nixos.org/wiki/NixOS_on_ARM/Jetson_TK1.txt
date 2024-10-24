@@ -1,0 +1,125 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Serial console
+     * 4 Notes about the boot process
+   [ ] Toggle the table of contents
+
+                            NixOS on ARM/Jetson TK1
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   Jetson TK1   
+   Architecture ARMv7 
+
+Status
+
+     This article or section is out of date.                                  
+     Reason: Section refers to old user-provided images. Should be reviewed   
+     with cross-compilation, or native compilation through userspace          
+     emulation. (Discuss in Talk:NixOS on ARM/Jetson TK1)                     
+     Once the page has been updated this notice can be removed.               
+
+   @dezgeg's porting efforts to ARMv7 should work.
+
+Board-specific installation notes
+
+   The proprietary NVIDIA bootloader can only boot NVIDIA's L4T kernel, so it
+   needs to be replaced by flashing U-Boot on the board's eMMC via the
+   recovery USB port. The easiest way to do that is to use
+   tegra-uboot-flasher-scripts, though unfortunately that's currently not
+   packaged in NixOS. Once U-Boot is flashed, the ARMv7 image will boot
+   out-of-the-box.
+
+   To get the ARMv7 image, follow the generic installation steps.
+
+   Finally, install using the installation and configuration steps.
+
+Serial console
+
+     This article or section needs expansion.                                 
+     Reason: The exact console parameter is needed. (Discuss in Talk:NixOS on 
+     ARM/Jetson TK1#)                                                         
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+Notes about the boot process
+
+   Only serial console (via the DB-9 connector) is supported.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Jetson_TK1&oldid=4763"
+   Hidden categories:
+     * Pages or sections flagged with Template:outdated
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 26 December 2021, at 22:17.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

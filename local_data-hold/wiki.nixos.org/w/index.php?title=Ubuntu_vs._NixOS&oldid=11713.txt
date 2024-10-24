@@ -1,0 +1,292 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                Ubuntu vs. NixOS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 18:12, 6 April 2024 by Sdht0 (talk | contribs) (Remove
+   duplicate header)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Task            Ubuntu                            NixOS (system-wide and root)                                                                             NixOS (user) and Nix in general                      
+Basic concepts  
+                                                  This column will let you do everything you can with Ubuntu and more.                                     This column just isn't possible in Ubuntu.           
+Who can install All packages are always           Packages root installs are system-wide. It does so through /etc/nixos/configuration.nix. If root         Users can install their own packages and have their  
+packages and    system-wide and only root can     installs packages the same way users do, through ~/.nixpkgs/config.nix, they are also global. Root's     own profiles (environments) through                  
+who can run     install packages.                 default profile is the system-wide default profile.                                                      ~/.nixpkgs/config.nix                                
+them?           
+                apt which is really running on                                                                                                                                                                  
+Package manager top of dpkg, sometimes wrapped by nix, but many system-wide operations are provided by nixos packages.                                     Just nix without the involvement of nixos.
+                UIs like aptitude.                
+How do you      These are baked into the                                                                                                                                                                        
+select your     distribution (e.g. Ubuntu version At any time you select from a collection of channels. They're system-wide when set by root. You can roll 
+official        X). Upgrades are hard and         back changes or switch channels with ease.                                                               Channels are per-user if they're not set by root.
+sources and     permanent.                        
+major releases  
+Where are       apt installs globally into /bin/, System-wide packages are in /run/current-system/sw/ (these are installed because of                      User packages are in ~/.nix-profile/. Note that the  
+packages        /usr/, etc.                       /etc/nixos/configuration.nix) and /nix/var/nix/profiles/default/bin/ (this is the profile managed by     files are just symlinks to the real packages managed 
+installed?                                        root). Note that the files are just symlinks to the real packages managed by nix in /nix/store/.         by nix in /nix/store/.                               
+                                                                                                                                                           Most of the time you apply changes with nix-env -i   
+                As soon as the command runs.      Most of the time you modify the configuration file and apply changes with nixos-rebuild switch           all                                                  
+When changes    Commands are not atomic and can                                                                                                                                                                 
+take effect     leave your machine in a bad       TODO: How does one get nixos to do all the work for a switch and separate out the actual switching from  TODO: How does one get nix to do all the work for a  
+                state.                            fetching/building?                                                                                       switch and separate out the actual switching from    
+                                                                                                                                                           fetching/building?                                   
+Packages        Uniformly referred to as packages Technically called "derivations" but everyone calls them packages.                                       Technically called "derivations" but everyone calls  
+                                                                                                                                                           them packages.                                       
+Package management
+                                                  1. Add to /etc/nixos/configuration.nix:                                                                                                                       
+                                                                                                                                                                                                                
+                                                  environment.systemPackages = with pkgs; [                                                                $ nix-env -iA nixos.emacs                            
+Install a                                           wget # let's assume wget was already present                                                                                                                
+package for all $ sudo apt-get install emacs        emacs                                                                                                  Or with collections, add the package to your         
+users                                             ];                                                                                                       ~/.nixpkgs/config.nix and run                        
+                                                                                                                                                           
+                                                  2. Run :                                                                                                 $ nix-env -iA nixos.all
+                                                                                                                                                           
+                                                  $ sudo nixos-rebuild switch                                                                              
+                                                  1. Add to /etc/nixos/configuration.nix:                                                                  1. Add to ~/.nixpkgs/config.nix:                     
+Install a                                                                                                                                                                                                       
+package for a                                     users.users.alice.packages = with pkgs; [ emacs ];                                                       users.users.alice.packages = with pkgs;[ emacs ];    
+specific user   Not possible                                                                                                                                                                                    
+only                                              2. Run:                                                                                                  2. Run:                                              
+                                                                                                                                                                                                                
+                                                  $ sudo nixos-rebuild switch                                                                              $ nix-env -iA nixos.all                              
+                                                  1. Add to /etc/nixos/configuration.nix:                                                                                                                       
+                                                                                                                                                           
+Install a                                         services.openssh.enable = true;                                                                          
+service         $ sudo apt install openssh-server                                                                                                          Not possible
+                                                  2. Run:                                                                                                  
+                                                                                                                                                           
+                                                  $ sudo nixos-rebuild switch                                                                              
+Uninstall a                                       remove from /etc/nixos/configuration.nix                                                                                                                      
+package         sudo apt-get remove emacs                                                                                                                  $ nix-env --uninstall emacs
+                                                  $ sudo nixos-rebuild switch                                                                              
+Uninstall a                                                                                                                                                
+package         $ sudo apt-get purge emacs        All configuration is in configuration.nix
+removing its    
+configuration   
+Update the list $ sudo apt-get update             $ sudo nix-channel --update                                                                              $nix-channel --update                                
+of packages     
+Upgrade         $ sudo apt-get upgrade            $ sudo nixos-rebuild switch                                                                              $ nix-env -u                                         
+packages        
+Check for                                                                                                                                                                                                       
+broken          $ sudo apt-get check              $ nix-store --verify --check-contents                                                                    unneeded!
+dependencies    
+                                                  Show the direct dependencies:                                                                                                                                 
+                                                                                                                                                                                                                
+                                                  $ nix-store --query --requisites /run/current-system                                                     $ nix-store --query --references\                    
+                                                                                                                                                             $(nix-instantiate '<nixpkgs>' -A emacs)            
+List package    $ apt-cache depends emacs         or show a nested ASCII tree of dependencies:                                                                                                                  
+dependencies                                                                                                                                               For installed packages:                              
+                                                  $ nix-store -q --tree /nix/var/nix/profiles/system                                                       
+                                                                                                                                                           $ nix-store --query --references $(which emacs)
+                                                  (/run/current-system and /nix/var/nix/profiles/system are symbolic links that eventually end up at the   
+                                                  same place.)                                                                                             
+List which                                                                                                                                                 For installed packages (only print reverse           
+packages depend                                                                                                                                            dependencies *which are already installed*):         
+on this one     $ apt-cache rdepends emacs                                                                                                                                                                      
+(reverse                                                                                                                                                   $ nix-store --query --referrers $(which emacs)       
+dependencies)   
+Verify all                                                                                                                                                                                                      
+installed       $ debsums                         $ sudo nix-store --verify --check-contents                                                               $ nix-store --verify --check-contents
+packages        
+Fix packages                                                                                                                                                                                                    
+with failed     Reinstall broken packages         $ sudo nix-store --verify --check-contents --repair                                                      $ nix-store --verify --check-contents --repair
+checksums       
+                                                  $ nix-channel --add\                                                                                                                                          
+                                                     https://nixos.org/channels/nixpkgs-unstable <name>                                                                                                         
+                                                                                                                                                           
+                                                  Add the unstable channel. At that address you will find names for other versions and variants. Name can  
+                Change sources.list and apt-get   be any string.                                                                                           
+Select major    dist-upgrade. A an extremely                                                                                                               When run by a user channels work locally, when run
+version and     infrequent and destructive        $ nix-channel --remove <name>                                                                            by root they're used as the system-wide channels.
+stable/unstable operation. The nix variants are                                                                                                            
+                safe and easy to use.             To eliminate a channel.                                                                                  
+                                                                                                                                                           
+                                                  $ nix-channel --list                                                                                     
+                                                                                                                                                           
+                                                  To show all installed channel.                                                                           
+Private package PPA                               Define your package tree as in the general column, and include it in configuration.nix, then list your   See [1]                                              
+repository                                        packages in systemPackages to make them available system wide                                            
+                                                  Although Nix on its own doesn't understand the concept of package versioning, you can install and play   
+                                                  with older (or newer!) software via FAQ/Pinning Nixpkgs with https://lazamar.co.uk/nix-versions.         
+Install a                                                                                                                                                  
+particular      $ apt-get install package=version For instance, to launch an older version of Vim you could use:                                           
+version of a                                                                                                                                               
+package                                           $ nix-shell \                                                                                            
+                                                      -p vim \                                                                                             
+                                                      -I nixpkgs=\https://github.com/NixOS/nixpkgs/archive/4bba6650a6a5a2009e25bdeed8c1e871601a9bfb.tar.gz 
+Package configuration
+Configure a     $ sudo dpkg-reconfigure <package> Edit /etc/nixos/configuration.nix                                                                        Edit ~/.nixpkgs/config.nix; TODO: More details about 
+package                                                                                                                                                    how to edit                                          
+Global package  Modify configuration file in      Edit /etc/nixos/configuration.nix                                                                        
+configuration   /etc/                             
+                                                  $ nix-env -qaP '.*emacs.*'                                                                               $ nix-env -qaP '.*emacs.*'                           
+                                                                                                                                                                                                                
+Find packages   $ apt-cache search emacs          or                                                                                                       or                                                   
+                                                                                                                                                                                                                
+                                                  $ nix search nixpkgs emacs                                                                               $ nix search nixpkgs emacs                           
+Show package    $ apt-cache show emacs            $ nix-env -qa --description '.*emacs.*'                                                                  $ nix-env -qa --description '.*emacs.*'              
+description     
+                                                  $ readlink -f $(which emacs)                                                                             
+Show files                                         /nix/store/ji06y4haijly0i0knmr986l2dajffv1p-emacs-24.4/bin/emacs-24.4                                   
+installed by    $ dpkg -L emacs                                                                                                                            
+package                                           then                                                                                                     
+                                                                                                                                                           
+                                                  $du -a /nix/store/ji06y4haijly0i0knmr986l2dajffv1p-emacs-24.4                                            
+                                                  follow the symlink or                                                                                                                                         
+                                                                                                                                                           
+                                                  nix-locate /bin/emacs                                                                                    
+Show package                                                                                                                                               
+for file        $ dpkg -S /usr/bin/emacs          (requires                                                                                                (same)
+                                                                                                                                                           
+                                                  nix-index                                                                                                
+                                                                                                                                                           
+                                                  package)                                                                                                 
+Services        
+Start a service $ sudo systemctl start apache     $ sudo systemctl start apache                                                                            
+Stop a service  $ sudo systemctl stop apache      $ sudo systemctl stop apache                                                                             
+                                                  In /etc/nixos/configuration.nix, add                                                                     
+                                                                                                                                                           
+Enable a                                          services.tor.enable = true;                                                                              
+service         $ sudo systemctl enable apache                                                                                                             
+                                                  , then run                                                                                               
+                                                                                                                                                           
+                                                  $ sudo nixos-rebuild switch                                                                              
+                                                  In /etc/nixos/configuration.nix, add                                                                     
+                                                                                                                                                           
+Disable a                                         services.tor.enable = false;                                                                             
+service         $ sudo systemctl disable apache                                                                                                            
+                                                  , then run                                                                                               
+                                                                                                                                                           
+                                                  $ sudo nixos-rebuild switch                                                                              
+Where your log  /var/log/                         System-wide packages /var/log/                                                                           User packages ~/.nix-profile/var/log/                
+files live      
+                                                  Add                                                                                                      
+                                                                                                                                                           
+                                                  users.users.alice =                                                                                      
+                                                   { isNormalUser = true;                                                                                  
+                                                     home = "/home/alice";                                                                                 
+                                                     description = "Alice Foobar";                                                                         
+Adding a user   $ sudo adduser alice                 extraGroups = [ "wheel" "networkmanager" ];                                                           
+                                                     openssh.authorizedKeys.keys =                                                                         
+                                                        [ "ssh-dss AAAAB3Nza... alice@foobar" ];                                                           
+                                                   };                                                                                                      
+                                                                                                                                                           
+                                                  to /etc/nixos/configuration.nix and then call                                                            
+                                                                                                                                                           
+                                                  nixos-rebuild switch                                                                                     
+Misc tasks      
+List binaries   $ ls /usr/bin/                    $ ls /run/current-system/sw/bin &&\                                                                      $ ls ~/.nix-profile/bin                              
+                                                  ls /nix/var/nix/profiles/default/bin/                                                                    
+Get the current $ cat /etc/debian_version         $ nixos-version                                                                                          
+version number  
+                                                                                                                                                           In Debian, apt-get source gets both the patched      
+                                                                                                                                                           upstream source and the recipe for the package.      
+                                                                                                                                                           Those need two steps in Nix. To find the package's   
+                                                                                                                                                           attribute path:                                      
+                                                                                                                                                                                                                
+                                                                                                                                                           $ nix-env -qaP emacs                                 
+                                                                                                                                                                                                                
+                                                                                                                                                           or                                                   
+                                                                                                                                                                                                                
+                                                                                                                                                           $ nox emacs                                          
+Get sources for $ sudo apt-get source emacs                                                                                                                                                                     
+a package                                                                                                                                                  To download the source as specified by the package   
+                                                                                                                                                           recipe:                                              
+                                                                                                                                                                                                                
+                                                                                                                                                           nix-build '<nixpkgs>' -A emacs.src                   
+                                                                                                                                                                                                                
+                                                                                                                                                           The patched source is usually not a derivation       
+                                                                                                                                                           itself, but can be produced for most packages with   
+                                                                                                                                                           the following command:                               
+                                                                                                                                                                                                                
+                                                                                                                                                           nix-shell '<nixpkgs>' -A emacs\                      
+                                                                                                                                                            --command 'unpackPhase; cd $sourceRoot; patchPhase' 
+                                                                                                                                                           git clone foobar                                     
+                                                                                                                                                           cat >default.nix <<EOF                               
+Compile &                                                                                                                                                  with import <nixpkgs> { };                           
+install a                                                                                                                                                  lib.overrideDerivation foobar (oldAttrs : {          
+package from                                                                                                                                               src = ./foobar;                                      
+source                                                                                                                                                     })                                                   
+                                                                                                                                                           EOF                                                  
+                                                                                                                                                           nix-build                                            
+Install a                                                                                                                                                  e.g. via nix-ld                                      
+binary package  
+                                                                                                                                                           Install dpkg with Nix, then                          
+                                                                                                                                                                                                                
+Install a .deb  $ sudo dpkg -i package.deb                                                                                                                 dpkg -i package.deb                                  
+                                                                                                                                                                                                                
+                                                                                                                                                           While this is technically possible it will in all    
+                                                                                                                                                           likelihood not work.                                 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Ubuntu_vs._NixOS&oldid=11713"
+   Category:
+     * Cookbook
+     * This page was last edited on 6 April 2024, at 18:12.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

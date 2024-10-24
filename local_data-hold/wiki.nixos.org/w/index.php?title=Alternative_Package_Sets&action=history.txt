@@ -1,0 +1,209 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                   Alternative Package Sets: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 September 2024
+
+     * curprev [ ] [ ] 21:0921:09, 6 September 2024‎ Alazy talk contribs‎ 766
+       bytes +2‎ NixWRT hasn't been updated for years; development moved to
+       liminix Tag: Visual edit: Switched
+
+    3 August 2022
+
+     * curprev [ ] [ ] 08:0508:05, 3 August 2022‎ imported>Fricklerhandwerk‎
+       764 bytes −25‎ remove category "Package Set" - we should not have too
+       many categories
+     * curprev [ ] [ ] 08:0308:03, 3 August 2022‎ imported>Fricklerhandwerk‎
+       789 bytes +21‎ No edit summary
+
+    2 August 2022
+
+     * curprev [ ] [ ] 15:0315:03, 2 August 2022‎ imported>Toraritte‎ 768
+       bytes −62‎ Revise categories
+     * curprev [ ] [ ] 14:5914:59, 2 August 2022‎ imported>Toraritte‎ 830
+       bytes −545‎ Move "Overlays" section to Overlays article under "List of
+       3rd party overlays"
+     * curprev [ ] [ ] 13:1213:12, 2 August 2022‎ imported>Toraritte‎ 1,375
+       bytes −840‎ Move "NixOS Module Enhancements" section to Modules
+       article
+
+    23 September 2021
+
+     * curprev [ ] [ ] 03:1103:11, 23 September 2021‎ imported>Nix‎ m 2,215
+       bytes −4‎ move to guides category
+
+    2 June 2020
+
+     * curprev [ ] [ ] 10:1610:16, 2 June 2020‎ imported>Eyeinsky‎ m 2,219
+       bytes 0‎ No edit summary
+
+    1 April 2019
+
+     * curprev [ ] [ ] 15:2915:29, 1 April 2019‎ imported>Shazow‎ m 2,219
+       bytes +14‎ New URL for nixos-mailserver
+
+    29 April 2018
+
+     * curprev [ ] [ ] 21:1721:17, 29 April 2018‎ imported>Krey‎ 2,205 bytes
+       −19‎ No edit summary
+     * curprev [ ] [ ] 21:1621:16, 29 April 2018‎ imported>Krey‎ 2,224 bytes
+       −92‎ No edit summary
+
+    28 February 2018
+
+     * curprev [ ] [ ] 21:4921:49, 28 February 2018‎ imported>Makefu‎ 2,316
+       bytes +206‎ No edit summary
+
+    15 February 2018
+
+     * curprev [ ] [ ] 07:3107:31, 15 February 2018‎ imported>Makefu‎ 2,110
+       bytes +84‎ No edit summary
+
+    28 December 2017
+
+     * curprev [ ] [ ] 06:5806:58, 28 December 2017‎ imported>Ip1981‎ m 2,026
+       bytes 0‎ No edit summary
+
+    20 September 2017
+
+     * curprev [ ] [ ] 19:4519:45, 20 September 2017‎ imported>Makefu‎ 2,026
+       bytes +24‎ No edit summary
+
+    16 September 2017
+
+     * curprev [ ] [ ] 06:4606:46, 16 September 2017‎ imported>Ixxie‎ 2,002
+       bytes 0‎ No edit summary
+
+    15 September 2017
+
+     * curprev [ ] [ ] 08:0908:09, 15 September 2017‎ imported>Makefu‎ 2,002
+       bytes +85‎ →‎NixOS enhancements
+
+    14 September 2017
+
+     * curprev [ ] [ ] 17:4517:45, 14 September 2017‎ imported>Ixxie‎ m 1,917
+       bytes +3‎ →‎NixOS enhancements: capitalization and punctuation issues
+       fixed.
+     * curprev [ ] [ ] 17:4217:42, 14 September 2017‎ imported>Ixxie‎ m 1,914
+       bytes +8‎ →‎Overlays: more capitalization issues.
+     * curprev [ ] [ ] 17:4117:41, 14 September 2017‎ imported>Ixxie‎ m 1,906
+       bytes +2‎ Fixed some capitalization issues.
+     * curprev [ ] [ ] 14:4714:47, 14 September 2017‎ imported>Makefu‎ 1,904
+       bytes +22‎ No edit summary
+     * curprev [ ] [ ] 14:4514:45, 14 September 2017‎ imported>Makefu‎ 1,882
+       bytes +125‎ No edit summary
+
+    12 September 2017
+
+     * curprev [ ] [ ] 14:0214:02, 12 September 2017‎ imported>Makefu‎ 1,757
+       bytes +772‎ No edit summary
+
+    21 August 2017
+
+     * curprev [ ] [ ] 16:5216:52, 21 August 2017‎ imported>Makefu‎ 985 bytes
+       +985‎ import from nixos-users
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Alternative_Package_Sets"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

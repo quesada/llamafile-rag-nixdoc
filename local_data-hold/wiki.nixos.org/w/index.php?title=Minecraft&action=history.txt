@@ -1,0 +1,178 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Minecraft: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    29 July 2024
+
+     * curprev [ ] [ ] 19:0719:07, 29 July 2024‎ BENDI talk contribs‎ m 4,421
+       bytes +18‎ Updated the java compatibility table with versions 1.20.5+
+       https://minecraft.wiki/w/Java_Edition_1.20.5#cite_note-2 Tag: Visual
+       edit
+
+    28 June 2024
+
+     * curprev [ ] [ ] 04:2304:23, 28 June 2024‎ Frontear talk contribs‎ m
+       4,403 bytes +26‎ fix dead home-manager links Tag: Visual edit
+
+    16 May 2024
+
+     * curprev [ ] [ ] 09:3809:38, 16 May 2024‎ Eljamm talk contribs‎ m 4,377
+       bytes +7‎ →‎ATlauncher can't start instance
+     * curprev [ ] [ ] 09:3609:36, 16 May 2024‎ Eljamm talk contribs‎ 4,370
+       bytes +518‎ →‎Troubleshooting: Add ATlauncher instructions for
+       choosing the correct jre
+
+    30 April 2024
+
+     * curprev [ ] [ ] 04:5104:51, 30 April 2024‎ Mic92 talk contribs‎ m
+       3,852 bytes −463‎ Reverted edit by Sen (talk) to last revision by
+       Klinger Tags: Rollback Mobile edit Mobile web edit
+
+    28 April 2024
+
+     * curprev [ ] [ ] 02:1302:13, 28 April 2024‎ Sen talk contribs‎ 4,315
+       bytes +463‎ →‎Troubleshooting: Added troubleshotting guide for
+       vulkanmod Tags: Reverted Visual edit: Switched
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:3719:37, 24 April 2024‎ Klinger talk contribs‎ m
+       3,852 bytes +49‎ Category: Applications Category: Gaming
+
+    14 April 2024
+
+     * curprev [ ] [ ] 13:3713:37, 14 April 2024‎ Sen talk contribs‎ m 3,803
+       bytes −33‎ Improved "Beginning" section and formatting
+
+    6 April 2024
+
+     * curprev [ ] [ ] 23:1323:13, 6 April 2024‎ Sen talk contribs‎ m 3,836
+       bytes −3‎ woops per-user codeblock showed environment.systemPackages
+       instead of users.users.<USER>.packages Tag: Visual edit
+
+    5 April 2024
+
+     * curprev [ ] [ ] 18:2518:25, 5 April 2024‎ Sen talk contribs‎ m 3,839
+       bytes +3‎ Changed the note block to a warning block Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 18:2218:22, 5 April 2024‎ Sen talk contribs‎ m 3,836
+       bytes +3‎ Sorry, forgot to link home-manager Tag: Visual edit
+     * curprev [ ] [ ] 18:2118:21, 5 April 2024‎ Sen talk contribs‎ m 3,833
+       bytes +8‎ Clarified that 1.19 or higher is exclusively not working on
+       NixOS and improved a grammar error Tag: Visual edit
+     * curprev [ ] [ ] 18:1818:18, 5 April 2024‎ Sen talk contribs‎ 3,825
+       bytes −15‎ Fixed errors Tag: Visual edit: Switched
+     * curprev [ ] [ ] 18:0818:08, 5 April 2024‎ Sen talk contribs‎ 3,840
+       bytes +3,056‎ I made a minecraft page showing different clients,
+       installation and troubleshooting. Note: We should make a seperate page
+       for servers e.g minecraft:servers? Tag: Visual edit
+
+    28 March 2024
+
+     * curprev [ ] [ ] 05:2805:28, 28 March 2024‎ imported>Aaronchall‎ 784
+       bytes +784‎ new minecraft page stub
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Minecraft"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

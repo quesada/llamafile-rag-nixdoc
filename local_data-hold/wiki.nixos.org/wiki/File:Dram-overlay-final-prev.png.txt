@@ -1,0 +1,110 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        File:Dram-overlay-final-prev.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+   File:Dram-overlay-final-prev.png
+   Size of this preview: 799 × 206 pixels. Other resolution: 806 × 208
+   pixels.
+
+   Original file ‎(806 × 208 pixels, file size: 13 KB, MIME type: image/png)
+
+   A graph illustrating the data flow data flow in overlays. A main and two
+   extensions are composed together, and the 'flow' of values is drawn.
+
+   Based on [IMG] from User:Dramforever Original SVG version at:
+   https://gist.github.com/jtojnar/1cd308437b31f25cfb26ca349444c37a
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+        Date/Time Thumbnail Dimensions User             Comment                          
+                                                        A graph illustrating the data    
+                  Thumbnail                             flow data flow in overlays. A    
+                  for                                   main and two extensions are      
+        14:47, 2  version   806 × 208                   composed together, and the       
+current June 2023 as of     (13 KB)    Imported>Jtojnar 'flow' of values is drawn. Based 
+                  14:47, 2                              on                               
+                  June 2023                             File:Dram-overlay-self-super.png 
+                                                        from User:Dramforever Original   
+                                                        SVG version at: https://gist...  
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * Overlays
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Dram-overlay-final-prev.png&oldid=10742"
+     * This page was last edited on 1 April 2024, at 11:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

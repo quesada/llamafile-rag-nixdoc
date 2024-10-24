@@ -1,0 +1,177 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                   Maintainers:Maintainers: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:3320:33, 24 April 2024‎ Klinger talk contribs‎ m
+       2,727 bytes +23‎ No edit summary
+
+    3 April 2024
+
+     * curprev [ ] [ ] 17:5517:55, 3 April 2024‎ Samueldr talk contribs‎
+       2,704 bytes +9‎ No edit summary
+     * curprev [ ] [ ] 15:5215:52, 3 April 2024‎ Weijia talk contribs‎ 2,695
+       bytes +118‎ Avoid sort:updated-asc, which subjects to label changes
+     * curprev [ ] [ ] 15:1215:12, 3 April 2024‎ Weijia talk contribs‎ 2,577
+       bytes 0‎ Fix date for stale PRs
+
+    1 April 2024
+
+     * curprev [ ] [ ] 13:1513:15, 1 April 2024‎ Mic92 talk contribs‎ 2,577
+       bytes −20‎ fix links
+
+    21 March 2022
+
+     * curprev [ ] [ ] 15:1215:12, 21 March 2022‎ imported>DtzWill‎ m 2,597
+       bytes +31‎ fix link to NixOS manual regarding changes to release
+       branches (cherry-pick'ing)
+
+    3 October 2020
+
+     * curprev [ ] [ ] 21:2921:29, 3 October 2020‎ imported>Samueldr‎ m 2,566
+       bytes +3‎ oops
+     * curprev [ ] [ ] 21:2821:28, 3 October 2020‎ imported>Samueldr‎ m 2,563
+       bytes +21‎ reorganize links, it seems it's not obvious the first part
+       are all links to the Nixpkgs PRs listing
+
+    4 February 2020
+
+     * curprev [ ] [ ] 18:2418:24, 4 February 2020‎ imported>User‎ 2,542
+       bytes +102‎ →‎Maintainers portal
+
+    4 August 2019
+
+     * curprev [ ] [ ] 19:4319:43, 4 August 2019‎ imported>Samueldr‎ m 2,440
+       bytes +100‎ Adds a link to the Fastly page
+
+    10 November 2018
+
+     * curprev [ ] [ ] 01:2401:24, 10 November 2018‎ imported>Samueldr‎ m
+       2,340 bytes +150‎ No edit summary
+
+    5 August 2018
+
+     * curprev [ ] [ ] 23:4423:44, 5 August 2018‎ imported>Samueldr‎ m 2,190
+       bytes +425‎ Adds more links
+
+    4 August 2018
+
+     * curprev [ ] [ ] 15:3215:32, 4 August 2018‎ imported>Samueldr‎ m 1,765
+       bytes +219‎ Adds other links
+
+    2 August 2018
+
+     * curprev [ ] [ ] 23:3623:36, 2 August 2018‎ imported>Samueldr‎ m 1,546
+       bytes +368‎ Adds links for WIP status PRs
+
+    3 June 2018
+
+     * curprev [ ] [ ] 20:3120:31, 3 June 2018‎ imported>Samueldr‎ 1,178
+       bytes +1,178‎ Inits page; don't know if it'll be useful in the future,
+       I want to get the ball rolling in centralizing resources.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Maintainers:Maintainers"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

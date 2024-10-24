@@ -1,0 +1,217 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Using nix-shell
+          * 1.2 System-Wide Installation on NixOS
+          * 1.3 User-Specific Installation with Home Manager
+     * 2 Configuration
+          * 2.1 Basic
+          * 2.2 Advanced
+     * 3 Tips and Tricks
+          * 3.1 Where to get scripts
+          * 3.2 Where to find override options
+     * 4 Troubleshooting
+          * 4.1 Error, unknown format
+     * 5 References
+   [ ] Toggle the table of contents
+
+                                      MPV
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   MPV is an open-source command line media player known for its high
+   performance, versatility, and minimalist design.While it has a basic GUI,
+   MPV can be paired with a GUI front-end like SMPlayer (package: smplayer)
+   to offer a user-friendly interface similar to other desktop media players.
+
+   MPV supports a wide range of video and audio formats, ensuring extensive
+   compatibility. It features advanced video rendering capabilities,
+   including high-quality scaling algorithms, color management, and HDR
+   support, which contribute to superior video playback quality. MPV
+   leverages hardware-accelerated video decoding through APIs such as VA-API,
+   VDPAU, and DXVA2, improving performance and reducing CPU usage. The
+   player’s minimalist design emphasizes efficiency, offering a streamlined
+   user experience with extensive configurability through command-line
+   options and scripting interfaces.
+
+Installation
+
+    Using nix-shell
+
+ nix-shell -p mpv
+
+    System-Wide Installation on NixOS
+
+ environment.systemPackages = [
+   pkgs.mpv
+ ];
+
+   After modifying your configuration, apply the changes by running:
+
+ sudo nixos-rebuild switch
+
+    User-Specific Installation with Home Manager
+
+ home.packages = [
+   pkgs.mpv
+ ];
+
+   After updating your configuration, apply the changes by running:
+
+ home-manager switch
+
+Configuration
+
+    Basic
+
+ programs.mpv = {
+     enable = true;
+ };
+
+    Advanced
+
+ programs.mpv = {
+   enable = true;
+
+   package = (
+     pkgs.mpv-unwrapped.wrapper {
+       scripts = with pkgs.mpvScripts; [
+         uosc
+         sponsorblock
+       ];
+
+       mpv = pkgs.mpv-unwrapped.override {
+         waylandSupport = true;
+       };
+     }
+   );
+
+   config = {
+     profile = "high-quality";
+     ytdl-format = "bestvideo+bestaudio";
+     cache-default = 4000000;
+   };
+ };
+
+Tips and Tricks
+
+    Where to get scripts
+
+   To find more scripts run this in a terminal:
+
+ nix search nixpkgs mpvScripts
+
+   The scripts are also defined in the following Nixpkgs directory.
+
+    Where to find override options
+
+   The package override options are defined in the following Nixpkgs
+   directory.
+
+Troubleshooting
+
+    Error, unknown format
+
+   If you get the following sort of error, note that MPV currently uses the
+   small ffmpeg version (ffmpeg_5) instead of the full version
+   (ffmpeg_5-full).
+
+ $ mpv --log-file=foo.log av://v4l2:/dev/video5
+ [lavf] Unknown lavf format v4l2
+ Failed to recognize file format.
+
+ Exiting... (Errors when loading file)
+
+   To address this problem, you can use the following package configuration
+   for ffmpeg.
+
+ programs.mpv = {
+   enable = true;
+
+   package = (
+     pkgs.mpv-unwrapped.wrapper {
+       mpv = pkgs.mpv-unwrapped.override {
+         ffmpeg = pkgs.ffmpeg-full;
+       };
+     }
+   );
+ };
+
+References
+
+    1. https://github.com/mpv-player/mpv/wiki
+    2. https://en.wikipedia.org/wiki/Mpv_(media_player)
+    3. https://mynixos.com/search?q=mpv
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=MPV&oldid=13471"
+   Categories:
+     * Applications
+     * Media Player
+     * This page was last edited on 24 June 2024, at 06:35.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

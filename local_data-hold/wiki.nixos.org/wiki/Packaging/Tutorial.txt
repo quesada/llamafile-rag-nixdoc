@@ -1,0 +1,186 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                               Packaging/Tutorial
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section is out of date.                                   
+    Reason: This page has duplicate info from with this other wiki page here. 
+    That page has much more info that might be of more help for you. This     
+    page currently has a discussion if it should be deprecated, but at the    
+    meantime it still might be useful until a decision is made to migrate     
+    over. (Discuss in Talk:Packaging/Tutorial)                                
+    Once the page has been updated this notice can be removed.                
+
+   If you are a new Nix adept and want to package some new software, you will
+   benefit from reading existing Nix package descriptions. The more you read,
+   the faster you'll be able to build your package. I've even based a
+   "Generic Algorithm on Doing Packaging Using Existing Knowledge" on this
+   fact.
+
+   The nixpkgs manual describes the standard workflow to adding packages to
+   nixpkgs. Be sure to read this one first.
+
+   NOTE 0: If you have time, read this tutorial first
+
+   NOTE 1: If you have time, read Nix Pills first
+
+   NOTE 2: If you have even more time, read Nix manual to get familiar with
+   Nix syntax
+
+   NOTE 3: If you definitely have lots of time, then read Nixpkgs manual
+
+    1. Detect package building category. It may be something simple, that
+       requires gcc and make only, or it may be a python library, or it may
+       be a python application, or it may be any other LANGUAGE
+       library/application, or it may be Qt applications, or it may be a
+       Gnome application, or it does uses Mono/wine under a hood, or it
+       vendors it's dependencies, or it is closed source/binary
+       redistributable, or it uses CMake/any other alternative build tool, or
+       it actually is a compiler, ... There are lots of such build
+       categories, and it often isn't reflected at hierarchy level in Nixpkgs
+       source tree.
+
+    2. Try grepping for building category keywords in Nixpkgs source. Find
+       some example packages, review them and copy one of them as a new
+       expression for your package. Too bad if you didn't find anything, then
+       you should read Nix Pills first and skim through several package
+       expressions in Nixpkgs source to be able to write your own.
+
+    3. Build it without changes, just to test if it builds
+
+    4. Modify source URL and sha256. Don't forget about that sha256 stuff!
+       What I do, I change the last symbol of the sha256, let the package
+       fail, and then paste the correct sha256 again into expression. There
+       are also various prefetch techniques
+
+    5. Run nix-shell on this expression (for example: nix-shell  '<nixpkgs>' 
+       -A  hello). Then run in order:
+
+ $ unpackPhase
+ $ cd $sourceRoot # $sourceRoot is created in unpack phase, see https://nixos.org/manual/nixpkgs/stable/#ssec-unpack-phase for details.
+ $ patchPhase
+ $ configurePhase
+ $ buildPhase
+
+       (visit stdenv-phases chapter to learn more about phases)
+
+       You may need to run $ eval  "$configurePhase" sometimes if the build
+       expression overrides that phase.
+
+       It most likely will fail.
+
+       NOTE: You can use the breakpointHook to attach into the build
+       environment when an error happens.
+
+    6. Try to find the failure category. It may be headers not found, library
+       not found, executable not found, compiler not found, wrong build
+       system, empty result, and many many more... But solutions to these
+       problems are a bit more controllable:
+         1. buildInput dependency missing
+         2. source requires patching
+         3. you should enter a subdir first
+         4. you should specify correct build parameters
+         5. patchShebangs should be run first
+         6. ....
+
+       Don't hesitate to learn from other package manager expressions, like
+       AUR.
+
+    7. Apply a fix, exit nix-shell and enter it again. Do steps 6-7 while
+       there are problems.
+
+    8. After you get the buildPhase to pass and produce correct
+       binaries/libraries, it's time for theinstallPhase. There are two ways:
+       either you do package development under root and have write access to
+       Nix store inside nix-shell, or you simply run nix-build on you
+       expression, so Nix will perform it's installPhase.
+
+       In the first case, you can run
+
+ $ installPhase
+
+       directly and examine using tree $out in your package files. If
+       something is missing or too many, fix the postInstallPhase or
+       preInstallPhase or installPhase in your expression.
+
+    9. At this point you should have something that is both buildable and
+       packageable. It still may not be runnable. Run the binaries to find
+       any hidden dependencies, or patches required, or wrapper required, or
+       patchelf required, or ... In general, I use Google and search in
+       Nixpkgs issue tracker related problems.
+
+   10. After all the modifications, package should be buildable, runnable and
+       should be self-sufficient. You may add meta section, but it isn't
+       strictly required if you don't plan to publish your result.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Packaging/Tutorial&oldid=17709"
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 4 October 2024, at 09:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

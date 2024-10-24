@@ -1,0 +1,266 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                   NixOS Wiki:Contributing: Revision history
+
+   Help
+     * Project page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    2 September 2024
+
+     * curprev [ ] [ ] 19:5219:52, 2 September 2024‎ Klinger talk contribs‎ m
+       26 bytes −3,166‎ all relevant content moved to other articles Tag: New
+       redirect
+     * curprev [ ] [ ] 19:4019:40, 2 September 2024‎ Klinger talk contribs‎
+       3,192 bytes −231‎ this part about workgroups is redundant to
+       workgroups article
+     * curprev [ ] [ ] 19:4019:40, 2 September 2024‎ Klinger talk contribs‎
+       3,423 bytes −2,575‎ remove unneccesary parts
+     * curprev [ ] [ ] 19:3619:36, 2 September 2024‎ Klinger talk contribs‎
+       5,998 bytes −1,817‎ →‎Style: this part is in MoS now.
+
+    5 May 2024
+
+     * curprev [ ] [ ] 19:0319:03, 5 May 2024‎ Klinger talk contribs‎ 7,815
+       bytes +921‎ added the 5 topic categories and some spelling fixes
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:5920:59, 24 April 2024‎ Klinger talk contribs‎ m
+       6,894 bytes +23‎ Category:Guide Category:Community
+
+    16 April 2024
+
+     * curprev [ ] [ ] 21:0821:08, 16 April 2024‎ Klinger talk contribs‎
+       6,871 bytes +232‎ Workgroups seem to be not that important, to be on
+       landing page (inactive, less than a handful of participants). Moved to
+       Wiki Contributing (for now).
+
+    2 April 2024
+
+     * curprev [ ] [ ] 22:3122:31, 2 April 2024‎ Lord-Valen talk contribs‎ m
+       6,639 bytes −18‎ →‎Finding stuff to do
+     * curprev [ ] [ ] 22:3122:31, 2 April 2024‎ Lord-Valen talk contribs‎
+       6,657 bytes +72‎ →‎Finding stuff to do
+     * curprev [ ] [ ] 20:0120:01, 2 April 2024‎ Mic92 talk contribs‎ 6,585
+       bytes +38‎ Link to the nixos matrix room
+     * curprev [ ] [ ] 20:0020:00, 2 April 2024‎ Mic92 talk contribs‎ 6,547
+       bytes +8‎ wiki admins -> moderators
+     * curprev [ ] [ ] 19:5519:55, 2 April 2024‎ Dvntsemicolon talk contribs‎
+       6,539 bytes +291‎ added a section on who can contribute to the wiki
+       Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 19:4819:48, 2 April 2024‎ Mic92 talk contribs‎ 6,248
+       bytes −161‎ Drop nixops
+
+    1 April 2024
+
+     * curprev [ ] [ ] 18:0818:08, 1 April 2024‎ Lord-Valen talk contribs‎ m
+       6,409 bytes +12‎ Update links Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 16:1316:13, 1 April 2024‎ Fricklerhandwerk talk
+       contribs‎ 6,397 bytes −145‎ sharpen the distinction between the Wiki
+       and reference manuals
+
+    24 October 2023
+
+     * curprev [ ] [ ] 14:3314:33, 24 October 2023‎ imported>Mic92‎ 6,542
+       bytes −138‎ drop disnix category
+
+    16 May 2021
+
+     * curprev [ ] [ ] 13:0013:00, 16 May 2021‎ imported>Narice‎ 6,680 bytes
+       +107‎ Added link to template help in the stuff to do section
+
+    3 April 2020
+
+     * curprev [ ] [ ] 05:5605:56, 3 April 2020‎ imported>Lassulus‎ 6,573
+       bytes −58‎ remove deprecated TODO list link
+
+    9 December 2017
+
+     * curprev [ ] [ ] 16:4816:48, 9 December 2017‎ imported>Ixxie‎ 6,631
+       bytes +150‎ No edit summary
+     * curprev [ ] [ ] 16:4616:46, 9 December 2017‎ imported>Ixxie‎ 6,481
+       bytes −20‎ No edit summary
+     * curprev [ ] [ ] 16:4516:45, 9 December 2017‎ imported>Ixxie‎ 6,501
+       bytes +161‎ Added accessibility to language style guide.
+
+    22 October 2017
+
+     * curprev [ ] [ ] 14:1414:14, 22 October 2017‎ imported>Fadenb‎ m 6,340
+       bytes +2‎ →‎Syntax
+     * curprev [ ] [ ] 14:0714:07, 22 October 2017‎ imported>Castilma‎ m
+       6,338 bytes +125‎ Add reference to <syntaxhighlight>.
+
+    18 October 2017
+
+     * curprev [ ] [ ] 15:5015:50, 18 October 2017‎ imported>Vater‎ 6,213
+       bytes +296‎ guiding the guide (please do not hate me for that.
+
+    14 October 2017
+
+     * curprev [ ] [ ] 03:3003:30, 14 October 2017‎ imported>Samueldr‎ m
+       5,917 bytes 0‎ Samueldr moved page Contributing to the Wiki to NixOS
+       Wiki:Contributing: It is recommended with mediawiki to use the wiki's
+       namespace for pages about the wiki.
+
+    6 September 2017
+
+     * curprev [ ] [ ] 17:1517:15, 6 September 2017‎ imported>Ixxie‎ 5,917
+       bytes +20‎ No edit summary
+
+    3 September 2017
+
+     * curprev [ ] [ ] 16:5416:54, 3 September 2017‎ imported>Ixxie‎ 5,897
+       bytes +41‎ →‎Syntax
+     * curprev [ ] [ ] 16:5316:53, 3 September 2017‎ imported>Ixxie‎ 5,856
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 16:5216:52, 3 September 2017‎ imported>Ixxie‎ 5,854
+       bytes +407‎ Added syntax section.
+     * curprev [ ] [ ] 16:2016:20, 3 September 2017‎ imported>Ixxie‎ 5,447
+       bytes +58‎ →‎Finding Stuff to Do
+     * curprev [ ] [ ] 16:0616:06, 3 September 2017‎ imported>Ixxie‎ 5,389
+       bytes +82‎ →‎Finding Stuff to Do
+     * curprev [ ] [ ] 16:0316:03, 3 September 2017‎ imported>Ixxie‎ 5,307
+       bytes +2‎ →‎Finding Stuff to Do
+     * curprev [ ] [ ] 16:0316:03, 3 September 2017‎ imported>Ixxie‎ 5,305
+       bytes +723‎ No edit summary
+
+    30 August 2017
+
+     * curprev [ ] [ ] 12:1712:17, 30 August 2017‎ imported>Ixxie‎ 4,582
+       bytes +1‎ →‎Resource Tags
+     * curprev [ ] [ ] 12:1712:17, 30 August 2017‎ imported>Ixxie‎ 4,581
+       bytes +4‎ →‎Resource Tags
+     * curprev [ ] [ ] 12:1712:17, 30 August 2017‎ imported>Ixxie‎ 4,577
+       bytes +69‎ →‎Resource Tags
+     * curprev [ ] [ ] 12:1512:15, 30 August 2017‎ imported>Ixxie‎ 4,508
+       bytes −1‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 12:1512:15, 30 August 2017‎ imported>Ixxie‎ 4,509
+       bytes +176‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 12:1212:12, 30 August 2017‎ imported>Ixxie‎ 4,333
+       bytes +18‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 11:3811:38, 30 August 2017‎ imported>Ixxie‎ 4,315
+       bytes −50‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 11:3711:37, 30 August 2017‎ imported>Ixxie‎ 4,365
+       bytes +52‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 11:3611:36, 30 August 2017‎ imported>Ixxie‎ 4,313
+       bytes −19‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 11:3511:35, 30 August 2017‎ imported>Ixxie‎ 4,332
+       bytes −1‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 11:3511:35, 30 August 2017‎ imported>Ixxie‎ 4,333
+       bytes +17‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 11:3411:34, 30 August 2017‎ imported>Ixxie‎ 4,316
+       bytes 0‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 11:3311:33, 30 August 2017‎ imported>Ixxie‎ 4,316
+       bytes +1‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 11:3311:33, 30 August 2017‎ imported>Ixxie‎ 4,315
+       bytes −5‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 11:3211:32, 30 August 2017‎ imported>Ixxie‎ 4,320
+       bytes 0‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 11:3211:32, 30 August 2017‎ imported>Ixxie‎ m 4,320
+       bytes +5‎ →‎Ecosystem Tags
+     * curprev [ ] [ ] 10:4710:47, 30 August 2017‎ imported>Ixxie‎ 4,315
+       bytes +244‎ →‎Style
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_Wiki:Contributing"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,187 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           ESP-IDF: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 January 2024
+
+     * curprev [ ] [ ] 18:3418:34, 14 January 2024‎ imported>Mse63‎ 5,633
+       bytes +1‎ pkgconfig has been replaced by pkg-config
+
+    11 June 2022
+
+     * curprev [ ] [ ] 18:2018:20, 11 June 2022‎ imported>Olafklingt‎ 5,632
+       bytes +233‎ update version for manual toolchain
+
+    14 November 2021
+
+     * curprev [ ] [ ] 05:2205:22, 14 November 2021‎ imported>Mirrexagon‎
+       5,399 bytes +844‎ Add easy setup with nixpkgs-esp-dev
+
+    3 November 2021
+
+     * curprev [ ] [ ] 05:2705:27, 3 November 2021‎ imported>Mirrexagon‎ m
+       4,555 bytes −1‎ Move Python venv note below shell.nix and put in Note:
+       box
+     * curprev [ ] [ ] 05:2505:25, 3 November 2021‎ imported>Mirrexagon‎
+       4,556 bytes −45‎ Updated toolchain derivation to latest as of
+       2021-11-03, overhauled shell.nix to create a Python venv
+
+    23 May 2021
+
+     * curprev [ ] [ ] 18:5918:59, 23 May 2021‎ imported>Bendlas‎ m 4,601
+       bytes −36‎ mention vscode in comment for tutorial link
+     * curprev [ ] [ ] 18:5418:54, 23 May 2021‎ imported>Bendlas‎ m 4,637
+       bytes +171‎ add blog article to see-also
+
+    27 April 2021
+
+     * curprev [ ] [ ] 09:4609:46, 27 April 2021‎ imported>Leonvita91‎ 4,466
+       bytes +2‎ i had change this dir becuase it wasnt folllow the the Steps
+       and the old one was this (pkgs.callPackage ~/esp/esp32-toolchain.nix
+       {}) for the new one this (pkgs.callPackage ~/esp/esp-toolchain.nix {})
+       so i just removed the 32 from esp in order to fit Dir.
+     * curprev [ ] [ ] 09:4309:43, 27 April 2021‎ imported>Leonvita91‎ 4,464
+       bytes −2‎ i had change this dir becuase it wasnt folllow the the Steps
+       and the old one was this
+
+    25 January 2021
+
+     * curprev [ ] [ ] 08:3408:34, 25 January 2021‎ imported>R-burns‎ m 4,466
+       bytes −2‎ Driveby stdenv.lib deprecation cleanup:
+       https://github.com/NixOS/nixpkgs/issues/108938
+
+    12 September 2020
+
+     * curprev [ ] [ ] 12:0112:01, 12 September 2020‎ imported>Mic92‎ 4,468
+       bytes +132‎ →‎See also
+     * curprev [ ] [ ] 11:5611:56, 12 September 2020‎ imported>Mic92‎ 4,336
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 11:5511:55, 12 September 2020‎ imported>Mic92‎ 4,336
+       bytes +143‎ No edit summary
+
+    18 November 2019
+
+     * curprev [ ] [ ] 20:2320:23, 18 November 2019‎ imported>Staff-d‎ 4,193
+       bytes +746‎ Add new dependencies (cmake and glibcLocales as well as
+       the python dependencies setuptools, pyelftools, pyparsing, click) and
+       add IDF_TOOLS_PATH variable to the shell hook to enable the usage of
+       idf.py
+
+    30 October 2018
+
+     * curprev [ ] [ ] 17:2117:21, 30 October 2018‎ imported>Wirew0rm‎ 3,447
+       bytes +13‎ Add the cryptography python package which is required by
+       ESP-IDF
+
+    29 August 2018
+
+     * curprev [ ] [ ] 14:5014:50, 29 August 2018‎ imported>CrazedProgrammer‎
+       m 3,434 bytes +38‎ Remove empty line below header and add link to
+       Espressif/esp-idf repository
+     * curprev [ ] [ ] 14:4614:46, 29 August 2018‎ imported>CrazedProgrammer‎
+       3,396 bytes +3,396‎ Create page "ESP-IDF"
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/ESP-IDF"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

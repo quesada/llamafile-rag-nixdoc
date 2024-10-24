@@ -1,0 +1,183 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             MPV: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 June 2024
+
+     * curprev [ ] [ ] 06:3506:35, 24 June 2024‎ Layer-09 talk contribs‎ m
+       3,612 bytes −32‎ Removed numbering Tag: Visual edit
+
+    19 June 2024
+
+     * curprev [ ] [ ] 19:4819:48, 19 June 2024‎ Klinger talk contribs‎ m
+       3,644 bytes +4‎ reaadded the empty link to SMPlayer article. The
+       article is wanted (at least by me) and it will be there some time in
+       the future.
+     * curprev [ ] [ ] 13:5113:51, 19 June 2024‎ Layer-09 talk contribs‎
+       3,640 bytes −578‎ I changed the wiki entry by carefully dividing the
+       information into more manageable sections, making it more accessible
+       and easier to navigate for users. Tag: Visual edit
+     * curprev [ ] [ ] 11:5511:55, 19 June 2024‎ Mic92 talk contribs‎ 4,218
+       bytes +64‎ fix configuration example
+     * curprev [ ] [ ] 05:2005:20, 19 June 2024‎ Mic92 talk contribs‎ 4,154
+       bytes −945‎ shorten mpv override flags, merge "mpv scripts" section
+       into configuration section
+     * curprev [ ] [ ] 05:1105:11, 19 June 2024‎ Mic92 talk contribs‎ 5,099
+       bytes −179‎ let's not promote nix-env anymore in 2024
+
+    17 June 2024
+
+     * curprev [ ] [ ] 11:5011:50, 17 June 2024‎ Klinger talk contribs‎ m
+       5,278 bytes −12‎ changed category Category:Video Category:Audio to
+       Category:Media Player (Categories Video and Audio are not for
+       applications that utilize audio and video devices)
+     * curprev [ ] [ ] 11:4811:48, 17 June 2024‎ Klinger talk contribs‎ 5,290
+       bytes +213‎ Link to SMPlayer. Changed the description. Removed
+       description heading Tag: Visual edit
+
+    16 June 2024
+
+     * curprev [ ] [ ] 18:2918:29, 16 June 2024‎ Layer-09 talk contribs‎
+       5,077 bytes +3,059‎ Reviewed and included several improvements to the
+       MPV page. Tag: Visual edit
+
+    27 April 2024
+
+     * curprev [ ] [ ] 07:3407:34, 27 April 2024‎ NobbZ talk contribs‎ 2,018
+       bytes +8‎ No edit summary Tag: Visual edit: Switched
+
+    7 June 2023
+
+     * curprev [ ] [ ] 07:1607:16, 7 June 2023‎ imported>Aaronchall‎ 2,010
+       bytes +696‎ give overlay fix for mpv-unwrapped
+
+    28 November 2022
+
+     * curprev [ ] [ ] 17:3717:37, 28 November 2022‎ imported>ThinkChaos‎ m
+       1,314 bytes −42‎ Use `mpv` instead of `mpv-with-scripts`
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:0606:06, 20 September 2021‎ imported>Nix‎ m 1,356
+       bytes +27‎ add Software/Applications subcategory
+
+    4 July 2020
+
+     * curprev [ ] [ ] 11:1011:10, 4 July 2020‎ imported>Samuelgrf‎ 1,329
+       bytes +47‎ Edit examples to use overlays, since packageOverrides are
+       deprecated.
+     * curprev [ ] [ ] 10:3610:36, 4 July 2020‎ imported>Samuelgrf‎ 1,282
+       bytes −38‎ Finding packages using nix search is better than relying on
+       shell completion, which doesn't always work.
+
+    18 July 2019
+
+     * curprev [ ] [ ] 09:5109:51, 18 July 2019‎ imported>Doronbehar‎ m 1,320
+       bytes −54‎ Remove unused headline at end
+     * curprev [ ] [ ] 09:5009:50, 18 July 2019‎ imported>Doronbehar‎ 1,374
+       bytes +1,374‎ Add instructions for launching mpv with scripts
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/MPV"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

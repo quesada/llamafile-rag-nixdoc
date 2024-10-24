@@ -1,0 +1,211 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Module
+     * 2 Scripts
+          * 2.1 Packaged WeeChat Scripts
+          * 2.2 WeeChat extraBuildInputs
+          * 2.3 Problem loading multiline.pl
+     * 3 Glowing Bear, nginx, TLS, and Oauth2 Proxy
+   [ ] Toggle the table of contents
+
+                                    Weechat
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   WeeChat is an extensible chat client with a command line interface.
+
+   This article is an extension to the documentation in the NixOS manual.
+
+Module
+
+   To use WeeChat using the NixOS module, you should note that additional
+   configuration is required. This is because of the screen security wrapper.
+
+   services.weechat.enable = true;
+   programs.screen.screenrc = ''
+     multiuser on
+     acladd USER # TODO: change to your local user
+     term screen-256color
+   '';
+
+   After that you may attach the screen session using $ screen -x
+   weechat/weechat-screen.
+
+Scripts
+
+   WeeChat can be extended with scripts. Those can be written in a variety of
+   scripting languages. As these scripts may depend on external libraries, we
+   need to take care that those are found by WeeChat. This can either be done
+   by adding already packaged scripts or by extending WeeChat's
+   extraBuildInputs.
+
+  Packaged WeeChat Scripts
+
+   There are multiple prepackaged weechatScripts in the nixpkgs. Those are
+   Nix packages for a WeeChat script with the script's extra dependencies.
+   The easiest way is to create an overlay.
+
+ self: super:
+ {
+   weechat = super.weechat.override {
+     configure = { availablePlugins, ... }: {
+       scripts = with super.weechatScripts; [
+         weechat-otr
+         wee-slack
+       ];
+       # Uncomment this if you're on Darwin, there's no PHP support available. See https://github.com/NixOS/nixpkgs/blob/e6bf74e26a1292ca83a65a8bb27b2b22224dcb26/pkgs/applications/networking/irc/weechat/wrapper.nix#L13 for more info.
+       # plugins = builtins.attrValues (builtins.removeAttrs availablePlugins [ "php" ]);
+     };
+   };
+ }
+
+  WeeChat extraBuildInputs
+
+   For example the Jabber script depends on the xmpppy python library, which
+   is provided in a separate nix package. To make WeeChat find the library,
+   we can override the weechat nix package and add the dependency as an extra
+   build input, e.g. by changing the ~/.nixpkgs/config.nix as follows:
+
+ {
+   packageOverrides = pkgs: rec {
+     weechat = pkgs.weechat.override { extraBuildInputs = [ pkgs.xmpppy ]; };
+   };
+ }
+
+  Problem loading multiline.pl
+
+   The script multiline.pl depends on the Pod::Select module. However, since
+   perl version v5.31.1 Pod::Select has been removed. You can either install
+   PodParser or use nix-shell to wrap weechat so it can find it:
+
+ nix-shell -p perl -p perl532Packages.PodParser --run weechat
+
+   This script was also packaged as weechatScripts.multiline and is currently
+   available in the unstable release.
+
+Glowing Bear, nginx, TLS, and Oauth2 Proxy
+
+   One can set up Glowing Bear as a web client to Weechat. However, its best
+   to proxy inbound connections from the internet through a more robust
+   service with TLS enabled. Lastly, it's convenient to reuse an auth
+   provider to provide access to internal applications.
+
+   This configuration snippet can illustrate how to configure it:
+
+ { config, pkgs, ... }:
+ {
+   services.weechat.enable = true;
+
+   # Go read the terms at https://letsencrypt.org/repository/
+   security.acme.acceptTerms = false;
+   security.acme.email = "";
+
+   services.nginx = {
+     enable = true;
+     recommendedGzipSettings = true;
+     recommendedOptimisation = true;
+     recommendedProxySettings = true;
+     recommendedTlsSettings = true;
+     # You'd think this is a good idea, but Safari doesn't support 1.3 on websockets yet from my testing in 2020.  If one is only using Chrome, consider it.
+     # sslProtocols = "TLSv1.3";
+     virtualHosts = {
+       "irc.your.fqdn.goes.here" = {
+         forceSSL = true;
+         enableACME = true;
+         locations."^~ /weechat" = {
+           proxyPass = "http://127.0.0.1:9000/weechat/";
+           proxyWebsockets = true;
+         };
+         locations."/" = {
+           root = pkgs.glowing-bear;
+         };
+       };
+     };
+
+     services.oauth2.proxy = {
+       enable = true;
+       email.addresses = ''
+         # your email goes here for authorization
+       '';
+       nginx.virtualhosts = [
+         "irc.your.fqdn.goes.here"
+       ];
+       clientID = "";
+       keyFile = "";
+     };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Weechat&oldid=12962"
+   Categories:
+     * Applications
+     * NixOS Manual
+     * This page was last edited on 27 May 2024, at 22:30.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

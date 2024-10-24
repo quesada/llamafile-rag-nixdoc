@@ -1,0 +1,128 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+   [ ] Toggle the table of contents
+
+                                   Librewolf
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   LibreWolf is a web browser and fork of Firefox with an emphasis on privacy
+   and security. It is a custom and independent version of Firefox that aims
+   to increase protection against tracking and fingerprinting techniques,
+   while also removing all the telemetry, data collection and annoyances.
+
+Installation
+
+   To install LibreWolf system wide add the following line to your system
+   configuration
+
+    
+
+ /etc/nixos/configuration.nix
+
+ environment.systemPackages = [ pkgs.librewolf ];
+
+Configuration
+
+   It is possible to configure certain presets of LibreWolf using the Home
+   Manager module.
+
+    
+
+ /etc/nixos/configuration.nix
+
+ home-manager.users.myuser = {
+   programs.librewolf = {
+     enable = true;
+     # Enable WebGL, cookies and history
+     settings = {
+       "webgl.disabled" = false;
+       "privacy.resistFingerprinting" = false;
+       "privacy.clearOnShutdown.history" = false;
+       "privacy.clearOnShutdown.cookies" = false;
+       "network.cookie.lifetimePolicy" = 0;
+     };
+   };
+ };
+
+   This example configures LibreWolf to enable WebGL, remember cookies and
+   history by disabling privacy and security defaults. This compromises the
+   privacy concept of LibreWolf and is therefore not recommended to use.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Librewolf&oldid=17646"
+   Categories:
+     * Applications
+     * Privacy
+     * Web Browser
+     * This page was last edited on 26 September 2024, at 20:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

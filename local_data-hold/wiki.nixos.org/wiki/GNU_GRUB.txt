@@ -1,0 +1,127 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 FAQ
+          * 1.1 this GPT partition label contains no BIOS Boot Partition
+          * 1.2 How do I use GRUB in text mode?
+   [ ] Toggle the table of contents
+
+                                    GNU GRUB
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:GNU GRUB#)               
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+FAQ
+
+   → See Bootloader#FAQ as those questions also applies to GRUB.
+
+  this GPT partition label contains no BIOS Boot Partition
+
+   This error is caused by using grub for legacy boot with a disk formatted
+   as GPT^[1].
+
+   This can be fixed either by:
+
+     * Using a MBR partition scheme
+     * Adding a BIOS boot partition among your GPT partitions.
+
+    This article or section needs expansion.                                  
+    Reason: Add the steps required here. Explain as if inside the nixos       
+    installer environment. (Discuss in Talk:GNU GRUB#)                        
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+  How do I use GRUB in text mode?
+
+   Sometimes you need to access GRUB in text mode (e.g. when using out of
+   band management systems like HP ILO in "textcons" mode).
+
+   To use GRUB in text mode there are two settings that need to be configured
+   depending on whether you use EFI or BIOS boot:
+
+ boot.loader.grub.gfxmodeEfi= "text";
+ boot.loader.grub.gfxmodeBios= "text";
+
+   Only disabling the GRUB splash screen via boot.loader.grub.splashImage =
+   null; results in a similar output but that is not the real text only mode.
+
+     ----------------------------------------------------------------------
+
+    1. ↑ https://en.wikipedia.org/wiki/BIOS_boot_partition
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=GNU_GRUB&oldid=12197"
+   Categories:
+     * Applications
+     * Booting
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 19 April 2024, at 15:36.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

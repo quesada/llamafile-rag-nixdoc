@@ -1,0 +1,142 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  NixOS Generations Trimmer: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 September 2023
+
+     * curprev [ ] [ ] 10:0110:01, 6 September 2023‎ imported>Mike1‎ m 6,230
+       bytes +706‎ New confirm option added
+     * curprev [ ] [ ] 09:5809:58, 6 September 2023‎ imported>Mike1‎ m 5,524
+       bytes +111‎ New defaults
+     * curprev [ ] [ ] 09:5309:53, 6 September 2023‎ imported>Mike1‎ m 5,413
+       bytes +111‎ New output showing defaults
+     * curprev [ ] [ ] 09:4909:49, 6 September 2023‎ imported>Mike1‎ m 5,302
+       bytes +217‎ New output shows defaults
+     * curprev [ ] [ ] 09:4509:45, 6 September 2023‎ imported>Mike1‎ m 5,085
+       bytes +4‎ change script to less buggy one
+
+    4 September 2023
+
+     * curprev [ ] [ ] 10:1410:14, 4 September 2023‎ imported>Mike1‎ m 5,081
+       bytes +2‎ →‎Without parameters (defaults)
+
+    19 August 2022
+
+     * curprev [ ] [ ] 03:1603:16, 19 August 2022‎ imported>Nix‎ m 5,079
+       bytes +3‎ Fix category
+
+    26 September 2021
+
+     * curprev [ ] [ ] 08:0908:09, 26 September 2021‎ imported>Nix‎ 5,076
+       bytes +3‎ reorganize page
+     * curprev [ ] [ ] 08:0608:06, 26 September 2021‎ imported>Nix‎ 5,073
+       bytes −5,575‎ move to gist to deal with formatting issues
+     * curprev [ ] [ ] 07:5507:55, 26 September 2021‎ imported>Nix‎ m 10,648
+       bytes +58‎ fix defaults help
+     * curprev [ ] [ ] 07:3607:36, 26 September 2021‎ imported>Nix‎ 10,590
+       bytes +10,590‎ Page to help with generations cleanup
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_Generations_Trimmer"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

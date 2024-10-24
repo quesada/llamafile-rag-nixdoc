@@ -1,0 +1,460 @@
+   Link: canonical
+   Link: index: Index
+   Link: search: Search
+   Link: next: Guides
+   Link: prev: Setting up an HTTP binary cache
+   Skip to main content [ ] [ ]
+   _____________________ Ctrl+K
+   [IMG] nix.dev
+   IFrame
+
+   Official documentation for getting things done with Nix.
+
+   _____________________ Ctrl+K
+     * Install Nix
+     * Tutorials [ ]
+          * First steps [ ]
+               * Ad hoc shell environments
+               * Reproducible interpreted scripts
+               * Declarative shell environments
+               * Towards reproducibility: pinning Nixpkgs
+          * Nix language basics
+          * Packaging existing software
+          * Package parameters and overrides with callPackage
+          * Working with local files
+          * Cross compilation
+          * Module system [ ]
+               * 1. A basic module
+               * 2. Module system deep dive
+          * NixOS [ ]
+               * NixOS virtual machines
+               * Building a bootable ISO image
+               * Building and running Docker images
+               * Integration testing with NixOS virtual machines
+               * Provisioning remote machines via SSH
+               * Installing NixOS on a Raspberry Pi
+               * Deploying NixOS using Terraform
+               * Setting up an HTTP binary cache
+               * Setting up distributed builds
+     * Guides [ ]
+          * Recipes [ ]
+               * Configure Nix to use a custom binary cache
+               * Automatic environments
+               * Dependencies in the development shell
+               * Managing remote sources
+               * Python development environment
+               * Setting up post-build hooks
+               * Continuous integration with GitHub Actions
+          * Best practices
+          * Troubleshooting
+          * Frequently Asked Questions
+     * Reference [ ]
+          * Glossary
+          * Nix reference manual [ ]
+               * Nix pre-release (development)
+               * Nix 2.24 (latest)
+               * Nix 2.18 (in Nixpkgs rolling)
+               * Nix 2.18 (in Nixpkgs 24.05)
+               * Nix 2.18 (in Nixpkgs 23.11)
+          * Nixpkgs manual
+          * NixOS manual
+          * Community projects
+          * Support tools
+          * Further reading
+          * Pinning Nixpkgs
+     * Concepts [ ]
+          * Flakes
+          * Frequently Asked Questions
+     * Contributing [ ]
+          * How to contribute
+          * How to get help
+          * Contributing documentation [ ]
+               * Documentation resources
+               * Documentation framework
+               * Style guide
+               * How to write a tutorial
+     * Acknowledgements [ ]
+          * Sponsors
+     * Repository
+     * Suggest edit
+     * Open issue
+     * .md
+     * .pdf
+   [ Submit ]
+
+                         Setting up distributed builds
+
+Contents
+
+     * Introduction
+          * What will you learn?
+          * What do you need?
+          * How long will it take?
+     * Create an SSH key pair
+     * Set up the remote builder
+          * Test authentication
+     * Set up distributed builds
+     * Test distributed builds
+     * Optimise the remote builder configuration
+     * Next steps
+     * Alternatives
+     * References
+
+                         Setting up distributed builds#
+
+   Nix can speed up builds by spreading the work across multiple computers at
+   once.
+
+Introduction#
+
+   In this tutorial, you’ll set up a separate build machine and configure
+   your local machine to offload builds to it.
+
+  What will you learn?#
+
+   You’ll learn how to
+
+     * Create a new user for remote build access from a local machine to the
+       remote builder
+
+     * Configure remote builders with a sustainable setup
+
+     * Test remote builder connectivity and authentication
+
+     * Configure the local machine to automatically distribute builds
+
+  What do you need?#
+
+     * Familiarity with the Nix language
+
+     * Familiarity with the Module system
+
+     * A local machine (example hostname: localmachine)
+
+       The computer with Nix installed that distributes builds to other
+       machines.
+
+     * A remote machine (example hostname: remotemachine)
+
+       A computer running NixOS that accepts build jobs from the local
+       machine. Follow Provisioning remote machines via SSH to set up a
+       remote NixOS system.
+
+  How long will it take?#
+
+     * 25 minutes
+
+Create an SSH key pair#
+
+   The local machine’s Nix daemon runs as the root user and will need the
+   private key file to authenticate itself to remote machines. The remote
+   machine will need the public key to recognize the local machine.
+
+   On the local machine, run the following command as root to create an SSH
+   key pair:
+
+ # ssh-keygen -f /root/.ssh/remotebuild
+
+   Note
+
+   The name and location of the key pair files can be freely chosen.
+
+Set up the remote builder#
+
+   In the NixOS configuration directory of the remote machine, create the
+   file remote-builder.nix:
+
+ {
+   users.users.remotebuild = {
+     isNormalUser = true;
+     createHome = false;
+     group = "remotebuild";
+
+     openssh.authorizedKeys.keyFiles = [ ./remotebuild.pub ];
+   };
+
+   users.groups.remotebuild = {};
+
+   nix.settings.trusted-users = [ "remotebuild" ];
+ }
+
+   Copy the file remotebuild.pub into this directory.
+
+   This configuration module creates a new user remotebuild with no home
+   directory. The root user on the local machine will be able to log into the
+   remote builder via SSH using the previously generated SSH key.
+
+   Add the new NixOS module to the existing configuration of the remote
+   machine:
+
+ {
+   imports = [
+     ./remote-builder.nix
+   ];
+
+   # ...
+ }
+
+   Activate the new configuration as root:
+
+ nixos-rebuild switch --no-flake --target-host root@remotemachine
+
+  Test authentication#
+
+   Make sure that the SSH connection and authentication work. On the local
+   machine, run as root:
+
+ # ssh remotebuild@remotemachine -i /root/.ssh/remotebuild "echo hello"
+ Could not chdir to home directory /home/remotebuild: No such file or directory
+ hello
+
+   If the hello message is visible, the authentication works. The Could not
+   chdir to ... message confirms that the remote user has no home directory.
+
+   This test login also adds the host key of the remote builder to the
+   /root/.ssh/known_hosts file of the local machine. Future logins will not
+   be interrupted by host key checks.
+
+Set up distributed builds#
+
+   Note
+
+   If your local machine runs NixOS, skip this section and configure Nix
+   through module options.
+
+   Configure Nix to use the remote builder by adding to the Nix configuration
+   file as root:
+
+ # cat << EOF >> /etc/nix/nix.conf
+ builders = ssh-ng://remotebuild@remotebuilder $(nix-instantiate --eval -E builtins.currentSystem) /root/.ssh/remotemachine - - nixos-test,big-parallel,kvm
+ builders-use-substitutes = true
+
+   Detailed explanation
+
+   The first line registers the remote machine as a remote builder by
+   specifying
+
+     * The protocol, user, and hostname
+
+     * The local machine’s system type
+
+       This will delegate jobs for that system type to the remote machine.
+
+     * The location of the SSH key
+
+     * A list of supported system features
+
+       This particular list must be specified in order to delegate building
+       compilers and running NixOS VM tests to remote machines.
+
+   See the reference documentation on the builders setting for details.
+
+   The second line instructs all remote builders to obtain dependencies from
+   its own binary caches instead of from the local machine. This assumes that
+   the remote builders’ internet connection is at least as fast as the local
+   machine’s internet connection.
+
+   To activate this configuration, restart the Nix daemon:
+
+   [ ]  Linux
+
+   On Linux with systemd, run as root:
+
+ # systemctl cat nix-daemon.service
+
+   [ ]  macOS
+
+   On macOS, run as root:
+
+ # sudo launchctl stop org.nixos.nix-daemon
+ # sudo launchctl start org.nixos.nix-daemon
+
+   NixOS
+
+   If your local machine runs NixOS, in its configuration directory create
+   the file distributed-builds.nix:
+
+ { pkgs, ... }:
+ {
+   nix.distributedBuilds = true;
+   nix.settings.builders-use-substitutes = true;
+
+   nix.buildMachines = [
+     {
+       hostName = "remotebuilder";
+       sshUser = "remotebuild";
+       sshKey = "/root/.ssh/remotebuild";
+       system = pkgs.stdenv.hostPlatform;
+       supportedFeatures = [ "nixos-test" "big-parallel" "kvm" ];
+     }
+   ];
+ }
+
+   Detailed explanation
+
+   This configuration module enables distributed builds and adds the remote
+   builder, specifying:
+
+     * The SSH hostname and username
+
+     * The location of the SSH key
+
+     * Which local machine’s system type
+
+       This will delegate jobs for that system type to the remote machine.
+
+     * A list of supported system features
+
+       This particular list must be specified in order to delegate building
+       compilers and running NixOS VM tests to remote machines.
+
+   See the NixOS option documentation on nix.buildMachines for details.
+
+   The builders-use-substitutes instructs all remote builders to obtain
+   dependencies from its own binary caches instead of from the local machine.
+   This assumes that the remote builders’ internet connection is at least as
+   fast as the local machine’s internet connection.
+
+   Add the new NixOS module to the existing machine configuration:
+
+ {
+   imports = [
+     ./distributed-builds.nix
+   ];
+
+   # ...
+ }
+
+   Activate the new configuration as root:
+
+ # nixos-rebuild switch
+
+Test distributed builds#
+
+   Try building an new derivation on the local machine:
+
+ $ nix-build --max-jobs 0 -E << EOF
+ (import <nixpkgs> {}).writeText "test" "$(date)"
+ EOF
+ this derivation will be built:
+   /nix/store/9csjdxv6ir8ccnjl6ijs36izswjgchn0-test.drv
+ building '/nix/store/9csjdxv6ir8ccnjl6ijs36izswjgchn0-test.drv' on 'ssh://remotebuilder'...
+ Could not chdir to home directory /home/remotebuild: No such file or directory
+ copying 0 paths...
+ copying 1 paths...
+ copying path '/nix/store/hvj5vyg4723nly1qh5a8daifbi1yisb3-test' from 'ssh://remotebuilder'...
+ /nix/store/hvj5vyg4723nly1qh5a8daifbi1yisb3-test
+
+   The resulting derivation changes on every invocation because it depends on
+   the current system time, and thus can never be in the local cache. The
+   --max-jobs 0 command line argument forces Nix to build it on the remote
+   builder.
+
+   The last output line contains the output path and indicates that build
+   distribution works as expected.
+
+Optimise the remote builder configuration#
+
+   To maximise parallelism, enable automatic garbage collection, and prevent
+   Nix builds from consuming all memory, add the following lines to your
+   remote-builder.nix configuration module:
+
+  {
+    users.users.remotebuild = {
+      isNormalUser = true;
+      createHome = false;
+      group = "remotebuild";
+
+      openssh.authorizedKeys.keyFiles = [ ./remotebuild.pub ];
+    };
+
+    users.groups.remotebuild = {};
+
+ -  nix.settings.trusted-users = [ "remotebuild" ];
+ +  nix = {
+ +    nrBuildUsers = 64;
+ +    settings = {
+ +      trusted-users = [ "remotebuild" ];
+ +
+ +      min-free = 10 * 1024 * 1024;
+ +      max-free = 200 * 1024 * 1024;
+
+ +      max-jobs = "auto";
+ +      cores = 0;
+ +    };
+ +  };
+
+ +  systemd.services.nix-daemon.serviceConfig = {
+ +    MemoryAccounting = true;
+ +    MemoryMax = "90%";
+ +    OOMScoreAdjust = 500;
+ +  };
+ }
+
+   Tip
+
+   Refer to the Nix reference manual for details on the options available in
+   nix.settings.
+
+   Remote builders can have different performance characteristics. For each
+   nix.buildMachines item, set the maxJobs, speedFactor, and
+   supportedFeatures attributes correctly for each different remote builder.
+   This helps Nix on the local machine distributing builds the optimal way.
+
+   Tip
+
+   Refer to the NixOS option documentation on nix.buildMachines for details.
+
+   Set the nix.buildMachines.*.publicHostKey field to each remote builder’s
+   public host key to secure build distribution against man-in-the-middle
+   scenarios.
+
+Next steps#
+
+     * Configure Nix to use a custom binary cache on each remote builder
+
+     * Setting up post-build hooks to upload store objects to a binary cache
+
+   To set up multiple builders, repeat the instructions in the Set up the
+   remote builder section for each remote builder. Add all new remote
+   builders to the nix.buildMachines attribute shown in the Set up
+   distributed builds section.
+
+Alternatives#
+
+     * nixbuild.net - Nix remote builders as a service
+
+     * Hercules CI - Continuous integration with automatic build distribution
+
+     * garnix - Hosted continuous integration with build distribution
+
+References#
+
+     * Nix reference manual: Settings for distributed builds
+
+   previous
+
+   Setting up an HTTP binary cache
+
+   next
+
+   Guides
+
+   Contents
+     * Introduction
+          * What will you learn?
+          * What do you need?
+          * How long will it take?
+     * Create an SSH key pair
+     * Set up the remote builder
+          * Test authentication
+     * Set up distributed builds
+     * Test distributed builds
+     * Optimise the remote builder configuration
+     * Next steps
+     * Alternatives
+     * References
+
+   By the Nix documentation team and contributors.
+
+   © Copyright 2016-2024, NixOS Foundation.

@@ -1,0 +1,167 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Official ecosystem
+     * 2 Usage of NixOS
+     * 3 Development of NixOS
+   [ ] Toggle the table of contents
+
+                                 Nix ecosystem
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Translate this page
+   Other languages:
+     * English
+     * français
+     * русский
+     * 中文（中国大陆）
+     * 日本語
+
+   The Core Nix Ecosystem is a collection of technologies designed to
+   reproducibly build and declaratively configure and manage packages and
+   systems as well as their dependencies. It achieves this by translating the
+   functional paradigm from the program to the system domain by utilizing a
+   dynamic, functional and lazy DSL called the Nix Language for specifying
+   reproducible builds.
+
+   In addition there are many other applications (Extended Nix Ecosystem)
+   developed by the Nix community, utilizing and supporting these core
+   technologies.
+
+Official ecosystem
+
+                      Core Components of the Nix Ecosystem
+   Component Manual      Description              Use                License  
+                         A Linux distribution                                 
+                         with all components                         
+                         built by Nix, and thus   Declaratively      
+             NixOS       supporting reproducible  configure          
+   NixOS     Manual      and declarative          desktops, servers  MIT
+                         system-wide              & clusters
+                         configuration management 
+                         as well as atomic        
+                         upgrades and rollbacks.  
+                         The largest community                                
+                         maintained Nix package                      
+   Nixpkgs   Nixpkgs     and NixOS module         Share Nix packages MIT
+             Manual      repository; standard     & NixOS modules
+                         releases of NixOS are    
+                         hosted here.             
+   Hydra     Hydra       A Nix based continuous   CI build farms     GPL-3.0  
+             Manual      build system.            
+                         A package manager that                               
+                         parses Nix expressions                      
+                         specifying reproducible                     
+                         build, putting the       Reproducible       
+                         result in a store        builds & package
+   Nix       Nix Manual  address with a hash of   management in      LGPL-2.1
+                         the dependency tree,     Linux & Darwin
+                         sidestepping dependency  
+                         hell and supporting      
+                         multiversion installs    
+                         and rollbacks.           
+
+                         The NixOS core ecosystem stack
+   NixOS                                            
+                                                    
+   A Linux distribution and configuration system    
+   built using Nixpkgs                              
+   Nixpkgs                                          Hydra                     
+                                                                              
+   A large, community-maintained repository of      A continuous build system 
+   packages                                         built on Nix              
+   Nix                                              
+                                                    
+   A pure and functional build system               
+
+Usage of NixOS
+
+   Users install the NixOS distribution on their computers just as any other
+   Linux distribution. They read about packages to install and configuration
+   options in Nixpgs via https://search.nixos.org and this wiki. They use the
+   Nix language to declaratively describe in a text file what software
+   packages should be installed and how the system should be configured. They
+   run 2 command line programs in a terminal to transform the system into the
+   described system. They use the system as any other Linux system.
+
+Development of NixOS
+
+   Developers of NixOS mainly work on Nixpkgs to describe in text files in
+   Nix language how software packages should be build. After peer review
+   these changes are integrated in Nixpkgs. Some of these packages are pre
+   built on Hydra to reduce the update time for NixOS users.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_ecosystem/en&oldid=13996"
+   Categories:
+     * Pedias
+     * NixOS
+     * Nix
+     * This page was last edited on 12 July 2024, at 13:27.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

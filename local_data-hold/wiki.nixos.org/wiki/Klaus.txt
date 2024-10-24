@@ -1,0 +1,124 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Autoreloading
+   [ ] Toggle the table of contents
+
+                                     Klaus
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Klaus is a simple, easy-to-set-up Git web viewer.
+
+   The recommended method for deploying Klaus according to the developer is
+   using uWSGI or Gunicorn. This article provides an example deployment using
+   uWSGI.
+
+ services.uwsgi = {
+     enable = true;
+     plugins = [ "python3" ];
+     instance = {
+         type = "normal";
+         master = true;
+         http-socket = ":8080";
+         module = "klaus.contrib.wsgi:application";
+         pythonPackages = self: with self; [
+             klaus
+             markdown # adds markdown support, optional
+         ];
+         env = [
+             "KLAUS_REPOS=/repos/repo1 /repos/repo2"
+             "PATH=${pkgs.git}/bin" # klaus makes a direct call to git
+         ];
+     };
+ };
+
+   When loading a repository, you may encounter a 500, traced back to a git
+   command call in the uWSGI logs. Try setting services.uwsgi.user and
+   services.uwsgi.group to match the ownership of the repository.
+
+Autoreloading
+
+   By default, Klaus will only be able to to track the repos specified in the
+   KLAUS_REPOS environment variable. In order to have it keep track of a set
+   of unknown repos, Klaus needs to be configured to autoreload.
+
+ services.uwsgi.instance = {
+     module = "klaus.contrib.wsgi_autoreload:application";
+     enable-threads = true;
+     lazy-apps = true;
+     env = [ "KLAUS_REPOS_ROOT=/repos" ];
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Klaus&oldid=13283"
+   Category:
+     * Web Applications
+     * This page was last edited on 20 June 2024, at 19:17.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

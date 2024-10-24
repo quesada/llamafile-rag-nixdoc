@@ -1,0 +1,142 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Borg backup: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    15 May 2024
+
+     * curprev [ ] [ ] 18:3418:34, 15 May 2024‎ Klinger talk contribs‎ m
+       8,837 bytes +22‎ added category:cookbook
+     * curprev [ ] [ ] 18:3318:33, 15 May 2024‎ Klinger talk contribs‎ 8,815
+       bytes +272‎ added link to nixos manual Tag: Visual edit: Switched
+
+    7 February 2023
+
+     * curprev [ ] [ ] 09:5809:58, 7 February 2023‎ imported>Onny‎ m 8,543
+       bytes +20‎ No edit summary
+
+    1 October 2021
+
+     * curprev [ ] [ ] 02:2302:23, 1 October 2021‎ imported>Uwu‎ m 8,523
+       bytes +2‎
+       https://borgbackup.readthedocs.io/en/stable/usage/general.html#environment-variables
+       BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK=no (or =yes)
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:3905:39, 20 September 2021‎ imported>Nix‎ m 8,521
+       bytes +27‎ add Software/Applications subcategory
+
+    16 June 2020
+
+     * curprev [ ] [ ] 12:1112:11, 16 June 2020‎ imported>Danbst‎ 8,494 bytes
+       +2,528‎ No edit summary
+     * curprev [ ] [ ] 11:4511:45, 16 June 2020‎ imported>Danbst‎ 5,966 bytes
+       +5,966‎ Created page with "Borg is a backup tool to perform
+       incremental backups, local or remote. <syntaxHighlight lang=bash> $
+       nix-env -iA nixpkgs.borgbackup </syntaxHighlight> To be able to do
+       remot..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Borg_backup"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

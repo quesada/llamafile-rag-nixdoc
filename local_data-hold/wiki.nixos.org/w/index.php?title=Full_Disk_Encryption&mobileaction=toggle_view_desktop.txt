@@ -1,0 +1,400 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Enter password on Boot (LVM on LUKS)
+     * 2 Unattended Boot via USB
+          * 2.1 Option 1: Write key onto the start of the stick
+          * 2.2 Option 2: Copy Key as file onto a vfat usb stick
+     * 3 Unattended Boot via keyfile
+     * 4 zimbatm's laptop recommendation
+          * 4.1 Perf test
+     * 5 Unlocking secondary drives
+          * 5.1 Option 1: Unlock before boot using a password
+          * 5.2 Option 2: Unlock after boot using crypttab and a keyfile
+     * 6 Further reading
+   [ ] Toggle the table of contents
+
+                              Full Disk Encryption
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   There are a few options for full disk encryption. The easiest way is to
+   use the graphical installer and choose „encrypt“ while doing the
+   installation.
+
+                      Enter password on Boot (LVM on LUKS)
+
+   In this example, everything except for the /boot partition is encrypted.
+   This includes the root and swap partitions. A password must be entered
+   during boot to unlock the encrypted filesystems.
+
+   The main drive (here the sda block device) will need two partitions:
+
+    1. An unencrypted /boot partition (EFI system partition) formatted as
+       FAT.
+    2. A LUKS-encrypted logical volume group for everything else (swap and
+       /).
+
+   When unlocked and mounted, it will look like this:
+
+ NAME          MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
+ sda             8:0    0 233.8G  0 disk
+ ├─sda1          8:1    0   500M  0 part  /boot
+ └─sda2          8:2    0 233.3G  0 part
+   └─root      254:0    0 233.3G  0 crypt
+     ├─vg-swap 254:1    0     8G  0 lvm   [SWAP]
+     └─vg-root 254:2    0 225.3G  0 lvm   /
+
+   The initrd needs to be configured to unlock the encrypted /dev/sda2
+   partition during stage 1 of the boot process. To do this, add the
+   following options (replacing UUID-OF-SDA2 with the actual UUID of the
+   encrypted partition /dev/sda2. -- You can find it using lsblk -f or sudo
+   blkid -s UUID /dev/sda2.)
+
+     boot = {
+       loader = {
+         efi.canTouchEfiVariables = true;
+         grub = {
+           enable = true;
+           device = "nodev";
+           efiSupport = true;
+         };
+       };
+       initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/UUID-OF-SDA2";
+     };
+
+   With initrd.luks.devices.cryptroot.device =
+   "/dev/disk/by-uuid/UUID-OF-SDA2";, the initrd knows it must unlock
+   /dev/sda2 before activating LVM and proceeding with the boot process.
+
+                            Unattended Boot via USB
+
+   Sometimes it is necessary to boot a system without needing an keyboard and
+   monitor. You will create a secret key, add it to a key slot and put it
+   onto an USB stick.
+
+ dd if=/dev/random of=hdd.key bs=4096 count=1
+ cryptsetup luksAddKey /dev/sda1 ./hdd.key
+
+   You can enable fallback to password (in case the USB stick is lost or
+   corrupted) by setting the
+   boot.initrd.luks.devices.<name>.fallbackToPassword option to true. By
+   default, this option is false so you will have to perform a manual
+   recovery if the USB stick becomes unavailable (which you may prefer,
+   depending on your use case).
+
+Option 1: Write key onto the start of the stick
+
+   This will make the usb-stick unusable for any other operations than being
+   used for decryption. Write the key onto the stick:
+
+ dd if=hdd.key of=/dev/sdb
+
+   Then add the following configuration to your configuration.nix:
+
+ {
+   "..."
+
+   # Needed to find the USB device during initrd stage
+   boot.initrd.kernelModules = [ "usb_storage" ];
+
+   boot.initrd.luks.devices = {
+       luksroot = {
+          device = "/dev/disk/by-id/<disk-name>-part2";
+          allowDiscards = true;
+          keyFileSize = 4096;
+          # pinning to /dev/disk/by-id/usbkey works
+          keyFile = "/dev/sdb";
+          # optionally enable fallback to password in case USB is lost
+          fallbackToPassword = true;
+       };
+   };
+ }
+
+Option 2: Copy Key as file onto a vfat usb stick
+
+   If you want to use your stick for other stuff or it already has other keys
+   on it you can use the following method by Tzanko Matev. Add this to your
+   configuration.nix:
+
+ let
+   PRIMARYUSBID = "b501f1b9-7714-472c-988f-3c997f146a17";
+   BACKUPUSBID = "b501f1b9-7714-472c-988f-3c997f146a18";
+ in {
+
+   "..."
+
+   # Kernel modules needed for mounting USB VFAT devices in initrd stage
+   boot.initrd.kernelModules = ["uas" "usbcore" "usb_storage" "vfat" "nls_cp437" "nls_iso8859_1"];
+
+   # Mount USB key before trying to decrypt root filesystem
+   boot.initrd.postDeviceCommands = pkgs.lib.mkBefore ''
+     mkdir -m 0755 -p /key
+     sleep 2 # To make sure the usb key has been loaded
+     mount -n -t vfat -o ro `findfs UUID=${PRIMARYUSBID}` /key || mount -n -t vfat -o ro `findfs UUID=${BACKUPUSBID}` /key
+   '';
+
+   boot.initrd.luks.devices."crypted" = {
+     keyFile = "/key/keyfile";
+     preLVM = false; # If this is true the decryption is attempted before the postDeviceCommands can run
+   };
+ }
+
+                          Unattended Boot via keyfile
+
+   A simpler but insecure option for unattended boots is to copy the keyfile
+   into the initrd itself.
+
+   Warning: This method is not generally recommended as anyone with physical
+   access to your boot partition will be able to retrieve the key file and
+   use it to decrypt your luks partition. Make sure you understand the
+   security implications.
+
+   First move the key to a safe location.
+
+ mkdir /var/lib/secrets
+ chown root:root /var/lib/secrets
+ chmod 700 /var/lib/secrets
+ mv -v hdd.key /var/lib/secrets/
+ chmod 600 /var/lib/secrets/hdd.key
+
+   Then add the key to the initrd.
+
+ let
+   keyFile = "hdd.key";
+ in
+ {
+   boot.initrd.luks.devices."root" = {
+     device = "/dev/disk/by-uuid/<uuid>";
+     keyFile = "/${keyFile}";
+   };
+   boot.initrd.secrets = { "/${keyFile}" = /var/lib/secrets/${keyFile}; };
+ }
+
+                        zimbatm's laptop recommendation
+
+   Let's say that you have a GPT partition with EFI enabled. You might be
+   booting on other OSes with it. Let's say that your disk layout looks
+   something like this:
+
+    8        0  500107608 sda
+    8        1     266240 sda1       - the EFI partition
+    8        2      16384 sda2
+    8        3  127388672 sda3
+    8        4  371409920 sda4    - the NixOS root partition
+    8        5    1024000 sda5
+
+   Boot the NixOS installer and partition things according to your taste.
+   What we are then going to do is prepare sda4 with a luks encryption layer:
+
+ # format the partition with the luks structure
+ cryptsetup luksFormat /dev/sda4
+ # open the encrypted partition and map it to /dev/mapper/cryptroot
+ cryptsetup luksOpen /dev/sda4 cryptroot
+ # format as usual
+ mkfs.ext4 -L nixos /dev/mapper/cryptroot
+ # mount
+ mount /dev/disk/by-label/nixos /mnt
+ mkdir /mnt/boot
+ mount /dev/sda1 /mnt/boot
+
+   Now keep installing as usual, nixos-generate-config should detect the
+   right partitioning. You should have something like this in your
+   /etc/nixos/hardware-configuration.nix:
+
+ { # cut
+   fileSystems."/" =
+     { device = "/dev/disk/by-uuid/5e7458b3-dcd2-49c6-a330-e2c779e99b66";
+       fsType = "ext4";
+     };
+
+   boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/d2cb12f8-67e3-4725-86c3-0b5c7ebee3a6";
+
+   fileSystems."/boot" =
+     { device = "/dev/disk/by-uuid/863B-7B32";
+       fsType = "vfat";
+     };
+
+   swapDevices = [ ];
+ }
+
+   To create a swap add the following in your /etc/nixos/configuration.nix:
+
+ {
+   swapDevices = [{device = "/swapfile"; size = 10000;}];
+ }
+
+Perf test
+
+ # compare
+ nix-shell -p hdparm --run "hdparm -Tt /dev/mapper/cryptroot"
+ # with
+ nix-shell -p hdparm --run "hdparm -Tt /dev/sda1"
+
+   I had to add a few modules to initrd to make it fast. Since cryptroot is
+   opened really early on, all the AES descryption modules should already be
+   made available. This obviously depends on the platform that you are on.
+
+ {
+    boot.initrd.availableKernelModules = [
+     "aesni_intel"
+     "cryptd"
+   ];
+ }
+
+                           Unlocking secondary drives
+
+   Consider the following example: a secondary hard disk /dev/sdb is to be
+   LUKS-encrypted and unlocked during boot, in addition to /dev/sda.
+
+   Encrypt the drive and create the filesystem on it (LVM is used in this
+   example):
+
+ cryptsetup luksFormat --label CRYPTSTORAGE /dev/sdb
+ cryptsetup open /dev/sdb cryptstorage
+ pvcreate /dev/mapper/cryptstorage
+ vgcreate vg-storage /dev/mapper/cryptstorage
+ lvcreate -l 100%FREE -n storage vg-storage
+ mkfs.ext4 -L STORAGE /dev/vg-storage/storage
+
+   To unlock this device on boot in addition to the encrypted root
+   filesystem, there are two options:
+
+  Option 1: Unlock before boot using a password
+
+   Set the following in configuration.nix (replacing UUID-OF-SDB with the
+   actual UUID of /dev/sdb):
+
+ {
+   boot.initrd.luks.devices.cryptstorage.device = "/dev/disk/by-uuid/UUID-OF-SDB";
+ }
+
+   During boot, a password prompt for the second drive will be displayed.
+   Passwords previously entered are tried automatically to also unlock the
+   second drive. This means that if you use the same passwords to encrypt
+   both your main and secondary drives, you will only have to enter it once
+   to unlock both.
+
+   The decrypted drive will be unlocked and made available under
+   /dev/mapper/cryptstorage for mounting.
+
+   One annoyance with this approach is that reusing entered passwords only
+   happens on the initial attempt. If you mistype the password for your main
+   drive on the first try, you will now have to re-enter it twice, once for
+   the main drive and again for the second drive, even if the passwords are
+   the same.
+
+  Option 2: Unlock after boot using crypttab and a keyfile
+
+   Alternatively, you can create a keyfile stored on your root partition to
+   unlock the second drive just before booting completes. This can be done
+   using the /etc/crypttab file (see manpage crypttab(5)).
+
+   First, create a keyfile for your secondary drive, store it safely and add
+   it as a LUKS key:
+
+ dd bs=512 count=4 if=/dev/random of=/root/mykeyfile.key iflag=fullblock
+ chmod 400 /root/mykeyfile.key
+ cryptsetup luksAddKey /dev/sdb /root/mykeyfile.key
+
+   Next, create /etc/crypttab in configuration.nix using the following option
+   (replacing UUID-OF-SDB with the actual UUID of /dev/sdb):
+
+ {
+    environment.etc.crypttab.text = ''
+     cryptstorage UUID=UUID-OF-SDB /root/mykeyfile.key
+   ''
+ }
+
+   With this approach, the secondary drive is unlocked just before the boot
+   process completes, without the need to enter its password.
+
+   Again, the secondary drive will be unlocked and made available under
+   /dev/mapper/cryptstorage for mounting.
+
+                                Further reading
+
+     * Installing NixOS with LUKS2, Detached LUKS Header, and A Separate Boot
+       Partition on an USB/MicroSD Card
+     * Installation of NixOS with encrypted root
+     * Encryption in ZFS
+     * Using a Yubikey as the authentication mechanism (unattended boot and
+       two factor boot with user password).
+     * Have a look at https://wiki.archlinux.org/index.php/Disk_encryption to
+       see all the possible options. This wiki page is not complete.
+     * Installation with encrypted /boot
+     * Using Tor and SSH to unlock your LUKS Disk over the internet.
+     * Bcachefs, filesystem which supports native encryption
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Full_Disk_Encryption&oldid=17355"
+   Categories:
+     * Desktop
+     * Server
+     * This page was last edited on 10 September 2024, at 21:15.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

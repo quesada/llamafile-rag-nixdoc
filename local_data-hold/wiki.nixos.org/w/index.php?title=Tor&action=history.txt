@@ -1,0 +1,263 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Tor: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    4 July 2024
+
+     * curprev [ ] [ ] 17:4717:47, 4 July 2024‎ Layer-09 talk contribs‎ m
+       12,333 bytes +294‎ Made Tips and Tricks titles bigger
+
+    3 July 2024
+
+     * curprev [ ] [ ] 12:0412:04, 3 July 2024‎ Layer-09 talk contribs‎ m
+       12,039 bytes +80‎ No edit summary
+     * curprev [ ] [ ] 12:0112:01, 3 July 2024‎ Layer-09 talk contribs‎
+       11,959 bytes +2,731‎ Organized the content and added a few options in
+       the configuration. Briefly explained relays. I will update this again
+       in the near future with more information.
+
+    29 June 2024
+
+     * curprev [ ] [ ] 15:2315:23, 29 June 2024‎ Onny talk contribs‎ 9,228
+       bytes +386‎ →‎Tips and tricks: Add exit note example Tag: Visual edit
+
+    25 June 2024
+
+     * curprev [ ] [ ] 21:0021:00, 25 June 2024‎ Klinger talk contribs‎ m
+       8,842 bytes +8‎ →‎Faster reconnects on network switch
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:4820:48, 19 April 2024‎ Klinger talk contribs‎ m
+       8,834 bytes +1‎ typo
+     * curprev [ ] [ ] 20:4420:44, 19 April 2024‎ Klinger talk contribs‎ m
+       8,833 bytes +5‎ No edit summary
+     * curprev [ ] [ ] 19:5919:59, 19 April 2024‎ Klinger talk contribs‎ m
+       8,828 bytes +37‎ Category:Networking Category:Client Category:Server
+       Category:Security Category:Privacy
+
+    6 April 2024
+
+     * curprev [ ] [ ] 16:4816:48, 6 April 2024‎ Mic92 talk contribs‎ 8,791
+       bytes +488‎ Write about DNS over Tor. Tag: Visual edit: Switched
+
+    19 February 2024
+
+     * curprev [ ] [ ] 22:2922:29, 19 February 2024‎ imported>Keyholder‎
+       8,303 bytes −2‎ fixing outdated binary filename
+
+    23 June 2023
+
+     * curprev [ ] [ ] 11:5911:59, 23 June 2023‎ imported>Onny‎ 8,305 bytes
+       +384‎ Add note on running relay server behind NAT
+
+    22 June 2023
+
+     * curprev [ ] [ ] 18:1418:14, 22 June 2023‎ imported>Onny‎ m 7,921 bytes
+       +321‎ No edit summary
+     * curprev [ ] [ ] 17:5917:59, 22 June 2023‎ imported>Onny‎ m 7,600 bytes
+       +1‎ No edit summary
+     * curprev [ ] [ ] 17:5817:58, 22 June 2023‎ imported>Onny‎ m 7,599 bytes
+       +21‎ No edit summary
+     * curprev [ ] [ ] 17:5817:58, 22 June 2023‎ imported>Onny‎ 7,578 bytes
+       +1,013‎ Add section on relay setup
+
+    8 March 2023
+
+     * curprev [ ] [ ] 19:5919:59, 8 March 2023‎ imported>Onny‎ 6,565 bytes
+       +351‎ Add tips and tricks
+     * curprev [ ] [ ] 19:5419:54, 8 March 2023‎ imported>Onny‎ m 6,214 bytes
+       −19‎ No edit summary
+     * curprev [ ] [ ] 19:5219:52, 8 March 2023‎ imported>Onny‎ 6,233 bytes
+       +282‎ Restructuring page
+
+    15 November 2022
+
+     * curprev [ ] [ ] 09:4109:41, 15 November 2022‎ imported>Onny‎ 5,951
+       bytes +22‎ Add page to security category
+
+    5 June 2022
+
+     * curprev [ ] [ ] 13:1113:11, 5 June 2022‎ imported>Gbtb‎ 5,929 bytes
+       +588‎ added info about configuration as a freeform module
+
+    24 March 2022
+
+     * curprev [ ] [ ] 21:2521:25, 24 March 2022‎ imported>Munksgaard‎ m
+       5,341 bytes −11‎ Replace link to obsolete tor website
+
+    25 February 2022
+
+     * curprev [ ] [ ] 00:2500:25, 25 February 2022‎ imported>Flexagoon‎
+       5,352 bytes +358‎ Return the warning but make it more clear to avoid
+       confusion
+     * curprev [ ] [ ] 00:1900:19, 25 February 2022‎ imported>Flexagoon‎
+       4,994 bytes −320‎ Remove a misleading warning. TOR Browser is not
+       intended for casual surfing, and there's nothing wrong with using
+       other browsers.
+
+    14 March 2019
+
+     * curprev [ ] [ ] 12:3112:31, 14 March 2019‎ imported>Evrim‎ m 5,314
+       bytes −27‎ No edit summary
+     * curprev [ ] [ ] 12:3012:30, 14 March 2019‎ imported>Evrim‎ m 5,341
+       bytes +116‎ No edit summary
+
+    25 October 2017
+
+     * curprev [ ] [ ] 22:5622:56, 25 October 2017‎ imported>HLandau‎ m 5,225
+       bytes +3‎ →‎Browsing the web with Tor
+     * curprev [ ] [ ] 00:4700:47, 25 October 2017‎ imported>Mic92‎ 5,222
+       bytes −874‎ vidalia was removed from nixpkgs
+
+    24 October 2017
+
+     * curprev [ ] [ ] 22:5022:50, 24 October 2017‎ imported>HLandau‎ m 6,096
+       bytes +28‎ No edit summary
+     * curprev [ ] [ ] 22:5022:50, 24 October 2017‎ imported>HLandau‎ 6,068
+       bytes +1,443‎ No edit summary
+
+    6 September 2017
+
+     * curprev [ ] [ ] 01:3901:39, 6 September 2017‎ imported>Samueldr‎ m
+       4,625 bytes −12‎ Removed now useless warning header.
+     * curprev [ ] [ ] 01:3801:38, 6 September 2017‎ imported>Samueldr‎ 4,637
+       bytes +4‎ No edit summary
+
+    27 August 2017
+
+     * curprev [ ] [ ] 12:5112:51, 27 August 2017‎ imported>Fadenb‎ m 4,633
+       bytes +80‎ Syntax highlighting
+     * curprev [ ] [ ] 11:5411:54, 27 August 2017‎ imported>Fadenb‎ m 4,553
+       bytes +33‎ →‎How to see what's going on, and work around bans:
+       syntaxhighlight
+
+    23 August 2017
+
+     * curprev [ ] [ ] 22:3122:31, 23 August 2017‎ imported>Mic92‎ 4,520
+       bytes +9‎ →‎How Tor is set up in NixOS
+     * curprev [ ] [ ] 22:3122:31, 23 August 2017‎ imported>Mic92‎ 4,511
+       bytes +1‎ →‎Privoxy
+     * curprev [ ] [ ] 22:3022:30, 23 August 2017‎ imported>Mic92‎ 4,510
+       bytes +69‎ →‎Privoxy
+     * curprev [ ] [ ] 22:0122:01, 23 August 2017‎ imported>Mic92‎ 4,441
+       bytes +112‎ →‎How Tor is set up by default in NixOS
+
+    1 July 2017
+
+     * curprev [ ] [ ] 11:4811:48, 1 July 2017‎ imported>Fadenb‎ 4,329 bytes
+       +17‎ No edit summary
+
+    29 June 2017
+
+     * curprev [ ] [ ] 15:3815:38, 29 June 2017‎ imported>Fadenb‎ 4,312 bytes
+       +124‎ No edit summary
+     * curprev [ ] [ ] 15:3515:35, 29 June 2017‎ imported>Fadenb‎ 4,188 bytes
+       +4,188‎ Created page with "= How Tor is set up by default in NixOS =
+       By default Tor in NixOS provides 2 different SOCKS proxies. 9050 is a
+       "slow" SOCKS port which can be used for email, git and pretty..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Tor"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,181 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS as Host
+          * 1.1 Using NFS mounts
+     * 2 Plugins
+          * 2.1 NixOS Plugin
+     * 3 Troubleshooting: conflicting dependencies bundler when installing
+       vagrant plugins
+   [ ] Toggle the table of contents
+
+                                    Vagrant
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Vagrant#)                
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   Note: This page is about vagrant, see Vagrant Box for the NixOS vagrant
+   boxes.
+
+NixOS as Host
+
+  Using NFS mounts
+
+   Add to your Vagrantfile:
+
+   # Mount a folder inside the VM.
+   config.vm.synced_folder "myfolder/", "/mnt/myfolder", type: "nfs", nfs_version: 4
+
+   Add to your configuration.nix:
+
+ {
+   # Minimal configuration for NFS support with Vagrant.
+   services.nfs.server.enable = true;
+  
+   # Add firewall exception for VirtualBox provider
+   networking.firewall.extraCommands = ''
+     ip46tables -I INPUT 1 -i vboxnet+ -p tcp -m tcp --dport 2049 -j ACCEPT
+   '';
+
+   # Add firewall exception for libvirt provider when using NFSv4
+   networking.firewall.interfaces."virbr1" = {                                  
+     allowedTCPPorts = [ 2049 ];                                              
+     allowedUDPPorts = [ 2049 ];                                              
+   };    
+ }
+
+   This should make NFS mounts work.
+
+   Note: Vagrant will, by default, want to use sudo and modify /etc/exports.
+   As long as you are not defining exports with configuration.nix, vagrant
+   should be able to work.
+   Note: Home directories are set not to be world-searchable by default on
+   NixOS. This may lead to a "permission denied" error when trying to mount
+   directories within your home into the VM. You can change this by running
+   chmod a+x ~, but note that this will allow all users on the system to read
+   world-readable files within your home given the paths.
+   Warning: Since Vagrant 2.3.4 a bug is preventing the mounting of the nfs
+   folders. The issue is vagrant try to call System V instead of Systemd in
+   order to get the status of nfs service. For details and workaround : [1]
+
+Plugins
+
+  NixOS Plugin
+
+   See the NixOS vagrant box page, which as information about the
+   vagrant-nixos-plugin project.
+
+Troubleshooting: conflicting dependencies bundler when installing vagrant
+plugins
+
+   As of 18.03 vagrant plugins are broken:
+
+ $  vagrant plugin update
+ Updating installed plugins...
+ Bundler, the underlying system Vagrant uses to install plugins,
+ reported an error. The error is shown below. These errors are usually
+ caused by misconfigured plugin installations or transient network
+ issues. The error from Bundler is:
+ conflicting dependencies bundler (= 1.14.6) and bundler (= 1.16.1)
+   Activated bundler-1.16.1
+   which does not match conflicting dependency (= 1.14.6)
+   Conflicting dependency chains:
+     bundler (= 1.16.1), 1.16.1 activated
+   versus:
+     bundler (= 1.14.6)
+   Gems matching bundler (= 1.14.6):
+     bundler-1.14.6
+
+   using the following nix expression fixes the problems:
+
+ (import <nixpkgs> {
+     overlays = [
+       (self: super: {
+         bundler = super.bundler.overrideAttrs (old: {
+           name = "bundler-1.16.1";
+           src = super.fetchurl {
+             url = "https://rubygems.org/gems/bundler-1.16.1.gem";
+             sha256 = "1s2nq4qnffxg3kwrk7cnwxcvfihlhxm9absl2l6d3qckf3sy1f22";
+           };
+         });
+       })
+     ];
+   }).vagrant
+
+   More information in this issue
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Vagrant&oldid=5058"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 3 December 2023, at 15:03.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

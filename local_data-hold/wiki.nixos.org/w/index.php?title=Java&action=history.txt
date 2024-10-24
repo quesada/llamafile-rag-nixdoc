@@ -1,0 +1,247 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Java: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 October 2024
+
+     * curprev [ ] [ ] 15:3215:32, 14 October 2024‎ Miniluz talk contribs‎
+       8,172 bytes +632‎ →‎VSCode + Language Support for Java (TM) by Red Hat
+       extension: Add alternate solution for using Language Support for Java
+       Tag: Visual edit
+
+    15 September 2024
+
+     * curprev [ ] [ ] 06:2906:29, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 7,540 bytes +125‎ buildmavenpackage and fix buildmaven
+       link
+
+    21 June 2024
+
+     * curprev [ ] [ ] 20:2320:23, 21 June 2024‎ Tomodachi94 talk contribs‎ m
+       7,415 bytes +131‎ No edit summary
+     * curprev [ ] [ ] 06:4506:45, 21 June 2024‎ Tomodachi94 talk contribs‎ m
+       7,284 bytes −7‎ ryantm link -> canonical Nixpkgs manual
+
+    5 June 2024
+
+     * curprev [ ] [ ] 09:4309:43, 5 June 2024‎ Why-not-try-calmer talk
+       contribs‎ m 7,291 bytes +45‎ →‎VSCode + Language Support for Java (TM)
+       by Red Hat extension Tag: Visual edit
+     * curprev [ ] [ ] 09:4109:41, 5 June 2024‎ Why-not-try-calmer talk
+       contribs‎ m 7,246 bytes +59‎ →‎Using Oracle JDK instead of Open JDK
+       Tag: Visual edit
+     * curprev [ ] [ ] 09:3909:39, 5 June 2024‎ Why-not-try-calmer talk
+       contribs‎ m 7,187 bytes −9‎ →‎VSCode + Language Support for Java (TM)
+       by Red Hat extension Tag: Visual edit
+     * curprev [ ] [ ] 09:3709:37, 5 June 2024‎ Why-not-try-calmer talk
+       contribs‎ m 7,196 bytes +849‎ Many people are struggling online to get
+       started with Java on Nix using VSCode. This edit helps them get
+       started quickly with VSCode. Tag: Visual edit
+
+    18 April 2024
+
+     * curprev [ ] [ ] 02:3102:31, 18 April 2024‎ SnowSquire talk contribs‎
+       6,347 bytes −181‎ updated package names and versions Tag: Visual edit
+
+    2 May 2023
+
+     * curprev [ ] [ ] 13:5113:51, 2 May 2023‎ imported>Brhoades‎ m 6,528
+       bytes 0‎ changed openjdk example versions
+
+    23 November 2022
+
+     * curprev [ ] [ ] 10:1310:13, 23 November 2022‎ imported>Milahu‎ 6,528
+       bytes +163‎ ivy: fetch ivy sources in a fixed-output-derivation
+
+    22 November 2022
+
+     * curprev [ ] [ ] 11:2411:24, 22 November 2022‎ imported>Milahu‎ 6,365
+       bytes +128‎ maven: add link
+
+    17 November 2022
+
+     * curprev [ ] [ ] 16:4416:44, 17 November 2022‎ imported>Milahu‎ 6,237
+       bytes +148‎ Ivy: not to be confused with ivy
+     * curprev [ ] [ ] 16:0916:09, 17 November 2022‎ imported>Milahu‎ 6,089
+       bytes +88‎ Maven: mention buildMaven
+     * curprev [ ] [ ] 16:0316:03, 17 November 2022‎ imported>Milahu‎ 6,001
+       bytes +213‎ add section: Ant
+     * curprev [ ] [ ] 15:2715:27, 17 November 2022‎ imported>Milahu‎ 5,788
+       bytes +237‎ add section: Maven
+     * curprev [ ] [ ] 14:5514:55, 17 November 2022‎ imported>Milahu‎ 5,551
+       bytes +226‎ add section: ivy.jar
+     * curprev [ ] [ ] 14:4914:49, 17 November 2022‎ imported>Milahu‎ m 5,325
+       bytes +1‎ link to split-page nixpkgs manual
+
+    1 October 2021
+
+     * curprev [ ] [ ] 08:1708:17, 1 October 2021‎ imported>Milahu‎ 5,324
+       bytes +135‎ + link to java in nixpkgs manual
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5805:58, 20 September 2021‎ imported>Nix‎ m 5,189
+       bytes +50‎ add applications and languages categories
+
+    29 March 2021
+
+     * curprev [ ] [ ] 01:0501:05, 29 March 2021‎ imported>P-h‎ 5,139 bytes
+       +160‎ No edit summary
+
+    6 January 2021
+
+     * curprev [ ] [ ] 16:5616:56, 6 January 2021‎ imported>Nh2‎ m 4,979
+       bytes +106‎ mention javaws
+
+    30 October 2020
+
+     * curprev [ ] [ ] 11:3411:34, 30 October 2020‎ imported>MartinPotier‎ m
+       4,873 bytes 0‎ Fix syntax
+
+    18 February 2020
+
+     * curprev [ ] [ ] 22:1222:12, 18 February 2020‎ imported>Volth‎ m 4,873
+       bytes 0‎ →‎Using Oracle JDK instead of Open JDK: typo
+
+    3 February 2020
+
+     * curprev [ ] [ ] 21:5821:58, 3 February 2020‎ imported>Volth‎ m 4,873
+       bytes +1‎ →‎Using Oracle JDK instead of Open JDK
+     * curprev [ ] [ ] 21:5821:58, 3 February 2020‎ imported>Volth‎ m 4,872
+       bytes 0‎ →‎Using Oracle JDK instead of Open JDK
+     * curprev [ ] [ ] 21:5721:57, 3 February 2020‎ imported>Volth‎ m 4,872
+       bytes +1‎ →‎Using Oracle JDK instead of Open JDK
+     * curprev [ ] [ ] 21:5621:56, 3 February 2020‎ imported>Volth‎ 4,871
+       bytes +1,182‎ →‎Using Oracle JDK instead of Open JDK: requireFile
+       helper
+     * curprev [ ] [ ] 21:5221:52, 3 February 2020‎ imported>Volth‎ 3,689
+       bytes +1‎ →‎Using Oracle JDK instead of Open JDK: use programs.java
+     * curprev [ ] [ ] 21:5121:51, 3 February 2020‎ imported>Volth‎ 3,688
+       bytes −50‎ →‎Using Oracle JDK instead of Open JDK:
+       oraclejdk.accept_license does not work and was removed
+
+    11 December 2019
+
+     * curprev [ ] [ ] 15:1715:17, 11 December 2019‎ imported>Makefu‎ 3,738
+       bytes +1,215‎ add overriding chapter for certificate store
+
+    13 October 2019
+
+     * curprev [ ] [ ] 16:5016:50, 13 October 2019‎ imported>Nornagon‎ 2,523
+       bytes +356‎ Add instructions for installing Oracle JDK system-wide.
+     * curprev [ ] [ ] 02:2802:28, 13 October 2019‎ imported>Nornagon‎ 2,167
+       bytes +1,142‎ Add more information about the various flavors of Java
+
+    19 March 2018
+
+     * curprev [ ] [ ] 12:0312:03, 19 March 2018‎ imported>Mic92‎ 1,025 bytes
+       −31‎ remove out-of-place sentence
+     * curprev [ ] [ ] 12:0112:01, 19 March 2018‎ imported>Makefu‎ 1,056
+       bytes +9‎ →‎Using Oracle JDK instead of Open JDK
+     * curprev [ ] [ ] 11:3311:33, 19 March 2018‎ imported>Mic92‎ 1,047 bytes
+       +1,047‎ add java page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Java"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

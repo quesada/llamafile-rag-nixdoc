@@ -1,0 +1,157 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      NixOS Wiki:History: Revision history
+
+   Help
+     * Project page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    1 April 2024
+
+     * curprev [ ] [ ] 15:5315:53, 1 April 2024‎ Sdht0 talk contribs‎ 3,622
+       bytes +7‎ Copyedit
+     * curprev [ ] [ ] 15:5115:51, 1 April 2024‎ Sdht0 talk contribs‎ 3,615
+       bytes +166‎ Add latest developments
+
+    20 September 2021
+
+     * curprev [ ] [ ] 00:2300:23, 20 September 2021‎ imported>Nix‎ m 3,449
+       bytes −4‎ move to pedias category
+
+    30 October 2018
+
+     * curprev [ ] [ ] 16:2516:25, 30 October 2018‎ imported>Ciil‎ m 3,453
+       bytes 0‎ No edit summary
+
+    19 October 2017
+
+     * curprev [ ] [ ] 11:4611:46, 19 October 2017‎ imported>Vater‎ m 3,453
+       bytes +39‎ harmonizing (a wiki can be written "wiki", but the
+       (project) wiki usually is written "Wiki" (aka capitalized))
+     * curprev [ ] [ ] 09:3609:36, 19 October 2017‎ imported>Vater‎ m 3,414
+       bytes 0‎ Vater moved page NixOS Wiki History to NixOS Wiki:History:
+       the history is a (this) project (releated) thing
+
+    30 August 2017
+
+     * curprev [ ] [ ] 11:5811:58, 30 August 2017‎ imported>Makefu‎ 3,414
+       bytes +240‎ No edit summary
+     * curprev [ ] [ ] 11:3011:30, 30 August 2017‎ imported>Grahamc‎ m 3,174
+       bytes −6‎ Remove delete extra words.
+     * curprev [ ] [ ] 11:3011:30, 30 August 2017‎ imported>Grahamc‎ m 3,180
+       bytes −16‎ Don't imply the PR was merged the same day it was created.
+     * curprev [ ] [ ] 11:1511:15, 30 August 2017‎ imported>Ixxie‎ 3,196
+       bytes −43‎ Revised language.
+
+    22 August 2017
+
+     * curprev [ ] [ ] 15:0915:09, 22 August 2017‎ imported>Mic92‎ m 3,239
+       bytes −4‎ fix link
+     * curprev [ ] [ ] 13:1813:18, 22 August 2017‎ imported>Makefu‎ 3,243
+       bytes +77‎ No edit summary
+     * curprev [ ] [ ] 12:4812:48, 22 August 2017‎ imported>Makefu‎ 3,166
+       bytes +3,166‎ Created page with " == The modern comedy of the NixOS
+       wiki == Long time ago (somewhere around 2010-2011) members of the nix
+       community decided to [set up a wiki](
+       https://web.archive.org/web/201..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_Wiki:History"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

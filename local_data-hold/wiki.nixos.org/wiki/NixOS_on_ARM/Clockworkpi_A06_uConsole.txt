@@ -1,0 +1,187 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+          * 1.1 Modules / Drivers
+     * 2 Kernel
+          * 2.1 Bootloader
+   [ ] Toggle the table of contents
+
+                     NixOS on ARM/Clockworkpi A06 uConsole
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+Status
+
+   Panel/Display works. Broadcom wifi works. System boots. All other features
+   untested. These instructions are specific to the A06 version and will not
+   work on the CM4. I don't have the version with the Qualcomm 4G extension
+   board, so I cannot advise on how to get that running.
+
+   NB: Currently only works with Nixos-23.11 channel. System will not boot
+   with 24.05 image. I haven't figured out why.
+
+  Modules / Drivers
+
+   I'm still figuring out the required module list, however the wifi chip
+   uses a broadcom bcm43435, which is supported by brcmfmac.
+
+Kernel
+
+   The device tree patches to make the panel/display work are currently only
+   available as kernel patches. The official patches only support kernel 5.x,
+   however there is a community patchset for kernel 6.5/6.6 available at
+   [[1]]
+
+   These patches can be applied using the following nix snippet:
+
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
+  boot.kernelPatches = [
+    {
+      name = "suspend";
+      patch = fetchurl { url = https://raw.githubusercontent.com/Autianic/clockworkpi-linux-kernel/master/linux-clockworkpi-a06/00-rockchip-suspend.patch };
+    } 
+    {
+      name = "a06";
+      patch = fetchurl { url = https://raw.githubusercontent.com/Autianic/clockworkpi-linux-kernel/master/linux-clockworkpi-a06/01-clockworkpi-dts-a06.patch; };
+    } 
+    {
+      name = "backlight";
+      patch = fetchurl { url = https://raw.githubusercontent.com/Autianic/clockworkpi-linux-kernel/master/linux-clockworkpi-a06/02-backlight-ocp8178.patch; };
+    } 
+    {
+      name = "cwd686";
+      patch = fetchurl { url = https://raw.githubusercontent.com/Autianic/clockworkpi-linux-kernel/master/linux-clockworkpi-a06/02-panel-cwd686-driver.patch; };
+    } 
+    {
+      name = "cwu50";
+      patch = fetchurl { url = https://raw.githubusercontent.com/Autianic/clockworkpi-linux-kernel/master/linux-clockworkpi-a06/02-panel-cwu50-driver.patch; };
+    } 
+    {
+      name = "uconsole";
+      patch = fetchurl { url = https://raw.githubusercontent.com/Autianic/clockworkpi-linux-kernel/master/linux-clockworkpi-a06/03-clockworkpi-dts-uconsole.patch; };
+    } 
+    {
+      name = "power";
+      patch = fetchurl { url = https://raw.githubusercontent.com/Autianic/clockworkpi-linux-kernel/master/linux-clockworkpi-a06/04-mfd-axp20x-add-clockworkpi-a06-power-support.patch; };
+    } 
+    {
+      name = "extcart";
+      patch = fetchurl { url = https://raw.githubusercontent.com/Autianic/clockworkpi-linux-kernel/master/linux-clockworkpi-a06/06-clockworkpi-a06-extcart.patch; };
+    } 
+  ];
+
+   NB: At time of writing, ZFS is marked broken for Kernel 6.5, so you will
+   have to disable zfs to build this kernel with the following snippet
+
+  nixpkgs.overlays = [(final: super: {     zfs = super.zfs.overrideAttrs(_: {       meta.platforms = [];     });   })];
+
+  Bootloader
+
+   At present I am not sure where the bootloader images used by the
+   official/vendor supplied distro can be obtained. The easiest way to make
+   any generated image bootable is to copy them from the official image
+   available here: [[2]]
+
+  $ sfdisk --dump uConsole_A06_v1.1e.img
+  <...>
+  uConsoleA06_v1.1e.img1 : start = 32768, size = 14942208, type=83
+ 
+  $ sfdisk --dump your_nixos_image.img
+  <...>
+  your_nixos_image.img1 : start = 16384, size = 61440, type = b
+  your_nixos_image.img2 : start = 77824, size = 15322384, type = 83, bootable
+ 
+  $ dd if=uConsole_A06_v1.1e.img of=nixos_a06.img count=32768
+  $ dd if=your_nixos_image.img skip=77824 of=nixos_a06.img seek=32768
+
+   The partition table for the resulting image will then be wrong, but we can
+   fix that with fdisk by deleting our partition, and then recreating it.
+
+  fdisk ./nixos_a06.img
+  d
+  n
+  p
+  1
+  32768
+  <Default should now be to end of file>
+  Do you want to remove the signature? No
+  w
+ 
+  $ sfdisk --dump nixos_a06.img
+  <...>
+  nixos_a06.img1 start = 32768, size = 15322384, type=83
+
+   Your image should now be bootable.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Clockworkpi_A06_uConsole&oldid=15527"
+     * This page was last edited on 25 July 2024, at 11:46.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

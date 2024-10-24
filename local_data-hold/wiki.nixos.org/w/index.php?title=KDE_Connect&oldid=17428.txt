@@ -1,0 +1,136 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 KDE
+          * 1.2 KDE via Home Manager
+          * 1.3 GSConnect (for GNOME)
+          * 1.4 GSConnect (for GNOME) via Home Manager
+   [ ] Toggle the table of contents
+
+                                  KDE Connect
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 09:58, 14 September 2024 by AveryanAlex (talk | contribs)
+   (Minor update)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   KDE Connect is an application with various functions for integrating a
+   phone and the Linux computer. It allows you to send files to the other
+   device, control its media playback, send remote control inputs, display
+   its notifications and much more. KDE Connect is also available for the
+   GNOME desktop environment as GSConnect extension.
+
+  Installation
+
+    KDE
+
+ programs.kdeconnect.enable = true;
+
+    KDE via Home Manager
+
+ home-manager.users.username.services.kdeconnect.enable = true;
+
+ networking.firewall = rec {
+   allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+   allowedUDPPortRanges = allowedTCPPortRanges;
+ };
+
+    GSConnect (for GNOME)
+
+ programs.kdeconnect = {
+   enable = true;
+   package = pkgs.gnomeExtensions.gsconnect;
+ };
+
+   Then it is necessary to enable "GSConnect" extension in the Gnome
+   "Extensions" application (or via dconf).
+
+    GSConnect (for GNOME) via Home Manager
+
+ home-manager.users.username.programs.gnome-shell = {
+   enable = true;
+   extensions = [{ package = pkgs.gnomeExtensions.gsconnect; }];
+ };
+
+ networking.firewall = rec {
+   allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+   allowedUDPPortRanges = allowedTCPPortRanges;
+ };
+
+   This will auto-enable the extension via dconf.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=KDE_Connect&oldid=17428"
+   Categories:
+     * Applications
+     * GNOME
+     * KDE
+     * This page was last edited on 14 September 2024, at 09:58.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,82 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+         #05 - Cachix private caches, Termux, Artwork for 19.03, a rant
+
+   Published on Wed Mar 13 2019
+
+         #05 - Cachix private caches, Termux, Artwork for 19.03, a rant
+
+                                      News
+
+     * Announcing Cachix private binary caches and 0.2.0 release
+
+       You can now share an unlimited number of binary caches in your group
+       of developers, protected from public use with just a few clicks.
+
+     * Nix in Termux
+
+       Alexander Sosedkin makes Nix on Android working on AARCH64. Inclusion
+       upstream can be followed in the termux repo
+
+     * Artwork for the upcoming NixOS 19.03 Koi release
+
+       Updated merchant report for the release
+
+     * Why you should never ever use NixOS
+
+       Rant from someone who got his hands to maintain NixOS in AWS. Some
+       complaints are silly (like kernel upgrade), but some are good points.
+
+                                      Jobs
+
+     * CI / CD DevOps job
+
+       Recent IP development company is looking for someone with strong Nix
+       skills to move the nix build infrastructure for our currently
+       in-development mobile / web application to a CI/CD solution on AWS.
+
+     * DevOps engineer at Groq
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

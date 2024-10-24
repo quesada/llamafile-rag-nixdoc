@@ -1,0 +1,176 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Activate Keyd in NixOs
+     * 2 Configure Keyd: the quick and dirty way
+     * 3 Configure Keyd in your configuration.nix
+     * 4 Dealing with layouts
+   [ ] Toggle the table of contents
+
+                                      Keyd
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Keyd is a key remapping daemon, similar to kmonad.
+
+  Activate Keyd in NixOs
+
+   Note that the keyd module is relatively experimental (as of 2024), and
+   still subject to changes. To active keyd in NixOs, you can simply add in
+   the rest of your /etc/nixos/configuration.nix
+
+   services.keyd = {
+     enable = true;
+   };
+
+   # Optional, but makes sure that when you type the make palm rejection work with keyd
+   # https://github.com/rvaiya/keyd/issues/723
+   environment.etc."libinput/local-overrides.quirks".text = ''
+     [Serial Keyboards]
+     MatchUdevType=keyboard
+     MatchName=keyd virtual keyboard
+     AttrKeyboardIntegration=internal
+   '';
+
+   After rebuilding your configuration, you should have keyd daemon running.
+
+  Configure Keyd: the quick and dirty way
+
+   In order to configure your system, you have two options: if you want to
+   quickly test your configuration (avoids you to wait a full nixos-rebuild
+   switch every time you change one option), you can simply write your
+   configuration files in a file like /etc/keyd/test.conf containing
+   something like:
+
+ [ids]
+ *
+
+ [main]
+ capslock = layer(control);
+
+   and apply your change via
+
+ $ systemctl keyd restart
+
+   This is practical to quickly test the configuration but in not very "Nixy"
+   as the configuration is not contained in your beloved
+   /etc/nixos/configuration.nix… hence the second option:
+
+  Configure Keyd in your configuration.nix
+
+   You can then move your configuration to /etc/nixos/configuration.nix by
+   adding to your configuration something like:
+
+ services.keyd = {
+   enable = true;
+   keyboards = {
+     # The name is just the name of the configuration file, it does not really matter
+     default = {
+       ids = [ "*" ]; # what goes into the [id] section, here we select all keyboards
+       # Everything but the ID section:
+       settings = {
+         # The main layer, if you choose to declare it in Nix
+         main = {
+           capslock = "layer(control)"; # you might need to also enclose the key in quotes if it contains non-alphabetical symbols
+         };
+         otherlayer = {};
+       };
+       extraConfig = ''
+         # put here any extra-config, e.g. you can copy/paste here directly a configuration, just remove the ids part
+       '';
+     };
+   };
+ };
+
+   Note that for now, ids MUST be present in the file, so it means that
+   layouts cannot be defined this way as reported in
+   https://github.com/NixOS/nixpkgs/issues/284797. Yet, you can still use
+   `environment.etc` to create them as usual.
+
+  Dealing with layouts
+
+   If you want to define a layout (like you custom qwerty), you can also do
+   it directly in keyd, but keep in mind that keyd can manipulate keycodes
+   (basically the position of the key on the keyboard that is named based on
+   a qwerty layout by convention), but not keysyms (what actual symbol you
+   will type), since keyd they basically recreates a fake keyboard that will
+   be, later in the chain, processed by X11/ibus/… So if you want to use a
+   layout, you need to be sure that the layout used by the user is set to US
+   (e.g. in X11 via setxkbmap us). If you want to produce symbols not
+   accessible by the US keyboard map (e.g. emoji etc), then keyd will
+   basically create for you a XCompose file that you need to include (you may
+   also need to enable Ibus for this), that is located in
+   "${keyd}/share/keyd/keyd.compose". See keyd documentation for more
+   details.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Keyd&oldid=12929"
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 24 May 2024, at 15:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

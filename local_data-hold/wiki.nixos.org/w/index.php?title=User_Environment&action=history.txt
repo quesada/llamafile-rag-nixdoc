@@ -1,0 +1,131 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       User Environment: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 April 2024
+
+     * curprev [ ] [ ] 16:5116:51, 6 April 2024‎ Sdht0 talk contribs‎ 16,017
+       bytes −200‎ Copy edit
+
+    16 October 2021
+
+     * curprev [ ] [ ] 02:5502:55, 16 October 2021‎ imported>Nix‎ m 16,217
+       bytes −29‎ →‎Environment variables: trim for width
+
+    21 September 2021
+
+     * curprev [ ] [ ] 09:1409:14, 21 September 2021‎ imported>Nix‎ m 16,246
+       bytes −16‎ fix title
+     * curprev [ ] [ ] 09:1309:13, 21 September 2021‎ imported>Nix‎ m 16,262
+       bytes −9‎ fix link
+     * curprev [ ] [ ] 09:0709:07, 21 September 2021‎ imported>Nix‎ m 16,271
+       bytes +37‎ add Nix and Guide categories
+     * curprev [ ] [ ] 09:0609:06, 21 September 2021‎ imported>Nix‎ 16,234
+       bytes +16,234‎ understanding User Environments is really important and
+       the information is spread all over the nix manual, so here I've
+       collected all the references
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/User_Environment"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

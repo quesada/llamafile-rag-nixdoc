@@ -1,0 +1,145 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Bootloader Firmware
+          * 2.1 U-Boot Firmware
+     * 3 System configuration
+          * 3.1 @msgilligan's PR to @nabam's flake
+   [ ] Toggle the table of contents
+
+                           NixOS on ARM/Radxa ROCK 4
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   The Radxa ROCK 4B+ is a Single-Board Computer with a Rockchip RK3399 SoC.
+
+     * CPU: ARM Cortex-A72 and Cortex-A53
+     * GPU: Mali-T860 MP4
+     * RAM: 2GB/4GB LPDDR4
+     * MMC: eMMC Connector for up to 128GB
+     * NET: 1 Gigabit Ethernet
+     * USB: 1x USB3 OTG/HOST Type-A, 1x USB 3 Type-A, 2x USB 2 Type-A
+     * PCIe: M.2 M Key M connector (4-lane PCIe 2.1) supports NVMe SSD
+
+   Radxa ROCK 4 
+   Radxa Rock 4 
+   Manufacturer Radxa                   
+   Architecture AArch64                 
+   Bootloader   U-Boot                  
+   Boot order   SPI NOR Flash, eMMC, SD 
+   Maintainer   msgilligan              
+
+   The @msgilligan PR below has been tested with both the ROCK 4B+ and ROCK 4
+   SE variants.
+
+Status
+
+   Support of this system is YMMV (your mileage may vary).
+
+   U-Boot bootloaders are available in different variants:
+
+     * U-Boot
+          * Mainline - Supports ?? boot options
+          * Nixpkgs - not tested yet by @msgilligan
+
+   The official hardware documentation can be found on the Radxa wiki.
+
+Bootloader Firmware
+
+  U-Boot Firmware
+
+     * The @msgilligan PR rely's on `nixos-rockchip` which in turn uses the
+       mainline U-Boot repository.
+     * There is also support for ROCK 4 U-Boot in Nixpkgs, but testing and
+       documentation for using this version of U-Boot is not available here
+       yet.
+
+System configuration
+
+   Use the instructions in the README, but until the PR is merged, you'll
+   need to checkout the PR branch.
+
+   Use the following command to build the image:
+
+ nix build .#RadxaRock4
+
+  @msgilligan's PR to @nabam's flake
+
+   Nix flake for building several Rockchip SBC images, see GitHub
+   nabam/nixos-rockchip
+
+   @msgilligan's WIP PR to add ROCK 4 support (WIP, but tested on ROCK 4B+
+   and ROCK 4 SE): nabam/nixos-rockchip PR #27
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Radxa_ROCK_4&oldid=17763"
+     * This page was last edited on 10 October 2024, at 03:57.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

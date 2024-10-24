@@ -1,0 +1,150 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Using buildkite for public repository
+     * 2 See also
+   [ ] Toggle the table of contents
+
+                                   Buildkite
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 19:11, 9 August 2022 by imported>Fufexan (Fix position of
+   runtimePackages)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   NixOS comes with a module to run buildkite agents:
+
+ {
+   services.buildkite-agents.builder = {
+     enable = true;
+     # store a token provided in the  buildkite webinterface in the `Agents` tab under `Agents token`
+     tokenPath = "/path/to/token";
+     privateSshKeyPath = "/path/to/ssh/key";
+
+     # tools needed for basic nix-build
+     runtimePackages = [
+       pkgs.gnutar
+       pkgs.bash
+       pkgs.nix
+       pkgs.gzip
+       pkgs.git
+     ];
+   };
+ }
+
+   Further NixOS options
+
+Using buildkite for public repository
+
+   Since buildkite executes code there are some additional security measures
+   to take care of in order to run buildkite on your own infrastructure.
+
+   It is recommend to run the buildkit-agent in a sandbox. In the following
+   example, we use the confinement option to run in a chroot where only the
+   nix store is mounted. The nix daemon socket is than bind mounted into the
+   chroot. Make sure that you don't add secrets to your nix store!
+
+ { pkgs, config, ... }:
+ {
+   # Replace the suffix `<name>` by the name used in `services.buildkite-agents.<name> `
+   systemd.services.buildkite-agent-<name> = {
+     confinement.enable = true;
+     confinement.packages = config.services.buildkite-agents.<name>.runtimePackages;
+     serviceConfig = {
+       BindReadOnlyPaths = [
+         config.services.buildkite-agents.<name>.tokenPath
+         config.services.buildkite-agents.<name>.privateSshKeyPath
+         "${config.environment.etc."ssl/certs/ca-certificates.crt".source}:/etc/ssl/certs/ca-certificates.crt"
+         "/etc/machine-id"
+         # channels are dynamic paths in the nix store, therefore we need to bind mount the whole thing
+         "/nix/store"
+       ];
+       BindPaths = [
+         config.services.buildkite-agents.<name>.dataDir
+         "/nix/var/nix/daemon-socket/socket"
+       ];
+     };
+   };
+ }
+
+   Since pull requests can modify the build instructions it is recommend to
+   move .buildkite/pipeline.yml from the repository itself and only provide
+   it via the web interface. Also consider using restrict-eval options to
+   prevent leaking the buildkite's ssh key and api token, since those are
+   still mounted into the chroot.
+
+See also
+
+     * Continuous Integration (CI)
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Buildkite&oldid=8163"
+   Category:
+     * Applications
+     * This page was last edited on 9 August 2022, at 19:11.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

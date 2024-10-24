@@ -1,0 +1,512 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Differences between nixpkgs and the rest
+     * 2 The compiler wrapper
+     * 3 Debugging the compiler wrapper
+     * 4 Hardening flags
+     * 5 pkg-config
+          * 5.1 pkg-config package names
+     * 6 cmake
+     * 7 gcc multilib
+     * 8 Cross-Compiling
+     * 9 Debug symbols
+     * 10 Editor/IDE integration
+     * 11 Use a different compiler version
+     * 12 Get a compiler without default libc
+     * 13 Override binutils
+     * 14 Faster GCC compiler
+     * 15 Use a clang compiled from source
+     * 16 Further information
+   [ ] Toggle the table of contents
+
+                                       C
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 07:17, 10 July 2024 by Widlarizer (talk | contribs) (Link
+   to Debug Symbols page)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   This is a collection of recipes for working on C/C++ projects with Nix.
+   They do not just apply to C but also C++.
+
+Differences between nixpkgs and the rest
+
+   The way nixpkgs and its stdenv handles compiling and linking is very
+   different from other Linux distributions. In more conventional Linux
+   distributions it's usual that header files are put into well known paths
+   i.e. /usr/include, where the compiler will look for them. Same is true
+   when linking against libraries, which are put in a few places, where the
+   build-time linker will find them. Dynamically linked libraries will have a
+   run-time linker (also known as ld.so) set as an interpreter. This linker
+   reads /etc/ld.so.conf to figure out where to find libraries. In nixpkgs in
+   contrast this information is provided by environment variables. Those will
+   be set based on the build inputs that are given when building a package or
+   when loading a nix expression into a nix-shell. Therefore it is not
+   sufficient to just install libraries with nix-env into the profile since
+   the compiler will not look in those paths when compiling.
+
+The compiler wrapper
+
+   When inspecting the compiler or linker executable one will notice that
+   those are not binaries but shell scripts:
+
+ $ nix-shell -p hello --command 'which $CC'
+ /nix/store/isg8rxaxkijl9x3hr2gzsf8pqfnqxg3k-gcc-wrapper-7.4.0/bin/gcc
+ $ nix-shell -p hello --command 'which $LD'
+ /nix/store/isg8rxaxkijl9x3hr2gzsf8pqfnqxg3k-gcc-wrapper-7.4.0/bin/ld
+ $ file /nix/store/isg8rxaxkijl9x3hr2gzsf8pqfnqxg3k-gcc-wrapper-7.4.0/bin/gcc /nix/store/isg8rxaxkijl9x3hr2gzsf8pqfnqxg3k-gcc-wrapper-7.4.0/bin/ld
+ /nix/store/isg8rxaxkijl9x3hr2gzsf8pqfnqxg3k-gcc-wrapper-7.4.0/bin/gcc: a /nix/store/vs6d2fjkl4kb3jb7rwibsd76k9v2n4xy-bash-4.4-p23/bin/bash script, ASCII text executable
+ /nix/store/isg8rxaxkijl9x3hr2gzsf8pqfnqxg3k-gcc-wrapper-7.4.0/bin/ld:  symbolic link to /nix/store/lwdkm354f3zzsvkf7pqmnc8w6r164b42-binutils-wrapper-2.30/bin/ld
+
+   These shell-scripts wrap around the actual compiler and add additional
+   compiler flags depending on environment variables. In particular the
+   wrapper around the C compiler, will also look for a NIX_CFLAGS_COMPILE
+   variable and prepend the content to command line arguments passed to the
+   underlying compiler. A different variable is called NIX_LDFLAGS, which
+   will be provided as input to the build time linker. Nixpkgs use these
+   variables to influence what kind of header files and libraries are visible
+   to the build tools when running. For example when we add zlib to
+   buildInputs of a stdenv.mkDerivation call and load the resulting file in a
+   nix-shell, we can see the effect on both NIX_CFLAGS_COMPILE and
+   NIX_LDFLAGS
+
+ $ cat > shell.nix <<EOF ;nix-shell
+ with import <nixpkgs> {};
+ stdenv.mkDerivation {
+   name = "myenv";
+   buildInputs = [ zlib ];
+ }
+ EOF
+ [nix-shell:~] $ echo $NIX_CFLAGS_COMPILE
+ -isystem /nix/store/bjl5kk674rmdzzpmcsvmw73hvf35jwh8-zlib-1.2.11-dev/include -isystem /nix/store/bjl5kk674rmdzzpmcsvmw73hvf35jwh8-zlib-1.2.11-dev/include
+ [nix-shell:~] $ echo $NIX_LDFLAGS
+ -rpath /nix/store/d5dzr90q2wy2nlw0z7s0pgxkjfjv1jrj-myenv/lib64 -rpath /nix/store/d5dzr90q2wy2nlw0z7s0pgxkjfjv1jrj-myenv/lib -L/nix/store/5dphwv1xs46n0qbhynny2lbhmx4xh1fc-zlib-1.2.11/lib -L/nix/store/5dphwv1xs46n0qbhynny2lbhmx4xh1fc-zlib-1.2.11/lib
+
+   In $NIX_CFLAGS_COMPILE we see that the include search path is extended by
+   appending new directories using the -isystem flag.
+
+   However, while the $out/include folder will be included by default, it may
+   sometimes not be enough when the lib puts the header in a subfolder (for
+   instance, gtk2 and gtk3 uses subdirectories like $out/include/gtk-2.0
+   instead to avoid conflict between versions). To deal with this kind of
+   libraries, one can use `pkg-config`: the idea is simply to add
+   `pkg-config` in the nativeBuildInputs, and then to start the buildPhase
+   with:
+
+ buildPhase = ''
+   NIX_CFLAGS_COMPILE="$(pkg-config --cflags gtk+-3.0) $NIX_CFLAGS_COMPILE"
+   # put the usual make/gcc code here
+ '';
+
+   For $NIX_LDFLAGS see that the library link path is extended using the -L
+   flag. We also notice that in addition to library paths the linker gets
+   instructed to extend the RPATH of the program using the -rpath flag. This
+   is needed when the executable is executed since the runtime linker will
+   read the RPATH from the elf header to figure out where to find shared
+   libraries. We can print the RPATH of executable using the patchelf
+   command.
+
+ $ nix-shell -p hello --command 'patchelf --print-rpath $(which hello)'
+ /nix/store/fivq0nbggp4y8mhy3ixprqd7qyn1hy2j-glibc-2.27/lib
+
+Debugging the compiler wrapper
+
+   To inspect how the shell wrapper processes the variables one can set the
+   NIX_DEBUG environment variable:
+
+ $ nix-shell -p hello --command 'NIX_DEBUG=1 $CC -v'
+ HARDENING: disabled flags: pie
+ HARDENING: Is active (not completely disabled with "all" flag)
+ HARDENING: enabling fortify
+ HARDENING: enabling stackprotector
+ HARDENING: enabling strictoverflow
+ HARDENING: enabling format
+ HARDENING: enabling pic
+ extra flags before to /nix/store/4ga86h16l157r7bas9hcwxgl9d3r32s6-gcc-7.4.0/bin/gcc:
+   ''
+ original flags to /nix/store/4ga86h16l157r7bas9hcwxgl9d3r32s6-gcc-7.4.0/bin/gcc:
+   -v
+ extra flags after to /nix/store/4ga86h16l157r7bas9hcwxgl9d3r32s6-gcc-7.4.0/bin/gcc:
+   ''
+ Using built-in specs.
+ COLLECT_GCC=/nix/store/4ga86h16l157r7bas9hcwxgl9d3r32s6-gcc-7.4.0/bin/gcc
+ COLLECT_LTO_WRAPPER=/nix/store/4ga86h16l157r7bas9hcwxgl9d3r32s6-gcc-7.4.0/libexec/gcc/x86_64-unknown-linux-gnu/7.4.0/lto-wrapper
+ Target: x86_64-unknown-linux-gnu
+ Configured with:
+ Thread model: posix
+ gcc version 7.4.0 (GCC)
+
+Hardening flags
+
+   To improve the security of applications the wrapper also injects
+   additional hardening compile flags into the application. These nix flags
+   enable different compiler flags, as seen in the manual. Under some
+   circumstances this can make programs fail to build or function. For
+   example, the `fortify` flag enables the `-O2` optimization level -- if you
+   want to change this, you need to disable the `fortify` flag and re-add the
+   compiler flags manually (`env.NIX_CFLAGS_COMPILE = [ "-O" "....."]`). To
+   disable all hardening options one can export the environment variable
+   hardeningDisable="all". This also works for derivations like that:
+
+ with import <nixpkgs> {};
+ stdenv.mkDerivation {
+   hardeningDisable = [ "all" ];
+ };
+
+   It is also possible to only disable certain parts, for example
+   -Werror=format-security:
+
+ with import <nixpkgs> {};
+ stdenv.mkDerivation {
+   hardeningDisable = [ "format" ];
+ };
+
+   Further options are described in the manual
+
+pkg-config
+
+   pkg-config is a tool and file format to describe what compiler and linker
+   flags a build process needs to add to use a certain library. It is often
+   used as part of the build process to check if needed dependencies are
+   present and in the right version. In nix expression pkg-config will find
+   its .pc files by looking up the PKG_CONFIG_PATH variable. This variable is
+   automatically set when pkg-config is present in nativeBuildInputs by a
+   build-support hook provided by the pkg-config package.
+
+   If you save the following file as shell.nix:
+
+ with import <nixpkgs> {};
+ stdenv.mkDerivation {
+   name = "env";
+   nativeBuildInputs = [ pkg-config ];
+   buildInputs = [
+     cryptsetup
+   ];
+ }
+
+   The PKG_CONFIG_PATH variable will have the following content when running
+   nix-shell
+
+ [nix-shell:~]  $ echo $PKG_CONFIG_PATH
+ /nix/store/ypg1r7c8m0rkim7by4ikn68xc88bi53j-cryptsetup-2.0.6-dev/lib/pkgconfig:/nix/store/ypg1r7c8m0rkim7by4ikn68xc88bi53j-cryptsetup-2.0.6-dev/lib/pkgconfig
+ [nix-shell:~] $ pkg-config --cflags libcryptsetup
+ -I/nix/store/ypg1r7c8m0rkim7by4ikn68xc88bi53j-cryptsetup-2.0.6-dev/include
+
+   When using autoconf, pkg-config is a required build input for providing
+   the AC_CHECK_HEADERS m4 macro.
+
+  pkg-config package names
+
+   To list all pkg-config package names of a Nix package:
+
+ $ nix-shell -p pkgconfig libglvnd
+ $ pkg-config --list-all
+ egl       egl - EGL library and headers
+ libglvnd  libglvnd - Vendor-neutral OpenGL dispatch library vendor interface
+ glx       glx - GLX library and headers
+ glesv1_cm glesv1_cm - OpenGL ES-CM v1 library and headers
+ opengl    opengl - OpenGL (without GLX) headers and interface
+ glesv2    gles2 - OpenGL ES v2/v3 library and headers
+ gl        gl - Legacy OpenGL and GLX library and headers
+
+cmake
+
+   Similar to pkg-config cmake relies on the $CMAKE_PREFIX_PATH to finds its
+   modules (files ending in .cmake). Also see this example:
+
+ with import <nixpkgs> {};
+ stdenv.mkDerivation {
+   name = "env";
+   nativeBuildInputs = [ cmake ];
+   buildInputs = [ zeromq ];
+ }
+
+ $ nix-shell
+ [nix-shell:~] $ echo $CMAKE_PREFIX_PATH
+ /nix/store/lw4xr0x2p6xyfgbk961lxh8vnnx7vn2r-cmake-3.12.1:/nix/store/j4x44bjjgwy7hm7lazj8xnr9mnlfiksh-patchelf-0.9:/nix/store/isg8rxaxkijl9x3hr2gzsf8pqfnqxg3k-gcc-wrapper-7.4.0:/nix/store/lwdkm354f3zzsvkf7pqmnc8w6r164b42-binutils-wrapper-2.30:/nix/store/biz7v9g4g6yrnp2h8wfn01d6pk3bj2m1-zeromq-4.3.0:/nix/store/lw4xr0x2p6xyfgbk961lxh8vnnx7vn2r-cmake-3.12.1:/nix/store/j4x44bjjgwy7hm7lazj8xnr9mnlfiksh-patchelf-0.9:/nix/store/isg8rxaxkijl9x3hr2gzsf8pqfnqxg3k-gcc-wrapper-7.4.0:/nix/store/lwdkm354f3zzsvkf7pqmnc8w6r164b42-binutils-wrapper-2.30:/nix/store/biz7v9g4g6yrnp2h8wfn01d6pk3bj2m1-zeromq-4.3.0
+ [nix-shell:~] $ cat >CMakeLists.txt <<EOF
+ cmake_minimum_required(VERSION 2.8)
+ project(helloworld)
+ add_executable(helloworld hello.c)
+ find_package (ZeroMQ)
+ EOF
+ [nix-shell:~] $ echo 'int main {}' > hello.c
+ [nix-shell:~] $ cmake .
+
+gcc multilib
+
+   pkgs.gcc_multi exports a gcc in a multilib variant, which can produce
+   32-bit and 64-bit x86 code at the same time. However, gcc_multi falls back
+   to the gcc version coming from pkgs.gcc. To use a specific version of gcc,
+   you might use something like that:
+
+ {
+   gcc11_multi = pkgs.wrapCCMulti pkgs.gcc11;
+   // or
+   gcc13_multi = pkgs.wrapCCMulti pkgs.gcc13;
+ }
+
+Cross-Compiling
+
+   To get access to a cross-compiling toolchain use pkgsCross prefix. In this
+   example we load the compiler for the arm-embedded target (bare metal
+   without operating system):
+
+ with import <nixpkgs> {};
+ pkgsCross.arm-embedded.stdenv.mkDerivation {
+   name = "env";
+ }
+
+   This will set build environment variables like $CC, $AR and $LD:
+
+ $ echo $CC $AR $CXX $LD
+ arm-none-eabi-gcc arm-none-eabi-ar arm-none-eabi-g++ arm-none-eabi-ld
+
+   Well behaved build systems should respect these environment variables when
+   building projects. Also take a look in the Cross Compiling article for
+   further information on cross-compiling.
+
+Debug symbols
+
+   See also: Debug Symbols
+
+   By default debug symbols are stripped of in the fixup phase of a package
+   build. To get a library with debug symbols one can use the enableDebugging
+   function to disable stripping:
+
+ with import <nixpkgs> {};
+ stdenv.mkDerivation {
+   name = "env";
+   buildInputs = [ (enableDebugging zlib) ]; 
+ }
+
+ $ echo $NIX_LDFLAGS
+ -rpath /nix/store/fqpmgpcij4dddckkw4wh53ffn31yv1y6-env/lib64 -rpath /nix/store/fqpmgpcij4dddckkw4wh53ffn31yv1y6-env/lib  -L/nix/store/g2y1122bwz5434w6nx34s40f2hmdkb1z-zlib-1.2.11/lib -L/nix/store/g2y1122bwz5434w6nx34s40f2hmdkb1z-zlib-1.2.11/lib
+ $ file /nix/store/g2y1122bwz5434w6nx34s40f2hmdkb1z-zlib-1.2.11/lib/libz.so.1.2.11
+ /nix/store/g2y1122bwz5434w6nx34s40f2hmdkb1z-zlib-1.2.11/lib/libz.so.1.2.11: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, with debug_info, not stripped
+
+   It also possible to separate debug symbols from the actual binaries and
+   store them in a different output by using the separateDebugInfo option.
+   This is described in the manual. Also see Debug Symbols for further
+   information about debug symbols.
+
+Editor/IDE integration
+
+   Tooling that provides autocompletion or refactoring support also needs to
+   be aware of the environments variables to find C/C++ header files. Nixpkgs
+   adds wrapper to all language server clangd (recommend), ccls and cquery to
+   extend the include path of these tools. CCLS also provides extensive
+   documentation on how to setup a project/editors to make use of it.
+
+Use a different compiler version
+
+   Adding a different c compiler to buildInputs in a nix expression will not
+   change the default compiler available in $PATH. Instead, nixpkgs provides
+   a several alternative stdenv which you can search with nix search stdenv
+   so for example:
+
+ gcc8Stdenv.mkDerivation {
+   name = "env";
+ }
+
+ $ nix-shell --command 'gcc --version'
+ gcc (GCC) 8.3.0
+
+     * Available gcc based stdenv variants: gcc{49,6-12}Stdenv,
+       gccMultiStdenv (32bit/64bit mixed support)
+     * Available clang based stdenv variants:
+       llvmPackages_[5-13].{stdenv,libcxxStdenv}, clangMultiStdenv
+       (32bit/64bit mixed support)
+
+   Those stdenv instances can be also constructed using the overrideCC
+   function: Here we are creating a shell environment that will always have
+   the latest available gcc:
+
+ (overrideCC stdenv gcc_latest).mkDerivation {
+   name = "env";
+ }
+
+   Note that this will only affect compiler and not the used linker. To
+   overwrite the linker and maybe also the used libc Check out the wrapCCWith
+   example in the next section.
+
+   See also: Using Clang instead of GCC
+
+Get a compiler without default libc
+
+   By default cc wrapper will include the libc headers (i.e. glibc). This can
+   break for example projects that would bring their own libc (i.e. musl).
+   However it is possible to get a cc wrapper that would include all build
+   inputs without adding glibc:
+
+ let
+   gcc_nolibc = wrapCCWith {
+     cc = gcc.cc;
+     bintools = wrapBintoolsWith {
+       bintools = binutils-unwrapped;
+       libc = null;
+     };
+   };
+ in (overrideCC stdenv gcc_nolibc).mkDerivation {
+   name = "env";
+ }
+
+Override binutils
+
+   This example shows how to apply changes to the binutils package and than
+   use the override binutils package to compose a new stdenv.
+
+ with import <nixpkgs> {};
+ let
+   binutils-unwrapped' = binutils-unwrapped.overrideAttrs (old: {
+     name = "binutils-2.37";
+     src = pkgs.fetchurl {
+       url = "https://ftp.gnu.org/gnu/binutils/binutils-2.37.tar.xz";
+       sha256 = "sha256-gg2XJPAgo+acszeJOgtjwtsWHa3LDgb8Edwp6x6Eoyw=";
+     };
+     patches = [];
+   });
+   cc = wrapCCWith rec {
+     cc = gcc-unwrapped;
+     bintools = wrapBintoolsWith {
+       bintools = binutils-unwrapped';
+       libc = glibc;
+     };
+   };
+ in
+ (overrideCC stdenv cc).mkDerivation {
+   name = "env";
+ }
+
+Faster GCC compiler
+
+   The default gcc compiler in nixpkgs disables profile-guided optimization
+   in order to achieve deterministic builds. There is a faster version
+   available in nixpkgs via the fastStdenv attribute (7-12% faster).
+
+ fastStdenv.mkDerivation {
+    name = "env";
+ }
+
+Use a clang compiled from source
+
+   Unwrapped compilers usually do not have any access to libraries/headers in
+   nix. This is an issue if you work on the clang/llvm code base. Assuming
+   you have built llvm/clang like this
+
+ $  git clone https://github.com/llvm/llvm-project
+ $ cd llvm-project
+ $ nix-shell -p cmake --command 'mkdir build &&  cd build && cmake -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=Debug ../llvm && make -j$(nproc)'
+
+   You can create a wrapper around your local build binaries like this:
+
+ # This file assumes that your llvm binaries are stored in ./build/bin
+ # impure-clang.nix
+ { stdenv, wrapCC, runtimeShell }:                                                                
+ wrapCC (stdenv.mkDerivation {                                                                    
+   name = "impure-clang";                                                                         
+   dontUnpack = true;                                                                             
+   installPhase = ''                                                                              
+     mkdir -p $out/bin                                                                            
+     for bin in ${toString (builtins.attrNames (builtins.readDir ./build/bin))}; do  
+       cat > $out/bin/$bin <<EOF                                                                  
+ #!${runtimeShell}                                                                                
+ exec "${toString ./.}/build/bin/$bin" "\$@"                                         
+ EOF                                                                                              
+       chmod +x $out/bin/$bin                                                                     
+     done                                                                                         
+   '';                                                                                            
+   passthru.isClang = true;                                                                       
+ })
+
+   Then you can create a shell.nix like this:
+
+  with import <nixpkgs> {};
+  pkgs.mkShell {
+    nativeBuildInputs = [
+     cmake
+     (callPackage ./impure-clang.nix {})
+    ];
+  }
+
+   And use your self-compiled clang in a nix-shell:
+
+ $ nix-shell --command 'clang --version'
+
+Further information
+
+   Nix Friday about C/CPP infrastructure in Nix
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=C&oldid=13895"
+   Categories:
+     * Languages
+     * Cookbook
+     * This page was last edited on 10 July 2024, at 07:17.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,435 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                   All pages
+
+   [ ] English
+   [ ] Tools
+   Tools
+   Actions
+   General
+     * Special pages
+     * Printable version
+   All pages
+   Display pages starting at:
+   _____________________
+   Display pages ending at:
+   _____________________
+   Namespace:
+   [ ] (Main)
+   [ ] Talk
+   [ ] User
+   [ ] User talk
+   [ ] NixOS Wiki
+   [ ] NixOS Wiki talk
+   [ ] File
+   [ ] File talk
+   [ ] MediaWiki
+   [ ] MediaWiki talk
+   [ ] Template
+   [ ] Template talk
+   [ ] Help
+   [ ] Help talk
+   [ ] Category
+   [ ] Category talk
+   [ ] Translations
+   [ ] Translations talk
+   [ ] Hide redirects
+   Go
+   Next page (Manual of Style)
+     * 1Password
+     * 3proxy
+     * Accelerated Video Playback
+     * Accelerated Video Playback/en
+     * Accelerated Video Playback/ru
+     * ACME
+     * Actkbd
+     * Ada
+     * Adding VMs to PATH
+     * Adguard Home
+     * Agenix
+     * Akkoma
+     * ALSA
+     * Alternative Package Sets
+     * Ambermoon
+     * AMD GPU
+     * Android
+     * Anki
+     * Apache Kafka
+     * Appimage
+     * Appimage/en
+     * Appimage/ja
+     * Appimage/ru
+     * Applications
+     * Applications/en
+     * Applications/ja
+     * Applications/ru
+     * Apropos
+     * Arduino
+     * Audio production
+     * Augustus
+     * Automatic system upgrades
+     * Awesome
+     * Backlight
+     * Battle.net
+     * Bazel
+     * Bcachefs
+     * Binary Cache
+     * Bind
+     * Bisecting
+     * BitlBee
+     * Blackfire profiler
+     * Blessed
+     * Blocky
+     * Bluetooth
+     * BOINC
+     * Bootloader
+     * Borg backup
+     * Btrbk
+     * Btrfs
+     * Budgie Desktop
+     * Build flags
+     * Build Helpers
+     * Building ancient nixpkgs
+     * Buildkite
+     * C
+     * C2FmZQ
+     * Caching nix shell build inputs
+     * Caddy
+     * Ca-derivations
+     * Calibre
+     * Castopod
+     * CCache
+     * CDE
+     * Ceph
+     * Certbot
+     * Cert Spotter
+     * Change root
+     * Channel branches
+     * Cheatsheet
+     * Chromium
+     * Chrony
+     * Cleaning the nix store
+     * Cloudflared
+     * Command Shell
+     * Comparison of NixOS setups
+     * Comparison of secret managing schemes
+     * Configuration Collection
+     * Consul
+     * Continuous Integration (CI)
+     * Contributing
+     * Coq
+     * Coreboot
+     * Corsair
+     * COSMIC
+     * Craft CMS
+     * Crater
+     * Creating a NixOS live CD
+     * Creating a NixOS live CD/en
+     * Creating a NixOS live CD/ru
+     * Cron
+     * Cross Compiling
+     * CUDA
+     * Cursor Themes
+     * Cypress
+     * DaVinci Resolve
+     * Debug Symbols
+     * Declaration
+     * Default applications
+     * Derivations
+     * Development environment with nix-shell
+     * Dict
+     * Digital Bitbox
+     * Discord
+     * Discourse
+     * Disko
+     * Disko/en
+     * Disko/ru
+     * Displaylink
+     * Distributed build
+     * Distrobox
+     * Dn42
+     * Dnscontrol
+     * Doas
+     * Doas/en
+     * Doas/ru
+     * Docbook Editor Configuration
+     * Docker
+     * Documentation Gaps
+     * Documentation Group
+     * Dokuwiki
+     * Dolibarr ERP & CRM
+     * Dolphin
+     * Dolphin Emulator
+     * DotNET
+     * Dovecot
+     * Downgrade issues
+     * Drawing Tablet
+     * Droidcam
+     * Dropbox
+     * Dual Booting NixOS and Windows
+     * Dwm
+     * ECryptfs
+     * Editor Modes for Nix Files
+     * Eintopf
+     * Elvish
+     * Emacs
+     * Embedded
+     * Encrypted DNS
+     * Ente Photos
+     * Enterprise
+     * Environment variables
+     * Error handling
+     * ESP-IDF
+     * Etebase
+     * Ethercalc
+     * Events
+     * Explaining the current Steam Package build
+     * Extend NixOS
+     * Factorio
+     * Fail2ban
+     * FAQ
+     * FAQ/Bare Metal Deployment
+     * FAQ/Cannot Find Package
+     * FAQ/en
+     * FAQ/I installed a library but my compiler is not finding it. Why?
+     * FAQ/nixpkgs
+     * FAQ/Pinning Nixpkgs
+     * FAQ/Private Cache Proxy
+     * FAQ/When do I update stateVersion
+     * FAQ/Why not use nix-env -i foo?
+     * FAQ/zh-cn
+     * Faust
+     * Fcitx5
+     * Feh
+     * FFmpeg
+     * Filesystems
+     * Fingerprint scanner
+     * Firefox
+     * Firefox/en
+     * Firefox/ru
+     * Firefox Sync Server
+     * Firejail
+     * Firewall
+     * Fish
+     * Flake Parts
+     * Flakes
+     * Flakes/en
+     * Flakes/ja
+     * Flakes/ru
+     * Flameshot
+     * Flatpak
+     * Flutter
+     * Fonts
+     * Forgejo
+     * Foundation DB
+     * Frida
+     * Fsharp
+     * Full Disk Encryption
+     * Fwupd
+     * Fzf
+     * G810-led
+     * GameMode
+     * Games
+     * Gammastep
+     * Garage
+     * Get In Touch
+     * Ghidra
+     * Git
+     * Git http server
+     * Gitlab
+     * Gitlab runner
+     * Gitolite
+     * Glossary
+     * Gn
+     * GNOME
+     * GNOME/Calendar
+     * GNS3
+     * GNU GRUB
+     * GNU Radio
+     * Go
+     * Godot
+     * Google Cloud SDK
+     * Goss
+     * GoToSocial
+     * Gpu-screen-recorder
+     * Grafana
+     * Graphics
+     * Graylog
+     * Greetd
+     * Grocy
+     * GStreamer
+     * Hardware
+     * Hardware/Acer/One 10
+     * Hardware/Apple
+     * Hardware/Asus
+     * Hardware/Asus/TP300LA
+     * Hardware/Brother
+     * Hardware/Dell/D6000 Universal Dock
+     * Hardware/Dell/Latitude E7240
+     * Hardware/Dell/Wyse 3040
+     * Hardware/Framework
+     * Hardware/Framework/Laptop 13
+     * Hardware/Framework/Laptop 16
+     * Hardware/GPD/GPD Pocket
+     * Hardware/Lenovo
+     * Hardware/Microsoft/Surface Go 2
+     * Hardware/Razer
+     * Hardware/System76
+     * Hardware/System76/darp6
+     * Hardware/System76/galp5
+     * Hardware/System76/galp5/en
+     * Hardware/System76/galp5/ru
+     * Hardware/TUXEDO
+     * Haskell
+     * Hedgedoc
+     * Helix
+     * Helm and Helmfile
+     * Help
+     * Home Assistant
+     * Home Manager
+     * Honk
+     * Honk/en
+     * Honk/ja
+     * Honk/ru
+     * How to fetch Nixpkgs with an empty NIX PATH
+     * How to give Nix software access to native libraries when running Nix
+       package manager on a non-NixOS distribution
+     * Hue+
+     * Hydra
+     * Hydra/de
+     * Hydra/en
+     * Hydra/ru
+     * Hyprland
+     * I3
+     * IBus
+     * IGVT-g
+     * IIO
+     * Imapsync
+     * Immersed
+     * Immich
+     * Impermanence
+     * Import From Derivation
+     * Incus
+     * Installing from Linux
+     * Installing Nix on Crostini
+     * Install NixOS on Amazon EC2
+     * Install NixOS on a Server With a Different Filesystem
+     * Install NixOS on GCE
+     * Install NixOS on Hetzner Cloud
+     * Install NixOS on Hetzner Online
+     * Install NixOS on Kimsufi
+     * Install NixOS on Liteserver
+     * Install NixOS on Online.Net
+     * Install NixOS on Rackspace Cloud Servers
+     * Install NixOS on Scaleway X86 Virtual Cloud Server
+     * Intel Graphics
+     * Internet Connection Sharing
+     * Invoiceplane
+     * IPFS
+     * IRC
+     * Iwd
+     * JACK
+     * Java
+     * JAX
+     * Jellyfin
+     * Jenkins
+     * Jetbrains Tools
+     * Jitsi Meet
+     * Julia
+     * K3s
+     * Kakoune
+     * Katago
+     * KDE
+     * KDE Connect
+     * Kernel Debugging with QEMU
+     * Keyboard Layout Customization
+     * Keycloak
+     * Keyd
+     * Kitty
+     * Klaus
+     * Kodi
+     * Konqueror
+     * Konqueror/en
+     * Konqueror/fr
+     * Konqueror/ru
+     * Krops
+     * KSMBD
+     * Kubernetes
+     * Kubespray
+     * Language-specific package helpers
+     * Laptop
+     * Lemmy
+     * Libimobiledevice
+     * LibreOffice
+     * Librewolf
+     * Libvirt
+     * Linux kernel
+     * LIRC
+     * Lisp
+     * List Of Common Folders In Output Derivation
+     * Litestream
+     * Livebook
+     * LLVM
+     * Locales
+     * Logitech Unifying Receiver
+     * Logseq
+     * Lua
+     * Lutris
+     * LVM
+     * LXD
+     * Maddy
+     * Mailman
+     * Maintainers:Fastly
+     * Maintainers:Maintainers
+     * Man pages
+
+     ----------------------------------------------------------------------
+
+   Next page (Manual of Style)
+   Retrieved from "https://wiki.nixos.org/wiki/Special:AllPages"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

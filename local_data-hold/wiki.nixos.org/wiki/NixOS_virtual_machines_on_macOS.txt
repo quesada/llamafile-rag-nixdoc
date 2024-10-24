@@ -1,0 +1,353 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Nix on M2.S
+     * 2 nix-darwin
+     * 3 linux-builder
+     * 4 linux-builder, further configuration
+     * 5 direnv
+     * 6 Resetting an OakHost machine
+     * 7 References
+   [ ] Toggle the table of contents
+
+                        NixOS virtual machines on macOS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   NixOS is based on Linux, but a lot of developers are using MacBooks. The
+   nix-darwin project aims to bring the convenience of a declarative system
+   approach to macOS and it is built around Nixpkgs (much like NixOS). After
+   installing Nix, nix-darwin will help us with the following goals:
+
+    1. Build a complete NixOS (Linux) system.
+    2. Build this system as a virtual machine image.
+    3. Create a script that runs such an image locally using QEMU-KVM.
+    4. Build integration tests based on running virtual machines.
+
+   For point 1, the challenge is to build Linux binaries from MacOS. This can
+   be solved by using the linux-builder feature provided by the nix-darwin
+   project. (A similar solution is possible without nix-darwin, but requires
+   additional manual setup.) Once we have access to a Linux builder, we need
+   to use the system configuration option natively supported by Nix.
+
+   Point 2 is similar to point 1.
+
+   Point 3 is similar to point 2, except that it requires a script and a
+   local QEMU KVM. This means that we need to configure the system option to
+   be aarch64-linux for the system we are building, but leave it as
+   aarch64-darwin for the script + QEMU-KVM part.
+
+   Once done, we can run the resulting Linux virtual machine on a MacOS M1.
+   Note that the Linux builder is actually such a virtual machine.
+
+   Point 4 is similar to point 3, but since the tests are built using virtual
+   machines, it means that these virtual machines are running inside the
+   Linux builder. This is not a problem if our environment supports nested
+   virtualization.
+
+   Conversely, it's a problem if it doesn't support nested virtualization. As
+   it happens, M1 doesn't support nested virtualization. So it can run a
+   Linux builder, or any other NixOS virtual machine, but it cannot do so
+   inside e.g. the Linux builder.
+
+   Another situation where this is a problem is with the M1 runners provided
+   by GitHub: the runner is itself a virtual machine running on M1, so we
+   can't even start a Linux builder in a GitHub workflow.
+
+   GitHub has announced support for macos-15-xlarge in Q4 2024.
+
+   Before understanding the above limitations, I experimented on an OakHost
+   M2.S machine. The notes that follow are the result of this experiment.
+
+Nix on M2.S
+
+   OakHost is a company that specializes in providing MacOS machines. The
+   machines are usually rented by the month, but they also have a 1-week
+   offer: "try-macos" M2.S. After paying, you get an IP address and a
+   password to SSH into the machine. The username is "customer".
+
+ $ ssh customer@xxx.xxx.xxx.xxx
+
+   I haven't done this process enough times to write a script, but the steps
+   to get Nix and nix-darwin installed, and then configured to get a Linux
+   builder, are as follows.
+
+   Allow our user to use sudo without retyping the password each time:
+
+ % export NIX_USER="customer"
+ % echo "%admin ALL = NOPASSWD: ALL" | sudo tee /etc/sudoers.d/passwordless
+
+   Install Nix by downloading the install script, making it executable, and
+   running it (we cat /dev/null so the install script doesn't run
+   interactively):
+
+ % curl -sL https://nixos.org/releases/nix/nix-2.9.2/install >/Users/${NIX_USER}/install-nix
+ % chmod +x /Users/$NIX_USER/install-nix
+ % cat /dev/null | sudo -i -H -u $NIX_USER -- sh /Users/${NIX_USER}/install-nix --daemon
+ % rm /Users/${NIX_USER}/install-nix
+
+   Once Nix is installed, we need a new shell to actually get access to the
+   nix commands. An alternative is to source the correct file:
+
+ % . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+ % nix --version
+
+nix-darwin
+
+   nix-darwin is a project to configure a macOS system using Nix modules,
+   similar to what is done in NixOS.
+
+   First configure the nixpkgs and nix-darwin channels, ...
+
+ % sudo -i -H -u $NIX_USER -- nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
+ % sudo -i -H -u $NIX_USER -- nix-channel --add https://nixos.org/channels/nixpkgs-24.05-darwin nixpkgs
+ % sudo -i -H -u $NIX_USER -- nix-channel --update
+
+   ... then install nix-darwin:
+
+ % installer=$(nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer --no-out-link)
+ % echo N | sudo -i -H -u $NIX_USER -- "$installer/bin/darwin-installer"
+
+   The nix-darwin configuration is then located in
+   /Users/customer/.nixpkgs/darwin-configuration.nix.
+
+linux-builder
+
+   We can change the configuration file to enable linux-builder. Don't
+   configure it any further at this point; we want to download a pre-built
+   linux-builder from the official nix binary cache. Otherwise, we'll have to
+   build it ourselves (and we won't be able to, since it would require a
+   linux-builder, which we don't have yet).
+
+     nix.package = pkgs.nix;
+     nix.linux-builder.enable = true;
+     nix.settings.trusted-users = [ "@admin" ];
+
+   In my case, using the channel configured above didn't allow me to get a
+   pre-built linux-builder from the cache.
+
+   Instead I got this error; it means we're trying to build something that
+   requires a Linux builder and we don't have it (yet).
+
+ % . /etc/static/zshrc
+ > darwin-rebuild switch
+ ...
+ error: a 'aarch64-linux' with features {} is required to build '/nix/store/2931ap3xi18184kzw7ms9lyfm9ngxaag-X-Restart-Triggers-sshd.drv', but I am a 'aarch64-darwin' with features {apple-virt, benchmark, big-parallel, nixos-test}
+
+   We can force a specific nixpkgs (and hope that the corresponding
+   linux-builder is in the cache). This worked at the time of this writing:
+
+ { config, pkgs, ... }:
+ let
+   system = "aarch64-darwin";
+   pkgs-darwin = import (builtins.fetchTarball {
+     # nixpkgs-24.05-darwin
+     url = "https://github.com/nixos/nixpkgs/archive/bf32c404263862fdbeb6e5f87a4bcbc6a01af565.tar.gz";
+     sha256 = "132bd16a1wp145wz4m16w2maz0md6y2hp0qn5x1102wkyr9gkk0n";
+   }) { inherit system; };
+ in
+ {
+ ...
+
+   nix.linux-builder.package = pkgs-darwin.darwin.linux-builder;
+ ...
+ }
+
+   We can confirm that we can start the linux-builder with something like:
+
+ > darwin-rebuild switch
+ > nix-build \
+   --impure \
+   --expr '(with import <nixpkgs> { system = "aarch64-linux"; }; runCommand "uname" {} "uname -a > $out")'
+ > cat result
+ Linux localhost 6.6.45 #1-NixOS SMP Sun Aug 11 10:47:28 UTC 2024 aarch64 GNU/Linux
+
+   Note: If you run the nix-build command above, you'll see logs similar to
+   these, indicating that the linux-builder is being used:
+
+ building '/nix/store/hlvznfa3iwjsrxq3jpn4j4li2pnqbfki-uname.drv' on 'ssh-ng://builder@linux-builder'...
+ ...
+ copying path '/nix/store/wl2b6fy25y11kl5fbg928j18c7mj26b5-uname' from 'ssh-ng://builder@linux-builder'...
+
+   Note: I think the --option sandbox false is not passed to the Linux
+   builder when using nix-build. So we set it in the above configuration
+   file.
+
+linux-builder, further configuration
+
+   Remote builders can be configured with additional features. Here, we
+   enable the "kvm", and "nixos-test" features, and disable the sandbox. We
+   also suggest additional tweaks and exposing the builder's logs:
+
+   nix.linux-builder = {
+     enable = true;
+     config = {
+       nix.settings.sandbox = false;
+     };
+     ephemeral = true;
+     package = pkgs-darwin.darwin.linux-builder;
+     maxJobs = 4;
+     supportedFeatures = [ "kvm" "benchmark" "big-parallel" "nixos-test" ];
+   };
+   nix.package = pkgs.nix;
+   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+   nix.settings.system-features = [ "nixos-test" "apple-virt" ];
+   nix.settings.trusted-users = [ "@admin" ];
+
+   launchd.daemons.linux-builder = {
+     serviceConfig = {
+       StandardOutPath = "/var/log/darwin-builder.log";
+       StandardErrorPath = "/var/log/darwin-builder.log";
+     };
+   };
+
+   Note: Notice how further configuring the Linux builder uses the running
+   Linux builder to build the new one.
+
+direnv
+
+   Optionally, we might want to use direnv. nix-darwin also makes it easy to
+   get it installed:
+
+   programs.direnv.enable = true;
+   programs.direnv.nix-direnv.enable = true;
+
+   (Don't forget to run again darwin-rebuild switch after changing the
+   configuration file.)
+
+Resetting an OakHost machine
+
+   It is a manual process to reset the OakHost machine to a state similar to
+   when you received it.
+
+   At first, I tried to follow these steps, but it was a dead end:
+
+   We shut down the machine:
+
+ > sudo shutdown -h now
+
+   The OakHost documentation recommands waiting 1 minute before proceeding
+   with the next step.
+
+   In the OakHost web interface, click the "Force Power Off" button, then the
+   "Open KVM Screen" button (located in the "Remote Access" tab).
+
+   You will be greeted with two main icons: "Macintosh HD" and "Options".
+
+   I choose "Options", then select "Continue", then a disk icon on the right
+   to boot the machine, then "Reinstall macOS Sonoma", then. "Continue" and
+   "Continue".
+
+   After a while, you'll get an "OakHost Customer" login prompt. At this
+   point, SSH access is available again (with the same initial password).
+
+   But the /etc/nix/ directory was still populated from my previous attempt !
+
+   What we want instead is to keep the machine running, then use the KVM to
+   follow these steps: From the Apple menu (the Apple logo), click "System
+   settings...", then "General", then "Transfer or Reset", and finally "Erase
+   all contents and settings...".
+
+   The machine reboots, and we can install the system manually. I skip
+   everything I can, including using an Apple ID. As a full name, the
+   original was OakHost Customer and the account name was "customer".
+
+   Once you're logged into the machine, don't forget to enable "Remote login"
+   for SSH in "System settings...", "General", "Sharing". At this point we
+   disconnect the KVM screen.
+
+   Someone at OakHost suggested disabling sleep mode.
+
+ % sudo pmset -a displaysleep 0
+ % sudo systemsetup -setcomputersleep Off
+ % sudo pmset -a hibernatemode 0
+
+   This is not necessary for us, but they also added this:
+
+     One additional detail: If you want to sign in to the Mac using your
+     iCloud account, please first run the following line to disable the "Find
+     My Mac” module. This won’t impact any iCloud services. Otherwise
+     resetting the device might prove problematic later on due to theft
+     protection:
+
+ > sudo defaults write /Library/Preferences/com.apple.icloud.managed.plist DisableFMMiCloudSetting -bool true
+
+   The original machine had also Screen Sharing enabled.
+
+References
+
+     * "Build and Deploy Linux Systems from macOS" on the Nixcademy Blog.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_virtual_machines_on_macOS&oldid=16856"
+   Categories:
+     * MacOS
+     * Nix-darwin
+     * Tutorial
+     * This page was last edited on 21 August 2024, at 20:46.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

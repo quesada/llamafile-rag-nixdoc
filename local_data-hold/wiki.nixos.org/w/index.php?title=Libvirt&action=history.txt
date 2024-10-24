@@ -1,0 +1,254 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Libvirt: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 September 2024
+
+     * curprev [ ] [ ] 06:2806:28, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 9,649 bytes +2‎ fix spice git url
+
+    27 August 2024
+
+     * curprev [ ] [ ] 12:5612:56, 27 August 2024‎ Frederictobiasc talk
+       contribs‎ 9,647 bytes −418‎ →‎UEFI with OVMF: This is not necessary
+       anymore. See
+       https://github.com/NixOS/nixpkgs/blob/98ce61be576896913274454adf9506d15d1e63f7/nixos/modules/virtualisation/libvirtd.nix#L415
+     * curprev [ ] [ ] 12:5212:52, 27 August 2024‎ Frederictobiasc talk
+       contribs‎ 10,065 bytes −115‎ →‎Setup: runAsRoot's default is true.
+       Tag: Visual edit: Switched
+
+    5 August 2024
+
+     * curprev [ ] [ ] 12:0112:01, 5 August 2024‎ Nilp0inter talk contribs‎
+       10,180 bytes +1‎ →‎Clients: Now virt-builder should belong to the
+       `guestfs-tools` section. Tag: Visual edit: Switched
+     * curprev [ ] [ ] 11:5611:56, 5 August 2024‎ Nilp0inter talk contribs‎
+       10,179 bytes +3‎ →‎virt-builder: `virt-builder` binary is part of
+       `guestfs-tools`, not `libguestfs` Tag: Visual edit
+
+    5 June 2024
+
+     * curprev [ ] [ ] 12:4012:40, 5 June 2024‎ Murazaki talk contribs‎
+       10,176 bytes −9‎ Removing the unstable keyword (non-standard) Tag:
+       Visual edit
+
+    3 June 2024
+
+     * curprev [ ] [ ] 09:3909:39, 3 June 2024‎ Onny talk contribs‎ 10,185
+       bytes +14‎ Fix config mistake Tag: Visual edit
+     * curprev [ ] [ ] 09:2409:24, 3 June 2024‎ Onny talk contribs‎ 10,171
+       bytes −15‎ Update davfs2 configuration Tag: Visual edit
+
+    24 May 2024
+
+     * curprev [ ] [ ] 17:1917:19, 24 May 2024‎ Onny talk contribs‎ 10,186
+       bytes +87‎ Add note on enable USB redirection Tag: Visual edit:
+       Switched
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:2717:27, 19 April 2024‎ Klinger talk contribs‎
+       10,099 bytes +28‎ No edit summary Tag: Visual edit: Switched
+
+    26 March 2024
+
+     * curprev [ ] [ ] 01:2001:20, 26 March 2024‎ imported>AshleyYakeley‎
+       10,071 bytes +199‎ NixVirt flake
+
+    18 March 2024
+
+     * curprev [ ] [ ] 14:2514:25, 18 March 2024‎ imported>Onny‎ m 9,872
+       bytes −4‎ No edit summary
+
+    17 March 2024
+
+     * curprev [ ] [ ] 13:0613:06, 17 March 2024‎ imported>Onny‎ 9,876 bytes
+       +172‎ Update davfs mount example
+     * curprev [ ] [ ] 12:4512:45, 17 March 2024‎ imported>Onny‎ 9,704 bytes
+       +315‎ Add mounting example
+
+    15 March 2024
+
+     * curprev [ ] [ ] 10:4810:48, 15 March 2024‎ imported>Onny‎ m 9,389
+       bytes +24‎ No edit summary
+     * curprev [ ] [ ] 10:4610:46, 15 March 2024‎ imported>Onny‎ 9,365 bytes
+       +747‎ Add section on file sharing (unfinished)
+     * curprev [ ] [ ] 10:1610:16, 15 March 2024‎ imported>Onny‎ 8,618 bytes
+       +143‎ Add section on file sharing (unfinished)
+
+    20 February 2024
+
+     * curprev [ ] [ ] 12:4312:43, 20 February 2024‎ imported>Onny‎ m 8,475
+       bytes +41‎ No edit summary
+     * curprev [ ] [ ] 12:3012:30, 20 February 2024‎ imported>Onny‎ 8,434
+       bytes +1,293‎ Add bridge networking example
+
+    18 February 2024
+
+     * curprev [ ] [ ] 02:1202:12, 18 February 2024‎ imported>13x1‎ 7,141
+       bytes +6‎ Change `services` -> `virtualisation` because `libvirtd` is
+       there now. See
+       https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/virtualisation/libvirtd.nix
+
+    15 February 2024
+
+     * curprev [ ] [ ] 12:1012:10, 15 February 2024‎ imported>Onny‎ m 7,135
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 12:0812:08, 15 February 2024‎ imported>Onny‎ 7,135
+       bytes +468‎ Restructuring and setup example
+
+    30 September 2023
+
+     * curprev [ ] [ ] 09:3109:31, 30 September 2023‎ imported>IgorM‎ m 6,667
+       bytes +10‎ Fixed syntax highlighting
+
+    26 April 2023
+
+     * curprev [ ] [ ] 13:0513:05, 26 April 2023‎ imported>Kyaru‎ 6,657 bytes
+       +161‎ No edit summary
+
+    20 April 2023
+
+     * curprev [ ] [ ] 06:2006:20, 20 April 2023‎ imported>Winny‎ 6,496 bytes
+       +1‎ No edit summary
+     * curprev [ ] [ ] 06:1906:19, 20 April 2023‎ imported>Winny‎ 6,495 bytes
+       +148‎ →‎Tools
+
+    8 March 2023
+
+     * curprev [ ] [ ] 15:1515:15, 8 March 2023‎ imported>Sagehane‎ 6,347
+       bytes +442‎ Added details on enabling UEFI for user sessions
+
+    2 March 2022
+
+     * curprev [ ] [ ] 01:2701:27, 2 March 2022‎ imported>Wackbyte‎ 5,905
+       bytes −195‎ fix some formatting and syntax highlighting
+
+    7 April 2019
+
+     * curprev [ ] [ ] 14:5514:55, 7 April 2019‎ imported>Fadenb‎ m 6,100
+       bytes −4‎ xml syntax highlighting
+     * curprev [ ] [ ] 14:2114:21, 7 April 2019‎ imported>Sjau‎ 6,104 bytes
+       +4,164‎ Adding SPICE web browser
+
+    14 March 2019
+
+     * curprev [ ] [ ] 19:2719:27, 14 March 2019‎ imported>Booxter‎ 1,940
+       bytes +264‎ document how to enable nested virtualization for intel kvm
+
+    9 May 2018
+
+     * curprev [ ] [ ] 19:4719:47, 9 May 2018‎ imported>Gnidorah‎ 1,676 bytes
+       +28‎ No edit summary
+
+    10 November 2017
+
+     * curprev [ ] [ ] 18:3018:30, 10 November 2017‎ imported>Samueldr‎ m
+       1,648 bytes −1‎ Removes unwanted spacing
+     * curprev [ ] [ ] 18:2918:29, 10 November 2017‎ imported>Samueldr‎ 1,649
+       bytes +1,649‎ Creates page with notes about virt-manager
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Libvirt"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

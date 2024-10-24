@@ -1,0 +1,115 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Run the game
+     * 2 Setup of a dedicated server
+   [ ] Toggle the table of contents
+
+                                    QuakeJS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   QuakeJS is a browser-based port of Quake III Arena, enabling players to
+   enjoy the classic shooter directly in their web browsers. It uses
+   WebAssembly and WebGL to deliver the original gameplay experience without
+   additional software.
+
+Run the game
+
+   The game can be run by opening it in a web browser and accepting
+   persistent storage of the game files.
+
+Setup of a dedicated server
+
+   Following example configuration will enable QuakeJS for the
+   domainhttp://quakejs.example.org:
+
+   Note: Parts of this module are not yet stable will be available with the
+   upcoming NixOS release 24.11.
+
+ services.quakejs = {
+   enable = true;
+   hostname = "quakejs.example.org";
+   eula = true;
+   openFirewall = true;
+   dedicated-server.enable = true;
+ };
+
+   Join your own dedicated server using the url:
+   http://quakejs.example.org/play?connect%20192.0.2.0:27960, where 192.0.2.0
+   is the public IP of your dedicated server.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=QuakeJS&oldid=17639"
+   Categories:
+     * Applications
+     * Gaming
+     * Server
+     * This page was last edited on 26 September 2024, at 20:36.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

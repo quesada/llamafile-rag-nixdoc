@@ -1,0 +1,125 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Clients
+     * 2 Servers
+     * 3 Bouncers
+     * 4 Gateways
+     * 5 See Also
+   [ ] Toggle the table of contents
+
+                                      IRC
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Note: For the NixOS community chat, see Get In Touch.
+
+   From Wikipedia:
+
+     Internet Relay Chat (IRC) is an application layer protocol that
+     facilitates communication in the form of text. The chat process works on
+     a client/server networking model.
+
+Clients
+
+     * irssi
+     * Quassel
+     * Weechat with the irc plugin
+
+Servers
+
+     * IRCd ^[cf. 1]^[cf. 2]
+
+Bouncers
+
+   An IRC bouncer stays connected to IRC servers so clients can disconnect
+   without missing messages or losing the session.
+
+     * ZNC
+     * keep a client open in a tmux ^[cf. 3]^[cf. 4]^[cf. 5] session
+
+Gateways
+
+   An IRC gateway recieves messages through other chat networks (e.g. |XMPP)
+   and forwards them through IRC.
+
+     * BitlBee
+
+See Also
+
+    1. ↑ services.ircdHybrid
+    2. ↑ IRCd on Wikipedia
+    3. ↑ programs.tmux
+    4. ↑ tmux
+    5. ↑ tmux on the ArchWiki
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=IRC&oldid=16140"
+   Categories:
+     * Applications
+     * Server
+     * This page was last edited on 1 August 2024, at 18:18.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

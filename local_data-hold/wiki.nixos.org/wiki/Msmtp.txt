@@ -1,0 +1,166 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+          * 2.1 TLS connections
+          * 2.2 Aliases
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                     Msmtp
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   msmtp is a basic email sender client. It is easy to configure but lacks
+   some features like queuing when offline.
+
+Installation
+
+   A minimal configuration to relay mails through an external mail server
+   coud look like this
+
+   Warning: Do not use a plaintext password in production, this is for
+   demonstration only
+
+ programs.msmtp = {
+   enable = true;
+   accounts.default = {
+     host = "example.org";
+     from = "hello@example.org";
+     user = "hello@example.org";
+     password = "mypassword123";
+   };
+ };
+
+   In this case msmtp will try to deliver mails through the smtp server
+   example.org on port 25. user and password are used for normal plaintext
+   authentication.
+
+   This configuration will automatically set msmtp as the default mail
+   delivery client on your system by overwriting the sendmail binary. To test
+   mail delivery issue following command:
+
+ # echo -e "Content-Type: text/plain\r\nSubject: Test\r\n\r\nHello World" | sendmail john.doe@mail.com
+
+   A mail with the subject Test will be sent to the recipient
+   john.doe@mail.com including the body text Hello World. A Mime-Header is
+   added to the mail content for better compatibility.
+
+Configuration
+
+   Further configuration options for msmtp can be found here.
+
+  TLS connections
+
+ programs.msmtp = {
+   enable = true;
+   accounts = {
+     default = {
+       auth = true;
+       tls = true;
+       # try setting `tls_starttls` to `false` if sendmail hangs
+       from = "<from address here>";
+       host = "<hostname here>";
+       user = "<username here>";
+       passwordeval = "cat /secrets/smtp_password.txt";
+     };
+   };
+ };
+
+   Note that msmtp has no daemon and runs as the invoking user. If using
+   passwordeval, the file must be readable by any user that wishes to send
+   mail.
+
+  Aliases
+
+   Example:
+
+ programs.msmtp.defaults = {
+   aliases = "/etc/aliases";
+ };
+
+ environment.etc = {
+   "aliases" = {
+     text = ''
+       root: me@example.com
+     '';
+     mode = "0644";
+   };
+ };
+
+See also
+
+     * msmtp options list
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Msmtp&oldid=12037"
+   Category:
+     * Applications
+     * This page was last edited on 10 April 2024, at 02:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

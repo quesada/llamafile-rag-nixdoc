@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Example config
+   [ ] Toggle the table of contents
+
+                                      Hue+
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   HUE+ is a digital lighting solution for the PC by NZXT.
+
+   As of writing, there is no native NixOS configuration for it. However,
+   with the open source program hue-plus and a simple systemd service, this
+   can be done easily.
+
+                                 Example config
+
+ # /etc/nixos/configuration.nix
+ { config, pkgs, ... }:
+
+ {
+   environment.systemPackages = with pkgs; [
+     # ...
+     hue-plus
+     # ...
+   ];
+  
+   systemd.services.nzxthue = {
+     # You can obviously the candlelight mode & value! I just think this looks nice <3
+     script= "${pkgs.hue-plus}/bin/hue candlelight ff3700";
+     wantedBy = [ "multi-user.target" ];
+   };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hue%2B&oldid=13202"
+   Category:
+     * Hardware
+     * This page was last edited on 18 June 2024, at 15:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

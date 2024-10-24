@@ -1,0 +1,105 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 How it works
+     * 2 Links
+   [ ] Toggle the table of contents
+
+                                     Krops
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   krops is a lightweight toolkit to deploy NixOS systems, remotely or
+   locally.
+
+  How it works
+
+   krops does not deploy systems by itself, it is not a conventional
+   deployment tool. It is a tool to generate scripts which then are able to
+   deploy a system, so it can be thought of as a framework for deploying
+   systems.
+
+   A declarative configuration can be deployed via krops without
+   modification, only requirement is that the system that is deployed is
+   accessible via a ssh root login.
+
+   The in-depth example by Ingolf Wagner shows how to configure krops for
+   deploying one or multiple remote systems.
+
+                                     Links
+
+     * Original repo
+     * Github
+     * In-depth example by Ingolf Wagner
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Krops&oldid=12321"
+   Category:
+     * Deployment
+     * This page was last edited on 19 April 2024, at 21:14.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

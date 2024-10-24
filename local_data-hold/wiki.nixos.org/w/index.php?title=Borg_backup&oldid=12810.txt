@@ -1,0 +1,307 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Creating backups
+     * 2 Notifications when backup fails
+     * 3 Don't try backup when network is unreachable
+     * 4 Mounting point-in-time archives
+     * 5 Automounting backups using NixOS
+   [ ] Toggle the table of contents
+
+                                  Borg backup
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 18:34, 15 May 2024 by Klinger (talk | contribs) (added
+   category:cookbook)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   BorgBackup (short: Borg) is a deduplicating incremental backup program for
+   local and remote data. Optionally, it supports compression and
+   authenticated encryption.
+
+   This wiki article extends the documentation in the NixOS manual.
+
+ $ nix-env -iA nixpkgs.borgbackup
+
+   To be able to do remote backups it should be installed both locally and
+   remotely, but usually no remote configuration required, only local one.
+
+Creating backups
+
+   I'll describe remote SSH backups here, as this is the most important case.
+   It should be as easy as:
+
+   services.borgbackup.jobs.home-danbst = {
+     paths = "/home/danbst";
+     encryption.mode = "none";
+     environment.BORG_RSH = "ssh -i /home/danbst/.ssh/id_ed25519";
+     repo = "ssh://user@example.com:23/path/to/backups-dir/home-danbst";
+     compression = "auto,zstd";
+     startAt = "daily";
+   };
+
+   First, create a directory for backups /path/to/backups-dir on your remote
+   machine, then rebuild local machine using this config and correctly
+   specified paths, BORG_RSH, etc.
+
+   It will create "archives" with identifiers like
+   station-home-danbst-2020-06-10T00:00:46 every day.
+
+   Personally, I've adapted that to exclude unrelated stuff and split into
+   multiple repos, but you don't necessarily need that:
+
+   services.borgbackup.jobs =
+     let common-excludes = [
+           # Largest cache dirs
+           ".cache"
+           "*/cache2" # firefox
+           "*/Cache"
+           ".config/Slack/logs"
+           ".config/Code/CachedData"
+           ".container-diff"
+           ".npm/_cacache"
+           # Work related dirs
+           "*/node_modules"
+           "*/bower_components"
+           "*/_build"
+           "*/.tox"
+           "*/venv"
+           "*/.venv"
+         ];
+         work-dirs = [
+           "/home/danbst/dev/company1"
+           "/home/danbst/dev/company2"
+         ];
+         basicBorgJob = name: {
+           encryption.mode = "none";
+           environment.BORG_RSH = "ssh -o 'StrictHostKeyChecking=no' -i /home/danbst/.ssh/id_ed25519";
+           environment.BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK = "yes";
+           extraCreateArgs = "--verbose --stats --checkpoint-interval 600";
+           repo = "ssh://user@example.com//media/backup/${name}";
+           compression = "zstd,1";
+           startAt = "daily";
+           user = "danbst";
+         };
+   in {
+     home-danbst = basicBorgJob "backups/station/home-danbst" // rec {
+       paths = "/home/danbst";
+       exclude = work-dirs ++ map (x: paths + "/" + x) (common-excludes ++ [
+         "Downloads"
+       ]);
+     };
+     home-danbst-downloads = basicBorgJob "backups/station/home-danbst-downloads" // rec {
+       paths = "/home/danbst/Downloads";
+       exclude = map (x: paths + "/" + x) common-excludes;
+     };
+     extra-drive-important = basicBorgJob "backups/station/extra-drive-important" // rec {
+       paths = "/media/extra-drive/important";
+       exclude = map (x: paths + "/" + x) common-excludes;
+     };
+   };
+
+   After doing at least one successful backup don't forget to test mount it
+   (see next)
+
+Notifications when backup fails
+
+   Quite often backups do fail. To perform notifications about this
+   situations, you can setup autonotifier for all NixOS borg jobs. This
+   requires creating a separate module, but can be also done inplace in
+   /etc/nixos/configuration.nix
+
+   Note, that example below was for Gnome-shell desktop! For other desktops
+   it may require changes for how to get DBUS session properly!
+
+ { pkgs, config, lib, ... }:
+
+ let
+   borgbackupMonitor = { config, pkgs, lib, ... }: with lib; {
+     key = "borgbackupMonitor";
+     _file = "borgbackupMonitor";
+     config.systemd.services = {
+       "notify-problems@" = {
+         enable = true;
+         serviceConfig.User = "danbst";
+         environment.SERVICE = "%i";
+         script = ''
+           export $(cat /proc/$(${pkgs.procps}/bin/pgrep "gnome-session" -u "$USER")/environ |grep -z '^DBUS_SESSION_BUS_ADDRESS=')
+           ${pkgs.libnotify}/bin/notify-send -u critical "$SERVICE FAILED!" "Run journalctl -u $SERVICE for details"
+         '';
+       };
+     } // flip mapAttrs' config.services.borgbackup.jobs (name: value:
+       nameValuePair "borgbackup-job-${name}" {
+         unitConfig.OnFailure = "notify-problems@%i.service";
+       }
+     );
+    
+     # optional, but this actually forces backup after boot in case laptop was powered off during scheduled event
+     # for example, if you scheduled backups daily, your laptop should be powered on at 00:00
+     config.systemd.timers = flip mapAttrs' config.services.borgbackup.jobs (name: value:
+       nameValuePair "borgbackup-job-${name}" {
+         timerConfig.Persistent = true;
+       }
+     );
+   };
+
+ in {
+   imports =
+     [
+       ....
+       borgbackupMonitor
+     ];
+   ...
+ }
+
+Don't try backup when network is unreachable
+
+   With persistent timers above you can get into a problem that after reboot
+   backup is tried too fast, even when network is not yet available, and thus
+   fails. This can be solved with systemd failed restart, or using
+   internet-ready check in preStart script.
+
+   Patching previous example:
+
+     } // flip mapAttrs' config.services.borgbackup.jobs (name: value:
+       nameValuePair "borgbackup-job-${name}" {
+         unitConfig.OnFailure = "notify-problems@%i.service";
+         preStart = lib.mkBefore ''
+           # waiting for internet after resume-from-suspend
+           until /run/wrappers/bin/ping google.com -c1 -q >/dev/null; do :; done
+         '';
+       }
+     );
+     ...
+
+Mounting point-in-time archives
+
+   First, check if there are any archives:
+
+ $ borg list user@example.name:/media/backup/backups/station/home-danbst
+ ...
+ station-home-danbst-2020-06-02T00:00:02 Mon, 2020-06-01 21:00:09 [24e6318a379ac3b494448fb2ab2ca7b2df7188426d0814978165cab8e09cd642]
+ station-home-danbst-2020-06-03T00:00:12 Tue, 2020-06-02 21:00:20 [2912b78d306f5b4a254e099f0878d743849c1b99c4441815e3fa43d485414438]
+ station-home-danbst-2020-06-04T00:00:07 Wed, 2020-06-03 21:00:29 [8a5e03a8f9a1a397e5e05585e112f2206043cfdc8cca4d97f73079be89ba1009]
+ station-home-danbst-2020-06-05T00:00:02 Thu, 2020-06-04 21:00:11 [14df97419fd2e2a243d24cd04b643044a5c732b815cc25d3bddd8df6cf1f2549]
+ station-home-danbst-2020-06-06T00:00:00 Fri, 2020-06-05 21:00:11 [69684418497adc43a0ae8ebc617494247bf6ecfe42ba6c04db354253c7f5e144]
+ station-home-danbst-2020-06-08T00:00:52 Sun, 2020-06-07 21:00:59 [d5b08fa57cfb3727c5f7d855509158a70907b6fa009abe30579328def74fd2a6]
+ station-home-danbst-2020-06-10T00:00:46 Tue, 2020-06-09 21:00:53 [85a5329ae39c46a03e2e925ef740f8d5090a61c35161cdd539ac248a53e5b7d4]
+
+   Choose one of "archives" and mount it locally:
+
+ $ borgfs -f -o uid=1002 \
+     user@example.com:/media/backup/backups/station/home-danbst::station-home-danbst-2020-06-10T00:00:46 \
+     ~/borg-home-danbst2
+     home/danbst
+
+   where uid is your user's UID, in case you are restoring on a different
+   system. You also should have private ssh key in your ssh-agent, or
+   specified in BORG_RSH. The last arg is optional, but without it you'll get
+   root view of backup.
+
+Automounting backups using NixOS
+
+   Actually, I don't have a solution as of time being, so I'll share a setup
+   which allows automount, but requires sudo to access.
+
+   fileSystems."/run/user/1002/borg-home-danbst" = {
+     device = "user@example.com:/media/backup/backups/station/home-danbst::station-home-danbst-2020-06-10T00:00:46";
+     noCheck = true;
+     fsType = "fuse.borgfs";      # note that this requires a custom binary, see below
+     options = [ "x-systemd.automount" "noauto" "uid=1002" "exec" ];    # I'm using automount here to skip mount on boot, which slows startup
+   };
+  
+   # this one should mount the actual directory from the root view of backup
+   fileSystems."/run/user/1002/home-danbst" = {
+     device = "/run/user/1002/borg-home-danbst/home/danbst";
+     options = [ "bind" ];
+   };
+
+   environment.systemPackages = [
+     ...
+     (pkgs.writeScriptBin "mount.fuse.borgfs" ''
+       #!/bin/sh
+       export BORG_RSH="ssh -i /home/danbst/.ssh/id_ed25519"
+       export BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK=yes
+       export BORG_RELOCATED_REPO_ACCESS_IS_OK=yes
+       exec ${pkgs.borgbackup}/bin/borgfs "$@"
+     '')
+   ];
+
+   If anybody reading this have found a way to mount as a user properly,
+   please update the code above.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Borg_backup&oldid=12810"
+   Categories:
+     * Applications
+     * Backup
+     * NixOS Manual
+     * Cookbook
+     * This page was last edited on 15 May 2024, at 18:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

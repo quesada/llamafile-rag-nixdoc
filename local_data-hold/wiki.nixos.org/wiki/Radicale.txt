@@ -1,0 +1,153 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Authentication
+     * 2 Web Proxy examples
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                    Radicale
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Radicale is a Free and Open-Source CalDAV (calendars, todo-lists) and
+   CardDAV (contacts) Server. For more information about Radicale itself, see
+   https://radicale.org/.
+
+   This basic configuration will run the server. Note that you might want to
+   allow the port (5232 in this case) on your firewall.
+
+ services.radicale = {
+   enable = true;
+   settings.server.hosts = [ "0.0.0.0:5232" ];
+ };
+
+   The settings is standard Radicale configuration, see
+   https://radicale.org/v3.html#configuration.
+
+Authentication
+
+   The default authentication mode is None which just allows all usernames
+   and passwords. The other option is to use an Apache htpasswd file for
+   authentication.
+
+ services.radicale = {
+   enable = true;
+   settings = {
+     server.hosts = [ "0.0.0.0:5232" ];
+     auth = {
+       type = "htpasswd";
+       htpasswd_filename = "/path/to/htpasswd/file/radicale_users";
+       # hash function used for passwords. May be `plain` if you don't want to hash the passwords
+       htpasswd_encryption = "bcrypt";
+     };
+   };
+ };
+
+Web Proxy examples
+
+   Caddy configured to proxy radicale in a subdirectory
+
+ caddy = {
+   enable = true;
+   extraConfig = ''
+     :80 {
+       redir /radicale /radicale/
+       handle /radicale/* {
+         uri strip_prefix /radicale
+         reverse_proxy localhost:5232 {
+           header_up X-Script-Name /radicale
+           header_up Authorization {header.Authorization}
+         }
+       }
+     }
+   '';
+ }
+
+   Nginx virtualhost location snippet configured to proxy radicale in a
+   subdirectory
+
+ locations."/radicale/" = {
+   proxyPass = "http://127.0.0.1:5232/";
+   extraConfig = ''
+     proxy_set_header X-Script-Name /radicale;
+     proxy_pass_header Authorization;
+   '';
+ };
+
+See also
+
+     * Source code of the service
+     * List of Radicale options supported by NixOS
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Radicale&oldid=16345"
+   Category:
+     * Server
+     * This page was last edited on 5 August 2024, at 16:51.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,119 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Serial console
+     * 4 Compatibility notes
+          * 4.1 Downstream kernel
+     * 5 SPI NOR flash
+          * 5.1 Flashing from FEL
+          * 5.2 Flashing from U-Boot
+     * 6 Resources
+   [ ] Toggle the table of contents
+
+                           NixOS on ARM/Banana Pi M64
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   It can boot from SD or from an eMMC.
+
+   Banana Pi M64
+   Bananapi m64.
+   Manufacturer Sinovoip                
+   Architecture AArch64                 
+   Bootloader   Upstream U-Boot         
+   Boot order   SD, eMMC, SPI NOR Flash 
+   Maintainer   samrose                 
+
+Status
+
+Board-specific installation notes
+
+Serial console
+
+Compatibility notes
+
+  Downstream kernel
+
+SPI NOR flash
+
+  Flashing from FEL
+
+  Flashing from U-Boot
+
+Resources
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Banana_Pi_M64&oldid=11448"
+   Category:
+     * Incomplete
+     * This page was last edited on 3 April 2024, at 20:38.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

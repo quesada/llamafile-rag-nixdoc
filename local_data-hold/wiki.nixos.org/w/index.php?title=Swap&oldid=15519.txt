@@ -1,0 +1,157 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration
+          * 1.1 Add a Swapfile
+          * 1.2 Disable swap
+          * 1.3 Enable zram swap
+          * 1.4 Encrypt swap with random key
+          * 1.5 ZFS and Swap
+   [ ] Toggle the table of contents
+
+                                      Swap
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 12:47, 24 July 2024 by W4tsn (talk | contribs) (Add section
+   about zram as an option for swap on nixos)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Configuration
+
+   Swap on NixOS is set with with one of two options swapDevices or
+   zramSwap.enable on /etc/nixos/hardware-configuration.nix.
+
+  Add a Swapfile
+
+   Add a swapfile with the following :
+
+  swapDevices = [ {
+     device = "/var/lib/swapfile";
+     size = 16*1024;
+   } ];
+
+   Size is in megabytes
+
+  Disable swap
+
+   To remove all swap devices from NixOS, set the following to remove the
+   swap partition or file from being included in /etc/fstab.
+
+ swapDevices = lib.mkForce [ ];
+
+   If you are using GPT partitioning tables, systemd-gpt-auto-generator(8)
+   will still mount your swap partition automatically. You must therefore
+   turn on attribute 63 on your partition in the partition table. This can be
+   done with gptfdisk or similar:
+
+ gdisk /dev/sda
+ x
+ a
+ <partition number>
+ 63
+ <enter>
+ w
+
+  Enable zram swap
+
+   Zram is a kernel module for creating a compressed block device in RAM. The
+   option zramSwap.enable creates such a zram block device and uses it as
+   swap device.
+
+   It is an alternative or complementary approach to swap disks, suitable for
+   systems with enough RAM. In the event the system needs to swap it will
+   move uncompressed RAM contents into the compressed area, saving RAM space
+   while effectively increasing the available RAM at the cost of
+   computational power for compression and decompression.
+
+  Encrypt swap with random key
+
+   Swap can be automatically encrypted with a new key on every boot. This can
+   be used to simplify certain disk layouts, such as securing a swap file on
+   a filesystem partition without an encryption container (such as LUKS).
+
+  swapDevices = [ {
+     device = "/dev/sdXY";
+     randomEncryption.enable = true;
+   } ];
+
+  ZFS and Swap
+
+   OpenZFS does not support swap on zvols nor do they support swapfiles on a
+   ZFS dataset.
+
+   Instead you should set up a swap partition or swapfile on a non-ZFS
+   filesystem.^[1]
+
+    1. ↑ https://utcc.utoronto.ca/~cks/space/blog/solaris/ZFSForSwapMyViews
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Swap&oldid=15519"
+   Category:
+     * Configuration
+     * This page was last edited on 24 July 2024, at 12:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

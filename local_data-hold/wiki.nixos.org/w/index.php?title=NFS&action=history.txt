@@ -1,0 +1,218 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             NFS: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    22 July 2024
+
+     * curprev [ ] [ ] 01:4101:41, 22 July 2024‎ Nh2 talk contribs‎ 7,292
+       bytes +300‎ add TODO regarding local_lock=all on Nix store Tag: Visual
+       edit
+
+    3 April 2024
+
+     * curprev [ ] [ ] 22:4422:44, 3 April 2024‎ Jopejoe1 talk contribs‎ m
+       6,992 bytes −1‎ Fix category
+
+    27 September 2023
+
+     * curprev [ ] [ ] 11:1111:11, 27 September 2023‎ imported>IgorM‎ m 6,993
+       bytes +26‎ Added to category "Filesystems"
+
+    27 February 2023
+
+     * curprev [ ] [ ] 11:0811:08, 27 February 2023‎ imported>RCasatta‎ m
+       6,967 bytes +103‎ Added a step I needed to make the example work
+
+    10 October 2022
+
+     * curprev [ ] [ ] 14:4014:40, 10 October 2022‎ imported>\\\\\\\\\\\‎
+       6,864 bytes +99‎ →‎Client
+
+    3 July 2022
+
+     * curprev [ ] [ ] 02:2402:24, 3 July 2022‎ imported>Allopsychic21‎ 6,765
+       bytes −156‎ Context for my addition turned out not to be true, so I
+       removed that part
+
+    26 June 2022
+
+     * curprev [ ] [ ] 15:5915:59, 26 June 2022‎ imported>NetaliDev‎ 6,921
+       bytes +4‎ fix syntax for systemd mounts
+
+    2 June 2022
+
+     * curprev [ ] [ ] 05:4605:46, 2 June 2022‎ imported>Allopsychic21‎ 6,917
+       bytes +102‎ forgot to add rpcbind service
+     * curprev [ ] [ ] 02:5702:57, 2 June 2022‎ imported>Allopsychic21‎ 6,815
+       bytes +1,850‎ adds systemd.mounts and systemd.automounts method of
+       configuration
+
+    10 September 2021
+
+     * curprev [ ] [ ] 12:4012:40, 10 September 2021‎ imported>2r‎ 4,965
+       bytes +540‎ firewall configuration for nfsv3
+
+    17 October 2020
+
+     * curprev [ ] [ ] 14:0314:03, 17 October 2020‎ imported>Patryk27‎ m
+       4,425 bytes −5‎ No edit summary
+     * curprev [ ] [ ] 13:5713:57, 17 October 2020‎ imported>Patryk27‎ m
+       4,430 bytes +4‎ No edit summary
+     * curprev [ ] [ ] 13:5713:57, 17 October 2020‎ imported>Patryk27‎ 4,426
+       bytes +68‎ No edit summary
+     * curprev [ ] [ ] 13:5413:54, 17 October 2020‎ imported>Patryk27‎ m
+       4,358 bytes −12‎ No edit summary
+     * curprev [ ] [ ] 13:5313:53, 17 October 2020‎ imported>Patryk27‎ m
+       4,370 bytes +18‎ No edit summary
+     * curprev [ ] [ ] 13:5213:52, 17 October 2020‎ imported>Patryk27‎ m
+       4,352 bytes −29‎ No edit summary
+     * curprev [ ] [ ] 13:4913:49, 17 October 2020‎ imported>Patryk27‎ 4,381
+       bytes +698‎ No edit summary
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:1221:12, 24 September 2020‎ imported>Garbas‎ m
+       3,683 bytes +2‎ No edit summary
+
+    31 August 2018
+
+     * curprev [ ] [ ] 17:5917:59, 31 August 2018‎ imported>Makefu‎ 3,681
+       bytes +2‎ options are a list of strings now
+
+    17 May 2018
+
+     * curprev [ ] [ ] 14:2014:20, 17 May 2018‎ imported>Lschuermann‎ 3,679
+       bytes +16‎ `options` attribute in `fileSystems` needs to be a list of
+       strings
+
+    7 February 2018
+
+     * curprev [ ] [ ] 21:2121:21, 7 February 2018‎ imported>Samueldr‎ m
+       3,663 bytes +2‎ h1 → h2... h1 are forbidden (by mediawiki styleguide)
+       even though they're possible
+     * curprev [ ] [ ] 21:2021:20, 7 February 2018‎ imported>Samueldr‎ m
+       3,661 bytes −1‎ Removes \n as mediawiki is \n sensitive
+     * curprev [ ] [ ] 21:0121:01, 7 February 2018‎ imported>Makefu‎ 3,662
+       bytes +14‎ No edit summary
+
+    12 September 2017
+
+     * curprev [ ] [ ] 16:4216:42, 12 September 2017‎ imported>Mic92‎ 3,648
+       bytes +2‎ fix typo in configuration
+
+    26 August 2017
+
+     * curprev [ ] [ ] 20:4820:48, 26 August 2017‎ imported>Fadenb‎ 3,646
+       bytes +15‎ No edit summary
+     * curprev [ ] [ ] 20:4720:47, 26 August 2017‎ imported>Fadenb‎ 3,631
+       bytes −79‎ Syntax highlighting
+
+    21 August 2017
+
+     * curprev [ ] [ ] 18:1418:14, 21 August 2017‎ imported>Makefu‎ 3,710
+       bytes +3,710‎ initial batch of nixos-users
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NFS"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

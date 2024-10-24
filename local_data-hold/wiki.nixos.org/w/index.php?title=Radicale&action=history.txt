@@ -1,0 +1,155 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Radicale: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 August 2024
+
+     * curprev [ ] [ ] 16:5116:51, 5 August 2024‎ Bleetube talk contribs‎
+       2,220 bytes +763‎ Web proxy configuration examples Tag: Visual edit:
+       Switched
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:1321:13, 24 April 2024‎ Klinger talk contribs‎ m
+       1,457 bytes +21‎ Category:Server
+
+    16 November 2022
+
+     * curprev [ ] [ ] 21:1121:11, 16 November 2022‎ imported>O8opi‎ m 1,436
+       bytes −6‎ No edit summary
+     * curprev [ ] [ ] 20:5820:58, 16 November 2022‎ imported>O8opi‎ m 1,442
+       bytes +13‎ No edit summary
+
+    25 November 2021
+
+     * curprev [ ] [ ] 18:3818:38, 25 November 2021‎ imported>Klaymore‎ m
+       1,429 bytes +8‎ Typo, small grammar change, periods at ends of
+       sentences
+
+    7 September 2021
+
+     * curprev [ ] [ ] 17:2017:20, 7 September 2021‎ imported>Jicksaw‎ 1,421
+       bytes −56‎ Update examples to use 'settings' instead of the deprecated
+       'config'
+
+    16 November 2020
+
+     * curprev [ ] [ ] 12:3912:39, 16 November 2020‎ imported>Mic92‎ 1,477
+       bytes −44‎ nicer indentation
+     * curprev [ ] [ ] 12:3612:36, 16 November 2020‎ imported>Mogria‎ m 1,521
+       bytes +1‎ fix syntax error, add missing semicolon
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:5921:59, 24 September 2020‎ imported>Garbas‎ m
+       1,520 bytes +3‎ No edit summary
+
+    29 February 2020
+
+     * curprev [ ] [ ] 21:1321:13, 29 February 2020‎ imported>Exyi‎ 1,517
+       bytes +1,517‎ Added basic info about Radicale
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Radicale"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

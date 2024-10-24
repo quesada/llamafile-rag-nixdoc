@@ -1,0 +1,441 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 KISS
+     * 2 1 Master and 1 Node
+          * 2.1 Master
+          * 2.2 Node
+     * 3 N Masters (HA)
+     * 4 Troubleshooting
+          * 4.1 Join Cluster not working
+          * 4.2 DNS issues
+          * 4.3 reset to a clean state
+     * 5 Miscellaneous
+          * 5.1 Rook Ceph storage cluster
+          * 5.2 NVIDIA
+          * 5.3 /dev/shm
+          * 5.4 Arm64
+               * 5.4.1 etcd
+               * 5.4.2 coredns
+     * 6 Tooling
+     * 7 References
+   [ ] Toggle the table of contents
+
+                                   Kubernetes
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Kubernetes is an open-source container orchestration system for automating
+   software deployment, scaling, and management.
+
+   This wiki article extends the documentation in NixOS manual.
+
+KISS
+
+   If you are new to Kubernetes you might want to check out K3s first as it
+   is easier to set up (less moving parts).
+
+1 Master and 1 Node
+
+   Assumptions:
+
+     * Master and Node are on the same network (in this example 10.1.1.0/24)
+     * IP of the Master: 10.1.1.2
+     * IP of the first Node: 10.1.1.3
+
+   Caveats:
+
+     * this was only tested on 20.09pre215024.e97dfe73bba (Nightingale)
+       (unstable)
+     * this is probably not best-practice
+          * for a production-grade cluster you shouldn't use easyCerts
+     * If you experience inability to reach service CIDR from pods, disable
+       firewall via networking.firewall.enable = false; or otherwise make
+       sure that it doesn't interfere with packet forwarding.
+     * Make sure to set docker0 in promiscuous mode ip link set docker0
+       promisc on
+
+  Master
+
+   Add to your configuration.nix:
+
+ { config, pkgs, ... }:
+ let
+   # When using easyCerts=true the IP Address must resolve to the master on creation.
+  # So use simply 127.0.0.1 in that case. Otherwise you will have errors like this https://github.com/NixOS/nixpkgs/issues/59364
+   kubeMasterIP = "10.1.1.2";
+   kubeMasterHostname = "api.kube";
+   kubeMasterAPIServerPort = 6443;
+ in
+ {
+   # resolve master hostname
+   networking.extraHosts = "${kubeMasterIP} ${kubeMasterHostname}";
+
+   # packages for administration tasks
+   environment.systemPackages = with pkgs; [
+     kompose
+     kubectl
+     kubernetes
+   ];
+
+   services.kubernetes = {
+     roles = ["master" "node"];
+     masterAddress = kubeMasterHostname;
+     apiserverAddress = "https://${kubeMasterHostname}:${toString kubeMasterAPIServerPort}";
+     easyCerts = true;
+     apiserver = {
+       securePort = kubeMasterAPIServerPort;
+       advertiseAddress = kubeMasterIP;
+     };
+
+     # use coredns
+     addons.dns.enable = true;
+
+     # needed if you use swap
+     kubelet.extraOpts = "--fail-swap-on=false";
+   };
+ }
+
+   Apply your config (e.g. nixos-rebuild switch).
+
+   Link your kubeconfig to your home directory:
+
+ ln -s /etc/kubernetes/cluster-admin.kubeconfig ~/.kube/config
+
+   Now, executing kubectl cluster-info should yield something like this:
+
+ Kubernetes master is running at https://10.1.1.2
+ CoreDNS is running at https://10.1.1.2/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
+   You should also see that the master is also a node using kubectl get
+   nodes:
+
+ NAME       STATUS   ROLES    AGE   VERSION
+ direwolf   Ready    <none>   41m   v1.16.6-beta.0
+
+  Node
+
+   Add to your configuration.nix:
+
+ { config, pkgs, ... }:
+ let
+   kubeMasterIP = "10.1.1.2";
+   kubeMasterHostname = "api.kube";
+   kubeMasterAPIServerPort = 6443;
+ in
+ {
+   # resolve master hostname
+   networking.extraHosts = "${kubeMasterIP} ${kubeMasterHostname}";
+
+   # packages for administration tasks
+   environment.systemPackages = with pkgs; [
+     kompose
+     kubectl
+     kubernetes
+   ];
+
+   services.kubernetes = let
+     api = "https://${kubeMasterHostname}:${toString kubeMasterAPIServerPort}";
+   in
+   {
+     roles = ["node"];
+     masterAddress = kubeMasterHostname;
+     easyCerts = true;
+
+     # point kubelet and other services to kube-apiserver
+     kubelet.kubeconfig.server = api;
+     apiserverAddress = api;
+
+     # use coredns
+     addons.dns.enable = true;
+
+     # needed if you use swap
+     kubelet.extraOpts = "--fail-swap-on=false";
+   };
+ }
+
+   Apply your config (e.g. nixos-rebuild switch).
+
+   According to the NixOS tests, make your Node join the cluster:
+
+   on the master, grab the apitoken
+
+ cat /var/lib/kubernetes/secrets/apitoken.secret
+
+   on the node, join the node with
+
+ echo TOKEN | nixos-kubernetes-node-join
+
+   After that, you should see your new node using kubectl get nodes:
+
+ NAME       STATUS   ROLES    AGE    VERSION
+ direwolf   Ready    <none>   62m    v1.16.6-beta.0
+ drake      Ready    <none>   102m   v1.16.6-beta.0
+
+N Masters (HA)
+
+    This article or section needs expansion.                                  
+    Reason: How to set this up? (Discuss in Talk:Kubernetes#)                 
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+Troubleshooting
+
+ systemctl status kubelet
+
+ systemctl status kube-apiserver
+
+ kubectl get nodes
+
+  Join Cluster not working
+
+   If you face issues while running the nixos-kubernetes-node-join script:
+
+ Restarting certmgr...
+ Job for certmgr.service failed because a timeout was exceeded.
+ See "systemctl status certmgr.service" and "journalctl -xe" for details.
+
+   Go investigate with journalctl -u certmgr:
+
+ ... certmgr: loading from config file /nix/store/gj7qr7lp6wakhiwcxdpxwbpamvmsifhk-certmgr.yaml
+ ... manager: loading certificates from /nix/store/4n41ikm7322jxg7bh0afjpxsd4b2idpv-certmgr.d
+ ... manager: loading spec from /nix/store/4n41ikm7322jxg7bh0afjpxsd4b2idpv-certmgr.d/flannelClient.json
+ ... [ERROR] cert: failed to fetch remote CA: failed to parse rootCA certs
+
+   In this case, cfssl could be overloaded.
+
+   Restarting cfssl on the master node should help: systemctl restart cfssl
+
+   Also, make sure that port 8888 is open on your master node.
+
+  DNS issues
+
+   Check if coredns is running via kubectl get pods -n kube-system:
+
+ NAME                       READY   STATUS    RESTARTS   AGE
+ coredns-577478d784-bmt5s   1/1     Running   2          163m
+ coredns-577478d784-bqj65   1/1     Running   2          163m
+
+   Run a pod to check with kubectl run curl --restart=Never
+   --image=radial/busyboxplus:curl -i --tty:
+
+   If you don't see a command prompt, try pressing enter.
+
+ [ root@curl:/ ]$
+
+ nslookup google.com
+
+ Server:    10.0.0.254
+ Address 1: 10.0.0.254 kube-dns.kube-system.svc.cluster.local
+
+ Name:      google.com
+ Address 1: 2a00:1450:4016:803::200e muc12s04-in-x0e.1e100.net
+ Address 2: 172.217.23.14 lhr35s01-in-f14.1e100.net
+
+   In case DNS is still not working I found that sometimes, restarting
+   services helps:
+
+ systemctl restart kube-proxy flannel kubelet
+
+  reset to a clean state
+
+   Sometimes it helps to have a clean state on all instances:
+
+     * comment kubernetes-related code in configuration.nix
+     * nixos-rebuild switch
+     * clean up filesystem
+          * rm -rf /var/lib/kubernetes/ /var/lib/etcd/ /var/lib/cfssl/
+            /var/lib/kubelet/
+          * rm -rf /etc/kube-flannel/ /etc/kubernetes/
+     * uncomment kubernetes-related code again
+     * nixos-rebuild switch
+
+Miscellaneous
+
+  Rook Ceph storage cluster
+
+   Chances are you want to setup a storage cluster using rook.
+
+   To do so, I found it necessary to change a few things (tested with rook
+   v1.2):
+
+     * you need the ceph kernel module: boot.kernelModules = [ "ceph" ];
+     * change the root dir of the kubelet: kubelet.extraOpts =
+       "--root-dir=/var/lib/kubelet";
+     * reboot all your nodes
+     * continue with the official quickstart guide
+     * in operator.yaml, help the CSI plugins find the hosts' ceph kernel
+       modules by adding (or uncommenting -- they're in the example config)
+       these entries:
+
+  CSI_CEPHFS_PLUGIN_VOLUME: |
+  - name: lib-modules
+    hostPath:
+      path: /run/current-system/kernel-modules/lib/modules/
+  CSI_RBD_PLUGIN_VOLUME: |
+  - name: lib-modules
+    hostPath:
+      path: /run/current-system/kernel-modules/lib/modules/
+
+  NVIDIA
+
+   You can use NVIDIA's k8s-device-plugin.
+
+   Make nvidia-docker your default docker runtime:
+
+ virtualisation.docker = {
+     enable = true;
+
+     # use nvidia as the default runtime
+     enableNvidia = true;
+     extraOptions = "--default-runtime=nvidia";
+ };
+
+   Apply their Daemonset:
+
+ kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/1.0.0-beta4/nvidia-device-plugin.yml
+
+  /dev/shm
+
+   Some applications need enough shared memory to work properly. Create a new
+   volumeMount for your Deployment:
+
+ volumeMounts:
+ - mountPath: /dev/shm
+   name: dshm
+
+   and mark its medium as Memory:
+
+ volumes:
+ - name: dshm
+   emptyDir:
+   medium: Memory
+
+  Arm64
+
+   Nix might pull in coredns and etcd images that are incompatible with arm,
+   To resolve this add the following to your master node's configuration:
+
+    etcd
+
+   ...
+   services.kubernetes = {...};
+   systemd.services.etcd = {
+     environment = {
+       ETCD_UNSUPPORTED_ARCH = "arm64";
+     };
+   };
+   ...
+
+    coredns
+
+   services.kubernetes = {
+     ...
+     # use coredns
+     addons.dns = {
+       enable = true;
+       coredns = {
+         finalImageTag = "1.10.1";
+         imageDigest = "sha256:a0ead06651cf580044aeb0a0feba63591858fb2e43ade8c9dea45a6a89ae7e5e";
+         imageName = "coredns/coredns";
+         sha256 = "0c4vdbklgjrzi6qc5020dvi8x3mayq4li09rrq2w0hcjdljj0yf9";
+       };
+     };
+    ...
+   };
+
+Tooling
+
+   There are various community projects aimed at facilitating working with
+   Kubernetes combined with Nix:
+
+     * kubernix: simple setup of development clusters using Nix
+     * kubenix - GitHub (updated 2023)
+     * nixos-ha-kubernetes
+
+References
+
+     * Issue #39327: kubernetes support is missing some documentation
+     * NixOS Discourse: Using multiple nodes on unstable
+     * Kubernetes docs
+     * NixOS e2e kubernetes tests: Node Joining etc.
+     * IRC (2018-09): issues related to DNS
+     * IRC (2019-09): discussion about easyCerts and general setup
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Kubernetes&oldid=12883"
+   Categories:
+     * Applications
+     * Server
+     * Container
+     * NixOS Manual
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 18 May 2024, at 11:03.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

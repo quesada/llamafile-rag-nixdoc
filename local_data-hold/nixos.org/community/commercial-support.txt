@@ -1,0 +1,208 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               Commercial support
+
+                               Commercial support
+
+   Consulting companies available for professional support.
+
+   Please submit a pull request to add your company. The list is randomized
+   at each page load.
+
+     * Helsinki Systems logo
+
+  Helsinki Systems
+
+          * Stuttgart, Germany
+
+       Your partner for hosting, networks and IT solutions running on NixOS.
+       We have multiple years of NixOS and decades of Linux experience to aid
+       your NixOS integration and administration.
+
+     * Nixcademy logo
+
+  Nixcademy
+
+          * Remote
+          * Germany
+
+       Elevate your organization's expertise with Nix and NixOS through our
+       comprehensive corporate training classes, personalized mentoring, and
+       expert consulting services. Empower your team with the latest
+       knowledge and best practices.
+
+     * Cyberus Technology logo
+
+  Cyberus Technology
+
+          * Remote
+          * Germany
+
+       Let's unlock the full potential of your projects together. We offer
+       professional services around virtualization, low-level Linux
+       engineering and operating system development. We can also help with
+       test automation projects.
+
+     * Tweag logo
+
+  Tweag
+
+          * Remote
+          * Paris, France
+          * London, UK
+          * Zurich, Switzerland
+
+       The Nix Technical Group at Tweag is a team of leading domain experts
+       and top open source contributors. We assist your enterprise with
+       harnessing the full potential of Nix at scale. Check the website for
+       our track record and more details on what we offer.
+
+     * Engelen Open Source logo
+
+  Engelen Open Source
+
+          * Remote
+          * Netherlands
+
+       Arnout 'raboof' Engelen is an independent consultant available for
+       support and small- to medium-sized projects around Nix and Open
+       Source.
+
+     * Serokell logo
+
+  Serokell
+
+          * Remote
+          * Tallinn, Estonia
+
+       Serokell is a custom software engineering company that creates
+       innovative solutions for complex problems. We do software development,
+       consulting, and auditing.
+
+     * Obsidian Systems logo
+
+  Obsidian Systems
+
+          * New York, USA
+
+       Software consultancy specializing in Haskell, Nix, curiosity, and
+       innovation.
+
+     * Immutable Solutions logo
+
+  Immutable Solutions
+
+          * Sweden
+
+       Nix specialists helping companies design, develop and deploy systems
+       in a declarative fashion.
+
+     * Platonic.Systems logo
+
+  Platonic.Systems
+
+          * Remote
+
+       Solving your toughest software problems Trying to build an innovative
+       software solution? Is it behind schedule? Over budget? Not working
+       properly? Growing with bugs? We can help.
+
+     * five binaries logo
+
+  five binaries
+
+          * Tallinn, Estonia
+          * Prague, Czech Republic
+
+       Five Binaries are an infrastructure development company focused on
+       creating customized highly reliable solutions for blockchain-powered
+       industries.
+
+     * Nix.How logo
+
+  Nix.How
+
+          * Remote
+          * United Kingdom
+
+       Nix experts specialising in converting legacy infrastructure to a
+       Nix/NixOS methodology and workflow
+
+     * Enlambda logo
+
+  Enlambda
+
+          * Remote
+          * Estonia
+
+       Turning operational issues into development tasks using Nix since
+       2013.
+
+     * Determinate Systems logo
+
+  Determinate Systems
+
+          * Remote
+          * Massachusetts, USA
+
+       Bringing Nix to the enterprise to empower fearless software delivery.
+       Boost your team's delivery with Determinate's cloud native Nix
+       platform. Binary caching and everything else you need to stay secure
+       and up to date.
+
+     * Numtide Ltd logo
+
+  Numtide Ltd
+
+          * Switzerland
+          * Remote
+
+       Numtide is a Nix and DevOps consulting company. We help our customers
+       with declarative development, cloud and bare-metal infrastructures.
+
+     * flox logo
+
+  flox
+
+          * Remote
+          * San Francisco
+          * London
+
+       flox is a platform for building, sharing, and collaborating across the
+       entire development lifecycle.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

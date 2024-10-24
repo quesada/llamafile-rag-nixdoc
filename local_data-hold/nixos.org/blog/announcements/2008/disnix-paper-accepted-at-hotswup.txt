@@ -1,0 +1,53 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                        DisNix paper accepted at HotSWUp
+
+   Published on Thu Oct 09 2008
+
+                        DisNix paper accepted at HotSWUp
+
+   The paper “Atomic Upgrading of Distributed Systems” (by Sander van der
+   Burg, Eelco Dolstra and Merijn de Jonge) has been accepted for
+   presentation at the First ACM Workshop on Hot Topics in Software Upgrades
+   (HotSWUp). A draft of the paper is available. It describes Sander’s
+   master’s thesis research on DisNix, an extension to Nix that allows
+   deployment and upgrading of distributed systems from a single declarative
+   description. We will continue this research in the Jacquard PDS project,
+   which has now started. (We still have an opening for a PhD student or a
+   postdoc; please contact us if you’re interested.)
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

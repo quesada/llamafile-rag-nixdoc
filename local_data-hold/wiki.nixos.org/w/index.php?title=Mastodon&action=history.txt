@@ -1,0 +1,219 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Mastodon: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    10 October 2024
+
+     * curprev [ ] [ ] 21:3621:36, 10 October 2024‎ Teutat3s talk contribs‎
+       5,359 bytes +471‎ Add enabling full text search section Tag: Visual
+       edit
+
+    19 July 2024
+
+     * curprev [ ] [ ] 15:4015:40, 19 July 2024‎ Mic92 talk contribs‎ 4,888
+       bytes +51‎ import from old wiki Tag: Visual edit
+
+    16 June 2024
+
+     * curprev [ ] [ ] 11:0211:02, 16 June 2024‎ Voklen talk contribs‎ m
+       4,837 bytes −145‎ Remove duplicate `streamingProcesses` Tag: Visual
+       edit
+
+    14 June 2024
+
+     * curprev [ ] [ ] 06:1606:16, 14 June 2024‎ Mic92 talk contribs‎ 4,982
+       bytes +191‎ imported from old wiki
+
+    11 June 2024
+
+     * curprev [ ] [ ] 12:2312:23, 11 June 2024‎ Voklen talk contribs‎ 4,791
+       bytes +120‎ The services.mastodon.streamingProcesses option is now
+       required for the mastodon service Tag: Visual edit
+
+    16 May 2024
+
+     * curprev [ ] [ ] 19:2819:28, 16 May 2024‎ Klinger talk contribs‎ m
+       4,671 bytes +25‎ added Category:ActivityPub
+     * curprev [ ] [ ] 19:2519:25, 16 May 2024‎ Klinger talk contribs‎ m
+       4,646 bytes +50‎ Category:Applications Category:Web Applications
+       Category:Server
+
+    16 March 2024
+
+     * curprev [ ] [ ] 21:1421:14, 16 March 2024‎ imported>NickBouwhuis‎ m
+       4,596 bytes +11‎ fix syntax
+     * curprev [ ] [ ] 21:1321:13, 16 March 2024‎ imported>NickBouwhuis‎
+       4,585 bytes +225‎ after creating an account, you need to approve it to
+       use it.
+
+    27 December 2023
+
+     * curprev [ ] [ ] 22:0422:04, 27 December 2023‎ imported>Onny‎ 4,360
+       bytes +173‎ Add usage section
+
+    24 November 2023
+
+     * curprev [ ] [ ] 20:1420:14, 24 November 2023‎ imported>Onny‎ 4,187
+       bytes +185‎ Add fix for Caddy need access to mastodon socket
+
+    23 June 2023
+
+     * curprev [ ] [ ] 12:3712:37, 23 June 2023‎ imported>Onny‎ m 4,002 bytes
+       +27‎ No edit summary
+     * curprev [ ] [ ] 12:3512:35, 23 June 2023‎ imported>Onny‎ m 3,975 bytes
+       +72‎ No edit summary
+     * curprev [ ] [ ] 12:3412:34, 23 June 2023‎ imported>Onny‎ m 3,903 bytes
+       −73‎ No edit summary
+     * curprev [ ] [ ] 12:3412:34, 23 June 2023‎ imported>Onny‎ m 3,976 bytes
+       −6‎ No edit summary
+     * curprev [ ] [ ] 12:3212:32, 23 June 2023‎ imported>Onny‎ 3,982 bytes
+       +251‎ Restructure and cleanup
+
+    27 March 2023
+
+     * curprev [ ] [ ] 16:2416:24, 27 March 2023‎ imported>Sefidel‎ 3,731
+       bytes −41‎ Since https://github.com/NixOS/nixpkgs/pull/203825,
+       mastodon-env has been replaced with mastodon-tootctl.
+
+    20 December 2022
+
+     * curprev [ ] [ ] 20:4520:45, 20 December 2022‎ imported>LeSuisse‎ 3,772
+       bytes +1,126‎ Add instructions to setup a minimal Mastodon instance
+
+    28 November 2022
+
+     * curprev [ ] [ ] 14:1714:17, 28 November 2022‎ imported>Erictapen‎
+       2,646 bytes −11‎ Specified that there is only one supported database
+       for Mastodon
+     * curprev [ ] [ ] 10:2210:22, 28 November 2022‎ imported>Turion‎ 2,657
+       bytes +517‎ Add section about setups
+
+    13 November 2022
+
+     * curprev [ ] [ ] 20:4220:42, 13 November 2022‎ imported>Cab404‎ m 2,140
+       bytes +44‎ Fix a silly mistake
+     * curprev [ ] [ ] 15:5415:54, 13 November 2022‎ imported>Cab404‎ m 2,096
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 15:4415:44, 13 November 2022‎ imported>Cab404‎ 2,097
+       bytes +1,446‎ Added instructions for Caddy
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:0706:07, 20 September 2021‎ imported>Nix‎ m 651
+       bytes +27‎ add Software/Applications subcategory
+
+    17 April 2021
+
+     * curprev [ ] [ ] 13:5213:52, 17 April 2021‎ imported>Mohe2015‎ 624
+       bytes +13‎ No edit summary
+     * curprev [ ] [ ] 13:5213:52, 17 April 2021‎ imported>Mohe2015‎ 611
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 13:5213:52, 17 April 2021‎ imported>Mohe2015‎ 611
+       bytes +611‎ Created page with " == Hints for running in your local
+       network for testing == If you get a Mastodon::HostValidationError when
+       trying to federate with another ActivitySub instance in your local..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Mastodon"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

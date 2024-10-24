@@ -1,0 +1,105 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                               File:ROCKPro64.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+   File:ROCKPro64.jpg
+   No higher resolution available.
+
+   ROCKPro64.jpg ‎(600 × 600 pixels, file size: 105 KB, MIME type:
+   image/jpeg)
+
+   Image of PINE64 RockPro64 from its product page.
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail       Dimensions User                Comment   
+                                                                    Image of  
+           03:08, 3  Thumbnail for                                  PINE64    
+   current February  version as of   600 × 600  Imported>Lopsided98 RockPro64 
+           2019      03:08, 3        (105 KB)                       from its  
+                     February 2019                                  product   
+                                                                    page.     
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/PINE64 ROCKPro64
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:ROCKPro64.jpg&oldid=11962"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

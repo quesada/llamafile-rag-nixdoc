@@ -1,0 +1,221 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+   ← Back
+
+                                 Marketing Team
+
+                                 Marketing Team
+
+Members
+
+     * Rok Garbas ( @garbas ) — Leader
+     * Thomas Bereknyei ( @tomberek )
+     * Ida Bzo ( @idabzo )
+     * Guillaume Desforges ( @arsleust )
+     * Dan Baker ( @djacu )
+     * Thilo Billerbeck ( @avocadoom )
+
+Contact
+
+     * Discourse
+     * Matrix
+     * Email
+
+   We are the Nix marketing team, and our mission to help grow the Nix user
+   base.
+
+Why we want growth
+
+   Growth is instrumental to something. What is that?
+
+   We strive to advance the state of the art in software engineering. That’s
+   why we’re using and contributing to Nix.
+
+   Ultimately, we’re interested in using and making software that is:
+
+     * more up-to-date
+     * more reliable
+     * easier to distribute
+     * easier to integrate
+     * easier to collaborate on.
+
+   We cannot achieve this alone. As the Nix marketing team, we believe that
+   talking about work done is as important as doing the work. This is where
+   we can help the Nix ecosystem to thrive.
+
+   We’re convinced that the more people know about Nix, the more people will
+   use Nix, and the more people will become contributors and maintainers. We
+   want to serve those people who are indispensable for maintaining and
+   developing the Nix ecosystem, by promoting their work and facilitating
+   communication with a wider audience.
+
+How we want to grow
+
+   Our strategy is for the Nix ecosystem to become known for something unique
+   we already excel at. This is what we will emphasize in order to attract
+   users.
+
+   This is not to set directions for development, but simply recognizing and
+   leveraging current strengths.
+
+  Target audience
+
+   Our target audience are software developers.
+
+   Nix tooling already fits developer use cases most closely, and it is
+   developers who will derive the most value from using Nix in its current
+   state. Developers are also more likely to become contributors, and
+   eventually maintainers. Finally, among our users, software professionals
+   have the greatest influence on organizations that can provide the
+   resources necessary to keep developing and maintaining the Nix ecosystem.
+
+  Communication strategy
+
+   Nix can do many things. If we start to talk about all of those things at
+   once, the message gets lost.
+
+   For example: There is only a limited amount of space on the landing page.
+   We will choose a narrow set of topics that best serve our purpose of
+   increasing adoption most effectively. The particular focus may change over
+   time as we move through the adoption life cycle for our target audience.
+
+How to measure growth
+
+   In order to know where we’re going, we need to know where we are.
+
+   Therefore, we will first collect metrics relevant to our mission,
+   separated into phases in the user journey:
+
+  Discovery phase
+
+     * Google Search trends
+     * Social media impressions
+     * Visits to the landing page
+
+  User phase
+
+     * Number of members and messages on the community platforms (Discourse,
+       Matrix, GitHub)
+     * Binary cache usage
+     * Number of queries on search.nixos.org
+     * Website statistics on documentation
+     * Community surveys
+
+  Contribution phase
+
+     * Number of contributors and forks
+     * Number of opened issues and pull requests
+
+Supporting contributors and community teams with outreach
+
+   If you’re working on improving the Nix ecosystem, the marketing team is
+   there to help you reach your audience.
+
+     * We encourage every team to produce a live stream or video recording
+       once in a while.
+
+       Get in touch to access our StreamYard account for broadcasting to
+
+          * YouTube
+          * LinkedIn
+          * Twitter
+          * Self-hosted Owncast on live.nixos.org
+     * Send us your announcements to be included in the monthly newsletter
+
+     * Send us your questions to be included in the yearly community survey
+
+Activities
+
+  Media outreach
+
+     * More posts on social media
+     * Revive the newsletter
+          * One post per month
+     * Publish more videos
+     * Write a content policy
+          * What to include, what not to; which language to use; define
+            audience personae
+
+  Community Survey
+
+     * Goal: publish in June
+
+Long-term goals
+
+     * Set up continuous collection and presentation of metrics
+     * Develop communication strategy and adoption plan for the Nix platform
+     * Establish a communication workflow to support community teams with
+       outreach
+     * Support appearances in podcasts, interviews, conferences, …
+     * Publish 12 newsletters per year
+     * Publish 4 video updates per year
+
+Get in touch
+
+   We are looking for additional members. We would especially appreciate
+   support by people interested in frontend development, content creation for
+   social media, and technical writing.
+
+   We would like to see the team being assembled from every corner of a Nix
+   community. To join the team please write an email to webmaster@nixos.org
+   trying to answer the following questions:
+
+     * Why would you like to join the team?
+     * Why are you interested in marketing Nix?
+     * What drives you?
+     * How would you contribute to the marketing team?
+     * What is your idea of what the marketing team will work on, this year?
+       Next year? Next 5 years?
+     * What could be a few easy fixes to the website that would solve
+       problems that you heard others complain about Nix/NixOS?
+
+   The answers are actually not used to judge people if they are good enough
+   to join, but to understand the person joining, their intent and their
+   vision. Since we will discuss many things that could be very bikeshedding,
+   it is important that we understand each other’s position and the context
+   they are arguing from.
+
+Meetings
+
+   You can expect at meetings to discuss things first in an abstract manner
+   (what are our goals) and only then get into more concrete proposals (how
+   do we achieve goals). Meetings will be scheduled as needed and as much as
+   the team has time, but at least once a month. Initially, it might happen
+   that we will meet more often until the whole idea of what a marketing team
+   is/does is bootstrapped. Minutes of the meetings will be published with
+   the potential agenda and the date of the next meeting.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

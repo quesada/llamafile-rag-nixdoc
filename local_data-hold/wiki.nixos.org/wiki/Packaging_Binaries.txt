@@ -1,0 +1,449 @@
+   Link: canonical
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Using AutoPatchelfHook
+          * 1.1 Additional Library Paths
+     * 2 Manual Method
+          * 2.1 Starting Point
+     * 3 The Dynamic Loader
+     * 4 Extra Dynamic Libraries
+     * 5 Creating the Derivation for upstream Packaging
+     * 6 Creating a Pull Request
+     * 7 autoPatchelfHook
+     * 8 Wrong file paths
+          * 8.1 Example
+          * 8.2 Finding the failing process
+     * 9 See also
+   [ ] Toggle the table of contents
+
+                               Packaging/Binaries
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   (Redirected from Packaging Binaries)
+
+   Downloading and attempting to run a binary on NixOS will almost never
+   work. This is due to hard-coded paths in the executable. Unfortunately,
+   almost all unfree and proprietary software comes in binary form - the main
+   reason to include binaries is because no source code is available. This
+   tutorial will guide you through packaging a binary executable.
+
+   If a downloaded binary is not packaged for NixOS then running the binary
+   may fail like the following:
+
+ $ ~/.local/share/nvim/mason/packages/rust-analyzer/rust-analyzer-x86_64-unknown-linux-gnu  --help
+ bash: /home/gdforj/.local/share/nvim/mason/packages/rust-analyzer/rust-analyzer-x86_64-unknown-linux-gnu: cannot execute: required file not found
+
+   Which indicates the interpreter, the dynamic loader in this case, could
+   not be located.
+
+Using AutoPatchelfHook
+
+   autoPatchelfHook is the current (as of 19.09) preferred way to package
+   binaries.
+
+  { stdenv, lib
+ , fetchurl
+ , alsaLib
+ , openssl
+ , zlib
+ , pulseaudio
+ , autoPatchelfHook
+ }:
+
+ stdenv.mkDerivation rec {
+   pname = "studio-link";
+   version = "21.07.0";
+
+   src = fetchurl {
+     url = "https://download.studio.link/releases/v${version}-stable/linux/studio-link-standalone-v${version}.tar.gz";
+     hash = "sha256-4CkijAlenhht8tyk3nBULaBPE0GBf6DVII699/RmmWI=";
+   };
+
+   nativeBuildInputs = [
+     autoPatchelfHook
+   ];
+
+   buildInputs = [
+     alsaLib
+     openssl
+     zlib
+     pulseaudio
+   ];
+
+   sourceRoot = ".";
+
+   installPhase = ''
+     runHook preInstall
+     install -m755 -D studio-link-standalone-v${version} $out/bin/studio-link
+     runHook postInstall
+   '';
+
+   meta = with lib; {
+     homepage = "https://studio-link.com";
+     description = "Voip transfer";
+     platforms = platforms.linux;
+   };
+ }
+
+   See this commit, or the example in method 5 of this answer, for more
+   details.
+
+  Additional Library Paths
+
+   Some packages may put their library files somewhere other than $out/lib/
+   in the install phase, while autoPatchelfHook by default only looks in that
+   one directory for every package in buildInputs. You can tell
+   autoPatchelfHook to look in additional directories by passing it to the
+   command addAutoPatchelfSearchPath in any phase before autoPatchelfHook is
+   run.
+
+   For example,
+
+   preBuild = ''
+     addAutoPatchelfSearchPath ${jre8}/lib/openjdk/jre/lib/
+   '';
+
+Manual Method
+
+   This sections describes the manual method of packaging a binary. It serves
+   as a reference on the packaging issue with binaries and how these issues
+   can be solved in nix derivations. This tutorial is about how to patch the
+   executable with patchelf which is sufficient for most cases. If no source
+   is available for a program patchelf is the preferred way in nixpkgs to add
+   support for the package.
+
+   However sometimes this is not enough, more hardcoded paths may be
+   scattered all over the place. For this you may need to set up an
+   FHSUserEnv, a Linux Standard Base style directory structure with a final
+   chroot call to fixate all paths. For a tutorial on how to use this
+   technique, check out Anders Papittos blog post on installing debian
+   packages in nixos.
+
+  Starting Point
+
+   We want to package a tool called "MasterPDFEditor", the package for debian
+   can be found at [1] (archive.org mirror). This tutorial assumes you run
+   nixos-17.09 or later (for nix-index to work).
+
+   Let's download the archive and unpack the archive in a nix shell for
+   testing:
+
+ $ nix-shell -p binutils stdenv wget dpkg nix-index \
+    stdenv.cc # stdenv.cc is required for setting $NIX_CC env
+ $ wget https://web.archive.org/web/20170914112947/http://get.code-industry.net/public/master-pdf-editor-4.3.10_qt5.amd64.deb
+ $ # we extract data.tar.xz from the deb package and untar it
+ $ dpkg-deb -x master-pdf-editor-4.3.10_qt5.amd64.deb .
+ $ ls opt/master-pdf-editor-4/
+ fonts  license.txt       masterpdfeditor4.png  templates
+ lang   masterpdfeditor4  stamps
+ $ # running the executable does not `just work`
+ $ opt/master-pdf-editor-4/masterpdfeditor4
+ bash: opt/master-pdf-editor-4/masterpdfeditor4: No such file or directory
+
+The Dynamic Loader
+
+   The binary has the dynamic loader ("ELF interpreter") set to a static path
+   which is in general not available under NixOS: /lib64/ld-linux-x86-64.so.2
+
+   We can use patchelf to show and set the library path and dynamic linker
+   appropriately:
+
+ $ cd opt/master-pdf-editor-4/
+ # the current interpreter
+ $ patchelf --print-interpreter masterpdfeditor4
+ # all the needed libraries
+ /lib64/ld-linux-x86-64.so.2
+
+   We start by patching the interpreter and see if the executable already
+   starts:
+
+ $ patchelf \
+       --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+       masterpdfeditor4
+ $ ./masterpdfeditor4
+ ./masterpdfeditor4: error while loading shared libraries: libsane.so.1: cannot open shared object file: No such file or directory
+
+   We went beyond the No such file or directory error, means that setting the
+   interpreter worked! Unfortunately we have new errors which show that some
+   shared objects cannot be found.
+
+Extra Dynamic Libraries
+
+   Just like before, the executable simply expects libraries to be available
+   in the Linux Standard Base(LSB) directories. Because Nix tries to avoid
+   impurity and global directories we also have to explicitly set the
+   libraries.
+
+   Patchelf can show the required libraries but we still have to set them
+   manually.
+
+ $ patchelf --print-needed masterpdfeditor4
+ libdl.so.2
+ librt.so.1
+ libsane.so.1
+ libQt5Svg.so.5
+ libQt5PrintSupport.so.5
+ libQt5Widgets.so.5
+ libQt5Gui.so.5
+ libQt5Network.so.5
+ libQt5Core.so.5
+ libGL.so.1
+ libpthread.so.0
+ libstdc++.so.6
+ libm.so.6
+ libgcc_s.so.1
+ libc.so.6
+ $ # now that the interpreter path is patched we can use ldd to find the libraries which are currently not found (check '=> not found'):
+ $ ldd masterpdfeditor4 | grep 'not found'
+         libsane.so.1 => not found
+         libQt5Svg.so.5 => not found
+         libQt5PrintSupport.so.5 => not found
+         libQt5Widgets.so.5 => not found
+         libQt5Gui.so.5 => not found
+         libQt5Network.so.5 => not found
+         libQt5Core.so.5 => not found
+         libstdc++.so.6 => not found
+
+   All the libraries which are not yet found are the ones we need to add to
+   the runtime search path of the executable (RPATH). Again we can use
+   patchelf to do this. We will be using nix-index for finding the files we
+   are looking for:
+
+ $ # we generate the database index of all files in our channel first
+ $ nix-index
+ + querying available packages
+ + generating index: 41977 paths found :: 15957 paths not in binary cache :: 00000 paths in queue
+ + wrote index of 21,621,061 bytes
+ # we use the power of nix-locate to find the packages which contain the file:
+ $ nix-locate -1 -w lib/libsane.so.1
+ (wineStaging.out)
+ saneBackends.out
+ saneBackendsGit.out
+ $ nix-locate -1 -w lib/libQt5Svg.so.5
+ libsForQt56.qtinstaller.out
+ qt56.qtsvg.out
+ qt5.qtsvg.out
+ qt56.full.out
+ libsForQt5.qtinstaller.out
+ $ nix-locate -1 -w lib/libQt5PrintSupport.so.5
+ robomongo.out
+ libsForQt56.qtinstaller.out
+ qt5.qtbase.out
+ qt56.qtbase.out
+ qt56.full.out
+ libsForQt5.qtinstaller.out
+ $ nix-locate -1 -w lib/libstdc++.so.6
+ # ...
+ # libsdtc++.so.6 is `special`, it resides in stdenv.cc.cc.lib (see other packages)
+
+   Unfortunately there is no "right" way to choose which package to actually
+   take, you can check out other derivations by grepping in nixpkgs.
+
+     Tip                                                                      
+     in case there are too many .so libraries, you may save time by automated 
+     approach, executing nix-de-generate for target application, which will   
+     produce list of nix packages (in nix expression) to satisfy dependencies 
+     of target application.                                                   
+
+   The next step is to create a library path for all these packages. We use
+   nix-repl to resolve the paths:
+
+ $ nix repl '<nixpkgs>'
+ # .out can be omitted because this is the default output for all packages
+ # makeLibraryPath outputs the correct path for each package to use as rpath
+ nix-repl> with pkgs; lib.makeLibraryPath [ saneBackends qt5.qtbase qt5.qtsvg stdenv.cc.cc.lib ]
+ "/nix/store/7lbi3gn351j4hix3dqhis58adxbmvbxa-sane-backends-1.0.25/lib:/nix/store/0990ls1p2nnxq6605mr9lxpps8p7qvw7-qtbase-5.9.1/lib:/nix/store/qzhn2svk71886fz3a79vklps781ah0lb-qtsvg-5.9.1/lib:/nix/store/snc31f0alikhh3a835riyqhbsjm29vki-gcc-6.4.0-lib/lib"
+
+   Let's try out the path we generated:
+
+ $ patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" --set-rpath /nix/store/7lbi3gn351j4hix3dqhis58adxbmvbxa-sane-backends-1.0.25/lib:/nix/store/0990ls1p2nnxq6605mr9lxpps8p7qvw7-qtbase-5.9.1/lib:/nix/store/qzhn2svk71886fz3a79vklps781ah0lb-qtsvg-5.9.1/lib:/nix/store/snc31f0alikhh3a835riyqhbsjm29vki-gcc-6.4.0-lib/lib   masterpdfeditor4
+ $ ./masterpdfeditor4
+ # SUCCESS!!!
+
+Creating the Derivation for upstream Packaging
+
+   Packaging is straight forward. We just have to add all the steps we did
+   into a simple derivation file. We call it package.nix and store it in the
+   checked out nixpkgs repository at pkgs/by-name/ma/master-pdf-editor The
+   content looks like this:
+
+ { stdenv, lib, qt5, saneBackends, makeWrapper, fetchurl }:
+ stdenv.mkDerivation rec {
+   name = "master-pdf-editor-${version}";
+   version = "4.3.10";
+
+   src = fetchurl {
+     url = "http://get.code-industry.net/public/master-pdf-editor-${version}_qt5.amd64.deb";
+     hash = "sha256-1z26qjhbiyz33rm7mp8ycgl5ka0v3v5lv5i5v0b5mx35arvx2zzy";
+   };
+   sourceRoot = ".";
+   unpackCmd = "dpkg-deb -x master-pdf-editor-${version}_qt5.amd64.deb .";
+
+   dontConfigure = true;
+   dontBuild = true;
+
+   installPhase = ''
+     runHook preInstall
+
+     mkdir -p $out/bin
+     cp -R usr/share opt $out/
+     # fix the path in the desktop file
+     substituteInPlace \
+       $out/share/applications/masterpdfeditor4.desktop \
+       --replace /opt/ $out/opt/
+     # symlink the binary to bin/
+     ln -s $out/opt/master-pdf-editor-4/masterpdfeditor4 $out/bin/masterpdfeditor4
+
+     runHook postInstall
+   '';
+   preFixup = let
+     # we prepare our library path in the let clause to avoid it become part of the input of mkDerivation
+     libPath = lib.makeLibraryPath [
+       qt5.qtbase        # libQt5PrintSupport.so.5
+       qt5.qtsvg         # libQt5Svg.so.5
+       stdenv.cc.cc.lib  # libstdc++.so.6
+       saneBackends      # libsane.so.1
+     ];
+   in ''
+     patchelf \
+       --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+       --set-rpath "${libPath}" \
+       $out/opt/master-pdf-editor-4/masterpdfeditor4
+   '';
+
+   meta = with lib; {
+     homepage = https://code-industry.net/masterpdfeditor/;
+     description = "a multifunctional PDF Editor";
+     license = licenses.unfree;
+     platforms = platforms.linux;
+     maintainers = [ your_name ];
+   };
+ }
+
+   Because we created a derivation which is meant to be called by callPackage
+   we can build the package now only via: nix-build -E '((import <nixpkgs>
+   {}).callPackage (import ./package.nix) { })' --keep-failed --no-out-link
+
+Creating a Pull Request
+
+   With this new package you can create a pull request for nixpkgs. Be aware
+   that binary distributions are frowned upon if the source is available.
+
+autoPatchelfHook
+
+   autoPatchelfHook can make the manual written patchelf invocations
+   unnecessary.
+
+Wrong file paths
+
+   Some programs will try to access hard-coded FHS file paths like /usr/lib
+   or /opt. Mostly though, this will produce silent No such file errors,
+   which can break the program.
+
+   To make these errors visible, we can use strace
+
+ strace --trace=file,process --follow-forks --string-limit=200 \
+   ./result/bin/some-program 2>strace.log
+
+ cat strace.log | grep -e 'No such file' -e 'execve("' \
+   | grep -v -E -e '(open|stat|access)(at)?\(.*"/nix/store/' \
+     -e resumed -e '/etc/ld-nix.so.preload'
+
+  Example
+
+ [pid 357679] openat(AT_FDCWD, "/opt/brother/Printers/hll3210cw/inf/lut/0600-k_cache17.bin", O_RDONLY) = -1 ENOENT (No such file or directory)
+ [pid 357679] openat(AT_FDCWD, "0600-k_cache17.bin", O_RDONLY) = -1 ENOENT (No such file or directory)
+
+   This means: process 357679 is trying to open file 0600-k_cache17.bin
+   either from the hard-coded path in /opt/brother/Printers/hll3210cw/inf/lut
+   or from the current workdir. So, as a quick fix, we could change the
+   working directory of the wrapped binary with makeWrapper:
+
+ makeWrapper <executable> <out_path> --run 'cd /nix/store/path/to/workdir'
+
+  Finding the failing process
+
+   How can we find which process is throwing the No such file error? Let's
+   search for the process ID and the exec syscall:
+
+ cat strace.log | grep 357679 | grep exec
+
+ [pid 357679] execve("/nix/store/ybl1pacslmhci9zy5qv95hshdgz6ihjl-brother-hll3210cw-1.0.2-0/opt/brother/Printers/hll3210cw/lpd/brhll3210cwfilter", ["/nix/store/ybl1pacslmhci9zy5qv95"..., "-pi", "/nix/store/ybl1pacslmhci9zy5qv95"..., "-rc", "/nix/store/ybl1pacslmhci9zy5qv95"...], 0x8ba010 /* 132 vars */ <unfinished ...>
+
+See also
+
+     * steam-run as a quick way to run binaries
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Packaging/Binaries&oldid=17455"
+   Categories:
+     * Tutorial
+     * Nixpkgs
+     * This page was last edited on 14 September 2024, at 19:24.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

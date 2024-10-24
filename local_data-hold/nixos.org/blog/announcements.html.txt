@@ -1,0 +1,1114 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              Blog / Announcements
+
+                              Blog / Announcements
+
+Paper “Imposing a Memory Management Discipline on Software Deployment” accepted
+for presentation at ICSE 2004!
+
+   - Published on Fri Jan 16 2004
+
+   The first Nix paper. ...
+
+Patching paper accepted for CBSE 2005
+
+   - Published on Thu Mar 17 2005
+
+   The paper “Efficient Upgrading in a Purely Functional Component Deployment
+   Model” has been accepted at CBSE 2005. It describes how we can deploy
+   updates to Nix packages efficiently, even if “fundamental” packages like
+   Glibc are updated (which cause a rebuild of all dependent packages), by
+   deploying binary patches between components in the Nix store. Includes
+   techniques such as patch chaining and computing deltas between archive
+   files. ...
+
+Service deployment paper accepted for SCM-12
+
+   - Published on Mon Aug 22 2005
+
+   The paper “Service Configuration Management” (accepted at the 12th
+   International Workshop on Software Configuration Management) describes how
+   we can rather easily deploy “services” (e.g., complete webserver
+   configurations such as our Subversion server) through Nix by treating the
+   non-component parts (such as configuration files, control scripts and
+   static data) as components that are built by Nix expressions. The result
+   is that all advantages that Nix offers to software deployment also extend
+   to service deployment, such as the ability to easily have multiple
+   configuration side by side, to roll back configurations, and to identify
+   the precise dependencies of a configuration. ...
+
+Secure sharing paper accepted for ASE 2005
+
+   - Published on Sun Aug 28 2005
+
+   The paper “Secure Sharing Between Untrusted Users in a Transparent
+   Source/Binary Deployment Model” has been accepted at ASE 2005. This paper
+   describes how a Nix store can be securely shared by multiple users who may
+   not trust each other; i.e., how do we prevent one user from installing a
+   Trojan horse that is subsequently executed by some other user? ...
+
+Nix 0.9 released
+
+   - Published on Sun Oct 16 2005
+
+   Nix 0.9 has been released. This is a new major release that provides quite
+   a few performance improvements and bug fixes, as well as a number of new
+   features. Read the release notes for details. ...
+
+Nix 0.9.2 released
+
+   - Published on Fri Oct 21 2005
+
+   Nix 0.9.2 has been released released. This is a bug fix release that
+   addresses some problems on Mac OS X. ...
+
+PhD thesis defended
+
+   - Published on Sat Feb 18 2006
+
+   Eelco Dolstra defended his PhD thesis on the purely functional deployment
+   model. ...
+
+Nixpkgs 0.9 released
+
+   - Published on Fri Mar 03 2006
+
+   Nixpkgs 0.9 has been released. ...
+
+Nix 0.10 released
+
+   - Published on Mon Nov 06 2006
+
+   Nix 0.10 has been released. This release has many improvements and bug
+   fixes; see the release notes for details. ...
+
+Nix 0.10.1 released
+
+   - Published on Sat Nov 11 2006
+
+   Nix 0.10.1 has been released. It fixes two obscure bugs that shouldn’t
+   affect most users. ...
+
+Nixpkgs 0.10 released
+
+   - Published on Sun Nov 12 2006
+
+   Nixpkgs 0.10 has been released. See the release notes for details. ...
+
+New build farm hardware at TUD
+
+   - Published on Fri Feb 23 2007
+
+   To quote Eelco Visser: new hardware for buildfarm at Delft University of
+   Technology has arrived. Here’s what we have: 5 Intel Core 2 Duo DualCore
+   machines with 1GB RAM, 2 Mac minis with 1,83-GHz Intel Core Duo-processor,
+   another Core 2 Duo a UPS to deal with spikes in power supply, a console
+   with integrated monitor and keyboard switches, a rack with room for a
+   couple more machines. Here’s what we’re going to do with the goodies. The
+   five Intel machines and the two MacMinis (also Intel) are going to be used
+   to crank at building hundreds of software packages. Using virtualisation
+   we should be able to run builds on multiple operating system
+   distributions. Read more… ...
+
+NixOS for x86_64
+
+   - Published on Fri Feb 23 2007
+
+   NixOS now works on x86_64 machines. A 64-bit ISO is available. ...
+
+NixOS manual
+
+   - Published on Mon Mar 19 2007
+
+   There is now some basic documentation for NixOS. ...
+
+NixOS progress report
+
+   - Published on Thu Apr 05 2007
+
+   NixOS is now almost usable as a desktop OS ;-). We have an X server, a
+   bunch of Gnome packages, basic wireless support, and of course all the
+   applications in Nixpkgs that we had all along running on other Linux
+   distributions. Here are a few screenshots: X server with Compiz window
+   manager. Emacs and a few terminals showing off the (near) absence of /lib,
+   /bin etc.; everything is in the Nix store. Some applications. ...
+
+NixOS progress report
+
+   - Published on Wed May 02 2007
+
+   We now have KDE running on NixOS (obligatory screenshot). Just kdebase for
+   now (Martin Bravenboer already added kdelibs a long time ago so that we
+   could run the wonderful KCachegrind), but it contains all the important
+   stuff (Konqueror, KDesktop, Kicker, Konsole, Control Center, etc.). In
+   related news, we can safely say that, rumours to the contrary
+   notwithstanding, NixOS is not an April Fools’ Joke. ...
+
+HotOS paper on NixOS
+
+   - Published on Fri Jun 08 2007
+
+   Eelco Dolstra presented the paper Purely Functional System Configuration
+   Management at the 11th Workshop on Hot Topics in Operating Systems (HotOS
+   XI). It gives an overview of the ideas behind NixOS. The slides are also
+   available. ...
+
+Commits mailing list
+
+   - Published on Fri Sep 14 2007
+
+   There is now a mailing list (nix-commits@cs.uu.nl) that you can subscribe
+   to if you want to receive automatic commit notifications from the Nix
+   Subversion repository. ...
+
+NixOS progress report
+
+   - Published on Sat Sep 22 2007
+
+   Wine now runs on NixOS! Finally we can run all those legacy
+   applications... Thanks to Michael Raskin for adding Wine and a
+   NPTL-enabled Glibc (which Wine seems to need). This is a nice application
+   of purely functional package composition, by the way: Wine didn’t work
+   with the standard Glibc in Nixpkgs, so we just pass it another Glibc at
+   build time. In other news, Nix 0.11 and Nixpkgs 0.11 will be released
+   soon. ...
+
+OpenOffice in Nixpkgs
+
+   - Published on Wed Oct 10 2007
+
+   OpenOffice is now in Nixpkgs (screenshot of OpenOffice 2.2.1 running under
+   NixOS, and another screenshot). Despite being a rather gigantic package
+   (it takes two hours to compile on an Intel Core 2 6700), OpenOffice had
+   only two “impurities” (references to paths outside of the Nix store) in
+   its build process that had to be resolved — a reference to /bin/bash and
+   one to /usr/lib/libjpeg.so. Armijn Hemel, Wouter den Breejen and Eelco
+   Dolstra contributed to the Nix expression for OpenOffice. ...
+
+Nixpkgs 0.11 released
+
+   - Published on Fri Oct 12 2007
+
+   Nixpkgs 0.11 has been released. See the release notes for details. ...
+
+Nix 0.11 released
+
+   - Published on Thu Jan 31 2008
+
+   Nix 0.11 has been released. This is a major new release representing over
+   a year of development. The most important improvement is secure multi-user
+   support. It also features many usability enhancements and language
+   extensions, many of them prompted by NixOS, the purely functional Linux
+   distribution based on Nix. See the release notes for details. ...
+
+New NixOS ISOs
+
+   - Published on Wed Feb 06 2008
+
+   New NixOS installation CD images for i686 and x86_64 are available, which
+   is a good thing as the previous ones were already a few months old. The
+   new images are Nix 0.11-based, contain Memtest86+ as a convenience, should
+   support more SATA drives, and show online help (the NixOS manual) on
+   virtual console 7. ...
+
+Jacquard grant proposal accepted!
+
+   - Published on Fri Mar 14 2008
+
+   The Jacquard program of NWO and EZ has granted funding for the Nix-related
+   project “Pull Deployment of Services” (PDS), which is about improving the
+   deployment of software and services in complex heterogenous environments.
+   The grant consists of 368 K€ for a PhD student (4 years) and a postdoc (3
+   years). If you’re interested in these positions, please have a look at
+   this page, and don’t hesitate to contact Eelco Visser or Eelco Dolstra.
+   ...
+
+LDTA 2008 paper
+
+   - Published on Mon May 05 2008
+
+   Eelco Dolstra presented the paper “Maximal Laziness — An Efficient
+   Interpretation Technique for Purely Functional DSLs” at 8th Workshop on
+   Language Description, Tools and Applications (LDTA 2008). It’s about
+   caching of evaluation results in the Nix expression evaluator as a
+   technique to make a simple term-rewriting evaluator efficient. Slides are
+   here. ...
+
+Website / SVN repositories moved
+
+   - Published on Sun May 25 2008
+
+   The Nix website has moved to nixos.org (hosted at TU Delft). The
+   Subversion repositories have moved to svn.nixos.org. See this mailing list
+   posting for information about moving existing SVN working copies. ...
+
+Website back up
+
+   - Published on Fri Jun 06 2008
+
+   The Nix website was down for a few days due to cooling problems in the
+   server room causing the machine to overheat. These should be resolved now.
+   Apologies for the inconvenience. ...
+
+NixOS paper accepted at ICFP!
+
+   - Published on Wed Jul 16 2008
+
+   The paper “NixOS: A Purely Functional Linux Distribution” (by Eelco
+   Dolstra and Andres Löh) has been accepted for presentation at the 2008
+   International Conference on Functional Programming (ICFP). It describes
+   NixOS in much greater detail than last year’s HotOS paper, and argues why
+   the purely functional style and features such as laziness are important
+   for system configuration management. It also provides some measurements on
+   the actual purity of Nix build actions. A draft of the paper is available.
+   ...
+
+DisNix paper accepted at HotSWUp
+
+   - Published on Thu Oct 09 2008
+
+   The paper “Atomic Upgrading of Distributed Systems” (by Sander van der
+   Burg, Eelco Dolstra and Merijn de Jonge) has been accepted for
+   presentation at the First ACM Workshop on Hot Topics in Software Upgrades
+   (HotSWUp). A draft of the paper is available. It describes Sander’s
+   master’s thesis research on DisNix, an extension to Nix that allows
+   deployment and upgrading of distributed systems from a single declarative
+   description. We will continue this research in the Jacquard PDS project,
+   which has now started. (We still have an opening for a PhD student or a
+   postdoc; please contact us if you’re interested.) ...
+
+Nix 0.12 released
+
+   - Published on Sun Dec 21 2008
+
+   Nix 0.12 has been released. The most important change is that Nix no
+   longer needs Berkeley DB to store metadata, but there are many other
+   improvements. See the release notes for details. ...
+
+Linux.com article about Nix
+
+   - Published on Thu Jan 22 2009
+
+   There is an article on Linux.com about Nix: “Nix fixes dependency hell on
+   all Linux distributions”. ...
+
+Hydra
+
+   - Published on Thu Feb 05 2009
+
+   Nix and NixOS releases are now built in Hydra, the new Nix-based
+   continuous build system. Hydra replaces our old Nix-based build farm,
+   which will be phased out soon. There are several advantages over the old
+   build farm: the build tasks for a project are scheduled and published
+   separately, so that for instance a (fast) tarball build doesn’t have to
+   wait for a (slow) Cygwin build; build results are stored in a database,
+   which will enable all sorts of interesting queries; better error
+   reporting; a better web interface; and much more. We have written a draft
+   paper about Hydra. There are some instructions available about how to set
+   up your own Hydra server. ...
+
+KDE 4.2 in Nixpkgs/NixOS
+
+   - Published on Thu May 07 2009
+
+   We now have a fairly complete set of KDE 4.2 packages in Nixpkgs and
+   NixOS. Previously we had KDE 3.5, but it was rather incomplete: just
+   kdelibs and kdebase. Now we have all that desktop goodness, such as
+   kdemultimedia, kdenetwork and kdegames. You can enable KDE 4 in NixOS by
+   setting the services.xserver.sessionType option to kde4. Thanks go to Yury
+   G. Kudryashov, Andrew Morsillo and Sander van der Burg for doing the hard
+   work on adding KDE 4 to Nixpkgs. (Screenshot 1, screenshot 2) ...
+
+OpenOffice.org 3 in Nixpkgs
+
+   - Published on Thu May 21 2009
+
+   Lluís Batlle has updated OpenOffice.org in Nixpkgs to 3.0.1 (screenshot).
+   ...
+
+Nixpkgs 0.12 released
+
+   - Published on Sun May 24 2009
+
+   Nixpkgs 0.12 has been released. See the release notes for details.
+   Meanwhile, the Nixpkgs trunk has been updated to GCC 4.3.3, Glibc 2.9 and
+   X.org 7.4. ...
+
+LWN.net article on NixOS
+
+   - Published on Sun Jul 26 2009
+
+   LWN.net has an article about NixOS written by Koen Vervloesem. ...
+
+Nix 0.13 released
+
+   - Published on Sat Dec 05 2009
+
+   Nix 0.13 has been released. This is mostly a bug fix release, although it
+   also adds some new language features. See the release notes for details.
+   For installation information, see the manual. ...
+
+Nix logo
+
+   - Published on Fri Dec 25 2009
+
+   Long overdue, the Nix project finally has a logo! The logo was originally
+   created by Simon Frankau for the Haskell logo competition, who kindly gave
+   us permission to use it for the Nix project. (The snowflake motif is even
+   more appropriate for Nix, because nix is Latin for snow.) Any further
+   modifications are entirely our fault. ...
+
+Nix 0.14 released
+
+   - Published on Thu Mar 04 2010
+
+   Nix 0.14 has been released. This is primarily a bug fix release. See the
+   release notes for details. For installation information, see the manual.
+   ...
+
+Nix 0.15 released
+
+   - Published on Sat Apr 17 2010
+
+   Nix 0.15 has been released. This is a bug fix release. See the release
+   notes for details. For installation information, see the manual. ...
+
+NixOS talk at LSM
+
+   - Published on Mon Aug 09 2010
+
+   Ludovic Courtès gave a talk about Nix and NixOS at the Libre Software
+   Meeting in Bordeaux, entitled “NixOS: The Only Functional GNU/Linux
+   Distribution” (slides). ...
+
+Nix 0.16 released
+
+   - Published on Fri Sep 17 2010
+
+   Nix 0.16 has been released, featuring a much faster evaluator and support
+   for configurable parallelism inside builders. See the release notes for
+   details. For installation information, see the manual. ...
+
+ISSRE paper on NixOS-based system testing
+
+   - Published on Sat Sep 18 2010
+
+   The paper “Automating System Tests Using Declarative Virtual Machines” (by
+   Sander van der Burg and Eelco Dolstra) has been accepted for presentation
+   at the 21st IEEE International Symposium on Software Reliability
+   Engineering (ISSRE 2010). It describes how system tests with complex
+   requirements on the environment (such as remote machines, network
+   topologies, system services or root privileges) can be written succinctly
+   using declarative specifications of the machines needed by the test
+   environment. From these specifications we can automatically instantiate
+   (networks of) virtual machines. This is what we use for automated
+   regression testing of NixOS itself. A draft of the paper is available. ...
+
+Xfce in NixOS
+
+   - Published on Sat Sep 18 2010
+
+   NixOS now supports Xfce, a modern, light-weight desktop environment. It
+   can be enabled by setting the NixOS configuration value
+   services.xserver.desktopManager.xfce.enable to true. (Screenshot) ...
+
+FOSDEM talk about NixOS
+
+   - Published on Sat Mar 05 2011
+
+   Sander van der Burg gave a talk about NixOS at the CrossDistro track of
+   FOSDEM (video, slides). ...
+
+Nix-dev mailing list moved
+
+   - Published on Fri Oct 14 2011
+
+   The nix-dev mailing list has moved. The address is now
+   nix-dev@lists.science.uu.nl (web interface). ...
+
+Moving to GitHub
+
+   - Published on Mon Nov 28 2011
+
+   The NixOS project is (slowly) migrating from Subversion to Git! The master
+   repositories will be hosted in the NixOS organization on GitHub. For the
+   moment, just a few subprojects have been migrated, such as Hydra and
+   Charon. Thanks to Tianyi Cui for donating the NixOS GitHub organization.
+   ...
+
+Hydra talk at Inria
+
+   - Published on Sat Dec 03 2011
+
+   Ludovic Courtès gave a talk on Hydra at Inria (which has its own Hydra
+   instance for building Inria software) entitled “Hydra: continuous
+   integration for demanding people”. ...
+
+PatchELF 0.6 released
+
+   - Published on Wed Dec 07 2011
+
+   PatchELF 0.6 has been released. Apart from some bug fixes, it adds support
+   for executables produced by the Gold linker. See the README for details.
+   ...
+
+Nix 1.0 released
+
+   - Published on Mon Jun 11 2012
+
+   After almost two years of development, Nix 1.0 has been released. See the
+   release notes for an overview of the most important improvements. For
+   installation information, see the manual. ...
+
+Binary Nix tarballs available
+
+   - Published on Sun Jun 24 2012
+
+   Our continuous build system, Hydra, now produces binary tarball
+   distributions of Nix for Mac OS X (Darwin), FreeBSD and Linux. The
+   tarballs contain all dependencies of Nix, making it a lot easier to
+   install Nix on those platforms. To install, download a binary tarball,
+   unpack it in the root directory, then run nix-finish-install. See the
+   manual for more information. ...
+
+Nix 1.1 released
+
+   - Published on Sat Aug 18 2012
+
+   Nix 1.1 has been released. See the release notes for details. For
+   installation information, see the manual. ...
+
+Nix 1.2 released
+
+   - Published on Sun Jan 06 2013
+
+   Nix 1.2 has been released. See the release notes for details. For
+   installation information, see the manual. ...
+
+Nix 1.3 released
+
+   - Published on Tue Feb 05 2013
+
+   Nix 1.3 has been released. This is primarily a bug fix release. See the
+   release notes for details. For installation information, see the manual.
+   ...
+
+NixOS switched to systemd
+
+   - Published on Thu Feb 21 2013
+
+   NixOS has switched from Upstart to systemd! Systemd brings many advantages
+   such as better dependency management, socket-based activation of services,
+   per-service logging, cgroup-based process management, and much more. (Read
+   the announcement.) ...
+
+Nix 1.4 released
+
+   - Published on Tue Mar 26 2013
+
+   Nix 1.4 has been released. This is primarily a bug fix release that
+   addresses a security problem in multi-user mode. See the release notes for
+   details. For installation information, see the manual. ...
+
+Nix 1.5.1 released
+
+   - Published on Thu Mar 28 2013
+
+   Nix 1.5.1 has been released. It fixes a regression introduced in Nix 1.4.
+   See the release notes for details. ...
+
+Nix 1.5.2 released
+
+   - Published on Thu Jun 13 2013
+
+   Nix 1.5.2 has been released. This is a bug fix release. ...
+
+PhD thesis: A Reference Architecture for Distributed Software Deployment
+
+   - Published on Wed Jul 03 2013
+
+   Today Sander van der Burg successfully defended his PhD thesis entitled A
+   Reference Architecture for Distributed Software Deployment! It describes
+   (among other things) Disnix, a system for deployment of service-oriented
+   architectures. ...
+
+Nix 1.5.3 released
+
+   - Published on Wed Jul 17 2013
+
+   Nix 1.5.3 has been released. This is primarily a bug fix release. See the
+   release notes for details. ...
+
+NixOps 1.0 released
+
+   - Published on Thu Jul 25 2013
+
+   NixOps 1.0 has been released, the inaugural release of the NixOS cloud
+   deployment tool. See the announcement and the manual for details. ...
+
+NixOS presentation at EuroPython
+
+   - Published on Mon Aug 05 2013
+
+   Domen Kožar gave a presentation at EuroPython 2013: “NixOS Operating
+   System: Declarative Configuration Distribution”. ...
+
+NixOps 1.0.1 released
+
+   - Published on Sun Aug 11 2013
+
+   NixOps 1.0.1 has been released, a minor bug fix release. See the manual
+   for details. ...
+
+NixOS sprint in Slovenia
+
+   - Published on Thu Aug 15 2013
+
+   A sprint focused on NixOS and Kotti will be held 22-26 July 2013 in Lokve,
+   Slovenia. It is organised by Termitnjak and sponsored by LogicBlox. ...
+
+NixOps 1.1 released
+
+   - Published on Wed Oct 09 2013
+
+   NixOps 1.1 has been released. This release brings a backend for Hetzner, a
+   German data center provider, support for EC2 spot instances and some minor
+   bugfixes. See the manual for details. ...
+
+Nix 1.6 released
+
+   - Published on Thu Oct 10 2013
+
+   Nix 1.6 has been released. See the release notes for details. ...
+
+NixOps 1.1.1 released
+
+   - Published on Sat Nov 02 2013
+
+   NixOps 1.1.1 has been released. This release consists mostly of minor
+   bugfixes. See the manual for details. ...
+
+NixOS sources merged into Nixpkgs
+
+   - Published on Sun Nov 10 2013
+
+   The NixOS Git tree has been merged into the Nixpkgs tree in order to
+   simplify development. The sources now live in the nixos subdirectory of
+   the Nixpkgs repository on GitHub. See the announcement for more
+   information. ...
+
+Nix 1.6.1 released
+
+   - Published on Thu Nov 28 2013
+
+   Nix 1.6.1 has been released. This is primarily a bug fix release but has
+   some minor new features. See the release notes for details. ...
+
+NixOS 13.10 released
+
+   - Published on Sun Dec 01 2013
+
+   We have released NixOS 13.10, the first stable branch of NixOS. Its goal
+   is to provide a safe branch for production environments that need bug
+   fixes and security updates, but not the potentially destabilising changes
+   that sometimes occur on the unstable branch. You can get NixOS 13.10 ISOs
+   and VirtualBox appliances from the download page. See the announcement for
+   more information. For information on how to switch an existing NixOS
+   machine from the unstable channel to 13.10, check out the manual section
+   on upgrading. ...
+
+Stdenv updates branch merged into master
+
+   - Published on Fri Feb 21 2014
+
+   The stdenv-updates branch has been merged into the master branch of
+   Nixpkgs. The main change are that brings is that Nixpkgs/NixOS are now
+   based on GCC 4.8 and Glibc 2.18, in addition to many smaller updates. ...
+
+FOSDEM talks
+
+   - Published on Sun Mar 02 2014
+
+   Domen Kožar gave a talk at FOSDEM about NixOS (video). Also, Ludovic
+   Courtès gave a talk on Guix, the Nix- and Guile-based package manager. ...
+
+Heartbleed vulnerability in OpenSSL
+
+   - Published on Fri May 09 2014
+
+   A serious security vulnerability has been discovered in OpenSSL. All
+   stable NixOS releases prior to version 13.10.35708.15a465c are vulnerable.
+   (You can see your current version by running nixos-version.) To upgrade to
+   the latest NixOS version, run nixos-rebuild switch --upgrade. You can
+   verify whether you are safe by running $ nix-store -qR /run/current-system
+   | grep openssl If this shows any OpenSSL version prior to 1.0.1g, you may
+   be vulnerable. ...
+
+Nix 1.7 released
+
+   - Published on Sun May 11 2014
+
+   Nix 1.7 has been released. See the release notes for a list of new
+   features. ...
+
+NixOps 1.2 released
+
+   - Published on Fri May 30 2014
+
+   NixOps 1.2 has been released. This release contains contains many nice new
+   features. See the manual for details. ...
+
+NixOS 14.04 released
+
+   - Published on Fri May 30 2014
+
+   NixOS 14.04 “Baboon” has been released, the second stable release branch.
+   It brings Linux 3.12, systemd 212, GCC 4.8, Glibc 2.19, KDE 4.12,
+   light-weight NixOS containers, and much more. See the release notes for
+   details. You can get NixOS 14.04 ISOs and VirtualBox appliances from the
+   download page. For information on how to upgrade a 13.10 system to 14.04,
+   check out the manual section on upgrading. ...
+
+NixOS sprint in Ljubljana
+
+   - Published on Sat Aug 30 2014
+
+   We’re having a NixOS sprint at the Kiberpipa hackerspace in Ljubljana,
+   Slovenia, on August 23—27. Joining is free! For more information and to
+   register, please go to the sprint page. ...
+
+Nix 1.8 released
+
+   - Published on Wed Jan 14 2015
+
+   Nix 1.8 has been released. See the release notes for a list of changes and
+   new features. ...
+
+NixOS 14.12 released
+
+   - Published on Fri Jan 30 2015
+
+   NixOS 14.12 “Caterpillar” has been released, the third stable release
+   branch. It brings Linux 3.14, systemd 217, Glibc 2.20, KDE 4.14.1, and
+   much more. See the release notes for details. You can get NixOS 14.12 ISOs
+   and VirtualBox appliances from the download page. For information on how
+   to upgrade from older release branches to 14.12, check out the manual
+   section on upgrading. ...
+
+Nix 1.9 released
+
+   - Published on Sun Jul 12 2015
+
+   Nix 1.9 has been released. See the release notes for a list of changes and
+   new features. ...
+
+NixOS Foundation
+
+   - Published on Sun Aug 09 2015
+
+   The NixOS Foundation was started to improve our ability to maintain and
+   extend the infrastructure used by the Nix related projects. If you would
+   like to support us, please go here and donate some money! ...
+
+NixCon 2015
+
+   - Published on Thu Sep 03 2015
+
+   We're happy to announce that NixCon 2015, the first Nix Conference, will
+   take place on November 14—15th 2015 in Berlin. For more information, see
+   the NixCon website. And please consider submitting a talk! ...
+
+Nix 1.10 released
+
+   - Published on Sat Oct 03 2015
+
+   Nix 1.10 has been released. See the release notes for a list of changes
+   and new features. ...
+
+NixOS 15.09 released
+
+   - Published on Fri Oct 30 2015
+
+   NixOS 15.09 “Dingo” has been released, the fourth stable release branch.
+   See the release notes for details. You can get NixOS 15.09 ISOs and
+   VirtualBox appliances from the download page. For information on how to
+   upgrade from older release branches to 15.09, check out the manual section
+   on upgrading. ...
+
+Nix 1.11 released
+
+   - Published on Fri Feb 19 2016
+
+   Nix 1.11 has been released. See the release notes for a list of changes
+   and new features. ...
+
+NixOS 16.03 released
+
+   - Published on Sun May 01 2016
+
+   NixOS 16.03 “Emu” has been released, the fifth stable release branch. See
+   the release notes for details. You can get NixOS 16.03 ISOs and VirtualBox
+   appliances from the download page. For information on how to upgrade from
+   older release branches to 16.03, check out the manual section on
+   upgrading. ...
+
+NixOps 1.4 released
+
+   - Published on Wed Jul 20 2016
+
+   NixOps 1.4 has been released. This release contains contains many nice new
+   features. See the manual for details. ...
+
+NixOS 16.09 released
+
+   - Published on Mon Oct 03 2016
+
+   NixOS 16.09 “Flounder” has been released, the sixth stable release branch.
+   See the release notes for details. You can get NixOS 16.09 ISOs and
+   VirtualBox appliances from the download page. For information on how to
+   upgrade from older release branches to 16.09, check out the manual section
+   on upgrading. ...
+
+NixOS 17.03 released
+
+   - Published on Fri Mar 31 2017
+
+   NixOS 17.03 “Gorilla” has been released, the seventh stable release
+   branch. See the release notes for details. You can get NixOS 17.03 ISOs
+   and VirtualBox appliances from the download page. For information on how
+   to upgrade from older release branches to 17.03, check out the manual
+   section on upgrading. ...
+
+NixCon 2017
+
+   - Published on Sun Jun 18 2017
+
+   We're happy to announce that NixCon 2017, the second Nix Conference, will
+   take place October 28–31 2017 in Munich For more information, see the
+   NixCon 2017 website. And please consider submitting a talk! ...
+
+Nix-dev mailing list moved
+
+   - Published on Wed Jul 12 2017
+
+   The nix-dev mailing list has moved to nix-devel on Google Groups. ...
+
+NixOS 17.09 released
+
+   - Published on Mon Oct 02 2017
+
+   NixOS 17.09 “Hummingbird” has been released, the eigth stable release
+   branch. See the release notes for details. You can get NixOS 17.09 ISOs
+   and VirtualBox appliances from the download page. For information on how
+   to upgrade from older release branches to 17.09, check out the manual
+   section on upgrading. ...
+
+Nix 2.0 released
+
+   - Published on Thu Feb 22 2018
+
+   Nix 2.0 has been released. See the release notes for a list of changes and
+   new features. ...
+
+NixOS 18.03 released
+
+   - Published on Wed Apr 04 2018
+
+   NixOS 18.03 “Impala” has been released, the ninth stable release branch.
+   See the release notes for details. You can get NixOS 18.03 ISOs and
+   VirtualBox appliances from the download page. For information on how to
+   upgrade from older release branches to 18.03, check out the manual section
+   on upgrading. ...
+
+NixCon 2018
+
+   - Published on Mon May 21 2018
+
+   We're happy to announce that NixCon 2018, the third Nix Conference, will
+   take place October 25-27 2018 in London For more information, see the
+   NixCon 2018 website. And please consider submitting a talk! ...
+
+NixOS Discourse forum
+
+   - Published on Tue Aug 14 2018
+
+   The nix-devel mailing list is now replaced by our discourse forum instance
+   which is also usable by email: discourse.nixos.org. ...
+
+Nix 2.1 released
+
+   - Published on Sun Sep 02 2018
+
+   Nix 2.1 has been released. See the release notes for a list of changes and
+   new features. ...
+
+Fastly supports NixOS
+
+   - Published on Thu Oct 04 2018
+
+   We are happy to announce that we have moved our binary cache to Fastly.
+   Fastly is a big supporter of open source projects and now NixOS is one of
+   them! Fastly provides us with CDN capability, which previously was running
+   on AWS CloudFront. Big thanks go to Fastly, in particular Tom Denniston
+   and Elaine Greenberg, our friends at Infor and Packet.com and Graham
+   Christensen for making this possible. ...
+
+NixOS 18.09 released
+
+   - Published on Sat Oct 06 2018
+
+   NixOS 18.09 “Jellyfish” has been released, the tenth stable release
+   branch. See the release notes for details. You can get NixOS 18.09 ISOs
+   and VirtualBox appliances from the download page. For information on how
+   to upgrade from older release branches to 18.09, check out the manual
+   section on upgrading. ...
+
+NixOS 19.03 released
+
+   - Published on Wed Apr 10 2019
+
+   NixOS 19.03 “Koi” has been released, the eleventh stable release branch.
+   See the release notes for details. You can get NixOS 19.03 ISOs and
+   VirtualBox appliances from the download page. For information on how to
+   upgrade from older release branches to 19.03, check out the manual section
+   on upgrading. ...
+
+NixOS 19.09 released
+
+   - Published on Wed Oct 09 2019
+
+   NixOS 19.09 “Loris” has been released, the twelfth stable release branch.
+   See the release notes for details. You can get NixOS 19.09 ISOs and
+   VirtualBox appliances from the download page. For information on how to
+   upgrade from older release branches to 19.09, check out the manual section
+   on upgrading. ...
+
+NixOS 20.03 released
+
+   - Published on Mon Apr 20 2020
+
+   Hey everyone, I am worldofpeace, one of the release managers for 20.03. As
+   promised, the most glittered stable release is here: NixOS 20.03 “Markhor”
+   ✨. Release notes Upgrade instructions Image downloads NixOS 20.03
+   Contributors...
+
+NixOS 20.09 released
+
+   - Published on Tue Oct 27 2020
+
+   Hey everyone, I'm Jonathan Ringer, one of the release managers for 20.09.
+   As promised, the latest stable release is here: NixOS 20.09 “Nightingale”
+   ✨. Release manual Highlights New Services Backward Incompatibilities...
+
+NixOS 21.05 released
+
+   - Published on Tue Jun 01 2021
+
+   Hey everyone, I'm Jonathan Ringer, the release manager for 21.05. As
+   promised, the latest stable release is here: NixOS 21.05 “Okapi”. Release
+   manual Highlights New Services Backward Incompatibilities...
+
+NixOS 21.11 released
+
+   - Published on Tue Nov 30 2021
+
+   Hey everyone, we're Timothy DeHerrera and Tom Bereknyei, the release
+   managers for 21.11. As promised, the latest stable release is here: NixOS
+   21.11 “Porcupine”. Release manual Highlights New Services Backward
+   Incompatibilities...
+
+Nix 2.6.0 released
+
+   - Published on Wed Jan 26 2022
+
+   We're pleased to announce the availability of Nix 2.6.0. Instructions how
+   to install Nix on different platforms can be found on the download page.
+   Here are the release notes: New builtin function builtins.zipAttrsWith
+   with the same functionality as lib.zipAttrsWith from Nixpkgs, but much
+   more efficient. The Nix CLI now searches for a flake.nix up until the root
+   of the current Git repository or a filesystem boundary rather than just in
+   the current directory. The TOML parser used by builtins.fromTOML has been
+   replaced by a more compliant one. Added :st/:show-trace commands to nix
+   repl, which are used to set or toggle display of error traces....
+
+NixOS Community Survey 2022
+
+   - Published on Tue Mar 01 2022
+
+   The NixOS Marketing Team is pleased to announce the first offical NixOS
+   Community Survey. Please take 5-10 minutes to complete it. Since the Nix
+   community has been growing faster and larger every month, it's gotten
+   harder to understand who makes up the community and what everyone cares
+   about. So we're conducting this survey to improve our understanding of
+   those questions. We hope to use your responses to develop Nix, NixOS, and
+   Nixpkgs to match your needs and come up with new ideas for growing and
+   serving the community. And we'll publish major findings on Discourse and
+   nixos.org. All the questions are optional, and all responses are
+   automatically anonymized. We will NOT collect your name, phone number,
+   GitHub handle, IP address, or any other identifying information. The
+   questions in the survey cover: Your background (e.g. What region of the
+   world are you from?) The projects you use in the ecosystem (e.g. Are you
+   using NixOS?) How you use the projects (e.g. Do you use Nix in production
+   servers?)...
+
+Nix 2.7.0 released
+
+   - Published on Mon Mar 14 2022
+
+   We're pleased to announce the availability of Nix 2.7.0. It will be
+   available from NixOS - Getting Nix / NixOS. Here are the release notes:
+   Nix will now make some helpful suggestions when you mistype something on
+   the command line. For instance, if you type nix build nixpkgs#thunderbrd,
+   it will suggest thunderbird. A number of “default” flake output attributes
+   have been renamed. These are:...
+
+Nix 2.8.0 released
+
+   - Published on Thu Apr 21 2022
+
+   We're pleased to announce the availability of Nix 2.8.0. It will be
+   available from NixOS - Getting Nix / NixOS. Here are the release notes:
+   New experimental command: nix fmt, which applies a formatter defined by
+   the formatter.&lt;system&gt; flake output to the Nix expressions in a
+   flake. Various Nix commands can now read expressions from standard input
+   using --file -....
+
+NixOS 22.05 released
+
+   - Published on Mon May 30 2022
+
+   Hey everyone, I'm Janne Heß, the release manager for 22.05. As promised,
+   the latest stable release is here: NixOS 22.05 “Quokka”. Release manual
+   Highlights New Services Backward Incompatibilities...
+
+NixOS 22.11 released
+
+   - Published on Thu Dec 01 2022
+
+   Hey everyone, we are Martin Weinelt and Janne Heß, the release managers
+   for this stable release and we are very proud to announce the public
+   availability of NixOS 22.11 “Raccoon”. This release will receive bugfixes
+   and security updates for seven months (up until 2023-06-30). Release
+   manual Highlights Internal changes...
+
+NixOS 23.05 released
+
+   - Published on Wed May 31 2023
+
+   Hey everyone, we are Ryan Lahfa and Martin Weinelt, the release managers
+   for this stable release and we are very proud to announce the public
+   availability of NixOS 23.05 “Stoat”. This release will receive bugfixes
+   and security updates for seven months (up until 2023-12-31). Release
+   manual Highlights New Services...
+
+NixOS 23.11 released
+
+   - Published on Wed Nov 29 2023
+
+   Hey everyone, we are figsoda and Ryan Lahfa, the release managers for this
+   stable release and we are very proud to announce the public availability
+   of NixOS 23.11 “Tapir”. This release will receive bugfixes and security
+   updates for seven months (up until 2024-06-30). Release manual NixOS
+   breaking changes New NixOS services...
+
+NixOS 24.05 released
+
+   - Published on Fri May 31 2024
+
+   Hey everyone, we are Weijia Wang and Jörg Thalheim, the release managers
+   for this stable release and we are very proud to announce the public
+   availability of NixOS 24.05 “Uakari”. NixOS is a Linux distribution, whose
+   set of packages can also be used on other Linux systems and macOS. This
+   release will receive bugfixes and security updates for seven months (up
+   until 2024-12-31). Release manual Highlights...
+
+NixCon 2024 announced
+
+   - Published on Sat Jul 13 2024
+
+   We're happy to announce that NixCon 2024, will take place October 25-27
+   2024 in Berlin For more information, see the NixCon 2024 website. And
+   please consider submitting a talk! Follow the discussion on discourse:
+   NixCon Announcement, CFP Announcement ...
+
+Open Letter to the European Commission
+
+   - Published on Sun Jul 21 2024
+
+   Initially published by petites singularités. English translation provided
+   by OW2. If you want to sign the letter, please re-publish the original
+   letter on your website and add to the list of signatories. Since 2020,
+   Next Generation Internet (NGI) programmes, part of European Commission's
+   Horizon programme, fund free software in Europe using a cascade funding
+   mechanism (see for example NLnet's calls). This year, according to the
+   Horizon Europe working draft detailing funding programmes for 2025, we
+   notice that Next Generation Internet is not mentioned any more as part of
+   Cluster 4. NGI programmes have shown their strength and importance to
+   supporting the European software infrastructure, as a generic funding
+   instrument to fund digital commons and ensure their long-term
+   sustainability. We find this transformation incomprehensible, moreover
+   when NGI has proven efficient and economical to support free software as a
+   whole, from the smallest to the most established initiatives. This
+   ecosystem diversity backs the strength of European technological
+   innovation, and maintaining the NGI initiative to provide structural
+   support to software projects at the heart of worldwide innovation is key
+   to enforce the sovereignty of a European infrastructure. Contrary to
+   common perception, technical innovations often originate from European
+   rather than North American programming communities, and are mostly
+   initiated by small-scaled organizations. Previous Cluster 4 allocated 27
+   million euros to: &quot;Human centric Internet aligned with values and
+   principles commonly shared in Europe&quot; ; &quot;A flourishing internet,
+   based on common building blocks created within NGI, that enables better
+   control of our digital life&quot; ;...
+
+Nix Steering Committee Election 2024
+
+   - Published on Mon Sep 16 2024
+
+   As a first step towards a better governance for official Nix projects, we
+   are happy to announce the kick-off of the first Nix Steering Committee
+   election! The Steering Committee will be the primary community leadership
+   body, responsible for steering the official Nix projects --
+   organisationally, socially, and technically. This includes making
+   decisions over what is official, managing teams, approving NixOS
+   Foundation policies relevant for the community, being the final escalation
+   point, and more as detailed in the Nix Governance Constitution. While the
+   Steering Committee is given the authority to make decisions within the
+   scope of its responsibilities directly,...
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,104 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                    ECryptfs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   eCryptfs is a cryptographic filesystem encrypting each file individually.
+   To install ecryptfs add the following to environment.systemPackages:
+
+ { pkgs, ... }: {
+   environment.systemPackages = with pkgs; [
+     ecryptfs
+   ];
+ }
+
+   man ecryptfs-migrate-home describes how to encrypt your home folder. The
+   TL;DR is that you need to: log out, log in as root, modprobe ecryptfs if
+   needed, kill all processes that still access the home folder you want to
+   migrate (check with lsof /home/YOURUSERNAME), wait for it to finish, then
+   run ecryptfs-migrate-home -u YOURUSERNAME, then log in as your migrated
+   user before rebooting.
+
+   To automatically mount your private folder on login with PAM, add this to
+   your config:
+
+ {
+   security.pam.enableEcryptfs = true;
+ }
+
+   Don't forget to also load the ecryptfs kernel module on boot as well in
+   this case:
+
+ {
+   boot.kernelModules = ["ecryptfs"];
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=ECryptfs&oldid=1773"
+     * This page was last edited on 31 July 2023, at 16:12.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,269 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Unstripped packages
+     * 2 Packages with a debug output
+     * 3 NixOS
+     * 4 dwarffs
+     * 5 nixseparatedebuginfo
+   [ ] Toggle the table of contents
+
+                                 Debug Symbols
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Nix packages rarely embed debugging symbols, and since the notion of
+   "installing" a package is somewhat complicated with nix, one cannot "just"
+   install the foo-dev to magically get debug symbols for foo. Here are some
+   explanations on how to get debug symbols with nix, and especially on
+   NixOS.
+
+   By default, packages are stripped and all (most?) debug information is
+   irrevocably lost. If you want to debug an application using a library from
+   such a package, there is little you can do to get debug symbols.
+
+   Two types of packages can provide debug symbols:
+
+    Unstripped packages
+
+   To prevent stripping of a derivation, use the option dontStrip = true;.
+   This still compiles with optimisation; to compile with -Og -ggdb in
+   addition to disabling stripping, you can use the function enableDebugging.
+   Let's take the example of socat. If you install socat, then run
+
+ $ gdb socat
+ Reading symbols from socat...(no debugging symbols found)...done.
+ (gdb) start
+ (gdb) info shared
+ From                To                  Syms Read   Shared Object Library
+ 0x00007ffff7dd8f50  0x00007ffff7df5080  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/ld-linux-x86-64.so.2
+ 0x00007ffff7bd2220  0x00007ffff7bd4fec  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/librt.so.1
+ 0x00007ffff79cde80  0x00007ffff79ce705  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libutil.so.1
+ 0x00007ffff779afa0  0x00007ffff77bb274  Yes (*)     /nix/store/z2zhmrg6jcrn5iq2779mav0nnq4vm2q6-readline-6.3p08/lib/libreadline.so.6
+ 0x00007ffff752b140  0x00007ffff7569c36  Yes (*)     /nix/store/9kr8r78bwk12050ppywfbhg1vrsd6dp8-openssl-1.0.2p/lib/libssl.so.1.0.0
+ 0x00007ffff717d300  0x00007ffff72b893c  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6
+ 0x00007ffff6d66200  0x00007ffff6eabb8f  Yes (*)     /nix/store/9kr8r78bwk12050ppywfbhg1vrsd6dp8-openssl-1.0.2p/lib/libcrypto.so.1.0.0
+ 0x00007ffff6adbbd0  0x00007ffff6ae9641  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+ 0x00007ffff687fce0  0x00007ffff68b9768  Yes (*)     /nix/store/s2n99784krxl91mfw3cnn9ylbb5fjvkx-ncurses-6.1/lib/libncursesw.so.6
+ 0x00007ffff6663e60  0x00007ffff6664a9e  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libdl.so.2
+ (*): Shared library is missing debugging information.
+
+   you see that you have debugging symbols for neither socat itself nor for
+   dependent libraries.
+
+   Now, build an unstripped socat:
+
+ $ nix-build -E 'with import <nixpkgs> {}; enableDebugging socat'
+
+   Let's retry with gdb:
+
+ $ gdb result/bin/socat
+ Reading symbols from result/bin/socat...done.
+ (gdb) start
+ Temporary breakpoint 1, main (argc=1, argv=0x7fffffffbe38) at socat.c:84
+ 84      socat.c: No such file or directory.
+ (gdb) info shared
+ From                To                  Syms Read   Shared Object Library
+ 0x00007ffff7dd8f50  0x00007ffff7df5080  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/ld-linux-x86-64.so.2
+ 0x00007ffff7bd2220  0x00007ffff7bd4fec  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/librt.so.1
+ 0x00007ffff79cde80  0x00007ffff79ce705  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libutil.so.1
+ 0x00007ffff779afa0  0x00007ffff77bb274  Yes (*)     /nix/store/z2zhmrg6jcrn5iq2779mav0nnq4vm2q6-readline-6.3p08/lib/libreadline.so.6
+ 0x00007ffff752b140  0x00007ffff7569c36  Yes (*)     /nix/store/9kr8r78bwk12050ppywfbhg1vrsd6dp8-openssl-1.0.2p/lib/libssl.so.1.0.0
+ 0x00007ffff717d300  0x00007ffff72b893c  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6
+ 0x00007ffff6d66200  0x00007ffff6eabb8f  Yes (*)     /nix/store/9kr8r78bwk12050ppywfbhg1vrsd6dp8-openssl-1.0.2p/lib/libcrypto.so.1.0.0
+ 0x00007ffff6adbbd0  0x00007ffff6ae9641  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+ 0x00007ffff687fce0  0x00007ffff68b9768  Yes (*)     /nix/store/s2n99784krxl91mfw3cnn9ylbb5fjvkx-ncurses-6.1/lib/libncursesw.so.6
+ 0x00007ffff6663e60  0x00007ffff6664a9e  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libdl.so.2
+ (*): Shared library is missing debugging information.
+
+   You have got debugging symbols for socat, but not its dependencies. Also,
+   gdb complains that it did not find the source files of socat. For source
+   files:
+
+     * download the tarball: nix-build "<nixpkgs>" -A socat.src
+     * extract it: tar xvf result
+     * back in gdb:
+
+ (gdb) dir /tmp/socat-1.7.3.2/
+ Source directories searched: /tmp/socat-1.7.3.2:$cdir:$cwd
+ (gdb) where
+ #0  main (argc=1, argv=0x7fffffffbe38) at socat.c:84
+ (gdb) l
+ warning: Source file is more recent than executable.
+ 79      #endif
+ 80     
+ 81      bool havelock;
+ 82     
+ 83     
+ 84      int main(int argc, const char *argv[]) {
+ 85         const char **arg1, *a;
+ 86         char *mainwaitstring;
+ 87         char buff[10];
+ 88         double rto;
+
+   Semi-victory !
+
+   To provide debug info for dependencies, we would have to recompile them
+   all with enableDebugging which is time consuming and tedious. The only
+   reasonable solution would be to ship debugging information by default, but
+   it would waste a lot of disk space. This leads to the second type of
+   packages.
+
+    Packages with a debug output
+
+   Some packages are built with separateDebugInfo = true;. The debug symbols
+   will be stripped from the normal output(s) of the derivation, but instead
+   of being discarded they will be put in a special debug output. Since the
+   library does not depend on this output, no disk space is wasted by
+   default.
+
+   The openssl package is such a derivation. Imagine you are debugging a live
+   socat and suddenly want debug symbols for openssl. Previous gdb output
+   tells us the version of openssl we are interested in is
+   /nix/store/9kr8r78bwk12050ppywfbhg1vrsd6dp8-openssl-1.0.2p. We can get
+   back to the original derivation:
+
+ $ nix-store --query --deriver /nix/store/9kr8r78bwk12050ppywfbhg1vrsd6dp8-openssl-1.0.2p
+ /nix/store/i12c15d9rnz45as76s0nsa0nypl0fl6z-openssl-1.0.2p.drv
+
+   Then we can get the store path for the debug output:
+
+ $ nix show-derivation /nix/store/i12c15d9rnz45as76s0nsa0nypl0fl6z-openssl-1.0.2p.drv | jq '.[]|.outputs.debug.path'
+ "/nix/store/xd69daaly33m7zid6g31glwmml7lk93f-openssl-1.0.2p-debug"
+
+   This store path is probably not yet on our disk, so let's download it:
+
+ $ nix-store -r "/nix/store/xd69daaly33m7zid6g31glwmml7lk93f-openssl-1.0.2p-debug"
+
+   And now we can tell gdb that debug symbols are in the lib/debug
+   subdirectory with set debug-file-directory:
+
+ $ gdb result/bin/socat
+ (gdb) set debug-file-directory /nix/store/xd69daaly33m7zid6g31glwmml7lk93f-openssl-1.0.2p-debug/lib/debug
+ (gdb) start
+ (gdb) info shared
+ From                To                  Syms Read   Shared Object Library
+ 0x00007ffff7dd8f50  0x00007ffff7df5080  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/ld-linux-x86-64.so.2
+ 0x00007ffff7bd2220  0x00007ffff7bd4fec  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/librt.so.1
+ 0x00007ffff79cde80  0x00007ffff79ce705  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libutil.so.1
+ 0x00007ffff779afa0  0x00007ffff77bb274  Yes (*)     /nix/store/z2zhmrg6jcrn5iq2779mav0nnq4vm2q6-readline-6.3p08/lib/libreadline.so.6
+ 0x00007ffff752b140  0x00007ffff7569c36  Yes         /nix/store/9kr8r78bwk12050ppywfbhg1vrsd6dp8-openssl-1.0.2p/lib/libssl.so.1.0.0
+ 0x00007ffff717d300  0x00007ffff72b893c  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6
+ 0x00007ffff6d66200  0x00007ffff6eabb8f  Yes         /nix/store/9kr8r78bwk12050ppywfbhg1vrsd6dp8-openssl-1.0.2p/lib/libcrypto.so.1.0.0
+ 0x00007ffff6adbbd0  0x00007ffff6ae9641  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0
+ 0x00007ffff687fce0  0x00007ffff68b9768  Yes (*)     /nix/store/s2n99784krxl91mfw3cnn9ylbb5fjvkx-ncurses-6.1/lib/libncursesw.so.6
+ 0x00007ffff6663e60  0x00007ffff6664a9e  Yes (*)     /nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libdl.so.2
+ (*): Shared library is missing debugging information.
+
+   Victory!
+
+   Unfortunately, it seems you must issue set debug-file-directory before the
+   library is loaded. If you already have typed start or if you have attached
+   a live socat with gdb -p, set debug-file-directory won't have any effect.
+   In this case you can export
+   NIX_DEBUG_INFO_DIRS=/nix/store/xd69daaly33m7zid6g31glwmml7lk93f-openssl-1.0.2p-debug/lib/debug
+   before launching gdb.
+
+    NixOS
+
+   By toggling environment.enableDebugInfo to 'true' in
+   /etc/nixos/configuration.nix, all separate debug info derivations in your
+   systemPackages will have their debug output linked in
+   /run/current-system/sw/lib/debug/ and will be automatically available to
+   gdb. Though note that this will not pick up debug symbols of dependencies
+   – you will need to add the dependencies you want to debug to
+   environment.systemPackages explicitly. If a derivation you are interested
+   in does not have separate debug info enabled, you still have to override
+   it with an overlay for example.
+
+    dwarffs
+
+   To avoid the need to explicitly list every dependency in
+   environment.systemPackages to have its debug output available, you can use
+   dwarffs. It will create a virtual file system where gdb will be able to
+   look for separate debug symbols for packages on-demand. The downside is
+   that it might increase gdb start up time significantly.
+
+    nixseparatedebuginfo
+
+   nixseparatedebuginfod is a debuginfod server that can download the
+   relevant debug outputs and source files as needed by debuginfod-capable
+   tools. Compared to dwarffs, it does not require root access, and handles
+   debug outputs of derivations not built by hydra (eg locally or on a custom
+   binary cache) and source files. Since NixOS 23.05, gdb is built with
+   support for debuginfod, and valgrind has support if you additionally
+   install the bin output of elfutils. On earlier releases, support must be
+   overridden by hand, for example instead of installing gdb in
+   /etc/nixos/configuration.nix, you should install (gdb.override {
+   enableDebuginfod = true }).
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Debug_Symbols&oldid=6260"
+     * This page was last edited on 2 January 2024, at 21:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

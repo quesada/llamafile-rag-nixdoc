@@ -1,0 +1,135 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 官方生态
+     * 2 NixOS的使用方式
+     * 3 NixOS 的开发
+   [ ] Toggle the table of contents
+
+                                     Nix生态
+
+     * Page
+     * Discussion
+   [ ] 大陆简体
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Nix ecosystem and the
+   translation is 100% complete.
+   Other languages:
+     * English
+     * français
+     * русский
+     * 中文（中国大陆）
+     * 日本語
+
+   “Nix核心生态”是一组技术，旨在以可重复的方式构建、声明式配置和管理软件包和系统及其依赖项。它通过利用名为Nix
+   Language的动态、函数式和惰性求值的领域特定语言（DSL）将函数式编程范式从程序转换为系统来实现这一点，用于指定可重现的软件建构。
+
+   此外，Nix社区开发了许多其他的 应用程序 (“Nix扩展生态”)，这些应用程序使用并为核心技术提供支持。
+
+官方生态
+
+                                   Nix 生态核心组件
+组件      手册(Manual) 描述                                                 用途              协议       
+NixOS   NixOS      一个由 Nix 构建所有组件的 Linux                              声明式配置桌面、服务器和集群。 MIT      
+        Manual     发行版，因此支持可重现的、声明式的全系统配置管理以及原子升级和回滚。                 
+Nixpkgs Nixpkgs    最大的社区维护的 Nix 软件包和 NixOS 模块仓库，NixOS的标准发行版也托管在这里。    分享 Nix 软件包和     MIT      
+        Manual                                                        NixOS 模块        
+Hydra   Hydra      基于 Nix 的持续构建系统                                     CI build farms  GPL-3.0  
+        Manual     
+Nix     Nix Manual 一款软件包管理器，能解析指定可重现构建的 Nix                           Linux 和 Darwin  LGPL-2.1 
+                   表达式，并将结果与依赖关系树的哈希值一起放入存储地址，从而避免依赖关系地狱，并支持多版本安装和回滚。 中的可重现构建和软件包管理   
+
+                         The NixOS core ecosystem stack
+   NixOS                      
+                              
+   一个用Nixpkgs构建的linux发行版和配置系统 
+   Nixpkgs                    Hydra           
+                                              
+   一个巨大的，社区维护的软件仓库            一个基于Nix的可持续构建系统 
+   Nix                        
+                              
+   一个纯粹而实用的构建系统               
+
+NixOS的使用方式
+
+   用户在自己的电脑上安装 NixOS 发行版，就像安装其他 Linux 发行版一样。阅读 https://search.nixos.org
+   和本维基来了解 Nixpgs 中的的软件包安装和配置选项。使用 Nix
+   语言在一个文本文件中，声明式的描述应安装哪些软件包以及如何配置系统。在终端运行两个命令行程序，来将系统转换到所描述的系统。像使用其他 Linux
+   系统一样使用该系统。
+
+NixOS 的开发
+
+   NixOS的开发人员主要在Nixpkgs上工作，用Nix语言的文本文件描述软件包应该如何构建。经过同行评审后，这些修改将被整合到 Nixpkgs
+   中。其中一些软件包预先在Hydra上构建，以减少NixOS用户的更新时间。
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_ecosystem/zh-cn&oldid=17018"
+   Categories:
+     * Pedias
+     * NixOS
+     * Nix
+     * This page was last edited on 30 August 2024, at 11:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

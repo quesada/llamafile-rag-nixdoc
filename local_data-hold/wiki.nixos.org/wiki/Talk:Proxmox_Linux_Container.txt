@@ -1,0 +1,677 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS container (LXC) on Proxmox Virtual Environment 7
+          * 1.1 Is there a need for non unprivileged NixOS containers?
+          * 1.2 Is there a cgroup2 only NixOS container?
+          * 1.3 Why there is a Service section in the service manager
+            configuration in a NixOS container?
+     * 2 documentation
+     * 3 articles
+     * 4 upgrade (a PCT) to 21.11
+          * 4.1 the folder /sbin/ is missing
+     * 5 best (and easiest) way to get a "default" (working) shell in a pve
+       ct after entering (pct enter)
+       1 comment
+   [ ] Toggle the table of contents
+
+                          Talk:Proxmox Linux Container
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 15 July by Vater in topic best (and easiest) way to get a
+   "default" (working) shell in a pve ct after entering (pct enter)
+
+NixOS container (LXC) on Proxmox Virtual Environment 7
+
+              WUI                                                                                                                                      CLI                                                                                                                                                                               Reference                                                           
+              for example for 21.05                                                                                                                    
+                                                                                                                                                       
+                * go to the hydra                                                                                                                      
+                                                                                                                                                       
+                          https://hydra.nixos.org/                                                                                                     
+                                                                                                                                                       
+                * find (in the row) nixos and choose it                                                                                                
+                                                                                                                                                       
+                          https://hydra.nixos.org/project/nixos                                                                                        
+                          currently (20.09 and) 21.05 is provided                                                                                      
+                                                                                                                                                       
+                * find your preferred channel to install (the newest stable release is 21.05 in the following) and choose it                           
+                                                                                                                                                       
+                          https://hydra.nixos.org/jobset/nixos/release-21.05                                                                           
+                                                                                                                                                       
+find the (a     * find (the tab) Jobs and choose it                                                                                                    
+current)                                                                                                                                               
+NixOS                     https://hydra.nixos.org/jobset/nixos/release-21.05#tabs-jobs                                                                 
+template                                                                                                                                               
+                * find (in the row) nixos.containerTarball.x86_64-linux and choose it                                                                  
+                                                                                                                                                       
+                          https://hydra.nixos.org/job/nixos/release-21.05/nixos.containerTarball.x86_64-linux                                          
+                                                                                                                                                       
+                * find (in the row) the last successful build (the newest today is 155685206 in the following) and choose it                           
+                                                                                                                                                       
+                          https://hydra.nixos.org/build/155685206                                                                                      
+                                                                                                                                                       
+                * find (in the row) the file nixos-system-x86_64-linux.tar.xz with the link                                                            
+                                                                                                                                                       
+                          https://hydra.nixos.org/build/155685206/download/1/nixos-system-x86_64-linux.tar.xz                                          
+                                                                                                                                                       
+              the link for the latest (daily) tarball for a container (of 21.05) is                                                                    
+                                                                                                                                                       
+                 https://hydra.nixos.org/job/nixos/release-21.05/nixos.containerTarball.x86_64-linux/latest/download-by-type/file/system-tarball       
+                                                                                                                                                       going to the folder where all the templates for Promox Virtual Environment are stored                                                                                             
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          cd /mnt/pve/cephfs/template/cache                                                                                                                                              
+                * (if you want to switch to the Storage View and) go to one of your nodes where you can (find and) store CT Templates                                                                                                                                                                                                    
+                * choose the Download from URL button                                                                                                  downloading the NixOS template file                                                                                                                                               
+                     * add the link for the NiixOS template file                                                                                                                                                                                                                                                                         
+download the           https://hydra.nixos.org/job/nixos/release-21.05/nixos.containerTarball.x86_64-linux/latest/download-by-type/file/system-tarball    wget -c https://hydra.nixos.org/job/nixos/release-21.05/nixos.containerTarball.x86_64-linux/latest/download-by-type/file/system-tarball                                        
+NixOS                  (to the text field of URL:)                                                                                                                                                                                                                                                                                       
+template             * add a nice file name for the current downloadable build of the template (to the text field of File name:)                       (optional you should) move the downloaded NixOS template file to a nicer (more individual) file name                                                                              
+                                                                                                                                                                                                                                                                                                                                         
+                               for example nixos-21.05_2021-10-10.tar.xz (Proxmox Virtual Environment style: name of the linux operating system           mv system-tarball nixos-21.05_2021-10-10.tar.xz                                                                                                                                
+                               (nixos), release version (21.05), and enriched with the date of the day of the (download and) build                                                                                                                                                                                                       
+                                                                                                                                                       (optional you can) going back                                                                                                                                                     
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          cd -                                                                                                                                                                           
+                * (if you want to switch to the Folder View and go to Nodes and choose the your nodes where you create the container. (this note will                                                                                                                                                                                    
+                  be preselected as Node in the form.))                                                                                                                                                                                                                                                                                  
+                * choose the Create CT button                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                         
+                          tab General                                                                                                                                                                                                                                                                                                    
+                             * (for the following we expect) 1000 is prefilled (to the text field of CT ID:) or you have added it (because it not                                                                                                                                                                                        
+                               already taken)                                                                                                                                                                                                                                                                                            
+                             * (for the following we expect) the checkbox Unprivileged container: is preselected choosen                                                                                                                                                                                                                 
+                             * (for the following we expect) the checkbox Nesting: is preselected choosen                                                                                                                                                                                                                                
+                             * add a (useless, but from the form required) passphrase (to the text field of Password:)                                                                                                                                                                                                                   
+                             * add the same (useless, but from the form required) passphrase (to the text field of Confirm password:)                                                                                                                                                                                                    
+                             * (optional you can) add other options of the form, like                                                                                                                                                                                                                                                    
+                                  * the node for the container (at the drop down menu of Node:)                                                                                                                                                                                                                                          
+                                  * the name for the container (to the text field of Hostname:)                                                                                                                                                                                                                                          
+                                  * …                                                                                                                                                                                                                                                                                                    
+                             * choose the Next button                                                                                                                                                                                                                                                                                    
+                          tab Template                                                                                                                                                                                                                                                                                                   
+                             * (for the following we expect) the entry cephfs is prefilled (at the drop down menu of Storage:)                         
+                             * (for the following we expect you) find and choose the entry nixos-21.05_2021-10-10.tar.xz (at the drop down menu of     
+                               Storage:)                                                                                                               
+                             * choose the Next button                                                                                                  
+                          tab Root Disk                                                                                                                
+                             * (for the following we expect) the entry storage is prefilled (at the drop down menu of Storage:)                        
+                             * (for the following we expect) 8 is prefilled (to the text field of Disk size (GiB):)                                    
+                             * choose the Next button                                                                                                  
+                          tab CPU                                                                                                                      
+                             * (for the following we expect) 1 is prefilled (to the text field of Cores:)                                              
+                             * choose the Next button                                                                                                  
+                          tab Memory                                                                                                                   
+                             * (for the following we expect) 512 is prefilled (to the text field of Memory (MiB):)                                     
+                             * (for the following we expect) 512 is prefilled (to the text field of Swap (MiB):)                                       
+                             * choose the Next button                                                                                                  
+                          tab Network                                                                                                                  
+                             * (for the following we expect) eth0 is prefilled (to the text field of Name:)                                            
+                             * (for the following we expect) (the text field of MAC address:) is emtpy (and so prefilled with auto)                    
+                             * (for the following we expect) the entry vmbr0 is prefilled (at the drop down menu of Bridge:)                           
+                                                                                                                                                       
+                                       we expect that you have a bridge vmbr0 configured                                                               
+                                                                                                                                                          pct create …
+                                               otherwise?                                                                                                 pct create 1000 cephfs:vztmpl/nixos-21.05_2021-10-10.tar.xz --ostype unmanaged --net0 name=eth0,firewall=1,ip=dhcp,bridge=vmbr0 --storage storage --unprivileged 1 --features
+                                                                                                                                                          nesting=1
+                             * (for the following we expect) (the text field of VLAN Tag:) is emtpy (and so prefilled with no VLAN)                    
+                             * (for the following we expect) (the text field of Rate limit (MB/s) Tag:) is emtpy (and so prefilled with unlimited)       -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+create a                     * (for the following we expect) the checkbox Firewall: is preselected choosen                                             
+(first) new                  * (for the following we expect) choose DHCP (at the ratio button menu of IPv4:)                                           (optional you can) check the (pve) lxc config file (and it should look like something like the following) less /etc/pve/lxc/1000.conf
+NixOS                                                                                                                                                  
+container                              ?!? otherwise the container will have no network access for IPv4 (or you have fill out the text field of        arch: amd64
+with Proxmox                           IPv4/CIDR: and the text field of Gateway (IPv4):) ?!?                                                           features: nesting=1
+Virtual                                                                                                                                                hostname: CT1000
+Environment                  * (for the following we expect) the entry Static is prefilled (at the ratio button menu of IPv6:) and you have no network memory: 512
+                               access for IPv6 avilibale                                                                                               net0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=1E:D8:FE:E9:F1:71,ip=dhcp,type=veth
+                                                                                                                                                       ostype: unmanaged
+                                       ?!? if you have network for IPv6 and you want to have access to your network for IPv6 you have fill out the     rootfs: storage:vm-1000-disk-0,size=4G
+                                       text field of IPv6/CIDR: and the text field of Gateway (IPv6):) ?!?                                             swap: 512
+                                                                                                                                                       unprivileged: 1
+                             * choose the Next button                                                                                                  
+                          tab DNS                                                                                                                      
+                             * (for the following we expect) (the text field of DNS domain:) is emtpy (and so prefilled with use host settings)        
+                             * (for the following we expect) (the text field of DNS servers:) is emtpy (and so prefilled with use host settings)       
+                             * choose the Next button                                                                                                  
+                          tab Confirm                                                                                                                  
+                                                                                                                                                       
+                                  (optional) check the configuration (keys with values)                                                                
+                                                                                                                                                       
+                             * choose the Finish button                                                                                                
+                                                                                                                                                       
+              /dev/rbd0                                                                                                                                
+              Creating filesystem with 2097152 4k blocks and 524288 inodes                                                                             
+              Filesystem UUID: 3f4cf224-8062-4cd3-918c-49f891af1aa1                                                                                    
+              Superblock backups stored on blocks:                                                                                                     
+                      32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632                                                                    
+              extracting archive '/mnt/pve/cephfs/template/cache/nixos-21.05_2021-10-10.tar.xz'                                                        
+              Total bytes read: 836218880 (798MiB, 21MiB/s)                                                                                            
+              Architecture detection failed: open '/bin/sh' failed: No such file or directory                                                          
+                                                                                                                                                       
+              Falling back to amd64.                                                                                                                   
+              Use `pct set VMID --arch ARCH` to change.                                                                                                
+              /etc/os-release file not found and autodetection failed, falling back to 'unmanaged'                                                     
+              TASK OK                                                                                                                                  
+                                                                                                                                                       
+                ------------------------------------------------------------------------------------------------------------------------------------   
+                                                                                                                                                       
+              (optional you can) check the (pve) lxc config file (and it should look like something like the following) less /etc/pve/lxc/1000.conf    
+                                                                                                                                                       
+              arch: amd64                                                                                                                              
+              cores: 1                                                                                                                                 
+              features: nesting=1                                                                                                                      
+              hostname: CT1000                                                                                                                         
+              memory: 512                                                                                                                              
+              net0: name=eth0,bridge=vmbr0,firewall=1,hwaddr=FE:1E:11:E6:D2:8F,ip=dhcp,type=veth                                                       
+              ostype: unmanaged                                                                                                                        
+              rootfs: storage:vm-1000-disk-0,size=8G                                                                                                   
+              swap: 512                                                                                                                                
+              unprivileged: 1                                                                                                                          
+(configure                                                                                                                                                                                                                                                                                                                               
+the available 
+(virtual)     
+network       
+device for                                                                                                                                               -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+the Proxmox   
+Virtual       
+Environment   
+container)    
+                                                                                                                                                       run_buffer: 316 Script exited with status 1                                                                                                                                                                                                           
+                                                                                                                                                       lxc_init: 816 Failed to run lxc.hook.pre-start for container "1000"                                                                                                               
+                                                                                                                                                       __lxc_start: 2007 Failed to initialize container "1000"                                                                                                                           
+                                                                                                                                                       TASK ERROR: startup for container '1000' failed                                                                                                                                   
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                         -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
+                                                                                                                                                                                                                                                                                                                                         
+customize the                                                                                                                                          nano /usr/share/perl5/PVE/LXC/Setup.pm                                                                                                                                            
+(pve) lxc                                                                                                                                                                                                                                                                                                                                
+startup setup                                                                                                                                          sub unified_cgroupv2_support {                                                                                                                                                    
+routine (on                                                                                                                                                my ($self) = @_;                                                                                                                                                              
+every node                                                                                                                                                                                                                                                                                                                               https://forum.proxmox.com/threads/92381/#post-402350
+where you                                                                                                                                                                                                                                                                                                                                
+want to start                                                                                                                                              return if !$self->{plugin}; # unmanaged                                                                                                                                       
+a NixOS                                                                                                                                                                                                                                                                                                                                  
+container)                                                                                                                                                 $self->protected_call(sub { $self->{plugin}->unified_cgroupv2_support() });                                                                                                   
+                                                                                                                                                       }                                                                                                                                                                                 
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                         -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       (after fixing all the other stuff)                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       WARN: old systemd (< v232) detected, container won't run in a pure cgroupv2 environment! Please see documentation -> container -> cgroup version.                                 
+                                                                                                                                                       TASK WARNINGS: 1                                                                                                                                                                  
+                                                                                                                                                       sync_wait: 36 An error occurred in another process (expected sequence number 7)                                                                                                   
+customize the                                                                                                                                          __lxc_start: 2073 Failed to spawn container "1000"                                                                                                                                
+individual                                                                                                                                             TASK ERROR: startup for container '1000' failed                                                                                                                                   
+Proxmox                                                                                                                                                                                                                                                                                                                                  
+Virtual       sync_wait: 36 An error occurred in another process (expected sequence number 7)                                                            -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
+Environment   TASK ERROR: startup for container '1000' failed                                                                                                                                                                                                                                                                            
+container                                                                                                                                              editing the specific (pve) lxc config file (to a option for lxc.init.cmd)                                                                                                         
+configuration                                                                                                                                                                                                                                                                                                                            
+for NixOS                                                                                                                                                 nano /etc/pve/lxc/1000.conf                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       lxc.init.cmd: /init                                                                                                                                                               
+                                                                                                                                                       NixOS is using "Sandboxing" by default.^[1] Therefore the option nesting for the container on Proxmox Virtual Environment for NixOS must be acitivated.                           
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                         -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       if nesting is not acitivated                                                                                                                                                      
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       (try to) update (download and build) Nix expressions (nix-env) in a NixOS container on Proxmox Virtual Environment                                                                
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          nix-channel --update                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       unpacking channels...                                                                                                                                                             
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels' does not exist, ignoring                                                                            
+                                                                                                                                                       error: while setting up the build environment: mounting /proc: Operation not permitted                                                                                            
+                                                                                                                                                       error: program '/nix/store/rphxpqbsxgmykf8nyyr0pqi53nm78xa5-nix-2.3.15/bin/nix-env' failed with exit code 1                                                                       
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       (try to) rebuild NixOS                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          nixos-rebuild switch                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels/nixos' does not exist, ignoring                                                                      
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels' does not exist, ignoring                                                                            
+                                                                                                                                                       error: file 'nixpkgs/nixos' was not found in the Nix search path (add it using $NIX_PATH or -I), at (string):1:13                                                                 
+                                                                                                                                                       building Nix...                                                                                                                                                                   
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels/nixos' does not exist, ignoring                                                                      
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels' does not exist, ignoring                                                                            
+                                                                                                                                                       error: file 'nixpkgs/nixos' was not found in the Nix search path (add it using $NIX_PATH or -I)                                                                                   
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels/nixos' does not exist, ignoring                                                                      
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels' does not exist, ignoring                                                                            
+                                                                                                                                                       error: file 'nixpkgs' was not found in the Nix search path (add it using $NIX_PATH or -I)                                                                                         
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels/nixos' does not exist, ignoring                                                                      
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels' does not exist, ignoring                                                                            
+                                                                                                                                                       error: file 'nixpkgs/nixos/modules/installer/tools/nix-fallback-paths.nix' was not found in the Nix search path (add it using $NIX_PATH or -I)                                    
+                                                                                                                                                       /tmp/nixos-rebuild.qaFefR/nix                                                                                                                                                     
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels/nixos' does not exist, ignoring                                                                      
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels' does not exist, ignoring                                                                            
+(activate                                                                                                                                              error: file 'nixpkgs' was not found in the Nix search path (add it using $NIX_PATH or -I)                                                                                         
+nesting for                                                                                                                                            building the system configuration...                                                                                                                                              
+NixOS in the                                                                                                                                           warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels/nixos' does not exist, ignoring                                                                      
+Proxmox                                                                                                                                                warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels' does not exist, ignoring                                                                            
+Virtual                                                                                                                                                error: file 'nixpkgs/nixos' was not found in the Nix search path (add it using $NIX_PATH or -I)                                                                                   
+Environment                                                                                                                                                                                                                                                                                                                              
+container)                                                                                                                                               -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       if nesting is acitivated                                                                                                                                                          
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       update (download and build) Nix expressions (nix-env) in a NixOS container on Proxmox Virtual Environment sucessfully                                                             
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          nix-channel --update                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       unpacking channels...                                                                                                                                                             
+                                                                                                                                                       warning: Nix search path entry '/nix/var/nix/profiles/per-user/root/channels' does not exist, ignoring                                                                            
+                                                                                                                                                       created 1 symlinks in user environment                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          nix-channel --update                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       unpacking channels...                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       rebuild NixOS sucessfully                                                                                                                                                         
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          nixos-rebuild switch                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       building Nix...                                                                                                                                                                   
+                                                                                                                                                       building the system configuration...                                                                                                                                              
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       activating the configuration...                                                                                                                                                   
+                                                                                                                                                       setting up /etc...                                                                                                                                                                
+                                                                                                                                                       setting up tmpfiles                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                         -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       how to configure that the option nesting is aciviated                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       (optional you can) check the (pve) lxc config file (and it should look like something like the following with nesting=1 on the line features:) less /etc/pve/lxc/1000.conf        
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       features: nesting=1                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       After changing (adding) the option for nesting the container must be restarted.                                                                                                   
+                                                                                                                                                          pct start 1000                                                                                                                                                                 
+start the                                                                                                                                                                                                                                                                                                                                
+NixOS                                                                                                                                                  WARN: old systemd (< v232) detected, container won't run in a pure cgroupv2 environment! Please see documentation -> container -> cgroup version.                                 
+container       * …                                                                                                                                    Task finished with 1 warning(s)!                                                                                                                                                  
+with Proxmox    * choose the Start button                                                                                                                                                                                                                                                                                                
+Virtual                                                                                                                                                   pct status 1000                                                                                                                                                                
+Environment                                                                                                                                                                                                                                                                                                                              
+                                                                                                                                                       status: running                                                                                                                                                                   
+having a      
+running NixOS 
+container on  
+Proxmox       
+Virtual       
+Environment   
+                * … (node(Folder View) LXC Container -> container)                                                                                                                                                                                                                                                                       
+                * Console                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                         
+              <<< Welcome to NixOS 21.05.3740.ce7a1190a0f (x86_64) - pts/0 >>>                                                                            lxc-attach 1000                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                         
+login into    Log in as "root" with an empty password.                                                                                                 sh-4.4#                                                                                                                                                                           
+the NixOS                                                                                                                                                                                                                                                                                                                                
+container                                                                                                                                              sh-4.4# . /etc/profile                                                                                                                                                            
+              nixos login:                                                                                                                             
+                                                                                                                                                       
+              nixos login: root                                                                                                                        [root@nixos:/]#
+                                                                                                                                                       
+                                                                                                                                                       
+              [root@nixos:~]#                                                                                                                          
+update the                                                                                                                                                nix-channel --update                                                                                                                                                           
+channel for                                                                                                                                                                                                                                                                                                                              
+NixOS                                                                                                                                                  unpacking channels...                                                                                                                                                             
+(needed!)                                                                                                                                              created 1 symlinks in user environment                                                                                                                                            
+                                                                                                                                                       (optional) check the default configuration file for NixOS                                                                                                                         
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          cat /etc/nixos/configuration.nix                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       { config, pkgs, ... }:                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       {                                                                                                                                                                                 
+                                                                                                                                                         imports = [ <nixpkgs/nixos/modules/virtualisation/lxc-container.nix> ];                                                                                                         
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       }                                                                                                                                                                                 
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          nixos-rebuild test                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       building Nix...                                                                                                                                                                   
+                                                                                                                                                       building the system configuration...                                                                                                                                              
+                                                                                                                                                       activating the configuration...                                                                                                                                                   
+(optional)                                                                                                                                             setting up /etc...                                                                                                                                                                
+test rebuild                                                                                                                                           setting up tmpfiles                                                                                                                                                               
+of NixOS                                                                                                                                               warning: the following units failed: sys-kernel-debug.mount                                                                                                                       
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       ● sys-kernel-debug.mount - Kernel Debug File System                                                                                                                               
+                                                                                                                                                            Loaded: loaded (/nix/store/n5j5fjn60nhck658j9ab84k8n9z24n1r-systemd-247.6/example/systemd/system/sys-kernel-debug.mount; enabled; vendor preset: enabled)                    
+                                                                                                                                                            Active: failed (Result: exit-code) since Mon 2021-10-11 06:48:30 UTC; 265ms ago                                                                                              
+                                                                                                                                                             Where: /sys/kernel/debug                                                                                                                                                    
+                                                                                                                                                              What: debugfs                                                                                                                                                              
+                                                                                                                                                              Docs: https://www.kernel.org/doc/Documentation/filesystems/debugfs.txt                                                                                                     
+                                                                                                                                                                    https://www.freedesktop.org/wiki/Software/systemd/APIFileSystems                                                                                                     
+                                                                                                                                                                IP: 0B in, 0B out                                                                                                                                                        
+                                                                                                                                                               CPU: 2ms                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       Oct 11 06:48:30 nixos systemd[1]: Mounting Kernel Debug File System...                                                                                                            
+                                                                                                                                                       Oct 11 06:48:30 nixos mount[17997]: mount: /sys/kernel/debug: permission denied.                                                                                                  
+                                                                                                                                                       Oct 11 06:48:30 nixos systemd[1]: sys-kernel-debug.mount: Mount process exited, code=exited, status=32/n/a                                                                        
+                                                                                                                                                       Oct 11 06:48:30 nixos systemd[1]: sys-kernel-debug.mount: Failed with result 'exit-code'.                                                                                         
+                                                                                                                                                       Oct 11 06:48:30 nixos systemd[1]: Failed to mount Kernel Debug File System.                                                                                                       
+                                                                                                                                                       warning: error(s) occurred while switching to the new configuration                                                                                                               
+                                                                                                                                                          systemctl list-units --failed                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                         UNIT                   LOAD   ACTIVE SUB    DESCRIPTION                                                                                                                         
+checking                                                                                                                                               ● sys-kernel-debug.mount loaded failed failed Kernel Debug File System                                                                                                            
+systemd                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                       LOAD   = Reflects whether the unit definition was properly loaded.                                                                                                                
+                                                                                                                                                       ACTIVE = The high-level unit activation state, i.e. generalization of SUB.                                                                                                        
+                                                                                                                                                       SUB    = The low-level unit activation state, values depend on unit type.                                                                                                         
+                                                                                                                                                       1 loaded units listed.                                                                                                                                                            
+                                                                                                                                                          nano /etc/nixos/configuration.nix                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       {                                                                                                                                                                                 
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                         imports = [ <nixpkgs/nixos/modules/virtualisation/lxc-container.nix> ];                                                                                                         
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                         systemd.suppressedSystemUnits = [                                                                                                                                               
+                                                                                                                                                           "sys-kernel-debug.mount"                                                                                                                                                      
+                                                                                                                                                         ];                                                                                                                                                                              
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       }                                                                                                                                                                                 
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          nixos-rebuild switch                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                         
+fixing the                                                                                                                                             building Nix...                                                                                                                                                                   
+configuration                                                                                                                                          building the system configuration...                                                                                                                                              https://github.com/NixOS/nixpkgs/issues/9735#issuecomment-783535726
+file for                                                                                                                                               these derivations will be built:                                                                                                                                                  
+NixOS                                                                                                                                                    /nix/store/4c6mbv3y3i6m9qzv48j0ncy7163x3m7b-system-units.drv                                                                                                                    
+                                                                                                                                                         /nix/store/nfc7hz3shyrc1jm2nqsgh5m7izcj8psc-etc.drv                                                                                                                             
+                                                                                                                                                         /nix/store/fmx0v41zcyr7g38qjvdsdk5fifkjxfhx-nixos-system-nixos-21.05.3787.564cb4d81d4.drv                                                                                       
+                                                                                                                                                       building '/nix/store/4c6mbv3y3i6m9qzv48j0ncy7163x3m7b-system-units.drv'...                                                                                                        
+                                                                                                                                                       building '/nix/store/nfc7hz3shyrc1jm2nqsgh5m7izcj8psc-etc.drv'...                                                                                                                 
+                                                                                                                                                       building '/nix/store/fmx0v41zcyr7g38qjvdsdk5fifkjxfhx-nixos-system-nixos-21.05.3787.564cb4d81d4.drv'...                                                                           
+                                                                                                                                                       activating the configuration...                                                                                                                                                   
+                                                                                                                                                       setting up /etc...                                                                                                                                                                
+                                                                                                                                                       reloading user units for root...                                                                                                                                                  
+                                                                                                                                                       setting up tmpfiles                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          systemctl list-units --failed                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                         UNIT LOAD ACTIVE SUB DESCRIPTION                                                                                                                                                
+                                                                                                                                                       0 loaded units listed.                                                                                                                                                            
+                                                                                                                                                          nano /etc/nixos/configuration.nix                                                                                                                                              
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       {                                                                                                                                                                                 
+                                                                                                                                                                                                                                                                                                                                         
+(optional)                                                                                                                                               imports = [ <nixpkgs/nixos/modules/virtualisation/lxc-container.nix> ];                                                                                                         
+test changing                                                                                                                                                                                                                                                                                                                            
+the                                                                                                                                                    services.openssh.enable = false;                                                                                                                                                  
+configuration                                                                                                                                                                                                                                                                                                                            
+of the NixOS                                                                                                                                             environment.systemPackages = with pkgs; [                                                                                                                                       
+container by                                                                                                                                               ddate                                                                                                                                                                         
+installing a                                                                                                                                             ];                                                                                                                                                                              
+package                                                                                                                                                                                                                                                                                                                                  
+(ddate) and                                                                                                                                            }                                                                                                                                                                                 
+disabling a                                                                                                                                                                                                                                                                                                                              
+(default                                                                                                                                                  nixos-rebuild switch                                                                                                                                                           
+running)                                                                                                                                                                                                                                                                                                                                 
+service                                                                                                                                                building Nix...                                                                                                                                                                   
+                                                                                                                                                       building the system configuration...                                                                                                                                              
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                          ddate                                                                                                                                                                          
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       Today is Prickle-Prickle, the 65th day of Bureaucracy in the YOLD 3187                                                                                                            
+                                                                                                                                                          systemctl status                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                       ● nixos                                                                                                                                                                           
+                                                                                                                                                           State: running                                                                                                                                                                
+                                                                                                                                                            Jobs: 0 queued                                                                                                                                                               
+                                                                                                                                                          Failed: 0 units                                                                                                                                                                
+                                                                                                                                                           Since: Mon 2021-10-11 11:52:39 UTC; 1h 24min ago                                                                                                                              
+                                                                                                                                                          CGroup: /                                                                                                                                                                      
+                                                                                                                                                                  ├─user.slice                                                                                                                                                           
+                                                                                                                                                                  │ └─user-0.slice                                                                                                                                                       
+                                                                                                                                                                  │   ├─session-c1.scope                                                                                                                                                 
+                                                                                                                                                                  │   │ ├─393 /nix/store/61z6l8p3f14hgz29j607bg1d37sn5d86-shadow-4.8.1/bin/login --                                                                                      
+                                                                                                                                                                  │   │ ├─506 -bash                                                                                                                                                      
+                                                                                                                                                                  │   │ └─527 top                                                                                                                                                        
+                                                                                                                                                                  │   └─user@0.service                                                                                                                                                   
+                                                                                                                                                                  │     └─init.scope                                                                                                                                                     
+                                                                                                                                                                  │       ├─499 /run/current-system/systemd/lib/systemd/systemd --user --deserialize 17                                                                                  
+                                                                                                                                                                  │       └─500 (sd-pam                                                                                                                                                  
+                                                                                                                                                                  ├─.lxc                                                                                                                                                                 
+(optional)                                                                                                                                                        │ ├─ 290 /bin/sh                                                                                                                                                       
+check status                                                                                                                                                      │ ├─3315 systemctl status                                                                                                                                              
+of systemd                                                                                                                                                        │ └─3316 less                                                                                                                                                          
+                                                                                                                                                                  ├─init.scope                                                                                                                                                           
+                                                                                                                                                                  │ └─1 systemd                                                                                                                                                          
+                                                                                                                                                                  └─system.slice                                                                                                                                                         
+                                                                                                                                                                    ├─systemd-journald.service                                                                                                                                           
+                                                                                                                                                                    │ └─200 /nix/store/n5j5fjn60nhck658j9ab84k8n9z24n1r-systemd-247.6/lib/systemd/systemd-journald                                                                       
+                                                                                                                                                                    ├─nix-daemon.service                                                                                                                                                 
+                                                                                                                                                                    │ └─473 nix-daemon --daemon                                                                                                                                          
+                                                                                                                                                                    ├─console-getty.service                                                                                                                                              
+                                                                                                                                                                    │ └─392 agetty --login-program /nix/store/61z6l8p3f14hgz29j607bg1d37sn5d86-shadow-4.8.1/bin/login --noclear --keep-baud console 115200,38400,9600 linux              
+                                                                                                                                                                    ├─dhcpcd.service                                                                                                                                                     
+                                                                                                                                                                    │ └─468 dhcpcd: [master] [ip4] [ip6]                                                                                                                                 
+                                                                                                                                                                    ├─nscd.service                                                                                                                                                       
+                                                                                                                                                                    │ └─450 nscd                                                                                                                                                         
+                                                                                                                                                                    ├─system-container\x2dgetty.slice                                                                                                                                    
+                                                                                                                                                                    │ └─container-getty@1.service                                                                                                                                        
+                                                                                                                                                                    │   └─394 agetty --login-program /nix/store/61z6l8p3f14hgz29j607bg1d37sn5d86-shadow-4.8.1/bin/login --noclear --keep-baud pts/1 115200,38400,9600 vt220              
+                                                                                                                                                                    ├─dbus.service                                                                                                                                                       
+                                                                                                                                                                    │ └─390 /nix/store/qxpxg30bmj99rvvsacqzkgayzvxz6bb1-dbus-1.12.20/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only 
+                                                                                                                                                                    └─systemd-logind.service                                                                                                                                             
+                                                                                                                                                                      └─364 /nix/store/n5j5fjn60nhck658j9ab84k8n9z24n1r-systemd-247.6/lib/systemd/systemd-logind                                                                         
+…             
+
+    Is there a need for non unprivileged NixOS containers?
+
+   Is there a scenario where you would like to have a privileged
+   (unprivileged = 0) container?
+           I do not know.
+
+    Is there a cgroup2 only NixOS container?
+
+   Is there a configuration with cgroups versions 2 only - where cgroups
+   version 1 is not needed - (so that is possible to rollback the
+   manipulation of the pve lxc startup script
+   (/usr/share/perl5/PVE/LXC/Setup.pm))? Or can we create such a (pre)build
+   image (tar)?
+           I do not know.
+
+           grep cgroup /proc/filesystems
+
+ nodev   cgroup
+ nodev   cgroup2
+
+   Notes
+
+   https://linuxcontainers.org/lxc/manpages//man5/lxc.container.conf.5.html
+
+   (pve) lxc configuration option lxc.cgroup2.devices.allow: a
+
+   (pve) lxc configuration option lxc.cgroup.devices.deny = a
+
+   https://wiki.debian.org/LXC/CGroupV2
+
+   https://search.nixos.org/options?channel=unstable&from=0&query=cgroup
+
+   https://git.proxmox.com/?p=pve-container.git;a=blob;f=src/PVE/LXC/Setup/Base.pm;h=a5b77d32f82747ea558d0398919414945b133dc0;hb=HEAD#l523
+
+           nano /etc/nixos/configuration.nix
+
+   systemd.enableUnifiedCgroupHierarchy = true;
+
+    Why there is a Service section in the service manager configuration in a
+    NixOS container?
+
+ starting systemd...
+ /etc/systemd/system.conf:13: Unknown section 'Service'. Ignoring.
+
+   /etc/systemd/system.conf
+
+ [Service]
+ ProtectProc=default
+ ProtectControlGroups=no
+ ProtectKernelTunables=no
+
+documentation
+
+   proxmox
+
+     * https://pve.proxmox.com/pve-docs/
+          * https://pve.proxmox.com/pve-docs/pve-admin-guide.html#chapter_pct
+               * https://pve.proxmox.com/pve-docs/chapter-pct.html
+          * https://pve.proxmox.com/pve-docs/pct.1.html
+     * https://pve.proxmox.com/wiki/Linux_Container
+     * https://pve.proxmox.com/wiki/Unprivileged_LXC_containers
+
+   lxc
+
+     * …
+
+   debian
+
+     * …
+
+   linux
+
+     * …
+
+articles
+
+     * https://blog.xirion.net/posts/nixos-proxmox-lxc/
+
+                    with
+
+          * (PVE 6.3?)
+          * (NixOS 21.05?)
+
+upgrade (a PCT) to 21.11
+
+    the folder /sbin/ is missing
+
+     ----------------------------------------------------------------------
+
+   in your NixOS PCT
+
+           nix-channel --add https://nixos.org/channels/nixos-21.11 nixos
+
+           nixos-rebuild switch --upgrade
+
+ ln: failed to create symbolic link '/sbin/init': No such file or directory
+ Activation script snippet 'installInitScript' failed (1)
+
+ warning: error(s) occurred while switching to the new configuration
+
+           mkdir /sbin
+
+           nixos-rebuild switch --upgrade
+
+     ----------------------------------------------------------------------
+
+   on your PVE host
+
+   (for all the following starts of your NixOS PCT)
+
+           nano /etc/pve/lxc/1001.conf
+
+ #lxc.init.cmd: /init
+ lxc.init.cmd: /sbin/init
+
+     ----------------------------------------------------------------------
+
+best (and easiest) way to get a "default" (working) shell in a pve ct after
+entering (pct enter)
+
+   Latest comment: 15 July1 comment1 person in discussion
+
+                        source /etc/set-environment
+
+           or
+
+                                     /bin/sh -l
+
+                        or
+
+                                     sh -l
+
+           or
+
+                        . /etc/profile
+
+   or is possible to set an option in nixos or pve?
+
+   --Vater (talk) 17:47, 15 July 2024 (UTC)Reply
+
+    1. ↑ https://search.nixos.org/options?query=nix.useSandbox
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Proxmox_Linux_Container&oldid=14507"
+     * This page was last edited on 15 July 2024, at 17:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

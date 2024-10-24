@@ -1,0 +1,270 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Using nix-shell
+          * 1.2 Using global configuration
+          * 1.3 Using home configuration
+     * 2 Configuration
+          * 2.1 Basic
+          * 2.2 Advanced
+     * 3 Tips and Tricks
+          * 3.1 Location of options
+          * 3.2 Bleeding edge
+          * 3.3 Stylix integration
+          * 3.4 Key mapping
+     * 4 Troubleshooting
+     * 5 References
+   [ ] Toggle the table of contents
+
+                                      Yazi
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Yazi^[1] is a blazing-fast terminal file manager developed in Rust, using
+   non-blocking async I/O for an efficient, user-friendly, and highly
+   customizable experience. It features full asynchronous support,
+   distributing CPU tasks across multiple threads to maximize resource use
+   and improve performance.
+
+   It offers powerful async task scheduling with real-time progress updates,
+   task cancellation, and internal prioritization. It supports multiple image
+   protocols natively and integrates with Überzug++ for broad terminal
+   compatibility. Additionally, Yazi includes built-in code highlighting and
+   image decoding functionalities, along with a pre-loading mechanism to
+   speed up file loading processes.
+
+Installation
+
+    Using nix-shell
+
+ nix-shell -p yazi
+
+    Using global configuration
+
+ environment.systemPackages = [
+   pkgs.yazi
+ ];
+
+   After modifying your configuration, apply the changes by running:
+
+ sudo nixos-rebuild switch
+
+    Using home configuration
+
+ home.packages = [
+   pkgs.yazi
+ ];
+
+   After updating your configuration, apply the changes by running:
+
+ home-manager switch
+
+Configuration
+
+    Basic
+
+ programs.yazi = {
+     enable = true;
+ };
+
+    Advanced
+
+ programs.yazi = {
+   enable = true;
+   settings = {
+     manager = {
+       layout = [
+         1
+         4
+         3
+       ];
+       sort_by = "natural";
+       sort_sensitive = true;
+       sort_reverse = false;
+       sort_dir_first = true;
+       linemode = "none";
+       show_hidden = true;
+       show_symlink = true;
+     };
+
+     preview = {
+       image_filter = "lanczos3";
+       image_quality = 90;
+       tab_size = 1;
+       max_width = 600;
+       max_height = 900;
+       cache_dir = "";
+       ueberzug_scale = 1;
+       ueberzug_offset = [
+         0
+         0
+         0
+         0
+       ];
+     };
+
+     tasks = {
+       micro_workers = 5;
+       macro_workers = 10;
+       bizarre_retry = 5;
+     };
+   };
+ }
+
+Tips and Tricks
+
+    Location of options
+
+   The home manager options are defined in the following Home Manager Options
+   Manual.
+
+   The system-wide options are listed on MyNixOS.
+
+    Bleeding edge
+
+   The upstream repository provides a flake so that Nix users can easily keep
+   up with the bleeding edge.^[2]
+
+ inputs = {
+     yazi.url = "github:sxyazi/yazi";
+ };
+
+   Afterwords, you can use the new package.
+
+ # Global
+ environment.systemPackages = [ yazi.packages.${pkgs.system}.default ];
+
+ # Home Manager
+ home.packages = [ yazi.packages.${pkgs.system}.default ];
+
+   Pre-built artifacts are served at https://yazi.cachix.org, so that Nix
+   users don't have to build Yazi on their machine.^[3]
+
+ nix = {
+   settings = {
+     substitute = true;
+     substituters = [
+       "https://yazi.cachix.org"
+     ];
+     trusted-public-keys = [
+       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
+     ];
+   };
+ };
+
+    Stylix integration
+
+ theme = with config.stylix.base16Scheme; {
+   filetype = {
+     rules = [
+       # Images
+       {
+         mime = "image/*";
+         fg = "#${base0B}";
+       }
+
+       # Videos
+       {
+         mime = "video/*";
+         fg = "#${base03}";
+       }
+       # Audio
+       {
+         mime = "audio/*";
+         fg = "#${base08}";
+       }
+     ];
+   };
+ };
+
+   Stylix can do it automatically for you if the following option is set:
+
+ stylix.targets.yazi.enable = true;
+
+    Key mapping
+
+ # Hyprland
+ bind = [
+   "$mod, E, exec, kitty -e yazi"
+ ];
+
+Troubleshooting
+
+References
+
+    1. ↑ https://yazi-rs.github.io/
+    2. ↑ https://yazi-rs.github.io/docs/installation/#nix-flakes
+    3. ↑ https://yazi-rs.github.io/docs/installation/#cache
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Yazi&oldid=17180"
+   Categories:
+     * Applications
+     * File Manager
+     * This page was last edited on 7 September 2024, at 10:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

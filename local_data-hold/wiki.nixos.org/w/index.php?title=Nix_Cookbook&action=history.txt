@@ -1,0 +1,261 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Nix Cookbook: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 October 2024
+
+     * curprev [ ] [ ] 17:3417:34, 2 October 2024‎ Phanirithvij talk
+       contribs‎ m 16,524 bytes +43‎ update url to wayback machine url
+
+    1 September 2024
+
+     * curprev [ ] [ ] 15:3915:39, 1 September 2024‎ AndersonTorres talk
+       contribs‎ m 16,481 bytes +10‎ →‎Bulk pre-download all dependencies of
+       a package Tag: Visual edit
+
+    28 July 2024
+
+     * curprev [ ] [ ] 14:1314:13, 28 July 2024‎ AndersonTorres talk
+       contribs‎ 16,471 bytes +96‎ →‎Bulk pre-download all dependencies of a
+       package Tag: Visual edit
+     * curprev [ ] [ ] 14:1314:13, 28 July 2024‎ AndersonTorres talk
+       contribs‎ 16,375 bytes +1,187‎ one-liner to bulk download
+     * curprev [ ] [ ] 03:2203:22, 28 July 2024‎ AndersonTorres talk
+       contribs‎ m 15,188 bytes +87‎ No edit summary
+
+    27 July 2024
+
+     * curprev [ ] [ ] 18:0218:02, 27 July 2024‎ AndersonTorres talk
+       contribs‎ m 15,101 bytes +59‎ →‎Deprecating input parameters in
+       mkDerivation-style packages Tag: Visual edit: Switched
+     * curprev [ ] [ ] 15:5615:56, 27 July 2024‎ AndersonTorres talk
+       contribs‎ 15,042 bytes +1,043‎ new recipe Tag: Visual edit: Switched
+
+    13 July 2024
+
+     * curprev [ ] [ ] 10:5310:53, 13 July 2024‎ Mth talk contribs‎ 13,999
+       bytes +76‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 10:4310:43, 13 July 2024‎ Mth talk contribs‎ 13,923
+       bytes +548‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 10:1510:15, 13 July 2024‎ Mth talk contribs‎ m 13,375
+       bytes −129‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 09:5309:53, 13 July 2024‎ Mth talk contribs‎ m 13,504
+       bytes +21‎ Fix broken nix manual link Tag: Visual edit
+     * curprev [ ] [ ] 09:4509:45, 13 July 2024‎ Mth talk contribs‎ m 13,483
+       bytes 0‎ No edit summary Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:1621:16, 24 April 2024‎ Klinger talk contribs‎ m
+       13,483 bytes +41‎ Category:nix Category:Cookbook
+
+    15 December 2023
+
+     * curprev [ ] [ ] 20:3720:37, 15 December 2023‎ imported>Dehnert‎ 13,442
+       bytes +1,095‎ add options for the ssh GSSAPI error that don't just
+       remove the config option
+
+    8 November 2023
+
+     * curprev [ ] [ ] 11:0511:05, 8 November 2023‎ imported>Cynic‎ m 12,347
+       bytes 0‎ optimise-store is a deprecated syntax; newer nix uses "store
+       optimise"
+
+    3 October 2023
+
+     * curprev [ ] [ ] 08:4208:42, 3 October 2023‎ imported>Robinp‎ 12,347
+       bytes +2,142‎ Added notes about recursively checking licence stance of
+       deps.
+
+    29 October 2022
+
+     * curprev [ ] [ ] 04:3304:33, 29 October 2022‎ imported>Equirosa‎ m
+       10,205 bytes +11‎ update automatic nix store optimization setting to
+       current option from the deprecated one
+
+    30 December 2021
+
+     * curprev [ ] [ ] 22:4922:49, 30 December 2021‎ imported>Jtamagnan‎ m
+       10,194 bytes +5‎ It would be clearer to less experienced developers
+       that `lib.mkOverride` referers to `pkgs.lib...`
+
+    28 September 2021
+
+     * curprev [ ] [ ] 11:4411:44, 28 September 2021‎ imported>Nix‎ 10,189
+       bytes +43‎ add security section
+
+    26 September 2021
+
+     * curprev [ ] [ ] 07:3907:39, 26 September 2021‎ imported>Nix‎ 10,146
+       bytes +264‎ add generation trimmer script info
+
+    23 September 2021
+
+     * curprev [ ] [ ] 17:3317:33, 23 September 2021‎ imported>Nix‎ 9,882
+       bytes +68‎ add storage optimization page
+     * curprev [ ] [ ] 17:2317:23, 23 September 2021‎ imported>Nix‎ 9,814
+       bytes +116‎ add Cleaning the nix store link
+     * curprev [ ] [ ] 17:1717:17, 23 September 2021‎ imported>Nix‎ 9,698
+       bytes +253‎ →‎Reclaim space on Nix install?: add delete-generations
+       info
+     * curprev [ ] [ ] 17:0817:08, 23 September 2021‎ imported>Nix‎ m 9,445
+       bytes +76‎ →‎Deduplication
+     * curprev [ ] [ ] 17:0517:05, 23 September 2021‎ imported>Nix‎ m 9,369
+       bytes +70‎ →‎Deduplication
+     * curprev [ ] [ ] 17:0417:04, 23 September 2021‎ imported>Nix‎ m 9,299
+       bytes +21‎ →‎Deduplication: clarify
+     * curprev [ ] [ ] 17:0317:03, 23 September 2021‎ imported>Nix‎ 9,278
+       bytes +2,775‎ add section on managing storage
+
+    19 August 2021
+
+     * curprev [ ] [ ] 07:4207:42, 19 August 2021‎ imported>Hmenke‎ 6,503
+       bytes −19‎ writeScriptBin -> writeShellScriptBin
+
+    9 December 2020
+
+     * curprev [ ] [ ] 01:3601:36, 9 December 2020‎ imported>Zie‎ 6,522 bytes
+       +1,225‎ add error The option has conflicting definitions
+
+    28 June 2020
+
+     * curprev [ ] [ ] 00:5600:56, 28 June 2020‎ imported>Timotheosh‎ 5,297
+       bytes +466‎ No edit summary
+
+    5 August 2018
+
+     * curprev [ ] [ ] 13:4713:47, 5 August 2018‎ imported>Infinisil‎ 4,831
+       bytes +2,196‎ Add tutorial on how to wrap derivations
+     * curprev [ ] [ ] 13:1613:16, 5 August 2018‎ imported>Dustinlacewell‎ m
+       2,635 bytes −39‎ Removed superfluous line in "Creating Periodic
+       Services"
+     * curprev [ ] [ ] 12:4912:49, 5 August 2018‎ imported>Dustinlacewell‎
+       2,674 bytes +721‎ Added "Creating Periodic Services" recipe
+     * curprev [ ] [ ] 12:3112:31, 5 August 2018‎ imported>Dustinlacewell‎ m
+       1,953 bytes −20‎ Fix some formatting for "Creating Shell Scripts"
+     * curprev [ ] [ ] 12:1812:18, 5 August 2018‎ imported>Dustinlacewell‎
+       1,973 bytes +599‎ Added "Creating Shell Scripts" cookbook
+
+    25 November 2017
+
+     * curprev [ ] [ ] 12:4012:40, 25 November 2017‎ imported>Ixxie‎ m 1,374
+       bytes −8‎ Fixed section levels.
+     * curprev [ ] [ ] 12:4012:40, 25 November 2017‎ imported>Ixxie‎ 1,382
+       bytes +1,382‎ Moved Common Errors from Nix Package Manager discussion
+       article.
+
+    6 October 2017
+
+     * curprev [ ] [ ] 20:2820:28, 6 October 2017‎ imported>Ixxie‎ empty
+       −2,805‎ removed alternative install methods; moved back to main
+       article.
+     * curprev [ ] [ ] 20:1420:14, 6 October 2017‎ imported>Ixxie‎ 2,805
+       bytes +1,016‎ No edit summary
+     * curprev [ ] [ ] 19:5219:52, 6 October 2017‎ imported>Ixxie‎ 1,789
+       bytes +1,789‎ Seeded Nix Cookbook page with material imported for the
+       Nix Package Manager article.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nix_Cookbook"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

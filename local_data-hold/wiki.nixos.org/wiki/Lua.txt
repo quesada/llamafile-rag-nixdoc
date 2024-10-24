@@ -1,0 +1,104 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 #! nix-shell with lua interpreter
+     * 2 See Also
+   [ ] Toggle the table of contents
+
+                                      Lua
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+#! nix-shell with lua interpreter
+
+   To use a nix-shell shebang with lua you will need to use following
+   structure:
+
+ #!/usr/bin/env nix-shell
+ --[[
+ #!nix-shell -i lua -p lua
+ ]]
+
+ print("this is from lua")
+
+   Some background by samueldr^[1]:
+
+     Two inter-twined fun facts.
+
+       * Lua only skips one shebang line.
+       * nix-shell doesn't require its magic lines to be right after the
+         first line.
+
+See Also
+
+     * Lua user guide in the nixpkgs manual
+    1. ↑ https://reddit.com/r/NixOS/comments/q7ns3l/interpreter_with_lua/
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Lua&oldid=9398"
+     * This page was last edited on 3 November 2023, at 22:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

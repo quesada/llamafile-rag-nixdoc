@@ -1,0 +1,197 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Wiki method
+          * 1.2 Video guide
+     * 2 Managing your configuration
+          * 2.1 Video guide
+     * 3 Modularizing your configuration
+          * 3.1 With NixOS Modules
+          * 3.2 With Flakes
+               * 3.2.1 Video guide
+     * 4 Beyond initial setup
+          * 4.1 Learn by example
+   [ ] Toggle the table of contents
+
+                               NixOS as a desktop
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   NixOS can be used for many purposes. If you want to use it as a primary
+   desktop operating system for your daily use (either on bare metal or as a
+   secondary VM), this page is for you. Even if your ambitions are to use
+   NixOS in the cloud or on specially configured servers, you may want to
+   start with the lessons outlined here in order to get more generally
+   familiar with the Nix ecosystem.
+
+Installation
+
+  Wiki method
+
+   If you prefer reading, see NixOS Installation Guide to get started. For a
+   well presented video option, see video guide section immediately below.
+   Keep in mind that, for a desktop installation, you will probably want to
+   make sure you start with at least 30 GiB of available disk space to allow
+   for the desktop environments (e.g. GNOME, KDE, or XFCE), browsers (e.g.
+   Firefox), and other graphical applications (e.g. VSCode) that would be
+   typical of daily use. 15 GiB might be enough in a pinch for a fairly
+   bare-bones setup.
+
+  Video guide
+
+   For a visual guide, see Wil T Nix Guides. The second video is a concise
+   installation guide. This 8-part series, produced in early 2021, also
+   covers all the basics of using NixOS as a desktop and configuring it to
+   your liking.
+
+Managing your configuration
+
+   It is possible to manage your entire configuration using the methods
+   documented in the NixOS official manual. However, most community members
+   who use NixOS on the desktop prefer to manage their user configurations
+   (e.g. "dotfiles") using Home Manager (citation needed). Home Manager is a
+   user oriented tool for declaring what you want installed and how you want
+   it configured, and thus would be used in lieu of most settings you would
+   otherwise put into a configuration.nix or through nix-env
+
+  Video guide
+
+   Wil T's guides are about an even mix of:
+
+    1. Hands-on bootstrapping to get to being able to very capably manage
+       your system using Home Manager, git versioning, and eventually Flakes.
+    2. Conceptual overviews and general exposition of the Nix ecosystem,
+       community, and available resources.
+
+   The second video, starting from about 27 minutes in, is also an
+   introduction to and guide to setting up Home Manager.
+
+Modularizing your configuration
+
+  With NixOS Modules
+
+   configuration.nix is an instance of a NixOS module, which makes it easy to
+   break your configuration into several files. Modules can:
+
+     * Import other modules
+     * Declare new options
+     * Provide values for options (this is what most of your default
+       configuration.nix does)
+     * Reference option values from other modules (via the config attribute
+       passed to all modules)
+
+   As long as you declare options for any values you want to share between
+   modules, you can divide your configuration however you like into files
+   that get imported, directly or transitively, by your root
+   configuration.nix file. You can also import modules from remote sources,
+   using functions like builtins.fetchTarball. See the wiki page or the NixOS
+   manual for more information.
+
+  With Flakes
+
+   If you want a more composable^[citation needed] NixOS configuration setup,
+   the still-experimental Flakes feature is causing a lot of excitement in
+   the community. Managing flakes requires a good basic understanding and
+   some existing hands on experience with the Nix ecosystem.
+
+    Video guide
+
+   Videos seven and eight of Wil T's original 8-part series are a good
+   overview of what Flakes enable and how to get started with them.
+
+Beyond initial setup
+
+   After you are familiar with the Nix ecosystem and have a functional
+   desktop install of NixOS, you will likely be interested in customizations
+   and more detailed setup.
+
+  Learn by example
+
+   If you are comfortable managing your system through a git repo using
+   flakes, then there are many repositories you can learn from now!
+
+   Check out Comparison of NixOS setups for a table comparing some popular
+   choices.
+
+   See Configuration Collection for a long list within the wiki.
+
+   Additionally, the following topic searches on Github should uncover many
+   useful examples.
+
+     * nix-flake
+     * nixos-configuration
+     * nixos-dotfiles
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_as_a_desktop&oldid=15518"
+   Categories:
+     * Desktop
+     * Guide
+     * This page was last edited on 24 July 2024, at 11:48.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

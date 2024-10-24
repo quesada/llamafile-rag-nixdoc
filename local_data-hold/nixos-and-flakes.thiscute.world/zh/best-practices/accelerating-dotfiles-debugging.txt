@@ -1,0 +1,190 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS 与 Flakes
+   SearchK
+   Main Navigation首页前言开始使用最佳实践
+
+   简体中文
+
+   English
+
+   简体中文
+
+   English
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+前言
+
+   前言
+
+开始使用
+
+   简介
+
+   优缺点
+
+   安装
+
+Nix 语言
+
+   快速入门
+
+NixOS 与 Flakes
+
+   开始使用 NixOS
+
+   Flakes 简介
+
+   使用 Flakes 管理 NixOS
+
+   NixOS 的 flake.nix 内容详解
+
+   Flakes 的组合能力与 Nixpkgs 模块系统
+
+   安装使用 Home Manager
+
+   模块化系统配置
+
+   更新系统
+
+   降级或升级软件包
+
+   其他杂七杂八的内容
+
+Nixpkgs 高级用法
+
+   简介
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   多 Nixpkgs 实例的妙用
+
+Nix Store 与二进制缓存
+
+   简介
+
+   添加二进制缓存服务器
+
+   搭建你自己的缓存服务器
+
+NixOS 最佳实践
+
+   简介
+
+   运行非 NixOS 的二进制文件
+
+   简化常用的 NixOS 相关命令
+
+   加速 Dotfiles 的调试
+
+   自定义 NIX_PATH 与 Flake Registry
+
+   远程部署 NixOS 配置
+
+   调试 Nix 软件包与 Nix 表达式
+
+Flakes 的其他玩法
+
+   简介
+
+   Flake Inputs
+
+   Flake Outputs
+
+   新一代 Nix 命令行工具的使用
+
+   模块系统与自定义 options
+
+   [WIP]Testing
+
+在 NixOS 上进行开发工作
+
+   nix shell, nix develop & pkgs.runCommand
+
+   各语言的开发环境
+
+   [WIP]软件打包
+
+   跨平台编译
+
+   分布式构建
+
+   [WIP]内核开发
+
+其他进阶话题
+
+   其他进阶话题
+
+常见问题 FAQ
+
+   常见问题 FAQ
+
+   On this page
+
+                               加速 Dotfiles 的调试 ​
+
+   在使用了 Home Manager 管理我们的 Dotfiles 后，会遇到的一个问题是，每次修改完我们的 Dotfiles，都需要通过跑一遍
+   sudo nixos-rebuild switch(或者如果你是单独使用 home manager的话，应该是这个指令 home-manager
+   switch) 才能生效，但每次运行这个指令都会重新计算整个系统的状态，即使 Nix
+   内部现在已经有了很多缓存机制可以加速这个计算，这仍然是很痛苦的。
+
+   以我的 Neovim/Emacs 配置为例，我日常修改它们的频率非常高，有时候一天要改几十上百次，如果每次修改都要等 nixos-rebuild
+   跑个几十秒，这简直是在浪费时间。
+
+   幸运的是，在有了 使用 Justfile 简化 NixOS 相关命令这个方案后，我们可以通过往 Justfile
+   里添加些配置来实现快速的测试验证这些需要频繁修改的 Dotfiles.
+
+   比如我现在添加了这些 Justfile 内容：
+
+     我使用的 Justfile 最新版: ryan4yin/nix-config/Justfile
+
+   [ Submit ]Makefile
+
+ ###############################################################
+ # Quick Test - Neovim
+ ###############################################################
+ nvim-clean:
+   rm -rf ${HOME}.config/astronvim/lua/user
+ nvim-test: nvim-clean
+   rsync -avz --copy-links --chmod=D2755,F744 home/base/desktop/editors/neovim/astronvim_user/ ${HOME}/.config/astronvim/lua/user
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+
+   然后在需要快速测试 Neovim 配置时，每次修改完配置后，跑一下 just nvim-test，我的配置就更新了。测试完毕后，运行下 just
+   nvim-clean，再重新用 nixos-rebuild 部署下配置，就完成了配置的还原。
+
+   这种方法能生效的前提是，你的 Dotfiles 内容不是由 Nix 生成的，比如我的 Emacs/Neovim 配置都是原生的，仅通过 Nix
+   Home-Manager 的 home.file 或 xdg.configFile 将它们链接到正确的位置。
+
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous page简化常用的 NixOS 相关命令
+   Next page自定义 NIX_PATH 与 Flake Registry
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

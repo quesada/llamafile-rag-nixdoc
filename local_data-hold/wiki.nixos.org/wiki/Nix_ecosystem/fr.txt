@@ -1,0 +1,184 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Écosystème officiel
+     * 2 Utilisation de NixOS
+     * 3 Développement de NixOS
+   [ ] Toggle the table of contents
+
+                                 Écosystème Nix
+
+     * Page
+     * Discussion
+   [ ] français
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Nix ecosystem and the
+   translation is 100% complete.
+   Other languages:
+     * English
+     * français
+     * русский
+     * 中文（中国大陆）
+     * 日本語
+
+   L'Écosystème cœur de Nix est un éventail de technologies créées pour
+   construire de manière reproductible et configurer/gérer de manière
+   déclarative des paquets et systèmes ainsi que leurs dépendances. Ceci est
+   rendu possible via un transfert du paradigme fonctionnel des programmes au
+   domaine système grâce à un langage dédié (DSL) dynamique et fonctionnel à
+   évaluation paresseuse appelé langage Nix qui permet la génération
+   d'artefacts reproductibles.
+
+   Il existe également de nombreuses autres applications (Écosystème Nix
+   étendu) développées par la communauté Nix, utilisant et supportant ces
+   technologies centrales.
+
+Écosystème officiel
+
+                     Composants au cœur de l'écosystème Nix
+   Composant Manuel      Description              Usage              Licence  
+                         Distribution Linux                                   
+                         entièrement construite   Configuration      
+                         par Nix, permettant une  déclarative        
+             Manuel      gestion reproductible et d'ordinateurs de   
+   NixOS     NixOS       déclarative de la        bureau, de         MIT
+                         configuration du système serveurs unitaires 
+                         ainsi que des mises à    et de groupes de   
+                         niveau et des            serveurs
+                         restaurations atomiques. 
+                         Le plus grand dépôt de                               
+                         paquets Nix et de        Partager des       
+   Nixpkgs   Manuel      modules NixOS maintenu   paquets Nix et des MIT
+             Nixpkgs     par la communauté; les   modules NixOS
+                         publications standard de 
+                         NixOS y sont hébergées.  
+                                                  Fermes de                   
+             Manuel      Un système de            construction       
+   Hydra     Hydra       construction continue    d’artefacts pour   GPL-3.0
+                         d'artefact basé sur Nix. l'intégration      
+                                                  continue           
+                         Un gestionnaire de                                   
+                         paquets qui analyse les                     
+                         expressions Nix                             
+                         décrivant la                                
+                         construction d'artefacts                    
+                         reproductibles, plaçant                     
+                         le résultat dans un      Construction
+                         emplacement de l'espace  d'artefacts
+                         de stockage avec un      reproductibles et
+   Nix       Manuel Nix  hachage de               gestion des        LGPL-2.1
+                         l'arborescence des       paquets Linux &
+                         dépendances, évitant     Darwin
+                         ainsi l'enfer des        
+                         dépendances et           
+                         permettant               
+                         l'installation de        
+                         plusieurs versions d'un  
+                         même programme ainsi que 
+                         les restaurations.       
+
+                     Pile de l'écosystème au cœur de NixOS
+   NixOS                                     
+                                             
+   Une distribution Linux et un système de   
+   configuration basé sur Nixpkgs            
+   Nixpkgs                                   Hydra                            
+                                                                              
+   Un vaste dépôt de paquets maintenu par la Un système de construction       
+   communauté                                continue d'artefact basé sur Nix 
+   Nix                                       
+                                             
+   Un système de construction d'artefact pur et fonctionnel
+
+Utilisation de NixOS
+
+   Les utilisateurs installent la distribution NixOS sur leur ordinateur
+   comme n'importe quelle autre distribution Linux. Ils découvrent les
+   paquets disponibles et les options de configuration de Nixpgs via
+   https://search.nixos.org et ce wiki. Ils utilisent le langage Nix pour
+   décrire de manière déclarative dans un fichier texte quels logiciels
+   doivent être installés et comment configurer le système. Ils exécutent
+   deux programmes en ligne de commande dans un terminal afin d'obtenir un
+   système tel qu'ils l'ont décrit. Ils utilisent ce système comme n'importe
+   quel autre système Linux.
+
+Développement de NixOS
+
+   Les développeurs de NixOS travaillent principalement dans Nixpkgs en
+   décrivant dans des fichiers textes écrits en langage Nix comment les
+   logiciels doivent être construits. Après une revue par les pairs des
+   changements, ils sont intégrés dans Nixpkgs. Certains de ces paquets sont
+   pré-construits par Hydra afin de réduire le temps d'installation pour les
+   utilisateurs de NixOS.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_ecosystem/fr&oldid=14019"
+   Categories:
+     * Pedias
+     * NixOS
+     * Nix
+     * This page was last edited on 12 July 2024, at 13:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

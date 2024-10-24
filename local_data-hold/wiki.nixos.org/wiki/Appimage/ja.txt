@@ -1,0 +1,187 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Usage
+          * 1.1 Run
+          * 1.2 Packaging
+     * 2 Configuration
+          * 2.1 Register AppImage files as a binary type to binfmt_misc
+   [ ] Toggle the table of contents
+
+                                    Appimage
+
+     * Page
+     * Discussion
+   [ ] 日本語
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Appimage and the translation
+   is 6% complete.
+   Other languages:
+     * English
+     * русский
+     * 日本語
+
+   AppImage is a monolithic packaging format for linux applications. It
+   contains all dependencies in one file that is composed of an executable
+   with a tacked on filesystem.
+
+Usage
+
+  Run
+
+   On most distros, all one has to do is download the .AppImage file, make it
+   executable chmod +x $AppImage, and execute it. This doesn't work in NixOS
+   out of the box though, as AppImage files usually (if not always) depend on
+   certain system libraries in hardcoded paths.
+
+ $ nix-shell -p appimage-run
+ $ appimage-run $AppImageFile
+
+  Packaging
+
+   See the nixpkgs manual on wrapping AppImage packages. In short, the
+   AppImage is extracted and any dependencies are added as nix build
+   dependencies.
+
+   Following example is a derivation for the program Quba, which is also
+   distributed as AppImage.
+
+ {
+   lib,
+   appimageTools,
+   fetchurl,
+ }:
+ </div>
+
+ <div lang="en" dir="ltr" class="mw-content-ltr">
+ let
+   version = "1.4.0";
+   pname = "quba";
+   name = "${pname}-${version}";
+ </div>
+
+   <div lang="en" dir="ltr" class="mw-content-ltr">
+ src = fetchurl {
+     url = "https://github.com/ZUGFeRD/quba-viewer/releases/download/v${version}/Quba-${version}.AppImage";
+     hash = "sha256-EsTF7W1np5qbQQh3pdqsFe32olvGK3AowGWjqHPEfoM=";
+   };
+ </div>
+
+   <div lang="en" dir="ltr" class="mw-content-ltr">
+ appimageContents = appimageTools.extractType1 { inherit name src; };
+ in
+ appimageTools.wrapType1 {
+   inherit name src;
+ </div>
+
+   <div lang="en" dir="ltr" class="mw-content-ltr">
+ extraInstallCommands = ''
+     mv $out/bin/${name} $out/bin/${pname}
+     install -m 444 -D ${appimageContents}/${pname}.desktop -t $out/share/applications
+     substituteInPlace $out/share/applications/${pname}.desktop \
+       --replace-fail 'Exec=AppRun' 'Exec=${pname}'
+     cp -r ${appimageContents}/usr/share/icons $out/share
+   '';
+ </div>
+
+   <div lang="en" dir="ltr" class="mw-content-ltr">
+ meta = {
+     description = "Viewer for electronic invoices";
+     homepage = "https://github.com/ZUGFeRD/quba-viewer";
+     downloadPage = "https://github.com/ZUGFeRD/quba-viewer/releases";
+     license = lib.licenses.asl20;
+     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+     maintainers = with lib.maintainers; [ onny ];
+     platforms = [ "x86_64-linux" ];
+   };
+ }
+
+Configuration
+
+  Register AppImage files as a binary type to binfmt_misc
+
+   You can tell the Linux kernel to use an interpreter (e.g. appimage-run)
+   when executing certain binary files through the use of binfmt_misc, either
+   by filename extension or magic number matching. Below NixOS configuration
+   registers AppImage files (ELF files with magic number "AI" + 0x02) to be
+   run with appimage-run as interpreter.
+
+   Since NixOS 24.05, there is a binfmt option:
+
+ programs.appimage = {
+   enable = true;
+   binfmt = true;
+ };
+
+   This way AppImage files can be invoked directly as if they were normal
+   programs
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Appimage/ja&oldid=16689"
+   Category:
+     * Software/ja
+     * This page was last edited on 14 August 2024, at 08:24.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

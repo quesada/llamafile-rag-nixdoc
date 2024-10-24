@@ -1,0 +1,198 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                     Workgroup:Container: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 September 2024
+
+     * curprev [ ] [ ] 19:1919:19, 14 September 2024‎ Phanirithvij talk
+       contribs‎ 4,124 bytes 0‎ old source is 404, new source is different,
+       not a Dockerfile
+     * curprev [ ] [ ] 06:3906:39, 14 September 2024‎ Phanirithvij talk
+       contribs‎ 4,124 bytes −45‎ remove old and replace with new one
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:0321:03, 19 April 2024‎ Klinger talk contribs‎ m
+       4,169 bytes +24‎ Category:Container
+
+    5 April 2024
+
+     * curprev [ ] [ ] 00:1300:13, 5 April 2024‎ Samueldr talk contribs‎ m
+       4,145 bytes +80‎ No edit summary
+
+    10 May 2018
+
+     * curprev [ ] [ ] 09:3909:39, 10 May 2018‎ imported>Zimbatm‎ 4,065 bytes
+       +702‎ Add list of docker images from
+       https://discourse.nixos.org/t/nixos-docker-images-are-quite-old/172/4
+
+    4 May 2018
+
+     * curprev [ ] [ ] 10:3810:38, 4 May 2018‎ imported>Nlewo‎ 3,363 bytes
+       −501‎ No edit summary
+
+    24 March 2018
+
+     * curprev [ ] [ ] 17:2417:24, 24 March 2018‎ imported>Moretea‎ 3,864
+       bytes +27‎ No edit summary
+
+    15 March 2018
+
+     * curprev [ ] [ ] 06:4106:41, 15 March 2018‎ imported>Profpatsch‎ m
+       3,837 bytes +2‎ Use (official) OpenSUSE upstream link for umoci
+
+    13 March 2018
+
+     * curprev [ ] [ ] 17:1917:19, 13 March 2018‎ imported>Nlewo‎ 3,835 bytes
+       +94‎ No edit summary
+
+    4 March 2018
+
+     * curprev [ ] [ ] 08:4708:47, 4 March 2018‎ imported>Nlewo‎ 3,741 bytes
+       +229‎ No edit summary
+
+    22 February 2018
+
+     * curprev [ ] [ ] 12:4612:46, 22 February 2018‎ imported>Profpatsch‎
+       3,512 bytes +98‎ rabbitmq link
+
+    15 February 2018
+
+     * curprev [ ] [ ] 17:5617:56, 15 February 2018‎ imported>Profpatsch‎
+       3,414 bytes +130‎ add hocker
+
+    13 February 2018
+
+     * curprev [ ] [ ] 22:0622:06, 13 February 2018‎ imported>Profpatsch‎
+       3,284 bytes +42‎ buildah file link
+     * curprev [ ] [ ] 21:5421:54, 13 February 2018‎ imported>Profpatsch‎
+       3,242 bytes +298‎ github containers tooling
+
+    12 February 2018
+
+     * curprev [ ] [ ] 13:3313:33, 12 February 2018‎ imported>Nlewo‎ 2,944
+       bytes +525‎ No edit summary
+     * curprev [ ] [ ] 13:2113:21, 12 February 2018‎ imported>Nlewo‎ 2,419
+       bytes +22‎ No edit summary
+     * curprev [ ] [ ] 11:4911:49, 12 February 2018‎ imported>Profpatsch‎ m
+       2,397 bytes +67‎ buildah pull request
+     * curprev [ ] [ ] 10:1110:11, 12 February 2018‎ imported>Profpatsch‎
+       2,330 bytes +220‎ add links to nixpkgs where packaged
+     * curprev [ ] [ ] 07:5907:59, 12 February 2018‎ imported>Profpatsch‎
+       2,110 bytes +210‎ image-tools, runtime-tools
+     * curprev [ ] [ ] 06:4806:48, 12 February 2018‎ imported>Profpatsch‎ m
+       1,900 bytes −5‎ skopeo description
+
+    10 February 2018
+
+     * curprev [ ] [ ] 03:2103:21, 10 February 2018‎ imported>Profpatsch‎
+       1,905 bytes +492‎ add opencontainers & projectatomic projects
+     * curprev [ ] [ ] 02:4802:48, 10 February 2018‎ imported>Profpatsch‎ m
+       1,413 bytes −25‎ title is redundant
+     * curprev [ ] [ ] 02:4802:48, 10 February 2018‎ imported>Profpatsch‎
+       1,438 bytes +1,438‎ Create container workgroup page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Workgroup:Container"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,317 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Matrix: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    8 October 2024
+
+     * curprev [ ] [ ] 14:2514:25, 8 October 2024‎ Mic92 talk contribs‎
+       13,985 bytes −61‎ imported from old wiki
+
+    15 September 2024
+
+     * curprev [ ] [ ] 10:2710:27, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 14,046 bytes +7‎ fix config file url
+
+    14 September 2024
+
+     * curprev [ ] [ ] 03:5803:58, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 14,039 bytes +22‎ edit the synapse home page (we have
+       element-hq/synapse in nixpkgs) Tag: Visual edit: Switched
+
+    9 September 2024
+
+     * curprev [ ] [ ] 16:5216:52, 9 September 2024‎ Vuhoanghuynh02 talk
+       contribs‎ m 14,017 bytes +2‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 16:0516:05, 9 September 2024‎ Vuhoanghuynh02 talk
+       contribs‎ m 14,015 bytes −74‎ No edit summary Tag: Visual edit
+
+    22 August 2024
+
+     * curprev [ ] [ ] 10:5110:51, 22 August 2024‎ Vuhoanghuynh02 talk
+       contribs‎ 14,089 bytes −198‎ No edit summary Tag: Visual edit
+
+    21 August 2024
+
+     * curprev [ ] [ ] 14:1414:14, 21 August 2024‎ Vuhoanghuynh02 talk
+       contribs‎ m 14,287 bytes +586‎ Add a script to start element-web Tag:
+       Visual edit
+     * curprev [ ] [ ] 13:3913:39, 21 August 2024‎ Vuhoanghuynh02 talk
+       contribs‎ 13,701 bytes +334‎ element-web localhost source code Tag:
+       Visual edit
+     * curprev [ ] [ ] 12:2012:20, 21 August 2024‎ Vuhoanghuynh02 talk
+       contribs‎ 13,367 bytes +765‎ services.matrix-conduit.* options are
+       available now. Tag: Visual edit
+     * curprev [ ] [ ] 07:0807:08, 21 August 2024‎ Vuhoanghuynh02 talk
+       contribs‎ m 12,602 bytes −132‎ services.matrix-conduit.* options are
+       available now. Tag: Visual edit
+
+    20 June 2024
+
+     * curprev [ ] [ ] 20:3120:31, 20 June 2024‎ Luflosi talk contribs‎ m
+       12,734 bytes +9‎ Fix deprecation of three options Tag: Visual edit
+     * curprev [ ] [ ] 19:2219:22, 20 June 2024‎ Luflosi talk contribs‎ m
+       12,725 bytes +16‎ Simplify code slightly Tag: Visual edit
+
+    15 May 2024
+
+     * curprev [ ] [ ] 19:0719:07, 15 May 2024‎ Klinger talk contribs‎ m
+       12,709 bytes −112‎ No edit summary
+     * curprev [ ] [ ] 19:0619:06, 15 May 2024‎ Klinger talk contribs‎ 12,821
+       bytes +205‎ link to manual Tag: Visual edit: Switched
+
+    28 January 2024
+
+     * curprev [ ] [ ] 15:2715:27, 28 January 2024‎ imported>Jhvst‎ 12,616
+       bytes +54‎ clients: add iamb
+
+    2 January 2024
+
+     * curprev [ ] [ ] 20:4220:42, 2 January 2024‎ imported>Hannses‎ 12,562
+       bytes −2‎ No edit summary
+
+    16 November 2023
+
+     * curprev [ ] [ ] 16:2216:22, 16 November 2023‎ imported>Srid‎ 12,564
+       bytes +212‎ Add link to matrix bridges
+
+    4 November 2023
+
+     * curprev [ ] [ ] 22:0822:08, 4 November 2023‎ imported>ProminentRetail‎
+       12,352 bytes +302‎ Add basic description for Element config.json
+       configuration
+
+    4 September 2023
+
+     * curprev [ ] [ ] 19:4819:48, 4 September 2023‎ imported>Blaggacao‎ m
+       12,050 bytes +12‎ Link new Whatsapp bridge PR
+
+    2 July 2023
+
+     * curprev [ ] [ ] 11:4411:44, 2 July 2023‎ imported>Frederictobiasc‎ m
+       12,038 bytes +9‎ Fix path to `app_service_config_files`
+
+    15 March 2023
+
+     * curprev [ ] [ ] 13:2513:25, 15 March 2023‎ imported>Dali99‎ 12,029
+       bytes +174‎ No edit summary
+
+    4 March 2023
+
+     * curprev [ ] [ ] 03:5903:59, 4 March 2023‎ imported>Motiejus‎ 11,855
+       bytes +8‎ fix coturn's firewall config: (1) open 5349; (2) disable tcp
+       ranges, since the coturn config is tcp-only.
+
+    20 November 2022
+
+     * curprev [ ] [ ] 05:3905:39, 20 November 2022‎ imported>Rummik‎ m
+       11,847 bytes −12‎ Fix search links for NixOS packages and options
+
+    29 March 2022
+
+     * curprev [ ] [ ] 14:3714:37, 29 March 2022‎ imported>Vojta001‎ m 11,859
+       bytes +62‎ There is also Mirage client
+     * curprev [ ] [ ] 14:3414:34, 29 March 2022‎ imported>Vojta001‎ m 11,797
+       bytes +2‎ secrets file location should be a string
+
+    24 September 2021
+
+     * curprev [ ] [ ] 13:4313:43, 24 September 2021‎ imported>Georgyo‎
+       11,795 bytes −25‎ It is nolonger possible to have the acme cert owned
+       by the user, only the group.
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:0806:08, 20 September 2021‎ imported>Nix‎ m 11,820
+       bytes +27‎ add Software/Applications subcategory
+
+    19 July 2021
+
+     * curprev [ ] [ ] 12:5412:54, 19 July 2021‎ imported>Raboof‎ 11,793
+       bytes +203‎ links to NixOS matrix things
+
+    27 May 2021
+
+     * curprev [ ] [ ] 21:5821:58, 27 May 2021‎ imported>Dotlambda‎ 11,590
+       bytes +798‎ update private IP ranges according to
+       https://www.rtcsec.com/post/2021/01/details-about-cve-2020-26262-bypass-of-coturns-default-access-control-protection/#further-concerns-what-else
+
+    2 April 2021
+
+     * curprev [ ] [ ] 15:2415:24, 2 April 2021‎ imported>Piegamesde‎ 10,792
+       bytes +11‎ →‎matrix-appservice-irc
+     * curprev [ ] [ ] 14:4614:46, 2 April 2021‎ imported>Piegamesde‎ 10,781
+       bytes +2,197‎ matrix-appservice-irc
+
+    24 March 2021
+
+     * curprev [ ] [ ] 13:2713:27, 24 March 2021‎ imported>Pacien‎ m 8,584
+       bytes +47‎ fix formatting 2
+     * curprev [ ] [ ] 13:2313:23, 24 March 2021‎ imported>Pacien‎ m 8,537
+       bytes +7‎ fix formatting
+     * curprev [ ] [ ] 13:2213:22, 24 March 2021‎ imported>Pacien‎ 8,530
+       bytes +1‎ appservice-irc: update wip pr
+     * curprev [ ] [ ] 13:2113:21, 24 March 2021‎ imported>Pacien‎ m 8,529
+       bytes +96‎ fold lines
+     * curprev [ ] [ ] 13:1713:17, 24 March 2021‎ imported>Pacien‎ 8,433
+       bytes +810‎ mautrix-telegram: add config for animated stickers
+       conversion
+
+    4 December 2020
+
+     * curprev [ ] [ ] 13:3813:38, 4 December 2020‎ imported>Pacien‎ 7,623
+       bytes −624‎ remove imports from unstable (packages and modules are now
+       in current stable)
+     * curprev [ ] [ ] 13:3513:35, 4 December 2020‎ imported>Pacien‎ 8,247
+       bytes +8‎ package has been renamed: riot -> element
+
+    8 November 2020
+
+     * curprev [ ] [ ] 17:2417:24, 8 November 2020‎ imported>Pacien‎ 8,239
+       bytes +430‎ add configuration examples for PostgreSQL
+     * curprev [ ] [ ] 17:2017:20, 8 November 2020‎ imported>Pacien‎ 7,809
+       bytes 0‎ update link to matrix-appservice-irc new pull request
+     * curprev [ ] [ ] 17:1717:17, 8 November 2020‎ imported>Pacien‎ 7,809
+       bytes +30‎ update package name (riot -> element)
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:3621:36, 24 September 2020‎ imported>Garbas‎ m
+       7,779 bytes −17‎ No edit summary
+
+    31 July 2020
+
+     * curprev [ ] [ ] 14:5714:57, 31 July 2020‎ imported>Pacien‎ 7,796 bytes
+       +258‎ add links to full configuration references for mautrix-telegram
+       and matrix-appservice-discord
+
+    1 June 2020
+
+     * curprev [ ] [ ] 18:2718:27, 1 June 2020‎ imported>Pacien‎ 7,538 bytes
+       +206‎ appservices: add remark about the default DBMS
+     * curprev [ ] [ ] 18:0418:04, 1 June 2020‎ imported>Pacien‎ 7,332 bytes
+       +66‎ add comments on time-sensitive imports
+     * curprev [ ] [ ] 17:5317:53, 1 June 2020‎ imported>Pacien‎ 7,266 bytes
+       +1,295‎ mautrix-telegram: update module merge status and add example
+       config
+     * curprev [ ] [ ] 17:4917:49, 1 June 2020‎ imported>Pacien‎ 5,971 bytes
+       +1,034‎ matrix-appservice-discord: update packaging state and add
+       example config
+     * curprev [ ] [ ] 17:4517:45, 1 June 2020‎ imported>Pacien‎ 4,937 bytes
+       0‎ matrix-appservice-irc: update link to new PR
+
+    12 April 2020
+
+     * curprev [ ] [ ] 17:3117:31, 12 April 2020‎ imported>Ekleog‎ 4,937
+       bytes +47‎ add banned range
+
+    11 February 2020
+
+     * curprev [ ] [ ] 17:4617:46, 11 February 2020‎ imported>Pacien‎ 4,890
+       bytes 0‎ Fix PR link
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Matrix"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

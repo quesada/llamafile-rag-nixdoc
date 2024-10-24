@@ -1,0 +1,201 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Usage
+     * 2 Development
+          * 2.1 Build a Flatpak project
+     * 3 Tips and tricks
+          * 3.1 Emulate Flatpaks of different architecture
+     * 4 Troubleshooting
+          * 4.1 Missing themes and cursors
+   [ ] Toggle the table of contents
+
+                                    Flatpak
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 07:18, 4 September 2024 by Mic92 (talk | contribs)
+   (imported from old wiki)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Flatpak is a Linux application sandboxing and distribution framework.
+
+   This article extends the documentation in the NixOS manual.
+
+Usage
+
+   Using this configuration, flatpak will be installed and ready to use
+   globally for all users:
+
+ /etc/nixos/configuration.nix
+
+ services.flatpak.enable = true;
+
+   If you'd rather make Flatpak available to a specific user, add flatpak to
+   that user's packages. To be able to install Flatpaks graphically, add the
+   gnome.gnome-software package. The result will look something like this:
+
+ /etc/nixos/configuration.nix
+
+   users.users."user" = {
+     packages = with pkgs; [
+       flatpak
+       gnome.gnome-software
+     ];
+   };
+
+   After adding the desired solution to your configuration file, Flatpak will
+   be installed, but it is not always added to your path directly, e.g. when
+   you are using Sway.
+
+   To manually add it to the path while using the Greetd login manager and
+   Sway, create a .profile file with an override for your XDG_DATA_DIRS path,
+   e.g.:
+
+ .profile
+
+ export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
+
+   This is also required when installing flatpak on a per-user basis.
+
+   To start using flatpaks, particularly for flatpak development:
+
+ $ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+ $ flatpak update
+ $ flatpak search bustle
+ $ flatpak install flathub org.freedesktop.Bustle
+ $ flatpak run org.freedesktop.Bustle
+
+   To automatically configure a flatpak repository for all users using the
+   global configuration file, add this to your configuration.nix file.
+
+ /etc/nixos/configuration.nix
+
+   systemd.services.flatpak-repo = {
+     wantedBy = [ "multi-user.target" ];
+     path = [ pkgs.flatpak ];
+     script = ''
+       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+     '';
+   };
+
+Development
+
+  Build a Flatpak project
+
+   The following example builds a demo project of the libhandy repository
+   using flatpak-builder, installs it locally in the user space and runs it.
+   First install flatpak and flatpak-builder on your system
+
+ /etc/nixos/configuration.nix
+
+ services.flatpak.enable = true;
+ environment.systemPackages = [ pkgs.flatpak-builder ];
+
+   Clone, build and run the example project. For now, a patch for libhandy
+   might be required to fix a bug in the build process.
+
+ $ flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+ $ flatpak install org.gnome.Sdk/x86_64/master org.gnome.Platform/x86_64/master
+ $ git clone https://gitlab.gnome.org/GNOME/libhandy.git
+ $ cd libhandy
+ $ flatpak-builder --user --install _flatpak examples/sm.puri.Handy.Demo.json
+ $ flatpak run sm.puri.Handy.Demo
+
+   Note that the gnome-nightly repository and its dependencies are especially
+   required for this specific project and might be different for other
+   Flatpak projects.
+
+Tips and tricks
+
+  Emulate Flatpaks of different architecture
+
+   It is possible to install and run Flatpaks which were compiled for a
+   different platform. In this example we start the application Metronome as
+   aarch64 Flatpak on a x86_64 host:
+
+ flatpak install --user --arch=aarch64 flathub com.adrienplazas.Metronome
+ flatpak run --user com.adrienplazas.Metronome
+
+   To support emulation with Qemu, following Binfmt configuration is
+   required.
+
+Troubleshooting
+
+  Missing themes and cursors
+
+   If you have issues with cursors or themes in general, take a look at
+   Fonts#Flatpak_applications_can't_find_system_fonts
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Flatpak&oldid=17093"
+   Categories:
+     * Software
+     * NixOS Manual
+     * This page was last edited on 4 September 2024, at 07:18.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

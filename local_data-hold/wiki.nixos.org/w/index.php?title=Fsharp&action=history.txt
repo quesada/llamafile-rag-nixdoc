@@ -1,0 +1,138 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Fsharp: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    20 December 2022
+
+     * curprev [ ] [ ] 09:3409:34, 20 December 2022‎ imported>Aerphanas‎ 709
+       bytes +23‎ add to languages categories
+     * curprev [ ] [ ] 08:3408:34, 20 December 2022‎ imported>Aerphanas‎ 686
+       bytes +85‎ update package name, and add how to create project
+
+    1 March 2022
+
+     * curprev [ ] [ ] 12:5012:50, 1 March 2022‎ imported>Milahu‎ 601 bytes
+       +29‎ No edit summary
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4905:49, 20 September 2021‎ imported>Nix‎ m 572
+       bytes +28‎ add Software/Applications subcategory
+
+    18 May 2021
+
+     * curprev [ ] [ ] 03:2703:27, 18 May 2021‎ imported>Samuela‎ 544 bytes
+       +44‎ No edit summary
+     * curprev [ ] [ ] 03:2603:26, 18 May 2021‎ imported>Samuela‎ 500 bytes
+       +2‎ No edit summary
+     * curprev [ ] [ ] 03:2603:26, 18 May 2021‎ imported>Samuela‎ 498 bytes
+       +70‎ No edit summary
+     * curprev [ ] [ ] 03:2503:25, 18 May 2021‎ imported>Samuela‎ 428 bytes
+       0‎ No edit summary
+     * curprev [ ] [ ] 03:2503:25, 18 May 2021‎ imported>Samuela‎ 428 bytes
+       +428‎ All about using the F# programming language with Nix/NixOS.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Fsharp"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,205 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Scanners: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    12 August 2024
+
+     * curprev [ ] [ ] 10:4910:49, 12 August 2024‎ Mic92 talk contribs‎
+       13,595 bytes +48‎ →‎Supported backends
+
+    19 April 2024
+
+     * curprev [ ] [ ] 19:5919:59, 19 April 2024‎ Klinger talk contribs‎ m
+       13,547 bytes −26‎ No edit summary
+
+    7 February 2024
+
+     * curprev [ ] [ ] 18:3218:32, 7 February 2024‎ imported>Symphorien‎
+       13,573 bytes +429‎ explain escl vs airscan
+
+    16 October 2023
+
+     * curprev [ ] [ ] 12:4112:41, 16 October 2023‎ imported>Skylark‎ m
+       13,144 bytes −163‎ Copyedit (no changes in content) + remove
+       duplication of Apple list
+
+    11 October 2023
+
+     * curprev [ ] [ ] 17:4417:44, 11 October 2023‎ imported>Jiltq‎ m 13,307
+       bytes +49‎ syntax + wording + parity with manual
+
+    11 December 2022
+
+     * curprev [ ] [ ] 16:5616:56, 11 December 2022‎ imported>Symphorien‎
+       13,258 bytes +144‎ usb case for driverless printing
+
+    23 April 2022
+
+     * curprev [ ] [ ] 19:0619:06, 23 April 2022‎ imported>Artturin‎ 13,114
+       bytes +75‎ No edit summary
+
+    12 July 2021
+
+     * curprev [ ] [ ] 10:0410:04, 12 July 2021‎ imported>Ngkz‎ m 13,039
+       bytes +8‎ GIMP 2.10 different plug-in path
+
+    4 March 2021
+
+     * curprev [ ] [ ] 15:1815:18, 4 March 2021‎ imported>Csingley‎ 13,031
+       bytes +6,060‎ No edit summary
+
+    15 October 2020
+
+     * curprev [ ] [ ] 19:3819:38, 15 October 2020‎ imported>Tobias.bora‎ m
+       6,971 bytes −22‎ Oups forgot to remove one useless headline
+     * curprev [ ] [ ] 19:3719:37, 15 October 2020‎ imported>Tobias.bora‎ m
+       6,993 bytes +1‎ minor typo
+     * curprev [ ] [ ] 19:3619:36, 15 October 2020‎ imported>Tobias.bora‎
+       6,992 bytes +2,075‎ Add Airscan/WSD driverless scanning
+
+    1 September 2019
+
+     * curprev [ ] [ ] 19:5419:54, 1 September 2019‎ imported>Symphorien‎
+       4,917 bytes +261‎ →‎Epson: mention utsushi
+
+    10 November 2017
+
+     * curprev [ ] [ ] 14:5814:58, 10 November 2017‎ imported>Symphorien‎ m
+       4,656 bytes +11‎ make the warning about having to logout/login for
+       sane change to have effect more visible
+
+    24 October 2017
+
+     * curprev [ ] [ ] 18:4818:48, 24 October 2017‎ imported>HLandau‎ 4,645
+       bytes +574‎ No edit summary
+
+    1 October 2017
+
+     * curprev [ ] [ ] 12:1612:16, 1 October 2017‎ imported>Ciil‎ 4,071 bytes
+       +836‎ No edit summary
+
+    5 September 2017
+
+     * curprev [ ] [ ] 17:5417:54, 5 September 2017‎ imported>Samueldr‎ m
+       3,235 bytes −31‎ →‎Enable Network Scanning: Makes use of {{issue}}
+       template.
+
+    30 August 2017
+
+     * curprev [ ] [ ] 13:5413:54, 30 August 2017‎ imported>Symphorien‎ 3,266
+       bytes +999‎ add mention of epkowa
+
+    27 August 2017
+
+     * curprev [ ] [ ] 11:5911:59, 27 August 2017‎ imported>Fadenb‎ m 2,267
+       bytes +85‎ Syntaxhighlight
+
+    21 August 2017
+
+     * curprev [ ] [ ] 18:1418:14, 21 August 2017‎ imported>Makefu‎ 2,182
+       bytes +2,182‎ initial batch of nixos-users
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Scanners"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

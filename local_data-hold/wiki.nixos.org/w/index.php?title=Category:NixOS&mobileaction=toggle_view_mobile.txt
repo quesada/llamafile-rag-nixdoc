@@ -1,0 +1,144 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                 Category:NixOS
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Note: This category collects all the pages which are primarily about NixOS
+   on the wiki.
+
+Pages in category "NixOS"
+
+   The following 31 pages are in this category, out of 31 total.
+
+  A
+
+     * Audio production
+     * Automatic system upgrades
+
+  C
+
+     * Channel branches
+     * Creating a NixOS live CD
+     * Creating a NixOS live CD/en
+     * Creating a NixOS live CD/ru
+
+  D
+
+     * Declaration
+     * Dual Booting NixOS and Windows
+
+  E
+
+     * Extend NixOS
+
+  F
+
+     * Filesystems
+
+  L
+
+     * Linux kernel
+
+  M
+
+     * Move Nix Store to new partition
+
+  N
+
+     * Nix ecosystem
+     * Nix ecosystem/en
+     * Nix ecosystem/fr
+     * Nix ecosystem/ja
+     * Nix ecosystem/ru
+     * Nix ecosystem/zh-cn
+     * NixOS:config argument
+     * NixOS Containers
+     * NixOS modules
+     * NixOS:Properties
+     * Nixos-rebuild
+     * NixOS VM tests
+     * Nixpkgs/Create and debug packages
+
+  O
+
+     * Overview of the NixOS Linux distribution
+
+  S
+
+     * Security
+     * Systemd/Hardening
+     * Systemd/Hardening/en
+     * Systemd/Hardening/ru
+
+  V
+
+     * VPN
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:NixOS&oldid=9263"
+     * This page was last edited on 23 September 2021, at 01:33.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

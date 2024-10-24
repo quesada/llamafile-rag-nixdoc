@@ -1,0 +1,136 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Nautilus: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    12 July 2024
+
+     * curprev [ ] [ ] 18:0118:01, 12 July 2024‎ Onny talk contribs‎ 1,938
+       bytes +298‎ Enable HEIC image preview Tag: Visual edit
+
+    20 June 2024
+
+     * curprev [ ] [ ] 20:5820:58, 20 June 2024‎ Klinger talk contribs‎ m
+       1,640 bytes 0‎ Category:File manager
+     * curprev [ ] [ ] 20:5720:57, 20 June 2024‎ Klinger talk contribs‎ m
+       1,640 bytes +26‎ Category:File manager
+
+    15 December 2023
+
+     * curprev [ ] [ ] 02:5602:56, 15 December 2023‎ imported>Colinsane‎
+       1,614 bytes +724‎ Show how to enable the "Audio and Video Properties"
+       pane
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:1206:12, 20 September 2021‎ imported>Nix‎ m 890
+       bytes +27‎ add Software/Applications subcategory
+
+    4 August 2021
+
+     * curprev [ ] [ ] 20:3620:36, 4 August 2021‎ imported>Sorrel‎ 863 bytes
+       +863‎ document how to get nautilus running without gnome
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nautilus"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

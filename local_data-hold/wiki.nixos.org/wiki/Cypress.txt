@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS
+     * 2 References
+   [ ] Toggle the table of contents
+
+                                    Cypress
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Cypress is a frontend testing framework for web applications.
+
+NixOS
+
+   You cannot use Cypress directly with npm while running on NixOS.^[1] You
+   can either run it with steam-run or use the cypress package.
+
+   For example, put this shell.nix in the directory with your Cypress tests:
+
+ { pkgs ? import <nixpkgs> {} }:
+   pkgs.mkShell {
+     packages = with pkgs; [
+       nodejs
+       cypress
+     ];
+ }
+
+   You can then run nix-shell --run "Cypress" to open the Cypress UI and
+   select your project.
+
+References
+
+    1. ↑ https://github.com/cypress-io/cypress/issues/3530
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Cypress&oldid=13535"
+   Category:
+     * Development
+     * This page was last edited on 25 June 2024, at 20:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

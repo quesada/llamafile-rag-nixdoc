@@ -1,0 +1,206 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Certbot: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 October 2024
+
+     * curprev [ ] [ ] 07:4807:48, 7 October 2024‎ WoutSwinkels talk
+       contribs‎ m 3,647 bytes 0‎ →‎DNS challenge using a plugin: Fix typo
+       thim to them. Tag: Visual edit
+
+    3 October 2024
+
+     * curprev [ ] [ ] 14:1414:14, 3 October 2024‎ WoutSwinkels talk
+       contribs‎ 3,647 bytes 0‎ Update the 'already packaged' url under the
+       'DNS challenge using a plugin' section Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:4217:42, 19 April 2024‎ Klinger talk contribs‎ m
+       3,647 bytes +47‎ Category:Server Category:Applications
+
+    1 April 2024
+
+     * curprev [ ] [ ] 13:5313:53, 1 April 2024‎ Mic92 talk contribs‎ 3,600
+       bytes −20‎ fix links
+
+    24 December 2023
+
+     * curprev [ ] [ ] 20:1620:16, 24 December 2023‎ imported>Devraza‎ m
+       3,620 bytes +27‎ Redo the change of giving a direct link to the ACME
+       page
+     * curprev [ ] [ ] 14:3514:35, 24 December 2023‎ imported>Devraza‎ m
+       3,593 bytes −27‎ Give a direct link to the ACME page in the certbot
+       note
+     * curprev [ ] [ ] 14:3414:34, 24 December 2023‎ imported>Devraza‎ m
+       3,620 bytes +27‎ Give a direct link to the ACME page in the certbot
+       note
+
+    12 September 2022
+
+     * curprev [ ] [ ] 15:4715:47, 12 September 2022‎ imported>Onny‎ 3,593
+       bytes −277‎ Add infos about read permissions for acme group
+     * curprev [ ] [ ] 15:3215:32, 12 September 2022‎ imported>Onny‎ 3,870
+       bytes +51‎ Add module agreeTerms option
+     * curprev [ ] [ ] 11:4211:42, 12 September 2022‎ imported>Onny‎ 3,819
+       bytes +185‎ Add recommendation to prefer security.acme module
+
+    11 September 2022
+
+     * curprev [ ] [ ] 19:4719:47, 11 September 2022‎ imported>Onny‎ m 3,634
+       bytes +29‎ No edit summary
+     * curprev [ ] [ ] 19:4519:45, 11 September 2022‎ imported>Onny‎ m 3,605
+       bytes −16‎ No edit summary
+     * curprev [ ] [ ] 19:1119:11, 11 September 2022‎ imported>Onny‎ m 3,621
+       bytes +17‎ No edit summary
+     * curprev [ ] [ ] 19:0919:09, 11 September 2022‎ imported>Onny‎ m 3,604
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 19:0919:09, 11 September 2022‎ imported>Onny‎ m 3,604
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 19:0819:08, 11 September 2022‎ imported>Onny‎ m 3,604
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 19:0819:08, 11 September 2022‎ imported>Onny‎ 3,605
+       bytes −2‎ Add information about automated renewal
+     * curprev [ ] [ ] 18:4118:41, 11 September 2022‎ imported>Onny‎ 3,607
+       bytes +257‎ Add info about renewal of certificates
+
+    10 September 2022
+
+     * curprev [ ] [ ] 22:5022:50, 10 September 2022‎ imported>Onny‎ m 3,350
+       bytes +270‎ No edit summary
+     * curprev [ ] [ ] 22:4722:47, 10 September 2022‎ imported>Onny‎ m 3,080
+       bytes +117‎ No edit summary
+     * curprev [ ] [ ] 22:4122:41, 10 September 2022‎ imported>Onny‎ m 2,963
+       bytes +92‎ No edit summary
+     * curprev [ ] [ ] 22:4022:40, 10 September 2022‎ imported>Onny‎ m 2,871
+       bytes +49‎ No edit summary
+     * curprev [ ] [ ] 22:3722:37, 10 September 2022‎ imported>Onny‎ m 2,822
+       bytes +17‎ No edit summary
+     * curprev [ ] [ ] 22:2822:28, 10 September 2022‎ imported>Onny‎ m 2,805
+       bytes +186‎ No edit summary
+     * curprev [ ] [ ] 22:2422:24, 10 September 2022‎ imported>Onny‎ m 2,619
+       bytes +180‎ No edit summary
+     * curprev [ ] [ ] 15:1915:19, 10 September 2022‎ imported>Onny‎ 2,439
+       bytes +292‎ No edit summary
+     * curprev [ ] [ ] 13:4313:43, 10 September 2022‎ imported>Onny‎ m 2,147
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 13:4113:41, 10 September 2022‎ imported>Onny‎ m 2,145
+       bytes +615‎ No edit summary
+     * curprev [ ] [ ] 13:2313:23, 10 September 2022‎ imported>Onny‎ 1,530
+       bytes +43‎ Adding instructions on DNS challenge plugins
+     * curprev [ ] [ ] 13:1313:13, 10 September 2022‎ imported>Onny‎ m 1,487
+       bytes +7‎ No edit summary
+
+    29 August 2022
+
+     * curprev [ ] [ ] 13:4313:43, 29 August 2022‎ imported>Onny‎ 1,480 bytes
+       +318‎ Info about setting up read permissions
+     * curprev [ ] [ ] 13:3913:39, 29 August 2022‎ imported>Onny‎ 1,162 bytes
+       +331‎ Add description summary about certbot
+     * curprev [ ] [ ] 13:3713:37, 29 August 2022‎ imported>Onny‎ 831 bytes
+       +831‎ Initial page with simple example
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Certbot"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

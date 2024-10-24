@@ -1,0 +1,294 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Syncthing: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 October 2024
+
+     * curprev [ ] [ ] 18:0418:04, 14 October 2024‎ Ponder talk contribs‎ m
+       3,238 bytes +10‎ Missing small words Tag: Visual edit
+
+    13 October 2024
+
+     * curprev [ ] [ ] 16:0516:05, 13 October 2024‎ Onny talk contribs‎ 3,228
+       bytes −1,605‎ Cleanup Tag: Visual edit
+     * curprev [ ] [ ] 15:4215:42, 13 October 2024‎ Onny talk contribs‎ 4,833
+       bytes −650‎ Cleanup Tag: Visual edit
+     * curprev [ ] [ ] 15:3715:37, 13 October 2024‎ Onny talk contribs‎ 5,483
+       bytes −493‎ Cleanup Tag: Visual edit
+     * curprev [ ] [ ] 15:2115:21, 13 October 2024‎ Onny talk contribs‎ m
+       5,976 bytes −189‎ Cleanup Tag: Visual edit
+     * curprev [ ] [ ] 15:2115:21, 13 October 2024‎ Onny talk contribs‎ 6,165
+       bytes −317‎ Cleanup Tag: Visual edit
+     * curprev [ ] [ ] 15:1415:14, 13 October 2024‎ Onny talk contribs‎ m
+       6,482 bytes −140‎ Cleanup Tag: Visual edit
+     * curprev [ ] [ ] 15:1115:11, 13 October 2024‎ Onny talk contribs‎ m
+       6,622 bytes +24‎ Add project page link Tag: Visual edit
+
+    1 September 2024
+
+     * curprev [ ] [ ] 20:5120:51, 1 September 2024‎ MTL talk contribs‎ m
+       6,598 bytes −57‎ Remove guidance to expose the admin port outside the
+       firewall. This is insecure, as that's a sensitive interface. Tags:
+       Mobile edit Mobile web edit
+     * curprev [ ] [ ] 08:0008:00, 1 September 2024‎ Cicadoves talk contribs‎
+       m 6,655 bytes +101‎ Added label field in example for folder field Tag:
+       Visual edit
+
+    23 July 2024
+
+     * curprev [ ] [ ] 21:5521:55, 23 July 2024‎ Helmut Becker talk contribs‎
+       m 6,554 bytes +110‎ →‎Declarative configuration: Adding documentation
+       that helped me a lot with setting up Syncthing. Tag: Visual edit
+     * curprev [ ] [ ] 21:5021:50, 23 July 2024‎ Helmut Becker talk contribs‎
+       6,444 bytes +10‎ Turns out the Syncthing paths that are required are
+       actually strings not paths. Tag: Visual edit
+
+    1 June 2024
+
+     * curprev [ ] [ ] 19:1619:16, 1 June 2024‎ Jooooscha talk contribs‎
+       6,434 bytes +881‎ →‎Declarative configuration: Add a section about how
+       to add additional settings to syncthing Tag: Visual edit
+
+    30 April 2024
+
+     * curprev [ ] [ ] 19:0319:03, 30 April 2024‎ Ponder talk contribs‎ 5,553
+       bytes −25‎ Bring firewall sentences together, likewise the GUI
+     * curprev [ ] [ ] 06:5006:50, 30 April 2024‎ Binarycat talk contribs‎
+       5,578 bytes +362‎ add firewall configuration to example Tags: Mobile
+       edit Mobile web edit
+
+    27 April 2024
+
+     * curprev [ ] [ ] 09:1309:13, 27 April 2024‎ Ponder talk contribs‎ 5,216
+       bytes +12‎ Configuration can be partly in Nix and the rest in the GUI
+       Tag: Visual edit
+
+    23 April 2024
+
+     * curprev [ ] [ ] 15:5315:53, 23 April 2024‎ Wrycode talk contribs‎ m
+       5,204 bytes +262‎ Add note about forwarding web GUI with SSH Tag:
+       Visual edit
+     * curprev [ ] [ ] 15:4415:44, 23 April 2024‎ Wrycode talk contribs‎
+       4,942 bytes +506‎ →‎Declarative node IDs: add instructions to generate
+       key.pem and cert.pem Tag: Visual edit
+     * curprev [ ] [ ] 15:3715:37, 23 April 2024‎ Wrycode talk contribs‎
+       4,436 bytes +694‎ Added 'declarative node IDs' section Tag: Visual
+       edit
+     * curprev [ ] [ ] 15:2315:23, 23 April 2024‎ Wrycode talk contribs‎ m
+       3,742 bytes +433‎ Add note about disabling default sync folder
+       creation Tag: Visual edit
+
+    18 April 2024
+
+     * curprev [ ] [ ] 21:3121:31, 18 April 2024‎ Klinger talk contribs‎
+       3,309 bytes +282‎ attached to Category:Application. Introduction
+       added.
+
+    21 February 2024
+
+     * curprev [ ] [ ] 21:5021:50, 21 February 2024‎ imported>Stuzenz‎ m
+       3,027 bytes −4‎ minor change due to change in options from
+       'extraOptions' to 'settings'
+
+    1 January 2024
+
+     * curprev [ ] [ ] 17:2017:20, 1 January 2024‎ imported>Fauxmight‎ m
+       3,031 bytes +43‎ →‎Declarative configuration:
+       services.syncthing.folders -> services.syncthing.settings.folders
+
+    26 December 2023
+
+     * curprev [ ] [ ] 23:5123:51, 26 December 2023‎ imported>Sciamp‎ m 2,988
+       bytes +9‎ Update devices configuration option to use the new renamed
+       one
+
+    13 December 2023
+
+     * curprev [ ] [ ] 22:5422:54, 13 December 2023‎ imported>Kira-bruneau‎
+       2,979 bytes −60‎ Undo revision 10672 by Antiarchitect (talk) -
+       https://github.com/NixOS/nixpkgs/pull/273866
+
+    1 December 2023
+
+     * curprev [ ] [ ] 21:1021:10, 1 December 2023‎ imported>Antiarchitect‎
+       3,039 bytes +60‎ It seems like dataDir formerly was homeDir on this
+       page and after 23.11 upgrade my nixoses started to store
+       index-v0.14.0.db and csrftoken.txt at synced folder and this resulted
+       in multiple confilicts
+
+    8 November 2023
+
+     * curprev [ ] [ ] 16:5116:51, 8 November 2023‎ imported>Skylark‎ 2,979
+       bytes −41‎ Syncthing moved away from /var/lib/syncthing a long time
+       ago; add detail to firewall ports
+
+    14 August 2023
+
+     * curprev [ ] [ ] 15:4915:49, 14 August 2023‎ imported>Brentscott‎ m
+       3,020 bytes +25‎ added the user parameter to the declarative example
+
+    29 April 2023
+
+     * curprev [ ] [ ] 08:1808:18, 29 April 2023‎ imported>Threddast‎ m 2,995
+       bytes +229‎ No edit summary
+
+    18 March 2023
+
+     * curprev [ ] [ ] 00:0700:07, 18 March 2023‎ imported>Me00001‎ m 2,766
+       bytes +2‎ added missing space
+
+    26 April 2022
+
+     * curprev [ ] [ ] 05:1705:17, 26 April 2022‎ imported>Zwerdlds‎ m 2,764
+       bytes +374‎ Added section on public-facing GUI and firewall ports to
+       enable.
+
+    15 April 2022
+
+     * curprev [ ] [ ] 20:2620:26, 15 April 2022‎ imported>Senorsmile‎ 2,390
+       bytes +108‎ adding dataDir and configDir in second example as they're
+       required
+
+    13 February 2022
+
+     * curprev [ ] [ ] 04:5904:59, 13 February 2022‎ imported>Klaymore‎ 2,282
+       bytes +51‎ Added syntax highlighting
+
+    8 December 2021
+
+     * curprev [ ] [ ] 21:5521:55, 8 December 2021‎ imported>Klaymore‎ m
+       2,231 bytes +1‎ Typo fix
+     * curprev [ ] [ ] 21:5021:50, 8 December 2021‎ imported>Klaymore‎ 2,230
+       bytes +169‎ Updated declarative configuration for 21.11 options
+       changes, added note for earlier versions.
+
+    24 November 2021
+
+     * curprev [ ] [ ] 01:2801:28, 24 November 2021‎ imported>Klaymore‎ m
+       2,061 bytes +87‎ Comments for dataDir and configDir options
+     * curprev [ ] [ ] 01:2201:22, 24 November 2021‎ imported>Klaymore‎ 1,974
+       bytes +1,111‎ Added section for declarative folder configuration
+
+    7 October 2020
+
+     * curprev [ ] [ ] 11:5311:53, 7 October 2020‎ imported>Thu‎ 863 bytes
+       +210‎ Add link to the Getting Started guide.
+
+    13 September 2020
+
+     * curprev [ ] [ ] 15:0515:05, 13 September 2020‎ imported>Srid‎ 653
+       bytes +119‎ home-manager
+     * curprev [ ] [ ] 15:0215:02, 13 September 2020‎ imported>Srid‎ m 534
+       bytes +2‎ Fix syntax
+
+    6 May 2020
+
+     * curprev [ ] [ ] 07:0707:07, 6 May 2020‎ imported>LuisChDev‎ 532 bytes
+       +532‎ Created page with "Available as a standalone package:
+       <nowiki>nix-env -iA nixos.syncthing</nowiki> It can also be enabled as
+       a service. You'll typically want to set the user and the config di..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Syncthing"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

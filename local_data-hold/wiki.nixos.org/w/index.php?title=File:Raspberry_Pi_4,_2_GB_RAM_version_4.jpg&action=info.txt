@@ -1,0 +1,105 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+         Information for "File:Raspberry Pi 4, 2 GB RAM version 4.jpg"
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                  File:Raspberry Pi 4, 2 GB RAM version 4.jpg 
+   Default sort key               Raspberry Pi 4, 2 GB RAM version 4.jpg      
+   Page length (in bytes)         103                                         
+   Namespace ID                   6                                           
+   Namespace                      File                                        
+   Page ID                        1100                                        
+   Page content language          en - English                                
+   Page content model             wikitext                                    
+   Indexing by robots             Allowed                                     
+   Number of redirects to this    0                                           
+   page                           
+   Hash value                     ab917e6d8ac769e4bc87b49e6a97c8969ceb0c67    
+
+Page protection
+
+   Edit   Allow all users (infinite) 
+   Move   Allow all users (infinite) 
+   Upload Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>Waschtl           
+   Date of page creation                        13:53, 27 July 2023        
+   Latest editor                                Samueldr (talk | contribs) 
+   Date of latest edit                          05:21, 8 April 2024        
+   Total number of edits                        3                          
+   Total number of distinct authors             3                          
+   Recent number of edits (within past 90 days) 0                          
+   Recent number of distinct authors            0                          
+
+   Retrieved from
+   "https://wiki.nixos.org/wiki/File:Raspberry_Pi_4,_2_GB_RAM_version_4.jpg"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

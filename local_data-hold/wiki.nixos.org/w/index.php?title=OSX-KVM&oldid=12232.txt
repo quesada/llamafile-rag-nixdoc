@@ -1,0 +1,138 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                    OSX-KVM
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 17:31, 19 April 2024 by Klinger (talk | contribs)
+   (Category:Virtualization)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   OSX-KVM allows to run macOS on Linux machines.
+
+Installation
+
+   Enable virtualisation support in your system configuration by adding
+   following lines
+
+ {
+   virtualisation.libvirtd.enable = true;
+   users.extraUsers.youruser.extraGroups = [ "libvirtd" ];
+
+   boot.extraModprobeConfig = ''
+     options kvm_intel nested=1
+     options kvm_intel emulate_invalid_guest_state=0
+     options kvm ignore_msrs=1
+   '';
+ }
+
+   Replace youruser with the user name of your running system. After applying
+   the configuration, reboot your system so the changes to the kernel modules
+   can take effect.
+
+Usage
+
+   Note: This instruction uses a custom fork of OSX-KVM with Nix Flake
+   support. Hopefully these changes will soon be merged to the upstream
+   repository.
+
+   Git clone the project repository and run nix run to prepare and run your
+   MacOS system
+
+ git clone -b flake https://github.com/onny/OSX-KVM.git
+ cd OSX-KVM
+ nix run
+
+   You may also want to adjust the cpu count/memory in ./OpenCore-Boot.sh if
+   your systems resources allow it.
+
+   On the first run, from the boot menu, select disk utilities and erase /
+   format the Qemu disk that will be used for installation. Then choose the
+   installer from the boot menu. Select the previously created disk image as
+   install target.
+
+   On the next boot you will a new boot entry containing the actual
+   installation.
+
+See also
+
+     * ngi-nix/OSX-KVM: This implementation is based on macOS-Simple-KVM, and
+       may not be as complete or polished as kholia/OSX-KVM. Usage
+       instructions are available in the repository README.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=OSX-KVM&oldid=12232"
+   Category:
+     * Virtualization
+     * This page was last edited on 19 April 2024, at 17:31.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

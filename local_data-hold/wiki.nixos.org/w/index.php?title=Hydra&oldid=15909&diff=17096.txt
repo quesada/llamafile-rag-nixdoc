@@ -1,0 +1,90 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      Hydra: Difference between revisions
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+   ← Older edit
+   VisualWikitext
+
+                                           Latest revision as of 07:27, 4
+   Revision as of 12:51, 30 July 2024 view September 2024 view source
+   source                                  Mic92 (talk | contribs)
+   Jopejoe1 (talk | contribs)              Bureaucrats, Interface
+   trusted                                 administrators, Administrators,
+   118 edits                               trusted
+   Marked this version for translation     316 edits
+   ← Older edit                            imported from old wiki
+                                            
+   Line 58:                                Line 58:
+        nix.buildMachines = [                  nix.buildMachines = [          
+          { hostName = "localhost";              { hostName = "localhost";    
+                                                  protocol = null;            
+            system = "x86_64-linux";               system = "x86_64-linux";   
+            supportedFeatures = ["kvm"             supportedFeatures = ["kvm" 
+     "nixos-test" "big-parallel"            "nixos-test" "big-parallel"       
+     "benchmark"];                          "benchmark"];                     
+
+   Retrieved from "https://wiki.nixos.org/wiki/Hydra"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

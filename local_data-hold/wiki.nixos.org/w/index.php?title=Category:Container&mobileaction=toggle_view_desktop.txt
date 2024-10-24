@@ -1,0 +1,124 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                               Category:Container
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+   You can containerize services in different OS level virtualization systems
+   (like Docker, Podman, LXC). You can always use full virtualization of
+   operating systems too (like KVM/QEMU, VirtualBox, VMware).
+
+Pages in category "Container"
+
+   The following 13 pages are in this category, out of 13 total.
+
+  D
+
+     * Distrobox
+     * Docker
+
+  G
+
+     * Gitlab runner
+
+  H
+
+     * Helm and Helmfile
+
+  I
+
+     * Incus
+
+  K
+
+     * K3s
+     * Kubernetes
+
+  L
+
+     * LXD
+
+  N
+
+     * NixOS Containers
+     * Nixos-shell
+
+  P
+
+     * Podman
+
+  W
+
+     * Workgroup:Container
+     * WSL
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Container&oldid=12398"
+   Category:
+     * Software
+     * This page was last edited on 24 April 2024, at 18:58.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,153 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Etebase: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 September 2024
+
+     * curprev [ ] [ ] 12:2112:21, 2 September 2024‎ Denperidge talk
+       contribs‎ m 3,329 bytes −17‎ Modified Caddy example values to reflect
+       Nginx example Tag: Visual edit
+     * curprev [ ] [ ] 12:1812:18, 2 September 2024‎ Denperidge talk
+       contribs‎ 3,346 bytes +816‎ Added Caddy example, variable comment
+       refactors/additions Tag: Visual edit
+     * curprev [ ] [ ] 10:2210:22, 2 September 2024‎ Denperidge talk
+       contribs‎ 2,530 bytes +335‎ Added CLI Method, changed
+       global.secret_file comment, fixed NixOS syntax highlighting Tag:
+       Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:1421:14, 24 April 2024‎ Klinger talk contribs‎ m
+       2,195 bytes +22‎ Category:Server
+
+    7 January 2024
+
+     * curprev [ ] [ ] 13:0213:02, 7 January 2024‎ imported>Ngasull‎ 2,173
+       bytes +1‎ Fix config env variable as per
+       https://github.com/etesync/server/blob/e9de8f1adb16b47becf700100333c38b8e860f5c/etebase_server/settings.py#L145
+
+    9 December 2023
+
+     * curprev [ ] [ ] 21:3221:32, 9 December 2023‎ imported>Underknowledge‎
+       m 2,172 bytes +631‎ Working config with reverse proxy plus minor
+       comments
+
+    19 October 2023
+
+     * curprev [ ] [ ] 18:1218:12, 19 October 2023‎ imported>Reeseovine‎ m
+       1,541 bytes 0‎ typo in example URL
+
+    17 June 2023
+
+     * curprev [ ] [ ] 21:2421:24, 17 June 2023‎ imported>Aktaboot‎ 1,541
+       bytes −3‎ No edit summary
+     * curprev [ ] [ ] 21:2221:22, 17 June 2023‎ imported>Aktaboot‎ 1,544
+       bytes +1,544‎ Created page with "[https://www.etebase.com/
+       {{PAGENAME}}] is an end-to-end encrypted backend as a service. Think
+       Firebase, but encrypted in a way that only your users can access their
+       data. Th..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Etebase"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

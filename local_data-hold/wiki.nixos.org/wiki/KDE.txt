@@ -1,0 +1,247 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Plasma 6
+          * 1.2 Plasma 5
+     * 2 Configuration
+          * 2.1 Rootless X11
+          * 2.2 Excluding applications from the default install
+               * 2.2.1 Plasma 6
+               * 2.2.2 Plasma 5
+          * 2.3 GNOME desktop integration
+          * 2.4 Default Wayland/X11 session
+               * 2.4.1 Plasma 6
+               * 2.4.2 SDDM on Wayland
+               * 2.4.3 Plasma 5
+     * 3 Troubleshooting
+          * 3.1 Qt/KDE applications segfault on start
+          * 3.2 GTK themes are not applied in Wayland applications / Window
+            Decorations missing / Cursor looks different
+     * 4 Tips and tricks
+          * 4.1 Plasma-Manager
+          * 4.2 User icon (avatar)
+   [ ] Toggle the table of contents
+
+                                      KDE
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   KDE Plasma is a desktop environment that aims to be simple by default,
+   powerful when needed.
+
+Installation
+
+  Plasma 6
+
+ /etc/nixos/configuration.nix
+
+ {
+   services.xserver.enable = true; # optional
+   services.displayManager.sddm.enable = true;
+   services.displayManager.sddm.wayland.enable = true;
+   services.desktopManager.plasma6.enable = true;
+ }
+
+  Plasma 5
+
+ /etc/nixos/configuration.nix
+
+ {
+   services.xserver.enable = true;
+   services.displayManager.sddm.enable = true;
+   services.xserver.desktopManager.plasma5.enable = true;
+ }
+
+Configuration
+
+  Rootless X11
+
+   sddm launches X11 as a root user by default. For better security, X11 can
+   be run as a non-root user, but using Wayland is better tested and thus
+   preferred:
+
+ services.xserver.displayManager.sddm.settings.General.DisplayServer = "x11-user";
+
+  Excluding applications from the default install
+
+   Some optional packages can be excluded if they are not needed at the cost
+   of functionality.
+
+    Plasma 6
+
+   Optional packages: plasma6.nix
+
+ environment.plasma6.excludePackages = with pkgs.kdePackages; [
+   plasma-browser-integration
+   konsole
+   elisa
+ ];
+
+    Plasma 5
+
+   Optional packages: plasma5.nix
+
+ environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+   plasma-browser-integration
+   konsole
+   oxygen
+ ];
+
+  GNOME desktop integration
+
+   Using the following example configuration, QT applications will have a
+   look similar to the GNOME desktop, using a dark theme.
+
+ qt = {
+   enable = true;
+   platformTheme = "gnome";
+   style.name = "adwaita-dark";
+ };
+
+   For other themes, you may need the packages libsForQt5.qt5ct and
+   libsForQt5.qtstyleplugin-kvantum and a symlink from ~/.config/Kvantum/ to
+   your theme package. Here is an example using Arc-Dark and Home Manager. In
+   the Home Manager configuration:
+
+ qt = {
+   enable = true;
+   platformTheme = "qtct";
+   style.name = "kvantum";
+ };
+
+ xdg.configFile = {
+   "Kvantum/ArcDark".source = "${pkgs.arc-kde-theme}/share/Kvantum/ArcDark";
+   "Kvantum/kvantum.kvconfig".text = "[General]\ntheme=ArcDark";
+ };
+
+   For more details, see this forum post.
+
+  Default Wayland/X11 session
+
+    Plasma 6
+
+   Plasma 6 runs on Wayland by default. To launch an X11 session by default:
+
+ services.xserver.displayManager.defaultSession = "plasmax11";
+
+    SDDM on Wayland
+
+ services.xserver.displayManager.sddm.wayland.enable = true;
+
+    Plasma 5
+
+   Plasma 5 runs on X11 by default and it is recommended to use Wayland with
+   Plasma 6 instead. To launch a Wayland session by default anyway:
+
+ services.xserver.displayManager.defaultSession = "plasmawayland";
+
+Troubleshooting
+
+  Qt/KDE applications segfault on start
+
+   This is caused by a stale QML cache (see this issue). A dirty way to fix
+   this is by running on a terminal the following command:
+
+ find ${XDG_CACHE_HOME:-$HOME/.cache}/**/qmlcache -type f -delete
+
+  GTK themes are not applied in Wayland applications / Window Decorations
+  missing / Cursor looks different
+
+   This affects GTK applications including Firefox and Thunderbird.
+
+   You may need to set a GTK theme Breeze imitating the KDE theme with the
+   same name in System Settings -> Application Style -->Configure GNOME/GTK
+   Application Style.
+
+   (See this issue)
+
+Tips and tricks
+
+  Plasma-Manager
+
+   Note: Plasma-Manager is an unofficial community project and is not yet
+   mature
+
+   By default, the Plasma configuration can be handled like on traditional
+   systems. With plasma-manager, it is possible to make Plasma configurations
+   via nix by providing home-manager modules.
+
+  User icon (avatar)
+
+   You can add a profile picture to your user by using a png file in
+   ~/.face.icon.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=KDE&oldid=17899"
+   Categories:
+     * Desktop environment
+     * Applications
+     * KDE
+     * This page was last edited on 20 October 2024, at 05:48.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

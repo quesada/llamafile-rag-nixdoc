@@ -1,0 +1,216 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          PostgreSQL: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 August 2024
+
+     * curprev [ ] [ ] 11:3911:39, 19 August 2024‎ PedroHLC talk contribs‎
+       13,356 bytes +614‎ Add upgrade instructions
+
+    3 August 2024
+
+     * curprev [ ] [ ] 18:5018:50, 3 August 2024‎ Myypo talk contribs‎ m
+       12,742 bytes 0‎ Changed /var/lib/postgresql to /var/run/postgresql
+       because this is the actual location of the Unix socket. Tag: Visual
+       edit
+
+    15 May 2024
+
+     * curprev [ ] [ ] 18:4118:41, 15 May 2024‎ Klinger talk contribs‎ 12,742
+       bytes +315‎ added link to nixos manual Tag: Visual edit
+
+    2 April 2024
+
+     * curprev [ ] [ ] 16:2416:24, 2 April 2024‎ Pablo1107 talk contribs‎
+       12,427 bytes +193‎ Add a note that explains that a PostgreSQL module
+       is available in Nix Darwin. Tag: Visual edit
+
+    1 April 2024
+
+     * curprev [ ] [ ] 14:0914:09, 1 April 2024‎ Mic92 talk contribs‎ 12,234
+       bytes −1‎ fix links
+     * curprev [ ] [ ] 14:0914:09, 1 April 2024‎ Mic92 talk contribs‎ 12,235
+       bytes −19‎ fix links
+
+    6 February 2024
+
+     * curprev [ ] [ ] 01:1601:16, 6 February 2024‎ imported>Zie‎ m 12,254
+       bytes +1,767‎ Add a little about enabling TLS.
+
+    19 December 2023
+
+     * curprev [ ] [ ] 20:0320:03, 19 December 2023‎ imported>Onny‎ 10,487
+       bytes +8‎ No edit summary
+     * curprev [ ] [ ] 20:0220:02, 19 December 2023‎ imported>Onny‎ 10,479
+       bytes +883‎ Add troubleshooting section, how to fix collation version
+       mismatch
+
+    4 December 2023
+
+     * curprev [ ] [ ] 09:2509:25, 4 December 2023‎ imported>H7x4‎ m 9,596
+       bytes +22‎ Add article to Database category
+
+    11 August 2023
+
+     * curprev [ ] [ ] 07:3107:31, 11 August 2023‎ imported>Colinsane‎ m
+       9,574 bytes 0‎ s/trigger and automatic migrations/trigger any
+       automatic migrations/
+     * curprev [ ] [ ] 07:3007:30, 11 August 2023‎ imported>Colinsane‎ 9,574
+       bytes +169‎ clarify that `services.postgresql.package` is fixed based
+       on `system.stateVersion`
+
+    20 July 2023
+
+     * curprev [ ] [ ] 16:0716:07, 20 July 2023‎ imported>Hofsiedge‎ m 9,405
+       bytes +2‎ →‎Limit Access: - fixed alighnment in the authentication
+       field
+     * curprev [ ] [ ] 13:5113:51, 20 July 2023‎ imported>Hofsiedge‎ m 9,403
+       bytes +1‎ Added a missing > in a </code> tag in the "Verify setup"
+       section
+
+    15 July 2023
+
+     * curprev [ ] [ ] 12:2512:25, 15 July 2023‎ imported>Malteneuss‎ m 9,402
+       bytes −9‎ Fix headline text
+     * curprev [ ] [ ] 12:2212:22, 15 July 2023‎ imported>Malteneuss‎ 9,411
+       bytes +2,638‎ Add security section
+     * curprev [ ] [ ] 11:3111:31, 15 July 2023‎ imported>Malteneuss‎ 6,773
+       bytes +1,390‎ Add verification with psql section
+     * curprev [ ] [ ] 10:5510:55, 15 July 2023‎ imported>Malteneuss‎ m 5,383
+       bytes +3‎ Fix typo
+     * curprev [ ] [ ] 10:5010:50, 15 July 2023‎ imported>Malteneuss‎ m 5,380
+       bytes −15‎ Fix indentations
+     * curprev [ ] [ ] 10:4410:44, 15 July 2023‎ imported>Malteneuss‎ 5,395
+       bytes +1,793‎ Add simplified getting started section
+
+    30 March 2022
+
+     * curprev [ ] [ ] 06:5906:59, 30 March 2022‎ imported>Ikovnatsky‎ m
+       3,602 bytes +38‎ Add host on 127.0.0.0/32 trust to config
+
+    10 August 2019
+
+     * curprev [ ] [ ] 20:4720:47, 10 August 2019‎ imported>Ariutta‎ 3,564
+       bytes +202‎ Add examples for 17.09 and later
+     * curprev [ ] [ ] 20:4020:40, 10 August 2019‎ imported>Ariutta‎ m 3,362
+       bytes +5‎ Specify updated package name. Close brace.
+
+    7 February 2018
+
+     * curprev [ ] [ ] 00:3500:35, 7 February 2018‎ imported>Qknight‎ 3,357
+       bytes +1,656‎ added some documentation how to debug the SQL statements
+
+    29 November 2017
+
+     * curprev [ ] [ ] 21:2521:25, 29 November 2017‎ imported>Samueldr‎ m
+       1,701 bytes +107‎ Adds citation/source for ident authentication use.
+     * curprev [ ] [ ] 21:2421:24, 29 November 2017‎ imported>Samueldr‎ m
+       1,594 bytes −1‎ Squashed a typo
+     * curprev [ ] [ ] 21:2021:20, 29 November 2017‎ imported>Samueldr‎ 1,595
+       bytes +1,595‎ Stubbity stub page with psql informations, I answered
+       this twice already on IRC ☺
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/PostgreSQL"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

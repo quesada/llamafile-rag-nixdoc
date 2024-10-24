@@ -1,0 +1,116 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installing
+     * 2 Security Wrapper
+   [ ] Toggle the table of contents
+
+                                     Restic
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 16:41, 20 June 2024 by Klinger (talk | contribs)
+   (Category:Applications Category:Backup. Link to restic.)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Restic is a fast and secure backup program.
+
+Installing
+
+   Add restic to environment.systemPackages like so:
+
+ environment.systemPackages = with pkgs; [
+   restic
+ ];
+
+Security Wrapper
+
+   If you want to back up your system without running restic as root, you can
+   create a user and security wrapper to give restic the capability to read
+   anything on the filesystem as if it were running as root. The following
+   will create the wrapper at /run/wrappers/bin/restic
+
+ users.users.restic = {
+   isNormalUser = true;
+ };
+
+ security.wrappers.restic = {
+   source = "${pkgs.restic.out}/bin/restic";
+   owner = "restic";
+   group = "users";
+   permissions = "u=rwx,g=,o=";
+   capabilities = "cap_dac_read_search=+ep";
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Restic&oldid=13273"
+   Categories:
+     * Applications
+     * Backup
+     * This page was last edited on 20 June 2024, at 16:41.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

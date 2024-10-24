@@ -1,0 +1,136 @@
+   Link: canonical
+   Link: index: Index
+   Link: search: Search
+   Link: next: Automatic environment activation with direnv
+   Link: prev: Recipes
+   Skip to main content [ ] [ ]
+   _____________________ Ctrl+K
+   [IMG] nix.dev
+   IFrame
+
+   Official documentation for getting things done with Nix.
+
+   _____________________ Ctrl+K
+     * Install Nix
+     * Tutorials [ ]
+          * First steps [ ]
+               * Ad hoc shell environments
+               * Reproducible interpreted scripts
+               * Declarative shell environments
+               * Towards reproducibility: pinning Nixpkgs
+          * Nix language basics
+          * Packaging existing software
+          * Package parameters and overrides with callPackage
+          * Working with local files
+          * Cross compilation
+          * Module system [ ]
+               * 1. A basic module
+               * 2. Module system deep dive
+          * NixOS [ ]
+               * NixOS virtual machines
+               * Building a bootable ISO image
+               * Building and running Docker images
+               * Integration testing with NixOS virtual machines
+               * Provisioning remote machines via SSH
+               * Installing NixOS on a Raspberry Pi
+               * Deploying NixOS using Terraform
+               * Setting up an HTTP binary cache
+               * Setting up distributed builds
+     * Guides [ ]
+          * Recipes [ ]
+               * Configure Nix to use a custom binary cache
+               * Automatic environments
+               * Dependencies in the development shell
+               * Managing remote sources
+               * Python development environment
+               * Setting up post-build hooks
+               * Continuous integration with GitHub Actions
+          * Best practices
+          * Troubleshooting
+          * Frequently Asked Questions
+     * Reference [ ]
+          * Glossary
+          * Nix reference manual [ ]
+               * Nix pre-release (development)
+               * Nix 2.24 (latest)
+               * Nix 2.18 (in Nixpkgs rolling)
+               * Nix 2.18 (in Nixpkgs 24.05)
+               * Nix 2.18 (in Nixpkgs 23.11)
+          * Nixpkgs manual
+          * NixOS manual
+          * Community projects
+          * Support tools
+          * Further reading
+          * Pinning Nixpkgs
+     * Concepts [ ]
+          * Flakes
+          * Frequently Asked Questions
+     * Contributing [ ]
+          * How to contribute
+          * How to get help
+          * Contributing documentation [ ]
+               * Documentation resources
+               * Documentation framework
+               * Style guide
+               * How to write a tutorial
+     * Acknowledgements [ ]
+          * Sponsors
+     * Repository
+     * Suggest edit
+     * Open issue
+     * .md
+     * .pdf
+   [ Submit ]
+
+                   Configure Nix to use a custom binary cache
+
+                  Configure Nix to use a custom binary cache#
+
+   Nix can be configured to use a binary cache with the substituters and
+   trusted-public-keys settings, either exclusively or in addition to
+   cache.nixos.org.
+
+   Tip
+
+   Follow the tutorial to set up an HTTP binary cache and create a key pair
+   for signing store objects.
+
+   For example, given a binary cache at https://example.org with public key
+   My56...Q==%, and some derivation in default.nix, make Nix exclusively use
+   that cache once by passing settings as command line flags:
+
+ $ nix-build --substituters https://example.org --trusted-public-keys example.org:My56...Q==%
+
+   To permanently use the custom cache in addition to the public cache, add
+   to the Nix configuration file:
+
+ $ echo "extra-substituters = https://example.org" >> /etc/nix/nix.conf
+ $ echo "extra-trusted-public-keys = example.org:My56...Q==%" >> /etc/nix/nix.conf
+
+   To always use only the custom cache:
+
+ $ echo "substituters = https://example.org" >> /etc/nix/nix.conf
+ $ echo "trusted-public-keys = example.org:My56...Q==%" >> /etc/nix/nix.conf
+
+   NixOS
+
+   On NixOS, Nix is configured through the nix.settings option:
+
+ 1{ ... }: {
+ 2  nix.settings = {
+ 3    substituters = [ "https://example.org" ];
+ 4    trusted-public-keys = [ "example.org:My56...Q==%" ];
+ 5  };
+ 6}
+
+   previous
+
+   Recipes
+
+   next
+
+   Automatic environment activation with direnv
+
+   By the Nix documentation team and contributors.
+
+   © Copyright 2016-2024, NixOS Foundation.

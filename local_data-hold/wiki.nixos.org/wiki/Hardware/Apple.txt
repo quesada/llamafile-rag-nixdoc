@@ -1,0 +1,139 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Identifying your computer
+     * 2 Auto Restart
+   [ ] Toggle the table of contents
+
+                                     Apple
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to Hardware Hub
+
+Identifying your computer
+
+  $ cat /sys/devices/virtual/dmi/id/product_{family,name}
+ MacBook
+ MacBook2,1
+
+   The last line is the 'version field; the key to your success. This will
+   allow you to identify with great accuracy the hardware. Fixes for other
+   versions may apply too, but the greater the gap between revisions, the
+   less likely it is to work.
+
+Auto Restart
+
+   Older Apple hardware had an elegent solution to enable automatic restart
+   on power failure. The physical power button, when depressed, could be
+   rotated through 90 degrees and in this position it remained permanently
+   on. This function is now handled through software setting registers in the
+   PMU, except that in some models this setting does not persist across
+   reboots. the following may be of help if you are looking to use a Mac-Mini
+   as a server
+
+ # https://blog.dhampir.no/content/linux-on-mac-mini-power-on-after-power-loss
+
+ { config, pkgs, options, lib, ... }:
+
+ with lib;
+
+ let
+         register =
+         {
+                 "mini_white_intel+nVidia" = "00:03.0 0x7b.b=0x19";
+                 "mini_white_intel" = "0:1f.0 0xa4.b=0";
+                 "mini_unibody_intel" = "0:3.0 -0x7b=20";
+                 "mini_unibody_M1" = "?";
+         };
+
+ in
+
+ {
+         options.hardware.macVariant = mkOption {
+                 type = types.enum (attrNames register);
+                 default = elemAt (attrNames register) 0;
+                 example = elemAt (attrNames register) 0;
+                 description = "Minor hardware variants have different registers for enabling autostart";
+         };
+
+         # https://www.linuxfromscratch.org/blfs/view/svn/general/pciutils.html
+         config.environment.systemPackages = with pkgs; [ pciutils ];
+
+         # Needs to run every reboot
+         config.systemd.services.enable-autorestart = {
+                 script = ("/run/current-system/sw/bin/setpci -s " + (getAttr config.hardware.macVariant register)) ;
+                 wantedBy = [ "default.target" ];
+                 after = [ "default.target" ];
+         };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/Apple&oldid=13377"
+     * This page was last edited on 21 June 2024, at 18:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

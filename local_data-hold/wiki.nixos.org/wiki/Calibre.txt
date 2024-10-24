@@ -1,0 +1,110 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 .cbr and .cbz files
+   [ ] Toggle the table of contents
+
+                                    Calibre
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Calibre is program to view, edit, convert and print ebooks.
+
+   This page is intended to explain how to run calibre in nixos.
+
+.cbr and .cbz files
+
+   If you want to open .cbr and .cbz files, you need to add the following
+   lines to your configuration.nix file:
+
+ /etc/nixos/configuration.nix
+
+ environment.systemPackages = with pkgs; [     
+   (calibre.override {
+     unrarSupport = true;
+   })
+ ]
+
+   Note: calibre requires several unfree packages to open .cbr and .cbz
+   files. If you are using allowUnfreePredicate you will need to ensure that
+   your configurations permit all of them.
+
+ {
+   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+     "calibre"
+     "unrar"
+   ];
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Calibre&oldid=12177"
+   Category:
+     * Applications
+     * This page was last edited on 18 April 2024, at 21:24.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

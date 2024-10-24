@@ -1,0 +1,48 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              HotOS paper on NixOS
+
+   Published on Fri Jun 08 2007
+
+                              HotOS paper on NixOS
+
+   Eelco Dolstra presented the paper Purely Functional System Configuration
+   Management at the 11th Workshop on Hot Topics in Operating Systems (HotOS
+   XI). It gives an overview of the ideas behind NixOS. The slides are also
+   available.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

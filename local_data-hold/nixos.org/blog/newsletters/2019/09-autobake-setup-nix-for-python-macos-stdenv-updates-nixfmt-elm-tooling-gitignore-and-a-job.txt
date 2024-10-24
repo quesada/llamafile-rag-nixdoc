@@ -1,0 +1,103 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+#09 - autobake, setup.nix for Python, macOS stdenv updates, nixfmt, Elm tooling,
+                              gitignore and a job
+
+   Published on Wed May 15 2019
+
+#09 - autobake, setup.nix for Python, macOS stdenv updates, nixfmt, Elm tooling,
+                              gitignore and a job
+
+                                      News
+
+     * autobake: Create build recipes through automated trial and error
+
+     * GNU Guix 1.0.0 released
+
+     * RFC on setup.nix Python development tool
+
+       Asko proposes a new Python development tool
+
+     * SNM release compatible with NixOS 19.03
+
+     * nixpkgs macOS stdenv updates
+
+       Matthew’s overview of recent stdenv updates, which also bumps minimal
+       supported version to 10.12.
+
+     * Phoronix: NixOS Takes Action After 1.2GB/s ZFS Encryption Speed Drops
+       To 200MB/s With Linux 5.0+
+
+     * nixfmt
+
+       Serokell releases nixfmt 0.1 with a focus on speed and are looking for
+       feedback.
+
+     * Elm tooling for Nix
+
+       Linux and macOS packages tooling for Elm: elm-test,
+       elm-verify-examples, elm-analyse, elm-doc-preview
+
+     * Groq.com is seeking a DevOps Engineer
+
+       who will be responsible for maintaining and developing services such
+       as build system, monitoring, name resolution, configuration
+       management, and the like. Groq uses formal methods, Haskell, and NixOS
+       to build processors.
+
+     * Hercules CI sprint #3 report
+
+          * hercules-agent-0.2 release
+          * precise derivations support for upcoming multi-agent and
+            multi-architecture support
+          * focus for next two weeks is Cachix and Darwin support
+     * gitignore for Nix
+
+       Robert announces gitignore that precisely emulates git behaviour and
+       goes into details how it compares with existing solutions
+
+     * VPS prgmr updates NixOS installer to 19.03
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,156 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+           Category:Pages or sections flagged with Template:outdated
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+   This category automatically collects articles containing {{Outdated}}.
+
+Pages in category "Pages or sections flagged with Template:outdated"
+
+   The following 37 pages are in this category, out of 37 total.
+
+  A
+
+     * ALSA
+
+  D
+
+     * Docbook Editor Configuration
+     * User:Domtoro
+
+  F
+
+     * User:Fadenb
+
+  J
+
+     * JACK
+
+  M
+
+     * Mesa
+
+  N
+
+     * NixOS Installation Guide/Manual USB Creation
+     * NixOS Installation Guide/Unetbootin
+     * NixOS on ARM/Adding support for new boards
+     * NixOS on ARM/ASUS Tinker Board
+     * NixOS on ARM/BeagleBone Black
+     * NixOS on ARM/Building Images
+     * NixOS on ARM/Initial Configuration
+     * NixOS on ARM/Installation
+     * NixOS on ARM/Jetson TK1
+     * NixOS on ARM/ODROID-C2
+     * NixOS on ARM/Orange Pi One
+     * NixOS on ARM/Orange Pi PC
+     * NixOS on ARM/PcDuino3 Nano
+     * NixOS on ARM/PINE A64-LTS
+     * NixOS on ARM/QEMU
+     * NixOS on ARM/Raspberry Pi 3
+     * NixOS on ARM/Toshiba AC100
+     * NixOS on ARM/Wandboard
+     * NixOS on MIPS
+
+  O
+
+     * Template:Outdated
+
+  P
+
+     * Packages/sc-controller
+     * Packaging/Tutorial
+     * Poezio OTR
+     * Proxmox Linux Container
+     * Python discussion
+
+  U
+
+     * Talk:Using X without a Display Manager
+
+  V
+
+     * Vagrant Box
+
+  W
+
+     * Workgroup:Container
+     * Workgroup:DataScience
+     * Workgroup:Deployment
+
+  Z
+
+     * Zotero
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Pages_or_sections_flagged_with_Template:outdated&oldid=13433"
+   Categories:
+     * Hidden categories
+     * Maintenance
+     * This page was last edited on 23 June 2024, at 02:41.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

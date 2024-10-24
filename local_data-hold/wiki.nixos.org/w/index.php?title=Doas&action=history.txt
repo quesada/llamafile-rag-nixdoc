@@ -1,0 +1,152 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Doas: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    11 August 2024
+
+     * curprev [ ] [ ] 15:0915:09, 11 August 2024‎ Unabomberlive talk
+       contribs‎ 1,277 bytes +66‎ Marked this version for translation
+     * curprev [ ] [ ] 15:0915:09, 11 August 2024‎ Unabomberlive talk
+       contribs‎ 1,211 bytes +142‎ No edit summary
+
+    10 August 2024
+
+     * curprev [ ] [ ] 21:1121:11, 10 August 2024‎ Muhlinux talk contribs‎ m
+       1,069 bytes +22‎ add category: security Tag: Visual edit
+
+    30 April 2024
+
+     * curprev [ ] [ ] 14:2014:20, 30 April 2024‎ Klinger talk contribs‎ m
+       1,047 bytes +27‎ moved into Category:Applications. Its an application
+       to run other applications with elevated rights.
+     * curprev [ ] [ ] 13:0513:05, 30 April 2024‎ Sandro talk contribs‎ 1,020
+       bytes +29‎ No edit summary Tag: Visual edit: Switched
+
+    22 April 2024
+
+     * curprev [ ] [ ] 01:4601:46, 22 April 2024‎ Nebu talk contribs‎ 991
+       bytes +173‎ No edit summary Tag: Visual edit
+
+    17 March 2024
+
+     * curprev [ ] [ ] 23:4523:45, 17 March 2024‎ imported>Likeazir‎ m 818
+       bytes +14‎ No edit summary
+     * curprev [ ] [ ] 23:4423:44, 17 March 2024‎ imported>Likeazir‎ m 804
+       bytes +46‎ No edit summary
+
+    9 December 2023
+
+     * curprev [ ] [ ] 11:5411:54, 9 December 2023‎ imported>RePtarmagain‎ m
+       758 bytes +2‎ Added correct list encapsulation to the nix code
+       example, old example throws error: A definition for option
+       `security.doas.extraRules' is not of type `list of (submodule)
+
+    7 August 2023
+
+     * curprev [ ] [ ] 16:4616:46, 7 August 2023‎ imported>Aquova‎ 756 bytes
+       +756‎ Added doas page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Doas"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

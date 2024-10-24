@@ -1,0 +1,307 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          NixOS Wiki: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    8 October 2024
+
+     * curprev [ ] [ ] 14:5314:53, 8 October 2024‎ Phaer talk contribs‎ 4,075
+       bytes +65‎ Prominently link to list of teams on nixos.org/community.
+       Tag: Visual edit
+
+    2 September 2024
+
+     * curprev [ ] [ ] 20:4720:47, 2 September 2024‎ Klinger talk contribs‎ m
+       4,010 bytes +22‎ added MoS to wiki section on front page
+     * curprev [ ] [ ] 19:5719:57, 2 September 2024‎ Klinger talk contribs‎ m
+       3,988 bytes +17‎ changed the link to Contribution-article
+
+    27 August 2024
+
+     * curprev [ ] [ ] 01:1301:13, 27 August 2024‎ Unabomberlive talk
+       contribs‎ 3,971 bytes +24‎ Marked this version for translation
+
+    26 August 2024
+
+     * curprev [ ] [ ] 04:5604:56, 26 August 2024‎ Adisbladis talk contribs‎
+       m 3,947 bytes +1‎ Fix list formatting Tag: Visual edit
+     * curprev [ ] [ ] 04:5404:54, 26 August 2024‎ Adisbladis talk contribs‎
+       3,946 bytes +72‎ Change confusing wording regarding flakes in
+       relations to channels. Flakes is not an alternative to the bi-annual
+       releases. It's an alternative to nix-channel. Tag: Visual edit
+
+    12 July 2024
+
+     * curprev [ ] [ ] 12:2212:22, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 3,874 bytes +13‎ No edit summary
+     * curprev [ ] [ ] 11:3511:35, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 3,861 bytes +123‎ Marked this version for translation
+     * curprev [ ] [ ] 11:3411:34, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 3,738 bytes +25‎ No edit summary Tag: Visual edit: Switched
+
+    22 June 2024
+
+     * curprev [ ] [ ] 04:4104:41, 22 June 2024‎ Tomodachi94 talk contribs‎ m
+       3,713 bytes 0‎ Fix Home Manager capitalization
+
+    10 May 2024
+
+     * curprev [ ] [ ] 10:5910:59, 10 May 2024‎ Hexa talk contribs‎ 3,713
+       bytes +102‎ Add link to special pages overview Tag: Visual edit:
+       Switched
+
+    9 May 2024
+
+     * curprev [ ] [ ] 20:1920:19, 9 May 2024‎ Samueldr talk contribs‎ m
+       3,611 bytes +115‎ Added a third NOTE
+     * curprev [ ] [ ] 19:5219:52, 9 May 2024‎ Samueldr talk contribs‎ m
+       3,496 bytes +351‎ Re-add special pages box, though dropping the link
+       to "recent changes" since it's in the menu bar...
+     * curprev [ ] [ ] 19:4719:47, 9 May 2024‎ Samueldr talk contribs‎ m
+       3,145 bytes +38‎ Review "get in touch" box
+     * curprev [ ] [ ] 19:4019:40, 9 May 2024‎ Samueldr talk contribs‎ 3,107
+       bytes +43‎ Drop "jumbotron" template
+     * curprev [ ] [ ] 19:3919:39, 9 May 2024‎ Samueldr talk contribs‎ 3,064
+       bytes −226‎ Revert stylistic / structural changes
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:2021:20, 24 April 2024‎ Klinger talk contribs‎ m
+       3,290 bytes +3‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 20:5820:58, 24 April 2024‎ Klinger talk contribs‎
+       3,287 bytes +116‎ →‎{{ns:6}}:home-manual.png Documentation topics
+
+    23 April 2024
+
+     * curprev [ ] [ ] 01:4501:45, 23 April 2024‎ Vater talk contribs‎ 3,171
+       bytes −460‎ (with the new (pure (vector 2022 (and not tweeki) skin by
+       default) mediawiki) there is no need for links to "normal" mediawiki
+       (special) pages
+     * curprev [ ] [ ] 01:3801:38, 23 April 2024‎ Vater talk contribs‎ 3,631
+       bytes +391‎ (much more) pure mediawiki (pure table foo (no "useless"
+       special templates are needed)) Tag: Visual edit: Switched
+     * curprev [ ] [ ] 01:2101:21, 23 April 2024‎ Vater talk contribs‎ 3,240
+       bytes −118‎ kiss (principle); needless templates are needless :-D
+
+    18 April 2024
+
+     * curprev [ ] [ ] 15:5915:59, 18 April 2024‎ Klinger talk contribs‎ m
+       3,358 bytes 0‎ Manuals in order of importance (for NixOS users)
+
+    16 April 2024
+
+     * curprev [ ] [ ] 21:5521:55, 16 April 2024‎ Klinger talk contribs‎
+       3,358 bytes +31‎ reordered items in get in touch (importance and
+       reading flow), added „contributing to the wiki“ as third wiki-item
+       Tag: Visual edit: Switched
+     * curprev [ ] [ ] 21:3821:38, 16 April 2024‎ Klinger talk contribs‎ m
+       3,327 bytes 0‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 21:2921:29, 16 April 2024‎ Klinger talk contribs‎
+       3,327 bytes −459‎ reduced the clutter of too many links in the „get in
+       touch box“: made clear its the NixOS website, moved the chats and
+       forums into “get in touch“ article (there was only shown a part of the
+       chats and forums and some have been links „get in touch“ anyway. ) For
+       the possible contributors to this wiki the wiki matrix chat is the
+       most important link - thats why I added it here more prominently. I
+       removed the github link to nixpgs - we should offer a consolidated
+       article for the github links. Tag: Visual edit: Switched
+     * curprev [ ] [ ] 21:0921:09, 16 April 2024‎ Klinger talk contribs‎
+       3,786 bytes −120‎ Workgroups seem to be not that important, to be on
+       landing page (inactive, less than a handful of participants). Moved to
+       Wiki Contributing (for now).
+
+    15 April 2024
+
+     * curprev [ ] [ ] 19:5419:54, 15 April 2024‎ Klinger talk contribs‎ m
+       3,906 bytes −2‎ (rephrase a sentence)
+     * curprev [ ] [ ] 19:4519:45, 15 April 2024‎ Klinger talk contribs‎
+       3,908 bytes +362‎ Getting startedd Its important to mention Home
+       Manager and Flakes on the landing page - but its also important to
+       guide people to ignore them for a while (its difficult to grok all the
+       concepts at once, many fail while trying to grasp NixOS, most used
+       advice on reddit and co is: „you need to start with flakes and home
+       manager“
+     * curprev [ ] [ ] 19:1819:18, 15 April 2024‎ Klinger talk contribs‎
+       3,546 bytes −23‎ removed Link to get-in-touch page for e-mail
+       wiki-contact, because the get-in-touch page is for platforms/services
+       and does not include a contact e-mail for wiki-administration. (may be
+       added there too instead of this removal)
+     * curprev [ ] [ ] 19:1219:12, 15 April 2024‎ Klinger talk contribs‎
+       3,569 bytes −88‎ No edit summary
+     * curprev [ ] [ ] 18:5818:58, 15 April 2024‎ Klinger talk contribs‎
+       3,657 bytes +124‎ getting started: reordered, removed hydra (you will
+       still have links on ecosystem page and in main navigation sidebar),
+       added link to NixOS manual and moved standalone nix link to nix.dev
+       down. Tag: Visual edit: Switched
+
+    6 April 2024
+
+     * curprev [ ] [ ] 17:5717:57, 6 April 2024‎ Sdht0 talk contribs‎ m 3,533
+       bytes 0‎ Update to direct link
+     * curprev [ ] [ ] 16:4516:45, 6 April 2024‎ Sdht0 talk contribs‎ 3,533
+       bytes −121‎ Removing unofficial references links
+
+    5 April 2024
+
+     * curprev [ ] [ ] 03:4003:40, 5 April 2024‎ Sdht0 talk contribs‎ m 3,654
+       bytes +1‎ Update to direct link
+
+    4 April 2024
+
+     * curprev [ ] [ ] 23:1023:10, 4 April 2024‎ Samueldr talk contribs‎
+       3,653 bytes +119‎ Add link to unpatrolled pages
+     * curprev [ ] [ ] 21:4021:40, 4 April 2024‎ Samueldr talk contribs‎ m
+       3,534 bytes +57‎ No edit summary
+     * curprev [ ] [ ] 21:3221:32, 4 April 2024‎ Samueldr talk contribs‎ m
+       3,477 bytes −1‎ No edit summary
+
+    3 April 2024
+
+     * curprev [ ] [ ] 23:2023:20, 3 April 2024‎ Samueldr talk contribs‎ m
+       3,478 bytes +104‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 06:0606:06, 3 April 2024‎ Mic92 talk contribs‎ m 3,374
+       bytes 0‎ Mic92 moved page NixOS wiki to NixOS Wiki over redirect
+     * curprev [ ] [ ] 06:0306:03, 3 April 2024‎ Mic92 talk contribs‎ m 3,374
+       bytes 0‎ Mic92 moved page NixOS Wiki to NixOS wiki over redirect
+     * curprev [ ] [ ] 06:0206:02, 3 April 2024‎ Mic92 talk contribs‎ m 3,374
+       bytes 0‎ Mic92 moved page NixOS wiki to NixOS Wiki: Cosmetics
+     * curprev [ ] [ ] 06:0206:02, 3 April 2024‎ Mic92 talk contribs‎ m 3,374
+       bytes 0‎ Mic92 moved page Main Page to NixOS wiki: Cosmetics
+
+    2 April 2024
+
+     * curprev [ ] [ ] 19:1119:11, 2 April 2024‎ Mic92 talk contribs‎ 3,374
+       bytes −381‎ Drop reference to old wiki. At this point no one will
+       bother checking archive.org anymore.
+     * curprev [ ] [ ] 06:4306:43, 2 April 2024‎ Mic92 talk contribs‎ 3,755
+       bytes −13‎ NixOps is no longer maintained
+
+    1 April 2024
+
+     * curprev [ ] [ ] 15:4115:41, 1 April 2024‎ Fricklerhandwerk talk
+       contribs‎ 3,768 bytes +256‎ reword the introduction to make a clear
+       distinction between Nix, Nixpkgs, and NixOS Tag: Visual edit: Switched
+     * curprev [ ] [ ] 12:2512:25, 1 April 2024‎ Lassulus talk contribs‎
+       3,512 bytes −16‎ update wiki email Tag: Visual edit
+     * curprev [ ] [ ] 12:1512:15, 1 April 2024‎ Mic92 talk contribs‎ 3,528
+       bytes −57‎ Drop invalid templates Tag: Visual edit: Switched
+
+    12 January 2024
+
+     * curprev [ ] [ ] 17:5317:53, 12 January 2024‎ imported>Fadenb‎ m 3,585
+       bytes −5‎ Reverted edits by Fadenb (talk) to last revision by
+       Fricklerhandwerk
+     * curprev [ ] [ ] 17:5217:52, 12 January 2024‎ imported>Fadenb‎ m 3,590
+       bytes +5‎ Test: Debugging cache invalidation issie
+
+    5 September 2023
+
+     * curprev [ ] [ ] 00:4100:41, 5 September 2023‎
+       imported>Fricklerhandwerk‎ 3,585 bytes +62‎ point out nix.dev for
+       first steps
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_Wiki"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

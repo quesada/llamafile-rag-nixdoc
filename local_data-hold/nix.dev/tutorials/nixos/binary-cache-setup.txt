@@ -1,0 +1,372 @@
+   Link: canonical
+   Link: index: Index
+   Link: search: Search
+   Link: next: Setting up distributed builds
+   Link: prev: Deploying NixOS using Terraform
+   Skip to main content [ ] [ ]
+   _____________________ Ctrl+K
+   [IMG] nix.dev
+   IFrame
+
+   Official documentation for getting things done with Nix.
+
+   _____________________ Ctrl+K
+     * Install Nix
+     * Tutorials [ ]
+          * First steps [ ]
+               * Ad hoc shell environments
+               * Reproducible interpreted scripts
+               * Declarative shell environments
+               * Towards reproducibility: pinning Nixpkgs
+          * Nix language basics
+          * Packaging existing software
+          * Package parameters and overrides with callPackage
+          * Working with local files
+          * Cross compilation
+          * Module system [ ]
+               * 1. A basic module
+               * 2. Module system deep dive
+          * NixOS [ ]
+               * NixOS virtual machines
+               * Building a bootable ISO image
+               * Building and running Docker images
+               * Integration testing with NixOS virtual machines
+               * Provisioning remote machines via SSH
+               * Installing NixOS on a Raspberry Pi
+               * Deploying NixOS using Terraform
+               * Setting up an HTTP binary cache
+               * Setting up distributed builds
+     * Guides [ ]
+          * Recipes [ ]
+               * Configure Nix to use a custom binary cache
+               * Automatic environments
+               * Dependencies in the development shell
+               * Managing remote sources
+               * Python development environment
+               * Setting up post-build hooks
+               * Continuous integration with GitHub Actions
+          * Best practices
+          * Troubleshooting
+          * Frequently Asked Questions
+     * Reference [ ]
+          * Glossary
+          * Nix reference manual [ ]
+               * Nix pre-release (development)
+               * Nix 2.24 (latest)
+               * Nix 2.18 (in Nixpkgs rolling)
+               * Nix 2.18 (in Nixpkgs 24.05)
+               * Nix 2.18 (in Nixpkgs 23.11)
+          * Nixpkgs manual
+          * NixOS manual
+          * Community projects
+          * Support tools
+          * Further reading
+          * Pinning Nixpkgs
+     * Concepts [ ]
+          * Flakes
+          * Frequently Asked Questions
+     * Contributing [ ]
+          * How to contribute
+          * How to get help
+          * Contributing documentation [ ]
+               * Documentation resources
+               * Documentation framework
+               * Style guide
+               * How to write a tutorial
+     * Acknowledgements [ ]
+          * Sponsors
+     * Repository
+     * Suggest edit
+     * Open issue
+     * .md
+     * .pdf
+   [ Submit ]
+
+                        Setting up an HTTP binary cache
+
+Contents
+
+     * Introduction
+          * What will you learn?
+          * What do you need?
+          * How long will it take?
+     * Set up services
+     * Generate a signing key pair
+     * Test availability
+          * Check general availability
+          * Check store object signing
+          * Serving the binary cache via HTTPS
+     * Next steps
+     * Alternatives
+     * References
+
+                        Setting up an HTTP binary cache#
+
+   A binary cache stores pre-built Nix store objects and provides them to
+   other machines over the network. Any machine with a Nix store can be a
+   binary cache for other machines.
+
+Introduction#
+
+   In this tutorial you will set up a Nix binary cache that will serve store
+   objects from a NixOS machine over HTTP or HTTPS.
+
+  What will you learn?#
+
+   You’ll learn how to:
+
+     * Set up signing keys for your cache
+
+     * Enable the right services on the NixOS machine serving the cache
+
+     * Check that the setup works as intended
+
+  What do you need?#
+
+     * A working Nix installation on your local machine
+
+     * SSH access to a NixOS machine to use as a cache
+
+       If you’re new to NixOS, learn about the module system and configure
+       your first system with NixOS virtual machines.
+
+     * (optional) A public IP and DNS domain
+
+       If you don’t host yourself, check NixOS friendly hosters on the NixOS
+       Wiki. Follow the tutorial on Provisioning remote machines via SSH to
+       deploy your NixOS configuration.
+
+   For a cache on a local network, we assume:
+
+     * The hostname is cache (replace it with yours, or an IP address)
+
+     * The host serves store objects via HTTP on port 80 (this is the
+       default)
+
+   For a publicly accessible cache, we assume:
+
+     * The domain name is cache.example.com (replace it with yours)
+
+     * The host serves store objects via HTTPS on port 443 (this is the
+       default)
+
+  How long will it take?#
+
+     * 25 minutes
+
+Set up services#
+
+   For the NixOS machine hosting the cache, create a new configuration module
+   in binary-cache.nix:
+
+ { config, ... }:
+
+ {
+   services.nix-serve = {
+     enable = true;
+     secretKeyFile = "/var/secrets/cache-private-key.pem";
+   };
+
+   services.nginx = {
+     enable = true;
+     recommendedProxySettings = true;
+     virtualHosts.cache = {
+       locations."/".proxyPass = "http://${config.services.nix-serve.bindAddress}:${toString config.services.nix-serve.port}";
+     };
+   };
+
+   networking.firewall.allowedTCPPorts = [
+     config.services.nginx.defaultHTTPListenPort
+   ];
+ }
+
+   The options under services.nix-serve configure the binary cache service.
+
+   nix-serve doesn’t support IPv6 or SSL/HTTPS. The services.nginx options
+   are used to set up a proxy, which does support IPv6, to handle requests to
+   the hostname cache.
+
+   Important
+
+   There is an optional HTTPS section at the end of this tutorial.
+
+   Add the new NixOS module to the existing machine configuration:
+
+ { config, ... }:
+
+ {
+   imports = [
+     ./binary-cache.nix
+   ];
+
+   # ...
+ }
+
+   From your local machine, deploy the new configuration:
+
+ nixos-rebuild switch --no-flake --target-host root@cache
+
+   Note
+
+   The binary cache daemon will report errors because there is no secret key
+   file, yet.
+
+Generate a signing key pair#
+
+   A pair of private and public keys is required to ensure that the store
+   objects in the cache are authentic.
+
+   To generate a key pair for the binary cache, replace the example hostname
+   cache.example.com with your hostname:
+
+ nix-store --generate-binary-cache-key cache.example.com cache-private-key.pem cache-public-key.pem
+
+   cache-private-key.pem will be used by the binary cache daemon to sign the
+   binaries as they are served. Copy it to the location configured in
+   services.nix-serve.secretKeyFile on the machine hosting the cache:
+
+ scp cache-private-key.pem root@cache:/var/secrets/cache-private-key.pem
+
+   Up until now, the binary cache daemon was in a restart loop due to the
+   missing secret key file. Check that it now works correctly:
+
+ ssh root@cache systemctl status nix-serve.service
+
+   Important
+
+   Configure Nix to use a custom binary cache using cache-public-key.pem on
+   your local machine.
+
+Test availability#
+
+   The following steps check if everything is set up correctly and may help
+   with identifying problems.
+
+  Check general availability#
+
+   Test if the binary cache, reverse proxy, and firewall rules work as
+   intended by querying the cache:
+
+ $ curl http://cache/nix-cache-info
+ StoreDir: /nix/store
+ WantMassQuery: 1
+ Priority: 30
+
+  Check store object signing#
+
+   To test if store objects are signed correctly, inspect the metadata of a
+   sample derivation. On the binary cache host, build the hello package and
+   get the .narinfo file from the cache:
+
+ $ hash=$(nix-build '<nixpkgs>' -A pkgs.hello | awk -F '/' '{print $4}' | awk -F '-' '{print $1}')
+ $ curl "http://cache/$hash.narinfo" | grep "Sig: "
+ ...
+ Sig: cache.example.org:GyBFzocLAeLEFd0hr2noK84VzPUw0ArCNYEnrm1YXakdsC5FkO2Bkj2JH8Xjou+wxeXMjFKa0YP2AML7nBWsAg==
+
+   Make sure that the output contains this line prefixed with Sig: and shows
+   the public key you generated.
+
+  Serving the binary cache via HTTPS#
+
+   If the binary cache is publicly accessible, it is possible to enforce
+   HTTPS with Let’s Encrypt SSL certificates. Edit your binary-cache.nix like
+   this and make sure to replace the example URL and mail address with yours:
+
+    services.nginx = {
+      enable = true;
+      recommendedProxySettings = true;
+ -    virtualHosts.cache = {
+ +    virtualHosts."cache.example.com" = {
+ +      enableACME = true;
+ +      forceSSL = true;
+        locations."/".proxyPass = "http://${config.services.nix-serve.bindAddress}:${toString config.services.nix-serve.port}";
+      };
+    };
+
+ +   security.acme = {
+ +     acceptTerms = true;
+ +     certs = {
+ +       "cache.example.com".email = "you@example.com";
+ +     };
+ +   };
+
+    networking.firewall.allowedTCPPorts = [
+      config.services.nginx.defaultHTTPListenPort
+ +    config.services.nginx.defaultSSLListenPort
+    ];
+
+   Rebuild the system to deploy these changes:
+
+ nixos-rebuild switch --no-flake --target-host root@cache.example.com
+
+Next steps#
+
+   If your binary cache is already a remote build machine, it will serve all
+   store objects in its Nix store.
+
+     * Configure Nix to use a custom binary cache using the binary cache’s
+       hostname and the generated public key
+
+     * Setting up post-build hooks to upload store objects to the binary
+       cache
+
+     * Setting up distributed builds
+
+   To save storage space, please refer to the following NixOS configuration
+   attributes:
+
+     * nix.gc: Options for automatic garbage collection
+
+     * nix.optimise: Options for periodic Nix store optimisation
+
+Alternatives#
+
+     * The SSH Store, Experimental SSH Store, and the S3 Binary Cache Store
+       can also be used to serve a cache. There are many commercial providers
+       for S3-compatible storage, for example:
+
+          * Amazon S3
+
+          * Tigris
+
+          * Cloudflare R2
+
+     * attic: Nix binary cache server backed by an S3-compatible storage
+       provider
+
+     * Cachix: Nix binary cache as a service
+
+References#
+
+     * Nix Manual on HTTP Binary Cache Store
+
+     * services.nix-serve module options
+
+     * services.nginx module options
+
+   previous
+
+   Deploying NixOS using Terraform
+
+   next
+
+   Setting up distributed builds
+
+   Contents
+     * Introduction
+          * What will you learn?
+          * What do you need?
+          * How long will it take?
+     * Set up services
+     * Generate a signing key pair
+     * Test availability
+          * Check general availability
+          * Check store object signing
+          * Serving the binary cache via HTTPS
+     * Next steps
+     * Alternatives
+     * References
+
+   By the Nix documentation team and contributors.
+
+   © Copyright 2016-2024, NixOS Foundation.

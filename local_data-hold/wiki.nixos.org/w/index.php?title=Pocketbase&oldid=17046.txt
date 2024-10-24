@@ -1,0 +1,127 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Example config
+   [ ] Toggle the table of contents
+
+                                   Pocketbase
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 13:29, 2 September 2024 by Denperidge (talk | contribs)
+   (Added short summary & example config)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Pocketbase is a realtime backend, meant as an alternative to Firebase and
+   Supabase.
+
+Example config
+
+   The following setup is based on recommendations from
+   https://pocketbase.io/docs/going-to-production/
+
+ systemd.services.pocketbase = {
+   script = "${pkgs.pocketbase}/bin/pocketbase serve --encryptionEnv=PB_ENCRYPTION_KEY --dir /path/to/pb_data";
+   serviceConfig = {
+     LimitNOFILE = 4096;
+     EnvironmentFile = ["/path/to/secret"];
+   };
+   wantedBy = [ "multi-user.target" ];
+ };
+
+ # You can replace caddy with another reverse proxy (or none, albeit generally not recommended) if wanted
+ services.caddy = {
+   enable = true;
+   virtualHosts = {
+     "pocketbase.example.com".extraConfig = ''
+       request_body {
+         max_size 10MB
+       }
+       reverse_proxy 127.0.0.1:8090 {
+           transport http {
+               read_timeout 360s
+           }
+       }
+     '';
+   };
+ };
+
+   Then, at /path/to/secret
+
+ PB_ENCRYPTION_KEY=32_CHARACTER_STRING
+
+   Note: You can run openssl rand -base64 32 to generate a random string
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Pocketbase&oldid=17046"
+   Categories:
+     * Server
+     * Database
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 2 September 2024, at 13:29.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,230 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                    NixOS Wiki: Difference between revisions
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   ← Older edit
+   VisualWikitext
+
+   Revision as of 20:47, 2  
+   September 2024 view     Latest revision as of 14:53, 8 October 2024 view
+   source                  source
+   Klinger (talk |         Phaer (talk | contribs)
+   contribs)               2 edits
+   trusted                 Prominently link to list of teams on
+   719 edits               nixos.org/community.
+   m added MoS to wiki     Tag: Visual edit
+   section on front page    
+   ← Older edit
+   Line 78:                Line 78:
+     <b>With the            <b>With the community</b>                         
+     community</b>         
+     * [https://nixos.org/                                                    
+     Official NixOS         * [https://nixos.org/ Official NixOS website]
+     website]              
+                            * [https://nixos.org/community/#governance-teams  
+                            Official Teams]                                   
+     * [[Nix                                                                  
+     Community|Community    * [[Nix Community|Community overview]]
+     overview]]            
+     * [[Get In                                                               
+     Touch|Chats and        * [[Get In Touch|Chats and forums]]
+     forums]]              
+
+     ----------------------------------------------------------------------
+
+Latest revision as of 14:53, 8 October 2024
+
+   Other languages:
+     * English
+     * español
+     * français
+     * русский
+     * 中文（中国大陆）
+     * 日本語
+     * 한국어
+
+    Getting started
+
+   This is the official NixOS Wiki. It includes topics not covered in the
+   NixOS Manual: NixOS user guides, configuration examples, and
+   troubleshooting tips.
+
+   NixOS is a Linux operating system based on the Nix package manager and the
+   Nixpkgs package repository.
+
+   Newcomers to NixOS are encouraged to read the Nix Core Ecosystem overview
+   article to get a comprehensive orientation. For more specific
+   introductions, see:
+
+     * NixOS
+     * Nix package manager
+     * Nixpkgs package repository
+     * Nix Language
+
+   If you want to try Nix standalone in another Linux distribution or on a
+   Mac, take your first steps on nix.dev.
+
+   Much great additional tooling exists in the Nix ecosystem such as:
+
+     * Home-manager to manage user profile & home directory contents
+     * Nix Flakes instead of nix-channel
+
+   These add complexity and may be confusing at first, and you may even
+   decide that you don't need them. Start with plain Nix/NixOS, and only
+   integrate Home Manager and/or Flakes into your setup once you're confident
+   with Nix/NixOS and comprehend their significance.
+
+    Setting up NixOS
+     * On desktop, with NixOS as a desktop
+     * On ARM, with NixOS on ARM
+     * In the cloud, with NixOS friendly hosters
+
+    Documentation topics
+
+   First stop should be Resources, which serves as a gateway to the most
+   important documentation. Some highlights below.
+
+   Primary reference material:
+
+     * NixOS manual
+     * Nix manual
+     * Nixpkgs manual
+     * Hydra manual
+
+   Major page categories:
+
+     * Software
+     * Hardware
+     * Desktop - how to setup PCs
+     * Server - how to setup servers
+     * Community - people, communication, work on NixOS
+
+   See also:
+
+     * FAQ
+     * Nix vs. Linux Standard Base
+     * Terms and Definitions in Nix Project
+     * Cheatsheet / Comparison between Ubuntu and NixOS
+
+    Special pages
+     * Overview of special pages
+     * All pages of wiki.nixos.org
+     * All categories of wiki.nixos.org
+     * Unpatrolled changes of wiki.nixos.org
+
+    Get in touch
+
+   With the community
+
+     * Official NixOS website
+     * Official Teams
+     * Community overview
+     * Chats and forums
+     * Get support
+     * Events
+
+   About the Wiki
+
+     * Matrix chat for Wiki contributors #wiki:nixos.org
+     * Email wiki@nixos.org for contacting wiki.nixos.org regarding any wiki
+       operational topics or requests
+     * Contribute to wiki and NixOS
+     * Manual of Style
+
+    News
+
+    2024-09-02 — Wiki editors use Manual of Style
+
+   The Wiki team discussed and put into effect the Manual of Style for
+   editing wiki articles. This is a huge step towards clear and consistent
+   documentation. All editors are encouraged to follow this guide.
+
+    2024-08-22 — Wiki editors meeting
+
+   All interested wiki editors meet on 22th of August at 21:15 CEST in a
+   Jitsi conference.
+
+   Agenda: https://pad.lassul.us/wiki-agenda?view
+
+    2024-07-05 — Wiki editors meeting
+
+   All interested wiki editors meet on 5th of July at 13:00 CEST in a Jitsi
+   conference.
+
+    2024-04-01 — Launch of the wiki
+
+   The official NixOS wiki has taken off! If you want to find out why there
+   is a new wiki effort, check out the FAQ.
+
+   ... all news articles →
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Wiki&oldid=17754"
+     * This page was last edited on 8 October 2024, at 14:53.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

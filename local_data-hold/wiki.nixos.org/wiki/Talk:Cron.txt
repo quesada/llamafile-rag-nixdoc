@@ -1,0 +1,115 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Where does the system cron job output go by default?
+       1 comment
+     * 2 Link to different crontab manpage
+       1 comment
+   [ ] Toggle the table of contents
+
+                                   Talk:Cron
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 14 October 2022 by Rampion in topic Link to different
+   crontab manpage
+
+Where does the system cron job output go by default?
+
+   Latest comment: 27 September 20211 comment1 person in discussion
+
+   I see the command printed by journalctl, but no output.
+
+   L0b0 (talk) 23:04, 27 September 2021 (UTC)Reply
+
+Link to different crontab manpage
+
+   Latest comment: 14 October 20221 comment1 person in discussion
+
+   The linked `crontab` man page doesn't match the `crontab` provided with
+   NixOS; in particular, the nicknames (`@reboot`, `@daily`) are not
+   supported by NixOS's `crontab`
+
+ These special time specification "nicknames" are supported, which replace the 5 initial time and date fields, and are prefixed by the '@' character:
+
+ @reboot    :    Run once after reboot.
+ @yearly    :    Run once a year, ie.  "0 0 1 1 *".
+ @annually  :    Run once a year, ie.  "0 0 1 1 *".
+ @monthly   :    Run once a month, ie. "0 0 1 * *".
+ @weekly    :    Run once a week, ie.  "0 0 * * 0".
+ @daily     :    Run once a day, ie.   "0 0 * * *".
+ @hourly    :    Run once an hour, ie. "0 * * * *".
+
+   This link should probably be changed.
+
+   Rampion (talk) 12:48, 14 October 2022 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Cron&oldid=9325"
+     * This page was last edited on 14 October 2022, at 12:48.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

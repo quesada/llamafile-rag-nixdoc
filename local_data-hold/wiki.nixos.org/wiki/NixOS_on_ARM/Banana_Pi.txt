@@ -1,0 +1,115 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Building U-Boot
+     * 2 Board-specific installation notes
+     * 3 SATA Port multiplier (PMP)
+   [ ] Toggle the table of contents
+
+                             NixOS on ARM/Banana Pi
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+Building U-Boot
+
+ $ git clone git://git.denx.de/u-boot.git
+ $ cd u-boot
+ $ nix-shell -p ubootTools gcc-arm-embedded dtc flex bison swig 'python311.withPackages(ps: with ps; [ setuptools ])' openssl libuuid gnutls
+ $ make -j4 ARCH=arm CROSS_COMPILE=arm-none-eabi- Bananapi_defconfig
+ $ make -j4 ARCH=arm CROSS_COMPILE=arm-none-eabi-
+
+Board-specific installation notes
+
+   First follow the generic installation steps to get the installer image.
+
+   U-Boot needs to be copied to specific sectors on the microSD card with dd:
+
+ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdX bs=1024 seek=8
+
+   Then, install using the installation and configuration steps.
+
+SATA Port multiplier (PMP)
+
+   It used to be necessary to make some changes to the kernel source and
+   recompile, but on recent linux versions (including the one shipped with
+   the NixOS arm image) this is no longer necessary. Instead, all that is
+   required is merely to set
+
+ boot.kernelParams = ["ahci_sunxi.enable_pmp=1"]
+
+   in configuration.nix. Note that this will prevent the use of a hard drive
+   connected to the SATA port directly without a port multiplier in between.
+
+   See here for more details.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Banana_Pi&oldid=17391"
+     * This page was last edited on 13 September 2024, at 12:02.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

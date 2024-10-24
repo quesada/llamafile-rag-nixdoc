@@ -1,0 +1,173 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration
+     * 2 Plugins
+   [ ] Toggle the table of contents
+
+                                    Kakoune
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Kakoune[1] is a modal text editor that operates on selections. Unlike
+   Vim's command-motion paradigme, text is first selected, then operated upon
+   (a motion-command paradigme, if you will). This allows Kakoune to provide
+   strong visual feedback and incremental results while requiring keystroke
+   counts similar to that of Vim. More on the design of Kakoune can be found
+   here [2] and on https://kakoune.org.
+
+Configuration
+
+   Kakoune may be configured without use of the nix build system (simply add
+   it to your system environment and see [3]), or it may be configured using
+   kakoune.override and pkgs.kakounePlugins:
+
+ let
+   myKakoune =
+   let
+     config = pkgs.writeTextFile (rec {
+       name = "kakrc.kak";
+       destination = "/share/kak/autoload/${name}";
+       text = ''
+         set global ui_options ncurses_assistant=cat
+       '';
+     });
+   in
+   kakoune.override {
+     plugins = with kakounePlugins; [ config parinfer-rust ];
+   };
+ in
+ {
+   environment.systemPackages = [ myKakoune ];
+ }
+
+   User configuration can simply be added as a plugin as above.
+
+Plugins
+
+   To install a plugin, you can either install it manually without bothering
+   about nix, or install it as shown above in an override like:
+
+ let
+   myKakoune = kakoune.override {
+     plugins = with kakounePlugins; [ parinfer-rust ];
+   };
+ in
+ {
+   environment.systemPackages = [ myKakoune ];
+ }
+
+   You should be able to search through the list of plugins using for
+   instance nix search (if you don't have flake enabled you may need to add
+   --experimental-features 'nix-command flakes' in front of the nix
+   command) :
+
+ $ nix search nixpkgs parinfer
+ …
+ * legacyPackages.x86_64-linux.kakounePlugins.parinfer-rust (0.4.3)
+   Infer parentheses for Clojure, Lisp, and Scheme
+
+   If your plugin is not listed, you can add it manually using
+   pkgs.kakouneUtils.buildKakounePluginFrom2Nix:
+
+ let
+   myKakoune =
+     let
+       snippets-kak = pkgs.kakouneUtils.buildKakounePluginFrom2Nix {
+         pname = "snippets-kak";
+         version = "2021-07-18";
+         src = pkgs.fetchFromGitHub {
+           owner = "occivink";
+           repo = "kakoune-snippets";
+           rev = "c0c39eda2e8f9608cbc0372583bf76441a24afd9";
+           sha256 = "12q32ahxvmi82f8jlx24xpd61vlnqf14y78ahj1381rv61a386mv";
+         };
+         meta.homepage = "https://github.com/occivink/kakoune-snippets/";
+       };
+     in
+       kakoune.override {
+         plugins = with kakounePlugins; [ parinfer-rust snippets-kak ];
+       };
+ in
+ {
+   environment.systemPackages = [ myKakoune ];
+ }
+
+   Other fetchers can be used for source code hosted with different hosting
+   services, as described in the Nixpkgs manual [4] (see the Nixpkgs
+   repository for examples [5]). You can use the command-line tool
+   nix-prefetch-git $url to get the SHA-256 of source distributions.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Kakoune&oldid=13261"
+   Categories:
+     * Applications
+     * Text Editor
+     * This page was last edited on 20 June 2024, at 14:38.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

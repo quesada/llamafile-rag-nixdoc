@@ -1,0 +1,297 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Yubikey: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 October 2024
+
+     * curprev [ ] [ ] 00:3200:32, 7 October 2024‎ Fidgetingbits talk
+       contribs‎ m 6,653 bytes 0‎ →‎yubico-pam
+     * curprev [ ] [ ] 00:3100:31, 7 October 2024‎ Fidgetingbits talk
+       contribs‎ m 6,653 bytes +43‎ Improved formatting
+
+    18 August 2024
+
+     * curprev [ ] [ ] 15:1415:14, 18 August 2024‎ Mic92 talk contribs‎ 6,610
+       bytes 0‎ →‎OTP
+
+    8 July 2024
+
+     * curprev [ ] [ ] 13:3013:30, 8 July 2024‎ Remedan talk contribs‎ 6,610
+       bytes +248‎ →‎Smartcard mode: Mention how to solve the
+       gpg-agent/scdaemon conflict Tag: Visual edit: Switched
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:4719:47, 24 April 2024‎ Klinger talk contribs‎ m
+       6,362 bytes +9‎ No edit summary
+     * curprev [ ] [ ] 19:4619:46, 24 April 2024‎ Klinger talk contribs‎ m
+       6,353 bytes +13‎ Category:Cookbook Category:Security Hardware
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:1920:19, 19 April 2024‎ Klinger talk contribs‎ m
+       6,340 bytes +45‎ Category:Cookbook Category:Security
+
+    29 February 2024
+
+     * curprev [ ] [ ] 15:1315:13, 29 February 2024‎ imported>Pizzaandcheese‎
+       m 6,295 bytes 0‎ Updated link to latest commit as of 2/29/2024
+
+    23 December 2023
+
+     * curprev [ ] [ ] 16:3216:32, 23 December 2023‎ imported>RichardJActon‎
+       6,295 bytes +795‎ Add a section on how to lock the screen
+       automatically when a yubikey is removed from the system
+
+    19 August 2023
+
+     * curprev [ ] [ ] 23:4323:43, 19 August 2023‎ imported>Oluceps‎ 5,500
+       bytes +13‎ fix non exist option, fix format.
+
+    24 May 2023
+
+     * curprev [ ] [ ] 12:0712:07, 24 May 2023‎ imported>Kallisti‎ 5,487
+       bytes +328‎ edited for safety consern
+
+    25 December 2022
+
+     * curprev [ ] [ ] 00:4400:44, 25 December 2022‎ imported>Itc-ger‎ 5,159
+       bytes +574‎ appended: multiple u2f-key support && added chapter: Test
+       PAM configuration
+
+    16 December 2022
+
+     * curprev [ ] [ ] 15:2815:28, 16 December 2022‎ imported>Anoadragon453‎
+       m 4,585 bytes +98‎ Add link to helpful blog with info on setting up
+       GPG keys on a Yubikey for SSH authentication
+
+    10 December 2022
+
+     * curprev [ ] [ ] 01:1501:15, 10 December 2022‎
+       imported>SuperSandro2000‎ 4,487 bytes −589‎ Remove settings no longer
+       relevant for 22.11
+     * curprev [ ] [ ] 01:1401:14, 10 December 2022‎
+       imported>SuperSandro2000‎ 5,076 bytes +69‎ Add note about 22.11
+
+    30 November 2022
+
+     * curprev [ ] [ ] 22:2722:27, 30 November 2022‎ imported>Friedow‎ 5,007
+       bytes +22‎ No edit summary
+     * curprev [ ] [ ] 22:2422:24, 30 November 2022‎ imported>Friedow‎ 4,985
+       bytes +1,629‎ No edit summary
+
+    25 July 2022
+
+     * curprev [ ] [ ] 18:0318:03, 25 July 2022‎ imported>Riotbib‎ m 3,356
+       bytes −534‎ Remove irrelevant space characters
+
+    20 July 2022
+
+     * curprev [ ] [ ] 10:0810:08, 20 July 2022‎ imported>Dmarcoux‎ 3,890
+       bytes −41‎ Remove "programs.ssh.startAgent = false;" as "false" is the
+       default value for "programs.ssh.startAgent"
+
+    14 April 2022
+
+     * curprev [ ] [ ] 01:3501:35, 14 April 2022‎ imported>Lattice‎ m 3,931
+       bytes −1‎ corrected typo -- there is no dash in front of the '2' in
+       the ykman command (but the subsequent line, which independently also
+       contains '-2', is correct in the original and is unmodified here
+
+    14 October 2021
+
+     * curprev [ ] [ ] 06:5206:52, 14 October 2021‎ imported>Greizgh‎ 3,932
+       bytes +56‎ →‎Logging-in: use yubikey-manager instead of ykpersonalize,
+       suggest --touch option
+
+    26 January 2021
+
+     * curprev [ ] [ ] 17:4017:40, 26 January 2021‎ imported>Patryk27‎ 3,876
+       bytes −4‎ No edit summary
+
+    23 January 2021
+
+     * curprev [ ] [ ] 11:0811:08, 23 January 2021‎ imported>Patryk27‎ 3,880
+       bytes −392‎ No edit summary
+
+    13 January 2021
+
+     * curprev [ ] [ ] 22:1422:14, 13 January 2021‎ imported>Flokli‎ 4,272
+       bytes −364‎ remove udev rules for u2f stuff, handled by udev natively.
+
+    27 August 2020
+
+     * curprev [ ] [ ] 20:2820:28, 27 August 2020‎ imported>Flyfloh‎ 4,636
+       bytes +1,356‎ No edit summary
+
+    12 August 2020
+
+     * curprev [ ] [ ] 15:0215:02, 12 August 2020‎ imported>Mic92‎ 3,280
+       bytes 0‎ →‎Offline key generation
+     * curprev [ ] [ ] 14:5414:54, 12 August 2020‎ imported>Mic92‎ 3,280
+       bytes 0‎ update yubikey-image
+
+    6 July 2020
+
+     * curprev [ ] [ ] 12:3412:34, 6 July 2020‎ imported>Flyfloh‎ 3,280 bytes
+       +291‎ Add a hint to set up pinentry properly
+
+    14 January 2020
+
+     * curprev [ ] [ ] 00:2600:26, 14 January 2020‎ imported>Craigem‎ m 2,989
+       bytes +8‎ Added missing word.
+
+    13 January 2020
+
+     * curprev [ ] [ ] 20:4920:49, 13 January 2020‎ imported>MrVanDalo‎ 2,981
+       bytes +47‎ No edit summary
+     * curprev [ ] [ ] 20:4720:47, 13 January 2020‎ imported>MrVanDalo‎ 2,934
+       bytes +72‎ Add links to other yubi key topics
+
+    18 November 2019
+
+     * curprev [ ] [ ] 12:5412:54, 18 November 2019‎ imported>Darthdeus‎
+       2,862 bytes +370‎ add note on using gpgconf instead of hardcoding
+       SSH_AUTH_SOCK path
+
+    22 October 2019
+
+     * curprev [ ] [ ] 16:3116:31, 22 October 2019‎ imported>MrVanDalo‎ 2,492
+       bytes +30‎ No edit summary
+     * curprev [ ] [ ] 16:1016:10, 22 October 2019‎ imported>MrVanDalo‎ 2,462
+       bytes +294‎ No edit summary
+
+    28 April 2019
+
+     * curprev [ ] [ ] 18:0718:07, 28 April 2019‎ imported>Kaliumxyz‎ 2,168
+       bytes +306‎ amention to include support for all current yubico yubikey
+       products
+
+    12 March 2019
+
+     * curprev [ ] [ ] 23:4323:43, 12 March 2019‎ imported>Aaronduino‎ m
+       1,862 bytes −2‎ fix link syntax
+     * curprev [ ] [ ] 23:4223:42, 12 March 2019‎ imported>Aaronduino‎ 1,864
+       bytes +560‎ provide a full code sample for yubikey+ssh
+
+    23 January 2019
+
+     * curprev [ ] [ ] 10:2810:28, 23 January 2019‎ imported>Mic92‎ 1,304
+       bytes +652‎ offline key generation
+
+    17 January 2019
+
+     * curprev [ ] [ ] 22:0322:03, 17 January 2019‎ imported>Mic92‎ 652 bytes
+       +342‎ document otp & smart card mode
+
+    13 January 2019
+
+     * curprev [ ] [ ] 22:2922:29, 13 January 2019‎ imported>Mic92‎ 310 bytes
+       +310‎ Created page with "This article describes how
+       [https://yubico.com Yubico]'s YubiKey works and how you can use it. To
+       access the yubikey as user add the following udev rule..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Yubikey"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

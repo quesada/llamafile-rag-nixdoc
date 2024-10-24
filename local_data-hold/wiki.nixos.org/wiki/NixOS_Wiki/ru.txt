@@ -1,0 +1,199 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                   NixOS Wiki
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page NixOS Wiki and the
+   translation is 100% complete.
+   Other languages:
+     * English
+     * español
+     * français
+     * русский
+     * 中文（中国大陆）
+     * 日本語
+     * 한국어
+
+    Приступаем
+
+   Это официальная Wiki NixOS. Она включает в себя темы, не освещённые в
+   Мануале по NixOS: руководства пользователя NixOS, примеры конфигурации и
+   советы по устранению неполадок.
+
+   NixOS - это операционная система Linux, основанная на менеджере пакетов
+   Nix и репозитории пакетов Nixpkgs.
+
+   Новичкам в NixOS рекомендуется прочитать обзорную статью Экосистема Nix,
+   чтобы получить полное представление. Для более конкретного ознакомления
+   см:
+
+     * NixOS
+     * Nix package manager
+     * Репозиторий пакетов Nixpkgs
+     * Nix Language
+
+   Если вы хотите попробовать Nix в автономном режиме в другом дистрибутиве
+   Linux или на Mac, сделайте первые шаги на nix.dev.
+
+   В экосистеме Nix существует множество дополнительных инструментов, таких
+   как:
+
+     * Home-manager для управления профилем пользователя и содержимым
+       домашнего каталога
+     * Nix Flakes вместо nix-channel
+
+   Они добавляют сложности и поначалу могут сбить с толку, и вы даже можете
+   решить, что они вам не нужны. Начните с простой Nix/NixOS, а Home Manager
+   и/или Flakes интегрируйте в свою систему только после того, как вы
+   уверенно освоите Nix/NixOS и поймете их значение
+
+   .
+
+    Установка NixOS
+     * На Персональном Компьютере, с NixOS as a desktop
+     * На ARM, с NixOS on ARM
+     * В облаке, с помощью NixOS friendly hosters
+
+    Разделы документации
+
+   Первым пунктом должны быть Resources, который служит шлюзом к наиболее
+   важной документации. Некоторые основные моменты приведены ниже.
+
+   Основные справочные материалы:
+
+     * Руководство по NixOS
+     * Руководство по Nix
+     * Руководство по Nixpkgs
+     * Руководство Hydra
+
+   Основные категории страниц:
+
+     * Программное обеспечение
+     * Аппаратное обеспечение
+     * Desktop - настройка для ПК
+     * Server - настройка для Сервера
+     * Community - люди, общение, работа над NixOS
+
+   См. также:
+
+     * FAQ
+     * Nix против стандартной базы Linux
+     * Термины и определения в Nix Project
+     * Cheatsheet / Сравнение между Ubuntu и NixOS
+
+    Служебные страницы
+     * Overview of special pages
+     * Все страницы на wiki.nixos.org
+     * Все категории на wiki.nixos.org
+     * Непроверенные изменения на wiki.nixos.org
+
+    Связь
+
+   С сообществом
+
+     * Официальный сайт NixOS
+     * Обзор сообщества
+     * Чаты и форумы
+     * Получить поддержку
+     * События
+
+   О Wiki
+
+     * Чат Matrix для редакторов Wiki
+     * Contributing to the wiki
+
+    Новости
+
+    2024-09-02 — Wiki editors use Manual of Style
+
+   The Wiki team discussed and put into effect the Manual of Style for
+   editing wiki articles. This is a huge step towards clear and consistent
+   documentation. All editors are encouraged to follow this guide.
+
+    2024-08-22 — Wiki editors meeting
+
+   All interested wiki editors meet on 22th of August at 21:15 CEST in a
+   Jitsi conference.
+
+   Agenda: https://pad.lassul.us/wiki-agenda?view
+
+    2024-07-05 — Wiki editors meeting
+
+   All interested wiki editors meet on 5th of July at 13:00 CEST in a Jitsi
+   conference.
+
+    2024-04-01 — Launch of the wiki
+
+   The official NixOS wiki has taken off! If you want to find out why there
+   is a new wiki effort, check out the FAQ.
+
+   ... все новостные статьи →
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Wiki/ru&oldid=17568"
+     * This page was last edited on 19 September 2024, at 17:37.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,195 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Definitions
+     * 2 General information
+     * 3 External links
+   [ ] Toggle the table of contents
+
+                           Comparison of NixOS setups
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This table provides a comparison of NixOS setups, may them be templates,
+   user or domain-specific setups, and more. It can be useful to NixOS users
+   who want to take inspiration and learn from existing configurations.
+
+Definitions
+
+   Name
+           Name of the setup.
+
+   Domain
+           The application of the setup, including template, user
+           configuration, or domain-specific configuration.
+
+   Flakes
+           Whether it implements Flakes or not.
+
+   Home Manager
+           Whether it makes use of Home Manager or not.
+
+   Secrets
+           A list of supported secret management schemes.
+
+   File system
+           A list of the main file systems used (e.g. BTRFS, ZFS, EXT4, etc).
+
+   System encryption
+           Whether it has encryption on a system level or not, and the
+           software it uses for encryption (e.g. LUKS, ZFS native, etc).
+
+   Opt-in state
+           Whether it supports opt-in state or not.
+
+   Display server
+           A list of supported display servers (e.g. X, Wayland, etc)
+
+   Desktop environment
+           A list of supported desktop environments (e.g. i3, GNOME, KDE,
+           LXQt, Sway, XFCE, Xmonad, etc).
+
+   Maintained
+           Whether its repository has commits in the last 10 months or not.
+
+   Repository
+           Link to the repository.
+
+General information
+
+                                                       Home                        File   System     Opt-in Display Desktop                                                            
+Name                            Domain          Flakes Manager Secrets             system encryption state  server  environment /  Maintained Repository
+                                                                                                                    Window manager 
+Digga                           Library,        Yes    Yes     agenix              None   No         No     None    None           No         divnix/digga                             
+                                framework       
+DevOS                           Template        Yes    Yes     agenix              None   No         No     None    None           No         divnix/digga/examples/devos              
+                                (Digga)         
+hlissner/dotfiles               User            Yes    Yes     agenix              ZFS    Yes (LUKS) No     X       bspwm          Yes        hlissner/dotfiles                        
+                                configuration   
+~hutzdog/dotfiles               User            Yes    Yes     pass-secret-service Btrfs  No         No     X       Awesome        Yes        ~hutzdog/dotfiles                        
+                                configuration   
+nixos-flake-example             Template        Yes    No      None                None   No         No     None    None           Yes        colemickens/nixos-flake-example          
+SoxinOS                         Template        Yes    Yes     sops-nix            None   No         No     X       i3             Yes        SoxinOS/soxin                            
+                                Domain-specific                                                                                                                                        
+not-os                          (embedded       No     No      None                None   No         No     None    None           Yes        cleverca22/not-os
+                                system)         
+NixOS-WSL                       Template (WSL)  Yes    No      None                None   No         No     None    None           Yes        Trundle/NixOS-WSL                        
+Simple NixOS Mailserver         Domain-specific Yes    No      None                None   No         No     None    None           Yes        simple-nixos-mailserver/nixos-mailserver 
+                                (mail server)   
+                                Domain-specific                                                                                                                                        
+Nix Portable                    (portable Nix   Yes    No      None                None   No         No     None    None           Yes        DavHau/nix-portable
+                                binary)         
+rasendubi/dotfiles              User            Yes    Yes     GPG, Yubikey        None   No         No     X       EXWM           Yes        rasendubi/dotfiles                       
+                                configuration   
+RGBCube/NCC                     User            Yes    Yes     agenix              Btrfs, No         No     Wayland Hyprland       Yes        RGBCube/NCC                              
+                                configuration                                      EXT4   
+puffnfresh/nix-files            User            No     Yes                         ZFS    No         No     X,      XMona, Xfce,   Yes        puffnfresh/nix-files                     
+                                configuration                                                               Wayland Sway           
+Shabka                          User            No     Yes                         Btrfs  No         No     X       i3             No         kalbasit/shabka                          
+                                configuration   
+MatthewCroughan/nixcfg          User            Yes    Yes     None                ZFS    Yes (LUKS) No     Wayland Sway           Yes        MatthewCroughan/nixcfg                   
+                                configuration   
+                                User                                                                                Xmonad,                                                            
+Icy-Thought/Snowflake           configuration   Yes    Yes     agenix              EXT4   No         No     X       LeftWM, Gnome, Yes        Icy-Thought/Snowflake
+                                                                                                                    KDE Plasma     
+                                                                                                                    GNOME, KDE,                                                        
+                                                                                                            X,      Mate, LXQt,    
+NixOSEncryptedLiveCD            Domain-specific No     No                                 Yes (LUKS) Yes    Wayland Enlightenment, No         adrianparvino/NixOSEncryptedLiveCD
+                                                                                                                    Sway, Xfce,    
+                                                                                                                    Lumina         
+tudurom/dotfiles                User            Yes    Yes     agenix              Btrfs, Yes (LUKS) Yes    X,      Sway, Gnome    Yes        tudurom/dotfiles                         
+                                configuration                                      ZFS                      Wayland 
+balsoft/nixos-config            User            Yes    Yes                         EXT4   Yes (LUKS) Yes    Wayland Sway           Yes        balsoft/nixos-config                     
+                                configuration   
+srid/nixos-config               User            Yes    Yes                         EXT4   No         No     X       Xmonad, Gnome, Yes        srid/nixos-config                        
+                                configuration                                                                       KDE Plasma     
+mt-caret/nix-config             User            No     Yes                         Btrfs  No         Yes    X       Xmonad         No         mt-caret/nix-config                      
+                                configuration   
+grahamc/nixos-config            User            No     No                          ZFS    Yes (LUKS) No     X,      i3, Sway       No         grahamc/nixos-config                     
+                                configuration                                                               Wayland 
+Ericson2314/nixos-configuration User            No     Yes                         ZFS    Yes (LUKS) No     X,      Sway, Xmonad   Yes        Ericson2314/nixos-configuration          
+                                configuration                                                               Wayland 
+                                Domain-specific                                                                                                                                        
+vms.nix                         (virtual        No     No                          EXT4   No         No     None    None           No         Nekroze/vms.nix
+                                machines)       
+engmark/root                    User            No     No      None                None   No         No     X,      GNOME, KDE     Yes        engmark/root                             
+                                configuration                                                               Wayland Plasma         
+kiara/cfg                       User            Yes    Yes     sops-nix            Btrfs  Yes (LUKS) Yes    Wayland Niri           Yes        kiara/cfg                                
+                                configuration   
+
+External links
+
+     * GitHub search by most starred "nixos language:nix"
+     * Most starred public NixOS repos on GitLab
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Comparison_of_NixOS_setups&oldid=17590"
+   Category:
+     * Community
+     * This page was last edited on 22 September 2024, at 08:05.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,168 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          OBS Studio: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 July 2024
+
+     * curprev [ ] [ ] 10:5410:54, 5 July 2024‎ RichardJActon talk contribs‎
+       3,013 bytes +1,055‎ →‎Using the Virtual Camera: Adding a note on how
+       to modify your v4l2loopback module config to have additional virtual
+       devices such as you might use to use a DSLR as a webcam with gphoto2
+       Tag: Visual edit
+     * curprev [ ] [ ] 10:2410:24, 5 July 2024‎ RichardJActon talk contribs‎
+       1,958 bytes +43‎ add missing line loading the v4l2loopback kernel
+       module without which is does not work. Tag: Visual edit
+
+    18 June 2024
+
+     * curprev [ ] [ ] 18:0118:01, 18 June 2024‎ Klinger talk contribs‎ m
+       1,915 bytes +55‎ link to Droidcamera wiki article added
+
+    23 October 2023
+
+     * curprev [ ] [ ] 05:3405:34, 23 October 2023‎ imported>Aaronchall‎
+       1,860 bytes +355‎ add in a few more requirements I'm aware of
+
+    8 October 2023
+
+     * curprev [ ] [ ] 19:1419:14, 8 October 2023‎ imported>Steadygaze‎ 1,505
+       bytes +425‎ Add note about package collision gotcha
+
+    6 July 2023
+
+     * curprev [ ] [ ] 08:3208:32, 6 July 2023‎ imported>Flexiondotorg‎ m
+       1,080 bytes −1‎ Correct syntax error
+
+    28 November 2022
+
+     * curprev [ ] [ ] 00:1600:16, 28 November 2022‎ imported>Anoadragon453‎
+       m 1,081 bytes +3‎ Provide a clearer example for how to install
+       obs-studio plugins without home-manager
+
+    9 June 2022
+
+     * curprev [ ] [ ] 22:2322:23, 9 June 2022‎ imported>Wackbyte‎ m 1,078
+       bytes 0‎ "open source" -> "open-source"
+
+    15 February 2022
+
+     * curprev [ ] [ ] 01:1601:16, 15 February 2022‎ imported>Wackbyte‎ 1,078
+       bytes +576‎ add a guide for installing plugins
+
+    11 February 2022
+
+     * curprev [ ] [ ] 01:0101:01, 11 February 2022‎ imported>Wackbyte‎ 502
+       bytes +149‎ add a brief description and a link to their website
+     * curprev [ ] [ ] 00:5700:57, 11 February 2022‎ imported>Wackbyte‎ m 353
+       bytes 0‎ Wackbyte moved page OBS to OBS Studio: the software is
+       actually called OBS Studio (and the package is too), oops
+
+    10 February 2022
+
+     * curprev [ ] [ ] 03:0403:04, 10 February 2022‎ imported>Wackbyte‎ 353
+       bytes +353‎ init with virtual camera setup example
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/OBS_Studio"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

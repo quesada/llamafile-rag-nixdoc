@@ -1,0 +1,262 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Requirements
+     * 2 Status
+          * 2.1 Phosh
+          * 2.2 Battery
+          * 2.3 Browsing
+          * 2.4 Sound
+          * 2.5 Calling
+          * 2.6 SMS
+          * 2.7 MMS
+          * 2.8 Camera
+          * 2.9 Mobile internet
+          * 2.10 GPS
+          * 2.11 Sensors
+          * 2.12 Disk encryption
+          * 2.13 Hardware acceleration for video
+          * 2.14 Torch
+          * 2.15 Bluetooth
+          * 2.16 Modem firmware
+          * 2.17 Alarm clocks
+     * 3 Recommended applications
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                   PinePhone
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   PinePhone is supported by Mobile NixOS:
+   https://mobile.nixos.org/devices/pine64-pinephone.html
+
+   This guide is discusses how to use Phosh, the GNOME-derived UI used by
+   Librem and Mobian.
+
+Requirements
+
+   This document assumes you have set up NixOS on your PinePhone, as
+   described in https://mobile.nixos.org/getting-started.html
+
+   Beware known issues:
+
+     * boot.growPartition has no effect
+     * how to cross-compile
+
+Status
+
+  Phosh
+
+   Working with:
+
+ xserver.desktopManager.phosh = {
+   enable = true;
+   user = "alice";
+   group = "users";
+   # for better compatibility with x11 applications
+   phocConfig.xwayland = "immediate";
+ };
+
+  Battery
+
+   Wake-on-modem works. Wake-on-WiFi is not supported. Something like
+   https://gist.github.com/Peetz0r/bf8fd93a60962b4afcf2daeb4305da40 is
+   needed.
+
+  Browsing
+
+     * GNOME Web is installed by default.
+     * `pkgs.firefox-wayland` works but doesn't scale down the UI well.
+       https://gitlab.com/postmarketOS/mobile-config-firefox is needed for
+       that.
+
+  Sound
+
+   Working. Settings -> Sound ->Output -> Configuration -> HiFi
+
+  Calling
+
+   Working with:
+
+ programs.calls.enable = true;
+ # Optional but recommended. https://github.com/NixOS/nixpkgs/pull/162894
+ systemd.services.ModemManager.serviceConfig.ExecStart = [
+   "" # clear ExecStart from upstream unit file.
+   "${pkgs.modemmanager}/sbin/ModemManager --test-quick-suspend-resume"
+ ];
+
+   Known issues:
+
+     * incoming calls don't trigger music to be paused. Likely need something
+       like
+       https://source.puri.sm/Librem5/librem5-base/-/merge_requests/170/diffs
+
+  SMS
+
+   Working with:
+
+ environment.systemPackages = [ pkgs.chatty ];
+
+  MMS
+
+   Unsupported. See https://source.puri.sm/Librem5/chatty/-/issues/30
+
+  Camera
+
+   pkgs.megapixels is the only known application to work with Pinephone. Does
+   not always start correctly, retrying might help.
+
+     * Front camera works out-of-the-box.
+     * Back camera works, but autofocus does not (
+       https://github.com/NixOS/mobile-nixos/issues/393 )
+
+  Mobile internet
+
+   Working via gnome-control-center ("Mobile Broadband" section), or:
+
+ $ nmcli c add type gsm ifname cdc-wdm0 con-name $PROVIDER apn $APN
+
+  GPS
+
+   Working with GNOME applications with:
+
+     * [IMG]allow Phosh to use geoclue
+     * and the following:
+
+ services.geoclue2.enable = true;
+ users.users.geoclue.extraGroups = [ "networkmanager" ];
+
+  Sensors
+
+   The acceleration, compass, and ambient light sensors provide working
+   auto-rotation, compass, and auto-brightness, when you:
+
+ hardware.sensor.iio.enable = true;
+ hardware.firmware = [ config.mobile.device.firmware ];
+
+  Disk encryption
+
+   The boot process supports opening LUKS volumes. Creating an image to use
+   LUKS is unsupported, but possible. The idea is to write an encrypted LUKS
+   volume to the root partition, as described in
+   https://github.com/NixOS/mobile-nixos/tree/master/examples/testing/qemu-cryptsetup.
+
+  Hardware acceleration for video
+
+   See https://github.com/NixOS/mobile-nixos/issues/398.
+
+  Torch
+
+   Working, per https://github.com/NixOS/mobile-nixos/issues/379
+
+  Bluetooth
+
+   Working with:
+
+ mobile.boot.stage-1.firmware = [
+   config.mobile.device.firmware
+ ];
+
+  Modem firmware
+
+   Per
+   https://wiki.pine64.org/wiki/PineModems#Upgrade/switch_firmware_via_fwupd
+   , fwupd can be used to flash the FOSS Modem firmware. To enable fwupd:
+
+ services.fwupd.enable = true;
+
+  Alarm clocks
+
+   Not working:
+
+     * GNOME Clocks will not wake up the phone:
+       https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/100
+     * https://github.com/Dejvino/birdie looks good, but is not packaged.
+
+Recommended applications
+
+   See https://linmobapps.frama.io/ for a list of applications that behave
+   well on small screens, and in particular https://apps.gnome.org/.
+
+See also
+
+     * xnux.eu ("megi") is authoritative on hardware capabilities
+     * PinePhone multi-distro demo image is an easy way to see which
+       functionality works in other distros.
+     * Arch Linux's Pinephone config
+     * Mobian's Pinephone docs
+     * PostmarketOS's Pinephone docs
+     * PostmarketOS's Pinephone config
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=PinePhone&oldid=12435"
+   Category:
+     * Hardware
+     * This page was last edited on 24 April 2024, at 19:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

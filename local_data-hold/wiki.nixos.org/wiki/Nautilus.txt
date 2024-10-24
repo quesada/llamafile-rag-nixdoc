@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration
+          * 1.1 GVfs
+          * 1.2 Gstreamer
+          * 1.3 HEIC image preview
+   [ ] Toggle the table of contents
+
+                                    Nautilus
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Nautilus is the GNOME desktop's file manager. When using Nautilus without
+   GNOME, you may need to enable additional services to get familiar
+   functionality.
+
+Configuration
+
+  GVfs
+
+   If GVfs is not available, you may see errors such as "Sorry, could not
+   display all the contents of “trash:///”: Operation not supported" when
+   trying to open the trash folder, or be unable to access network
+   filesystems.
+
+   To enable GVfs:
+
+ /etc/nixos/configuration.nix
+
+ services.gvfs.enable = true;
+
+   Then log out and back in, and verify that the GIO_EXTRA_MODULES
+   environment variable is set.
+
+   When using X11, this is probably sufficient (though, see the general notes
+   on running GNOME programs outside of GNOME). On Wayland, more effort may
+   be required: [1].
+
+  Gstreamer
+
+   Unless you've installed Gstreamer plugins system-wide, the "Audio and
+   Video Properties" pane under the "Properties" menu for media files will
+   say "Oops! Something went wrong. Your GStreamer installation is missing a
+   plug-in."
+
+   To enable the A/V Properties and see details like media length, codec,
+   etc, the following overlay may be used:
+
+ /etc/nixos/configuration.nix
+
+ nixpkgs.overlays = [(self: super: {
+   gnome = super.gnome.overrideScope' (gself: gsuper: {
+     nautilus = gsuper.nautilus.overrideAttrs (nsuper: {
+       buildInputs = nsuper.buildInputs ++ (with gst_all_1; [
+         gst-plugins-good
+         gst-plugins-bad
+       ]);
+     });
+   });
+ })];
+
+  HEIC image preview
+
+   To enable HEIC image preview in Nautilus, add following to your system
+   configuration
+
+ environment.systemPackages = [ pkgs.libheif pkgs.libheif.out ];
+ environment.pathsToLink = [ "share/thumbnailers" ];
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nautilus&oldid=14184"
+   Categories:
+     * Applications
+     * File Manager
+     * This page was last edited on 12 July 2024, at 18:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

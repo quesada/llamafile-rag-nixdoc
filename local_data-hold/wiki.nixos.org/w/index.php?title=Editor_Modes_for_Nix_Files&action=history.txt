@@ -1,0 +1,208 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  Editor Modes for Nix Files: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    25 June 2024
+
+     * curprev [ ] [ ] 20:0920:09, 25 June 2024‎ Klinger talk contribs‎ m
+       3,773 bytes +25‎ Category:Text Editor added
+
+    22 June 2024
+
+     * curprev [ ] [ ] 06:1206:12, 22 June 2024‎ Tomodachi94 talk contribs‎ m
+       3,748 bytes +154‎ add Micro support information
+
+    18 April 2024
+
+     * curprev [ ] [ ] 20:0520:05, 18 April 2024‎ Klinger talk contribs‎ m
+       3,594 bytes −1‎ typo Tag: Visual edit: Switched
+
+    13 March 2024
+
+     * curprev [ ] [ ] 21:4421:44, 13 March 2024‎ imported>Hasit‎ 3,595 bytes
+       +66‎ Add zed-nix link
+
+    12 June 2023
+
+     * curprev [ ] [ ] 13:4213:42, 12 June 2023‎ imported>Inclyc‎ m 3,529
+       bytes +47‎ add nixd
+
+    20 May 2023
+
+     * curprev [ ] [ ] 12:5312:53, 20 May 2023‎ imported>Milahu‎ 3,482 bytes
+       +88‎ add codemirror-lang-nix
+
+    5 February 2023
+
+     * curprev [ ] [ ] 15:2115:21, 5 February 2023‎ imported>Figsoda‎ 3,394
+       bytes +643‎ No edit summary
+
+    4 August 2022
+
+     * curprev [ ] [ ] 08:1808:18, 4 August 2022‎ imported>Fricklerhandwerk‎
+       2,751 bytes −11‎ No edit summary
+
+    3 August 2022
+
+     * curprev [ ] [ ] 03:2303:23, 3 August 2022‎ imported>Toraritte‎ m 2,762
+       bytes +182‎ Add relevant pages
+     * curprev [ ] [ ] 03:0503:05, 3 August 2022‎ imported>Toraritte‎ m 2,580
+       bytes +188‎ Add categories
+
+    18 November 2020
+
+     * curprev [ ] [ ] 01:3101:31, 18 November 2020‎ imported>Artturin‎ 2,392
+       bytes +170‎ add rnix-lsp
+
+    24 August 2020
+
+     * curprev [ ] [ ] 06:1906:19, 24 August 2020‎ imported>Jnoortheen‎ m
+       2,222 bytes +123‎ added link to my project on vscode extension for Nix
+
+    28 March 2018
+
+     * curprev [ ] [ ] 03:2203:22, 28 March 2018‎ imported>Matthewbauer‎
+       2,099 bytes +60‎ No edit summary
+
+    21 October 2017
+
+     * curprev [ ] [ ] 23:0823:08, 21 October 2017‎ imported>Marsam‎ m 2,039
+       bytes −1,887‎ Remove trailing whitespace in code blocks
+
+    6 October 2017
+
+     * curprev [ ] [ ] 05:1805:18, 6 October 2017‎ imported>Makefu‎ 3,926
+       bytes +1,362‎ No edit summary
+     * curprev [ ] [ ] 04:3404:34, 6 October 2017‎ imported>Makefu‎ 2,564
+       bytes +112‎ merge "nix expression language"
+
+    9 September 2017
+
+     * curprev [ ] [ ] 15:4915:49, 9 September 2017‎ imported>Makefu‎ m 2,452
+       bytes 0‎ Makefu moved page Editor Modes to Editor Modes for Nix Files
+
+    23 August 2017
+
+     * curprev [ ] [ ] 05:5505:55, 23 August 2017‎ imported>Fadenb‎ m 2,452
+       bytes −10‎ Fix code (no more escaped html)
+
+    22 August 2017
+
+     * curprev [ ] [ ] 23:5323:53, 22 August 2017‎ imported>Matthewbauer‎
+       2,462 bytes −101‎ Link nix-mode to NixOS/nix-mode
+     * curprev [ ] [ ] 22:1622:16, 22 August 2017‎ imported>Mic92‎ 2,563
+       bytes +36‎ No edit summary
+     * curprev [ ] [ ] 21:5621:56, 22 August 2017‎ imported>Volth‎ 2,527
+       bytes +56‎ No edit summary
+
+    21 August 2017
+
+     * curprev [ ] [ ] 18:1818:18, 21 August 2017‎ imported>Fadenb‎ m 2,471
+       bytes −2‎ link fixup
+     * curprev [ ] [ ] 18:1418:14, 21 August 2017‎ imported>Makefu‎ 2,473
+       bytes +2,473‎ initial batch of nixos-users
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Editor_Modes_for_Nix_Files"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

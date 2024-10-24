@@ -1,0 +1,393 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Optimising the store
+          * 1.1 Automatic
+          * 1.2 Manual
+     * 2 Garbage collection
+          * 2.1 Look for result symlinks
+          * 2.2 Removing old generations
+          * 2.3 Reboot
+          * 2.4 Pinning
+          * 2.5 Automation
+     * 3 Moving the store
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                              Storage optimization
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 17:08, 5 October 2024 by Denperidge (talk | contribs)
+   (Moving the store: fixed rsync --hard-links argument, merged rsync
+   commands. Moved mount instructions from mounting on /mnt to mounting on
+   /mnt/nix, added mount options)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   A recurring problem with NixOS is lack of space on /. Even if you only
+   occasionally use Nix, it is easy for /nix/store to grow beyond reasonable
+   sizes. What follows are generic notes on how to reduce the growth of the
+   Nix store.
+
+Optimising the store
+
+   Here, we demonstrate how to configure nix to save space via hardlinking
+   store files.
+
+  Automatic
+
+   To turn on periodic optimisation of the nix store, set the following
+   option in /etc/nixos/configuration.nix:
+
+ configuration.nix
+
+ nix.optimise.automatic = true;
+ nix.optimise.dates = [ "03:45" ]; # Optional; allows customizing optimisation schedule
+
+   Alternatively, the store can be optimised during every build. This may
+   slow down builds, as discussed here. To enable this behavior, set the
+   following option:
+
+ configuration.nix
+
+ nix.settings.auto-optimise-store = true;
+
+    Tip                                                                       
+    This option only applies to new files, so we recommend manually           
+    optimising your nix store when first setting this option.                 
+
+  Manual
+
+   Run # nix-store --optimise. This is a potentially long operation.
+
+Garbage collection
+
+   The Nix store accumulates entries which are no longer useful.^[cf. 1] They
+   can be deleted with nix-collect-garbage ^[cf. 2] or nix-store --gc.^[cf.
+   3]
+
+   Note that if a result file still exists in the file system, and your Nix
+   configuration has both keep-outputs = true and keep-derivations = true,
+   all the dependencies used to build it will be kept. To see which result
+   files prevent garbage collection, run:
+
+ $ nix-store --gc --print-roots
+ /home/danbst/dev/test-shell/.shell.drv -> /nix/store/4diqwczyjipdqyi7aj34wfagblbhfjr9-nixops-1.4
+ /home/danbst/dev/test-shell/.shell.drv-2 -> /nix/store/62h3c4d6rdnlxichixqg8h9jxi8nhxk0-stdenv
+ /home/danbst/dev/test-shell/.shell.drv-2-doc -> /nix/store/14gnv1q1w0n9qwa3q23idsqvn51354y8-bash-4.3-p42-doc
+ /home/danbst/stack/new/website/server/result -> /nix/store/1jhmp6vl364p32r8bjigk65qh1xa562f-server-0.1.0.0
+ /home/danbst/testing/.nix-gc-roots/shell.drv -> /nix/store/v3vqf48awjjzjivrx15kfqdh1d7cg4mq-sshpass-1.05
+ ...
+ /home/danbst/testing/.nix-gc-roots/shell.drv-12 -> /nix/store/a2li4sl9pxh9aflqia2gp7w88ayvjwci-bash-4.3-p42
+ /home/danbst/testing/.nix-gc-roots/shell.drv-12-doc -> /nix/store/kcswyb1d8zimkym0pjfi2fj1dly1w34w-bash-4.3-p42-doc
+ /home/danbst/testing/.nix-gc-roots/shell.drv-12-info -> /nix/store/njb817fwiafswzwvj9skw7w7k6b3fnbi-bash-4.3-p42-info
+ /home/ec2-user/result -> /nix/store/q35aq2sh5dbyka6g6f6qb7b8msxwds5m-nixos-system-iron-16.03.1299.a8e0739
+ /nix/var/nix/profiles/per-container/analyt/system-3-link -> /nix/store/snrj72189wh9va23fawl3v80v92xnxlm-nixos-system-iron-16.03.1291.efe2d64
+ /nix/var/nix/profiles/per-container/d-live/system-6-link -> /nix/store/cp2c58hnczsjk5h69ksajq5xfhsyhl6v-nixos-system-iron-16.03.1299.a8e0739
+ /nix/var/nix/profiles/per-container/d-test/system-4-link -> /nix/store/n1w7ywjg65x8iimchznxcyygbgmyfh55-nixos-system-iron-16.03.1287.6ac7ffd
+ /nix/var/nix/profiles/per-container/dashboard/system-41-link -> /nix/store/7qk19pkwgq0h3a1q9dcql3nks40rr75s-nixos-system-iron-16.03.1340.5a090dd
+ ...
+ /nix/var/nix/profiles/per-container/ttt/system-1-link -> /nix/store/1kj9qs5gl3421jlkl3jfc2kqdsl8akwr-nixos-system-ttt-16.03.977.1da05df
+ /nix/var/nix/profiles/per-user/danbst/channels-1-link -> /nix/store/s0qay9qyqrn92zayldbvvj3zrfcl7a72-user-environment
+ /nix/var/nix/profiles/per-user/danbst/profile-28-link -> /nix/store/69ds606146dqml04sm0fbpqwnv2w8i3q-user-environment
+ /nix/var/nix/profiles/per-user/ec2-user/profile-7-link -> /nix/store/y2hc7zsnkzys9ba6xaijvjhff03rcgpy-user-environment
+ /nix/var/nix/profiles/per-user/root/channels-4-link -> /nix/store/254b6pkhhnjywvj5c0lp2vdai8nz4p0g-user-environment
+ /nix/var/nix/profiles/system-398-link -> /nix/store/wmndyzzrbc9fyjw844jmvzwgwgcinq7s-nixos-system-iron-16.0916.09pre.custom
+ /root/forkstat/result -> /nix/store/i5glmg3wk2a48x52rhd92zip1cmc0kq9-forkstat-git
+ /run/booted-system -> /nix/store/8jkrl9jyq7hqxb6xpwcaghpdm26gq98j-nixos-system-iron-16.0916.09pre.custom
+ /run/current-system -> /nix/store/wmndyzzrbc9fyjw844jmvzwgwgcinq7s-nixos-system-iron-16.0916.09pre.custom
+
+   GC roots can be found in /nix/var/nix/gcroots. The following script
+   demonstrates how this directory can be used to (for example) query the
+   state of manually made result symlinks:
+
+ $ find -H /nix/var/nix/gcroots/auto -type l | xargs -I {} sh -c 'readlink {}; realpath {}; echo'
+
+   This acts a simpler (but faster) version of --print-roots and could be
+   implemented as a bash alias for convenience.
+
+    Tip                                                                       
+    nix-collect-garbage -d operates only for the current user. To clear       
+    system profiles, run it with root privileges.                             
+
+  Look for result symlinks
+
+   If you use nix-build, but not --no-build-output, your file system will be
+   filled with result symlinks to various derivations. In the example above,
+   note the following symlinks:
+
+ /home/danbst/stack/new/website/server/result -> /nix/store/1jhmp6vl364p32r8bjigk65qh1xa562f-server-0.1.0.0
+ /home/ec2-user/result -> /nix/store/q35aq2sh5dbyka6g6f6qb7b8msxwds5m-nixos-system-iron-16.03.1299.a8e0739
+ /root/forkstat/result -> /nix/store/i5glmg3wk2a48x52rhd92zip1cmc0kq9-forkstat-git
+
+   How much space do these (apparently) abandoned derivations use?
+
+ $ du -sch $(nix-store -qR /root/forkstat/result /home/ec2-user/result /home/danbst/stack/new/website/server/result)
+ ...
+ 3.4G    total
+
+   Not all of the derivations are garbage in this case, but quite a few are:
+
+ # rm /root/forkstat/result /home/ec2-user/result /home/danbst/stack/new/website/server/result
+ # nix-collect-garbage -d
+ ...
+ 690 store paths deleted, 1817.99 MiB freed
+
+   Look for system derivations in particular. Those are created on many
+   occasions, for example when running nixos-rebuild build-vm
+
+  Removing old generations
+
+   NixOS keeps old configurations of your system around so that you can
+   always rollback to a previous configuration if something goes wrong. You
+   can also select which generation to boot into via GRUB.
+
+   However these previous generations are GC roots that can keep around old,
+   unnecessary software in your nix store. You can check what system
+   generations you have with
+
+ $ sudo nix-env -p /nix/var/nix/profiles/system --list-generations
+ ...
+   58   2021-09-04 02:56:54
+   59   2021-09-05 07:12:43
+   60   2021-09-05 22:12:13   (current)
+
+   You can remove all but the current generation with
+
+ $ sudo nix-collect-garbage -d
+ ...
+ 4394 store paths deleted, 3467.28 MiB freed
+
+   There are also user-specific generations for different things (eg.
+   home-manager). These can be removed with
+
+ $ nix-collect-garbage -d
+
+  Reboot
+
+   As you see, the reference in /run/booted-system is a GC root, so it won't
+   be cleared until reboot. If you don't want to reboot, just rm
+   /run/booted-system that link and rerun sudo nix-collect-garbage.
+
+  Pinning
+
+   Running the following command:
+
+ $ nix-instantiate shell.nix --indirect --add-root ./.nix-gc-roots/shell.drv ...
+
+   Will create a persistent snapshot of your shell.nix dependencies, which
+   then won't be garbage collected, as long as you have configured
+   keep-outputs = true (and haven't changed the default of keep-derivations =
+   true). This is useful if your project has a dependency with no substitutes
+   available, or you don't want to spend time waiting to re-download your
+   dependencies every time you enter the shell.
+
+   You need to re-run that nix-instantiate command any time your shell.nix
+   changes.
+
+   And there is a subtle gotcha if your shell.nix happens to evaluate to more
+   than one derivation: nix-instantiate will number each derivation
+   sequentially, so if you change your shell.nix to contain fewer
+   derivations, such that (for example) the name of the last GC root starts
+   with shell.drv-7, then shell.drv-{8,9,10,11,12...} will be dangling and
+   unused.
+
+   The easiest way to get around this is to delete the ./.nix-gc-roots
+   directory periodically (i.e., any time you re-run the nix-instantiate
+   command).
+
+   Don't forget to periodically check your GC roots, and remove any that you
+   no longer need.
+
+  Automation
+
+   Garbage collection can be automated,^[cf. 4] for example:
+
+ configuration.nix
+
+ nix.gc = {
+   automatic = true;
+   dates = "weekly";
+   options = "--delete-older-than 30d";
+ };
+
+   If using nix-darwin, use this to run on 0th day of every week:
+
+ configuration.nix
+
+ nix.gc = {
+   automatic = true;
+   interval = { Weekday = 0; Hour = 0; Minute = 0; };
+   options = "--delete-older-than 30d";
+ };
+
+   This can result in redownloads (tarballs fetched with import
+   (builtins.fetchTarball ...) for example are not referenced anywhere and
+   removed on GC), but it frees you from runnning GC manually.
+
+   It is also possible to automatically run garbage collection whenever there
+   is not enough space left.^[cf. 5] For example, to free up to 1GiB whenever
+   there is less than 100MiB left:
+
+ nix.extraOptions = ''
+   min-free = ${toString (100 * 1024 * 1024)}
+   max-free = ${toString (1024 * 1024 * 1024)}
+ '';
+
+   This is particularly useful when the store is on its own partition, see
+   below.
+
+Moving the store
+
+   /nix can reside on another device, which is useful if your root device is
+   very small, and you have another, larger drive available.
+
+   If the new partition is on the same device, some benefit can be gained by
+   formatting the partition on which nix resides with a different file
+   system. For example: on a Raspberry Pi, f2fs could be used for a gain in
+   I/O throughput.
+
+   Regardless of /nix's filesystem, it can also be mounted with noatime (as
+   seen in the example below). This will reduce metadata writes, improving
+   I/O and the device's lifespan.
+
+   This is easiest to set up while installing NixOS, but /nix can be moved on
+   a live system:
+
+   All commands below are executed with root privileges
+
+    1. Create a new partition
+    2. Mount this new partition over /mnt
+
+ # mount -o defaults,noatime /dev/disk/by-label/nix /mnt/nix
+
+    3. Copy everything from /nix to /mnt Trailing slashes are important, in
+       that without them, rsync will create an additional directory of the
+       same name at the destination.
+
+ # rsync --archive --hard-links --acls --one-file-system --verbose /nix/{store,var} /mnt/nix
+
+    4. Mount the new partition as the new /nix
+
+ # umount /mnt/nix
+ # mount /dev/disk/by-label/nix /nix
+
+    5. Restart nix-daemon
+
+ $ systemctl stop nix-daemon.service
+ $ systemctl restart nix-daemon.socket
+ $ systemctl start nix-daemon.service
+
+    6. Add the new /nix partition to your /etc/nixos/configuration.nix
+
+ {
+    # ...
+    fileSystems."/nix" = {
+      device = "/dev/disk/by-label/nix";
+      fsType = "ext4";
+      neededForBoot = true;
+      options = [ "noatime" ];
+    };
+ }
+
+    7. Apply your configuration
+
+ # nixos-rebuild switch
+
+    8. Reboot to be sure /nix/store is properly mounted
+
+   Optionally
+
+    1. After reboot, check that /nix is mounted over your partition
+
+ # mount | grep "/nix" && echo "Nix store is on a new partition" || echo "Nix is on the old partition"
+
+    2. Once you are sure everything works, you can delete the old store
+
+ # mkdir /tmp/old_root
+ # mount --bind / /tmp/old_root
+ # rm --recursive /tmp/old_root/nix
+ # umount /tmp/old_root
+ # rmdir /tmp/old_root
+
+    Tip                                                                       
+    Keep in mind that all commands like mount and bash point to some          
+    executable in /nix/store. It is possible to get locked out of a system if 
+    one mistakenly mounted an empty drive to nix.                             
+
+See also
+
+    1. ↑ Nix Manual, 11. Garbage Collection
+    2. ↑ nix-collect-garbage(1)
+    3. ↑ nix-store(1), under OPERATION --GC
+    4. ↑ nix.gc
+    5. ↑ min-free and max-free
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Storage_optimization&oldid=17714"
+     * This page was last edited on 5 October 2024, at 17:08.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

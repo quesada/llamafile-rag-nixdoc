@@ -1,0 +1,100 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Increase supported image types
+   [ ] Toggle the table of contents
+
+                                      Feh
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Feh is a simple, fast and lightweight image viewer. It is controlled by
+   configurable mouse and keyboard actions, as well as by command line.
+   Although its interface does not include graphical elements by default, it
+   is possible to add basic information.
+
+   It is often used to control the wallpaper in window managers without this
+   feature and offers multiple options for this purpose.
+
+Installation
+
+   It can be installed via the feh package as shown in search.nixos.org
+
+Increase supported image types
+
+   Since feh is able to open any file supported by the imlib2 library, it is
+   possible to override the imlib2 build argument by imlib2Full to add
+   support for the additional formats heif (.heic), svg, jxl, among others.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Feh&oldid=12239"
+   Category:
+     * Applications
+     * This page was last edited on 19 April 2024, at 17:42.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

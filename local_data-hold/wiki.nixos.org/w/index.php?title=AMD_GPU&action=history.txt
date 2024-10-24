@@ -1,0 +1,284 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           AMD GPU: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 October 2024
+
+     * curprev [ ] [ ] 21:5321:53, 7 October 2024‎ ExRyuske talk contribs‎ m
+       6,202 bytes +93‎ added OpenCL option variant for 24.11
+
+    25 August 2024
+
+     * curprev [ ] [ ] 23:1623:16, 25 August 2024‎ Lafrenierejm talk
+       contribs‎ m 6,109 bytes 0‎ Hyphenate compound adjective Tag: Visual
+       edit
+
+    15 August 2024
+
+     * curprev [ ] [ ] 02:1002:10, 15 August 2024‎ Mksafavi talk contribs‎
+       6,109 bytes −803‎ updated lact service instructions Tag: Visual edit:
+       Switched
+
+    12 August 2024
+
+     * curprev [ ] [ ] 18:4718:47, 12 August 2024‎ James E A talk contribs‎ m
+       6,912 bytes +6‎ →‎Older GPUs (TeraScale): style consistency
+     * curprev [ ] [ ] 18:4518:45, 12 August 2024‎ James E A talk contribs‎ m
+       6,906 bytes +164‎ →‎Older GPUs (TeraScale): family names
+     * curprev [ ] [ ] 18:3718:37, 12 August 2024‎ James E A talk contribs‎
+       6,742 bytes +982‎ →‎OpenCL
+
+    9 July 2024
+
+     * curprev [ ] [ ] 19:4719:47, 9 July 2024‎ Wimpy talk contribs‎ m 5,760
+       bytes +11‎ No edit summary Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 19:4619:46, 9 July 2024‎ Wimpy talk contribs‎ 5,749
+       bytes −135‎ Correct Linux AMDGPU Controller section about the systemd
+       unit for lact daemon Tags: Mobile edit Mobile web edit
+
+    24 June 2024
+
+     * curprev [ ] [ ] 07:1307:13, 24 June 2024‎ Rrdpad talk contribs‎ 5,884
+       bytes +148‎ added hardware.graphics option Tag: Visual edit: Switched
+
+    7 June 2024
+
+     * curprev [ ] [ ] 16:5916:59, 7 June 2024‎ Mksafavi talk contribs‎ 5,736
+       bytes +140‎ fixed the typo in the service name. added wantedBy config
+       for auto start at boot example
+     * curprev [ ] [ ] 06:2506:25, 7 June 2024‎ Mksafavi talk contribs‎ 5,596
+       bytes +1,362‎ added gui tools section. added lact application to the
+       list with the required config. Tag: Visual edit
+
+    5 May 2024
+
+     * curprev [ ] [ ] 07:1607:16, 5 May 2024‎ ElvishJerricco talk contribs‎
+       4,234 bytes +71‎ Some redundancies were removed, like unnecessary
+       configuration recommendations. Also, many of the sections in this page
+       should be ignored unless you specifically know you need them. This was
+       made clearer. Tag: Visual edit
+
+    27 April 2024
+
+     * curprev [ ] [ ] 20:3120:31, 27 April 2024‎ Qubasa talk contribs‎ 4,163
+       bytes +78‎ Combine multiple rocm packages, as ollama needs that (and
+       other AI packages) Tag: Visual edit
+     * curprev [ ] [ ] 20:0420:04, 27 April 2024‎ Qubasa talk contribs‎ 4,085
+       bytes +82‎ Needed for AI acceleration like pkgs.ollama Tag: Visual
+       edit
+
+    22 April 2024
+
+     * curprev [ ] [ ] 11:4711:47, 22 April 2024‎ Rrdpad talk contribs‎ 4,003
+       bytes +10‎ renamed amdgpu to new modesetting driver Tag: Visual edit
+
+    12 April 2024
+
+     * curprev [ ] [ ] 13:4513:45, 12 April 2024‎ Betalars talk contribs‎ m
+       3,993 bytes +4‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 13:4413:44, 12 April 2024‎ Betalars talk contribs‎ m
+       3,989 bytes −5‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 13:4413:44, 12 April 2024‎ Betalars talk contribs‎
+       3,994 bytes +145‎ Added a disclaimer that blender hip needs the
+       current kernel Tag: Visual edit
+
+    18 December 2023
+
+     * curprev [ ] [ ] 18:2118:21, 18 December 2023‎
+       imported>FrostyTheWoahman‎ 3,849 bytes +350‎ →‎OpenCL
+
+    1 December 2023
+
+     * curprev [ ] [ ] 17:2017:20, 1 December 2023‎ imported>SuperSamus‎
+       3,499 bytes +247‎ No edit summary
+
+    11 November 2023
+
+     * curprev [ ] [ ] 11:3611:36, 11 November 2023‎ imported>KREYREN‎ 3,252
+       bytes −29‎ Present in stable
+
+    22 July 2023
+
+     * curprev [ ] [ ] 03:3003:30, 22 July 2023‎ imported>Lelgenio‎ 3,281
+       bytes −17‎ Fix instructions for blender HIP, generic instructions are
+       not sufficient, there's also a dedicated package for it.
+
+    10 November 2022
+
+     * curprev [ ] [ ] 13:2813:28, 10 November 2022‎ imported>Lucasew‎ 3,298
+       bytes +412‎ No edit summary
+
+    3 August 2022
+
+     * curprev [ ] [ ] 13:3413:34, 3 August 2022‎ imported>Fufexan‎ m 2,886
+       bytes −7‎ Fix indentation inconsistencies
+
+    1 December 2021
+
+     * curprev [ ] [ ] 11:1411:14, 1 December 2021‎ imported>SuperSamus‎
+       2,893 bytes +133‎ No edit summary
+
+    23 October 2021
+
+     * curprev [ ] [ ] 03:3203:32, 23 October 2021‎ imported>Artturin‎ m
+       2,760 bytes −58‎ No edit summary
+     * curprev [ ] [ ] 03:3103:31, 23 October 2021‎ imported>Artturin‎ m
+       2,818 bytes −32‎ remove possible confusion
+
+    19 August 2021
+
+     * curprev [ ] [ ] 11:3711:37, 19 August 2021‎ imported>Typetetris‎ 2,850
+       bytes +614‎ Add workaround for kernel panics with dual monitors.
+
+    8 December 2020
+
+     * curprev [ ] [ ] 15:4415:44, 8 December 2020‎ imported>Thornycrackers‎
+       2,236 bytes +554‎ No edit summary
+
+    22 November 2020
+
+     * curprev [ ] [ ] 13:3213:32, 22 November 2020‎ imported>Artturin‎ 1,682
+       bytes +89‎ clarify amdvlk
+
+    7 November 2020
+
+     * curprev [ ] [ ] 06:3806:38, 7 November 2020‎ imported>Artturin‎ 1,593
+       bytes 0‎ No edit summary
+
+    5 November 2020
+
+     * curprev [ ] [ ] 20:5620:56, 5 November 2020‎ imported>Artturin‎ 1,593
+       bytes +438‎ No edit summary
+
+    1 November 2020
+
+     * curprev [ ] [ ] 10:1510:15, 1 November 2020‎ imported>Jiehong‎ m 1,155
+       bytes +23‎ No edit summary
+
+    11 October 2020
+
+     * curprev [ ] [ ] 08:5708:57, 11 October 2020‎ imported>Jiehong‎ m 1,132
+       bytes −61‎ No edit summary
+     * curprev [ ] [ ] 08:5608:56, 11 October 2020‎ imported>Jiehong‎ m 1,193
+       bytes 0‎ Jiehong moved page Amd Gpu to AMD GPU: Title case was wrong
+     * curprev [ ] [ ] 08:5508:55, 11 October 2020‎ imported>Jiehong‎ m 1,193
+       bytes +175‎ Vulkan driver
+
+    20 September 2020
+
+     * curprev [ ] [ ] 12:0912:09, 20 September 2020‎ imported>Jiehong‎ 1,018
+       bytes −4‎ No edit summary
+     * curprev [ ] [ ] 12:0512:05, 20 September 2020‎ imported>Jiehong‎ 1,022
+       bytes −13‎ No edit summary
+     * curprev [ ] [ ] 11:4011:40, 20 September 2020‎ imported>Jiehong‎ m
+       1,035 bytes +440‎ Add OpenCL instructions
+
+    31 July 2020
+
+     * curprev [ ] [ ] 15:5415:54, 31 July 2020‎ imported>Jiehong‎ 595 bytes
+       +595‎ Create new page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/AMD_GPU"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

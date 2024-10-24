@@ -1,0 +1,146 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Mosquitto: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 September 2024
+
+     * curprev [ ] [ ] 13:4113:41, 7 September 2024‎ Mic92 talk contribs‎
+       4,176 bytes +1,687‎ add advanced setup from old wiki
+
+    16 May 2024
+
+     * curprev [ ] [ ] 15:3615:36, 16 May 2024‎ Klinger talk contribs‎ m
+       2,489 bytes +129‎ added link to manual Tag: Visual edit
+
+    25 August 2023
+
+     * curprev [ ] [ ] 17:5117:51, 25 August 2023‎ imported>N00b0ss‎ 2,360
+       bytes 0‎ big P is for password ... small p is for port
+
+    24 May 2023
+
+     * curprev [ ] [ ] 04:3004:30, 24 May 2023‎ imported>Joee‎ m 2,360 bytes
+       +9‎ anchor identifier under `services`
+
+    2 April 2023
+
+     * curprev [ ] [ ] 11:2111:21, 2 April 2023‎ imported>Onny‎ m 2,351 bytes
+       +13‎ No edit summary
+
+    1 April 2023
+
+     * curprev [ ] [ ] 11:2111:21, 1 April 2023‎ imported>Onny‎ m 2,338 bytes
+       +359‎ Fix password authentication example
+     * curprev [ ] [ ] 10:5610:56, 1 April 2023‎ imported>Onny‎ m 1,979 bytes
+       0‎ No edit summary
+     * curprev [ ] [ ] 10:5210:52, 1 April 2023‎ imported>Onny‎ 1,979 bytes
+       +748‎ Add authentication config example
+     * curprev [ ] [ ] 10:2410:24, 1 April 2023‎ imported>Onny‎ 1,231 bytes
+       +423‎ Add usage example
+     * curprev [ ] [ ] 10:0810:08, 1 April 2023‎ imported>Onny‎ 808 bytes
+       +808‎ Initial page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Mosquitto"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

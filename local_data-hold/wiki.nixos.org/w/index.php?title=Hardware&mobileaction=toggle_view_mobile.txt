@@ -1,0 +1,117 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Subpages
+   [ ] Toggle the table of contents
+
+                                    Hardware
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Hardware#)               
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   This section of the wiki is a collection of sub-pages documenting specific
+   hardware, mainly complete computers, laptops, sub-notebooks and tablets,
+   x86_64-based. For ARM hardware, see NixOS on ARM.
+
+     ----------------------------------------------------------------------
+
+Subpages
+
+     * Acer/One 10
+     * Apple
+     * Asus
+     * Asus/TP300LA
+     * Brother
+     * Dell/D6000 Universal Dock
+     * Dell/Latitude E7240
+     * Dell/Wyse 3040
+     * Framework
+     * Framework/Laptop 13
+     * Framework/Laptop 16
+     * GPD/GPD Pocket
+     * Lenovo
+     * Microsoft/Surface Go 2
+     * Razer
+     * System76
+     * System76/darp6
+     * System76/galp5
+     * System76/galp5/en
+     * System76/galp5/ru
+     * TUXEDO
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware&oldid=11470"
+   Category:
+     * Hardware
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 3 April 2024, at 20:56.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

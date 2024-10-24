@@ -1,0 +1,197 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+          * 1.1 DNS-01 Challenge
+          * 1.2 HTTP-01 Challenge
+     * 2 Usage
+     * 3 Using Let's Encrypt Staging
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                      ACME
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 20:20, 10 October 2024 by WoutSwinkels (talk | contribs)
+   (→‎Setup)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   NixOS supports automatic domain validation & certificate retrieval and
+   renewal using the ACME protocol. Any provider can be used, but by default
+   NixOS uses Let's Encrypt. The alternative ACME client lego is used under
+   the hood.
+
+Setup
+
+  DNS-01 Challenge
+
+   Following example setup generates certificates using DNS validation. Let's
+   Encrypt ToS has to be accepted. Further the contact mail
+   admin+acme@example.com is defined.
+
+ security.acme = {
+   acceptTerms = true;
+   defaults.email = "admin+acme@example.org";
+   certs."mx1.example.org" = {
+     dnsProvider = "inwx";
+     # Supplying password files like this will make your credentials world-readable
+     # in the Nix store. This is for demonstration purpose only, do not use this in production.
+     environmentFile = "${pkgs.writeText "inwx-creds" ''
+       INWX_USERNAME=xxxxxxxxxx
+       INWX_PASSWORD=yyyyyyyyyy
+     ''}";
+   };
+ };
+
+   Certificates are getting generated for the domain mx1.example.org using
+   the DNS provider inwx. See upstream documentation on available providers
+   and their specific configuration for the credentialsFile option.
+
+   The next example issues a wildcard certificate and uses Cloudflare for
+   validation. We're also adding the group "nginx" here so that the
+   certificate files can be used by nginx later on.
+
+ security.acme = {
+   acceptTerms = true;
+   defaults.email = "admin@example.org";
+   certs = {
+     "example.org" = {
+       domain = "*.example.org";
+       group = "nginx";
+       dnsProvider = "cloudflare";
+       # location of your CLOUDFLARE_DNS_API_TOKEN=[value]
+       # https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#EnvironmentFile=
+       environmentFile = "/home/admin/cloudflare";
+     };
+   };
+ };
+
+  HTTP-01 Challenge
+
+   Besides DNS validation it is also possible to obtain certificates by
+   placing a file on your webserver at
+   http://example.org/.well-known/acme-challenge. Instead of using the
+   dnsProvider option, we use the webroot option.
+
+ security.acme = {
+   acceptTerms = true;
+   defaults.email = "admin@example.org";
+   certs."example.org" = {
+     # An acme system user is created. This user belongs to the acme group and the home directory is /var/lib/acme.
+     # This user will try to make the directory .well-known/acme-challenge/ under the webroot directory.
+     webroot = "/var/lib/acme";
+   };
+ };
+
+   We need to make sure that our webserver knows where to redirect
+   http://example.org/.well-known/acme-challenge to. If you use nginx this
+   can be done as follows:
+
+ location /.well-known/acme-challenge/ {
+   rewrite /.well-known/acme-challenge/(.*) /$1 break;
+   root /var/lib/acme/.well-known/acme-challenge;
+ }
+
+Usage
+
+   After successfull generation, certificates can be found in the directory
+   /var/lib/acme. When using certificates in other applications it may be
+   required to change permissions. The group of the certificate files can be
+   adjusted by setting the group option as a string
+
+ security.acme.certs."example.org".group = "nginx";
+
+   or reference.
+
+ security.acme.certs."example.org".group = config.services.nginx.group;
+
+   Resulting in the following files and permissions
+
+ lrwxrwxrwx 1 acme nginx   13 Aug  4 12:57 cert.pem -> fullchain.pem
+ -rw-r----- 1 acme nginx 1567 Aug  4 12:57 chain.pem
+ -rw-r----- 1 acme nginx 2865 Aug  4 12:57 fullchain.pem
+ -rw-r----- 1 acme nginx 3092 Aug  4 12:57 full.pem
+ -rw-r----- 1 acme nginx  227 Aug  4 12:57 key.pem
+
+Using Let's Encrypt Staging
+
+   If you'd like to use the Let's Encrypt staging environment, eg for its
+   less stringent rate limits, set
+
+ security.acme.defaults.server = "https://acme-staging-v02.api.letsencrypt.org/directory";
+
+See also
+
+     * NixOS manual on SSL/TLS Certificates with ACME
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=ACME&oldid=17767"
+   Categories:
+     * Server
+     * Networking
+     * This page was last edited on 10 October 2024, at 20:20.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

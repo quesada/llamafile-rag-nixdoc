@@ -1,0 +1,367 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+          * 1.1 Check http connection
+          * 1.2 Check http(s) connection
+     * 2 Typical configurations
+          * 2.1 SSL
+          * 2.2 Reverse proxy
+          * 2.3 Redirect
+          * 2.4 PHP FastCGI
+          * 2.5 Passing environment variable secrets/configuring acme_dns
+          * 2.6 Adding plug-ins
+     * 3 Debugging
+          * 3.1 Check used ports
+          * 3.2 Virtualhost and real host not identical
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                     Caddy
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 13:43, 11 September 2024 by Onny (talk | contribs)
+   (→‎Redirect)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Caddy is an efficient, HTTP/2 capable web server that can serve static and
+   dynamic web pages. It can also be a reverse proxy to serve multiple web
+   services under one server. Its main features are its simple config setup
+   and automatic HTTPS: It will automatically request and renew a LetsEncrypt
+   certificate so that users of your service get a Browser-trusted and secure
+   connection.
+
+Setup
+
+   To try out Caddy add the following minimal example to your NixOS module:
+
+ {
+   # ...
+   services.caddy = {
+     enable = true;
+     virtualHosts."localhost".extraConfig = ''
+       respond "Hello, world!"
+     '';
+   };
+ }
+
+   This snippet will let Caddy respond on http://localhost and
+   https://localhost with a dummy text "Hello world!". When no port is
+   mentioned on virtualhost like just localhost instead of localhost:8080,
+   Caddy listens on 80 and 443 by default and redirects requests from port 80
+   (unsecured) to 443 (secured).
+
+    Check http connection
+
+   You can use curl to test the http connections:
+
+ $ curl localhost -i -L -k
+ HTTP/1.1 308 Permanent Redirect
+ Location: https://localhost/
+ ..
+
+ HTTP/2 200
+ alt-svc: h3=":443"; ma=2592000
+ content-type: text/plain; charset=utf-8
+ ...
+
+ Hello, world!
+
+   Here you can see that Caddy automatically redirects from an unsecure
+   http://localhost to a secure https://localhost call. For local addresses
+   like "localhost" Caddy always generates and uses a self-signed
+   certificate, which curl correctly doesn't trust; use the -k flag to ignore
+   that.
+
+    Check http(s) connection
+
+   When virtualhost and "real" host aren't the same it gets complicated with
+   HTTPS, so the following curl command works:
+
+ $ curl --connect-to <virtualhost>:443:<realhost>:443 https://<virtualhost> -k
+ Hello, world!
+
+   Curl will set Host header and TLS SNI in the request to <virtualhost> as
+   desired by Caddy, but will make the actual request against the <realhost>,
+   e.g. a load-balancer or ingress-controller.
+
+   Alternatively with http and automatic redirects to https you can extend
+   that call:
+
+ $ curl --connect-to <virtualhost>:80:<realhost>:80 --connect-to <virtualhost>:443:<realhost>:443 https://<virtualhost> -k -L
+ Hello, world!
+
+     * curl connect-to documentation
+     * Curl on HTTPS, SNI, Host
+     * curl to Caddy over HTTPS
+
+Typical configurations
+
+  SSL
+
+   Caddy will automatically try to acquire SSL certificates for the specified
+   domain, in this example example.org. This requires you to configure the
+   DNS records of your domain correctly, which should point to the address of
+   your Caddy server. The firewall ports 80 and 443 needs to be opened.
+
+ services.caddy = {
+   enable = true;
+   virtualHosts."example.org".extraConfig = ''
+     encode gzip
+     file_server
+     root * ${
+       pkgs.runCommand "testdir" {} ''
+         mkdir "$out"
+         echo hello world > "$out/example.html"
+       ''
+     }
+   '';
+ };
+ networking.firewall.allowedTCPPorts = [ 80 443];
+
+  Reverse proxy
+
+   The following snippet creates a reverse proxy for the domain example.org,
+   redirecting all requests to http://10.25.40.6
+
+ services.caddy = {
+   enable = true;
+   virtualHosts."example.org".extraConfig = ''
+     reverse_proxy http://10.25.40.6
+   '';
+   virtualHosts."another.example.org".extraConfig = ''
+     reverse_proxy unix//run/gunicorn.sock
+   '';
+ };
+
+   In case you would like to forward the real client IP of the request to the
+   backend, add following headers
+
+ services.caddy = {
+   virtualHosts."example.org".extraConfig = ''
+     reverse_proxy http://10.25.40.6 {
+       header_down X-Real-IP {http.request.remote}
+       header_down X-Forwarded-For {http.request.remote}
+     }
+   '';
+ };
+
+   Fur further reverse proxy configuration, see upstream documentation.
+
+  Redirect
+
+   Permanent redirect of example.org and old.example.org to www.example.org
+
+ services.caddy = {
+   enable = true;
+   virtualHosts."example.org" = {
+     extraConfig = ''
+       redir https://www.example.org{uri} permanent
+    '';
+     serverAliases = [ "old.example.org" ];
+ };
+
+  PHP FastCGI
+
+   Serving a PHP application in /var/www on http://localhost .
+
+ services.caddy = {
+   enable = true;
+   virtualHosts."http://localhost" = {
+     extraConfig = ''
+       root    * /var/www
+       file_server
+       php_fastcgi unix/var/run/phpfpm/localhost.sock
+     '';
+   };
+ };
+
+   You'll need a PHP-FPM socket listening on Unix socket path
+   /var/run/phpfpm/localhost.sock.
+
+  Passing environment variable secrets/configuring acme_dns
+
+   To prevent any secrets from being put in the nix store (any NixOS setting
+   that writes a config in the Nix store will expose any secret in it), you
+   can use the following setting
+
+ services.caddy = {
+   enable = true;
+   globalConfig = ''   
+     acme_dns PROVIDER {
+       api_key {$APIKEY}
+       api_secret_key {$APISECRETKEY}
+     }
+   '';
+ };
+ systemd.services.caddy.serviceConfig.EnvironmentFile = ["/path/to/envfile"];
+
+   And then at /path/to/envfile:
+
+ APIKEY=YOURKEY
+ APISECRETKEY=OTHERKEY
+
+  Adding plug-ins
+
+   There are many Issues/PR's about allowing Caddy to be built with plug-ins.
+   Until then, you can use this workaround:
+
+ services.caddy = {
+   enable = true;
+   package = (pkgs.callPackage "${builtins.fetchurl https://raw.githubusercontent.com/jpds/nixpkgs/a33b02fa9d664f31dadc8a874eb1a5dbaa9f4ecf/pkgs/servers/caddy/default.nix}" {
+     externalPlugins = [
+       { name = "caddy-dns/porkbun"; repo = "github.com/caddy-dns/porkbun"; version = "4267f6797bf6543d7b20cdc8578a31764face4cf"; }
+       # Set version to target repository commit hash
+     ];
+     vendorHash = "";  # Add this as explained in https://github.com/NixOS/nixpkgs/pull/259275#issuecomment-1763478985
+   });
+   globalConfig = ''
+     ...
+   '';
+ }
+
+Debugging
+
+  Check used ports
+
+   To check if Caddy is running and listening as configured you can run
+   netstat:
+
+ $ netstat -tulpn
+ Active Internet connections (only servers)
+ Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name   
+ tcp        0      0 127.0.0.1:2019          0.0.0.0:*               LISTEN      1202/caddy           
+ tcp6       0      0 :::80                   :::*                    LISTEN      1202/caddy         
+ tcp6       0      0 :::443                  :::*                    LISTEN      1202/caddy         
+ udp6       0      0 :::443                  :::*                                1202/caddy
+
+   The tcp (ipv4) socket port 2019 is Caddy's management endpoint, for when
+   you want manage its config via web REST calls instead of Nix (ignore). The
+   tcp6 (an ipv6 socket that also listens on ipv4) socket on port 80 (HTTP)
+   and 443 (HTTPS) indicate that our virtualhost config was used.
+
+  Virtualhost and real host not identical
+
+   When you connect to Caddy must ensure that the "Host" header matches the
+   virtualhost entry of Caddy. For example, when testing locally a config
+   like
+
+ services.caddy = {
+   enable = true;
+   virtualHosts."example.org".extraConfig = ''
+     respond "Hello, world!"
+   '';
+ };
+
+   you must send the request against "localhost" and manually override the
+   host header to "example.org":
+
+ $ curl localhost -i -H "Host: example.org"
+ HTTP/1.1 308 Permanent Redirect
+ Connection: close
+ Location: https://example.org/
+ Server: Caddy
+ ...
+
+   Above you also see the redirect from http://localhost to
+   https://example.org; Caddy always redirects from the unsecure to the
+   secure port of your virtualhost.
+
+   If the response is empty, try setting a port number like 80 and/or try a
+   local TLS security certificate instead of global LetsEncrypt:
+
+ services.caddy = {
+   enable = true;
+   virtualHosts."example.org:80".extraConfig = ''
+     respond "Hello, world!"
+     tls internal
+   '';
+ };
+
+   With "tls internal" Caddy will generate a local certificate, which is good
+   when testing locally and/or you don't have internet access (e.g. inside a
+   nixos-container).
+
+     * Caddy TLS settings documentation
+
+See also
+
+     * Available NixOS service options
+     * Official Caddy documentation
+     * NixOS service definition
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Caddy&oldid=17364"
+   Categories:
+     * Applications
+     * Server
+     * Networking
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 11 September 2024, at 13:43.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,299 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Finding the definition of a function or package
+     * 2 Convert a string to an (import-able) path
+     * 3 Coercing a relative path with interpolated variables to an absolute
+       path (for imports)
+     * 4 Writing update scripts / Referencing a relative path as string
+     * 5 Relevant pages
+   [ ] Toggle the table of contents
+
+                          Nix Language: Tips & Tricks
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 13:39, 3 April 2024 by Qyriad (talk | contribs) (mention
+   using :edit as surrogate jump to definition)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Finding the definition of a function or package
+
+   Nix is often criticized that it has no working “jump to definition”. The
+   good news is that you can have something very similar by using a regular
+   expression:
+
+   If your package is named hello, searching for the regular expression
+   hello\ = lists all nix symbol definitions that are named this way. In many
+   cases there’s only two or three results. You should find what you are
+   searching for easily.
+
+   This trick even works for functions, because their arguments come *after*
+   the equals sign. If you search for mkDerivation\ = for example, you will
+   see that there is more than one definition of that symbol in nixpkgs, but
+   at least all definitions are shown.
+
+   You will also notice that searching with grep takes quite a while on a
+   large repository like nixpkgs. Tools like ag (The Silver Searcher) and rg
+   (ripgrep) are orders of magnitudes faster (especially on modern SSDs).
+
+   If you don’t have a nixpkgs checkout at hand, you can use the repo search
+   at search.nix.gsc.io. This even searches in all repositories of the NixOS
+   Github organization.
+
+   Another trick that only works for functions, is evaluating the function on
+   the nix repl:
+
+ nix-repl> pkgs.lib.strings.makeBinPath
+ «lambda @ /home/user/nixpkgs/lib/strings.nix:94:42»
+
+   This doesn't work for non-functions or builtin functions, which show
+   «primop». It will always find the actual lambda, not an attribute that
+   reexports a partial application, for example.
+
+   Also in the REPL, you may use the :edit command (or its abbreviation :e)
+   on an expression to open your editor (detected from the $EDITOR
+   environment variable) at the location where an attribute was defined.
+
+ $ nix repl --expr '{ pkgs = import <nixpkgs> { }; }'
+ nix-repl> :e pkgs.lib.strings.makeBinPath
+
+   The position information is not always perfectly accurate, but the above
+   sequence of commands should open your editor to somewhere close to
+   https://github.com/NixOS/nixpkgs/blob/b6ed1c5ee1470faf835024587c25fafb03693cbe/lib/strings.nix#L228.
+
+Convert a string to an (import-able) path
+
+ nix-repl> "/home/bernd/folder"
+ "/home/bernd/folder"
+
+ nix-repl> :t "/home/bernd/folder"
+ a string
+
+ nix-repl> builtins.toPath "/home/bernd/folder"
+ "/home/bernd/folder"
+
+ nix-repl> :t builtins.toPath "/home/bernd/folder"
+ a string
+
+ nix-repl> /. + builtins.toPath "/home/bernd/folder"
+ /home/bernd/folder
+
+ nix-repl> :t /. + builtins.toPath "/home/bernd/folder"
+ a path
+
+   In contrast to what builtins.toPath suggests, it does not result in a
+   path, but only checks whether the string is an absolute path, and
+   normalizes it. The trick is to prepend the /. (“root”) path literal, which
+   converts the result to a nix path (that will be copied to the store when
+   used in a derivation).
+
+   Be careful not to confuse it with ./., which is the “directory of the
+   current nix file” path literal, and will result in something like
+   /my/scripts/folder/home/bernd/folder (provided you are in
+   /my/scripts/folder).
+
+   This trick might be helpful in combination with builtins.getEnv, which
+   returns a string (which might be a path). Be careful, depending on
+   environment variables introduces heavy non-determinism and might lead to
+   rebuilds!
+
+   If you need to build a path from a mix of paths and strings variables, you
+   can concatenate strings and paths, but you need to be careful of the
+   evaluation order because Nix removes trailing /.
+
+   For example if you need to concatenate /data with a variable call my_var
+   you need to add parenthesis:
+
+ nix-repl> let my_var = "tmp"; in /data + "/" + my_var  # WRONG
+ /datatmp
+
+ nix-repl> let my_var = "tmp"; in /data + ("/" + my_var) # Better :)
+ /data/tmp
+
+Coercing a relative path with interpolated variables to an absolute path (for
+imports)
+
+   Sometimes you need to interpolate the value of a Nix variable into the
+   path for an import, however these will not work:
+
+     * ./desktop-${desktop}.nix (invalid curly, can't interpolate outside of
+       a string in this location)
+     * "./desktop-${desktop}.nix" (nix paths must be absolute)
+     * ./. + "desktop-${desktop}.nix" (missing slash at the start of the
+       string part)
+     * ./. + "./desktop-${desktop}.nix" (can't have the dot in front of that
+       same slash)
+
+   Instead, use this construction:
+
+     * ./. + "/desktop-${desktop}.nix"
+
+   As a fuller example:
+
+ let
+   desktops = [ "elementary" "gnome" "plasma" "sway" ];
+ in
+ {
+   config.specialisation =
+     pkgs.lib.genAttrs desktops (desktop: {
+       configuration = {
+         boot.loader.grub.configurationName = "${desktop}";
+         imports = [
+           (./. + "/desktop-${desktop}.nix")
+         ];
+       };
+     });
+ }
+
+   Note that this requires ./. to refer to the current directory, but also
+   importantly requires the leading slash on the quoted-string-path part.
+
+Writing update scripts / Referencing a relative path as string
+
+   Nix has relative path syntax that describes files relative to the current
+   nix file, for example
+
+ with import <nixpkgs> {};
+ let textdata = ../foo.txt;
+ in runCommand "alldata" {} ''
+   echo "=this is a header=" >> $out
+   cat ${textdata} >> $out
+ ''
+
+   If the file ../foo.txt are needed by evaluation, it is copied to the nix
+   store first, so the script in the resulting drv file looks like this:
+
+   "echo \"=this is a header=\" >> $out\ncat
+   /nix/store/dcaph3ib0vq0c27bqzw2vhrakk272mga-foo.txt >> $out\n"
+
+   Notice the /nix/store path of foo.txt. When we build the file:
+
+ $ nix-build code.nix
+ these derivations will be built:
+   /nix/store/bfv13hxqlwll398y5vi3wn44raw48yva-alldata.drv
+ building '/nix/store/bfv13hxqlwll398y5vi3wn44raw48yva-alldata.drv'...
+ /nix/store/9fav4aw2fs8ybaj06gg6cjzz7bkqf461-alldata
+
+ $ cat /nix/store/9fav4aw2fs8ybaj06gg6cjzz7bkqf461-alldata
+ =this is a header=
+ this
+ is
+ some
+ data
+
+   Now, what if we don’t want to import the data file into the store, but
+   still reference the absolute path of that file? We use toString:
+
+ with import <nixpkgs> {};
+ let textdata = toString ../foo.txt;
+ in writeScript "update-foo.sh" ''
+   echo "updating foo.txt!"
+   echo "additional new data" >> ${lib.escapeShellArg textdata}
+ ''
+
+   In this example we use the actual absolute path of the file to write a
+   script (notice the change from runCommand to writeScript, which are both
+   helper functions from nixpkgs). This script can update the foo.txt file
+   when it is run by bash:
+
+ $ cat $(nix-build code.nix)
+ echo "updating foo.txt!"
+ echo "additional new data" >> '/home/philip/tmp/foo.txt'
+
+ $ bash $(nix-build code.nix)
+ updating foo.txt!
+
+ $ cat foo.txt
+ this
+ is
+ some
+ data
+ additional new data
+
+   Bear in mind that this makes the absolute path vary between different
+   systems. The users Bob and Alice are going to get different scripts,
+   because the paths of their home folders differ: /home/bob/foo.txt and
+   /home/alice/foo.txt; so it’s not reproducible.
+
+   We can use this trick to update the sources of nix expressions (for
+   example by generating a script which updates a json file with the
+   software’s hashes).
+
+Relevant pages
+
+     * Overview of the Nix Language
+     * Editor Modes for Nix Files
+     * Learning resources
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_Language:_Tips_%26_Tricks&oldid=11373"
+   Categories:
+     * Nix Language
+     * Cookbook
+     * This page was last edited on 3 April 2024, at 13:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

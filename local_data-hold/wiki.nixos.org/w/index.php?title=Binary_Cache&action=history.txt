@@ -1,0 +1,245 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Binary Cache: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    1 July 2024
+
+     * curprev [ ] [ ] 10:1010:10, 1 July 2024‎ Fsbof talk contribs‎ m 13,973
+       bytes +1,948‎ Removed extra-substituters as not available since 22.05,
+       Added Signing Existing Packages, Added Command Line Options Tag:
+       Visual edit
+
+    2 March 2024
+
+     * curprev [ ] [ ] 06:3806:38, 2 March 2024‎ imported>Epetousis‎ m 12,025
+       bytes −8‎ Fix outdated nixConfig syntax
+
+    22 February 2024
+
+     * curprev [ ] [ ] 04:4904:49, 22 February 2024‎ imported>Heywoodlh‎ m
+       12,033 bytes +217‎ MacOS/Nix-Darwin links
+
+    4 January 2024
+
+     * curprev [ ] [ ] 21:3921:39, 4 January 2024‎ imported>Xav-ie‎ m 11,816
+       bytes +166‎ I spent the better part of three hours not knowing why my
+       cache settings were not working until I someone helped me and pointed
+       out that caches are nomally only made by release.
+
+    13 October 2023
+
+     * curprev [ ] [ ] 08:4608:46, 13 October 2023‎ imported>Chance‎ 11,650
+       bytes +404‎ Add warning that invalid binary cache public keys may
+       prevent system rebuild
+     * curprev [ ] [ ] 08:2908:29, 13 October 2023‎ imported>Fadenb‎ m 11,246
+       bytes −67‎ Reverted edits by Fadenb (talk) to last revision by Clerie
+     * curprev [ ] [ ] 08:2808:28, 13 October 2023‎ imported>Fadenb‎ m 11,313
+       bytes +67‎ test edit
+
+    8 July 2023
+
+     * curprev [ ] [ ] 20:5520:55, 8 July 2023‎ imported>Clerie‎ 11,246 bytes
+       +519‎ →‎Using a binary cache on non-NixOS installations
+
+    22 May 2023
+
+     * curprev [ ] [ ] 09:4909:49, 22 May 2023‎ imported>Sean1708‎ 10,727
+       bytes +1,312‎ No edit summary
+
+    7 May 2023
+
+     * curprev [ ] [ ] 13:3113:31, 7 May 2023‎ imported>Ncfavier‎ 9,415 bytes
+       −41‎ No edit summary
+     * curprev [ ] [ ] 13:2713:27, 7 May 2023‎ imported>Ncfavier‎ 9,456 bytes
+       −121‎ Improve nginx configuration
+
+    9 November 2022
+
+     * curprev [ ] [ ] 09:4109:41, 9 November 2022‎ imported>Milahu‎ 9,577
+       bytes +140‎ Example: Fetch metadata of bash
+
+    5 August 2022
+
+     * curprev [ ] [ ] 14:2614:26, 5 August 2022‎ imported>Toraritte‎ m 9,437
+       bytes +57‎ Amend flag text
+     * curprev [ ] [ ] 14:1614:16, 5 August 2022‎ imported>Toraritte‎ m 9,380
+       bytes +169‎ Add expansion template/flag
+
+    25 April 2022
+
+     * curprev [ ] [ ] 17:2117:21, 25 April 2022‎ imported>Glottologist‎
+       9,211 bytes +40‎ No edit summary
+
+    17 April 2022
+
+     * curprev [ ] [ ] 16:1216:12, 17 April 2022‎ imported>Hmenke‎ 9,171
+       bytes +26‎ Update manual link
+
+    24 October 2021
+
+     * curprev [ ] [ ] 21:2521:25, 24 October 2021‎ imported>Milahu‎ 9,145
+       bytes +592‎ add Permanent use of binary cache
+     * curprev [ ] [ ] 21:1421:14, 24 October 2021‎ imported>Milahu‎ 8,553
+       bytes +28‎ make shell code simpler
+
+    9 March 2021
+
+     * curprev [ ] [ ] 14:5714:57, 9 March 2021‎ imported>Nomeata‎ 8,525
+       bytes +779‎ nix path-info
+
+    25 August 2020
+
+     * curprev [ ] [ ] 05:3405:34, 25 August 2020‎ imported>Fzakaria‎ 7,746
+       bytes +1,094‎ Add example to check binary cache
+
+    14 April 2020
+
+     * curprev [ ] [ ] 14:0814:08, 14 April 2020‎ imported>Knedlsepp‎ 6,652
+       bytes 0‎ Fixed the chown line so that the nix-serve user has access to
+       it.
+
+    4 March 2020
+
+     * curprev [ ] [ ] 15:2315:23, 4 March 2020‎ imported>Domenkozar‎ 6,652
+       bytes +121‎ add cachix
+
+    28 October 2019
+
+     * curprev [ ] [ ] 13:4213:42, 28 October 2019‎ imported>Aleb‎ m 6,531
+       bytes −28‎ No edit summary
+
+    17 October 2019
+
+     * curprev [ ] [ ] 11:1211:12, 17 October 2019‎ imported>Aleb‎ 6,559
+       bytes +539‎ Section about how to populate the cache
+     * curprev [ ] [ ] 10:5810:58, 17 October 2019‎ imported>Aleb‎ 6,020
+       bytes +759‎ Detail how to check the signing on the fly
+     * curprev [ ] [ ] 10:4510:45, 17 October 2019‎ imported>Aleb‎ m 5,261
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 10:4210:42, 17 October 2019‎ imported>Aleb‎ 5,262
+       bytes +458‎ Specify nix-serve limited to IPv4; nginx config sample for
+       non-NixOS
+     * curprev [ ] [ ] 10:3310:33, 17 October 2019‎ imported>Aleb‎ m 4,804
+       bytes +7‎ No edit summary
+     * curprev [ ] [ ] 10:3110:31, 17 October 2019‎ imported>Aleb‎ 4,797
+       bytes +547‎ Detail when the key is used, and how to specify it on
+       non-NixOS
+
+    14 April 2019
+
+     * curprev [ ] [ ] 17:4317:43, 14 April 2019‎ imported>Mth‎ 4,250 bytes
+       −565‎ No edit summary
+     * curprev [ ] [ ] 11:5711:57, 14 April 2019‎ imported>Tfc‎ 4,815 bytes
+       +483‎ Incorporate musicmatze
+
+    13 April 2019
+
+     * curprev [ ] [ ] 10:1410:14, 13 April 2019‎ imported>Tfc‎ m 4,332 bytes
+       +167‎ add note about where the pubkey comes from
+     * curprev [ ] [ ] 10:0910:09, 13 April 2019‎ imported>Tfc‎ 4,165 bytes
+       +4,165‎ Create wiki page about creating your own binary cache
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Binary_Cache"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

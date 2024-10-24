@@ -1,0 +1,117 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+   [ ] Toggle the table of contents
+
+                                     Xdebug
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   xdebug is a PHP extension that helps with debugging PHP code.
+
+Installation
+
+   Configure your local apache/php to have the xdebug extension installed and
+   enabled:
+
+ # in /etc/nixos/configuration.nix (not inside systemPackages)
+ services.httpd.phpPackage = pkgs.php.buildEnv {
+     extensions = ({ enabled, all }: enabled ++ (with all; [
+         xdebug
+     ]));
+     extraConfig = ''
+         xdebug.mode=debug
+     '';
+ };
+
+Usage
+
+   In vscode open the debug panel and click "create a launch.json file" and
+   click "PHP". The defaults work. Just click the green triangle "Listen for
+   Xdebug".
+
+   Edit a PHP file and add xdebug_break(); where you'd like the debugger to
+   start.
+
+   Point your browser at apache to get that PHP file to run in apache. Once
+   that xdebug_break() xdebug will connect to vscode to initiate the
+   debugging session. Once that connection is made you can make further
+   breakpoints in vscode in the usual way (clicking to the left of the source
+   code).
+
+   See upstream xdebug documentation if you'd like other modes e.g. for PHP
+   to connect to vscode and break/pause without the call to xdebug_break().
+   The extraConfig string in the above example goes into php.ini.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Xdebug&oldid=9736"
+     * This page was last edited on 16 January 2023, at 17:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

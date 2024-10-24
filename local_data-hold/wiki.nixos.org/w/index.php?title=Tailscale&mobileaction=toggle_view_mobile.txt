@@ -1,0 +1,207 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Basic setup
+     * 2 Split DNS: Access self-hosted services at your friends house as if
+       you were there.
+     * 3 Configuring TLS
+     * 4 Known issues
+     * 5 Running multiple Tailnet-accessible services on a single machine
+     * 6 Using Userspace Networking (experimental)
+     * 7 Optimize the performance of subnet routers and exit nodes
+   [ ] Toggle the table of contents
+
+                                   Tailscale
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   From Official Website
+
+     Tailscale makes networking easy
+
+     Tailscale lets you easily manage access to private resources, quickly
+     SSH into devices on your network, and work securely from anywhere in the
+     world.
+
+Basic setup
+
+   You need to
+
+    1. make an account and login at https://login.tailscale.com (or self-host
+       a compatible Headscale service; also available NixOS)
+    2. enable the Tailscale client app on your NixOS machine by adding
+       services.tailscale.enable = true; and access tokens to your NixOS
+       configuration.
+
+   If you are using features like subnet routers or exit nodes you will also
+   need to set services.tailscale.useRoutingFeatures to "server", "client" or
+   "both" depending on the role of your machine.
+
+Split DNS: Access self-hosted services at your friends house as if you were
+there.
+
+   Tailscale support "Split DNS" where you can access local services (not
+   exposed to the internet) on a different network (e.g. you friend's house)
+   as if you are in that local network.
+
+   See KTZ Systems Split DNS overview:
+   https://www.youtube.com/watch?v=Uzcs97XcxiE
+
+   Combined with Let's Encrypt using the "DNS-01" challenge you can get
+   browser-trusted HTTPS certificates for local services (not exposed to the
+   internet) and access them with Tailscale from anywhere.
+
+   See Wolfgang's Channel Local HTTPS overview:
+   https://www.youtube.com/watch?v=qlcVx-k-02E
+
+Configuring TLS
+
+   Per Enabling HTTPS in the Tailscale documentation, run the following:
+
+ $ sudo tailscale cert ${MACHINE_NAME}.${TAILNET_NAME}
+
+     This article or section needs expansion.                                 
+     Reason:                                                                  
+       * Set up Systemd service to run this command at regular intervals to   
+         avoid cert expiration.                                               
+       * Show how to run for multiple services on a single machine.           
+     (Discuss in Talk:Tailscale#)                                             
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+Known issues
+
+   If you encounter issues with IPv6 not working through your NixOS-based
+   exit node, this might be an issue with the tailscale client's detection of
+   whether IPv6 NAT is supported. This is the "checkSupportsV6NAT" function
+   in the tailscale codebase. Enabling networking.nftables.enable = true; and
+   then rebooting may fix this issue if you are using iptables.
+
+   There is also a known issue with DNS when using the default NixOS
+   configuration; see GitHub issue 4254. Enabling systemd-resolved seems to
+   be some part of the solution to this problem, as well as ensuring that
+   DHCP is not enabled on the "tailscale0" network interface. Please see the
+   GitHub issue for more information.
+
+Running multiple Tailnet-accessible services on a single machine
+
+   The essence is to run multiple tailscaled daemons on a machine, with the
+   additional daemons using userspace networking rather than tun, which seems
+   to intercept connections to all Tailscale IPs on a machine. Basically for
+   an additional service MYSERVICE run the following commands:
+
+ $ STATE_DIRECTORY=/var/lib/tailscale/tailscaled-tt_rss
+ $ sudo mkdir -p ${STATE_DIRECTORY}
+ $ sudo env STATE_DIRECTORY=${STATE_DIRECTORY} tailscaled --statedir=${STATE_DIRECTORY} --socket=${STATE_DIRECTORY}/tailscaled.sock --port=0 --tun=user
+ $ sudo tailscale --socket=${STATE_DIRECTORY}/tailscaled.sock up --auth-key=tskey-key-MYSERVICE_KEY_FROM_TAILSCALE_ADMIN_CONSOLE --hostname=MYSERVICE --reset
+
+Using Userspace Networking (experimental)
+
+   Tailscale inside containers can use userspace networking mode to avoid
+   needing host tunnel device permissions.
+
+   This can be accomplished by setting services.tailscale.interfaceName =
+   "userspace-networking"; in your NixOS config.
+
+     This article or section needs expansion.                                 
+     Reason:                                                                  
+       * Set up Systemd services for the additional host names                
+     (Discuss in Talk:Tailscale#)                                             
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+Optimize the performance of subnet routers and exit nodes
+
+   Tailscale gives recommendations on how to optimize UDP throughput of your
+   node.
+
+   You need to have ethtool and networkd-dispatcher installed, and to create
+   the appropriate rule for Tailscale.
+
+   Supposing the network device you'll be using is called eth0, you can add
+   the following to your configuration.nix:
+
+ services = {
+   networkd-dispatcher = {
+     enable = true;
+     rules."50-tailscale" = {
+       onState = ["routable"];
+       script = ''
+         ${lib.getExe ethtool} -K eth0 rx-udp-gro-forwarding on rx-gro-list off
+       '';
+     };
+   };
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Tailscale&oldid=16371"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 5 August 2024, at 23:08.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

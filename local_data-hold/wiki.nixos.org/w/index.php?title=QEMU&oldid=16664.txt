@@ -1,0 +1,194 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+          * 1.1 Quick EMU
+     * 2 Configuration
+          * 2.1 Booting UEFI
+          * 2.2 Run binaries of different architecture
+     * 3 Tips and tricks
+          * 3.1 Emulate different architecture
+   [ ] Toggle the table of contents
+
+                                      QEMU
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 10:32, 13 August 2024 by Onny (talk | contribs) (Register
+   binfmt emulate different architectures)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   QEMU is a generic and open source machine emulator and virtualizer.
+
+Setup
+
+   Install the QEMU program system wide
+
+   environment = {
+     systemPackages = [ pkgs.qemu ];
+   };
+
+  Quick EMU
+
+   Quickly create and run highly optimised desktop virtual machines for
+   Linux, macOS and Windows; with just two commands.
+
+   https://github.com/quickemu-project/quickemu
+
+ quickget windows 11
+ quickemu --vm windows-11.conf
+
+Configuration
+
+  Booting UEFI
+
+   To boot UEFI systems using QEMU, the UEFI firmware replacing the BIOS
+   implementation needs to be provided while starting QEMU.
+
+   The following installs a script, that always starts QEMU with OVMF
+   firmware implementing UEFI support.
+
+  environment = {
+    systemPackages = [
+      (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
+        qemu-system-x86_64 \
+          -bios ${pkgs.OVMF.fd}/FV/OVMF.fd \
+          "$@"
+      '')
+    ];
+  };
+
+   qcow-efi images generated from nixos-generators require more RAM than the
+   default 128MB. Failing to provide enough RAM results in grub reporting
+   "error: start_image() returned 0x800000000000009." or systemd-boot
+   reporting "Failed to execute NixOS: Out of resources".
+
+  Run binaries of different architecture
+
+   Following configuration will enable the emulation of different
+   architectures. For example to run aarch64 and riscv64 binaries on an
+   native x86_64 host, add following part to your system configuration, apply
+   it and reboot your system.
+
+ boot.binfmt.emulatedSystems = [
+   "aarch64-linux"
+   "riscv64-linux"
+ ];
+
+Tips and tricks
+
+  Emulate different architecture
+
+   The following Flake file constructs and executes a NixOS virtual machine
+   with an architecture distinct from that of the host system; in this
+   example, it utilizes aarch64.
+
+   Save the snippet as flake.nix and run nix run in the same directory to
+   bootup the VM.
+
+ {
+   description = "Nix flake to build and run a NixOS VM for aarch64";
+
+   inputs = {
+     nixpkgs.url = "nixpkgs/nixos-24.05";
+   };
+
+   outputs = { self, nixpkgs }:
+   let
+     pkgs = import nixpkgs { system = "x86_64-linux"; };
+     pkgsAarch64 = import nixpkgs { system = "aarch64-linux"; };
+
+     iso = (pkgsAarch64.nixos {
+       imports = [ "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-base.nix" ];
+     }).config.system.build.isoImage;
+
+     vmScript = pkgs.writeScriptBin "run-nixos-vm" ''
+       #!${pkgs.runtimeShell}
+       ${pkgs.qemu}/bin/qemu-system-aarch64 \
+         -machine virt,gic-version=max \
+         -cpu max \
+         -m 2G \
+         -smp 4 \
+         -drive file=$(echo ${iso}/iso/*.iso),format=raw,readonly=on \
+         -nographic \
+         -bios ${pkgsAarch64.OVMF.fd}/FV/QEMU_EFI.fd
+     '';
+
+   in {
+     defaultPackage.x86_64-linux = vmScript;
+   };
+ }
+
+   Alternatively a different iso file can be specified in the
+   drive-parameter, for example for Ubuntu Server ARM64.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=QEMU&oldid=16664"
+   Category:
+     * Virtualization
+     * This page was last edited on 13 August 2024, at 10:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,320 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Using nix-shell
+          * 1.2 Using Global Configuration
+          * 1.3 Using Home Configuration
+     * 2 Configuration
+          * 2.1 Basic
+          * 2.2 Advanced
+     * 3 Tips and Tricks
+          * 3.1 Location of Options
+          * 3.2 Package Variations
+          * 3.3 Plugin Management
+          * 3.4 Frameworks
+     * 4 Troubleshooting
+     * 5 References
+   [ ] Toggle the table of contents
+
+                                     Neovim
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Translate this page
+   Other languages:
+     * English
+     * русский
+
+   Neovim^[1] is a highly extensible and open source text editor that aims to
+   improve upon and modernize the popular Vim^[2] editor. It's designed to be
+   a drop-in replacement for Vim, maintaining compatibility with most Vim
+   plugins and configurations while offering additional features and
+   improvements. Neovim focuses on extensibility, usability, and performance.
+
+   It introduces a powerful plugin architecture that allows for asynchronous
+   plugin execution, which can significantly improve performance for certain
+   operations. It also includes a built-in terminal emulator, allowing users
+   to run shell commands directly within the editor. The project emphasizes
+   code quality and maintainability, with a clean, well-documented codebase
+   that makes it easier for developers to contribute.
+
+Installation
+
+    Using nix-shell
+
+ nix-shell -p neovim
+
+    Using Global Configuration
+
+ environment.systemPackages = [
+   pkgs.neovim
+ ];
+
+   After modifying your configuration, apply the changes by running:
+
+ sudo nixos-rebuild switch
+
+    Using Home Configuration
+
+ home.packages = [
+   pkgs.neovim
+ ];
+
+   After updating your configuration, apply the changes by running:
+
+ home-manager switch
+
+Configuration
+
+    Basic
+
+ # Global Configuration
+ programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+ };
+
+ # Home Configuration
+ programs.neovim = {
+   enable = true;
+   extraConfig = ''
+     set number relativenumber
+   '';
+ };
+
+    Advanced
+
+ # Global Configuration
+ programs.neovim = {
+   enable = true;
+   defaultEditor = true;
+   viAlias = true;
+   vimAlias = true;
+   configure = {
+     customRC = ''
+       set number
+       set cc=80
+       set list
+       set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+       if &diff
+         colorscheme blue
+       endif
+     '';
+     packages.myVimPackage = with pkgs.vimPlugins; {
+       start = [ ctrlp ];
+     };
+   };
+ };
+
+ # Home Configuration
+ # You have to add the line below to set it as the default editor:
+ environment.variables.EDITOR = "nvim";
+
+Tips and Tricks
+
+    Location of Options
+
+   The home manager options are defined in the following Home Manager Options
+   Manual^[3].
+
+   The global options are listed on MyNixOS^[4].
+
+    Package Variations
+
+   Have a look at the Neovim Nightly Overlay^[5] to install the most recent
+   current nightly version of Neovim.
+
+   You can run the master version via the following command:
+
+ nix run "github:nix-community/neovim-nightly-overlay"
+
+    Plugin Management
+
+ plugins = [
+   # Example Plugin: nvim-tree-lua
+   pkgs.vimPlugins.nvim-tree-lua
+
+   # Example Plugin: vim-startify with configuration
+   {
+     plugin = pkgs.vimPlugins.vim-startify;
+     config = "let g:startify_change_to_vcs_root = 0";
+   }
+
+   # Example Plugin: nvim-colorizer-lua with Lua config
+   # Due to how the runtimepath for Lua modules is processed, your configuration may require
+   # packadd! plugin-name to require a module. A home-manager example:
+   {
+     plugin = pkgs.vimPlugins.nvim-colorizer-lua;
+     config = ''
+       packadd! nvim-colorizer.lua
+       lua << END
+         require 'colorizer'.setup {
+           '*'; -- Highlight all files, but customize some others.
+           '!vim'; -- Exclude vim from highlighting.
+         }
+       END
+     '';
+   }
+
+   # Example Plugin: nvim-treesitter with Lua config
+   {
+     plugin = pkgs.vimPlugins.nvim-treesitter;
+     config = ''
+       packadd! nvim-treesitter
+       lua <<EOF
+         require'nvim-treesitter.configs'.setup {
+           highlight = {
+             enable = true,              -- false will disable the whole extension
+             disable = {},               -- list of languages that will be disabled
+           },
+           incremental_selection = {
+             enable = true,
+             keymaps = {
+               init_selection = "gnn",
+               node_incremental = "grn",
+               scope_incremental = "grc",
+               node_decremental = "grm",
+             },
+           },
+           textobjects = {
+             select = {
+               enable = true,
+               lookahead = true,
+               keymaps = {
+                 ["af"] = "@function.outer",
+                 ["if"] = "@function.inner",
+                 ["ac"] = "@class.outer",
+                 ["ic"] = "@class.inner",
+               },
+             },
+           },
+         }
+       EOF
+     '';
+   }
+
+   # Installing grammars for tree-sitter
+   # Option 1: Install all grammar packages
+   pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+  
+   # Option 2: Install specific grammar packages
+   # (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.java ]))
+
+   # Option 3: Installing grammars without Nix
+   # Installing grammar packages through the built-in command can lead to errors.
+   # The following Neovim command will install syntax highlighting for the C programming language: :TSInstall c
+ ];
+
+    Frameworks
+
+   If you prefer not to configure your system manually, NixOS offers several
+   predefined configurations and community-supported options. Here are a few
+   of them:
+
+     * LazyVim^[6]
+     * AstroVim^[7]
+     * NVChad^[8]
+
+   Another excellent option is LunarVim^[9]. The development community
+   describes it as "an IDE layer for Neovim with sane defaults." LunarVim
+   includes an installer/updater for LSP modules and other features. It can
+   be installed via the lunarvim package from nixpkgs and is started with the
+   lvim command.
+
+   The configuration for LunarVim is stored in ./config/lvim.
+
+Troubleshooting
+
+References
+
+    1. ↑ Neovim Team, "Home - Neovim", Neovim Official Website, N/A.
+       https://neovim.io/
+    2. ↑ NixOS Wiki, Vim. https://wiki.nixos.org/wiki/Vim
+    3. ↑ Nix Community, "Home Manager Option Search", Nix Community GitHub
+       Pages, N/A.
+       https://nix-community.github.io/home-manager/options.xhtml#opt-programs.neovim.enable
+    4. ↑ MyNixOS Team, "Search: nixpkgs/option/programs.neovim", MyNixOS,
+       N/A. https://mynixos.com/search?q=nixpkgs%2Foption%2Fprograms.neovim
+    5. ↑ Nix Community, "neovim-nightly-overlay", GitHub, N/A.
+       https://github.com/nix-community/neovim-nightly-overlay
+    6. ↑ LazyVim Team, "LazyVim", LazyVim Official Website, N/A.
+       https://www.lazyvim.org/
+    7. ↑ AstroNvim Team, "AstroNvim", AstroNvim Official Website, N/A.
+       https://astronvim.com/
+    8. ↑ NvChad Team, "NvChad", NvChad Official Website, N/A.
+       https://nvchad.com/
+    9. ↑ LunarVim Team, "Installation", LunarVim Documentation, N/A.
+       https://www.lunarvim.org/docs/installation
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Neovim/en&oldid=16739"
+   Categories:
+     * Applications
+     * Text Editor
+     * This page was last edited on 16 August 2024, at 05:29.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

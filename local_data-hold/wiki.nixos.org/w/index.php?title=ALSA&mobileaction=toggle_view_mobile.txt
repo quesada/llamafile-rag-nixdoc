@@ -1,0 +1,217 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Save volume state on shutdown
+     * 2 Troubleshooting ALSA
+          * 2.1 Make your audio card the default ALSA card
+          * 2.2 Disable PC Speaker "audio card"
+          * 2.3 Other hardware specific problems
+   [ ] Toggle the table of contents
+
+                                      ALSA
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section is out of date.                    
+    Reason: Needs cleanup (Discuss in Talk:ALSA)               
+    Once the page has been updated this notice can be removed. 
+
+   ALSA is the kernel-level sound API for Linux. On modern systems, it is
+   usually used via a sound server like PulseAudio.
+
+Save volume state on shutdown
+
+   In order to save the sound card state on shutdown sound must be enabled in
+   configuration.nix
+
+ sound.enable = true;
+
+Troubleshooting ALSA
+
+     * on a console fire up alsamixer
+
+  alsamixer
+
+     * you see plenty of vertical bars?
+          * you should be okay
+     * you see very few vertical bars and the sound card (top-left) is
+       something like "PC Speaker"?
+          * hit the 'S' key, you should be able to switch to the "real" audio
+            card (if not your audio card is likely to not being supported
+            yet).
+          * when the real audio card is selected you should be viewing the
+            "plenty vertical bars" thing.
+               * first thing to do is to disable pc speaker (kernel module
+                 "snd-pcsp", see below.
+
+  Make your audio card the default ALSA card
+
+   Sometimes the pc-speaker is the default audio card for ALSA. You can make
+   your real sound card default instead. For example, if your sound card is
+   "hda-intel" then add
+
+ boot.extraModprobeConfig = ''
+   options snd slots=snd-hda-intel
+ '';
+
+   to your /etc/nixos/configuration.nix.
+
+   Sometimes, we may want to disable one of intel cards. Here is how to
+   disable first card, but enable the second one.
+
+ boot.extraModprobeConfig = ''
+   options snd_hda_intel enable=0,1
+ '';
+
+   Alternatively you can ...
+
+  Disable PC Speaker "audio card"
+
+   edit /etc/nixos/configuration.nix and add "snd_pcsp" to
+   boot.blacklistedKernelModules option:
+
+ boot.blacklistedKernelModules = [ "snd_pcsp" ];
+
+   Now reboot and retry from the beginning (i.e. check that your real card is
+   shown by alsamixer without using the 'S' key).
+
+  Other hardware specific problems
+
+   Some hardware specific problems can be resolved by adjusting the options
+   for the sound module. For example, the microphone may be stuck on an
+   unusably low volume. First you should be sure that you have already
+   checked the settings in alsamixer to make sure nothing is muted, and also
+   any physical buttons on your computer (I have twice overlooked the mute
+   button on laptops!).
+
+   You should be able to look up the available options for model in
+   models.rst. You can try them out interactively as follows:
+
+    1. Close any applications using the sound card
+         1. See if any applications are using the sound card
+
+                         $ lsof /dev/snd/*
+                         COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME
+                         pulseaudi 14080 goibhniu 30u CHR 116,7 0t0 5169
+                         /dev/snd/controlC0
+                         pulseaudi 14080 goibhniu 37u CHR 116,7 0t0 5169
+                         /dev/snd/controlC0
+
+         2. Kill them
+
+                         for any process apart from pulseaudio you could just
+                         do:
+                         $ kill -9 14080
+                         but in the case of pulseaudio you have to prevent it
+                         from respawning itself automatically
+                         $ systemctl --user mask pulseaudio.socket &&
+                         systemctl --user stop pulseaudio
+                         you can then stop pulseaudio with:
+                         $ pulseaudio -k # or kill it by process id
+
+    2. Unload the snd-hda-intel module
+
+                    rmmod snd-hda-intel
+
+    3. Find your model
+
+                    grep Codec /proc/asound/card0/codec*
+
+    4. Look up the model options for your card
+    5. Try each one
+
+                    modprobe snd-hda-intel model=3stack-6ch
+
+    6. Test if this has fixed your problem (tip: aplay and arecord are alsa
+       based command line tools you can use to quickly check)
+    7. Repeat until you have exhausted all the options or have fixed your
+       problem
+    8. TIDY UP!
+
+                    Don't forget to re-enable pulse autospawning: systemctl
+                    --user unmask pulseaudio.socket
+
+   Once you have found a setting that works, you can add it to your
+   configuration file:
+
+ boot.extraModprobeConfig = ''
+   options snd-hda-intel model=YOUR_MODEL
+ '';
+
+   Much of this is taken from
+   https://help.ubuntu.com/community/HdaIntelSoundHowto which also has
+   additional tips.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=ALSA&oldid=12316"
+   Category:
+     * Audio
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 19 April 2024, at 21:11.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

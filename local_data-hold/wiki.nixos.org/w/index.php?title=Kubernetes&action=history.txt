@@ -1,0 +1,264 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Kubernetes: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    18 May 2024
+
+     * curprev [ ] [ ] 11:0311:03, 18 May 2024‎ Groulot talk contribs‎ 11,579
+       bytes −52‎ removed kube-nix which is unrelated to kubernetes but
+       installs a kde groupware. Tag: Visual edit
+
+    15 May 2024
+
+     * curprev [ ] [ ] 18:0618:06, 15 May 2024‎ Klinger talk contribs‎ m
+       11,631 bytes +26‎ Category:NixOS Manual added
+     * curprev [ ] [ ] 18:0518:05, 15 May 2024‎ Klinger talk contribs‎ 11,605
+       bytes +265‎ Link to manual added. Text at the beginning added
+       (description and link) Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:0821:08, 19 April 2024‎ Klinger talk contribs‎ m
+       11,340 bytes −4‎ Category:Applications Category:Server
+       Category:Container
+     * curprev [ ] [ ] 20:5420:54, 19 April 2024‎ Klinger talk contribs‎
+       11,344 bytes −1‎ No edit summary
+
+    25 October 2023
+
+     * curprev [ ] [ ] 01:1601:16, 25 October 2023‎ imported>Mcsaucy‎ 11,345
+       bytes +312‎ Help the CSI plugins find the ceph kernel modules, rather
+       than admit defeat and fall back to FUSE
+
+    5 September 2023
+
+     * curprev [ ] [ ] 00:0400:04, 5 September 2023‎ imported>Peterbecich‎
+       11,033 bytes +72‎ →‎Tooling: nixos-ha-kubernetes
+
+    23 July 2023
+
+     * curprev [ ] [ ] 17:5517:55, 23 July 2023‎ imported>JamesofScout‎
+       10,961 bytes +213‎ →‎1 Master and 1 Node
+
+    13 June 2023
+
+     * curprev [ ] [ ] 18:3018:30, 13 June 2023‎ imported>Abdiramen‎ 10,748
+       bytes +834‎ Add arm64 instructions
+
+    16 February 2023
+
+     * curprev [ ] [ ] 03:3803:38, 16 February 2023‎ imported>Peterbecich‎
+       9,914 bytes +32‎ kubenix.org
+
+    12 February 2023
+
+     * curprev [ ] [ ] 06:5706:57, 12 February 2023‎ imported>Peterbecich‎
+       9,882 bytes +59‎ newer kubenix project
+
+    15 January 2023
+
+     * curprev [ ] [ ] 15:5915:59, 15 January 2023‎ imported>Fundur‎ m 9,823
+       bytes −184‎ Fix for Revision 8893
+     * curprev [ ] [ ] 15:5615:56, 15 January 2023‎ imported>Fundur‎ 10,007
+       bytes +94‎ Undo revision 8893 by Fundur (talk)
+     * curprev [ ] [ ] 15:5615:56, 15 January 2023‎ imported>Fundur‎ m 9,913
+       bytes −94‎ There were to many Codeblocks
+
+    9 July 2022
+
+     * curprev [ ] [ ] 13:4413:44, 9 July 2022‎ imported>Dhxgit‎ m 10,007
+       bytes +1‎ ApiServerPort in node-config snippet was wrong.
+
+    5 January 2022
+
+     * curprev [ ] [ ] 05:3905:39, 5 January 2022‎ imported>Vater‎ m 10,006
+       bytes +114‎ No edit summary
+     * curprev [ ] [ ] 05:3205:32, 5 January 2022‎ imported>Vater‎ m 9,892
+       bytes +488‎ No edit summary
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:0106:01, 20 September 2021‎ imported>Nix‎ m 9,404
+       bytes +48‎ add applications and server categories
+
+    4 September 2021
+
+     * curprev [ ] [ ] 19:5919:59, 4 September 2021‎ imported>Nateinaction‎ m
+       9,356 bytes +74‎ Discovered that port 8888 must be open to pull certs
+       during node join
+
+    2 August 2021
+
+     * curprev [ ] [ ] 00:5400:54, 2 August 2021‎ imported>Bernadinm‎ m 9,282
+       bytes +18‎ Fixes: unable to render configuration.nix code in
+       apiserverAddress
+
+    31 May 2021
+
+     * curprev [ ] [ ] 20:4920:49, 31 May 2021‎ imported>Mic92‎ 9,264 bytes
+       +118‎ No edit summary
+
+    18 April 2021
+
+     * curprev [ ] [ ] 19:3519:35, 18 April 2021‎ imported>ThinkChaos‎ 9,146
+       bytes +84‎ Fix master `apiserverAddress` when port is not HTTPS
+       default
+
+    20 September 2020
+
+     * curprev [ ] [ ] 03:1703:17, 20 September 2020‎ imported>Lb5tr‎ 9,062
+       bytes +103‎ No edit summary
+
+    17 September 2020
+
+     * curprev [ ] [ ] 22:4522:45, 17 September 2020‎ imported>Lb5tr‎ m 8,959
+       bytes +207‎ Add a note about default firewall rules interfering with
+       network communication within the cluster.
+
+    7 April 2020
+
+     * curprev [ ] [ ] 14:0214:02, 7 April 2020‎ imported>Iceychris‎ m 8,752
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 14:0114:01, 7 April 2020‎ imported>Iceychris‎ m 8,750
+       bytes +142‎ * update Rook Ceph setup
+     * curprev [ ] [ ] 11:1911:19, 7 April 2020‎ imported>Iceychris‎ m 8,608
+       bytes +495‎ + changes needed to set up a storage cluster with rook and
+       ceph
+
+    30 March 2020
+
+     * curprev [ ] [ ] 22:2722:27, 30 March 2020‎ imported>Iceychris‎ m 8,113
+       bytes +939‎ * debugging -> troubleshooting & fix cluster join error
+
+    12 March 2020
+
+     * curprev [ ] [ ] 14:4914:49, 12 March 2020‎ imported>Iceychris‎ m 7,174
+       bytes +168‎ * dns issues: restart services
+
+    9 March 2020
+
+     * curprev [ ] [ ] 16:5816:58, 9 March 2020‎ imported>Iceychris‎ m 7,006
+       bytes +948‎ + miscellaneous: nvidia, shared memory
+
+    4 March 2020
+
+     * curprev [ ] [ ] 10:3310:33, 4 March 2020‎ imported>Iceychris‎ m 6,058
+       bytes +890‎ + DNS: setup and debugging
+
+    29 February 2020
+
+     * curprev [ ] [ ] 23:4823:48, 29 February 2020‎ imported>Iceychris‎ m
+       5,168 bytes +73‎ * set apiserverAddress to make Node work
+     * curprev [ ] [ ] 19:2019:20, 29 February 2020‎ imported>Iceychris‎ m
+       5,095 bytes +966‎ * more on debugging, tooling and sources
+     * curprev [ ] [ ] 19:0519:05, 29 February 2020‎ imported>Iceychris‎ m
+       4,129 bytes −32‎ * fix nix code for master
+     * curprev [ ] [ ] 17:5217:52, 29 February 2020‎ imported>Iceychris‎ m
+       4,161 bytes +1,320‎ + node setup, minor corrections
+     * curprev [ ] [ ] 17:2317:23, 29 February 2020‎ imported>Iceychris‎
+       2,841 bytes +2,841‎ + master setup, stub for node
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Kubernetes"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,136 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Enabling
+     * 2 References
+   [ ] Toggle the table of contents
+
+                                    Awesome
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 17:59, 25 June 2024 by NobbZ (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   awesome is a highly configurable, next generation framework window manager
+   for X. It is very fast, extensible and licensed under the GNU GPLv2
+   license.
+
+Enabling
+
+   To enable awesomeWM set services.xserver.windowManager.awesome.enable to
+   true. For example:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, ... }:
+
+
+   ...
+   services.displayManager = {
+     sddm.enable = true;
+     defaultSession = "none+awesome";
+   };
+
+   services.xserver = {
+     enable = true;
+
+     windowManager.awesome = {
+       enable = true;
+       luaModules = with pkgs.luaPackages; [
+         # add any lua packages required by your configuration here
+       ];
+
+     };
+   };
+   ...
+ }
+
+   Similar configuration using home-manager
+
+   Reference:
+   https://github.com/rycee/home-manager/blob/master/modules/services/window-managers/awesome.nix#blob-path
+
+     Tip                                                                      
+     Awesome provides a default config file rc.lua which is generated at      
+     /run/current-system/sw/etc/xdg/awesome/rc.lua. Copy the file to          
+     ~/.config/awesome/ and make changes.                                     
+
+References
+
+     * Getting started
+     * Default configuration file documentation
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Awesome&oldid=13514"
+   Categories:
+     * Window managers
+     * Applications
+     * This page was last edited on 25 June 2024, at 17:59.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

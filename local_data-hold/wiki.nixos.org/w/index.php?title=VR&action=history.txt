@@ -1,0 +1,164 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                              VR: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    20 October 2024
+
+     * curprev [ ] [ ] 08:4608:46, 20 October 2024‎ Fidgetingbits talk
+       contribs‎ 8,686 bytes +27‎ →‎WiVRn + Steam: styling Tags: Mobile edit
+       Mobile web edit
+     * curprev [ ] [ ] 06:1506:15, 20 October 2024‎ Titaniumtown talk
+       contribs‎ 8,659 bytes +1,384‎ Add WiVRn Entry Tag: Visual edit
+
+    7 September 2024
+
+     * curprev [ ] [ ] 16:2816:28, 7 September 2024‎ Scrumplex talk contribs‎
+       m 7,275 bytes 0‎ Fix punctuation for SteamVR autostart section Tag:
+       Visual edit
+     * curprev [ ] [ ] 16:2716:27, 7 September 2024‎ Scrumplex talk contribs‎
+       7,275 bytes +676‎ Add wlx-overlay-s section Tag: Visual edit
+     * curprev [ ] [ ] 16:1916:19, 7 September 2024‎ Scrumplex talk contribs‎
+       m 6,599 bytes +4‎ Fix path of "warning about Proton failing to launch
+       with OpenComposite" Tag: Visual edit
+
+    25 August 2024
+
+     * curprev [ ] [ ] 17:3517:35, 25 August 2024‎ Klinger talk contribs‎ m
+       6,595 bytes +41‎ Category:Video Category:Hardware
+
+    27 April 2024
+
+     * curprev [ ] [ ] 15:0015:00, 27 April 2024‎ BaconCondensate talk
+       contribs‎ m 6,554 bytes 0‎ minor formatting Tag: Visual edit
+     * curprev [ ] [ ] 14:5914:59, 27 April 2024‎ BaconCondensate talk
+       contribs‎ 6,554 bytes +230‎ Add symlink to Monado OpenXR Tag: Visual
+       edit
+     * curprev [ ] [ ] 10:1310:13, 27 April 2024‎ BaconCondensate talk
+       contribs‎ 6,324 bytes +1,094‎ Add information about hand tracking Tag:
+       Visual edit: Switched
+
+    8 April 2024
+
+     * curprev [ ] [ ] 09:3009:30, 8 April 2024‎ Scrumplex talk contribs‎
+       5,230 bytes +2,340‎ Add SteamVR section Tag: Visual edit: Switched
+     * curprev [ ] [ ] 08:5708:57, 8 April 2024‎ Scrumplex talk contribs‎
+       2,890 bytes +273‎ Add warning about Proton failing to launch with
+       OpenComposite Tag: Visual edit
+     * curprev [ ] [ ] 08:5308:53, 8 April 2024‎ Scrumplex talk contribs‎ m
+       2,617 bytes −51‎ Fix code blocks Tag: Visual edit
+
+    30 March 2024
+
+     * curprev [ ] [ ] 17:3417:34, 30 March 2024‎ imported>PassiveLemon‎ m
+       2,668 bytes +111‎ Make a note about SteamVR messing with
+       openvrpaths.vrpath
+
+    28 March 2024
+
+     * curprev [ ] [ ] 13:4513:45, 28 March 2024‎ imported>Scrumplex‎ 2,557
+       bytes +2,557‎ Document Monado and OpenComposite
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/VR"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,245 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       NixOS Wiki:About: Revision history
+
+   Help
+     * Project page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 June 2024
+
+     * curprev [ ] [ ] 00:4000:40, 24 June 2024‎ Samueldr talk contribs‎
+       2,615 bytes −76‎ Remove self, since I left the project...
+
+    4 April 2024
+
+     * curprev [ ] [ ] 23:3223:32, 4 April 2024‎ Samueldr talk contribs‎ m
+       2,691 bytes −5‎ Pick leftover missing `tt`tag.
+     * curprev [ ] [ ] 17:5617:56, 4 April 2024‎ Fricklerhandwerk talk
+       contribs‎ 2,696 bytes −39‎ remove unnecessary monospace
+     * curprev [ ] [ ] 17:5517:55, 4 April 2024‎ Fricklerhandwerk talk
+       contribs‎ 2,735 bytes +231‎ refine distinction between reference
+       documentation and the Wiki
+     * curprev [ ] [ ] 17:4017:40, 4 April 2024‎ Fricklerhandwerk talk
+       contribs‎ 2,504 bytes −272‎ focus Wiki purpose on NixOS users, don't
+       mention Hydra and NixOps to avoid confusion
+     * curprev [ ] [ ] 10:5910:59, 4 April 2024‎ JulienMalka talk contribs‎
+       2,776 bytes +95‎ →‎Who? Tags: Mobile edit Mobile web edit
+
+    1 April 2024
+
+     * curprev [ ] [ ] 23:5623:56, 1 April 2024‎ Samueldr talk contribs‎
+       2,681 bytes +81‎ →‎Why?
+     * curprev [ ] [ ] 23:5523:55, 1 April 2024‎ Samueldr talk contribs‎
+       2,600 bytes −232‎ No edit summary
+     * curprev [ ] [ ] 23:5323:53, 1 April 2024‎ Samueldr talk contribs‎
+       2,832 bytes +23‎ No edit summary
+
+    10 October 2023
+
+     * curprev [ ] [ ] 20:5520:55, 10 October 2023‎ imported>Artturin‎ 2,809
+       bytes +45‎ Update roles
+
+    24 April 2023
+
+     * curprev [ ] [ ] 02:3202:32, 24 April 2023‎ imported>Winny‎ 2,764 bytes
+       −90‎ →‎Why?: just delete the striked out former name all together
+     * curprev [ ] [ ] 02:2902:29, 24 April 2023‎ imported>Winny‎ m 2,854
+       bytes +2‎ →‎Why?: formatting
+
+    23 March 2023
+
+     * curprev [ ] [ ] 23:5423:54, 23 March 2023‎ imported>Vater‎ m 2,852
+       bytes +116‎ No edit summary
+
+    13 February 2022
+
+     * curprev [ ] [ ] 14:3514:35, 13 February 2022‎ imported>Fadenb‎ m 2,736
+       bytes +71‎ Add admin-team email, fix matrix room link to use correct
+       main address and add via server hint for resiliency.
+
+    18 September 2021
+
+     * curprev [ ] [ ] 17:3917:39, 18 September 2021‎ imported>Nix‎ m 2,665
+       bytes 0‎ Link to ecosystem page
+     * curprev [ ] [ ] 12:1612:16, 18 September 2021‎ imported>Nix‎ m 2,665
+       bytes −1‎ typo
+     * curprev [ ] [ ] 12:1012:10, 18 September 2021‎ imported>Nix‎ 2,666
+       bytes +531‎ add "What?" section
+
+    6 August 2021
+
+     * curprev [ ] [ ] 01:2201:22, 6 August 2021‎ imported>Mweinelt‎ 2,135
+       bytes −12‎ No edit summary
+
+    9 July 2021
+
+     * curprev [ ] [ ] 18:4718:47, 9 July 2021‎ imported>Yuu‎ 2,147 bytes
+       +188‎ add section
+
+    12 December 2020
+
+     * curprev [ ] [ ] 12:4512:45, 12 December 2020‎ imported>Piegamesde‎ m
+       1,959 bytes +9‎ Replaced a meaningless (broken?) link with an adequate
+       alternative
+
+    12 December 2017
+
+     * curprev [ ] [ ] 18:4318:43, 12 December 2017‎ imported>Samueldr‎ m
+       1,950 bytes +489‎ Adds a note / attribution for the icons
+
+    10 December 2017
+
+     * curprev [ ] [ ] 18:5618:56, 10 December 2017‎ imported>Ixxie‎ 1,461
+       bytes −32‎ No edit summary
+
+    7 October 2017
+
+     * curprev [ ] [ ] 21:3621:36, 7 October 2017‎ imported>Samueldr‎ 1,493
+       bytes +56‎ Added myself + review layout
+
+    7 September 2017
+
+     * curprev [ ] [ ] 10:1710:17, 7 September 2017‎
+       imported>Cillianderoiste‎ 1,437 bytes +39‎ link directly to the
+       webchat IRC client
+     * curprev [ ] [ ] 10:1310:13, 7 September 2017‎ imported>Makefu‎ 1,398
+       bytes +2‎ -wiki of course ...
+     * curprev [ ] [ ] 10:1210:12, 7 September 2017‎ imported>Makefu‎ 1,396
+       bytes +8‎ now nixos-dev
+     * curprev [ ] [ ] 10:1010:10, 7 September 2017‎
+       imported>Cillianderoiste‎ m 1,388 bytes 0‎ →‎Why?: typo
+
+    24 August 2017
+
+     * curprev [ ] [ ] 09:0109:01, 24 August 2017‎ imported>Makefu‎ 1,388
+       bytes +28‎ No edit summary
+     * curprev [ ] [ ] 08:5908:59, 24 August 2017‎ imported>Makefu‎ 1,360
+       bytes +62‎ add ixxie
+
+    22 August 2017
+
+     * curprev [ ] [ ] 20:3320:33, 22 August 2017‎ imported>Mic92‎ 1,298
+       bytes +137‎ No edit summary
+     * curprev [ ] [ ] 13:3313:33, 22 August 2017‎ imported>Makefu‎ 1,161
+       bytes +114‎ No edit summary
+
+    30 June 2017
+
+     * curprev [ ] [ ] 09:5309:53, 30 June 2017‎ imported>Fadenb‎ 1,047 bytes
+       +16‎ No edit summary
+
+    4 June 2017
+
+     * curprev [ ] [ ] 16:3516:35, 4 June 2017‎ imported>Fadenb‎ 1,031 bytes
+       +36‎ No edit summary
+
+    2 June 2017
+
+     * curprev [ ] [ ] 16:5616:56, 2 June 2017‎ imported>Fadenb‎ 995 bytes
+       +8‎ No edit summary
+     * curprev [ ] [ ] 16:2316:23, 2 June 2017‎ imported>Fadenb‎ 987 bytes
+       +987‎ Created page with "== Why? == The original NixOS wiki was shut
+       down. We felt that the [https://nixos.org/nixos/manual/ NixOS manual],
+       [https://nixos.org/nixpkgs/manual/ Nixpkgs manual], [https:..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_Wiki:About"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

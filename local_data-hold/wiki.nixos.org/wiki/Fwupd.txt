@@ -1,0 +1,123 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+   [ ] Toggle the table of contents
+
+                                     Fwupd
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   fwupd is a simple daemon allowing you to update some devices' firmware,
+   including UEFI for several machines.
+
+   Supported devices are listed here and more are to come.
+
+Installation
+
+   To use and install fwup daemon and user space client, add following part
+   to your config:
+
+ services.fwupd.enable = true;
+
+Usage
+
+   To display all devices detected by fwupd:
+
+ $ fwupdmgr get-devices
+
+   Note: Listed devices may not be updatable through fwupd (e.g. Intel
+   integrated graphics). Alternative vendor solutions may be provided
+   instead.
+
+   To download the latest metadata from the Linux Vendor Firmware Service
+   (LVFS):
+
+ $ fwupdmgr refresh
+
+   To list updates available for any devices on the system:
+
+ $ fwupdmgr get-updates
+
+   To install updates:
+
+ $ fwupdmgr update
+
+   Note:
+     * Updates that can be applied live will be done immediately.
+     * Updates that run at bootup will be staged for the next reboot.
+     * The root user may be required to perform certain device updates.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Fwupd&oldid=12647"
+   Categories:
+     * Server
+     * Desktop
+     * This page was last edited on 4 May 2024, at 16:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

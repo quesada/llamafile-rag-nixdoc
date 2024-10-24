@@ -1,0 +1,216 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Games: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    3 August 2024
+
+     * curprev [ ] [ ] 10:4810:48, 3 August 2024‎ Parasew talk contribs‎ m
+       4,518 bytes +54‎ →‎Other resources: adding open source games list Tag:
+       Visual edit
+
+    1 August 2024
+
+     * curprev [ ] [ ] 16:0316:03, 1 August 2024‎ Tomodachi94 talk contribs‎
+       4,464 bytes 0‎ rename section
+
+    23 June 2024
+
+     * curprev [ ] [ ] 10:0410:04, 23 June 2024‎ Mic92 talk contribs‎ 4,464
+       bytes +9‎ make table sortable
+     * curprev [ ] [ ] 10:0210:02, 23 June 2024‎ Mic92 talk contribs‎ 4,455
+       bytes −11‎ Updated PR status for Dark Mod
+
+    21 June 2024
+
+     * curprev [ ] [ ] 17:1117:11, 21 June 2024‎ Parasew talk contribs‎ m
+       4,466 bytes +83‎ →‎Other resources Tag: Visual edit
+     * curprev [ ] [ ] 16:3516:35, 21 June 2024‎ Parasew talk contribs‎ 4,383
+       bytes +96‎ →‎Other resources: added wikipedia Tag: Visual edit
+     * curprev [ ] [ ] 15:5515:55, 21 June 2024‎ Parasew talk contribs‎ 4,287
+       bytes +2,436‎ Added date for games in nixpkgs Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 16:5916:59, 19 April 2024‎ Klinger talk contribs‎
+       1,851 bytes −342‎ fully rewrite of article, because it was too old.
+       Renowened Explorers is still there, I didnt check it, whether it still
+       is useful information. Tag: Visual edit
+
+    4 April 2024
+
+     * curprev [ ] [ ] 23:4123:41, 4 April 2024‎ Samueldr talk contribs‎ m
+       2,193 bytes +4‎ No edit summary
+
+    30 January 2024
+
+     * curprev [ ] [ ] 20:1320:13, 30 January 2024‎ imported>Lysgonul‎ m
+       2,189 bytes 0‎ No edit summary
+
+    21 January 2024
+
+     * curprev [ ] [ ] 02:5902:59, 21 January 2024‎ imported>Lysgonul‎ m
+       2,189 bytes +10‎ updated how to run Vintage Story given current
+       version v1.19.1
+
+    18 November 2023
+
+     * curprev [ ] [ ] 23:1523:15, 18 November 2023‎ imported>Srestegosaurio‎
+       m 2,179 bytes +97‎ No edit summary
+
+    29 September 2023
+
+     * curprev [ ] [ ] 09:3109:31, 29 September 2023‎ imported>IgorM‎ m 2,082
+       bytes +9‎ Fixed syntax highlighting
+
+    27 April 2022
+
+     * curprev [ ] [ ] 20:1020:10, 27 April 2022‎ imported>JasonWoof‎ 2,073
+       bytes +16‎ No edit summary
+
+    20 April 2022
+
+     * curprev [ ] [ ] 22:5922:59, 20 April 2022‎ imported>Danjl1100‎ m 2,057
+       bytes −51‎ update "FHS Environment only" links to updated section name
+       (section name changed 2022-04-17)
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5005:50, 20 September 2021‎ imported>Nix‎ m 2,108
+       bytes +24‎ add Software category
+
+    5 May 2021
+
+     * curprev [ ] [ ] 12:5912:59, 5 May 2021‎ imported>Artturin‎ 2,084 bytes
+       +108‎ improve links
+     * curprev [ ] [ ] 12:4812:48, 5 May 2021‎ imported>Artturin‎ 1,976 bytes
+       +170‎ add Vintage Story
+
+    2 September 2020
+
+     * curprev [ ] [ ] 21:5021:50, 2 September 2020‎ imported>Blitz‎ 1,806
+       bytes +87‎ Added State of Mind as successful
+
+    1 September 2020
+
+     * curprev [ ] [ ] 20:0120:01, 1 September 2020‎ imported>Charlycoste‎
+       1,719 bytes +130‎ Add Project Hospital
+
+    28 August 2020
+
+     * curprev [ ] [ ] 21:1121:11, 28 August 2020‎ imported>Loewenheim‎ 1,589
+       bytes +1,047‎ Instructions for getting Renowned Explorers to work with
+       steam-run.
+
+    3 May 2020
+
+     * curprev [ ] [ ] 11:3711:37, 3 May 2020‎ imported>DamienCassou‎ m 542
+       bytes +73‎ Links to game platforms
+     * curprev [ ] [ ] 11:3411:34, 3 May 2020‎ imported>DamienCassou‎ 469
+       bytes +130‎ Add links to other pages
+     * curprev [ ] [ ] 11:2811:28, 3 May 2020‎ imported>DamienCassou‎ 339
+       bytes +339‎ Initial version. Includes game Braid
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Games"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,133 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 See Also
+   [ ] Toggle the table of contents
+
+                                    OneDrive
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   OneDrive is Microsoft's cloud file storage service. If you have a OneDrive
+   account, for example from your organization or your Office 365
+   subscription, NixOS has software to let you sync it to a OneDrive
+   directory your home directory.
+
+Setup
+
+   Add the following to your /etc/nixos/configuration.nix:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ services.onedrive.enable = true;
+
+   and rebuild your system.
+
+   Then as the user, run the following:
+
+ onedrive
+
+   You will be given a login URL, open it in your browser, log in to the
+   appropriate Microsoft account to which your OneDrive account is linked to,
+   and after you are logged in, you get an empty screen. This is good, just
+   copy the URL you are redirected to and paste it back in the terminal.
+
+   Then run the following:
+
+ systemctl --user enable onedrive@onedrive.service
+ systemctl --user start onedrive@onedrive.service
+
+   this will enable and start the systemd user service. Note: this makes a
+   symlink that is unmanaged by NixOS. When the onedrive service is updated,
+   be sure to disable and enable the Systemd service again.
+
+   Check that the service started successfully and is running:
+
+ systemctl --user status onedrive@onedrive.service
+
+   To view the log, run the following:
+
+ journalctl --user -t onedrive | less
+
+   .
+
+See Also
+
+     * Microsoft OneDrive
+     * OneDrive client for Linux
+     * nixpkgs OneDrive client package definition
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=OneDrive&oldid=12261"
+   Category:
+     * Applications
+     * This page was last edited on 19 April 2024, at 19:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

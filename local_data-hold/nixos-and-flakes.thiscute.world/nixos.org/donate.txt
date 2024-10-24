@@ -1,0 +1,110 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                                     Donate
+
+                                     Donate
+
+   The NixOS infrastructure, development and events are funded by its users
+   and sponsors.
+
+   Maintaining our build farm and binary cache is very expensive. We depend
+   on your support to ensure the continuous operation and expansion of the
+   NixOS infrastructure.
+
+   Please consider donating a small amount every month to contribute to
+   sustainable funding. Donations are handled by a nonprofit organization,
+   the NixOS Foundation.
+
+                        NixOS T-shirts, mugs and more...
+
+   Donate to NixOS foundation by purchasing NixOS merchandise.
+
+   Go to the shop (RedBubble)
+
+Donate using Open Collective
+
+   NixOS Foundation is using Open Collective to manage the finances so
+   everyone can see where money comes from and where money goes.
+
+   With Open Collective you can make a single or recurring contribution by
+   credit card transfer.
+
+   Thank you!
+
+   Contribute
+
+Donate with SEPA bank transfer
+
+   The NixOS Foundation also accepts donations via SEPA bank transfer. Please
+   send payments to:
+
+ Stichting NixOS Foundation, Utrecht, The Netherlands
+
+ IBAN: NL13 BUNQ 2061 2530 32
+ BIC:  BUNQNL2AXXX
+
+   Please add your name and purpose (donation) in the description of the
+   transfer. If you would like to support us with amounts above 2000 euro per
+   year, please contact us at foundation@nixos.org , as this will have tax
+   implications.
+
+   4TU logo
+   Antithesis logo
+   Equinix logo
+   Fastly logo
+   Hetzner logo
+   LogicBlox logo
+   MacStadium logo
+   Snabb logo
+   TU Delft logo
+   Universiteit Utrecht logo
+
+Acknowledgements
+
+   The Nix package manager was developed by Eelco Dolstra as part of his PhD
+   research in the TraCE project, funded by the Jacquard programme of the
+   Netherlands Organisation for Scientific Research (NWO) and SERC. The first
+   prototype of NixOS was developed by Armijn Hemel as his master’s thesis
+   project. Hydra, the Nix-based continuous build system, was developed as
+   part of the LaQuSo Buildfarm project, funded by NIRICT and LaQuSo.
+
+   The following companies and institutes have supported the development of
+   NixOS and hosting for its infrastructure. We are very grateful for that!
+   If you would like to support us as well, please contact The NixOS
+   Foundation.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

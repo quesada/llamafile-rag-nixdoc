@@ -1,0 +1,354 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           PipeWire: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    2 October 2024
+
+     * curprev [ ] [ ] 19:5419:54, 2 October 2024‎ Birbirl talk contribs‎
+       13,676 bytes +531‎ My first edit on this wiki! I struggled quite a bit
+       with configuring wireplumber to fix an issue that i've seen a ton of
+       people deal with, about wireplumber switching modes when you'd least
+       want it to, causing all sorts of interference. Disabling that function
+       on Nix is an easy one liner, but takes a lot of effort to get there
+       through heaps of documentation. So i decided to add the code snippet.
+       Also fixed an error and mentioned that .lua files have been scrapped
+       in wireplumber 5.0. :D Tag: Visual edit
+
+    30 September 2024
+
+     * curprev [ ] [ ] 02:2202:22, 30 September 2024‎ RobH talk contribs‎ m
+       13,145 bytes +11‎ →‎Headless operation: Fix markup
+     * curprev [ ] [ ] 02:2002:20, 30 September 2024‎ RobH talk contribs‎
+       13,134 bytes +291‎ →‎Headless operation: Add advice on avoiding
+       startup race condition in headless applications.
+
+    29 September 2024
+
+     * curprev [ ] [ ] 01:3401:34, 29 September 2024‎ RobH talk contribs‎
+       12,843 bytes +922‎ Add new section on headless operation.
+
+    15 September 2024
+
+     * curprev [ ] [ ] 22:2422:24, 15 September 2024‎ H7x4 talk contribs‎
+       11,921 bytes +54‎ Add a few links
+
+    14 September 2024
+
+     * curprev [ ] [ ] 13:1113:11, 14 September 2024‎ Olmokramer talk
+       contribs‎ 11,867 bytes −16‎ According to
+       https://gitlab.freedesktop.org/pipewire/pipewire/-/merge_requests/1568
+       `bluez5.headset-roles` has now been deprecated for over a year in
+       favour of `bluez5.roles`.
+
+    27 August 2024
+
+     * curprev [ ] [ ] 12:3112:31, 27 August 2024‎ Jopejoe1 talk contribs‎
+       11,883 bytes −4,524‎ Remove Information about no longer supported
+       versions
+
+    18 August 2024
+
+     * curprev [ ] [ ] 11:2911:29, 18 August 2024‎ Mic92 talk contribs‎
+       16,407 bytes +305‎ imported from old wiki
+
+    10 August 2024
+
+     * curprev [ ] [ ] 07:3907:39, 10 August 2024‎ Frontear talk contribs‎ m
+       16,102 bytes −5‎ remove .conf from extraConfig configuratioin Tag:
+       Visual edit
+
+    7 August 2024
+
+     * curprev [ ] [ ] 20:3420:34, 7 August 2024‎ Jopejoe1 talk contribs‎
+       16,107 bytes +498‎ format code with nixfmt
+
+    5 August 2024
+
+     * curprev [ ] [ ] 20:5220:52, 5 August 2024‎ Frontear talk contribs‎ m
+       15,609 bytes −26‎ some small changes to formatting and grammar Tag:
+       Visual edit
+
+    18 July 2024
+
+     * curprev [ ] [ ] 12:4712:47, 18 July 2024‎ Yajo talk contribs‎ 15,635
+       bytes −81‎ Lua is no longer used. Tag: Visual edit
+
+    27 June 2024
+
+     * curprev [ ] [ ] 15:1215:12, 27 June 2024‎ Koalp talk contribs‎ m
+       15,716 bytes +2‎ fix missing letters Tag: Visual edit
+
+    12 June 2024
+
+     * curprev [ ] [ ] 21:4021:40, 12 June 2024‎ Jopejoe1 talk contribs‎ m
+       15,714 bytes −20‎ remove duplicate closing tag Tag: Visual edit:
+       Switched
+
+    3 June 2024
+
+     * curprev [ ] [ ] 14:3814:38, 3 June 2024‎ Mic92 talk contribs‎ 15,734
+       bytes −525‎ remove 23.11 code
+
+    31 May 2024
+
+     * curprev [ ] [ ] 18:0318:03, 31 May 2024‎ Klinger talk contribs‎ 16,259
+       bytes +104‎ added link to pipewire. PipeWire is not "new" anymore as
+       first releasend in 2017. Some changes from „you“ to neutral language.
+       Tag: Visual edit
+     * curprev [ ] [ ] 16:2716:27, 31 May 2024‎ Wimpy talk contribs‎ 16,155
+       bytes +9‎ Correct the PulseAudio backend configuration as per:
+       https://docs.pipewire.org/page_module_protocol_pulse.html Tag: Visual
+       edit
+
+    22 April 2024
+
+     * curprev [ ] [ ] 09:1509:15, 22 April 2024‎ Kacper Wyczawski talk
+       contribs‎ m 16,146 bytes 0‎ Update Helvum link Tag: Visual edit
+
+    10 April 2024
+
+     * curprev [ ] [ ] 21:4921:49, 10 April 2024‎ Sdht0 talk contribs‎ 16,146
+       bytes −171‎ Copy edit
+     * curprev [ ] [ ] 21:4821:48, 10 April 2024‎ Sdht0 talk contribs‎ 16,317
+       bytes −331‎ →‎Troubleshooting: Remove issue that shouldn't happen by
+       default anymore
+     * curprev [ ] [ ] 21:2121:21, 10 April 2024‎ SYMYS talk contribs‎ m
+       16,648 bytes −7‎ →‎No signal detected, in audio application (Ardour8),
+       from external audio interface (STUDIO-CAPTURE) Tag: Visual edit
+     * curprev [ ] [ ] 21:2021:20, 10 April 2024‎ SYMYS talk contribs‎ m
+       16,655 bytes +11‎ →‎No signal detected, in audio application
+       (Ardour8), from external audio interface (STUDIO-CAPTURE) Tag: Visual
+       edit
+     * curprev [ ] [ ] 21:1921:19, 10 April 2024‎ SYMYS talk contribs‎ m
+       16,644 bytes +2‎ →‎No signal detected, in audio application (Ardour8),
+       from external audio interface (STUDIO-CAPTURE) Tag: Visual edit
+     * curprev [ ] [ ] 21:1821:18, 10 April 2024‎ SYMYS talk contribs‎ 16,642
+       bytes +936‎ →‎Troubleshooting Tag: Visual edit
+
+    1 April 2024
+
+     * curprev [ ] [ ] 15:2715:27, 1 April 2024‎ Jopejoe1 talk contribs‎
+       15,706 bytes +84‎ Fix pipewire examples
+
+    5 March 2024
+
+     * curprev [ ] [ ] 02:0402:04, 5 March 2024‎ imported>Aditya-adiraju‎ m
+       15,622 bytes +5‎ I tried copy pasting the code for the low-latency
+       setup and was met with a bunch of syntax errors for the missing
+       semicolons. So, I added them in the associated code block
+
+    2 March 2024
+
+     * curprev [ ] [ ] 21:0021:00, 2 March 2024‎ imported>Mahmoudk1000‎ m
+       15,617 bytes −1‎ No edit summary
+
+    1 March 2024
+
+     * curprev [ ] [ ] 11:4011:40, 1 March 2024‎ imported>Hcsch‎ m 15,618
+       bytes +46‎ No edit summary
+     * curprev [ ] [ ] 11:3711:37, 1 March 2024‎ imported>Hcsch‎ 15,572 bytes
+       +4,050‎ No edit summary
+
+    2 January 2024
+
+     * curprev [ ] [ ] 21:2121:21, 2 January 2024‎ imported>Hypnosis2839‎ m
+       11,522 bytes +2‎ →‎Enabling PipeWire: fix formatting
+     * curprev [ ] [ ] 21:2121:21, 2 January 2024‎ imported>Hypnosis2839‎
+       11,520 bytes −405‎ →‎Enabling PipeWire: mention current option name
+     * curprev [ ] [ ] 21:0821:08, 2 January 2024‎ imported>Hypnosis2839‎
+       11,925 bytes −660‎ Undo revision 10800 by TheBrainScrambler (talk)
+       remove misleading info
+
+    23 December 2023
+
+     * curprev [ ] [ ] 18:1018:10, 23 December 2023‎
+       imported>TheBrainScrambler‎ 12,585 bytes +660‎ Explain how to make
+       Pipewire run at boot. Since it's a user service you have to manually
+       enable it
+     * curprev [ ] [ ] 18:0918:09, 23 December 2023‎
+       imported>TheBrainScrambler‎ 11,925 bytes −660‎ Forgot to add a
+       description to my edit
+     * curprev [ ] [ ] 18:0718:07, 23 December 2023‎
+       imported>TheBrainScrambler‎ 12,585 bytes +660‎ No edit summary
+
+    28 September 2023
+
+     * curprev [ ] [ ] 07:3207:32, 28 September 2023‎ imported>IgorM‎ m
+       11,925 bytes −5‎ Fixed syntax highlight issues
+
+    12 August 2023
+
+     * curprev [ ] [ ] 16:0816:08, 12 August 2023‎ imported>Hypnosis2839‎
+       11,930 bytes −1‎ →‎Enabling PipeWire: clarify use of sound.enable
+     * curprev [ ] [ ] 16:0516:05, 12 August 2023‎ imported>Hypnosis2839‎
+       11,931 bytes −203‎ →‎pactl not found: remove recommendation to install
+       pulseaudio
+
+    4 July 2023
+
+     * curprev [ ] [ ] 00:3500:35, 4 July 2023‎ imported>Hnry‎ m 12,134 bytes
+       −74‎ correct pipewire conf path, not sure if pipewire understands
+       json, but removed to simplify example with pipewire.conf examples
+
+    15 June 2023
+
+     * curprev [ ] [ ] 15:1315:13, 15 June 2023‎ imported>Scott‎ m 12,208
+       bytes +6‎ Make it clear that config is for 21.11 and no later, as
+       opposed to "at least 21.11"
+
+    11 June 2023
+
+     * curprev [ ] [ ] 15:0515:05, 11 June 2023‎ imported>Fufexan‎ m 12,202
+       bytes −6‎ Fix wrong calls to `pkgs.generators` instead of
+       `pkgs.formats`
+     * curprev [ ] [ ] 14:3314:33, 11 June 2023‎ imported>Fufexan‎ 12,208
+       bytes −1,502‎ Update Advanced & Low-latency sections to newer config &
+       WirePlumber
+
+    17 May 2023
+
+     * curprev [ ] [ ] 09:0409:04, 17 May 2023‎ imported>Iopq‎ 13,710 bytes
+       +254‎ more details on how to increase log level
+     * curprev [ ] [ ] 08:0908:09, 17 May 2023‎ imported>Iopq‎ 13,456 bytes
+       −910‎ outdated info
+
+    7 April 2023
+
+     * curprev [ ] [ ] 06:4906:49, 7 April 2023‎ imported>MakiseKurisu‎
+       14,366 bytes +163‎ →‎pactl not found: Add wpctl as a better
+       alternative.
+
+    21 March 2023
+
+     * curprev [ ] [ ] 22:0322:03, 21 March 2023‎ imported>Arachnist‎ 14,203
+       bytes +485‎ No edit summary
+
+    23 April 2022
+
+     * curprev [ ] [ ] 22:2122:21, 23 April 2022‎ imported>Thiagokokada‎
+       13,718 bytes +930‎ No edit summary
+
+    16 April 2022
+
+     * curprev [ ] [ ] 13:0613:06, 16 April 2022‎ imported>SuperSamus‎ 12,788
+       bytes −19‎ Warn that Wireplumber is used by default
+
+    13 November 2021
+
+     * curprev [ ] [ ] 20:3020:30, 13 November 2021‎ imported>Binary-Eater‎ m
+       12,807 bytes +8‎ Updated link used for pipewire "log.level"
+       configuration to point to the correct page at the time of making this
+       edit
+
+    31 October 2021
+
+     * curprev [ ] [ ] 16:4516:45, 31 October 2021‎ imported>Klaymore‎ m
+       12,799 bytes +1‎ Typo correction "I" to "If" in section "pactl not
+       found"
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/PipeWire"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

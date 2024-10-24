@@ -1,0 +1,410 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 FAQ
+          * 1.1 What is a bootloader?
+          * 1.2 Legacy Boot vs UEFI
+          * 1.3 Bootloaders for ARM platforms
+          * 1.4 Am I booted in Legacy or UEFI?
+          * 1.5 How do I remove older generations from the bootloader?
+          * 1.6 Limiting amount of entries with grub or systemd-boot
+          * 1.7 Why I still boot into systemd-boot after switching to grub in
+            my configuration?
+          * 1.8 Keeping kernels/initrd on the main partition
+     * 2 Troubleshooting
+          * 2.1 Kernel initramfs parameters for troubleshooting boot issues
+          * 2.2 Re-installing the bootloader
+               * 2.2.1 From a running system
+               * 2.2.2 From an installation media
+          * 2.3 New generations are not in the boot menu
+          * 2.4 Wrangling recalcitrant UEFI implementations
+          * 2.5 Installing x86_64 NixOS on IA-32 UEFI
+          * 2.6 Manually adding EFI boot entry
+   [ ] Toggle the table of contents
+
+                                   Bootloader
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 08:28, 14 September 2024 by Phanirithvij (talk | contribs)
+   (oopsie, fix iso url)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+FAQ
+
+  What is a bootloader?
+
+   A bootloader is a type of software that manages the loading of the
+   operating system (OS) on the computer at startup. It is responsible for
+   preparing the system before passing control to the OS. Here are the types
+   of bootloaders commonly used in NixOS:
+
+     * GRUB (Grand Unified Bootloader): Widely used, supports multiple
+       operating systems, and provides a boot menu to select how the system
+       boots.
+     * systemd-boot: Simple UEFI-only bootloader, formerly known as
+       gummiboot.
+     * EFISTUB: Utilizes the UEFI firmware itself to boot the kernel, without
+       the need for a traditional bootloader.
+
+  Legacy Boot vs UEFI
+
+   Legacy Boot and UEFI are two different methods of starting a computer.
+   Legacy Boot, also known as BIOS, uses the Master Boot Record (MBR) to
+   start the system, while UEFI (Unified Extensible Firmware Interface) uses
+   the GUID Partition Table (GPT) and is the modern standard. UEFI supports
+   larger hard drives, faster boot times, and more security features compared
+   to Legacy Boot. Additionally, UEFI provides a better user interface and a
+   more robust pre-boot environment.
+
+  Bootloaders for ARM platforms
+
+   On ARM platforms, the bootloader options can vary significantly based on
+   the architecture and specific hardware. Common bootloaders include:
+
+     * U-Boot: Universal Boot Loader, widely used in ARM devices.
+     * EFI ARM bootloaders: Some ARM devices support UEFI, allowing the use
+       of standard UEFI bootloaders like GRUB or systemd-boot.
+
+   For more detailed information on NixOS and ARM architecture, refer to the
+   NixOS on ARM docs.
+
+  Am I booted in Legacy or UEFI?
+
+   The following command will print which boot mode you are using. This can
+   be used on the NixOS installation image to determine which steps to follow
+   in the guide.
+
+ [ -d /sys/firmware/efi/efivars ] && echo "UEFI" || echo "Legacy"
+
+  How do I remove older generations from the bootloader?
+
+   First, collect garbages in your system, then rebuild. The scripts will
+   collect leftover files.
+
+   The first command, in the example below, removes everything older than 14
+   days.
+
+ sudo nix-collect-garbage --delete-older-than 14d
+
+ sudo nixos-rebuild boot
+
+  Limiting amount of entries with grub or systemd-boot
+
+   The grub and systemd-boot modules has an option to limit the number of
+   configurations made available in the boot partition,
+   boot.loader.grub.configurationLimit or
+   boot.loader.systemd-boot.configurationLimit. Setting this to a lower
+   amount than the default may help reduce the occasions where too many
+   different kernels and initrds are added to the /boot partition or ESP.
+
+  Why I still boot into systemd-boot after switching to grub in my
+  configuration?
+
+   Make sure to check if in your boot order, NixOS-bootloader is the default
+   / first option.
+
+  Keeping kernels/initrd on the main partition
+
+   For these instructions, GRUB will be required; systemd-boot cannot
+   reference boot files from the root partition. This will differ from the
+   default expectation of NixOS on EFI, where /boot/ is the ESP.
+
+    
+
+ /etc/nixos/hardware-configuration.nix
+
+ fileSystems."/boot/efi" = ... # ← mount your ESP here instead of at /boot/.
+
+    
+
+ /etc/nixos/configuration.nix
+
+ boot.loader = {
+   efi = {
+     canTouchEfiVariables = true;
+     efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+   };
+   grub = {
+      efiSupport = true;
+      #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+      device = "nodev";
+   };
+ };
+
+Troubleshooting
+
+  Kernel initramfs parameters for troubleshooting boot issues
+
+   You can add these flags to systemd-boot and grub boot entries via using
+   the e command to edit the currently selected entry, then use arrow keys to
+   move curser and type your additions in the entry area. Type return or F10
+   (Grub) to boot the entry.
+
+     * boot.trace uses set -x to trace the shell scripts.
+     * boot.shell_on_fail allows for root shell if failure to boot. Requires
+       root password.
+     * boot.debug1 allows shell and stops right away on failure.
+     * boot.debug1devices stop after loading modules and creating device
+       nodes.
+     * boot.debug1mounts stop after mounting file systems.
+     * boot.panic_on_fail panics on failure.
+     * console= set the console to something.
+     * root= If a root device is specified on the kernel command line, make
+       it available through the symlink /dev/root.
+     * findiso= if an iso name is supplied, try to find the device where the
+       iso resides on.
+     * copytoram Skip mounting the ISO and copy its content to a tmpfs.
+
+  Re-installing the bootloader
+
+     * Something happened, and the bootloader doesn't work as expected.
+     * The ESP was re-made and nothing was kept.
+     * The ESP wasn't mounted and I want to re-generate the menu entries.
+
+    From a running system
+
+ sudo nixos-rebuild --install-bootloader boot
+
+    From an installation media
+
+   Booting from the installation media, mount the root partition under /mnt
+   and the boot partition under /mnt/boot. Next, enter the installed system
+   with nixos-enter, or by manually binding the virtual filesystems and then
+   calling chroot. Finally, run the command that the installer would run.
+   This will re-install the bootloader.
+
+ mount /dev/[root partition] /mnt
+ mount /dev/[boot partition] /mnt/boot
+
+   With nixos-enter:
+
+ nixos-enter
+ NIXOS_INSTALL_BOOTLOADER=1 /nix/var/nix/profiles/system/bin/switch-to-configuration boot
+
+   Or manually:
+
+ for i in dev proc sys; do mount --rbind /$i /mnt/$i; done
+ NIXOS_INSTALL_BOOTLOADER=1 chroot /mnt \
+     /nix/var/nix/profiles/system/bin/switch-to-configuration boot
+
+   Tip: Be patient, it may take some times to re-install the bootloader for
+   you.
+
+   Tip: If the installation command fails with "systemd-boot not installed in
+   ESP", try running bootctl install.
+
+   Tip: If you've replaced your drives, or have otherwise re-created the
+   /mnt/boot partition, you may want to keep using the same UUID for it. You
+   can use mlabel from the mtools package for this.
+
+  New generations are not in the boot menu
+
+   The most common cause for this situation is when the ESP isn't mounted
+   where NixOS expects it to be on UEFI systems. NixOS assumes the ESP is
+   mounted under /boot and that it is on the ESP that NixOS will install the
+   files needed for the boot process for UEFI systems.^[1] This issue should
+   affect all supported UEFI bootloaders equally for NixOS.
+
+   The usual fix for this problem is to add the missing entry for
+   fileSystems."/boot" in hardware-configuration.nix (or where your mount
+   points are defined).
+
+   If for some reason it is impossible to boot the existing generations,
+   follow the steps in #Re-installing the bootloader to re-generate the menu
+   entries, then boot in your system to add the missing configuration. The
+   next generations should work as expected in your bootloader.
+
+  Wrangling recalcitrant UEFI implementations
+
+   Some UEFI implementations are just bad™. Some symptoms include:
+
+     * Losing bootloader configuration choices either randomly, or on disk
+       disconnection.
+     * Not being able to manually edit the bootloader configuration.
+     * Not being able to save the bootloader configuration.
+     * Not being able to boot arbitrary bootloader configuration.
+
+   For those problematic EFI setup, or for a portable NixOS setup, it is
+   possible to make use of the default path of the OS loader.
+
+     * For an x86_64 computer, this path is /EFI/BOOT/BOOTX64.EFI. Try this
+       one first.
+     * For extremely problematic EFI implementations, an alternative path can
+       be used, the default Windows bootloader location:
+       /EFI/Microsoft/Boot/bootmgfw.efi.^[2]
+
+   As a recommendation, you can either copy the default NixOS bootloader
+   (which will be in the /EFI/NixOS-boot/ folder) or install an secondary
+   bootloader like rEFInd. A copied NixOS bootloader will not be updated by
+   the NixOS configuration. Using a secondary bootloader will add an
+   intermediary step during the boot process, which can be customized to be
+   as short as wanted, but should allow selecting EFI programs, even on
+   different disks.
+
+   Alternatively, when using grub, using the
+   boot.loader.grub.efiInstallAsRemovable option will install the bootloader
+   at the default /EFI/BOOT/BOOTX64.EFI location.
+
+     ----------------------------------------------------------------------
+
+  Installing x86_64 NixOS on IA-32 UEFI
+
+   Some laptops, mostly those based on Intel Atom (and first-gen 2006-2007
+   Intel Macs), have a very strange setup: x86_64 CPU, 2-4GB of RAM, and
+   ia-32 bootloader. They usually come with 64-bit Windows 10, which is slow
+   and jerky on such configurations. Installing Linux on these systems is
+   trivial, because most of the time you can just install 32-bit versions,
+   which come with 32-bit UEFI bootloader, and not lose practically anything
+   as amount of RAM is small enough for 32 bits of address. This is not the
+   case with NixOS, though, because by choosing a 32-bit version you lose the
+   prebuilt packages from nixos cache. To install a full 64-bit system with
+   32-bit bootloader, you need to take the following steps:
+
+    1. Download both latest "Minimal installation CD, 32-bit Intel/AMD" and
+       "Minimal installation CD, 64-bit Intel/AMD" from
+       https://nixos.org/download/#nixos-iso.
+    2. Flash 32-bit version on USB stick and boot it. If it does not boot,
+       then you probably have a 64-bit bootloader and do not need to worry
+       about this tutorial.
+    3. Note: if your system hangs randomly when booted, you can try adding
+       intel_idle.max_cstate=1 to kernel parameters before booting (press e
+       when you see systemd-boot prompt to enter editing mode).
+    4. Once booted, install a minimal system as specified in installation
+       manual. Do not forget to install grub as removable. Example
+       configuration:
+    
+
+ /etc/nixos/configuration.nix
+
+ boot.kernelParams = [ "intel_idle.max_cstate=1" ]; # In case your laptop hangs randomly
+ boot.loader = {
+   efi = {
+     canTouchEfiVariables = false;
+   };
+   grub = {
+      efiSupport = true;
+      efiInstallAsRemovable = true;
+      device = "nodev";
+   };
+ };
+
+    1. If everything goes well, reboot and you now should have a bootable
+       32-bit system. If you do, remove USB stick and flash 64-bit version of
+       NixOS onto it.
+    2. Plug it in your PC and boot into GRUB you have just installed. Now we
+       have to boot a 64-bit system from USB stick manually. To do that:
+         1. Press "c" before your system boots
+         2. cat (hd0)/isolinux/isolinux.cfg
+
+         3. Find ENTRY NIXOS DEFAULT line in the output of previous command.
+            Take kernel parameters from that section.
+         4. linux (hd0)/boot/bzImage *kernel parameters from the previous stage, including init=...* intel_idle.max_cstate=1
+
+         5. initrd (hd0)/boot/initrd
+
+         6. boot
+
+    3. If you did everything correctly, you now should have your x86_64
+       system booted from USB. Now it's time to install it. Proceed with
+       NixOS installation manual (do not forget to install GRUB, just as with
+       32-bit system). Add one extra thing to your configuration: i686 GRUB.
+       To do that, add
+    
+
+ /etc/nixos/configuration.nix
+
+      forcei686 = true;
+
+   to the grub section of your configuration.
+
+  Manually adding EFI boot entry
+
+   If you somehow lost all EFI boot entries (e.g. by resetting your BIOS),
+   then you can manually add it again. Firstly, find out which disk and
+   partition /EFI/NixOS-boot/grubx64.efi is located (can be x86 or something
+   else), which in the example will be /dev/sda1. Then use efibootmgr to add
+   the entry again, where the disk device is specified, with the partition
+   number followed by the index and finally the path to the grub boot loader.
+
+ efibootmgr -c -d /dev/sda -p 1 -L NixOS-boot -l '\EFI\NixOS-boot\grubx64.efi'
+
+   Remember to specify the location using single quotes, otherwise it might
+   try to escape them instead.
+
+   If you have some problems with installation, report them on #nix:nixos.org
+   on Matrix.
+
+    1. ↑ NixOS manual: 2.1. UEFI Installation
+    2. ↑ https://github.com/NixOS/nixpkgs/pull/35528
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Bootloader&oldid=17420"
+   Category:
+     * Booting
+     * This page was last edited on 14 September 2024, at 08:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

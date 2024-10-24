@@ -1,0 +1,91 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                              Category:Note taking
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Revision as of 16:24, 30 June 2024 by Klinger (talk | contribs)
+   (Category:Applications)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Pages in category "Note taking"
+
+   The following 2 pages are in this category, out of 2 total.
+
+  O
+
+     * Obsidian
+
+  Z
+
+     * Zim
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Note_taking&oldid=13638"
+   Category:
+     * Applications
+     * This page was last edited on 30 June 2024, at 16:24.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

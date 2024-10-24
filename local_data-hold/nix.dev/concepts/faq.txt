@@ -1,0 +1,210 @@
+   Link: canonical
+   Link: index: Index
+   Link: search: Search
+   Link: next: Contributing
+   Link: prev: Flakes
+   Skip to main content [ ] [ ]
+   _____________________ Ctrl+K
+   [IMG] nix.dev
+   IFrame
+
+   Official documentation for getting things done with Nix.
+
+   _____________________ Ctrl+K
+     * Install Nix
+     * Tutorials [ ]
+          * First steps [ ]
+               * Ad hoc shell environments
+               * Reproducible interpreted scripts
+               * Declarative shell environments
+               * Towards reproducibility: pinning Nixpkgs
+          * Nix language basics
+          * Packaging existing software
+          * Package parameters and overrides with callPackage
+          * Working with local files
+          * Cross compilation
+          * Module system [ ]
+               * 1. A basic module
+               * 2. Module system deep dive
+          * NixOS [ ]
+               * NixOS virtual machines
+               * Building a bootable ISO image
+               * Building and running Docker images
+               * Integration testing with NixOS virtual machines
+               * Provisioning remote machines via SSH
+               * Installing NixOS on a Raspberry Pi
+               * Deploying NixOS using Terraform
+               * Setting up an HTTP binary cache
+               * Setting up distributed builds
+     * Guides [ ]
+          * Recipes [ ]
+               * Configure Nix to use a custom binary cache
+               * Automatic environments
+               * Dependencies in the development shell
+               * Managing remote sources
+               * Python development environment
+               * Setting up post-build hooks
+               * Continuous integration with GitHub Actions
+          * Best practices
+          * Troubleshooting
+          * Frequently Asked Questions
+     * Reference [ ]
+          * Glossary
+          * Nix reference manual [ ]
+               * Nix pre-release (development)
+               * Nix 2.24 (latest)
+               * Nix 2.18 (in Nixpkgs rolling)
+               * Nix 2.18 (in Nixpkgs 24.05)
+               * Nix 2.18 (in Nixpkgs 23.11)
+          * Nixpkgs manual
+          * NixOS manual
+          * Community projects
+          * Support tools
+          * Further reading
+          * Pinning Nixpkgs
+     * Concepts [ ]
+          * Flakes
+          * Frequently Asked Questions
+     * Contributing [ ]
+          * How to contribute
+          * How to get help
+          * Contributing documentation [ ]
+               * Documentation resources
+               * Documentation framework
+               * Style guide
+               * How to write a tutorial
+     * Acknowledgements [ ]
+          * Sponsors
+     * Repository
+     * Suggest edit
+     * Open issue
+     * .md
+     * .pdf
+   [ Submit ]
+
+                           Frequently Asked Questions
+
+Contents
+
+     * What is the origin of the name Nix?
+     * What are flakes?
+     * Which channel branch should I use?
+          * Stable
+          * Rolling
+     * Are there any impurities left in sandboxed builds?
+
+                          Frequently Asked Questions#
+
+What is the origin of the name Nix?#
+
+     The name Nix is derived from the Dutch word niks, meaning nothing; build
+     actions do not see anything that has not been explicitly declared as an
+     input.
+
+     — Nix: A Safe and Policy-Free System for Software Deployment, LISA
+     XVIII, 2004
+
+   The Nix logo is inspired by an idea for the Haskell logo and the fact that
+   nix is Latin for snow.
+
+What are flakes?#
+
+   See Flakes.
+
+Which channel branch should I use?#
+
+   Nixpkgs and NixOS have both stable and rolling releases.
+
+  Stable#
+
+   Stable releases receive conservative updates to fix bugs or security
+   vulnerabilities; otherwise package versions are not changed. A new stable
+   release is made every six months.
+
+     * On Linux (including NixOS and WSL), use nixos-*.
+
+       These branches point to commits where most Linux packages got
+       pre-built and can be fetched from the binary cache. Furthermore, these
+       commits passed the full NixOS test suite.
+
+     * On macOS/Darwin, use nixpkgs-*-darwin
+
+       These branches point to commits where most Darwin packages got
+       pre-built and can be fetched from the binary cache.
+
+     * On any other platform it doesn’t matter which one of the above is
+       used.
+
+       Hydra doesn’t pre-build any binaries for other platforms.
+
+   All of these “channel branches” follow the corresponding release-* branch.
+
+   Example
+
+   nixos-23.05 and nixpkgs-23.05-darwin are both based on release-23.05.
+
+  Rolling#
+
+   Rolling releases follow master, the main development branch.
+
+     * On Linux (including NixOS and WSL), use nixos-unstable.
+
+     * On any other platform, use nixpkgs-unstable.
+
+   *-small channel branches have passed a smaller test suite, which means
+   they are more up-to-date with respect to their base branch, but offer
+   fewer stability guarantees.
+
+   Tip
+
+   Consult the nix-channel entry in the Nix Reference Manual for more
+   information on channels, and the Nixpkgs contributing guide on the Nixpkgs
+   branching strategy.
+
+Are there any impurities left in sandboxed builds?#
+
+   Yes. There is:
+
+     * CPU architecture—great effort being made to avoid compilation of
+       native instructions in favour of hardcoded supported ones.
+
+     * System’s current time/date.
+
+     * The filesystem used for building (see also TMPDIR).
+
+     * Linux kernel parameters, such as:
+
+          * IPv6 capabilities.
+
+          * binfmt interpreters, e.g., those configured with
+            boot.binfmt.emulatedSystems.
+
+     * Timing behaviour of the build system—parallel Make build does not get
+       the correct inputs in some cases.
+
+     * Insertion of random values, e.g., from /dev/random or /dev/urandom.
+
+     * Differences between Nix versions. For instance, a new Nix version
+       might introduce a new environment variable. A statement like env >
+       $out is not promised by Nix to result in the same output, going into
+       the future.
+
+   previous
+
+   Flakes
+
+   next
+
+   Contributing
+
+   Contents
+     * What is the origin of the name Nix?
+     * What are flakes?
+     * Which channel branch should I use?
+          * Stable
+          * Rolling
+     * Are there any impurities left in sandboxed builds?
+
+   By the Nix documentation team and contributors.
+
+   © Copyright 2016-2024, NixOS Foundation.

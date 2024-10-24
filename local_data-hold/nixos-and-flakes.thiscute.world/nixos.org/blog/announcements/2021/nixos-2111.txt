@@ -1,0 +1,91 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              NixOS 21.11 released
+
+   Published on Tue Nov 30 2021
+
+                              NixOS 21.11 released
+
+   21.11 Porcupine logo
+
+   Hey everyone, we’re Timothy DeHerrera and Tom Bereknyei, the release
+   managers for 21.11. As promised, the latest stable release is here: NixOS
+   21.11 “Porcupine”.
+
+     * Release manual
+          * Highlights
+          * New Services
+          * Backward Incompatibilities
+          * Other Notable Changes
+     * Upgrade Instructions
+     * Image downloads
+
+   The 21.11 release was possible due to the efforts of 1541 contributors in
+   41960 commits. We would especially like to thank our top 10 contributors:
+   Sandro Jäckel, Fabian Affolter, Martin Weinelt, figsoda, Artturin, Mario
+   Rodas, Bobby Rong, Jörg Thalheim, Robert Schütz, Michael Weiss.
+
+   NixOS is already known as the most up to date distribution and is in the
+   top three by total number of packages and we expect this trend to
+   continue.
+
+  Stabilization Contributors
+
+   Stabilization of the NixOS happens a month before the planned release. The
+   goal is to have as little as possible continuous integration (Hydra) jobs
+   failing before the release is cut.
+
+   Individuals who contributed to stabilizing this release: Fabian Affolter,
+   Sandro Jäckel, figsoda, Sergei Trofimovich, Artturin, Alyssa Ross, Thiago
+   Kenji Okada, Lukas Epple, Tredwell, Bernardo Meurer, and 477 others!
+
+  Special Thanks
+
+   Thanks to Domen Kožar for revitalizing the Darwin support effort. Jon
+   Ringer for guiding the release process since NixOS 20.09. Vladimír Čunát
+   and Martin Weinelt for their continued efforts managing and stabilizing
+   staging. Thanks to Graham Christensen for organizing with Equinix Metal to
+   ensure we head enough compute resources.
+
+  Reflections and Closing
+
+   The influx of additional interest in Nix/NixOS is exciting to see. The
+   fairly smooth release cycle is due to the dedication and time of all the
+   volunteers in the community. The continued growth and improvements have
+   been incredible to witness.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

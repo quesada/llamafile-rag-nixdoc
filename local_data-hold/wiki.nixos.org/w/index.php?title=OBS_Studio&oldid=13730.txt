@@ -1,0 +1,164 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installing Plugins
+     * 2 Using the Virtual Camera
+   [ ] Toggle the table of contents
+
+                                   OBS Studio
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 10:54, 5 July 2024 by RichardJActon (talk | contribs)
+   (→‎Using the Virtual Camera: Adding a note on how to modify your
+   v4l2loopback module config to have additional virtual devices such as you
+   might use to use a DSLR as a webcam with gphoto2)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   OBS Studio is free and open-source software for video recording and live
+   streaming, licensed under the GNU GPLv2 license.
+
+  Installing Plugins
+
+   Plugins are available from the obs-studio-plugins package set.
+
+   They can be installed by either wrapping the package with wrapOBS:
+
+ environment.systemPackages = [
+   (pkgs.wrapOBS {
+     plugins = with pkgs.obs-studio-plugins; [
+       wlrobs
+       obs-backgroundremoval
+       obs-pipewire-audio-capture
+     ];
+   })
+ ];
+
+   or using Home Manager:
+
+ { config, pkgs, ... }:
+ {
+   programs.obs-studio = {
+     enable = true;
+     plugins = with pkgs.obs-studio-plugins; [
+       wlrobs
+       obs-backgroundremoval
+       obs-pipewire-audio-capture
+     ];
+   };
+ }
+
+   Including both obs-studio and (pkgs.wrapOBS {... in
+   environment.systemPackages will result in a package collision; if plugins
+   are needed, only include the "wrapped" version, which sets the plugins
+   directory to include Nix-managed plugins (see
+   pkgs/applications/video/obs-studio/wrapper.nix.
+
+  Using the Virtual Camera
+
+   The virtual camera requires the v4l2loopback kernel module to be
+   installed, a loopback device configured, and polkit enabled so OBS can
+   access the virtual device:
+
+ { config, ... }:
+ {
+   boot.extraModulePackages = with config.boot.kernelPackages; [
+     v4l2loopback
+   ];
+   boot.kernelModules = [ "v4l2loopback" ];
+   boot.extraModprobeConfig = ''
+     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+   '';
+   security.polkit.enable = true;
+ }
+
+   It is possible to use Droidcam as virtual camera.
+
+   If you use a digital camera as a webcam via gphoto2 you will need an
+   additional loopback device to use this camera as a virtual camera. For a
+   setup like this you may wish to change the above v4l2loopback module
+   config to something like this:
+
+ boot.extraModprobeConfig = ''
+   options v4l2loopback devices=2 video_nr=1,2 card_label="OBS Cam, Virt Cam" exclusive_caps=1
+ '';
+
+   For more the arch wiki entry on v4l2loopback is a good reference. In
+   addition to gphoto2 you will need the v4l-utils and ffmpeg packages so
+   that you can use gphoto2 to send the raw feed from your camera to the
+   virtual camera via ffmpeg for example using a command like this^[1]:
+
+ gphoto2 --stdout autofocusdrive=1 --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video2
+
+    1. ↑ https://austingil.com/dslr-webcam-linux/
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=OBS_Studio&oldid=13730"
+   Category:
+     * Applications
+     * This page was last edited on 5 July 2024, at 10:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

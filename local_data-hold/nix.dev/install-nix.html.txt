@@ -1,0 +1,168 @@
+   Link: canonical
+   Link: index: Index
+   Link: search: Search
+   Link: next: Tutorials
+   Link: prev: Welcome to nix.dev
+   Skip to main content [ ] [ ]
+   _____________________ Ctrl+K
+   [IMG] nix.dev
+   IFrame
+
+   Official documentation for getting things done with Nix.
+
+   _____________________ Ctrl+K
+     * Install Nix
+     * Tutorials [ ]
+          * First steps [ ]
+               * Ad hoc shell environments
+               * Reproducible interpreted scripts
+               * Declarative shell environments
+               * Towards reproducibility: pinning Nixpkgs
+          * Nix language basics
+          * Packaging existing software
+          * Package parameters and overrides with callPackage
+          * Working with local files
+          * Cross compilation
+          * Module system [ ]
+               * 1. A basic module
+               * 2. Module system deep dive
+          * NixOS [ ]
+               * NixOS virtual machines
+               * Building a bootable ISO image
+               * Building and running Docker images
+               * Integration testing with NixOS virtual machines
+               * Provisioning remote machines via SSH
+               * Installing NixOS on a Raspberry Pi
+               * Deploying NixOS using Terraform
+               * Setting up an HTTP binary cache
+               * Setting up distributed builds
+     * Guides [ ]
+          * Recipes [ ]
+               * Configure Nix to use a custom binary cache
+               * Automatic environments
+               * Dependencies in the development shell
+               * Managing remote sources
+               * Python development environment
+               * Setting up post-build hooks
+               * Continuous integration with GitHub Actions
+          * Best practices
+          * Troubleshooting
+          * Frequently Asked Questions
+     * Reference [ ]
+          * Glossary
+          * Nix reference manual [ ]
+               * Nix pre-release (development)
+               * Nix 2.24 (latest)
+               * Nix 2.18 (in Nixpkgs rolling)
+               * Nix 2.18 (in Nixpkgs 24.05)
+               * Nix 2.18 (in Nixpkgs 23.11)
+          * Nixpkgs manual
+          * NixOS manual
+          * Community projects
+          * Support tools
+          * Further reading
+          * Pinning Nixpkgs
+     * Concepts [ ]
+          * Flakes
+          * Frequently Asked Questions
+     * Contributing [ ]
+          * How to contribute
+          * How to get help
+          * Contributing documentation [ ]
+               * Documentation resources
+               * Documentation framework
+               * Style guide
+               * How to write a tutorial
+     * Acknowledgements [ ]
+          * Sponsors
+     * Repository
+     * Suggest edit
+     * Open issue
+     * .md
+     * .pdf
+   [ Submit ]
+
+                                  Install Nix
+
+Contents
+
+     * Verify installation
+
+                                  Install Nix#
+
+   [ ]  Linux
+
+   Install Nix via the recommended multi-user installation:
+
+ $ curl -L https://nixos.org/nix/install | sh -s -- --daemon
+
+   On Arch Linux, you can alternatively install Nix through pacman.
+
+   [ ]  macOS
+
+   Install Nix via the recommended multi-user installation:
+
+ $ curl -L https://nixos.org/nix/install | sh
+
+   Important
+
+   Updating to macOS 15 Sequoia
+
+   If you recently updated to macOS 15 Sequoia and are getting
+
+ error: the user '_nixbld1' in the group 'nixbld' does not exist
+
+   when running Nix commands, refer to GitHub issue NixOS/nix#10892 for
+   instructions to fix your installation without reinstalling.
+
+   [ ]  Windows (WSL2)
+
+   Install Nix via the recommended single-user installation:
+
+ $ curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
+
+   However, if you have systemd support enabled, install Nix via the
+   recommended multi-user installation:
+
+ $ curl -L https://nixos.org/nix/install | sh -s -- --daemon
+
+   [ ]  Docker
+
+   Start a Docker shell with Nix:
+
+ $ docker run -it nixos/nix
+
+   Or start a Docker shell with Nix exposing a workdir directory:
+
+ $ mkdir workdir
+ $ docker run -it -v $(pwd)/workdir:/workdir nixos/nix
+
+   The workdir example from above can be also used to start hacking on
+   Nixpkgs:
+
+ $ git clone git@github.com:NixOS/nixpkgs
+ $ docker run -it -v $(pwd)/nixpkgs:/nixpkgs nixos/nix
+ bash-5.1# nix-build -I nixpkgs=/nixpkgs -A hello
+ bash-5.1# find ./result # this symlink points to the build package
+
+Verify installation#
+
+   Check the installation by opening a new terminal and typing:
+
+ $ nix --version
+ nix (Nix) 2.11.0
+
+   previous
+
+   Welcome to nix.dev
+
+   next
+
+   Tutorials
+
+   Contents
+     * Verify installation
+
+   By the Nix documentation team and contributors.
+
+   © Copyright 2016-2024, NixOS Foundation.

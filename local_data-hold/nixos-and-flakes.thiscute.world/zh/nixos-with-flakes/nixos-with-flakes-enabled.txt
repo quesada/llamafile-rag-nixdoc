@@ -1,0 +1,310 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS 与 Flakes
+   SearchK
+   Main Navigation首页前言开始使用最佳实践
+
+   简体中文
+
+   English
+
+   简体中文
+
+   English
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+前言
+
+   前言
+
+开始使用
+
+   简介
+
+   优缺点
+
+   安装
+
+Nix 语言
+
+   快速入门
+
+NixOS 与 Flakes
+
+   开始使用 NixOS
+
+   Flakes 简介
+
+   使用 Flakes 管理 NixOS
+
+   NixOS 的 flake.nix 内容详解
+
+   Flakes 的组合能力与 Nixpkgs 模块系统
+
+   安装使用 Home Manager
+
+   模块化系统配置
+
+   更新系统
+
+   降级或升级软件包
+
+   其他杂七杂八的内容
+
+Nixpkgs 高级用法
+
+   简介
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   多 Nixpkgs 实例的妙用
+
+Nix Store 与二进制缓存
+
+   简介
+
+   添加二进制缓存服务器
+
+   搭建你自己的缓存服务器
+
+NixOS 最佳实践
+
+   简介
+
+   运行非 NixOS 的二进制文件
+
+   简化常用的 NixOS 相关命令
+
+   加速 Dotfiles 的调试
+
+   自定义 NIX_PATH 与 Flake Registry
+
+   远程部署 NixOS 配置
+
+   调试 Nix 软件包与 Nix 表达式
+
+Flakes 的其他玩法
+
+   简介
+
+   Flake Inputs
+
+   Flake Outputs
+
+   新一代 Nix 命令行工具的使用
+
+   模块系统与自定义 options
+
+   [WIP]Testing
+
+在 NixOS 上进行开发工作
+
+   nix shell, nix develop & pkgs.runCommand
+
+   各语言的开发环境
+
+   [WIP]软件打包
+
+   跨平台编译
+
+   分布式构建
+
+   [WIP]内核开发
+
+其他进阶话题
+
+   其他进阶话题
+
+常见问题 FAQ
+
+   常见问题 FAQ
+
+   On this page
+
+                            使用 Flakes 来管理你的 NixOS ​
+
+   与 NixOS 当前默认的配置方式相比，Flakes 提供了更好的可复现性，同时它清晰的包结构定义原生支持了以其他 Git
+   仓库为依赖，便于代码分享，因此本书更建议使用 Flakes 来管理系统配置。
+
+   本节我们介绍如何使用 Flakes 来管理 NixOS 系统配置，阅读本节内容不需要提前对 Flakes 有任何了解。
+
+启用 NixOS 的 Flakes 支持 ​
+
+   目前 Flakes 作为一个实验特性，仍未被默认启用，因此我们需要先手动修改 /etc/nixos/configuration.nix 文件，启用
+   Flakes 特性以及配套的船新 nix 命令行工具：
+
+   [ Submit ]nix
+
+ { config, pkgs, ... }:
+ {
+   imports =
+     [ # Include the results of the hardware scan.
+       ./hardware-configuration.nix
+     ];
+   # ......
+   # 启用 Flakes 特性以及配套的船新 nix 命令行工具
+   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+   environment.systemPackages = with pkgs; [
+     # Flakes 通过 git 命令拉取其依赖项，所以必须先安装好 git
+     git
+     vim
+     wget
+     curl
+   ];
+   # 将默认编辑器设置为 vim
+   environment.variables.EDITOR = "vim";
+   # ......
+ }
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+   12
+   13
+   14
+   15
+   16
+   17
+   18
+   19
+   20
+   21
+   22
+   23
+   24
+
+   然后运行 sudo nixos-rebuild switch 应用修改后，即可使用 Flakes 特性来管理系统配置。
+
+   nix 的新命令行工具还提供了一些方便的功能，比如说你现在可以使用 nix repl 命令打开一个 nix
+   交互环境，有兴趣的话，可以使用它复习测试一遍前面学过的所有 Nix 语法。
+
+将系统配置切换到 flake.nix ​
+
+   在启用了 Flakes 特性后，sudo nixos-rebuild switch 命令会优先读取 /etc/nixos/flake.nix
+   文件，如果找不到再尝试使用 /etc/nixos/configuration.nix。
+
+   可以首先使用官方提供的模板来学习 flake 的编写，先查下有哪些模板：
+
+   [ Submit ]bash
+
+ nix flake show templates
+
+   1
+
+   其中有个 templates#full 模板展示了所有可能的用法，可以看看它的内容：
+
+   [ Submit ]bash
+
+ nix flake init -t templates#full
+ cat flake.nix
+
+   1
+   2
+
+   我们参照该模板创建文件 /etc/nixos/flake.nix 并编写好配置内容，后续系统的所有修改都将全部由 Nix Flakes
+   接管，示例内容如下：
+
+   [ Submit ]nix
+
+ {
+   description = "A simple NixOS flake";
+   inputs = {
+     # NixOS 官方软件源，这里使用 nixos-23.11 分支
+     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+   };
+   outputs = { self, nixpkgs, ... }@inputs: {
+     # 因此请将下面的 my-nixos 替换成你的主机名称
+     nixosConfigurations.my-nixos = nixpkgs.lib.nixosSystem {
+       system = "x86_64-linux";
+       modules = [
+         # 这里导入之前我们使用的 configuration.nix，
+         # 这样旧的配置文件仍然能生效
+         ./configuration.nix
+       ];
+     };
+   };
+ }
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+   12
+   13
+   14
+   15
+   16
+   17
+   18
+   19
+   20
+
+   这里我们定义了一个名为 my-nixos 的系统，它的配置文件为 /etc/nixos/
+   文件夹下的./configuration.nix，也就是说我们仍然沿用了旧的配置。
+
+   现在执行 sudo nixos-rebuild switch 应用配置，系统应该没有任何变化，因为我们仅仅是切换到了 Nix
+   Flakes，配置内容与之前还是一致的。
+
+   切换完毕后，我们就可以通过 Flakes 特性来管理系统了。
+
+   目前我们的 flake 包含这几个文件：
+
+     * /etc/nixos/flake.nix: flake 的入口文件，执行 sudo nixos-rebuild switch
+       时会识别并部署它。
+     * /etc/nixos/flake.lock: 自动生成的版本锁文件，它记录了整个 flake 所有输入的数据源、hash
+       值、版本号，确保系统可复现。
+     * /etc/nixos/configuration.nix: 这是我们之前的配置文件，在 flake.nix
+       中被作为模块导入，目前所有系统配置都写在此文件中。
+     * /etc/nixos/hardware-configuration.nix: 这是系统硬件配置文件，由 NixOS
+       生成，描述了系统的硬件信息
+
+总结 ​
+
+   本节中我们添加了一个非常简单的配置文件 /etc/nixos/flake.nix，它仅仅是 /etc/nixos/configuration.nix
+   的一个 thin wrapper，它自身并没有提供任何新的功能，也没有引入任何破坏性的变更。
+
+   在本书后面的内容中，我们会学习了解 flake.nix 的结构与功能，并逐渐看到这样一个 wrapper 能为我们带来哪些好处。
+
+     注意：本书描述的配置管理方式并非「Everything in a single file」，更推荐将配置内容分门别类地存放到不同的 nix
+     文件中，然后在 flake.nix 的 modules 参数列表中引入这些配置文件，并通过 Git
+     管理它们。这样做的好处是，可以更好地组织配置文件，提高配置的可维护性。后面的 模块化 NixOS 配置 一节将会详细介绍如何模块化你的
+     NixOS 配置，其他实用技巧 - 使用 Git 管理 NixOS 配置 将会介绍几种使用 Git 管理 NixOS 配置的最佳实践。
+
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous pageFlakes 简介
+   Next pageNixOS 的 flake.nix 内容详解
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

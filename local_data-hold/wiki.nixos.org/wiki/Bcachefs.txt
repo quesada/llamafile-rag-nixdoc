@@ -1,0 +1,329 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+     * 3 Configuration
+     * 4 Tips and tricks
+          * 4.1 Generate bcachefs enabled installation media
+          * 4.2 NixOS installation on bcachefs
+          * 4.3 Remote encrypted disk unlocking
+          * 4.4 Automatically mount encrypted device on boot
+   [ ] Toggle the table of contents
+
+                                    Bcachefs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Bcachefs is a next-generation CoW filesystem that aims to provide features
+   from Btrfs and ZFS with a cleaner codebase, more stability, greater speed
+   and a GPL-compatible license. It is built upon Bcache and is mainly
+   developed by Kent Overstreet.
+
+Installation
+
+   To enable filesystem support and availability of user-space utils, add
+   following line to the system configuration
+
+ /etc/nixos/configuration.nix
+
+ boot.supportedFilesystems = [ "bcachefs" ];
+
+Usage
+
+   Format and mount a single device
+
+ # bcachefs format /dev/sda
+ # mount -t bcachefs /dev/sda /mnt
+
+   Or, format and mount multiple devices
+
+ # bcachefs format /dev/sda:/dev/sdb:/dev/sdc
+ # mount -t bcachefs /dev/sda:/dev/sdb:/dev/sdc
+
+   The same works with partitions, which is probably better for future
+   proofing depending on your specific needs
+
+ # bcachefs format /dev/sda1:/dev/sdb2:/dev/sdc3
+ # mount -t bcachefs /dev/sda1:/dev/sdb2:/dev/sdc3
+
+   Format drive with encryption enabled, unlock and mount it afterwards.
+   Following bcachefs commands will ask for a password:
+
+ # bcachefs format --encrypt /dev/sda
+ # bcachefs unlock /dev/sda
+ # mount -t bcachefs /dev/sda /mnt
+
+   Format a drive with compression on by default, foreground and background
+   (Available Compression options are gzip, lz4, and zstd)
+
+ # bcachefs format --compression=lz4 --background_compression=zstd /dev/sda
+ # mount -t bcachefs /dev/sda
+
+   Format a multiple devices with storage tiers, so that reads and writes
+   happen on the fastest disks, with data being stored on slower, bigger
+   drives based on usage patterns
+
+ # bcachefs format \
+     --label=hdd.hdd1 /dev/sdc \
+     --label=hdd.hdd2 /dev/sdd \
+     --label=hdd.hdd3 /dev/sde \
+     --label=ssd.ssd1 /dev/sdf \
+     --label=ssd.ssd2 /dev/sdg
+     --foreground_target=ssd \
+     --promote_target=ssd \
+     --background_target=hdd \
+ # mount -t bcachefs /dev/sdc:/dev/sdd:/dev/sde:/dev/sdf:/dev/sdg
+
+   For a better mounting experience in the previous example, use the external
+   UUID that was printed.
+
+ # bcachefs format \
+     --label=hdd.hdd1 /dev/sdc \
+     --label=hdd.hdd2 /dev/sdd \
+     --label=hdd.hdd3 /dev/sde \
+     --label=ssd.ssd1 /dev/sdf \
+     --label=ssd.ssd2 /dev/sdg
+     --foreground_target=ssd \
+     --promote_target=ssd \
+     --background_target=hdd \
+ # mount -t bcachefs UUID=<UUID>
+
+   Create a subvolume of a mounted bcachefs filesystem. The snapshot of the
+   filesystem state is accessible in the directory /mnt/snap1.
+
+ # bcachefs subvolume snapshot /mnt /mnt/snap1
+
+   Filesystem check, fix errors and corruptions where a Bcachefs filesystem
+   is on /dev/sda:
+
+ # bcachefs fsck /dev/sda
+
+Configuration
+
+   Every option for the filesystem can be set by editing
+   /sys/fs/bcachefs/<uuid>/options, for example the file
+   background_compression will change the background compression scheme for
+   background compression. These are persisted with the filesystems, so a
+   bcachefs storage device being mounted on a different computer won't need
+   to know what mount options to use to maintain the same compression levels.
+
+   Change encryption password for Bcachefs formatted device /dev/sda1
+
+ # bcachefs set-passphrase /dev/sda1
+
+   Enable zstd compression for device /dev/sda1 at mount time
+
+ /etc/nixos/hardware-configuration.nix
+
+ fileSystems."/" =
+ { device = "/dev/sda1";
+   fsType = "bcachefs";
+   options = [ "compression=zstd" ];
+ };
+
+Tips and tricks
+
+  Generate bcachefs enabled installation media
+
+   Use following Nix Flake-expression to generate a ISO installation image
+   with a bcachefs enabled kernel
+
+ flake.nix
+
+ {
+   description = "Bcachefs enabled installation media";
+   inputs.nixos.url = "nixpkgs/nixos-24.05";
+   outputs = { self, nixos }: {
+     nixosConfigurations = {
+       exampleIso = nixos.lib.nixosSystem {
+         system = "x86_64-linux";
+         modules = [
+           "${nixos}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix"
+           ({ lib, pkgs, ... }: {
+             # Might be required as a workaround for bug
+             # https://github.com/NixOS/nixpkgs/issues/32279
+             environment.systemPackages = [ pkgs.keyutils ];
+             boot.supportedFilesystems = [ "bcachefs" ];
+           })
+         ];
+       };
+     };
+   };
+ }
+
+   The following commands will generate the iso-image which will be available
+   in the directory ./result/iso
+
+ # git init
+ # git add flake.nix
+ # nix build .#nixosConfigurations.exampleIso.config.system.build.isoImage
+
+  NixOS installation on bcachefs
+
+   Using the installation media generated above, continue the installation as
+   usual following the instructions of the NixOS manual.
+
+   For a UEFI installation, the partitioning needs to be adjusted as
+   following
+
+   Note: Be sure on which disk you'll perform these filesystem operations.
+   All existing data on it will be erased.
+
+ # parted /dev/sda -- mklabel gpt
+ # parted /dev/sda -- mkpart ESP fat32 1MB 512MB
+ # parted /dev/sda -- set 1 esp on
+ # parted /dev/sda -- mkpart primary 512MB 100%
+
+   Formatting the boot partition /dev/sda1 and the root filesystem /dev/sda2
+
+ # mkfs.fat -F 32 -n boot /dev/sda1
+ # mkfs.bcachefs -L nixos /dev/sda2
+
+   In case you want to enable filesystem encryption, there's a workaround for
+   a bug affecting NixOS 23.11. Formatting and unlocking the encrypted
+   partition would look like this
+
+ # nix-env -iA nixos.keyutils
+ # keyctl link @u @s
+ # bcachefs format --encrypted /dev/sda2
+ # bcachefs unlock /dev/sda2
+
+   Mount filesystems
+
+   There are two ways to mount a bcachefs filesystem. First, by device:
+
+ # mount /dev/sda2 /mnt
+ # mkdir /mnt/boot
+ # mount /dev/disk/by-label/boot /mnt/boot
+
+   For better reliability as with any other filesystem, one should mount the
+   filesystem by UUID, by replacing any drive specifiers with it. When you
+   formatted, there was an external UUID shown, but if you lost it, you can
+   retrieve it using
+
+ # lsblk -o +uuid,fsType | grep bcachefs
+
+   And using it like UUID=<UUID> in place of /dev/sda1:/dev/sdb1 or even just
+   /dev/sda.
+
+   Note: this is currently broken as per this github issue. As a workaround,
+   use `/dev/disk/by-uuid/<UUID>` or `/dev/disk/by-id` instead. This seems to
+   work for single device systems atleast, although atleast at the time of
+   this writing I could not get it to work on my 4+ device raid system.
+
+   Continue installation as recommended by the NixOS manual.
+
+   Before nixos-install you'll have to adapt the generated NixOS
+   configuration to also use the latest Linux kernel supporting Bcachefs. Add
+   the following line to the configuration.nix in your installation root
+   (/mnt):
+
+ /mnt/etc/nixos/configuration.nix
+
+ boot.supportedFilesystems = [ "bcachefs" ];
+ boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  Remote encrypted disk unlocking
+
+   See article on remote disk unlocking for a guide on how to enable SSH
+   decryption of Bcachefs enabled systems.
+
+  Automatically mount encrypted device on boot
+
+   Since the Bcachefs mount options do not support supplying a key file yet,
+   we could use the bcachefs command and run it on boot using a Systemd unit:
+
+ systemd.services."bcachefs-mount" = {
+   after = [ "local-fs.target" ];
+   wantedBy = [ "multi-user.target" ];
+   script = ''
+     #!${pkgs.runtimeShell} -e
+     ${pkgs.keyutils}/bin/keyctl link @u @s
+     while [ ! -b /dev/sda1 ]; do
+       echo "Waiting for /dev/sda1 to become available..."
+       sleep 5
+     done
+     ${pkgs.bcachefs-tools}/bin/bcachefs mount -f /etc/keyfile_test /dev/sda1 /mnt
+   '';
+   serviceConfig = {
+     Type = "oneshot";
+     User = "root";
+   };
+ };
+
+   This example unit mounts the Bcachefs encrypted partition /dev/sda1 to the
+   target /mnt by using the key file /etc/keyfile_test.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Bcachefs&oldid=17608"
+   Category:
+     * Filesystem
+     * This page was last edited on 24 September 2024, at 01:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

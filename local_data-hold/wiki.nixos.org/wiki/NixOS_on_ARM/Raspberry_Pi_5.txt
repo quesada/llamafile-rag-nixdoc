@@ -1,0 +1,387 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Raspberry Pi Boot stages
+     * 3 Setting up a generic UEFI NixOS
+     * 4 Alternative board-specific installation notes
+     * 5 Troubleshooting
+          * 5.1 GPU
+          * 5.2 Bluetooth
+     * 6 Using the Pi 5 as a remote builder to build native ARM packages for
+       the Pi 5
+     * 7 Deploy and Update the Pi 5 NixOS system once it's running NixOS
+   [ ] Toggle the table of contents
+
+                          NixOS on ARM/Raspberry Pi 5
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   The Raspberry Pi family of devices is a series of single-board computers
+   made by the Raspberry Pi Foundation. They are all based on Broadcom
+   System-on-a-chip (SoCs).
+
+   Raspberry Pi 5 Family
+   A Raspberry Pi 5.
+   Manufacturer Raspberry Pi Foundation        
+   Architecture AArch64                        
+   Bootloader   Custom, UEFI or u-boot         
+   Boot order   Configurable; SD, USB, Netboot 
+   Maintainer   leo60228                       
+   Raspberry Pi 5B
+   SoC          BCM2712                        
+
+Status
+
+   NixOS works on Raspberry Pi 5 but is currently experimental. NixOS doesn't
+   run out-of-box, but relies on several tweaks on the boot process that are
+   maintained by different individuals and spread over multiple repositories.
+
+   The Raspberry Pi 5's boot process follows the typical boot stages on
+   embedded devices, and has the following boot loader steps by default:
+
+  1. ROM -> 2. EEPROM -> Pi-custom Firmware/Kernel -> PiOS (custom Debian)
+
+   The pain points for NixOS support are the Pi's custom EEPROM boot
+   bootloader, its proprietary, closed-source firmware (code to use to
+   hardware components) and its separately maintained Linux kernel, all of
+   which we would need to update, build and test constantly and separately
+   from the other NixOS Linux kernel variations, which is a large,
+   unmaintainable burden for the NixOS community when the Pi 5 is not the
+   only supported SoC; so we don't want that.
+
+   Instead our goal is to migrate towards the standard, generic boot process
+   with UEFI:
+
+  1. ROM -> 2. EEPROM -> 3. UEFI boot loader -> 4. systemd-boot boot loader -> Generic Kernel -> NixOS
+
+   We can't affect the ROM and EEPROM boot loaders as they come built-in into
+   the hardware. However, UEFI is also used for booting normal Intel/AMD
+   computers, and the systemd-boot boot loader is THE software that allows us
+   to have and select from multiple NixOS generations on boot (and perform
+   rollbacks if we messed up). The currently required manual steps are
+   roughly listed further down below and require lots of Linux and NixOS
+   understanding.
+
+   Alternatively, if you want to get up-and-running quickly in the mean-time
+   there's a setup that reuses lots of the pi-custom software (non-desired
+   approach but works)
+
+  1. ROM -> 2. EEPROM -> Pi-custom Firmware/Kernel -> NixOS
+
+   and creates a hard disk image that you can flash onto an SD card or NVMe
+   SSD. The heavy lifting has been done and is maintained at
+   https://github.com/tstat/raspberry-pi-nix (just follow the example and
+   hints at https://github.com/tstat/raspberry-pi-nix/issues/13) and has the
+   best out-of-the-box experience. You have to remote-build many Nix
+   packages, probably the kernel as well, yourself (e.g. using the Pi without
+   NixOS as an intermediate remote builder) and that can take several hours
+   though.
+
+   It will also likely get U-Boot support soon (likely only interesting for
+   people that need more exotic hardware support like hats):
+
+  1. ROM -> 2. EEPROM -> Pi-custom Firmware/Kernel -> U-Boot boot loader -> NixOS
+
+Raspberry Pi Boot stages
+
+   To understand the adaptions for NixOS better, it's helpful to understand
+   more about the stages:
+
+   1. ROM boot loader: The first-stage boot loader comes "burned in" on the
+   Pi in a tiny One-Time-Programmable memory (OTP) so it cannot be changed
+   anymore. It's only able to load the next second-stage boot loader below,
+   and reset it in case you have messed up.
+
+   See the official documentation.
+
+   Nothing to adapt here.
+
+   2. EEPROM boot loader: The second-stage boot loader comes built-in on the
+   Pi in a larger, rewriteable EEPROM. This loader is also very limited and
+   is only able to search for and start yet another, third-stage boot loader
+   from other storage hardware like an SD card, an NVMe SSD, a USB disk, or
+   from the network.
+
+   This loader (like many second-stage boot loaders of other devices) is so
+   size-constrained that it only contains the bare minimum code to be able to
+   read from an FAT formatted partition. That's why you see and want a
+   separate small /boot partition on your SD card or SSD that is formatted
+   "FAT" or "VFAT", while your main data is stored on a second "rootfs" or /
+   partition with fancy, newer partition types like "ext4", "ZFS" or "btrfs".
+
+   See the official documentation.
+
+   See EEPROM image releases for improved and wider hardware support. This
+   boot loader can be updated via the rpi-eeprom-update terminal tool (also
+   available in Nixpkgs) and loads the binary images (the
+   firmware-2712/pieeprom-*.bin files) from the rpi-eeprom GitHub project.
+
+   Nothing to adapt here yet. However, there's a feature request to support
+   smaller third-stage boot loaders in this second-stage.
+
+   3. Firmware boot loader: The third-stage boot loader is loaded from the
+   first partition (usually called /boot) of an SD card, NVME SSD or other
+   storage hardware described above. Because size is usually not an issue
+   here, you can have large, fully-fledged boot loaders like systemd-boot
+   (default with NixOS; requires UEFI), or full U-Boot (popular with embedded
+   devices like the Pi) or GRUB (generally popular among Linux distros).
+
+   However, the standard Pi 5 setup has no third-stage boot loader. The
+   second stage EEPROM boot loader loads the firmware (code to control other
+   hardware on the Pi 5; device tree files in compact binary format *.dtb),
+   some settings (cmdline.txt for kernel settings, config.txt for firmware
+   settings), and the Linux kernel itself from a /boot/firmware/ folder. On
+   the Pi 5's default Debian image this is the kernel2712.img (specialized,
+   more-performant kernel named after the Pi 5's Brodcom BCM2712 ARMv8 SoC
+   chip) or as a fallback the kernel8.img (generic, slower ARMv8 kernel for
+   the Pi 4 that also works for Pi 5) that you find on the Pi firmware GitHub
+   project.
+
+   See the official documentation.
+
+Setting up a generic UEFI NixOS
+
+   The task to get a generic NixOS setup requires a
+
+    1. UEFI boot loader for Pi 5: There exists a WIP EDK2 for Pi 5 Github
+       project but with a few limitations see the project for details.
+    2. systemd-boot boot loader: Works
+    3. generic Linux kernel that works for the Pi 5's ARM v8 processor and
+       hardware: An almost generic Pi 5 compatible kernel exists at the
+       NixOS-hardware repository; it's an adaption from a kernel for the Pi
+       4)
+
+  1. ROM -> 2. EEPROM -> 3. UEFI boot loader (EDK2) -> 4. systemd-boot boot loader -> Pi 4/5-adapted NixOS Kernel -> NixOS
+
+   1. Install EDK2 (UEFI firmware implementation):
+
+   We need the first partition of the SD card (or NVMe SSD, etc.) again to be
+   formatted as FAT but marked as an ESP (EFI System Partition) to conform to
+   (U)EFI standards. In this partition we need to place the EDK2 firmware
+   file RPI_EFI.fd and a config.txt file with a line armstub=RPI_EFI.fd which
+   instructs the EEPROM boot loader to load EDK2 instead of a Linux loader
+   stub.
+
+   See the EDK2 for Pi 5 Github project; the releases already contain both of
+   these files.
+
+   See a guide on how to setup partitions and these files.
+
+   2. Install systemd-boot, kernel and NixOS:
+
+   The rest is a usual NixOS installation on a second partition with the
+   caveat to select a Linux kernel that supports the Pi 5 like the Pi 5
+   compatible Linux kernel is available in nixos-hardware.
+
+   Follow this guide to build a NixOS system closure that you can install
+   manually onto the Pi with a nixos-install call. That install tool will
+   install the systemd-boot loader at /boot/EFI/systemd/systemd-bootaa64.efi
+   and the kernel files at /boot/EFI/nixos/*.efi onto your first ESP
+   partition and the rest of the NixOS system into your second partition.
+
+Alternative board-specific installation notes
+
+   First, install EDK2, following the instructions from the port README. With
+   EDK2 installed as the Platform Firmware, you can follow the standard
+   instructions for UEFI on ARM.
+
+   EDK2 enables booting a mainline kernel, but hardware support will be very
+   limited. Notably, you'll need to perform the installation using Wi-Fi, as
+   Ethernet is unsupported. Once the system is installed, you can switch to
+   the vendor's modified kernel. This is not (yet?) available in Nixpkgs, so
+   you'll need to get it from a flake. If you're not using flakes, you can
+   simply add this to your configuration:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   boot.kernelPackages = (import (builtins.fetchTarball https://gitlab.com/vriska/nix-rpi5/-/archive/main.tar.gz)).legacyPackages.aarch64-linux.linuxPackages_rpi5;
+ }
+
+   For the vendor kernel to boot properly, you must switch from ACPI to
+   Device Tree in the UEFI settings (at Device Manager → Raspberry Pi
+   Configuration → ACPI / Device Tree → System Table Mode). When using the
+   vendor kernel (which provides full power management support), you may
+   additionally wish to remove force_turbo=1 from /boot/config.txt.
+
+   If you are using nixos-unstable, then you can also use the rpi4 kernel
+   (which is a generic aarch64 kernel for Pi 3 and later models). Although,
+   due to a smaller page size, this will have slightly worse performance:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   boot.kernelPackages = pkgs.linuxPackages_rpi4;
+ }
+
+Troubleshooting
+
+  GPU
+
+   For the GPU drivers to work, dtoverlay=vc4-kms-v3d-pi5 must be added to
+   /boot/config.txt, and the vendor kernel must currently be used. Only
+   Wayland-based compositors are supported without additional configuration
+   (see the nixos-hardware PR linked previously). Note that Xwayland
+   applications may produce broken graphics on KDE; the root cause of this
+   issue has not yet been evaluated.
+
+   The rpi5-uefi download does not include overlays. You can get them by
+   copying the boot/overlays folder from the firmware repository to /boot (so
+   that /boot/overlays/vc4-kms-v3d-pi5.dtbo is available).
+
+  Bluetooth
+
+   If your Bluetooth doesn't show up, and you are getting errors in dmesg
+   regarding the serial port at 107050c00, add the following to your NixOS
+   configuration:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   boot.kernelParams = [ "8250.nr_uarts=11" "console=ttyAMA10,9600" "console=tty0"];
+ }
+
+Using the Pi 5 as a remote builder to build native ARM packages for the Pi 5
+
+   Building an NixOS system image that can be flashed to an SD card or NVMe
+   SSD requires to build ARM binaries, more specifically for the
+   "aarch64-linux"platform. From a typical Intel/AMD computer we can either
+
+     * emulated native compile using QEMU virtualization by enabling the
+       binfmt kernel feature on NixOS configuration setting
+       boot.binfmt.emulatedSystems = [ "aarch64-linux" ];). This can be fast
+       if everything is downloaded pre-compiled from the cache.nixos.org
+       cache and only few packages really need local compilation. In reality
+       it can be extremely slow, e.g. compiling a Linux kernel alone can take
+       days.
+     * cross-compile to ARM using as to happen natively, but nothing will be
+       cached from cache.nixos.org as this is not pre-build. So the compile
+       itself is fast but there will be a lot more to compile locally. In
+       practice it's quite fragile, because you may encounter packages that
+       don't really support cross-compilation get stuck.
+     * native compile on an remote builder like the Pi 5 itself running its
+       custom Debian Linux at the beginning or later NixOS. This is quite
+       simple to setup and reasonably fast as most packages are pre-build and
+       cached on cache.nixos.org, and building a remaining Linux kernel only
+       takes 2-3h on the Pi 5.
+
+   Setting up the Pi 5 as a remote native builder can be done following the
+   steps at https://wiki.nixos.org/wiki/Distributed_build. The rough steps
+   are as follows:
+
+    1. Install the Nix package manager on Pi 5 Debian OS the normal,
+       multi-user way with sh <(curl -L https://nixos.org/nix/install)
+       --daemon. If you already have NixOS running on the Pi 5, then you can
+       skip this step.
+    2. Setup a ssh connection from your local machine to the Pi, especially
+       adding SetEnv
+       PATH=/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+       to the Pi's /etc/ssh/sshd_config file. If you already have NixOS
+       running on the Pi 5, then you can skip this step.
+    3. Make the remote Pi known to you local computer by adding it as a
+       nix.buildMachines entry to your /etc/nix/configuration.nix file and
+       use connection protocol ssh-ng(!).
+    4. You can then build, e.g. an NixOS sd card image with a call similar to
+       nix build .\#nixosConfigurations.pi5.config.system.build.sdImage
+    5. flash that resulting image onto an SD card or NVMe SSD using a call
+       similar to zstdcat
+       result/sd-image/nixos-sd-image-23.11.20230703.ea4c80b-aarch64-linux.img.zst
+       | sudo dd of=/dev/mmcblk0 bs=100M status=progress and place that card
+       into the Pi 5.
+
+   Missing:
+
+    1. How to do cross-compilation.
+
+Deploy and Update the Pi 5 NixOS system once it's running NixOS
+
+   Once the Pi 5 is running NixOS, you can update it with newer NixOS system
+   configurations using e.g. the usual nix-rebuild
+
+   tool with a call similar to
+
+   nixos-rebuild --flake .#pi5 --build-host piuser@pi5 --target-host
+   piuser@pi5 --use-remote-sudo switch
+
+   that uses the SSH connection from the remote builder section.
+
+   See this guide for a good explanation of this terminal call.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Raspberry_Pi_5&oldid=16925"
+     * This page was last edited on 24 August 2024, at 14:48.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

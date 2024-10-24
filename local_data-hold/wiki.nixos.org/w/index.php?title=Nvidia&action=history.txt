@@ -1,0 +1,326 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Nvidia: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    27 September 2024
+
+     * curprev [ ] [ ] 09:1809:18, 27 September 2024‎ Loosetooth talk
+       contribs‎ m 24,273 bytes 0‎ Correct broken bullet points Tag: Visual
+       edit
+     * curprev [ ] [ ] 09:1709:17, 27 September 2024‎ Loosetooth talk
+       contribs‎ 24,273 bytes +1,176‎ No edit summary Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 08:4108:41, 27 September 2024‎ Mic92 talk contribs‎
+       23,097 bytes +58‎ fix indentation of code
+
+    21 September 2024
+
+     * curprev [ ] [ ] 00:3900:39, 21 September 2024‎ Developomp talk
+       contribs‎ m 23,039 bytes +3‎ replace rogue tab character with 4 spaces
+       for consistency Tag: Visual edit
+
+    7 August 2024
+
+     * curprev [ ] [ ] 02:1002:10, 7 August 2024‎ Artoria2e5 talk contribs‎
+       23,036 bytes +630‎ nvidia switches to open... mostly
+
+    26 July 2024
+
+     * curprev [ ] [ ] 11:5111:51, 26 July 2024‎ KucharczykL talk contribs‎
+       22,406 bytes −9‎ make the formatting information of bus IDs more
+       visible Tag: Visual edit
+
+    25 June 2024
+
+     * curprev [ ] [ ] 20:2520:25, 25 June 2024‎ Klinger talk contribs‎ m
+       22,415 bytes −1‎ fixed link to „Unfree software“ (capitalization)
+
+    23 June 2024
+
+     * curprev [ ] [ ] 09:5609:56, 23 June 2024‎ Mic92 talk contribs‎ 22,416
+       bytes +95‎ imported from old wiki
+     * curprev [ ] [ ] 09:5509:55, 23 June 2024‎ Mic92 talk contribs‎ 22,321
+       bytes +92‎ imported from old wiki
+
+    13 June 2024
+
+     * curprev [ ] [ ] 14:1014:10, 13 June 2024‎ Singiamtel talk contribs‎ m
+       22,229 bytes +75‎ Fix broken link Tag: Visual edit
+
+    2 June 2024
+
+     * curprev [ ] [ ] 22:1922:19, 2 June 2024‎ Artoria2e5 talk contribs‎ m
+       22,154 bytes +1‎ [u]serspace Tag: Visual edit: Switched
+     * curprev [ ] [ ] 21:3221:32, 2 June 2024‎ Artoria2e5 talk contribs‎
+       22,153 bytes +96‎ →‎Determining the correct driver version
+     * curprev [ ] [ ] 21:2921:29, 2 June 2024‎ Artoria2e5 talk contribs‎
+       22,057 bytes −1‎ No edit summary
+     * curprev [ ] [ ] 21:2821:28, 2 June 2024‎ Artoria2e5 talk contribs‎
+       22,058 bytes −5‎ →‎Modifying NixOS configuration
+     * curprev [ ] [ ] 21:2721:27, 2 June 2024‎ Artoria2e5 talk contribs‎
+       22,063 bytes +35‎ No edit summary
+     * curprev [ ] [ ] 21:2721:27, 2 June 2024‎ Artoria2e5 talk contribs‎
+       22,028 bytes +17‎ No edit summary
+     * curprev [ ] [ ] 21:2621:26, 2 June 2024‎ Artoria2e5 talk contribs‎
+       22,011 bytes +791‎ No edit summary
+     * curprev [ ] [ ] 17:5817:58, 2 June 2024‎ Artoria2e5 talk contribs‎
+       21,220 bytes +458‎ No edit summary
+     * curprev [ ] [ ] 17:5217:52, 2 June 2024‎ Artoria2e5 talk contribs‎
+       20,762 bytes −55‎ →‎Laptop configuration: hybrid graphics (Nvidia
+       Optimus PRIME): Shorten headings
+     * curprev [ ] [ ] 17:5117:51, 2 June 2024‎ Artoria2e5 talk contribs‎
+       20,817 bytes +229‎ →‎Installing Nvidia drivers on NixOS: What is this
+       AI yapping? "Distributions" when we are talking about just ours?
+       Whoever wrote this, I challenge you to a duel.
+     * curprev [ ] [ ] 17:4417:44, 2 June 2024‎ Artoria2e5 talk contribs‎
+       20,588 bytes +109‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 17:2017:20, 2 June 2024‎ Artoria2e5 talk contribs‎
+       20,479 bytes +256‎ No edit summary
+
+    29 May 2024
+
+     * curprev [ ] [ ] 13:4613:46, 29 May 2024‎ Gerg-L talk contribs‎ 20,223
+       bytes −227‎ That way of specifying drivers has been deprecated for a
+       long time Tags: Mobile edit Mobile web edit
+
+    26 May 2024
+
+     * curprev [ ] [ ] 22:4022:40, 26 May 2024‎ Samemrecebi talk contribs‎
+       20,450 bytes +235‎ Added NVIDIA prime option for AMD GPUs that was
+       missing. Also made it clear that AMD integrated GPUs will also work
+       with NVIDIA prime offload. I added this change to the old wiki too and
+       was copied from there. Tag: Visual edit
+
+    28 April 2024
+
+     * curprev [ ] [ ] 01:4701:47, 28 April 2024‎ Gerg-L talk contribs‎
+       20,215 bytes +2‎ switch to unstable nixpkgs wiki link Tag: Visual edit
+
+    27 April 2024
+
+     * curprev [ ] [ ] 15:1115:11, 27 April 2024‎ Ame talk contribs‎ m 20,213
+       bytes 0‎ Fix anchor link Tag: Visual edit: Switched
+
+    26 April 2024
+
+     * curprev [ ] [ ] 08:3608:36, 26 April 2024‎ Ponder talk contribs‎
+       20,213 bytes +84‎ Copyedit 1st heading & 1st sentence, link unfree
+       software, case in headings throughout Tag: Visual edit
+
+    11 April 2024
+
+     * curprev [ ] [ ] 07:4307:43, 11 April 2024‎ Drupol talk contribs‎
+       20,129 bytes +229‎ Update configuration file with comment Tag: Visual
+       edit
+
+    1 April 2024
+
+     * curprev [ ] [ ] 14:1514:15, 1 April 2024‎ Mic92 talk contribs‎ 19,900
+       bytes −20‎ fix links
+
+    28 March 2024
+
+     * curprev [ ] [ ] 09:4609:46, 28 March 2024‎ imported>Ncfavier‎ 19,920
+       bytes −27‎ Remove outdated comment about nvidiaLegacy* drivers (see
+       nixpkgs#298956)
+
+    3 March 2024
+
+     * curprev [ ] [ ] 23:4123:41, 3 March 2024‎
+       imported>Jasper-at-windswept‎ 19,947 bytes +356‎ Update to match pull
+       request on Nixpkgs #290938 and reference help for obtaining driver
+       version 535
+
+    27 February 2024
+
+     * curprev [ ] [ ] 02:1502:15, 27 February 2024‎
+       imported>Jmarmstrong1207‎ m 19,591 bytes 0‎ →‎Disable Nvidia dGPU
+       completley: fix typos
+     * curprev [ ] [ ] 02:0202:02, 27 February 2024‎
+       imported>Jmarmstrong1207‎ m 19,591 bytes +216‎ Add info about how
+       powermanagement.enable can fix graphics corruption issues
+
+    26 February 2024
+
+     * curprev [ ] [ ] 18:2818:28, 26 February 2024‎ imported>Haemeah‎ m
+       19,375 bytes +27‎ mention legacy drivers for
+       services.xserver.videoDrivers
+
+    21 February 2024
+
+     * curprev [ ] [ ] 10:4510:45, 21 February 2024‎ imported>Camini‎ m
+       19,348 bytes +217‎ No edit summary
+
+    20 February 2024
+
+     * curprev [ ] [ ] 23:2023:20, 20 February 2024‎ imported>Camini‎ 19,131
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 23:1823:18, 20 February 2024‎ imported>Camini‎ 19,131
+       bytes +2,066‎ Add special config to pin unstable driver for RTX Super
+       card
+
+    18 February 2024
+
+     * curprev [ ] [ ] 14:4714:47, 18 February 2024‎ imported>Veterinarian‎
+       17,065 bytes +138‎ Searching for nixox and nvidia on DuckDuckGo brings
+       up this page but this method does not work for my RTX1030. The method
+       in the manual is simpler and actually worked.
+
+    3 February 2024
+
+     * curprev [ ] [ ] 13:5513:55, 3 February 2024‎ imported>RamReso‎ 16,927
+       bytes +7‎ No edit summary
+
+    17 January 2024
+
+     * curprev [ ] [ ] 06:3606:36, 17 January 2024‎ imported>Haemeah‎ m
+       16,920 bytes +33‎ give name to (nvidiaPackages repository list)-link
+     * curprev [ ] [ ] 06:3306:33, 17 January 2024‎ imported>Haemeah‎ m
+       16,887 bytes +247‎ add legacy_470 and link full list of options
+
+    10 December 2023
+
+     * curprev [ ] [ ] 14:2114:21, 10 December 2023‎ imported>Onny‎ 16,640
+       bytes +1,164‎ Add note on disable Nvidia dGPU
+
+    18 November 2023
+
+     * curprev [ ] [ ] 23:1023:10, 18 November 2023‎ imported>Srestegosaurio‎
+       15,476 bytes +324‎ Recommends checking out the NixosHardware project
+       since their modules usually take care of GPU drivers.
+     * curprev [ ] [ ] 22:5622:56, 18 November 2023‎ imported>Srestegosaurio‎
+       m 15,152 bytes +2‎ Fix syntax highlighting
+
+    4 November 2023
+
+     * curprev [ ] [ ] 03:1403:14, 4 November 2023‎ imported>Hypnosis2839‎ m
+       15,150 bytes −1‎ →‎Modifying NixOS Configuration
+     * curprev [ ] [ ] 03:1303:13, 4 November 2023‎ imported>Hypnosis2839‎
+       15,151 bytes −4‎ →‎Modifying NixOS Configuration: open drivers
+       shouldn't be recommended
+
+    16 October 2023
+
+     * curprev [ ] [ ] 09:1909:19, 16 October 2023‎ imported>Daniel-fahey‎
+       15,155 bytes +103‎ To help new users spot the PCI bus info hex->dec
+       gotcha, example PCI bus ID from `lshw` includes a hexadecimal
+
+    13 September 2023
+
+     * curprev [ ] [ ] 21:3221:32, 13 September 2023‎ imported>Pmarreck‎ m
+       15,052 bytes 0‎ The "production" option now installs nvidia driver
+       535.x.x (I am running it currently)
+
+    11 September 2023
+
+     * curprev [ ] [ ] 17:4517:45, 11 September 2023‎ imported>Nadimkobeissi‎
+       15,052 bytes +184‎ No edit summary
+     * curprev [ ] [ ] 17:4017:40, 11 September 2023‎ imported>Nadimkobeissi‎
+       14,868 bytes −72‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Nvidia"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

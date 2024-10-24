@@ -1,0 +1,122 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Making it more legible for newcomers
+   [ ] Toggle the table of contents
+
+                                  Talk:Flakes
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 21:38, 5 April 2024 by Dvntsemicolon (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   A lot of the attributes listed in the schema are out of date.
+
+     ----------------------------------------------------------------------
+
+    1. Using flakes with NixOS
+
+   looks like upgrading NixOS when using flakes now requires
+
+   ``` $ nixos-rebuild switch --upgrade --recreate-lock-file ```
+
+     ----------------------------------------------------------------------
+
+   I noticed that a lot of people complain that flakes are hard to
+   understand. The first paragraph of this article used to be very confusing
+   and didn't really capture what I feel flakes are truly about. I've
+   rewritten it to be more direct about the local locking of dependencies,
+   which is what I see as the truly essential flake feature. -- User:Sid-code
+
+Making it more legible for newcomers
+
+   There are a couple of changes I'd love to see to start, but the whole
+   article overall needs a revamp.
+
+   1. A section explaining how flakes are relevant for desktop use 2. A basic
+   example flake for people to look at and use on their own system, with
+   comments explaining what each line does
+
+   There will come a time when flakes aren't experimental, and such widely
+   used features will need good, easy to understand documentation.
+
+     ----------------------------------------------------------------------
+
+   The user guide documentation needs to resist diving into reference style
+   rabbit holes at every step. I'm trying to get a simple flake based project
+   running but I find I need to read about _all_ the options for flake
+   schema. It seems like there are better places for that information. And,
+   BTW, `nix flake init` works but no subsequent flake command works and I
+   don't know what to do next. I'll figure it out, but probably not using
+   this documentation. — User:Dani2620
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Flakes&oldid=11676"
+     * This page was last edited on 5 April 2024, at 21:38.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

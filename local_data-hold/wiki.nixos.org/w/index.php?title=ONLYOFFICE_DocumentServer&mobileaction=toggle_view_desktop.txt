@@ -1,0 +1,152 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+          * 2.1 Change default listening port
+          * 2.2 Caddy web server
+   [ ] Toggle the table of contents
+
+                           ONLYOFFICE DocumentServer
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   ONLYOFFICE DocumentServer is a full-featured backend for editing different
+   office documents like Open Document, Word, Excel, etc. online in your
+   browser. The software is open source and can be easily deployed and
+   integrated into existing server software. Available frontends are
+   Nextcloud or the ONLYOFFICE CommunityServer. It can also be used in own
+   software, see following examples for PHP, Node.js, etc.
+
+Installation
+
+   A minimal example to get a ONLYOFFICE DocumentServer running on localhost
+   should look like this
+
+ /etc/nixos/configuration.nix
+
+ services.onlyoffice = {
+   enable = true;
+   hostname = "localhost";
+   jwtSecretFile = config.age.secrets.onlyoffice-jwt.path;
+ };
+
+Configuration
+
+  Change default listening port
+
+   In case port 80 is already used by a different application, or you're
+   using a different web server than Nginx, which is used by the ONLYOFFICE
+   module, you can change the listening port with the following option:
+
+ /etc/nixos/configuration.nix
+
+ services.nginx.virtualHosts."localhost".listen = [ { addr = "127.0.0.1"; port = 8080; } ];
+
+  Caddy web server
+
+   Warning: Onlyoffice is very particular about it headers and if there are
+   some missing or different than what upstream expects, a seemingly
+   completely unrelated portion of the software like font rendering can
+   break. The module maintainer can only fully support nginx as this is the
+   only webserver upstream supplies config files for in their docker image
+
+   Instead of using the default Nginx web server, a configuration for Caddy
+   might look like this
+
+ /etc/nixos/configuration.nix
+
+ services.nginx.enable = lib.mkForce false;
+ users.users.nginx = {
+   group = "nginx";
+   isSystemUser = true;
+ };
+ users.groups.nginx = {};
+
+ services.caddy = {
+   virtualHosts = {
+     "office.example.org".extraConfig = ''
+       reverse_proxy http://127.0.0.1:8000 {
+         # Required to circumvent bug of Onlyoffice loading mixed non-https content
+         header_up X-Forwarded-Proto https
+       }
+     '';
+   };
+ };
+
+   The reverse_proxy configuration directly forwards all requests to the
+   ONLYOFFICE server, ignoring the default Nginx vhost.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=ONLYOFFICE_DocumentServer&oldid=16863"
+   Categories:
+     * Server
+     * Web Applications
+     * This page was last edited on 22 August 2024, at 05:38.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

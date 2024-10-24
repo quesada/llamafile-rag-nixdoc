@@ -1,0 +1,124 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Troubleshooting
+     * 2 See also
+   [ ] Toggle the table of contents
+
+                                     Bazel
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Bazel is a build system for software development that attempts to create a
+   hermetic build by bootstrapping the toolchain from known sources and
+   binaries. Unfortunately, the desire to be hermetic is more aspirational
+   than exact, and can run into some problems.
+
+   Bazel downloads binaries (for example, protoc for compiling protocol
+   buffers, or the go sdk) which are dynamically linked, expecting an FHS
+   environment.
+
+   The easiest way to use bazel is with nix-shell by creating a file called
+   shell.nix in the root of the project (alongside the WORKSPACE):
+
+  { pkgs ? import <nixpkgs> {} }:
+ 
+  (pkgs.buildFHSUserEnv {
+    name = "bazel-userenv-example";
+    targetPkgs = pkgs: [
+      pkgs.bazel
+      pkgs.glibc
+      pkgs.gcc
+    ];
+  }).env
+
+   You can then run `nix-shell` from the root of the project before calling
+   bazel.
+
+   While there are solutions for simplifying the use of a shell.nix like
+   direnv, lorri, and devenv, they are not compatible with a shell.nix that
+   creates an FHS environment, since the FHS environment requires a sub-shell
+   to properly setup the chroot, and the three tools above only support
+   making changes to environment variables.
+
+Troubleshooting
+
+   In some versions of bazel, the sandboxing does not inherit the FHS
+   environment, and elements of the toolchain (notably protoc) may fail to
+   run. In that case, switching to pkgs.bazel_4 should solve the problem.
+
+See also
+
+     * buildBazelPackage implementation
+     * buildBazelPackage used in nixpkgs
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Bazel&oldid=8756"
+   Category:
+     * Applications
+     * This page was last edited on 2 November 2022, at 13:53.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

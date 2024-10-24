@@ -1,0 +1,530 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installing scanner support
+     * 2 Testing scanner support
+     * 3 Supported backends
+          * 3.1 Driverless Apple AirScan and Microsoft WSD
+          * 3.2 HP
+          * 3.3 Epson
+          * 3.4 SnapScan firmware
+          * 3.5 Brother
+     * 4 GIMP support
+     * 5 Network scanning
+     * 6 Using the scanner button
+     * 7 See also
+          * 7.1 Scanner firmware files
+   [ ] Toggle the table of contents
+
+                                    Scanners
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Installing scanner support
+
+   Scanner support is provided by the SANE library. To enable scanner
+   support, amend your system configuration like so:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   ...
+   hardware.sane.enable = true; # enables support for SANE scanners
+   ...
+ }
+
+   Users in the scanner group will gain access to the scanner, or the lp
+   group if it’s also a printer. To add yourself to these groups, amend your
+   system configuration as follows:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   ...
+   users.users.YOURUSERNAME.extraGroups = [ "scanner" "lp" ];
+   ...
+ }
+
+     Tip                                                                      
+     In order to affect your system by your nix-language-specific changes you 
+     have to evaluate it, run (as root):                                      
+                                                                              
+     # nixos-rebuild switch                                                   
+
+     Tip                                                                      
+     The detection of installed backends by SANE depends on the               
+     LD_LIBRARY_PATH environment variable, which is set at login. You will    
+     need to logout and login again for backend changes to take effect after  
+     evaluation.                                                              
+
+Testing scanner support
+
+   To determine if your scanner is supported by SANE:
+
+ $ scanimage -L
+
+   If you can only see scanners when running as root, try adding the user to
+   the scanner or lp groups, either using the method given above, or as
+   follows (beware, don't forget to logout/login after running this command):
+
+ $ sudo usermod -a -G scanner,lp username
+
+Supported backends
+
+   See the Supported Devices page to check if your scanner is supported. Some
+   backends are proprietary and are not installed by default; see below. You
+   may also be interested in "driverless" scanning (see below) if your
+   scanner supports Apple AirScan and/or Microsoft WSD.
+
+  Driverless Apple AirScan and Microsoft WSD
+
+   A large number of printers now support "driverless" scanning. As explained
+   at the sane-airscan backend project:
+
+     Driverless scanning comes in two flavors:
+
+       * Apple AirScan or AirPrint scanning (official protocol name is eSCL)
+       * Microsoft WSD, or WS-Scan (Web Services for Devices)
+
+     This backend implements both protocols, choosing automatically between
+     them. It was successfully tested with many devices from Brother, Canon,
+     Dell, Kyocera, Lexmark, Epson, HP, Panasonic, Ricoh, Samsung and Xerox,
+     both in WSD and eSCL modes.
+
+     For eSCL devices, Apple maintains a comprehensive list of compatible
+     devices. This list has scanners, multifunction devices and pure
+     printers.
+
+   eSCL/Apple Airscan scanners should be found natively by the default escl
+   backend. However, the sane-airscan third party backend is more actively
+   maintained and you may have better luck using it:
+
+ hardware.sane.extraBackends = [ pkgs.sane-airscan ];
+ services.udev.packages = [ pkgs.sane-airscan ];
+
+   It can be that your scanner is found twice (once by escl and once by
+   airscan, in this case disable escl:
+
+ hardware.sane.disabledDefaultBackends = [ "escl" ];
+
+   To detect Microsoft WSD "driverless" scanning, also use the sane-airscan
+   backend.
+
+   If the scanner is connected by USB, also set the following option:
+
+ services.ipp-usb.enable=true;
+
+  HP
+
+ hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
+
+  Epson
+
+   If your scanner is listed as supported by the epkowa backend:
+
+ hardware.sane.extraBackends = [ pkgs.epkowa ];
+
+   Some other scanners (see list) need the utsushi backend:
+
+ hardware.sane.extraBackends = [ pkgs.utsushi ];
+ services.udev.packages = [ pkgs.utsushi ];
+
+  SnapScan firmware
+
+   Many scanners require firmware blobs which can be downloaded from the
+   website of the scanner or extracted from the drivers they provide. Once
+   you have the appropriate firmware you need to tell SANE where to find it
+   in your configuration.nix:
+
+ {
+   hardware.sane.enable = true;
+   hardware.sane.drivers.scanSnap.enable = true;
+   # the below may be necessary
+   nixpkgs.config.sane.snapscanFirmware = pkgs.fetchurl {
+     # https://wiki.ubuntuusers.de/Scanner/Epson_Perfection/#Unterstuetzte-Geraete
+     url = "https://media-cdn.ubuntu-de.org/wiki/attachments/52/46/Esfw41.bin"; #Epson Perfection 2480
+     sha256 = "00cv25v4xlrgp3di9bdfd07pffh9jq2j0hncmjv3c65m8bqhjglq";
+   };
+ }
+
+  Brother
+
+   Brother currently provides four different scanner backends for various
+   generations of its scanners. The newest (brscan4) is supported as a
+   loadable submodule in NixOS. It can be activated by importing the
+   appropriate file into /etc/nixos/configuration.nix:
+
+ {
+   ...
+   imports = [
+     <nixpkgs/nixos/modules/services/hardware/sane_extra_backends/brscan4.nix>
+     ./hardware-configuration.nix
+   ];
+   ...
+ }
+
+   Then just add a scanner in the sane module:
+
+ {
+   ...
+   hardware = {
+     sane = {
+       enable = true;
+       brscan4 = {
+         enable = true;
+         netDevices = {
+           home = { model = "MFC-L2700DN"; ip = "192.168.178.23"; };
+         };
+       };
+     };
+   };
+   ...
+ }
+
+   In some cases, configuration changes may not take effect until after a
+   reboot.
+
+GIMP support
+
+   To enable support for scanning in GIMP:
+
+    1. You need to install a special version of xsane, which you can enable
+       by amending /etc/nixos/configuration.nix as follows:
+
+ {
+   ...
+   nixpkgs.config.packageOverrides = pkgs: {
+     xsaneGimp = pkgs.xsane.override { gimpSupport = true; };
+   };
+   ...
+ }
+
+    2. Rebuild:
+
+ $ sudo nixos-rebuild switch
+
+    3. Finally, you will need to manually create a symlink:
+
+ $ ln -s /run/current-system/sw/bin/xsane ~/.config/GIMP/2.10/plug-ins/xsane
+
+Network scanning
+
+   If NixOs cannot find a scanner located on your network, you may be
+   interested in adding in your configuration.nix:
+
+ {
+   ...
+   services.avahi.enable = true;
+   services.avahi.nssmdns = true;
+   ...
+ }
+
+   Currently (2017-08-16) the SANE backend does not support overriding
+   according to [IMG] nixpkgs issue #17411. The workaround for this is to
+   download michaelrus's sane-extra-config.nix, copy it to
+   /etc/nixos/sane-extra-config.nix and import it in
+   /etc/nixos/configuration.nix as follows:
+
+ {
+   ...
+   imports = [
+     ...
+     ./sane-extra-config.nix
+     ...
+   ];
+  ...
+  hardware.sane.extraConfig."magicolor" = ''
+    net 10.0.0.30 0x2098
+  ''; # Magicolor 1690mf
+  ...
+ }
+
+Using the scanner button
+
+   Many scanners feature a hardware button which makes for very convenient
+   operation, especially in combination with an automated document processing
+   system like paperless. NixOS includes the scanner button daemon scanbd
+   which can be used for this purpose; however, its setup isn't terribly user
+   friendly.
+
+   Basic scanbd configuration requires us to provide:
+
+    1. a config file;
+    2. a script to execute the scanning sequence;
+    3. a systemd service that loads the config file, starts polling the
+       scanner, and executes the script when it detects a button press.
+
+     Tip                                                                      
+     As scanbd continuously polls the scanner, it can't be used at the same   
+     time by SANE, which must be disabled.                                    
+
+   There is a more advanced configuration which allows sharing the scanner
+   with SANE frontends, but I haven't yet figured out how to set this up
+   under NixOS (the config is a bit recursive).
+
+   Full documentation is in the project README.
+
+   kliu's blog includes in his writeup a nice script, bits of which have been
+   cribbed here.
+
+   Here is a working derivation that dumps the scanned document into the
+   paperless intake directory; you'll need to modify it to suit your own
+   needs.
+
+ { config, lib, pkgs, ... }:
+
+ with lib;
+
+ let
+   configDir = "/etc/scanbd";
+   saneConfigDir = "${configDir}/sane.d";
+
+   scanbdConf = pkgs.writeText "scanbd.conf"
+     ''
+       global {
+         debug = true
+         debug-level = ${toString config.services.scanbd.debugLevel}
+         user = ${config.services.scanbd.user}
+         group = ${config.services.scanbd.group}
+         scriptdir = ${configDir}/scripts
+         pidfile = ${config.services.scanbd.pidFile}
+         timeout = ${toString config.services.scanbd.timeOut}
+         environment {
+           device = "SCANBD_DEVICE"
+           action = "SCANBD_ACTION"
+         }
+
+         multiple_actions = true
+         action scan {
+           filter = "^scan.*"
+           numerical-trigger {
+             from-value = 1
+             to-value = 0
+           }
+           desc = "Scan to file"
+           script = "scan.script"
+         }
+         ${config.services.scanbd.extraConfig}
+       }
+     '';
+
+   scanScript = pkgs.writeScript "scanbd_scan.script"
+     ''
+       #! ${pkgs.bash}/bin/bash
+       export PATH=${lib.makeBinPath [ pkgs.coreutils pkgs.sane-frontends pkgs.sane-backends pkgs.ghostscript pkgs.imagemagick ]}
+       set -x
+       date="$(date --iso-8601=seconds)"
+       filename="Scan $date.pdf"
+       tmpdir="$(mktemp -d)"
+       pushd "$tmpdir"
+       scanadf -d "$SCANBD_DEVICE" --source "ADF Duplex" --mode Gray --resolution 200dpi
+
+       # Convert any PNM images produced by the scan into a PDF with the date as a name
+       convert image* -density 200 "$filename"
+       chmod 0666 "$filename"
+
+       # Remove temporary PNM images
+       rm --verbose image*
+
+       # Atomic move converted PDF to destination directory
+       paperlessdir="/var/lib/paperless/consume"
+       cp -pv "$filename" $paperlessdir/"$filename".tmp &&
+       mv $paperlessdir/"$filename".tmp $paperlessdir/"$filename" &&
+       rm "$filename"
+
+       popd
+       rm -r "$tmpdir"
+     '';
+
+ in
+
+ {
+
+   ###### interface
+   options = {
+
+     services.scanbd.enable = mkOption {
+       type = types.bool;
+       default = false;
+       description = ''
+         Enable support for scanbd (scanner button daemon).
+
+         <note><para>
+           If scanbd is enabled, then saned must be disabled.
+         </para></note>
+       '';
+     };
+
+     services.scanbd.user = mkOption {
+       type = types.str;
+       default = "scanner";
+       example = "";
+       description = ''
+         scanbd daemon user name.
+       '';
+     };
+
+     services.scanbd.group = mkOption {
+       type = types.str;
+       default = "scanner";
+       example = "";
+       description = ''
+         scanbd daemon group name.
+       '';
+     };
+
+     services.scanbd.extraConfig = mkOption {
+       type = types.lines;
+       default = "";
+       example = ''
+         device canon {
+           filter = "^genesys.*"
+           desc = "Canon LIDE"
+           action file {
+             filter = "^file.*"
+             desc = "File"
+             script = "copy.script"
+           }
+         }
+         '';
+       description = ''
+         Extra configuration lines included verbatim in scanbd.conf.
+         Use e.g. in lieu of including device-specific config templates
+         under scanner.d/
+       '';
+     };
+
+     services.scanbd.pidFile = mkOption {
+       type = types.str;
+       default = "/var/run/scanbd.pid";
+       example = "";
+       description = ''
+         PID file path.
+       '';
+     };
+
+     services.scanbd.timeOut = mkOption {
+       type = types.int;
+       default = 500;
+       example = "";
+       description = ''
+         Device polling timeout (in ms).
+       '';
+     };
+
+     services.scanbd.debugLevel = mkOption {
+       type = types.int;
+       default = 3;
+       example = "";
+       description = ''
+         Debug logging (1=error, 2=warn, 3=info, 4-7=debug)
+       '';
+     };
+
+   };
+
+   ###### implementation
+   config = mkIf config.services.scanbd.enable {
+
+       users.groups.scanner.gid = config.ids.gids.scanner;
+       users.users.scanner = {
+         uid = config.ids.uids.scanner;
+         group = "scanner";
+       };
+
+       environment.etc."scanbd/scanbd.conf".source = scanbdConf;
+       environment.etc."scanbd/scripts/scan.script".source = scanScript;
+       environment.etc."scanbd/scripts/test.script".source = "${pkgs.scanbd}/etc/scanbd/test.script";
+
+       systemd.services.scanbd = {
+         enable = true;
+         description = "Scanner button polling service";
+         documentation = [ "https://sourceforge.net/p/scanbd/code/HEAD/tree/releases/1.5.1/integration/systemd/README.systemd" ];
+         script = "${pkgs.scanbd}/bin/scanbd -c ${configDir}/scanbd.conf -f";
+         wantedBy = [ "multi-user.target" ];
+         aliases = [ "dbus-de.kmux.scanbd.server.service" ];
+       };
+ }
+
+See also
+
+  Scanner firmware files
+
+     * Agfa Snapscan e40
+     * Misc Agfa Snapscan | IPFS mirror
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Scanners&oldid=16654"
+   Category:
+     * Hardware
+     * This page was last edited on 12 August 2024, at 10:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

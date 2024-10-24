@@ -1,0 +1,189 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Contributing: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    3 September 2024
+
+     * curprev [ ] [ ] 06:1006:10, 3 September 2024‎ Klinger talk contribs‎ m
+       11,304 bytes +3‎ →‎2.4 Submitting edits: MoS link added Tags: Mobile
+       edit Mobile web edit
+
+    2 September 2024
+
+     * curprev [ ] [ ] 19:4919:49, 2 September 2024‎ Klinger talk contribs‎
+       11,301 bytes +126‎ →‎2.6 Advanced contributions
+     * curprev [ ] [ ] 19:4319:43, 2 September 2024‎ Klinger talk contribs‎ m
+       11,175 bytes +90‎ added references section with link to „types of
+       documentation"
+     * curprev [ ] [ ] 19:3219:32, 2 September 2024‎ Klinger talk contribs‎
+       11,085 bytes −1‎ changed into sentence case Tag: Visual edit
+     * curprev [ ] [ ] 19:2219:22, 2 September 2024‎ Klinger talk contribs‎
+       11,086 bytes +263‎ →‎Contributing to the documentation: (moved content
+       here)
+     * curprev [ ] [ ] 19:2019:20, 2 September 2024‎ Klinger talk contribs‎ m
+       10,823 bytes +2‎ typo
+     * curprev [ ] [ ] 19:1919:19, 2 September 2024‎ Klinger talk contribs‎
+       10,821 bytes +309‎ added paragraph at the beginning with section
+       links. Restructured the sections (2 short in the beginning, then wiki,
+       then Nixpkgs) Tag: Visual edit
+
+    10 July 2024
+
+     * curprev [ ] [ ] 19:4019:40, 10 July 2024‎ 0x4A6F talk contribs‎ 10,512
+       bytes +8‎ remove link to legacy wiki
+
+    4 July 2024
+
+     * curprev [ ] [ ] 15:5415:54, 4 July 2024‎ Layer-09 talk contribs‎ m
+       10,504 bytes −45‎ Undo revision 13715 by Layer-09 (talk) Tag: Undo
+     * curprev [ ] [ ] 15:5315:53, 4 July 2024‎ Layer-09 talk contribs‎ m
+       10,549 bytes +45‎ No edit summary Tag: Visual edit
+
+    20 June 2024
+
+     * curprev [ ] [ ] 16:3616:36, 20 June 2024‎ Layer-09 talk contribs‎ m
+       10,504 bytes −86‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 16:3516:35, 20 June 2024‎ Layer-09 talk contribs‎ m
+       10,590 bytes −36‎ Removed some bold from text Tag: Visual edit
+     * curprev [ ] [ ] 16:3416:34, 20 June 2024‎ Layer-09 talk contribs‎ m
+       10,626 bytes −6‎ Had to check something Tag: Visual edit
+     * curprev [ ] [ ] 16:3316:33, 20 June 2024‎ Layer-09 talk contribs‎ m
+       10,632 bytes +80‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 16:3116:31, 20 June 2024‎ Layer-09 talk contribs‎ m
+       10,552 bytes −44‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 16:3116:31, 20 June 2024‎ Layer-09 talk contribs‎
+       10,596 bytes +2,836‎ Reviewed existing information, added links and
+       further details. Removed warning. Tag: Visual edit
+     * curprev [ ] [ ] 10:4610:46, 20 June 2024‎ Layer-09 talk contribs‎
+       7,760 bytes +5,693‎ I supplemented the page with more information, but
+       it's still undergoing changes. I added a warning. Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:1020:10, 24 April 2024‎ Klinger talk contribs‎ m
+       2,067 bytes +25‎ No edit summary
+
+    8 April 2024
+
+     * curprev [ ] [ ] 20:4920:49, 8 April 2024‎ Patka talk contribs‎ m 2,042
+       bytes −29‎ Unclear what the link was meant for. it is currently not
+       working so lets get rid of it. Tag: Visual edit
+     * curprev [ ] [ ] 20:3020:30, 8 April 2024‎ Patka talk contribs‎ 2,071
+       bytes −113‎ Clean a few sentences and add/update links. Tag: Visual
+       edit: Switched
+
+    24 April 2023
+
+     * curprev [ ] [ ] 03:0103:01, 24 April 2023‎ imported>Winny‎ 2,184 bytes
+       +376‎ →‎Contributing packages to nixpkgs: nur
+     * curprev [ ] [ ] 02:5602:56, 24 April 2023‎ imported>Winny‎ 1,808 bytes
+       0‎ →‎Support other users
+     * curprev [ ] [ ] 02:5502:55, 24 April 2023‎ imported>Winny‎ 1,808 bytes
+       +394‎ No edit summary
+     * curprev [ ] [ ] 02:5002:50, 24 April 2023‎ imported>Winny‎ 1,414 bytes
+       +1,414‎ dedicated page on how to contribute
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Contributing"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

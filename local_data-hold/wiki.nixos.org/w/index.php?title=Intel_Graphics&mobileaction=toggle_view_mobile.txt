@@ -1,0 +1,135 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Driver
+     * 2 Video acceleration
+     * 3 Quick Sync Video
+     * 4 12th Gen (Alder Lake)
+   [ ] Toggle the table of contents
+
+                                 Intel Graphics
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Driver
+
+   Refer to the Intel Graphics drivers section of the NixOS manual.
+
+Video acceleration
+
+   To enable hardware (GPU) accelerated video decoding and encoding you need
+   to add additional entries in hardware.graphics.extraPackages (see
+   accelerated video playback).
+
+Quick Sync Video
+
+   Intel Quick Sync Video (QSV) is a hardware accelerated media conversion
+   framework for Intel GPUs. Applications that can be accelerated using QSV
+   include OBS Studio and ffmpeg.
+
+   QSV support can be used through either Intel Media SDK or Intel VPL. Intel
+   VPL supersedes the now deprecated Media SDK.
+
+   Both libraries dispatch to a backing implementation that is different
+   depending on the GPU generation at runtime. You need to add either
+   intel-media-sdk or vpl-gpu-rt (previously onevpl-intel-gpu) to
+   hardware.graphics.extraPackages. You can check the this table to decide
+   whether you need the Media SDK or VPL GPU runtime.
+
+   Sample configuration:
+
+   hardware.graphics = { # hardware.opengl in 24.05
+     enable = true;
+     extraPackages = with pkgs; [
+       ... # your Open GL, Vulkan and VAAPI drivers
+       vpl-gpu-rt # or intel-media-sdk for QSV
+     ];
+   };
+
+12th Gen (Alder Lake)
+
+   The X Server may fail to start with the newer 12th generation, Alder Lake,
+   iRISxe integrated graphics chips. If this is the case, you can give the
+   kernel a hint as to what driver to use. First confirm the graphic chip's
+   device ID by running in a terminal:
+
+ $ nix-shell -p pciutils --run "lspci -nn | grep VGA"
+ 00:02.0 VGA compatible controller [0300]: Intel Corporation Alder Lake-UP3 GT2 [Iris Xe Graphics] [8086:46a8] (rev 0c)
+
+   In this example, "46a8" is the device ID. You can then add this to your
+   configuration and reboot:
+
+ boot.kernelParams = [ "i915.force_probe=<device ID>" ];
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Intel_Graphics&oldid=13607"
+   Category:
+     * Video
+     * This page was last edited on 27 June 2024, at 05:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

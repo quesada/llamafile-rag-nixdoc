@@ -1,0 +1,369 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Usage
+          * 2.1 Pairing devices from the command line
+     * 3 Using Bluetooth headsets with PulseAudio
+     * 4 Using Bluetooth headset buttons to control media player
+          * 4.1 System-Wide PulseAudio
+          * 4.2 Enabling extra codecs
+          * 4.3 Enabling A2DP Sink
+          * 4.4 Managing audio devices
+     * 5 Showing battery charge of bluetooth devices
+     * 6 Troubleshooting
+          * 6.1 USB device needs to be unplugged/re-plugged after suspend
+          * 6.2 When connecting to an audio device: Failed to connect:
+            org.bluez.Error.Failed
+          * 6.3 Bluetooth fails to power on with Failed to set power on:
+            org.bluez.Error.Blocked
+          * 6.4 Cannot use bluetooth while it previously worked
+          * 6.5 No audio when using headset in HSP/HFP mode
+     * 7 See also
+   [ ] Toggle the table of contents
+
+                                   Bluetooth
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 20:06, 19 October 2024 by Onny (talk | contribs) (Cleanup)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Setup
+
+   To enable support for Bluetooth devices, amend your system configuration
+   as follows and apply changes:
+
+ /etc/nixos/configuration.nix
+
+ hardware.bluetooth.enable = true;
+
+Usage
+
+   In order to use Bluetooth devices, they must be paired with your NixOS
+   machine. Heavier desktop environments will usually provide a Bluetooth
+   management GUI which you can use to pair devices.
+
+   If your desktop environment does not provide such a GUI, you can
+   additionally enable the blueman service, which provides blueman-applet and
+   blueman-manager with the snippet below.
+
+ services.blueman.enable = true;
+
+   Another option for a GUI based Bluetooth management GUI can be overskirde
+
+   Alternatively if you wish to use a TUI^[1] then check out bluetuith or
+   bluetui
+
+  Pairing devices from the command line
+
+   Alternatively, Bluetooth devices can be paired from the command line using
+   bluetoothctl.
+
+ $ bluetoothctl
+ [bluetooth] # power on
+ [bluetooth] # agent on
+ [bluetooth] # default-agent
+ [bluetooth] # scan on
+ ...put device in pairing mode and wait [hex-address] to appear here...
+ [bluetooth] # pair [hex-address]
+ [bluetooth] # connect [hex-address]
+
+   Bluetooth devices automatically connect with bluetoothctl as well:
+
+ $ bluetoothctl
+ [bluetooth] # trust [hex-address]
+
+Using Bluetooth headsets with PulseAudio
+
+   To allow Bluetooth audio devices to be used with PulseAudio, amend
+   /etc/nixos/configuration.nix as follows:
+
+ {
+   hardware.pulseaudio.enable = true;
+   hardware.bluetooth.enable = true;
+ }
+
+    Tip                                                                       
+    In order to affect your system by your nix-language-specific changes you  
+    have to evaluate it, run (as root):                                       
+                                                                              
+    # nixos-rebuild switch                                                    
+
+   You will need to restart PulseAudio; try systemctl --user daemon-reload;
+   systemctl --user restart pulseaudio.
+
+   You can verify that PulseAudio has loaded the Bluetooth module by running
+   pactl list | grep -i 'Name.*module.*blue'; Bluetooth modules should be
+   present in the list.
+
+Using Bluetooth headset buttons to control media player
+
+   Some bluetooth headsets have buttons for pause/play or to skip to the next
+   track. To make these buttons usable with media players supporting the
+   dbus-based MPRIS standard, one can use mpris-proxy that is part of bluez
+   package. The following snippet can be used in Home Manager to start this
+   program as a daemon:
+
+ systemd.user.services.mpris-proxy = {
+     description = "Mpris proxy";
+     after = [ "network.target" "sound.target" ];
+     wantedBy = [ "default.target" ];
+     serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+ };
+
+   Or, starting with Home Manager 21.05, enable the mpris-proxy service.
+
+  System-Wide PulseAudio
+
+    This article or section needs expansion.                                  
+    Reason: When setting up pulseaudio systemWide extra policies needs to be  
+    deployed for pulse to be able to connect to the bluetooth stack. The Info 
+    below is not enough. (Discuss in Talk:Bluetooth#)                         
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   When you are running PulseAudio system-wide then you will need to add the
+   following modules to your default.pa configuration:
+
+ hardware.pulseaudio.configFile = pkgs.writeText "default.pa" ''
+   load-module module-bluetooth-policy
+   load-module module-bluetooth-discover
+   ## module fails to load with
+   ##   module-bluez5-device.c: Failed to get device path from module arguments
+   ##   module.c: Failed to load module "module-bluez5-device" (argument: ""): initialization failed.
+   # load-module module-bluez5-device
+   # load-module module-bluez5-discover
+ '';
+
+  Enabling extra codecs
+
+   While pulseaudio itself only has support for the SBC bluetooth codec there
+   is out-of-tree support for AAC, APTX, APTX-HD and LDAC.
+
+   To enable extra codecs add the following to /etc/nixos/configuration.nix:
+
+ {
+ ...
+   hardware.pulseaudio = {
+     enable = true;
+     package = pkgs.pulseaudioFull;
+   };
+ ...
+ }
+
+  Enabling A2DP Sink
+
+   Modern headsets will generally try to connect using the A2DP profile. To
+   enable this for your bluetooth connection, add the following to
+   /etc/nixos/configuration.nix
+
+ {
+   hardware.bluetooth.settings = {
+     General = {
+       Enable = "Source,Sink,Media,Socket";
+     };
+   };
+ }
+
+   This configuration may be unnecessary and does not work with bluez5
+   (Unknown key Enable for group General ).
+
+  Managing audio devices
+
+   pavucontrol can be used to reconfigure the device:
+
+     * To enable A2DP, change the profile to “High Fidelity Playback (A2DP
+       Sink)” on the “Configuration” tab.
+     * To set the device as the default audio output, select “set as
+       fallback” on the “Output Devices” tab.
+
+   Alternatively, the device can be configured via the command line:
+
+     * To enable A2DP, run:
+
+ $ pacmd set-card-profile "$(pactl list cards short | egrep -o bluez_card[[:alnum:]._]+)" a2dp_sink
+
+     * To set the device as the default audio output, run:
+
+ $ pacmd set-default-sink "$(pactl list sinks short | egrep -o bluez_sink[[:alnum:]._]+)"
+
+   You can also set pulseaudio to automatically switch audio to the connected
+   bluetooth device when it connects, in order to do this add the following
+   entry into the pulseaudio config
+
+ {
+ ...
+ hardware.pulseaudio.extraConfig = "
+   load-module module-switch-on-connect
+ ";
+ ...
+ }
+
+   Note that you may need to clear the pulseaudio config located at
+   ~/.config/pulse to get this to work. Also you may have to unset and then
+   set the default audio device to the bluetooth device, see
+   https://github.com/NixOS/nixpkgs/issues/86441 for more info
+
+Showing battery charge of bluetooth devices
+
+   If you want to see what charge your bluetooth devices have you have to
+   enable experimental features, which might lead to bugs (according to
+   [https://wiki.archlinux.org/title/Bluetooth_headset#Battery_level_reporting
+   Arch Wiki). You can add the following to your config to enable
+   experimental feature for bluetooth:
+
+ {
+ ...
+ hardware.bluetooth.settings = {
+         General = {
+                 Experimental = true;
+         };
+ };
+ ...
+ }
+
+   Afterwards rebuild your system and then restart your bluetooth service by
+   executing
+
+ $ systemctl restart bluetooth
+
+   .
+
+Troubleshooting
+
+  USB device needs to be unplugged/re-plugged after suspend
+
+   Some USB device/host combinations don't play well with the suspend/resume
+   cycle, and need to be unplugged and then re-plugged to work again.
+
+   It is possible to simulate a unplug/re-plug cycle using the /sys
+   filesystem.
+
+   This gist provides a script and instructions to set-up a workaround for
+   these devices.
+
+  When connecting to an audio device: Failed to connect: org.bluez.Error.Failed
+
+   You need to use pulseaudioFull, see #Using Bluetooth headsets with
+   PulseAudio.
+
+  Bluetooth fails to power on with Failed to set power on:
+  org.bluez.Error.Blocked
+
+   If journalctl -eu bluetooth shows Failed to set mode: Blocked through
+   rfkill (0x12), rfkill might be blocking it:
+
+ $ rfkill
+ ID TYPE      DEVICE      SOFT      HARD
+  1 wlan      phy0   unblocked unblocked
+ 37 bluetooth hci0   blocked unblocked
+
+   Unblock it first:
+
+ $ sudo rfkill unblock bluetooth
+
+  Cannot use bluetooth while it previously worked
+
+   Symptoms:
+
+     * When using bluetoothctl, getting "No agent is registered".
+     * When using blueman or anything using dbus to talk to bluez, getting
+       dbus.exceptions.DBusException:
+       org.freedesktop.DBus.Error.AccessDenied: Rejected send message"
+
+   This possibly can be fixed by restarting the display-manager session. The
+   session management may have had an issue with registering your current
+   session and doesn't allow you to control bluetooth.
+
+ $ sudo systemctl restart display-manager.service
+
+  No audio when using headset in HSP/HFP mode
+
+   If the output of dmesg | grep Bluetooth shows a line similar to Bluetooth:
+   hci0: BCM: Patch brcm/BCM-0a5c-6410.hcd not found then your machine uses a
+   Broadcom chipset without the required firmware installed.
+
+   To fix this, add hardware.enableAllFirmware = true; to your
+   /etc/nixos/configuration.nix then reboot.
+
+See also
+
+     * Scripting PulseAudio, Bluetooth, JACK
+     * Bluetooth (Gentoo Wiki)
+     * Bluetooth (Arch Linux Wiki)
+    1. ↑ https://en.wikipedia.org/wiki/Text-based_user_interface
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Bluetooth&oldid=17898"
+   Categories:
+     * Audio
+     * Configuration
+     * Hardware
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 19 October 2024, at 20:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,174 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Using search.nixos.org website
+     * 2 Using the nix search command
+     * 3 Using the nix-env command
+     * 4 Using the nix repl environment
+     * 5 Reverse search: searching which package provides a file
+   [ ] Toggle the table of contents
+
+                               Searching packages
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   There are numerous approaches available for searching substrings within
+   both package names and package descriptions in nixpkgs.
+
+Using search.nixos.org website
+
+   There is a web service to search with
+
+           channel branches
+              * Nix packages at search.nixos.org/packages
+              * NixOS options at search.nixos.org/options
+           flakes
+              * packages at search.nixos.org/flakes?type=packages
+              * options at search.nixos.org/flakes?type=options
+
+   pros
+
+     * easy to use
+     * allows filters
+     * nice GUI in browser
+     * browser extensions possible (like @nixpgs as search engine in Firefox)
+
+   cons
+
+     * always requires Internet connection
+
+Using the nix search command
+
+   While this command requires flakes, you can use it to search for a
+   package. It may be slow the first time, but further runs will use cached
+   results.
+
+ nix search nixpkgs firefox
+
+   pros
+
+     * fast
+     * possible offline usage
+
+   cons
+
+     * requires disk space for caching
+     * quite long command
+
+Using the nix-env command
+
+   It's possible to search for a package using nix-env -qaP
+
+   pros
+
+     * works offline
+
+   cons
+
+     * it's very slow and requires a lot of memory
+
+Using the nix repl environment
+
+   With the read–eval–print loop (REPL) of nix you can browse packages
+   interactively.
+
+   Starting the nix repl
+
+ nix repl
+
+ Welcome to Nix 2.18.2. Type :? for help.
+
+ nix-repl>
+
+   Loading the repository for nixpkgs
+
+ nix-repl>
+
+ nix-repl> :load <nixpkgs>
+ Added 21181 variables.
+
+   Type the first letters of a package
+
+ nix-repl> neo
+
+   Press Tab ↹ key for auto completion
+
+Reverse search: searching which package provides a file
+
+   There is third party programs nix-index, and rippkgs to find which package
+   provides a given file. This is particularly useful when you are looking
+   for a very specific file but you don't know which package installs it.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Searching_packages&oldid=13655"
+   Categories:
+     * Reference
+     * Nixpkgs
+     * This page was last edited on 1 July 2024, at 20:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

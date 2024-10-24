@@ -1,0 +1,86 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                Talk:VirtualBox
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   One of the offered solutions to frequent recompilation when using Oracle
+   VirtualBox Extensions is:
+
+     Use module from https://github.com/NixOS/nixpkgs/pull/71127 (unsafe) if
+     you'd like to avoid recompilation.
+
+   However, it seems that pull request was never merged and got closed since
+   the author doesn't use VirtualBox anymore.
+
+   Can the approach still be used without patching NixOS, or should we
+   reconsidering the inclusion of this link on the page?
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:VirtualBox&oldid=10659"
+     * This page was last edited on 24 April 2023, at 08:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

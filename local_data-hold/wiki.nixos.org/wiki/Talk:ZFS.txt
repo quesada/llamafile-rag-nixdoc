@@ -1,0 +1,178 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Open Issues with ZFS enryption
+     * 2 Add boot.initrd.supportedFilesystems = ["zfs"]; ?
+       1 comment
+     * 3 Multiple Encrypted Pools Issue
+     * 4 Unable to follow instructions from "Laying out the filesystem
+       hierarchy"
+       1 comment
+     * 5 Inclusion of /var/persist
+       1 comment
+     * 6 best practice
+   [ ] Toggle the table of contents
+
+                                    Talk:ZFS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 29 March 2022 by Keksbg in topic Inclusion of /var/persist
+
+Open Issues with ZFS enryption
+
+   Should this guide not have a big fat red warning that tells users, that
+   openzfs currently has encryption related bugs, which can lead to data loss
+   when using recv/send?
+
+   see:
+
+   https://github.com/openzfs/openzfs-docs/issues/494
+
+Add boot.initrd.supportedFilesystems = ["zfs"]; ?
+
+   Latest comment: 22 March 20211 comment1 person in discussion
+
+   What about recommending to also add
+
+ boot.initrd.supportedFilesystems = ["zfs"];
+
+   See https://github.com/NixOS/nixpkgs/pull/99386#issuecomment-798813567
+
+   I think recommending to add this would allow you in the far future to use
+   zfs as filesystem without forcing to add grub support for zfs if you don't
+   need it.
+
+   I currently have https://github.com/NixOS/nixpkgs/pull/117071 open to
+   revert back to that behaviour like it's been in 20.09 (adding a zfs
+   filesystem also adds support to grub, more exactly the original behaviour
+   was to always enable zfs support in grub even without any zfs filesystem)
+
+   --Mohe2015 (talk) 15:46, 22 March 2021 (UTC)Reply
+
+Multiple Encrypted Pools Issue
+
+   I tried following the "Import and unlock multiple encrypted pools/dataset
+   at boot" section (and friends) but could not get it to work, with the
+   dataset either not being mounted, or the boot aborting with a permission
+   error. What finally fixed it for me:
+
+  # Create pool like so:
+  zpool create <your-other-options> -O keyformat=passphrase pool_name $DISK_HDD
+ 
+
+   And use this for initrd.network.postCommands:
+
+        cat <<EOF > /root/.profile
+        if pgrep -x "zfs" > /dev/null
+        then
+          zpool import hdd  # Import pool like in example
+          sleep 3           #  <---- THIS IS THE IMPORTANT PART
+          zfs load-key -a
+          killall zfs
+        else
+          echo "zfs not running -- maybe the pool is taking some time to load for some unforseen reason."
+        fi
+        EOF
+
+   Long story short, I think the example on the ZFS page should include the
+   sleep.
+
+Unable to follow instructions from "Laying out the filesystem hierarchy"
+
+   Latest comment: 26 February 20221 comment1 person in discussion
+
+   I tried following the instructions from
+   ZFS#Laying_out_the_filesystem_hierarchy but the system never fully booted
+   and had errors about being unable to mount "/home" or "/root".
+
+   The fix was to use a legacy mountpoint instead, while also reducing the
+   number of ZFS data sets to a minimum and using "/" as a ZFS data set
+   instead of tmpfs. --Grische (talk) 12:45, 26 February 2022 (UTC)Reply
+
+Inclusion of /var/persist
+
+   Latest comment: 29 March 20221 comment1 person in discussion
+
+   Looking over the post, there is no mention of creating a /var/persist
+   directory. I'd personally recommend adding it as a separate volume/dataset
+   which is autosnapshotted in case it is needed.
+
+ # zfs create -o canmount=on rpool/nixos/var/persist
+
+   --Keksbg (talk) 21:55, 29 March 2022 (UTC)Reply
+
+best practice
+
+   Datasets
+
+     * https://grahamc.com/blog/nixos-on-zfs/
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:ZFS&oldid=16757"
+     * This page was last edited on 17 August 2024, at 16:37.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

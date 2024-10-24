@@ -1,0 +1,175 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Gotchas
+          * 1.1 Graphics
+          * 1.2 Mapping
+     * 2 Bugs
+          * 2.1 Input Reset
+          * 2.2 Missing Icons
+     * 3 Error Messages
+          * 3.1 Error save controller profile
+   [ ] Toggle the table of contents
+
+                                   RetroArch
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   You can install retroarch with some cores (actual emulators) by putting
+   something like this in your /etc/nixos/configuration.nix:
+
+ environment.systemPackages = with pkgs; [
+   (retroarch.override {
+     cores = with libretro; [
+       genesis-plus-gx
+       snes9x
+       beetle-psx-hw
+     ];
+   })
+ ];
+
+   The cores are defined here:
+
+   https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/emulators/retroarch/cores.nix#L61
+
+Gotchas
+
+  Graphics
+
+   Not all the graphics settings are in the same place. You'll want to look
+   under the top-level Settings (in the left column under Main Menu) and also
+   under Main Menu -> Quick Menu -> Options
+
+  Mapping
+
+   The following way to remap a controller or map a new controller is
+   convoluted, but works and allows you to upstream your changes.
+
+    1. Fork the retroarch-joypad-autoconfig project and clone it in a folder
+       of your choosing.
+    2. With Retroarch open, go to Settings > Directory and change Controller
+       Profiles to point to the same folder. Note: Do not attempt to modify
+       the directory in retroarch.cfg directly because it will be overwritten
+       on startup.
+    3. Now, saving the mapping will work but this will be ignored on next
+       startup of Retroarch.
+    4. After you are happy with the mapping, commit the changes in the folder
+       where you cloned the retroarch-joypad-autoconfig project and push them
+       to your fork.
+    5. To use what you just pushed in your configuration right away, add the
+       following overlay to your nix config by replacing the various fields
+       with those corresponding to your fork:
+
+ (final: prev: {
+   retroarch-joypad-autoconfig = prev.retroarch-joypad-autoconfig.overrideAttrs {
+     src = prev.fetchFromGitHub {
+       owner = "ibizaman";
+       repo = "retroarch-joypad-autoconfig";
+       rev = "420a8fa4dc7b12f7c176fa0e704e9f987f6ceabd";
+       hash = "sha256-yIvW9UTgc+/hhwx+93FgzrDBEBD35xFdBiVdJCKUYBc=";
+     };
+   };
+ })
+
+    6. After switching over to the new configuration and restarting
+       Retroarch, you will see the mappings got updated.
+    7. Now you can create a pull request from your fork to the
+       retroarch-joypad-autoconfig project to upstream your changes.
+
+Bugs
+
+  Input Reset
+
+   beetle-psx-hw input (by keyboard anyway) only works if you go to Settings
+   -> Input -> Port 1 Controls -> Device Type and set it to PlayStation
+   Controller every time you run the emulator.
+
+  Missing Icons
+
+   No icons show in the GUI, including the mouse cursor. You need to go to
+   Online Updater > Update Assets to download the icons. You can navigate the
+   GUI with only the keyboard. Press enter to open sections/pages, backspace
+   to go back out, arrow keys to choose between options (left/right change
+   some values).
+
+Error Messages
+
+  Error save controller profile
+
+   This is because the location of the controller profile is in the nix
+   store, making it read-only. To actually remap a controller, see the
+   Mapping section.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=RetroArch&oldid=12347"
+   Categories:
+     * Applications
+     * Gaming
+     * This page was last edited on 21 April 2024, at 05:12.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

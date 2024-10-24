@@ -1,0 +1,116 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration
+   [ ] Toggle the table of contents
+
+                           Automatic system upgrades
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Automatic system upgrades can be used to upgrade a system regularly at a
+   specific time. This can help to reduce the time period of applying
+   important security patches to your running software but might also
+   introduce some breakage in case an automatic upgrade fails. For automatic
+   upgrades an automatic garbage collection is important to prevent full
+   /boot and / partitions.
+
+Configuration
+
+   To enable unattended automatic system updates on a flake-enabled host, add
+   following part to your configuration:
+
+ /etc/nixos/configuration.nix
+
+ system.autoUpgrade = {
+   enable = true;
+   flake = inputs.self.outPath;
+   flags = [
+     "--update-input"
+     "nixpkgs"
+     "--print-build-logs"
+   ];
+   dates = "02:00";
+   randomizedDelaySec = "45min";
+ };
+
+   To see the status of the timer run
+
+ # systemctl status nixos-upgrade.timer
+
+   The upgrade log can be printed with this command
+
+ # systemctl status nixos-upgrade.service
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Automatic_system_upgrades&oldid=13211"
+   Category:
+     * NixOS
+     * This page was last edited on 18 June 2024, at 18:24.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

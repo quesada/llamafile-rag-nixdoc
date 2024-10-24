@@ -1,0 +1,117 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Use with controllers
+   [ ] Toggle the table of contents
+
+                                Dolphin Emulator
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Dolphin is a Nintendo GameCube and Wii emulator, currently supporting the
+   x86_64 and AArch64 architectures. Dolphin is available for Linux, macOS,
+   Windows, and Android. It is a free and open source, community-developed
+   project. Dolphin was the first GameCube and Wii emulator, and currently
+   the only one capable of playing commercial games.
+
+Use with controllers
+
+   To use GameCube controllers NixOS udev rules are required.
+
+ /etc/nixos/configuration.nix
+
+ { pkgs, ... }:
+ {
+   services.udev.packages = [ pkgs.dolphin-emu ];
+ }
+
+   To enable GCC to USB adapter overclocking for improved polling rates, use
+   the gcadapter-oc-kmod kernel module.
+
+ /etc/nixos/configuration.nix
+
+ { config, ... }:
+ {
+   boot.extraModulePackages = [
+     config.boot.kernelPackages.gcadapter-oc-kmod
+   ];
+
+   # to autoload at boot:
+   boot.kernelModules = [
+     "gcadapter_oc"
+   ];
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Dolphin_Emulator&oldid=12535"
+   Categories:
+     * Applications
+     * Gaming
+     * This page was last edited on 24 April 2024, at 21:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

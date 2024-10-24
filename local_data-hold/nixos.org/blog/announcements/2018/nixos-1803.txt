@@ -1,0 +1,49 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              NixOS 18.03 released
+
+   Published on Wed Apr 04 2018
+
+                              NixOS 18.03 released
+
+   18.03 Impala logoNixOS 18.03 “Impala” has been released, the ninth stable
+   release branch. See the release notes for details. You can get NixOS 18.03
+   ISOs and VirtualBox appliances from the download page. For information on
+   how to upgrade from older release branches to 18.03, check out the manual
+   section on upgrading.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

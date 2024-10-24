@@ -1,0 +1,372 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS & Flakes Book
+   SearchK
+   Main NavigationHomePrefaceGet StartedBest Practices
+
+   English
+
+   简体中文
+
+   English
+
+   简体中文
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+Preface
+
+   Preface
+
+Get Started
+
+   Introduction
+
+   Advantages and Disadvantages
+
+   Installation
+
+The Nix Language
+
+   Basics
+
+NixOS with Flakes
+
+   Get Started with NixOS
+
+   Introduction to Flakes
+
+   NixOS with Flakes Enabled
+
+   NixOS's flake.nix Explained
+
+   The combination ability of Flakes and Nixpkgs module system
+
+   Getting Started with Home Manager
+
+   Modularize the Configuration
+
+   Updating the System
+
+   Downgrading or Upgrading Packages
+
+   Other useful Tips
+
+Nixpkgs's Advanced Usage
+
+   Introduction
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   Multiple Nixpkgs Instances
+
+Nix Store & Binary Cache
+
+   Introduction
+
+   Add Binary Cache Servers
+
+   Host Your Own Binary Cache Server
+
+Best Practices
+
+   Introduction
+
+   Run downloaded binaries on NixOS
+
+   Simplify NixOS-related Commands
+
+   Accelerating Dotfiles Debugging
+
+   Custom NIX_PATH and Flake Registry
+
+   Remote Deployment
+
+   Debugging Derivations and Nix Expressions
+
+Other Usage of Flakes
+
+   Introduction
+
+   Flake Inputs
+
+   Flake Outputs
+
+   The New CLI
+
+   Module System & Custom Options
+
+   [WIP]Testing
+
+Dev Environments on NixOS
+
+   nix shell, nix develop & pkgs.runCommand
+
+   Dev Environments
+
+   [WIP]Packaging 101
+
+   Cross-platform Compilation
+
+   Distributed Building
+
+   [WIP]Kernel Development
+
+Advanced Topics
+
+   Advanced Topics
+
+Frequently Asked Questions
+
+   Frequently Asked Questions
+
+   On this page
+
+                      Downgrading or Upgrading Packages ​
+
+   When working with Flakes, you may encounter situations where you need to
+   downgrade or upgrade certain packages to address bugs or compatibility
+   issues. In Flakes, package versions and hash values are directly tied to
+   the git commit of their flake input. To modify the package version, you
+   need to lock the git commit of the flake input.
+
+   Here's an example of how you can add multiple nixpkgs inputs, each using a
+   different git commit or branch:
+
+   [ Submit ]nix
+
+ {
+   description = "NixOS configuration of Ryan Yin";
+   inputs = {
+     # Default to the nixos-unstable branch
+     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+     # Latest stable branch of nixpkgs, used for version rollback
+     # The current latest version is 23.11
+     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+     # You can also use a specific git commit hash to lock the version
+     nixpkgs-fd40cef8d.url = "github:nixos/nixpkgs/fd40cef8d797670e203a27a91e4b8e6decf0b90c";
+   };
+   outputs = inputs@{
+     self,
+     nixpkgs,
+     nixpkgs-stable,
+     nixpkgs-fd40cef8d,
+     ...
+   }: {
+     nixosConfigurations = {
+       my-nixos = nixpkgs.lib.nixosSystem rec {
+         system = "x86_64-linux";
+         # The `specialArgs` parameter passes the
+         # non-default nixpkgs instances to other nix modules
+         specialArgs = {
+           # To use packages from nixpkgs-stable,
+           # we configure some parameters for it first
+           pkgs-stable = import nixpkgs-stable {
+             # Refer to the `system` parameter from
+             # the outer scope recursively
+             inherit system;
+             # To use Chrome, we need to allow the
+             # installation of non-free software.
+             config.allowUnfree = true;
+           };
+           pkgs-fd40cef8d = import nixpkgs-fd40cef8d {
+             inherit system;
+             config.allowUnfree = true;
+           };
+         };
+         modules = [
+           ./hosts/my-nixos
+           # Omit other configurations...
+         ];
+       };
+     };
+   };
+ }
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+   12
+   13
+   14
+   15
+   16
+   17
+   18
+   19
+   20
+   21
+   22
+   23
+   24
+   25
+   26
+   27
+   28
+   29
+   30
+   31
+   32
+   33
+   34
+   35
+   36
+   37
+   38
+   39
+   40
+   41
+   42
+   43
+   44
+   45
+   46
+   47
+   48
+   49
+   50
+   51
+   52
+   53
+   54
+
+   In the above example, we have defined multiple nixpkgs inputs: nixpkgs,
+   nixpkgs-stable, and nixpkgs-fd40cef8d. Each input corresponds to a
+   different git commit or branch.
+
+   Next, you can refer to the packages from pkgs-stable or pkgs-fd40cef8d
+   within your submodule. Here's an example of a Home Manager submodule:
+
+   [ Submit ]nix
+
+ {
+   pkgs,
+   config,
+   # Nix will search for and inject this parameter
+   # from `specialArgs` in `flake.nix`
+   pkgs-stable,
+   # pkgs-fd40cef8d,
+   ...
+ }:
+ {
+   # Use packages from `pkgs-stable` instead of `pkgs`
+   home.packages = with pkgs-stable; [
+     firefox-wayland
+     # Chrome Wayland support was broken on the nixos-unstable branch,
+     # so we fallback to the stable branch for now.
+     # Reference: https://github.com/swaywm/sway/issues/7562
+     google-chrome
+   ];
+   programs.vscode = {
+     enable = true;
+     # Refer to vscode from `pkgs-stable` instead of `pkgs`
+     package = pkgs-stable.vscode;
+   };
+ }
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+   12
+   13
+   14
+   15
+   16
+   17
+   18
+   19
+   20
+   21
+   22
+   23
+   24
+   25
+   26
+   27
+
+Pinning a package version with an overlay ​
+
+   The above approach is perfect for application packages, but sometimes you
+   need to replace libraries used by those packages. This is where Overlays
+   shine! Overlays can edit or replace any attribute of a package, but for
+   now we'll just pin a package to a different nixpkgs version. The main
+   disadvantage of editing a dependency with an overlay is that your Nix
+   installation will recompile all installed packages that depend on it, but
+   your situation may require it for specific bug fixes.
+
+   [ Submit ]nix
+
+ # overlays/mesa.nix
+ { config, pkgs, lib, pkgs-fd40cef8d, ... }:
+ {
+   nixpkgs.overlays = [
+     # Overlay: Use `self` and `super` to express
+     # the inheritance relationship
+     (self: super: {
+       mesa = pkgs-fd40cef8d.mesa;
+     })
+   ];
+ }
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+
+Applying the new configuration ​
+
+   By adjusting the configuration as shown above, you can deploy it using
+   sudo nixos-rebuild switch. This will downgrade your Firefox/Chrome/VSCode
+   versions to the ones corresponding to nixpkgs-stable or nixpkgs-fd40cef8d.
+
+     According to 1000 instances of nixpkgs, it's not a good practice to use
+     import in submodules or subflakes to customize nixpkgs. Each import
+     creates a new instance of nixpkgs, which increases build time and memory
+     usage as the configuration grows. To avoid this problem, we create all
+     nixpkgs instances in flake.nix.
+
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous pageUpdating the System
+   Next pageOther useful Tips
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

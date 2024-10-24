@@ -1,0 +1,211 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Advanced Configuration
+          * 1.1 HTTPS
+     * 2 Troubleshooting
+   [ ] Toggle the table of contents
+
+                               Static Web Server
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Static Web Server (SWS) is an HTTP server written in Rust with a focus on
+   efficiently serving static files. The project website is
+   https://static-web-server.net/
+
+   There is a NixOS module that allows you to run and configure SWS. First,
+   add the package to your systemPackages:
+
+ environment.systemPackages = with pkgs; [
+   static-web-server
+ ];
+
+   Here is a minimal viable configuration of SWS:
+
+ services.static-web-server = {
+   enable = true;
+   root = "/some/path";
+ };
+
+   By default, this will start SWS on [::]:8787 and it will serve files from
+   the folder /some/path. Default settings can be found here:
+   https://github.com/NixOS/nixpkgs/blob/3eb8ccf3b3922be5586a263e7d6f4f98e3acf728/nixos/modules/services/web-servers/static-web-server.nix#L9
+   and here: https://static-web-server.net/configuration/config-file/
+
+   SWS will not be exposed to your network unless you also edit the firewall
+   rules:
+
+ networking.firewall.allowedTCPPorts = [ 8787 ];
+
+Advanced Configuration
+
+   To change the host or port, you can use the "listen" option like this:
+
+ services.static-web-server = {
+   enable = true;
+   listen = "[::]:80";
+   root = "/some/path";
+ };
+
+   All other options aside from "listen" and "root" can be configured via
+   SWS's TOML config file like this:
+
+ services.static-web-server = {
+   enable = true;
+   listen = "[::]:80";
+   root = "/some/path";
+   configuration = {
+     general = {
+       directory-listing = true;
+     };
+   };
+ };
+
+   Any option that can be expressed in SWS's TOML file can also be configured
+   via this same "configuration" option, with the exception of "host",
+   "port", (use "listen" instead) and "root" (use the "root" option instead).
+   This is because the host, port, and root directory choice require changes
+   to the generated systemd unit files.
+
+  HTTPS
+
+   NixOS includes an ACME client which will automatically request and renew
+   TLS certificates for you. See the ACME page for more info. Here is an
+   example of how to integrate the ACME client with SWS:
+
+ security.acme = {
+   acceptTerms = true;
+   defaults.email = "your-email@example.com";
+   certs."your-domain.example" = {
+     reloadServices = [ "static-web-server" ];
+     listenHTTP = ":80";
+     group = "www-data";
+     # EC is not supported by SWS versions before 2.16.1
+     keyType = "rsa4096";
+   };
+ };
+
+ # Now we need to open port 80 for the ACME challenge and port 443 for SWS itself
+ networking.firewall.allowedTCPPorts = [ 80 443 ];
+
+ # Configure SWS to use the generated TLS certs
+ services.static-web-server = {
+   enable = true;
+   root = "/some/path";
+   listen = "[::]:443";
+   configuration = {
+     general = {
+       http2 = true;
+       # Edit the domain name in the file to match your real domain name as configured in the ACME settings
+       http2-tls-cert = "/var/lib/acme/your-domain.example/fullchain.pem";
+       http2-tls-key = "/var/lib/acme/your-domain.example/key.pem";
+       # Info here: https://static-web-server.net/features/security-headers/
+       # This option is only needed for versions prior to 2.18.0, after which it defaults to true
+       security-headers = true;
+     };
+   };
+ };
+
+ # Now we need to override some things in the systemd unit files to allow access to those TLS certs, starting with creating a new Linux group:
+ users.groups.www-data = {};
+ # This strategy can be useful to override other advanced features as-needed
+ systemd.services.static-web-server.serviceConfig.SupplementaryGroups = pkgs.lib.mkForce [ "" "www-data" ];
+ # Note that "/some/path" should match your "root" option
+ systemd.services.static-web-server.serviceConfig.BindReadOnlyPaths = pkgs.lib.mkForce ["/some/path" "/var/lib/acme/your-domain.example"];
+
+   Then run nixos-rebuild switch. The first time you apply this change, SWS
+   may fail to start up if it tries to start before the initial cert is
+   generated (the ACME client should generate a placeholder cert very
+   quickly). If that happens, just wait a few minutes, then run systemctl
+   restart static-web-server.service. It should then be able to load the TLS
+   certificate.
+
+Troubleshooting
+
+   To check the logs, use journalctl, such as journalctl -u
+   static-web-server.service --since="30 min ago". You may need to increase
+   the log level like so:
+
+ services.static-web-server = {
+ ...
+   configuration = {
+     general = {
+       log-level = "trace";
+     };
+   };
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Static_Web_Server&oldid=16188"
+   Categories:
+     * Cookbook
+     * Server
+     * This page was last edited on 4 August 2024, at 13:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

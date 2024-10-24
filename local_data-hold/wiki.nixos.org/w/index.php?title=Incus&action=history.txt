@@ -1,0 +1,160 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Incus: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 September 2024
+
+     * curprev [ ] [ ] 08:2608:26, 5 September 2024‎ Kagura talk contribs‎ m
+       11,232 bytes 0‎ →‎Custom Images Tags: Mobile edit Mobile web edit
+
+    13 August 2024
+
+     * curprev [ ] [ ] 02:1302:13, 13 August 2024‎ Coy-yote talk contribs‎
+       11,232 bytes +2,245‎ I clarified the distinction between VM and
+       Container imports. I also added a single command to generate and
+       import the image/metadata all at once. This single command follows the
+       individual steps. Tag: Visual edit
+
+    1 July 2024
+
+     * curprev [ ] [ ] 20:3720:37, 1 July 2024‎ Adamcstephens talk contribs‎
+       8,987 bytes +334‎ show more restrictive firewall config
+
+    28 May 2024
+
+     * curprev [ ] [ ] 11:5711:57, 28 May 2024‎ Hexa talk contribs‎ 8,653
+       bytes +6‎ →‎NixOS Instances: Add flag to actually launch a VM
+
+    21 May 2024
+
+     * curprev [ ] [ ] 13:2513:25, 21 May 2024‎ Adamcstephens talk contribs‎
+       8,647 bytes −2‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 13:2413:24, 21 May 2024‎ Adamcstephens talk contribs‎
+       8,649 bytes +3,005‎ added custom image instructions Tag: Visual edit
+     * curprev [ ] [ ] 12:5312:53, 21 May 2024‎ Adamcstephens talk contribs‎
+       5,644 bytes −139‎ added install, initialize, network/firewall. cleaned
+       up image and instance info. Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:0021:00, 19 April 2024‎ Klinger talk contribs‎ m
+       5,783 bytes +45‎ Category:Server Category:Container
+
+    16 February 2024
+
+     * curprev [ ] [ ] 09:0409:04, 16 February 2024‎ imported>Offlinehacker‎
+       5,738 bytes +150‎ No edit summary
+     * curprev [ ] [ ] 08:3808:38, 16 February 2024‎ imported>Offlinehacker‎
+       5,588 bytes +897‎ No edit summary
+     * curprev [ ] [ ] 08:0908:09, 16 February 2024‎ imported>Offlinehacker‎
+       4,691 bytes +243‎ No edit summary
+     * curprev [ ] [ ] 08:0508:05, 16 February 2024‎ imported>Offlinehacker‎
+       4,448 bytes +130‎ No edit summary
+     * curprev [ ] [ ] 08:0308:03, 16 February 2024‎ imported>Offlinehacker‎
+       4,318 bytes +4,318‎ Page describing incus and how to run nixos
+       container with it
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Incus"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

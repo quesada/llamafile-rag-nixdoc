@@ -1,0 +1,142 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Serial console
+     * 4 Wireless
+     * 5 Compatibility notes
+     * 6 Resources
+   [ ] Toggle the table of contents
+
+                      NixOS on ARM/Orange Pi Zero Plus2 H5
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   Orange Pi Zero Plus2 (H5)
+   An Orange Pi Zero Plus2 (H5).
+   Manufacturer Xunlong / Orange Pi 
+   Architecture AArch64             
+   Bootloader   Upstream u-boot^[1] 
+   Maintainer   
+
+   Note: While made by the same manufacturer and using an Allwinner SOC, the
+   H3 variant does not use the same architecture; this page does not relate
+   to the H3 variant.
+
+Status
+
+   Upstream NixOS AArch64 image will boot on the Orange Pi Zero Plus2 (H5),
+   using the proper upstream u-boot.
+
+Board-specific installation notes
+
+   First follow the generic installation steps to get the installer image on
+   an SD card.
+
+   U-Boot needs to be copied to specific sectors on the microSD card with dd.
+   Download u-boot for the board, and copy it to the correct location with
+   (again, replace /dev/sdX with the correct path to the SD card device):
+
+ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdX bs=1024 seek=8
+
+   Then, install using the installation and configuration steps.
+
+Serial console
+
+     This article or section needs expansion.                                 
+     Reason: This article is a stub. (Discuss in Talk:NixOS on ARM/Orange Pi  
+     Zero Plus2 H5#)                                                          
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+Wireless
+
+   The wireless does not currently work using the upstream firmware from the
+   firmware-linux-nonfree package. However there is a version of the firmware
+   which does work in the Armbian firmware repository. See here for an
+   example of how the firmware from this repository can be added to nixpkgs,
+   such that it overrides the upstream files.
+
+Compatibility notes
+
+     * Using the upstream kernel at 4.18, HDMI does work currently.
+
+Resources
+
+     * Official product page
+     * linux-sunxi wiki page
+    1. ↑ https://github.com/NixOS/nixpkgs/pull/47187
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Orange_Pi_Zero_Plus2_H5&oldid=17424"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 14 September 2024, at 09:31.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

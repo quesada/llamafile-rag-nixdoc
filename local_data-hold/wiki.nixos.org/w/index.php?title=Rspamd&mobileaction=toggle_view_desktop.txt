@@ -1,0 +1,204 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+          * 2.1 Bayesian spam training
+          * 2.2 Whitelist domain
+          * 2.3 DKIM key
+     * 3 Tips and tricks
+          * 3.1 Helper script to train rspamd
+   [ ] Toggle the table of contents
+
+                                     Rspamd
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Rspamd is a fast, free and open-source spam filtering system.
+
+Installation
+
+   To enable Rspamd add following line to your system configuration
+
+ /etc/nixos/configuration.nix
+
+ services.rspamd.enable = true;
+
+Configuration
+
+  Bayesian spam training
+
+   To enable bayesian spam training, enable a Redis instance and configure it
+   in Rspamd as a backend
+
+ /etc/nixos/configuration.nix
+
+ services.rspamd = {
+   locals = {
+     "redis.conf".text = ''
+       servers = "${config.services.redis.servers.rspamd.unixSocket}";
+     '';
+     "classifier-bayes.conf".text = ''
+       backend = "redis";
+       autolearn = true;
+     '';
+   };
+ };
+
+ services.redis.servers.rspamd = {
+   enable = true;
+   # 0 disables listening to TCP ports and will only use unix sockets. Default
+   # unix socket path is /run/redis-${name}/redis.sock thus
+   # /run/redis-rspamd/redis.sock here.
+   port = 0;
+   user = config.services.rspamd.user;
+ };
+
+  Whitelist domain
+
+   To whitelist a specific domain (in this example the domain example.org)
+   which otherwise gets rejected by Rspamd for various reasons, this custom
+   configuration override can be added:
+
+ /etc/nixos/configuration.nix
+
+ services.rspamd = {
+   enable = true;
+   overrides."whitelist.conf".text = ''
+     whitelist_from {
+       example.org = true;
+     }
+   '';
+ };
+
+  DKIM key
+
+   This module verifies the authenticity of emails through the analysis of
+   DKIM signatures. In this example, we're configure a custom DKIM key file
+   path suitable for the mailserver Maddy and adjust the group permissions
+   for the Rspamd service.
+
+ /etc/nixos/configuration.nix
+
+ services.rspamd = {
+   enable = true;
+   locals."dkim_signing.conf".text = ''
+     selector = "default";
+     domain = "example.org";
+     path = "/var/lib/maddy/dkim_keys/$domain_$selector.key";
+   '';
+ };
+
+ systemd.services.rspamd.serviceConfig.SupplementaryGroups = [ "maddy" ];
+
+Tips and tricks
+
+  Helper script to train rspamd
+
+   The following example enables rspamd-trainer as a daemon which will run
+   every 10 minutes to check for mails in the inbox of myuser@example.com
+   which should be used for spam/ham training.
+
+ /etc/nixos/configuration.nix
+
+ services.rspamd-trainer = {
+   enable = true;
+   settings = {
+     HOST = "example.com";
+     USERNAME = "myuser@example.com";
+     INBOXPREFIX = "INBOX/";
+   };
+   secrets = [
+     # Do not use this in production. This will make passwords
+     # world-readable in the Nix store
+     "${pkgs.writeText "secrets" ''
+       PASSWORD = test123
+     ''}"
+   ];
+ };
+
+   The script will look into INBOX/report_ham and INBOX/report_spam
+   respectivley for mails which will be feed into rspamd for training. After
+   that they get moved to INBOX/learned_ham and INBOX/learned_spam. The
+   report directories have to be created before that. You can do this using
+   openssl:
+
+ # openssl s_client -connect example.com:993 -crlf
+ A login myuser@example.com test123
+ A create "INBOX/report_spam"
+ A create "INBOX/report_ham"
+ A create "INBOX/report_spam_reply"
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Rspamd&oldid=13010"
+   Categories:
+     * Mail Server
+     * Server
+     * This page was last edited on 31 May 2024, at 08:09.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

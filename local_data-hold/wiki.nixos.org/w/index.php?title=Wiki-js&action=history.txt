@@ -1,0 +1,122 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Wiki-js: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    28 May 2024
+
+     * curprev [ ] [ ] 21:5421:54, 28 May 2024‎ Klinger talk contribs‎ 673
+       bytes +151‎ Category:Server Category:Cookbook Category:Web
+       Applications. Intro sentence with link to website Tag: Visual edit
+     * curprev [ ] [ ] 18:3618:36, 28 May 2024‎ M3vtfbp talk contribs‎ 522
+       bytes +522‎ Created page with "Most basic Nix to get Wiki-js running
+       on port 3000. systemd.services.wiki-js = { requires = [
+       "postgresql.service" ]; after = [ "postgresql.service" ]; };
+       services.wiki-js = { enable = true; settings.db = { db = "wiki-js";
+       host = "/run/postgresql"; type = "postgres"; user = "wiki-js"; }; };
+       services.postgresql = { enable = true; ensureDatabases = [ "wiki-js"
+       ]; ensureUsers = [{ name = "wiki-js..." Tags: Mobile edit Mobile web
+       edit
+   Retrieved from "https://wiki.nixos.org/wiki/Wiki-js"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

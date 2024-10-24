@@ -1,0 +1,175 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Caching DNS resolver
+     * 2 Serving DNS for Your Domain
+     * 3 Split DNS resolver
+   [ ] Toggle the table of contents
+
+                                      Bind
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 17:29, 29 September 2024 by Klinger (talk | contribs)
+   (added link to bind)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   BIND (Berkeley Internet Name Domain) is one of the most widely used DNS
+   servers.
+
+Caching DNS resolver
+
+   If you are trying to setup bind as a simple DNS resolver, this can be
+   configured using all the default options. You'll just need to enable the
+   service:
+
+ { ... }:
+ {
+   services.bind = {
+     enable = true;
+   };
+ }
+
+Serving DNS for Your Domain
+
+   To run BIND as the primary DNS server for your domain, you can start with
+   this config:
+
+ { pkgs, ... }:
+ {
+   services.bind = {
+     enable = true;
+     zones = {
+       "example.com" = {
+         master = true;
+         file = pkgs.writeText "zone-example.com" ''
+           $ORIGIN example.com.
+           $TTL    1h
+           @            IN      SOA     ns1 hostmaster (
+                                            1    ; Serial
+                                            3h   ; Refresh
+                                            1h   ; Retry
+                                            1w   ; Expire
+                                            1h)  ; Negative Cache TTL
+                        IN      NS      ns1
+                        IN      NS      ns2
+
+           @            IN      A       203.0.113.1
+                        IN      AAAA    2001:db8:113::1
+                        IN      MX      10 mail
+                        IN      TXT     "v=spf1 mx"
+
+           www          IN      A       203.0.113.1
+                        IN      AAAA    2001:db8:113::1
+
+           ns1          IN      A       203.0.113.4
+                        IN      AAAA    2001:db8:113::4
+
+           ns2          IN      A       198.51.100.5
+                        IN      AAAA    2001:db8:5100::5
+         '';
+       };
+     };
+   };
+ }
+
+   You'll need to modify the zone file to match your use case. You can lookup
+   other common setups in BIND's documentation.
+
+Split DNS resolver
+
+   Split DNS allows you to manage privately resolving DNS records for a
+   network, while also resolving queries for other websites. This is common
+   in VPN setups, and it used by providers such as tailscale. You may want to
+   configure the networks that can use BIND as a cache (using cacheNetworks)
+   and the networks that can query your private hosted zones (using
+   allowQuery).
+
+ { pkgs, ... }:
+ {
+   services.bind = {
+     enable = true;
+     cacheNetworks = [ "127.0.0.0/24" "::1/128" "192.168.0.0/24" ];
+     zones = {
+       "example.com" = {
+         master = true;
+         allowQuery = [ "127.0.0.0/24" "::1/128" "192.168.0.0/24" ];
+         file = pkgs.writeText "zone-example.com" ''
+           ...
+         '';
+       };
+     };
+   };
+ }
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Bind&oldid=17678"
+   Categories:
+     * Networking
+     * Server
+     * This page was last edited on 29 September 2024, at 17:29.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

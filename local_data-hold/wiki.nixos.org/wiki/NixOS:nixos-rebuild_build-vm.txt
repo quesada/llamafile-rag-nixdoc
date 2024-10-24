@@ -1,0 +1,162 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Troubleshooting
+          * 1.1 Still can't login after updating configuration
+     * 2 Alternatives
+          * 2.1 Bootable ISO
+          * 2.2 VM
+   [ ] Toggle the table of contents
+
+                          NixOS:nixos-rebuild build-vm
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   A virtual machine can be created , it will use your
+   /etc/nixos/configuration.nix to make a 'clone' of your system. Useful for
+   testing new configurations.
+
+   nixos-rebuild build-vm
+
+   nixos-rebuild build-vm -I nixos-config=./configuration.nix -I
+   nix_path='<nixpkgs/nixos>' --max-jobs 4 --show-trace # e.g. to specify the
+   environment variables / cores used
+
+   You can also use build-vm-with-bootloader. From the man page: this boots
+   using the regular boot loader of your configuration rather than booting
+   directly into the kernel and initial ramdisk of the system.
+
+   You will not be able to login to this virtual machine, as the passwords
+   are not carried over to the virtual machine you build.
+
+   You should have user nixosvmtest (isSystemUser or isNormalUser)
+
+ users.users.nixosvmtest.isSystemUser = true ;
+ users.users.nixosvmtest.initialPassword = "test";
+
+   If you have a user called nixosvmtest for example, you can add
+
+ users.users.nixosvmtest.group = "nixosvmtest";
+ users.groups.nixosvmtest = {};
+
+   to your /etc/nixos/configuration.nix
+
+   you should now be able to login and test your system with this user and
+   password.
+
+   https://discourse.nixos.org/t/default-login-and-password-for-nixos/4683/2
+
+   By default, the virtual machine is configured to have 1 CPU and 1024MiB
+   memory. It may be too small for testing with desktop environment enabled
+   inside. You can set options virtualisation.vmVariant.virtualisation.cores
+   and virtualisation.vmVariant.virtualisation.memorySize to enlarge the CPU
+   cores and memory size for the virtual machine.
+
+ {
+ virtualisation.vmVariant = {
+   # following configuration is added only when building VM with build-vm
+   virtualisation = {
+     memorySize =  2048; # Use 2048MiB memory.
+     cores = 3;        
+   };
+ }
+
+   Use virtualisation.vmVariantWithBootLoader option if you used
+   `build-vm-with-bootloader` earlier.
+
+Troubleshooting
+
+  Still can't login after updating configuration
+
+   When running a virtual machine a file called $hostname.qcow2 is created in
+   your current working directory. After changing your
+   /etc/nixos/configuration.nix delete this file, rebuild and then start the
+   new virtual machine. Now you should be able to login.
+
+Alternatives
+
+  Bootable ISO
+
+   Build it as a bootable ISO image:
+
+  VM
+
+ {
+ ...
+   imports = [
+     <nixos/nixos/modules/virtualisation/virtualbox-image.nix> ]
+ ...
+
+   nix build -f '<nixpkgs/nixos>' -I nixos-config=./configuration.nix
+   config.system.build.virtualBoxOVA Source
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS:nixos-rebuild_build-vm&oldid=8526"
+     * This page was last edited on 18 November 2023, at 04:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

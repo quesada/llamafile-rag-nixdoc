@@ -1,0 +1,88 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                Category:NixOps
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Revision as of 02:23, 23 September 2021 by imported>Nix (short
+   description)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+   Note: This category collects all the pages which are primarily about
+   [[[NixOps]] on the wiki.
+
+Pages in category "NixOps"
+
+   The following 2 pages are in this category, out of 2 total.
+
+  N
+
+     * NixOps
+     * NixOps/Virtualization
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:NixOps&oldid=9190"
+     * This page was last edited on 23 September 2021, at 02:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

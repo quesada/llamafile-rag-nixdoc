@@ -1,0 +1,142 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Adding missing dependencies
+          * 1.1 Libraries
+          * 1.2 Packages
+     * 2 Known Issues
+          * 2.1 Icons does not appear
+          * 2.2 Epic Game Store
+          * 2.3 Incompatible Lutris libraries
+   [ ] Toggle the table of contents
+
+                                     Lutris
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Lutris is a video game preservation platform that you can use to play or
+   emulate pretty much any game you want.
+
+Adding missing dependencies
+
+   If any games are unable to run due to missing dependencies, they can be
+   installed using the following methods.
+
+  Libraries
+
+   environment.systemPackages = with pkgs; [
+     (lutris.override {
+       extraLibraries =  pkgs: [
+         # List library dependencies here
+       ];
+     })
+   ];
+
+  Packages
+
+   environment.systemPackages = with pkgs; [
+     (lutris.override {
+        extraPkgs = pkgs: [
+          # List package dependencies here
+        ];
+     })
+   ];
+
+Known Issues
+
+  Icons does not appear
+
+   You have to install a compatible icon theme. For example, you can install
+   the adwaita-icon-theme available as gnome3.adwaita-icon-theme in Nixpkgs.
+
+  Epic Game Store
+
+   If you're running a 64bit environment you need to ensure that you enable
+   32bit support in your configuration.nix: hardware.hardware.enable32Bit =
+   true # hardware.opengl.driSupport32Bit in 24.05
+
+  Incompatible Lutris libraries
+
+   When installing some games, you may see a message similar to: mktemp:
+   $USER/.local/share/lutris/runtime/steam/amd64/lib/x86_64-linux-gnu/libattr.so.1:
+   version `ATTR_1.3' not found (required by mktemp)
+
+   This happens because lutris attempts to use it's own runtime which has
+   incompatible libraries. To disable these potentially conflicting
+   libraries: More (three horizontal lines) > Preferences > Global Options >
+   Disable Lutris Runtime. Then attempt to install the game or application
+   again.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Lutris&oldid=13604"
+   Categories:
+     * Applications
+     * Gaming
+     * This page was last edited on 27 June 2024, at 05:52.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

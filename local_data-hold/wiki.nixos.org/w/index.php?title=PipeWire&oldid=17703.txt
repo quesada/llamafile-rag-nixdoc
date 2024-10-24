@@ -1,0 +1,421 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Enabling PipeWire
+     * 2 Bluetooth Configuration
+     * 3 Graphical tools
+     * 4 Advanced Configuration
+          * 4.1 Linking nodes
+     * 5 Low-latency setup
+          * 5.1 PulseAudio backend
+          * 5.2 Controlling the ALSA devices
+     * 6 Headless operation
+     * 7 Troubleshooting
+          * 7.1 pactl not found
+          * 7.2 No signal detected in audio application from external audio
+            interface
+     * 8 See also
+   [ ] Toggle the table of contents
+
+                                    PipeWire
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 19:54, 2 October 2024 by Birbirl (talk | contribs) (My
+   first edit on this wiki! I struggled quite a bit with configuring
+   wireplumber to fix an issue that i've seen a ton of people deal with,
+   about wireplumber switching modes when you'd least want it to, causing all
+   sorts of interference. Disabling that function on Nix is an easy one
+   liner, but takes a lot of effort to get there through heaps of
+   documentation. So i decided to add the code snippet. Also fixed an error
+   and mentioned that .lua files have been scrapped in wireplumber 5.0. :D)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   PipeWire is a relatively new (first release in 2017) low-level multimedia
+   framework. It aims to offer capture and playback for both audio and video
+   with minimal latency and support for PulseAudio-, JACK-, ALSA- and
+   GStreamer-based applications. PipeWire has a great bluetooth support:
+   because Pulseaudio was reported to have troubles with bluetooth, PipeWire
+   can be a good alternative.
+
+   The daemon based on the framework can be configured to be both an audio
+   server (with PulseAudio and JACK features) and a video capture server.
+
+   PipeWire also supports containers like Flatpak and does not rely on audio
+   and video user groups, but rather it uses a Polkit-like security model,
+   asking Flatpak or Wayland for permission to record screen or audio.
+
+Enabling PipeWire
+
+   PipeWire can be enabled with the following configuration:
+
+   # On NixOS 24.05 or older, this option must be set:
+   #sound.enable = false;
+
+   # rtkit is optional but recommended
+   security.rtkit.enable = true;
+   services.pipewire = {
+     enable = true;
+     alsa.enable = true;
+     alsa.support32Bit = true;
+     pulse.enable = true;
+     # If you want to use JACK applications, uncomment this
+     #jack.enable = true;
+   };
+
+   It is possible to use the services.pipewire.extraConfig option hierarchy
+   in NixOS (available from 24.05 onwards) to create drop-in configuration
+   files, if needed.
+
+Bluetooth Configuration
+
+   PipeWire can be configured to use specific codecs, by default all codecs
+   and most connection modes are enabled, see this link for precise details
+   of which connections modes are enabled by default. The mSBC codec provides
+   slightly better sound quality in calls than regular HFP/HSP, while the
+   SBC-XQ provides better sound quality for audio listening. For more
+   information see this link.
+
+   Wireplumber (services.pipewire.wireplumber) is the default modular session
+   / policy manager for PipeWire in unstable. To add custom configuration in
+   NixOS 24.05 you can use services.pipewire.wireplumber.extraConfig
+   directly. For example:
+
+   services.pipewire.wireplumber.extraConfig."10-bluez" = {
+     "monitor.bluez.properties" = {
+       "bluez5.enable-sbc-xq" = true;
+       "bluez5.enable-msbc" = true;
+       "bluez5.enable-hw-volume" = true;
+       "bluez5.roles" = [
+         "hsp_hs"
+         "hsp_ag"
+         "hfp_hf"
+         "hfp_ag"
+       ];
+     };
+   };
+
+   Or, to disable automatic HSP/HFP and A2DP mode switching, which is part of
+   the 11-bluetooth-policy configuration:
+
+   services.pipewire.wireplumber.extraConfig."11-bluetooth-policy" = {
+     "wireplumber.settings" = {
+       "bluetooth.autoswitch-to-headset-profile" = false;
+     };
+   };
+
+   Alternatively you can set services.pipewire.wireplumber.configPackages as
+   well, adding derivations that output wireplumber config files in
+   $out/share/wireplumber/wireplumber.conf.d/*.conf:
+
+   services.pipewire.wireplumber.configPackages = [
+     (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/10-bluez.conf" ''
+       monitor.bluez.properties = {
+         bluez5.enable-sbc-xq = true
+         bluez5.enable-msbc = true
+         bluez5.enable-hw-volume = true
+         bluez5.roles = [hsp_hs hsp_ag hfp_hf hfp_ag]
+       }
+     '')
+   ];
+
+   It is possible change a particular user instead of system-wide, with
+   adding this to ~/.config/wireplumber/bluetooth.conf.d
+   (~/.config/wireplumber/bluetooth.lua.d for wireplumber 4.X and below)
+   instead, manually or using Home Manager. Refer to ArchWiki for possible
+   configurations, as well as the Full Documentation.
+
+Graphical tools
+
+   All protocols (Pulseaudio/JACK) are now talking to the PipeWire protocol
+   and are managed by the PipeWire daemon (therefore, applications can be
+   managed by both Pulseaudio and JACK tools). For that reason, all graphical
+   tools used for these protocols can be used:
+
+     * pavucontrol: controls the volume (per-sink and per-app basis), the
+       default outputs/inputs, the different profiles (for HDMI
+       outputs/bluetooth devices), routes each application to a different
+       input/output, etc.
+     * plasma-pa: a Plasma applet to change volume directly from the systray.
+       Also deals with volume keys.
+     * qjackctl: with JACK emulation, provides a patchbay (to connect
+       applications together). Note that JACK does not provide any way to
+       change the volume of a single application; use Pulseaudio tools for
+       that purpose.
+     * carla: with JACK emulation, provides a patchbay (make sure to go to
+       "Patchbay" tab and check "Canvas > Show External").
+     * catia/patchage: similar to qjackctl and carla.
+     * Helvum: GTK-based patchbay for PipeWire (uses the PipeWire protocol).
+       Volume control is planned for later.
+
+Advanced Configuration
+
+   PipeWire can be extensively configured to fit the users' needs. Should the
+   user want to do some fancy routing with null sinks, these can be defined
+   directly in the config as shown below.
+
+   This is especially convenient if the user has a multi-channel (8+, or
+   something "weird" like 2x2, 3x2) soundcard that keeps confusing
+   applications with too many channels or a bad channel layout.
+
+   Note: those cards can be set to the "Pro Audio" profile with pavucontrol
+   so PipeWire doesn't try to guess a wrong channel layout for them.
+
+   services.pipewire.extraConfig.pipewire."91-null-sinks" = {
+     "context.objects" = [
+       {
+         # A default dummy driver. This handles nodes marked with the "node.always-driver"
+         # properyty when no other driver is currently active. JACK clients need this.
+         factory = "spa-node-factory";
+         args = {
+           "factory.name" = "support.node.driver";
+           "node.name" = "Dummy-Driver";
+           "priority.driver" = 8000;
+         };
+       }
+       {
+         factory = "adapter";
+         args = {
+           "factory.name" = "support.null-audio-sink";
+           "node.name" = "Microphone-Proxy";
+           "node.description" = "Microphone";
+           "media.class" = "Audio/Source/Virtual";
+           "audio.position" = "MONO";
+         };
+       }
+       {
+         factory = "adapter";
+         args = {
+           "factory.name" = "support.null-audio-sink";
+           "node.name" = "Main-Output-Proxy";
+           "node.description" = "Main Output";
+           "media.class" = "Audio/Sink";
+           "audio.position" = "FL,FR";
+         };
+       }
+     ];
+   };
+
+  Linking nodes
+
+   The config does not currently cover linking nodes together, but this can
+   be fixed with a script. Soundcard names and ports should be replaced with
+   the ones from the user's configuration:
+
+ #!/usr/bin/env bash
+
+ # ports obtained from `pw-link -io`
+
+ pw-link "Main-Output-Proxy:monitor_FL" "alsa_output.usb-Native_Instruments_Komplete_Audio_6_69BC86B9-00.pro-audio:playback_1"
+ pw-link "Main-Output-Proxy:monitor_FR" "alsa_output.usb-Native_Instruments_Komplete_Audio_6_69BC86B9-00.pro-audio:playback_2"
+
+ pw-link "alsa_input.usb-M-Audio_Fast_Track-00.pro-audio:capture_1" "Microphone-Proxy:input_MONO"
+
+   In order to load the script on startup, it can be added to ~/.xprofile or
+   the specific DE/WM autostart config. Similarly, a one-shot user service
+   can be created that runs the script.
+
+Low-latency setup
+
+   Audio production and rhythm games require lower latency audio than general
+   applications. PipeWire can achieve the required latency with much less CPU
+   usage compared to PulseAudio, with the appropriate configuration. The
+   minimum period size controls how small a buffer can be. The lower it is,
+   the less latency there is. PipeWire has a value of 32/48000 by default,
+   which amounts to 0.667ms. It can be brought lower if needed:
+
+   services.pipewire.extraConfig.pipewire."92-low-latency" = {
+     "context.properties" = {
+       "default.clock.rate" = 48000;
+       "default.clock.quantum" = 32;
+       "default.clock.min-quantum" = 32;
+       "default.clock.max-quantum" = 32;
+     };
+   };
+
+   NOTE: Every setup is different, and a lot of factors determine your final
+   latency, like CPU speed, RT/PREEMPTIVE kernels and soundcards supporting
+   different audio formats. That's why 32/48000 isn't always a value that's
+   going to work for everyone. The best way to get everything working is to
+   keep increasing the quant value until you get no crackles (underruns) or
+   until you get audio again (in case there wasn't any). This won't guarantee
+   the lowest possible latency, but will provide a decent one paired with
+   stable audio.
+
+  PulseAudio backend
+
+   Applications using the Pulse backend have a separate configuration. The
+   default minimum value is 1024, so it needs to be tweaked if low-latency
+   audio is desired.
+
+   services.pipewire.extraConfig.pipewire-pulse."92-low-latency" = {
+     "context.properties" = [
+       {
+         name = "libpipewire-module-protocol-pulse";
+         args = { };
+       }
+     ];
+     "pulse.properties" = {
+       "pulse.min.req" = "32/48000";
+       "pulse.default.req" = "32/48000";
+       "pulse.max.req" = "32/48000";
+       "pulse.min.quantum" = "32/48000";
+       "pulse.max.quantum" = "32/48000";
+     };
+     "stream.properties" = {
+       "node.latency" = "32/48000";
+       "resample.quality" = 1;
+     };
+   };
+
+   As a general rule, the values in pipewire-pulse should not be lower than
+   the ones in pipewire.
+
+  Controlling the ALSA devices
+
+   It is possible to configure various aspects of soundcards through
+   PipeWire, including format, period size and batch mode:
+
+   services.pipewire.wireplumber.configPackages = [
+     (pkgs.writeTextDir "share/wireplumber/main.lua.d/99-alsa-lowlatency.lua" ''
+       alsa_monitor.rules = {
+         {
+           matches = {{{ "node.name", "matches", "alsa_output.*" }}};
+           apply_properties = {
+             ["audio.format"] = "S32LE",
+             ["audio.rate"] = "96000", -- for USB soundcards it should be twice your desired rate
+             ["api.alsa.period-size"] = 2, -- defaults to 1024, tweak by trial-and-error
+             -- ["api.alsa.disable-batch"] = true, -- generally, USB soundcards use the batch mode
+           },
+         },
+       }
+     '')
+   ];
+
+   The matches attribute applies the actions to the devices/properties listed
+   there. It is usually used with soundcard names, like shown in the config
+   above. <matches> can match any of the outputs of
+
+ $ pw-dump | grep node.name | grep alsa
+
+Headless operation
+
+   PipeWire can run on a headless device (without a GUI) such as a Raspberry
+   Pi connected to a speaker. In that case, it may be preferable to start
+   PipeWire on boot and keep it running rather than only running during an
+   interactive login session. Among other things, this helps prevent a race
+   condition that may occur when socket activation fails to initialize audio
+   devices in time for their first use, leading to one-time errors after
+   reboots. The following additional configuration facilitates this:
+
+   # Socket activation too slow for headless; start at boot instead.
+   services.pipewire.socketActivation = false;
+   # Start WirePlumber (with PipeWire) at boot.
+   systemd.user.services.wireplumber.wantedBy = [ "default.target" ];
+   users.users.<name>.linger = true; # keep user services running
+   users.users.<name>.extraGroups = [ ... "audio" ];
+
+   Despite early activation, you may still experience a race condition that
+   prevents audio from working if you play media immediately after a new
+   login such as running an SSH command. If this occurs, try introducing a
+   short delay (e.g. sleep 5) before invoking the media player application.
+
+Troubleshooting
+
+  pactl not found
+
+   The pactl functionality is superseded in PipeWire with the native pw-cli,
+   pw-mon and pw-top CLI tools. When using WirePlumber (which is enabled by
+   default), you can also use wpctl as a pactl alternative with similar high
+   level subcommands.
+
+  No signal detected in audio application from external audio interface
+
+   This issue was seen when attempting to use a Roland STUDIO-CAPTURE 16x10
+   Audio Interface to record audio in Ardour8 on NixOS. One possible
+   solution:
+
+     * Install pavucontrol.
+     * Run pavucontrol, navigate to the configuration tab, and set the
+       Profile for STUDIO-CAPTURE (or your audio interface) to "Pro Audio".
+     * Ensure the audio interface and Ardour are set to the same sample rate.
+       Ardour8 will accept a configuration where its sample rate does not
+       match the audio interface's sample rate, when using PipeWire, but will
+       not actually be able to record audio unless they match. If you are
+       unable to successfully activate a track's record button, this may be
+       the issue.
+
+See also
+
+     * https://github.com/NixOS/nixpkgs/issues/102547
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=PipeWire&oldid=17703"
+   Category:
+     * Audio
+     * This page was last edited on 2 October 2024, at 19:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

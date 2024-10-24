@@ -1,0 +1,61 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+             #07 - NixOS in production, nix-devel is now Discourse
+
+   Published on Wed Aug 22 2018
+
+             #07 - NixOS in production, nix-devel is now Discourse
+
+                                      News
+
+     * NixOS in production
+
+       Gabriel Gonzalez shows how to do a remote [nixos-rebuild
+       switch]{.title-ref} while pinning nixpkgs
+
+     * The [nix-devel]{.title-ref} mailing list is now replaced by our
+       discourse.nixos.org forum instance which is also usable by email
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

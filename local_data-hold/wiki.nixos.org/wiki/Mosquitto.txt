@@ -1,0 +1,211 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Advanced Setup
+     * 3 Configuration
+          * 3.1 Password authentication
+     * 4 Usage
+   [ ] Toggle the table of contents
+
+                                   Mosquitto
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Mosquitto is an open source message broker that implements the MQTT
+   protocol, a lightweight and popular communication method for the Internet
+   of Things (IoT). Mosquitto supports MQTT versions 5.0, 3.1.1 and 3.1, and
+   can run on various devices, from low power single board computers to full
+   servers.
+
+   This article extends the documentation in the NixOS manual.
+
+Setup
+
+   The following setup enables a local Mosquitto server listening on port
+   1883, allowing anonymous access for demonstration purpose.
+
+ services.mosquitto = {
+   enable = true;
+   listeners = [
+     {
+       acl = [ "pattern readwrite #" ];
+       omitPasswordAuth = true;
+       settings.allow_anonymous = true;
+     }
+   ];
+ };
+
+ networking.firewall = {
+   enable = true;
+   allowedTCPPorts = [ 1883 ];
+ };
+
+Advanced Setup
+
+   The following more advanced setup also enables a local Mosquitto server
+   listening on port 1883, but with some setting overrides, a simple user
+   definition containing ACL statements, and a bridge configuration that
+   connects this Mosquitto instance to an AWS IoT Core broker using Mutual
+   TLS. The configured topics are transparently copied between the two
+   brokers (no local or remote prefixes are added to the topic names).
+
+ services.mosquitto = {
+   enable = true;
+   listeners = [{
+     address = "192.168.0.1";
+     port = 1883;
+     users.iotdevice = {
+       acl = [
+         "read IoT/device/action"
+         "write IoT/device/observations"
+         "write IoT/device/LW"
+       ];
+       password = "mysweetpassword-or-use-hashedPassword";
+     };
+   }];
+   bridges."aws_iot_core" = {
+     addresses = [{
+       address = "foobar.iot.us-west-2.amazonaws.com";
+       port = 8883;
+     }];
+     topics = [
+       "IoT/device/action in 1 \"\""
+       "IoT/device/observations out 1 \"\""
+       "IoT/device/LW out 0 \"\""
+     ];
+     settings = {
+       local_clientid = "NiXOS-Mosquitto";
+       remote_clientid = "NiXOS-Mosquitto";
+       cleansession = true;
+       notifications = false;
+       start_type = "automatic";
+       bridge_protocol_version = "mqttv311";
+       bridge_outgoing_retain = false;
+       bridge_insecure = false;
+       bridge_cafile = "/persist/etc/mosquitto/AmazonRootCA1-RSA.pem";
+       bridge_certfile = "/persist/etc/mosquitto/certificate.pem";
+       bridge_keyfile = "/persist/etc/mosquitto/private.pem.key";
+     };
+   };
+ };
+
+ networking.firewall = {
+   enable = true;
+   allowedTCPPorts = [ 1883 ];
+ };
+
+Configuration
+
+  Password authentication
+
+   The following command will generate a hashed password for the user root
+   into the file /tmp/passwd.
+
+ nix shell nixpkgs#mosquitto --command mosquitto_passwd -c /tmp/passwd root
+ cat /tmp/passwd
+ # root:$7$101$KIGAc4K4Pj2zfump$a1s19bL++vN7RlUqJne869JZepEditIOTDPrmaRG2Jlg37/uNJcLzxjk6n5adwbc7COd3eyXuJ7T+CEI+wwxvQ==
+
+   Use the hash after root: for the following configuration.
+
+   Change the Mosquitto listeners configuration by adding a user, in this
+   example called root with the hashed password.
+
+ mosquitto = {
+   enable = true;
+   listeners = [
+     {
+       users.root = {
+         acl = [
+           "readwrite #"
+         ];
+         hashedPassword = "$6$arZ0Sf.HKZGgSBRR$/cAB1gB4P9JQzZ6cEnIWbPNlit.PYQsbRTaRmfUsBePOtPN6P/L7TWNMaeFc2YTT904loeC3Xq3Qpdzxgen9Y/==";
+       };
+     }
+   ];
+ };
+
+Usage
+
+   Testing the server is possible by running a listening comand. We also
+   supply username root and password mypasswd from above.
+
+ nix shell nixpkgs#mosquitto --command mosquitto_sub -h localhost -t test -u root -P mypasswd
+
+   On a different shell the second command sends a message which should be
+   received by the command above
+
+ nix shell nixpkgs#mosquitto --command mosquitto_pub -h localhost -t test -m "Hello" -u root -P mypasswd
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Mosquitto&oldid=17183"
+   Category:
+     * Applications
+     * This page was last edited on 7 September 2024, at 13:41.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

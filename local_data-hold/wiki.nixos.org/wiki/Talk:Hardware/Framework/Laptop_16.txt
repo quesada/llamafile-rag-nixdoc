@@ -1,0 +1,114 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 improving the udev rule section
+       2 comments
+   [ ] Toggle the table of contents
+
+                       Talk:Hardware/Framework/Laptop 16
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 1 August by AmyP in topic improving the udev rule section
+
+improving the udev rule section
+
+   Latest comment: 1 August2 comments2 people in discussion
+
+   I would have liked to add a udev rule for the trackpad too, but did not
+   manage to find a working rule. This is my WIP:
+
+   ACTION=="add", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi",
+   ATTRS{idVendor}=="093a", ATTRS{idProduct}=="0274",
+   ATTR{power/wakeup}="disabled",
+   ATTR{driver/1-1.1.1.4/power/wakeup}="disabled"
+
+   feel free to point out the error if you can find it. Betalars (talk)
+   20:23, 29 June 2024 (UTC)Reply
+
+           Saw this on the FW Discourse as well, and finally got around to
+           taking a look. TL;DR: ACTION=="add", SUBSYSTEM=="hid",
+           DRIVER=="hid-multitouch", ENV{HID_PHYS}=="i2c-*",
+           ATTR{../power/wakeup}="disabled".
+           I don't really trust that rule, though. I'm not confident that
+           those are the best selectors to get to the right device, and I
+           haven't really tested it beyond udevadm trigger -c add . seeming
+           to work. I'd suggest you polish it further before updating this
+           page. :)
+           The issue with your approach is that the touchpad uses I2C instead
+           of e.g. USB. I2C is considerably less sophisticated than USB, so
+           it doesn't allow individual devices to wake the system. As such,
+           the individual devices don't have a power/wakeup attribute to set,
+           and the attribute is on the bus itself. Conveniently, in this
+           case, the bus is just the parent directory in sysfs. AmyP (talk)
+           21:23, 1 August 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Hardware/Framework/Laptop_16&oldid=16147"
+     * This page was last edited on 1 August 2024, at 21:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

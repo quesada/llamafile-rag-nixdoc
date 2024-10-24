@@ -1,0 +1,103 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Установка
+   [ ] Toggle the table of contents
+
+                                    Nitrokey
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Nitrokey and the translation
+   is 67% complete.
+   Other languages:
+     * English
+     * français
+     * русский
+
+   This article describes how you can use your Nitrokey Nitrokey with NixOS
+
+Установка
+
+   Вам также нужно добавить правила nitrokey udev и включить gpg-агент
+
+ services.udev.packages = [ pkgs.nitrokey-udev-rules ];
+ programs = {
+   ssh.startAgent = false;
+   gnupg.agent = {
+     enable = true;
+     enableSSHSupport = true;
+   };
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nitrokey/ru&oldid=14723"
+   Category:
+     * Hardware
+     * This page was last edited on 20 July 2024, at 17:31.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

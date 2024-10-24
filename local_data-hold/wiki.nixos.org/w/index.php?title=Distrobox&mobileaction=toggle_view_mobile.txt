@@ -1,0 +1,131 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Usage
+     * 3 Tips and tricks
+          * 3.1 Using different architecture
+   [ ] Toggle the table of contents
+
+                                   Distrobox
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Distrobox offers you to use any linux distribution inside your terminal as
+   a simple wrapper for Podman, Docker or Lilipod.
+
+Setup
+
+   Distrobox uses Docker internally to fetch and run system images. Easily
+   get started by enabling Podman with Docker-compatibility mode.
+
+ virtualisation.podman = {
+   enable = true;
+   dockerCompat = true;
+ };
+
+ environment.systemPackages = [ pkgs.distrobox ];
+
+Usage
+
+   Setup container with latest Arch Linux image
+
+ # distrobox create --name archlinux --init --image archlinux:latest
+
+   Enter Arch Linux container
+
+ # distrobox enter archlinux
+
+   For further usage, please refer to the Distrobox documentation.
+
+Tips and tricks
+
+  Using different architecture
+
+   Following example will run an Ubuntu container with a different
+   architecture than the host, in this case arm64.
+
+   Add following line to your system configuration, apply it and then reboot
+   the system.
+
+ boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+   Run a Debian container with arm64 architecture
+
+ sudo podman run --rm --privileged multiarch/qemu-user-static --reset -p yes
+ distrobox create -n debian --image arm64v8/debian
+ distrobox enter debian
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Distrobox&oldid=16316"
+   Categories:
+     * Applications
+     * Container
+     * This page was last edited on 5 August 2024, at 16:13.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

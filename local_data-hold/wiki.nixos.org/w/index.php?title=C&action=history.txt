@@ -1,0 +1,282 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                              C: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    10 July 2024
+
+     * curprev [ ] [ ] 07:1707:17, 10 July 2024‎ Widlarizer talk contribs‎ m
+       19,527 bytes +29‎ Link to Debug Symbols page
+
+    23 June 2024
+
+     * curprev [ ] [ ] 10:2710:27, 23 June 2024‎ Mic92 talk contribs‎ 19,498
+       bytes +357‎ imported from old wiki
+
+    13 May 2024
+
+     * curprev [ ] [ ] 08:5608:56, 13 May 2024‎ Mic92 talk contribs‎ 19,141
+       bytes +48‎ imported from old wiki
+
+    18 March 2024
+
+     * curprev [ ] [ ] 16:1116:11, 18 March 2024‎ imported>Phip1611‎ 19,093
+       bytes +477‎ gcc_multi: add sectiion
+
+    28 December 2023
+
+     * curprev [ ] [ ] 10:3910:39, 28 December 2023‎ imported>Clerie‎ 18,616
+       bytes +51‎ No edit summary
+
+    15 November 2022
+
+     * curprev [ ] [ ] 07:2007:20, 15 November 2022‎ imported>Mic92‎ 18,565
+       bytes 0‎ →‎Use a different compiler version
+     * curprev [ ] [ ] 07:2007:20, 15 November 2022‎ imported>Mic92‎ 18,565
+       bytes +232‎ →‎Use a different compiler version
+     * curprev [ ] [ ] 07:0907:09, 15 November 2022‎ imported>Mic92‎ 18,333
+       bytes +480‎ No edit summary
+
+    9 September 2022
+
+     * curprev [ ] [ ] 08:4008:40, 9 September 2022‎
+       imported>Fricklerhandwerk‎ 17,853 bytes −15‎ specify documentation
+       type
+     * curprev [ ] [ ] 08:3408:34, 9 September 2022‎
+       imported>Fricklerhandwerk‎ 17,868 bytes +22‎ add category: Cookbook
+
+    13 July 2022
+
+     * curprev [ ] [ ] 07:5607:56, 13 July 2022‎ imported>Milahu‎ 17,846
+       bytes +42‎ add link to: Using Clang instead of GCC
+
+    16 March 2022
+
+     * curprev [ ] [ ] 10:0710:07, 16 March 2022‎ imported>Detailyang‎ m
+       17,804 bytes +10‎ Fixes the nix-shell command usage
+
+    21 December 2021
+
+     * curprev [ ] [ ] 20:0720:07, 21 December 2021‎ imported>Mic92‎ 17,794
+       bytes +5‎ →‎Use a clang compiled from source
+     * curprev [ ] [ ] 16:4016:40, 21 December 2021‎ imported>Mic92‎ 17,789
+       bytes +15‎ →‎Use a clang compiled from source
+     * curprev [ ] [ ] 08:3808:38, 21 December 2021‎ imported>Mic92‎ 17,774
+       bytes +11‎ →‎Use a clang compiled from source
+     * curprev [ ] [ ] 07:0607:06, 21 December 2021‎ imported>Mic92‎ 17,763
+       bytes 0‎ fix clang build command
+     * curprev [ ] [ ] 07:0507:05, 21 December 2021‎ imported>Mic92‎ 17,763
+       bytes +2,650‎ add clang hacking guide
+
+    18 November 2021
+
+     * curprev [ ] [ ] 12:4212:42, 18 November 2021‎ imported>Mic92‎ 15,113
+       bytes +43‎ add clangd, fix link syntax
+
+    3 November 2021
+
+     * curprev [ ] [ ] 08:2908:29, 3 November 2021‎ imported>Milahu‎ m 15,070
+       bytes −1‎ typo
+
+    2 November 2021
+
+     * curprev [ ] [ ] 07:5307:53, 2 November 2021‎ imported>Mic92‎ 15,071
+       bytes +735‎ override binutils example
+
+    17 October 2021
+
+     * curprev [ ] [ ] 10:5110:51, 17 October 2021‎ imported>Milahu‎ 14,336
+       bytes +588‎ + pkg-config package names
+
+    26 April 2021
+
+     * curprev [ ] [ ] 18:5318:53, 26 April 2021‎ imported>Mic92‎ 13,748
+       bytes +341‎ document fastStdenv
+
+    5 April 2021
+
+     * curprev [ ] [ ] 19:0919:09, 5 April 2021‎ imported>Tobias.bora‎ 13,407
+       bytes +662‎ Add explaination how to use pkg-config with gtk-3.0
+
+    18 March 2021
+
+     * curprev [ ] [ ] 05:4105:41, 18 March 2021‎ imported>Nathanruiz‎ m
+       12,745 bytes 0‎ No edit summary
+
+    10 February 2021
+
+     * curprev [ ] [ ] 19:5219:52, 10 February 2021‎ imported>Mic92‎ 12,745
+       bytes +44‎ →‎Use a different compiler version
+
+    18 November 2020
+
+     * curprev [ ] [ ] 05:0705:07, 18 November 2020‎ imported>Artturin‎ m
+       12,701 bytes +24‎ add to the languages category
+
+    15 November 2020
+
+     * curprev [ ] [ ] 07:1607:16, 15 November 2020‎ imported>Mic92‎ 12,677
+       bytes +119‎ No edit summary
+
+    16 June 2020
+
+     * curprev [ ] [ ] 15:0915:09, 16 June 2020‎ imported>Jtojnar‎ m 12,558
+       bytes +1‎ do not use pkgconfig alias
+
+    31 March 2020
+
+     * curprev [ ] [ ] 13:3013:30, 31 March 2020‎ imported>Schmittlauch‎
+       12,557 bytes +130‎ add autoconf m4 macro(s) provided by pkg-config
+
+    7 September 2019
+
+     * curprev [ ] [ ] 17:4417:44, 7 September 2019‎ imported>Doronbehar‎
+       12,427 bytes +55‎ →‎Use a different compiler version: Show better new
+       way to do it
+
+    29 March 2019
+
+     * curprev [ ] [ ] 11:5011:50, 29 March 2019‎ imported>Mic92‎ 12,372
+       bytes +983‎ document overrideCC and wrapCCWith
+
+    8 March 2019
+
+     * curprev [ ] [ ] 11:3211:32, 8 March 2019‎ imported>Mic92‎ 11,389 bytes
+       +491‎ language server..
+     * curprev [ ] [ ] 11:2611:26, 8 March 2019‎ imported>Mic92‎ 10,898 bytes
+       +2‎ minor readability improvement
+
+    6 February 2019
+
+     * curprev [ ] [ ] 17:5717:57, 6 February 2019‎ imported>Mic92‎ 10,896
+       bytes +51‎ No edit summary
+     * curprev [ ] [ ] 17:5017:50, 6 February 2019‎ imported>Mic92‎ 10,845
+       bytes +1,282‎ mention debug symbols
+     * curprev [ ] [ ] 17:3817:38, 6 February 2019‎ imported>Mic92‎ 9,563
+       bytes +774‎ short passage about cross-compiling
+     * curprev [ ] [ ] 17:1717:17, 6 February 2019‎ imported>Mic92‎ 8,789
+       bytes +3‎ typo
+     * curprev [ ] [ ] 17:1717:17, 6 February 2019‎ imported>Mic92‎ 8,786
+       bytes +22‎ fix markup
+     * curprev [ ] [ ] 17:1517:15, 6 February 2019‎ imported>Mic92‎ 8,764
+       bytes +6‎ improve nix-shell markup
+     * curprev [ ] [ ] 17:1417:14, 6 February 2019‎ imported>Mic92‎ 8,758
+       bytes +1,280‎ add cmake example
+     * curprev [ ] [ ] 17:0317:03, 6 February 2019‎ imported>Mic92‎ 7,478
+       bytes +1,304‎ add pkg-config
+     * curprev [ ] [ ] 17:0117:01, 6 February 2019‎ imported>Tfc‎ m 6,174
+       bytes +33‎ No edit summary
+     * curprev [ ] [ ] 16:4716:47, 6 February 2019‎ imported>Mic92‎ 6,141
+       bytes +1,847‎ NIX_DEBUG=1 and hardening flags
+     * curprev [ ] [ ] 16:3616:36, 6 February 2019‎ imported>Mic92‎ 4,294
+       bytes +2‎ fix markup
+     * curprev [ ] [ ] 16:3416:34, 6 February 2019‎ imported>Mic92‎ 4,292
+       bytes +1‎ fix markup
+     * curprev [ ] [ ] 16:2516:25, 6 February 2019‎ imported>Mic92‎ 4,291
+       bytes +7‎ typos
+     * curprev [ ] [ ] 16:2116:21, 6 February 2019‎ imported>Mic92‎ 4,284
+       bytes +4,284‎ add article about the c infrastructure
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/C"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

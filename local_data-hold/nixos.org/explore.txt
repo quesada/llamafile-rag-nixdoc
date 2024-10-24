@@ -1,0 +1,154 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                                    Explore
+
+                                    Explore
+
+Find out why so many developers, system administrators and other enthusiasts use
+                   Nix and cannot imagine a world without it.
+
+   1
+
+Always working development environment.
+
+   Nix provides developers with a complete and consistent development
+   environment. Stop worrying how to install dependencies for your project.
+
+   complete dependencies
+
+   With Nix, a build process only has access to dependencies that have been
+   declared explicitly. So if a build succeeds, you know you've specified all
+   necessary dependencies.
+
+   The same build process specification can be used to start a development
+   environment (optionally augmented with additional development tools).
+
+   You will no longer have to hear:,  But it works on my machine!
+
+One tool, many languages.
+
+   With today's polyglot development environments, each language has its own
+   way of building and testing. Encourage cross-team development by providing
+   a single way of building everything.
+
+   language agnosticportable
+
+   Instead of complicated installation instructions, with Nix the development
+   environment is always only one command away. And that is without using
+   Docker or any other virtualization.
+
+   Language specific package managers are good at dependencies in their
+   specific language. But they cannot provide other dependencies, like the
+   ones you would usually have to install system-wide.
+
+   2
+   3
+
+Continuous integration for free.
+
+   Your development environment is your continuous integration environment.
+   The same environment always and everywhere.
+
+   reproducibilitycontinuous integration
+
+   Being able to fix broken continuous integration runs is great, but being
+   able to fix problems locally, before pushing, is priceless.
+
+   Trying to keep system dependencies of development environments in sync
+   with continuous integration is a disaster waiting to happen.  Don't wait
+   for the disaster, prevent it.
+
+From zero to cloud.
+
+   Use the same tool to build projects, configure machines and deploy to the
+   cloud.
+
+   cloud imagesdocker imagesdeclarative configurations
+
+   Using one tool to develop, test and build Amazon EC2, Google Cloud, Azure,
+   Virtualbox, KVM and other images in a declarative way is a DevOps dream.
+
+   Forget Dockerfiles and build docker images with Nix in a declarative and
+   efficient way.  Nix and Docker is a match made in heaven.
+
+   4
+   5
+
+Is the previous version better? Roll back anytime.
+
+   Always be able to roll back to the version that you want. Never end up
+   with a broken system.
+
+   rollbackgarbage collectionatomicnix store
+
+   Nix never overwrites files, but just adds new versions in different paths.
+
+   And since nothing is overwritten, the old versions are still there after
+   an upgrade. This means that you can quickly roll back to the old version.
+
+Experiment without fear.
+
+   There should be no fear of breaking your system when experimenting with
+   new software. We all learn best when we play around.
+
+   rollbacknix store
+
+   Install new software without risk of things breaking. Nix prevents
+   conflicts not only between multiple development environments, but also
+   with the operating system. Your work environment will stay intact, but
+   allows you to experiment in a safe way.
+
+   No need to turn your system upside down just because you want to test some
+   experimental and bleeding edge versions of software.
+
+   6
+   7
+
+Contributing is only a pull request away.
+
+   Community is at the core of Nix. Collaboration is encouraged by providing
+   a low barrier to contribute and bots to guide contributors through the
+   process.
+
+   communitycontributegithub
+
+   Development of Nix, the Nix packages collection and the NixOS Linux
+   distribution happens on GitHub. To contribute to any of the Nix projects,
+   just open a pull request on GitHub. The bots and community members will
+   guide you through the process to ensure quality.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

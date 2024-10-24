@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Information for "Mosh"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Mosh         
+   Default sort key                 Mosh         
+   Page length (in bytes)           3,277        
+   Namespace ID                     0            
+   Page ID                          289          
+   Page content language            en - English 
+   Page content model               wikitext     
+   Indexing by robots               Allowed      
+   Number of redirects to this page 0            
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>Samueldr       
+   Date of page creation                        00:18, 20 December 2017 
+   Latest editor                                imported>Virchau13      
+   Date of latest edit                          02:56, 13 November 2022 
+   Total number of edits                        9                       
+   Total number of distinct authors             7                       
+   Recent number of edits (within past 90 days) 0                       
+   Recent number of distinct authors            0                       
+
+Page properties
+
+                       This page is a member of a hidden category:          
+   Hidden category (1)                                                      
+                         * Category:Pages with syntax highlighting errors   
+
+   Retrieved from "https://wiki.nixos.org/wiki/Mosh"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

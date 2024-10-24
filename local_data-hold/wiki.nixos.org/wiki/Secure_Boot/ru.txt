@@ -1,0 +1,175 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Требования
+     * 2 Настройка
+     * 3 Управление ключами
+     * 4 Различия с `systemd-stub`
+   [ ] Toggle the table of contents
+
+                                  Secure Boot
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Secure Boot and the
+   translation is 90% complete.
+   Other languages:
+     * English
+     * français
+     * русский
+
+   Под безопасной загрузкой обычно подразумевается возможность встроенного
+   программного обеспечения платформы проверять компоненты загрузки и
+   гарантировать, что загрузится только ваша собственная операционная
+   система.
+
+   Secure Boot имеет несколько реализаций, наиболее известная - UEFI Secure
+   Boot, которая опирается на прошивку платформы UEFI, но во встраиваемых
+   системах могут существовать и другие реализации.
+
+   На NixOS, Secure Boot может быть включён с помощью проекта [Lanzaboote].
+
+   Lanzaboote состоит из двух компонентов: lzbt and stub.
+
+   lzbt - это программа командной строки, которая подписывает и устанавливает
+   загрузочные файлы на ESP.
+
+   stub - это UEFI-приложение, которое загружает ядро и initrd из ESP. Оно
+   отличается от systemd-stub, смотрите ниже, чтобы увидеть точные различия.
+
+   Warning: Lanzaboote все еще находится в разработке и требует некоторых
+   предварительных условий и мер предосторожности. В настоящее время он
+   доступен только для nixos-unstable. Для получения дополнительной
+   информации, пожалуйста, обратитесь к репозиторию GitHub или руководству по
+   Quick Start
+
+   .
+
+Требования
+
+   Для реализации Secure Boot в Lanzaboote требуется система, установленная в
+   режиме UEFI с включенной загрузкой systemd-boot. Это можно проверить,
+   выполнив команду bootctl status:
+
+ $ bootctl status
+ System:
+      Firmware: UEFI 2.70 (Lenovo 0.4720)
+   Secure Boot: disabled (disabled)
+  TPM2 Support: yes
+  Boot into FW: supported
+
+ Current Boot Loader:
+       Product: systemd-boot 251.7
+ ...
+
+   Рекомендуется включить пароль BIOS и полное шифрование диска, чтобы
+   предотвратить атаки на UEFI и Secure Boot.
+
+Настройка
+
+   Follow the instructions in the Quick Start guide.
+
+Управление ключами
+
+   На момент написания статьи Lanzaboote предлагает только локальное хранение
+   связки ключей, иначе невозможно перестроить систему и подписать новые
+   результирующие файлы.
+
+   В будущем Lanzaboote предложит два новых варианта подписи: удаленная
+   подпись (HTTP-сервер, который получает запросы на подпись и отвечает
+   подписями) и подпись на основе PKCS#11 (то есть с использованием
+   HSM-подобного устройства, например, YubiKey, NitroKey и т.д.).
+
+   Warning: Управление ключами - сложная проблема, которая выходит за рамки
+   проекта Lanzaboote, существует множество решений, но не существует единого
+   идеального. Потратьте время на то, чтобы научиться управлять ключами и
+   определить правильный уровень защиты от угроз - это очень важно для
+   эффективной защиты загрузки
+
+   .
+
+Различия с `systemd-stub`
+
+   У systemd и upstream дистрибутивов есть существующее решение под названием
+   `systemd-stub`, но оно не подходит для NixOS, так как в системе слишком
+   много поколений.
+
+   При использовании `systemd-stub', ядро и initrd приходится дублировать для
+   каждого поколения, а при использовании заглушки Lanzaboote ядро и initrd
+   можно дедуплицировать без ущерба для безопасности.
+
+   Tracking the feature parity with `systemd-stub` can be done in this issue:
+   https://github.com/nix-community/lanzaboote/issues/94.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Secure_Boot/ru&oldid=16623"
+   Categories:
+     * Security
+     * Booting
+     * This page was last edited on 11 August 2024, at 15:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

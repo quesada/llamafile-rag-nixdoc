@@ -1,0 +1,133 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Ranger: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    25 June 2024
+
+     * curprev [ ] [ ] 21:0421:04, 25 June 2024‎ Klinger talk contribs‎ m 713
+       bytes +48‎ link to ranger Tag: Visual edit
+
+    20 June 2024
+
+     * curprev [ ] [ ] 19:0519:05, 20 June 2024‎ Klinger talk contribs‎ m 665
+       bytes +26‎ Category:File Manager
+
+    19 April 2024
+
+     * curprev [ ] [ ] 16:0916:09, 19 April 2024‎ Klinger talk contribs‎ 639
+       bytes +97‎ added to Category:Applications. Beginning sentence to
+       explain ranger
+
+    10 March 2019
+
+     * curprev [ ] [ ] 13:4513:45, 10 March 2019‎ imported>LinArcX‎ 542 bytes
+       −174‎ No edit summary
+     * curprev [ ] [ ] 13:4213:42, 10 March 2019‎ imported>LinArcX‎ m 716
+       bytes +5‎ No edit summary
+     * curprev [ ] [ ] 13:4113:41, 10 March 2019‎ imported>LinArcX‎ 711 bytes
+       +711‎ Initialize ranger page.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Ranger"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

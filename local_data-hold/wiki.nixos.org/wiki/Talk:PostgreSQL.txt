@@ -1,0 +1,93 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                Talk:PostgreSQL
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The instructions are incomplete and lead to a systm that never runs
+   because is missing the local part. This is what worked for me.
+
+   services.postgresql = {
+     settings = {
+       listen_addresses = "*"; 
+     };
+     enable = true;
+     enableTCPIP = true;
+     authentication = pkgs.lib.mkOverride 10 ''
+ local all       all     trust
+ host all all      ::1/128      trust
+ host all postgres 127.0.0.1/32 trust
+     '';
+   };
+
+   if you just do the part that accepts TCP connections WITHOUT the local, it
+   just doesn't run because it is missing it.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:PostgreSQL&oldid=11089"
+     * This page was last edited on 22 January 2024, at 18:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

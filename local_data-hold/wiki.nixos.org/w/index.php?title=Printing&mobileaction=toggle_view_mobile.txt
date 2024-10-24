@@ -1,0 +1,432 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+          * 2.1 Enable autodiscovery of network printers
+          * 2.2 Adding printers
+          * 2.3 Printer sharing
+     * 3 Usage
+          * 3.1 Command line
+     * 4 Tips and tricks
+          * 4.1 Manually supplying printer driver
+               * 4.1.1 Provide the PPD imperatively
+               * 4.1.2 Provide the PPD declaratively
+     * 5 Troubleshooting
+          * 5.1 Upgrade required
+          * 5.2 Unable to launch Ghostscript: gs: No such file or directory
+          * 5.3 File is missing (Gnome 3)
+          * 5.4 Debugging a broken printer driver
+   [ ] Toggle the table of contents
+
+                                    Printing
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Printing in NixOS is done via the services.printing module, to configure
+   the local printing services which is provided by the software CUPS.
+   Setting up physical printer devices is done using hardware.printers
+   option.
+
+Installation
+
+   To enable the local print service on your machine, simply add following
+   lines to your configuration
+
+ services.printing.enable = true;
+
+Configuration
+
+  Enable autodiscovery of network printers
+
+   Most printers manufactured after 2013 support the IPP Everywhere protocol,
+   i.e. printing without installing drivers. This is notably the case of all
+   WiFi printers marketed as Apple-compatible (list).
+
+   To detect these printers, add the following to your system configuration:
+
+ services.avahi = {
+   enable = true;
+   nssmdns4 = true;
+   openFirewall = true;
+ };
+
+   Discovery is done via the opened UDP port 5353. Printers should get
+   automatically detected and visible in your printer configuration client.
+
+  Adding printers
+
+   Beside manually adding printers with client tools, it is possible to
+   permanently add printers to your system configuration (but be aware of
+   this bug that sometimes expect the printer to be plugged in your system).
+   The following example configures a network printer called Dell_1250c to
+   your local system, reachable via IPP at
+   http://192.168.178.2:631/printers/Dell_1250c
+
+ hardware.printers = {
+   ensurePrinters = [
+     {
+       name = "Dell_1250c";
+       location = "Home";
+       deviceUri = "http://192.168.178.2:631/printers/Dell_1250c";
+       model = "drv:///sample.drv/generic.ppd";
+       ppdOptions = {
+         PageSize = "A4";
+       };
+     }
+   ];
+   ensureDefaultPrinter = "Dell_1250c";
+ };
+
+   To add a local printer, connected via USB, change the deviceUri to a USB
+   address and optionally define which driver to use by adding the model
+   option.
+
+ hardware.printers = {
+   ensurePrinters = [
+     {
+       name = "Dell_1250c";
+       location = "Home";
+       deviceUri = "usb://Dell/1250c%20Color%20Printer?serial=YNP023240";
+       model = "Dell-1250c.ppd.gz";
+       ppdOptions = {
+         PageSize = "A4";
+       };
+     }
+   ];
+ };
+
+   Some local or network printers might need additional drivers. You can add
+   them using the drivers option
+
+ services.printing.drivers = [ YOUR_DRIVER ];
+
+   where YOUR_DRIVER is the driver package appropriate for your printer.
+   Commonly used driver packages include:
+
+     * pkgs.gutenprint — Drivers for many different printers from many
+       different vendors.
+     * pkgs.gutenprintBin — Additional, binary-only drivers for some
+       printers.
+     * pkgs.hplip — Drivers for HP printers.
+     * pkgs.hplipWithPlugin — Drivers for HP printers, with the proprietary
+       plugin. Use NIXPKGS_ALLOW_UNFREE=1 nix-shell -p hplipWithPlugin --run
+       'sudo -E hp-setup' to add the printer, regular CUPS UI doesn't seem to
+       work.
+     * pkgs.postscript-lexmark — Postscript drivers for Lexmark
+     * pkgs.samsung-unified-linux-driver — Proprietary Samsung Drivers
+     * pkgs.splix — Drivers for printers supporting SPL (Samsung Printer
+       Language).
+     * pkgs.brlaser — Drivers for some Brother printers
+     * pkgs.brgenml1lpr and pkgs.brgenml1cupswrapper — Generic drivers for
+       more Brother printers [1]
+     * pkgs.cnijfilter2 — Drivers for some Canon Pixma devices (Proprietary
+       driver)
+
+   Search for other printer drivers in the NixOS package directory: the
+   official list of packages is here. Add the driver to
+   services.printing.drivers, not environment.systemPackages.
+
+  Printer sharing
+
+   Enable network sharing of the default local printer, also known as
+   "AirPrinting". Note that listenAddresses = [ "*:631" ];, allowFrom = [
+   "all" ]; and openFirewall = true; will enable anonymous access to your
+   printer on all interfaces, you might want to restrict this.
+
+ services.avahi = {
+   enable = true;
+   nssmdns = true;
+   openFirewall = true;
+   publish = {
+     enable = true;
+     userServices = true;
+   };
+ };
+ services.printing = {
+   listenAddresses = [ "*:631" ];
+   allowFrom = [ "all" ];
+   browsing = true;
+   defaultShared = true;
+   openFirewall = true;
+ };
+
+   Once printer sharing is enabled, it could be additionally advertised in
+   the home network via the Samba protocol, see.
+
+Usage
+
+   After enabling the printing service you'll be able to configure and add
+   network printers via http://localhost:631. You may need to authenticate
+   with your local user when you add the printer.
+
+   Depending on your desktop environment, there are several graphical tools
+   available which will connect to this backend service and allow you a more
+   convenient printer management, for example system-config-printer.
+
+  Command line
+
+   List printers
+
+ # lpstat -p
+
+   Print test page for printer called HP-LaserJet-1020
+
+ # lp -o job-sheets=standard,none -d HP-LaserJet-1020 /dev/null
+
+   List jobs
+
+ # lpstat
+
+   Cancel job
+
+ # cancel 1
+
+Tips and tricks
+
+    Manually supplying printer driver
+
+      Provide the PPD imperatively
+
+   If no driver is found for your printer, even when
+   services.printing.drivers is correctly populated (see above), you can try
+   to give cups a PPD file.
+
+     * Download the required PPD file, for example from openprinting.org
+     * Open the PPD as a text file, and check that it does not mention FHS
+       paths like /usr/bin. If it does, this method is unlikely to work, as
+       the PPD file depends on executables not present on your system. You
+       can certainly install the binaries yourself and point to the new
+       binary, but it is certainly easier to patch the executables in a
+       derivation (see below) to avoid garbage collection of your binaries.
+     * add the printer with system-config-printer (for example) and at the
+       'choose driver' screen choose 'provide PPD file'
+
+      Provide the PPD declaratively
+
+   You can also declaratively add the PPD as a new driver by creating a
+   simple derivation. You just need to create a derivation that puts the PPD
+   file in $out/share/cups/model/yourfile.ppd (you can also put it in a
+   subfolder like $out/share/cups/model/HP/yourfile.ppd to limit conflicts
+   between ppd having the same name). Note that the name of the file does not
+   change the way cups will list it as the model/manufacturer is written
+   inside the (text) ppd.
+
+   As in the imperative method, first check that your file does not contain
+   any reference to binaries outside the store like /bin/ or /usr/. If it
+   does not contain any reference then you should be able to simply do this:
+
+ {
+   ...
+   services.printing.enable = true;
+   services.printing.drivers = [
+     (writeTextDir "share/cups/model/yourppd.ppd" (builtins.readFile ./yourppd.ppd))
+   ];
+   ...
+ }
+
+   If your ppd contains links to external binaries, you can instead patch the
+   file using for instance substituteInPlace. For that, create a file, say,
+   myPrinter.nix containing something like:
+
+ { stdenv }:
+ stdenv.mkDerivation rec {
+   name = "myprinter-${version}";
+   version = "1.0";
+
+   src = ./.;
+
+   installPhase = ''
+     mkdir -p $out/share/cups/model/
+     cp myprinter.ppd $out/share/cups/model/
+     # If you need to patch the path to files outside the nix store, you can do it this way
+     # (if the ppd also comes with executables you may need to also patch the executables)
+     substituteInPlace $out/share/cups/model/myprinter.ppd \
+       --replace "/usr/yourProgram/" "${yourProgram}/bin/yourProgram"
+   '';
+ }
+
+   Of course update the name of the files and adapt the substituteInPlace
+   command to your needs. Then add your driver as:
+
+ {
+   ...
+   services.printing.enable = true;
+   services.printing.drivers = [
+     (pkgs.callPackage ./myPrinter.nix {})
+   ];
+   ...
+ }
+
+   Your PPD file should now appear next to the other PPD files installed on
+   your system when you add a new printer.
+
+   For debugging purpose, it may be interesting to note that the data folder
+   used by cups (containing the drivers and more) can be obtained by looking
+   in the environment $CUPS_DATADIR (the contents of $out/share/cups/
+   contained in your drivers are linked in this folder).
+
+Troubleshooting
+
+  Upgrade required
+
+   Described in: Github issue 23993
+   Problem
+   Using the cups web interface, the page tells you "Upgrade Required" and
+   then redirects you to a page that fails to load.
+
+   Cause
+   When you are using http and cups wants authentication it will redirect you
+   to a https version by default.
+   In order to use https it needs ssl keys. However it is possible that cups
+   fails to generate these keys, and then the page will fail to load.
+
+   Solution
+   Either we can help cups to get ssl keys, or we can tell it to not use
+   https at all.
+   Generating ssl keys:
+   First make sure the directory /etc/cups/ssl exists:
+   sudo mkdir -p /etc/cups/ssl
+   Try restarting cups and using the web interface again. This might be
+   enough to get it working.
+   If this didn't help, then check if cups has generated ssl keys in
+   /etc/cups/ssl
+   Disabling ssl:
+   Edit your /etc/nixos/configuration.nix and add the following lines:
+
+ services.printing.extraConf = ''
+     DefaultEncryption Never
+   '';
+
+  Unable to launch Ghostscript: gs: No such file or directory
+
+   Described in: Github issue 20806 and issues 22062
+   Problem
+   When printing, cups will report an error: Unable to launch Ghostscript:
+   gs: No such file or directory
+
+   Cause
+   Some drivers use the ghostscript binary.
+   Cups will look for the binary path in it's config file: cupsd.conf
+   This file is normally a link. But it can be overwritten, and
+   consequentially become outdated.
+
+   Solution
+   You could try to manually fix the path variable in
+   /var/lib/cups/cupsd.conf
+   Alternatively you could try to delete the file and run sudo nixos-rebuild
+   switch
+
+  File is missing (Gnome 3)
+
+   When you add an printer in Gnome (using gnome-control-center printers) you
+   create a profile for your printer.
+
+   Problem
+   But, later you may experience an error like
+   "/nix/store/.../lib/cups/filter/pstospl not available: No such file or
+   directory".
+
+   Cause
+   When you create a printer profile you get a freeze version of cups filter
+   and when cups is updated, because you have upgraded your system, and
+   garbage collected this version is gone.
+
+   Solution
+   Go into the gnome-control-center printers settings, remove the printer and
+   recreate it.
+
+  Debugging a broken printer driver
+
+   Add to /etc/nixos/configuration.nix
+
+ services.printing.logLevel = "debug";
+
+   Rebuild
+
+ sudo nixos-rebuild switch
+
+   Watch the cups logs
+
+ $ journalctl --follow --unit=cups
+
+   or
+
+ $ journalctl --follow --unit=cups | grep -C10 --color=always -i -e 'No such file or directory' -e 'error:'
+
+   Start a print job
+
+   Now watch the cups logs for errors like No such file or directory
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Printing&oldid=13159"
+   Category:
+     * Hardware
+     * This page was last edited on 13 June 2024, at 06:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

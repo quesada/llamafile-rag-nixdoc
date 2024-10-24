@@ -1,0 +1,141 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Gn package
+     * 2 Packages built with Gn
+          * 2.1 nixpkgs status: source build
+               * 2.1.1 v8
+               * 2.1.2 skia
+               * 2.1.3 chromium
+          * 2.2 nixpkgs status: binary build
+               * 2.2.1 electron
+               * 2.2.2 flutter
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                       Gn
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Gn is a build tool by Google
+
+Gn package
+
+   https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/build-managers/gn
+
+Packages built with Gn
+
+   can be found by
+
+ cd nixpkgs/pkgs
+ grep -r -F '"https://gn.googlesource.com/gn"'
+
+   because usually, Gn version is pinned with gn.overrideAttrs
+
+  nixpkgs status: source build
+
+    v8
+
+   https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/libraries/v8
+
+    skia
+
+   https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/sk/skia-aseprite/package.nix
+
+    chromium
+
+   https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/networking/browsers/chromium
+
+   gn is pinned as gnChromium in default.nix
+
+  nixpkgs status: binary build
+
+    electron
+
+   https://github.com/NixOS/nixpkgs/tree/master/pkgs/development/tools/electron
+
+   https://github.com/NixOS/nixpkgs/issues/17073 - request to build electron
+   from source
+
+    flutter
+
+   https://github.com/NixOS/nixpkgs/tree/master/pkgs/development/compilers/flutter
+
+   https://github.com/NixOS/nixpkgs/issues/201574 - request to build flutter
+   from source
+
+See also
+
+     * https://github.com/input-output-hk/gclient2nix - abandoned draft,
+       gn.nix is missing
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Gn&oldid=17503"
+   Category:
+     * Applications
+     * This page was last edited on 15 September 2024, at 15:56.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

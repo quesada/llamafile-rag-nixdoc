@@ -1,0 +1,193 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Launchers
+     * 2 Installation
+     * 3 Troubleshooting
+          * 3.1 ATlauncher can't start instance
+          * 3.2 Prismlauncher doesn't have Java Version XX.
+          * 3.3 Minecraft can’t start without Java Version XX.
+          * 3.4 Official Minecraft Launcher fails to start the game.
+   [ ] Toggle the table of contents
+
+                                   Minecraft
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 19:07, 29 July 2024 by BENDI (talk | contribs) (Updated the
+   java compatibility table with versions 1.20.5+
+   https://minecraft.wiki/w/Java_Edition_1.20.5#cite_note-2)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Minecraft is a sandbox game about building, surviving, fighting, and being
+   creative, developed by Mojang Studios.^[1] Minecraft currently has two
+   supported variants known as:
+
+     * Minecraft: Java Edition is only available on Windows, MacOS and Linux
+       and is known for modding.
+     * Minecraft: Bedrock Edition is available on Windows, Xbox One, Xbox
+       Series S and X, PlayStation 4 and 5, Nintendo Switch, Android, iOS.
+       Bedrock is not playable on Linux due to UWP applications not being
+       supported on Linux.^[2]^[3]
+
+Launchers
+
+   Offical Minecraft Launcher: Website — Package/pkgs.minecraft
+
+   Warning: 1.19 or higher is not working on NixOS, using alternative clients
+   is strongly recommended.
+
+   Prismlauncher: A free, open source launcher. Website —
+   Package/pkgs.prismlauncher
+
+   ATLauncher: A simple and easy to use Minecraft launcher which contains
+   many different modpacks for you to choose from and play. Website —
+   Package/pkgs.atlauncher
+
+   Badlion Client: A closed source PvP Modpack. Website —
+   Package/pkgs.badlion-client
+
+   Lunar Client: A free Minecraft client with mods, cosmetics, and
+   performance boost. Website — Package/pkgs.lunar-client
+
+   hmcl: A Minecraft Launcher which is multi-functional, cross-platform and
+   popular. Website — Package/pkgs.hmcl
+
+Installation
+
+   Your preferred client can be either imperatively installed by typing
+   nix-env -iA nixos.<LAUNCHER> or nix profile install nixpkgs#<LAUNCHER> if
+   Flakes are enabled. Preferably, install the package declaratively and
+   globally by typing
+
+ environment.systemPackages = [
+   pkgs.<LAUNCHER>
+ ];
+
+   Alternatively, the package can be installed per-user with
+   users.users.<USER>.packages or home-manager. For nix native, use:
+
+ users.users.<USER>.packages = [
+   pkgs.<LAUNCHER>
+ ];
+
+   For home-manager, use:
+
+ home.packages = [
+   pkgs.<LAUNCHER>
+ ];
+
+Troubleshooting
+
+  ATlauncher can't start instance
+
+   By default, ATlauncher installs its own Java runtime in
+   **USERSDIR**/runtimes/minecraft, which gets selected in the settings' Java
+   Path.
+
+   To fix this, make sure to select the java version installed in the system
+   store from the Settings > Java/Minecraft > Java Path menu and also disable
+   the Use Java Provided By Minecraft? option.
+
+   If your instance still doesn't start, check the instance settings and
+   apply the same changes there.
+
+  Prismlauncher doesn't have Java Version XX.
+
+   The Prismlauncher package can be overridden with
+   (pkgs.prismlauncher.override { jdks = [ pkgs.<JAVA_PACKAGE> ]; }). For
+   example: (pkgs.prismlauncher.override { jdks = [ pkgs.temurin-bin-21
+   pkgs.temurin-bin-8 pkgs.temurin-bin-17 ]; })
+
+  Minecraft can’t start without Java Version XX.
+
+   Different Minecraft versions need different Java versions
+
+   Minecraft Version Minimum Compatible JRE Version 
+   < 1.17            8                              
+   1.17              16                             
+   >= 1.18           17                             
+   >= 1.20.5         21                             
+
+  Official Minecraft Launcher fails to start the game.
+
+   It is possible that you are attempting to start a version of Minecraft
+   that is 1.19 or higher. Unfortunately, this is broken on NixOS. It is
+   strongly recommended to use alternative launchers.
+
+    1. ↑ https://www.minecraft.net/about-minecraft
+    2. ↑ https://www.minecraft.net/article/java-or-bedrock-edition
+    3. ↑
+       https://learn.microsoft.com/windows/uwp/get-started/universal-application-platform-guide
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Minecraft&oldid=15578"
+   Categories:
+     * Applications
+     * Gaming
+     * This page was last edited on 29 July 2024, at 19:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

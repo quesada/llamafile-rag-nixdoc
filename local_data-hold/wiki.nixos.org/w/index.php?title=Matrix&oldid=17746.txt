@@ -1,0 +1,504 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS Matrix channels
+          * 1.1 NixOS Matrix accounts for GitHub org members
+     * 2 Clients
+          * 2.1 Desktop clients
+          * 2.2 Web clients
+               * 2.2.1 element-web
+     * 3 Servers
+          * 3.1 Homeservers
+               * 3.1.1 Conduit
+               * 3.1.2 Synapse
+                    * 3.1.2.1 Coturn with Synapse
+                    * 3.1.2.2 Synapse with Workers
+          * 3.2 Application services (a.k.a. bridges)
+               * 3.2.1 mautrix-telegram
+               * 3.2.2 mautrix-whatsapp
+               * 3.2.3 matrix-appservice-irc
+               * 3.2.4 matrix-appservice-discord
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                     Matrix
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 14:25, 8 October 2024 by Mic92 (talk | contribs) (imported
+   from old wiki)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Matrix defines a set of open APIs for decentralised communication,
+   suitable for securely publishing, persisting and subscribing to data over
+   a global open federation of servers with no single point of control. Uses
+   include Instant Messaging (IM), Voice over IP (VoIP) signalling, Internet
+   of Things (IoT) communication, and bridging together existing
+   communication silos - providing the basis of a new open real-time
+   communication ecosystem.
+
+   This article extends the documentation in NixOS manual.
+
+NixOS Matrix channels
+
+   https://matrix.to/#/#community:nixos.org
+
+  NixOS Matrix accounts for GitHub org members
+
+   https://discourse.nixos.org/t/matrix-account-hosting-for-nix-os-hackers/14036
+
+Clients
+
+  Desktop clients
+
+   A few Matrix desktop clients are packaged for NixOS.
+
+     * Element (formerly Riot, based on Electron)
+     * Fractal
+     * gomuks
+     * neochat
+     * nheko
+     * Quaternion
+     * iamb
+
+   A Pidgin / libpurple plugin is also available.
+
+  Web clients
+
+    element-web
+
+   There is also a web version of Element which can be served using a web
+   server. See the NixOS manual entry.
+
+ {
+   services.nginx.enable = true;
+
+   # See https://nixos.org/manual/nixos/stable/index.html#module-services-matrix-element-web
+   services.nginx.virtualHosts."localhost" = {
+     listen = [{
+       addr = "[::1]";
+       port = yourPort;
+     }];
+     root = pkgs.element-web.override {
+       # See https://github.com/element-hq/element-web/blob/develop/config.sample.json
+       conf = {
+         default_theme = "dark";
+       };
+     };
+   };
+ }
+
+   Alternatively, you can write a script to start the web client on demand.
+
+ let
+   # port = yourPort;
+   web-dir = pkgs.element-web.override {
+     conf = {
+       default_theme = "dark";
+       show_labs_settings = true;
+     };
+   };
+   element-web = pkgs.writeScriptBin "element-web" ''
+     #!${pkgs.bash}/bin/bash
+     set -e
+     ${pkgs.python3}/bin/python3 -m http.server ${port} -b ::1 -d ${web-dir}
+   '';
+ in
+ {
+   home.sessionPath = [ "${element-web}/bin" ];
+ }
+
+Servers
+
+  Homeservers
+
+    Conduit
+
+ {
+   # See https://search.nixos.org/options?channel=unstable&query=services.matrix-conduit.
+   # and https://docs.conduit.rs/configuration.html
+   services.matrix-conduit = {
+     enable = true;
+     settings.global = {
+       # allow_registration = true;
+       # server_name = yourDomainName;
+       # port = yourPort;
+       address = "::1";
+       database_backend = "rocksdb";
+       # See https://www.metered.ca/tools/openrelay
+       turn_uris = [
+         "turn:staticauth.openrelay.metered.ca:80?transport=udp"
+         "turn:staticauth.openrelay.metered.ca:80?transport=tcp"
+       ];
+       turn_secret = "openrelayprojectsecret";
+     };
+   };
+ }
+
+    Synapse
+
+   Synapse has an associated module exposing the services.matrix-synapse.*
+   options. See the NixOS manual entry for a complete configuration example.
+
+      Coturn with Synapse
+
+   For WebRTC calls to work when both callers are behind a NAT, you need to
+   provide a turn server for clients to use. Here is an example
+   configuration, inspired from this configuration file.
+
+ {config, pkgs, lib, ...}: {
+   # enable coturn
+   services.coturn = rec {
+     enable = true;
+     no-cli = true;
+     no-tcp-relay = true;
+     min-port = 49000;
+     max-port = 50000;
+     use-auth-secret = true;
+     static-auth-secret = "will be world readable for local users :(";
+     realm = "turn.example.com";
+     cert = "${config.security.acme.certs.${realm}.directory}/full.pem";
+     pkey = "${config.security.acme.certs.${realm}.directory}/key.pem";
+     extraConfig = ''
+       # for debugging
+       verbose
+       # ban private IP ranges
+       no-multicast-peers
+       denied-peer-ip=0.0.0.0-0.255.255.255
+       denied-peer-ip=10.0.0.0-10.255.255.255
+       denied-peer-ip=100.64.0.0-100.127.255.255
+       denied-peer-ip=127.0.0.0-127.255.255.255
+       denied-peer-ip=169.254.0.0-169.254.255.255
+       denied-peer-ip=172.16.0.0-172.31.255.255
+       denied-peer-ip=192.0.0.0-192.0.0.255
+       denied-peer-ip=192.0.2.0-192.0.2.255
+       denied-peer-ip=192.88.99.0-192.88.99.255
+       denied-peer-ip=192.168.0.0-192.168.255.255
+       denied-peer-ip=198.18.0.0-198.19.255.255
+       denied-peer-ip=198.51.100.0-198.51.100.255
+       denied-peer-ip=203.0.113.0-203.0.113.255
+       denied-peer-ip=240.0.0.0-255.255.255.255
+       denied-peer-ip=::1
+       denied-peer-ip=64:ff9b::-64:ff9b::ffff:ffff
+       denied-peer-ip=::ffff:0.0.0.0-::ffff:255.255.255.255
+       denied-peer-ip=100::-100::ffff:ffff:ffff:ffff
+       denied-peer-ip=2001::-2001:1ff:ffff:ffff:ffff:ffff:ffff:ffff
+       denied-peer-ip=2002::-2002:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+       denied-peer-ip=fc00::-fdff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+       denied-peer-ip=fe80::-febf:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     '';
+   };
+   # open the firewall
+   networking.firewall = {
+     interfaces.enp2s0 = let
+       range = with config.services.coturn; lib.singleton {
+         from = min-port;
+         to = max-port;
+       };
+     in
+     {
+       allowedUDPPortRanges = range;
+       allowedUDPPorts = [ 3478 5349 ];
+       allowedTCPPortRanges = [ ];
+       allowedTCPPorts = [ 3478 5349 ];
+     };
+   };
+   # get a certificate
+   security.acme.certs.${config.services.coturn.realm} = {
+     /* insert here the right configuration to obtain a certificate */
+     postRun = "systemctl restart coturn.service";
+     group = "turnserver";
+   };
+   # configure synapse to point users to coturn
+   services.matrix-synapse.settings = with config.services.coturn; {
+     turn_uris = ["turn:${realm}:3478?transport=udp" "turn:${realm}:3478?transport=tcp"];
+     turn_shared_secret = static-auth-secret;
+     turn_user_lifetime = "1h";
+   };
+ }
+
+      Synapse with Workers
+
+   There's an external module to automatically set up synapse and configure
+   nginx with workers: https://github.com/dali99/nixos-matrix-modules
+
+  Application services (a.k.a. bridges)
+
+   Bridges allow you to connect Matrix to a third-party platform (like
+   Discord, Telegram, etc.), and interact seamlessly. See here for a list of
+   currently supported bridges.
+
+    mautrix-telegram
+
+   Full configuration reference:
+   https://github.com/tulir/mautrix-telegram/blob/master/mautrix_telegram/example-config.yaml
+
+   Example NixOS config:
+
+ {
+   services.matrix-synapse = {
+     enable = true;
+     settings.app_service_config_files = [
+       # The registration file is automatically generated after starting the
+       # appservice for the first time.
+       # cp /var/lib/mautrix-telegram/telegram-registration.yaml \
+       #   /var/lib/matrix-synapse/
+       # chown matrix-synapse:matrix-synapse \
+       #   /var/lib/matrix-synapse/telegram-registration.yaml
+       "/var/lib/matrix-synapse/telegram-registration.yaml"
+     ];
+     # ...
+   };
+
+   services.mautrix-telegram = {
+     enable = true;
+
+     # file containing the appservice and telegram tokens
+     environmentFile = "/etc/secrets/mautrix-telegram.env";
+
+     # The appservice is pre-configured to use SQLite by default.
+     # It's also possible to use PostgreSQL.
+     settings = {
+       homeserver = {
+         address = "http://localhost:8008";
+         domain = "domain.tld";
+       };
+       appservice = {
+         provisioning.enabled = false;
+         id = "telegram";
+         public = {
+           enabled = true;
+           prefix = "/public";
+           external = "http://domain.tld:8080/public";
+         };
+
+         # The service uses SQLite by default, but it's also possible to use
+         # PostgreSQL instead:
+         #database = "postgresql:///mautrix-telegram?host=/run/postgresql";
+       };
+       bridge = {
+         relaybot.authless_portals = false;
+         permissions = {
+           "@someadmin:domain.tld" = "admin";
+         };
+
+         # Animated stickers conversion requires additional packages in the
+         # service's path.
+         # If this isn't a fresh installation, clearing the bridge's uploaded
+         # file cache might be necessary (make a database backup first!):
+         # delete from telegram_file where \
+         #   mime_type in ('application/gzip', 'application/octet-stream')
+         animated_sticker = {
+           target = "gif";
+           args = {
+             width = 256;
+             height = 256;
+             fps = 30;               # only for webm
+             background = "020202";  # only for gif, transparency not supported
+           };
+         };
+       };
+     };
+   };
+
+   systemd.services.mautrix-telegram.path = with pkgs; [
+     lottieconverter  # for animated stickers conversion, unfree package
+     ffmpeg           # if converting animated stickers to webm (very slow!)
+   ];
+ }
+
+    mautrix-whatsapp
+
+   Packaged as mautrix-whatsapp. Module implemented in this PR.
+
+    matrix-appservice-irc
+
+   NixOS-specific module options: TODO link to the search results once it's
+   landed
+
+   Full configuration reference:
+   https://github.com/matrix-org/matrix-appservice-irc/blob/develop/config.sample.yaml
+
+   Upstream documentation:
+   https://matrix-org.github.io/matrix-appservice-irc/latest/introduction.html
+
+   Example configuration:
+
+ services.matrix-appservice-irc = {
+   enable = true;
+   registrationUrl = "https://ircbridge.mydomain.com"; # Or localhost
+
+   # Everything from here is passed to the appservice
+   settings = {
+     homeserver.url = "https://matrix.mydomain.com"; # Or localhost
+     homeserver.domain = "mydomain.com";
+
+     # Bridge settings for Freenode. You can bridge multiple services.
+     ircService.servers."chat.freenode.net" = {
+       name = "freenode";
+       port = 6697;
+       ssl = true;
+       dynamicChannels = {
+         enabled = true;
+         aliasTemplate = "#irc_$CHANNEL";
+         groupId = "+irc:localhost";
+       };
+       matrixClients = {
+         userTemplate = "@irc_$NICK";
+       };
+       ircClients = {
+         nickTemplate = "$LOCALPART[m]";
+         allowNickChanges = true;
+       };
+
+       membershipLists = {
+         enabled = true;
+         global = {
+           ircToMatrix = {
+             initial = true;
+             incremental = true;
+           };
+           matrixToIrc = {
+             initial = true;
+             incremental = true;
+           };
+         };
+       };
+     };
+   };
+ };
+
+   This example configuration creates a bridge for only one IRC network,
+   Freenode. Some options are set to make an example, but you absolutely
+   *should* read the whole configuration documentation and set all options
+   you want before starting. The example options show you how to adapt the
+   room/user name space template for the use case where you only have one IRC
+   server bridged, and also enables increased membership sync because it is
+   disabled on the official Freenode bridge.
+
+   The appservice automatically creates a registration file under
+   /var/lib/matrix-appservice-irc/registration.yml and keeps it up to date.
+   If your homeserver is not located on the same machine and NixOS
+   installation, you must absolutely make sure to synchronize that file over
+   to the home server after each modification and keep both in sync.
+
+    matrix-appservice-discord
+
+   Full configuration reference:
+   https://github.com/Half-Shot/matrix-appservice-discord/blob/master/config/config.sample.yaml
+
+   Example NixOS config:
+
+ {
+   services.matrix-synapse = {
+     enable = true;
+     app_service_config_files = [
+       # The registration file is automatically generated after starting the
+       # appservice for the first time.
+       # cp /var/lib/matrix-appservice-discord/discord-registration.yaml \
+       #   /var/lib/matrix-synapse/
+       # chown matrix-synapse:matrix-synapse \
+       #   /var/lib/matrix-synapse/discord-registration.yaml
+       "/var/lib/matrix-synapse/discord-registration.yaml"
+     ];
+     # ...
+   };
+
+   services.matrix-appservice-discord = {
+     enable = true;
+     environmentFile = /etc/keyring/matrix-appservice-discord/tokens.env;
+     # The appservice is pre-configured to use SQLite by default.
+     # It's also possible to use PostgreSQL.
+     settings = {
+       bridge = {
+         domain = "test.tld";
+         homeserverUrl = "https://public.endpoint.test.tld";
+       };
+
+       # The service uses SQLite by default, but it's also possible to use
+       # PostgreSQL instead:
+       #database = {
+       #  filename = ""; # empty value to disable sqlite
+       #  connString = "socket:/run/postgresql?db=matrix-appservice-discord";
+       #};
+     };
+   };
+ }
+
+See also
+
+     * Mjolnir - a Matrix moderation tool
+     * The Nix Matrix Subsystem chat room, on Matrix
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Matrix&oldid=17746"
+   Categories:
+     * Applications
+     * Server
+     * NixOS Manual
+     * This page was last edited on 8 October 2024, at 14:25.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

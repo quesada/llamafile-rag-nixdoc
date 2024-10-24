@@ -1,0 +1,111 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 See also
+   [ ] Toggle the table of contents
+
+                                   Gammastep
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Gammastep is a program that adjusts the color temperature of your screen
+   according to your surroundings. By reducing the amount of blue light
+   emitted it may help to reduce strain on the eyes if working in front of
+   the screen at night.
+
+Installation
+
+   Using Home Manager Gammastep can be enabled for a specific user with the
+   following syntax
+
+ home-manager.users.myUser = {
+   services.gammastep = {
+     enable = true;
+     provider = "manual";
+     latitude = 49.0;
+     longitude = 8.4;
+   };
+ };
+
+   To properly work, Gammastep needs your location to know when the sun will
+   be setting and it gets dark outside, so that it can automatically adjust
+   your screen temperature accordingly. Replace myUser with your user name
+   running the graphical session and latitude and longitude with your
+   geographical position.
+
+See also
+
+     * Redshift, alternative implementation supporting X-server compositors
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Gammastep&oldid=10342"
+   Category:
+     * Applications
+     * This page was last edited on 17 December 2022, at 13:18.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

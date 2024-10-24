@@ -1,0 +1,635 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Basics
+     * 2 Rough process for creating a package
+          * 2.1 Package from source code
+          * 2.2 Packages from binaries
+          * 2.3 Both source code packages and binary packages
+     * 3 How to install from the local repository
+     * 4 Tracking upstream changes and avoiding extra rebuilding
+     * 5 Using nix-shell for package development
+     * 6 Adding custom libraries and dependencies to a package
+     * 7 nix channels
+     * 8 Testing Package Updates with nixpkgs-review
+     * 9 Formatting Packages with nixfmt
+     * 10 Testing Packages with nixpkgs-hammering
+     * 11 See also
+   [ ] Toggle the table of contents
+
+                       Nixpkgs/Create and debug packages
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This article describes how to work with the nix related repositories to
+   add new packages, edit and debug existing packages. For details on the
+   NixOS module system see NixOS:Modules. NixOS:extend_NixOS explains how to
+   write, test and debug your own modules.
+
+   There is a chapter about hacking packages and modules in the NixOS manual:
+   development
+
+   Writing packages is covered in quick start and writing modules is covered
+   in the manual
+
+   If you've read the manual and still don't know how to go about creating a
+   package, read on.
+
+   The nix repositories are hosted at https://github.com/NixOS
+
+Basics
+
+   The code for nix packages is managed in the nixpkgs/pkgs repository. NixOS
+   services, and other system configuration options are managed in
+   nixpkgs/nixos.
+
+   The steps to take for your first change should look something like this:
+
+    1. Fork the repo (e.g. click the fork button on
+       https://github.com/nixos/nixpkgs).
+    2. Clone your fork git clone --depth 1
+       https://github.com/YOURNAME/nixpkgs.git
+    3. Hack hack hack
+    4. Push your changes to your fork
+    5. Open a pull request
+    6. Profit!
+
+   This is pretty much the standard way to use github, so if you have trouble
+   using git or github any general guide on these should get you going, or
+   just ask on the NixOS IRC channel. The rest of this guide deals with the
+   "Hack hack hack" step :)
+
+Rough process for creating a package
+
+   There are different steps here depending on whether you're building from
+   source or packaging an existing binary. There are some common steps too.
+
+  Package from source code
+
+    1. Read the repo build instructions and CI scripts (for example, on
+       GitHub, these are located in .github/workflows).
+    2. Look in nixpkgs for a package with a similar build process to use as
+       reference. For example, if you're packaging a project written in Go,
+       find a package for an existing Go application. Each language has its
+       own supporting Nix functions and a more or less standard way of
+       dealing with things. For example, Go has buildGoModule. Rust has
+       buildRustPackage. Python has buildPythonApplication. Node.js has
+       node2nix, yarn2nix, etc. There are also specific functions for
+       wrapping e.g. GNOME applications (wrapGAppsHook), or Qt apps
+       (libsForQt5, wrapQtAppsHook). Refer to the language support chapter in
+       the nixpkgs manual.
+    3. If there isn't a specific builder for the language, use
+       stdenv.mkDerivation directly, which has built-in support for GNU make
+       (and other build systems, provided you add the necessary
+       nativeBuildInputs).
+    4. Figure out at least some dependencies from the project repo. See if
+       they're available in nixpkgs (nix search some-library or nix-locate
+       --top-level lib/somelibrary.so). If any dependency is missing you'll
+       need to package that as well.
+    5. Create your derivation in default.nix in some empty local directory.
+    6. At the top of the derivation, temporarily add with import <nixpkgs>
+       {};. For now, don't worry too much about declaring every dependency as
+       a parameter, to save time.
+    7. Build the package with nix-build. Iterate on tweaking the derivation
+       and rebuilding until it succeeds.
+    8. For large projects with long compile times, you can use nix-shell
+       instead to run the individual phases.
+    9. At this stage, you may encounter some build quirks of the project.
+       Compile-time errors will hopefully explain what you're missing. For
+       example micromamba needs a specialized build of libsolv.
+   10. Read on below for further steps.
+
+  Packages from binaries
+
+    1. There's probably a package for it for some other distro. Use that
+       package definition to figure out the dependencies. For example, if you
+       have a deb package you can view its dependencies by running dpkg -I
+       <package.deb>. Arch packages can also be useful to look up for
+       reference (view the package's PKGBUILD):
+    2. Sometimes the definitions for other distros won't be enough by nix's
+       standards. If that's the case, use ldd and/or strace to find the rest
+       of the dependencies. If you're not familiar with ldd/strace see How to
+       find out the dynamic libraries executables loads when run?
+    3. See how other nix binary packages deal with dependencies. For example
+       nix packages based on deb packages.
+    4. If the application contains some helper executable or vendored
+       dlopen'd library you will probably need to give the nix treatment to
+       it as well. For example, JetBrains Rider vendors dotnet so it needs to
+       be replaced with the dotnet nix package.
+    5. Because there's no real build step here you'll have to rely more on
+       testing the actual execution of the package.
+
+  Both source code packages and binary packages
+
+    1. Once you have the package building successfully, test the output.
+       Ensure the build completes usingnix-build, then run
+       result/bin/<executableName>. Test as much functionality of the
+       application as you can to ensure that it works as intended.
+    2. Now that your package builds and runs, it's time to move it to
+       nixpkgs. Read nixpkgs/CONTRIBUTING.md, make sure your package is up to
+       the standards e.g. add a suitable meta section.
+    3. Git clone https://github.com/NixOS/nixpkgs, figure out the best
+       category / directory for the application (within
+       https://github.com/NixOS/nixpkgs/tree/master/pkgs/), create the
+       directory for your application, and move your default.nix there.
+    4. If you used with import <nixpkgs> {}; to iterate more quickly, now is
+       the time to replace that with the actual dependencies as an attribute
+       set at the beginning of the file e.g. { lib, stdenv, fetchFromGitHub
+       }:
+    5. Add the package to the top level declaration of packages. Most of the
+       time this will be
+       https://github.com/NixOS/nixpkgs/blob/master/pkgs/top-level/all-packages.nix
+       .
+    6. If this is your first package in nixpkgs, add yourself in
+       https://github.com/NixOS/nixpkgs/blob/master/maintainers/maintainer-list.nix
+       in a separate commit.
+    7. Read on about the final steps of branching and sending your PR in
+       https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md .
+
+How to install from the local repository
+
+   For expediency just for this article, we'll shallow clone direct from the
+   distribution repo and set an environment variable pointing to it.
+
+ $ mkdir -p ~/tmpdev && cd ~/tmpdev
+ $ git clone --depth=1 https://github.com/nixos/nixpkgs
+ $ export NIXPKGS=~/tmpdev/nixpkgs
+ $ ls $NIXPKGS
+
+   make some changes ...
+
+   example: list all available software from the local repository $NIXPKGS
+
+ $ nix-env -f $NIXPKGS -qaP '*'
+
+   example: update the system based on your local $NIXPKGS
+
+ $ nixos-rebuild -I nixpkgs=$NIXPKGS switch
+
+   example: build an expression and put the output in to `pwd`/results
+
+ $ nix-build $NIXPKGS -A irssi
+
+   example: get an environment which is used to build irssi (also see
+   nix-shell)
+
+ $ nix-build $NIXPKGS --run-env -A irssi
+
+   example: get a persistent environment which is used to build irssi
+
+ $ nix-build $NIXPKGS --run-env -A irssi --add-root
+
+Tracking upstream changes and avoiding extra rebuilding
+
+   You have forked the relevant nix repository, but you will want to track
+   changes in the upstream nix repo too. You can add a remote, and a
+   corresponding branch for this.
+
+ $ git remote add upstream https://github.com/NixOS/nixpkgs.git
+
+   You can create a branch to track the upstream master branch:
+
+ $ git fetch upstream
+ $ git checkout -b upstream-master upstream/master
+ $ git pull
+
+   This will put you into a branch with all the latest changes. Hydra, the
+   build farm, regularly creates binaries, but, since people are constantly
+   contributing to the nix repositories, it is usually the case that there
+   are changes in the master branch which have not yet made it into the
+   binary channel. To take advantage of available binaries you can switch to
+   the revision which produced the binaries in your current system and apply
+   your changes from there. You can use `nixos-version` to see the relevant
+   short revision hash:
+
+ $ nixos-version
+ 14.11pre52727.5d97886 (Caterpillar)
+ ${NixOS release}.${nixpkgs revision}
+ (since the git-repo called nixos was merged into nixpkgs)
+
+ $ nixos-version
+ 13.07pre4871_18de9f6-3c35dae (Aardvark)
+ ${NixOS release}_${NixOS revision}-${nixpkgs revision}
+
+   This string shows the Nixos release number (13.07pre4871) followed by the
+   nixos revision used to produce your current system (18de9f6) followed by
+   the nixpkgs revision (3c35dae).
+
+ $ git branch
+ upstream-master
+ $ git checkout -b nixpkgs-channel 3c35dae
+ Switched to a new branch 'nixpkgs-channel'
+ $ git checkout -b my-new-pkg
+ Switched to a new branch 'my-new-pkg'
+
+   After making some changes you can commit them into your local repo:
+
+ $ git add foo
+ $ git commit
+
+   Then you push your changes to your fork:
+
+ $ git push origin my-new-pkg
+
+   You can use this to open a pull request on github.
+
+   If some time has passed since you have created your fork, you will want to
+   merge your changes with upstream and test that it still works.
+
+ $ git fetch upstream
+ $ git merge upstream
+
+   If your merge then fails because someone else has made the same change
+   (for example, someone else also packaged a library you have just packed
+   for the program you want to get into nixpkgs), then you can do this:
+
+ $ git rebase -i HEAD~10
+
+   there select the edit mode for your commit and remove the your code which
+   added the library. **Warning: only use 'git rebase' on your commits, which
+   have not been pushed and nobody else is working with already!**
+
+   Next you have to test if your program works with the library packaged from
+   someone else, then do:
+
+ $ git checkout master
+ $ git log --stat
+
+   and pick the commit where the library was added. Finally cherry-pick that
+   commit into your branch:
+
+ $ git checkout my-new-pkg
+ $ git cherry-pick 5d97886a6a545fb20495e0837cc50fa63d2a80e1
+
+   Afterwards do your usual tests and if needed also make modifications to
+   the library but keep in mind that this might break the other use-case of
+   that library and if in doubt check that as well.
+
+Using nix-shell for package development
+
+   nix-shell is a command which drops you into the build environment for a
+   package. This is convenient for writing and debugging nix expressions.
+   Nix-shell requires nix-1.6.x although running nix-build --run-env produces
+   a similar environment.
+
+ $ mkdir -p ~/tmpdev/bc-build  &&  cd ~/tmpdev/bc-build
+ $ nix-shell $NIXPKGS -A bc
+
+   You can also drop in the build environment for a package not in nixpkgs.
+
+ $ mkdir -p ~/tmpdev/bc-build  &&  cd ~/tmpdev/bc-build
+ $ nix-shell -E "with import <nixpkgs> {}; callPackage /path/to/package.nix {}"
+
+   You would have seen the dependencies downloading, but the bc-build
+   directory remains empty. The build system would next invoke a builder with
+   some arguments. You can obtain the exact name of the builder (usually
+   bash) and the arguments args of the builder (typically a shell script) by
+   checking the corresponding value in:
+
+ $ nix derivation show $(nix-instantiate .)
+
+   However, most of the time (for instance when using stdenv ) the default
+   builder invokes first source $stdenv/setup to load the appropriate
+   environment variables, and then genericBuild(). This is a shell function
+   defined by stdenv that you can review like this...
+
+ $ typeset -f genericBuild | less
+
+   which shows when custom variables $buildCommandPath or $buildCommand are
+   defined, those are evaluated exclusively. Otherwise, if no custom $phases
+   variable is set, the standard build phase order is used as shown here...
+
+ $ typeset -f genericBuild | grep 'phases='
+ phases="$prePhases unpackPhase patchPhase $preConfigurePhases configurePhase $preBuildPhases buildPhase checkPhase $preInstallPhases installPhase fixupPhase installCheckPhase $preDistPhases distPhase $postPhases";
+
+   The phases can be defined either as a string to be eval'ed or as a shell
+   function, this is how Nix invokes it.
+
+   So to observe a full build, you can do...
+
+ $ export out=~/tmpdev/bc-build/out
+ $ set -x # Optional: it prints all commands, can be practical to debug
+ $ set +e # Optional: do not quit the shell on simple errors, Ctrl-C,...
+ $ export NIX_ENFORCE_PURITY=0 # Optional: nix automatically skip absolute files not in /nix/, /tmp or NIX_BUILD_TOP. When building in a nix-shell this may be an issue as the source won't be  in the above folders and you may get errors like Fatal error: blabla.h: No such file or directory. https://github.com/NixOS/nixpkgs/issues/204036
+ $ genericBuild
+
+   To only run some specific phases, use runPhase:
+
+ # Syntax: runPhase *phase*
+ $ runPhase unpackPhase
+
+   While developing your own package, you need to run these phases in order:
+
+ unpackPhase
+ patchPhase
+ configurePhase
+ buildPhase
+ checkPhase
+ installPhase
+ fixupPhase
+ installCheckPhase
+ distPhase
+
+   Phases can be both bash functions, or environment of identical name (when
+   they are overridden). genericBuild takes care of that distinction for you,
+   invoking them appropriately. You can of course drop down to evaluating
+   them yourself, for example to invoke an overridden phase (an environment
+   variable) using eval instead:
+
+ eval "$checkPhase"
+ # etc..
+
+   Note: you do not need to run $preConfigurePhase explicitly as it is run,
+   when running configurePhase already.
+
+   To list all functions which are declared in set:
+
+ typeset -F
+ declare -f addCVars
+ declare -f addToCrossEnv
+ declare -f addToNativeEnv
+ declare -f addToSearchPath
+ declare -f addToSearchPathWithCustomDelimiter
+ declare -f buildPhase
+ declare -f checkPhase
+ declare -f closeNest
+ declare -f command_not_found_handle
+ declare -f configurePhase
+ declare -f distPhase
+ declare -f dumpVars
+ declare -f ensureDir
+ declare -f exitHandler
+ declare -f findInputs
+ declare -f fixLibtool
+ declare -f fixupPhase
+ declare -f genericBuild
+ declare -f header
+ declare -f installBin
+ declare -f installCheckPhase
+ declare -f installPhase
+ declare -f patchELF
+ declare -f patchPhase
+ declare -f patchShebangs
+ declare -f runHook
+ declare -f showPhaseHeader
+ declare -f startNest
+ declare -f stopNest
+ declare -f stripDirs
+ declare -f stripHash
+ declare -f substitute
+ declare -f substituteAll
+ declare -f substituteAllInPlace
+ declare -f substituteInPlace
+ declare -f unpackFile
+ declare -f unpackPhase
+
+   If the phase has been defined as a function, to list a particular function
+   type:
+
+ typeset -f unpackPhase
+
+   Otherwise, if it was a string, simply echo the variable related to it
+
+ echo "$unpackPhase"
+
+   In either case, you can see the code that is about to be executed for each
+   phase:
+
+ typeset -f unpackPhase
+ unpackPhase ()
+ {
+     runHook preUnpack;
+     if [ -z "$srcs" ]; then
+         if [ -z "$src" ]; then
+             echo 'variable $src or $srcs should point to the source';
+             exit 1;
+         fi;
+         srcs="$src";
+     fi;
+     local dirsBefore="";
+     for i in *;
+     do
+         if [ -d "$i" ]; then
+             dirsBefore="$dirsBefore $i ";
+         fi;
+     done;
+     for i in $srcs;
+     do
+         unpackFile $i;
+     done;
+     if [ -n "$setSourceRoot" ]; then
+         runHook setSourceRoot;
+     else
+         if [ -z "$sourceRoot" ]; then
+             sourceRoot=;
+             for i in *;
+             do
+                 if [ -d "$i" ]; then
+                     case $dirsBefore in
+                         *\ $i\ *)
+
+                         ;;
+                         *)
+                             if [ -n "$sourceRoot" ]; then
+                                 echo "unpacker produced multiple directories";
+                                 exit 1;
+                             fi;
+                             sourceRoot="$i"
+                         ;;
+                     esac;
+                 fi;
+             done;
+         fi;
+     fi;
+     if [ -z "$sourceRoot" ]; then
+         echo "unpacker appears to have produced no directories";
+         exit 1;
+     fi;
+     echo "source root is $sourceRoot";
+     if [ "$dontMakeSourcesWritable" != 1 ]; then
+         chmod -R u+w "$sourceRoot";
+     fi;
+     runHook postUnpack
+ }
+
+   you can also modify the configureFlags prefix:
+
+ export configureFlags="--prefix=$out --with-readline"
+
+   Tip: A git repository can be used for snapshotting attempts at building
+   the package. This also makes it easy to generate patches, should you need
+   to.
+
+Adding custom libraries and dependencies to a package
+
+   If you are packaging a dependency, such as a library used by applications
+   for them to compile their code, you might have found you'd like to test if
+   the derivation file installs correctly and can be used by other software.
+
+   In order to do this, you'll need to make a simple program that references
+   the library, make a derivation for this program, then add the dependency.
+   For example:
+
+   Your program to test the library:
+
+ { pkgs ? import <nixpkgs> {} }:
+ with pkgs;
+ let yourLibraryName = callPackage /path/to/library/derivation.nix {};
+ in
+ stdenv.mkDerivation {
+   nativeBuildInputs = [
+     yourLibraryName /* Add here if needed at build time */
+     /* Add other dependencies if needed */
+   ]
+   buildInputs = [
+     yourLibraryName /* Add here if needed at runtime */
+     /* Add other dependencies if needed */
+   ]
+   /* Add the other stuff as needed */
+ }
+
+nix channels
+
+   nix channels can be used in parallel with your new local repositories, see
+   its nix-channel-documentation
+
+Testing Package Updates with nixpkgs-review
+
+   You can also use nixpkgs-review to compile, review and merge packages and
+   its dependencies. It claims to be faster than nox and provides a nix-shell
+   where you can test the package.
+
+   First make sure it is available in your shell:
+
+ nix-shell -p nixpkgs-review
+
+   You can run nixpkgs-review against uncommitted/staged changes in a cloned
+   nixpkgs repository:
+
+ cd ~/git/nixpkgs
+ nixpkgs-review wip [--staged]
+
+   It is also possible to review a specified commit:
+
+ cd ~/git/nixpkgs
+ nixpkgs-review rev HEAD
+
+   If you have already committed your changes and created a pull request, you
+   can use the pr command:
+
+ cd ~/git/nixpkgs
+ nixpkgs-review pr 5341
+
+   You can post the build result, approve/merge or read the comments of a
+   pull request inside the provided nix-shell:
+
+ # inside the provided shell
+ nixpkgs-review post-result
+ nixpkgs-review approve
+ nixpkgs-review merge
+ nixpkgs-review comments
+
+   If the pr provides a new package you can start it inside the nix-shell
+   using its package name:
+
+ # inside the provided shell
+ packagename
+
+Formatting Packages with nixfmt
+
+   It is "good practice" to format packages in a way that following changed
+   will create as minimal diffs as possible. The formatter nixfmt can be used
+   for that.
+
+ nix-shell -p nixfmt-rfc-style --run 'nixfmt path/to/default.nix'
+
+Testing Packages with nixpkgs-hammering
+
+   You can test some "good practices" in a package with nixpkgs-hammering.
+   But before applying the recommendations you should read the given
+   explanations.
+
+ cd ~/git/nixpkgs
+ nix run -f https://github.com/jtojnar/nixpkgs-hammering/archive/master.tar.gz -c nixpkgs-hammer packagename # if you are using stable nix
+ nix run github:jtojnar/nixpkgs-hammering packagename # if you are using nix flake
+
+See also
+
+     * Generic Algorithm on Doing Packaging
+     * Fundamentals of Stdenv in Nix Pills
+     * Developing with nix-shell in Nix Pills
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nixpkgs/Create_and_debug_packages&oldid=16974"
+   Categories:
+     * Development
+     * NixOS
+     * Nixpkgs
+     * Guide
+     * This page was last edited on 27 August 2024, at 11:09.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

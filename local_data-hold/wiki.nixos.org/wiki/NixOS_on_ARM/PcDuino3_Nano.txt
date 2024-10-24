@@ -1,0 +1,127 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Serial console
+     * 4 Notes about the boot process
+   [ ] Toggle the table of contents
+
+                           NixOS on ARM/PcDuino3 Nano
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   pcDuino3 Nano
+   Architecture ARMv7 
+
+Status
+
+     This article or section is out of date.                                  
+     Reason: Section refers to old user-provided images. Should be reviewed   
+     with cross-compilation, or native compilation through userspace          
+     emulation. (Discuss in Talk:NixOS on ARM/PcDuino3 Nano)                  
+     Once the page has been updated this notice can be removed.               
+
+   @dezgeg's porting efforts to ARMv7 should work.
+
+Board-specific installation notes
+
+   First follow the generic installation steps to get the installer image.
+
+   U-Boot needs to be copied to specific sectors on the microSD card with dd.
+   Download U-Boot for the board
+   (uboot-Linksprite_pcDuino3_Nano_defconfig-2015.07_u-boot-sunxi-with-spl.bin),
+   and copy it to the correct location with (again, replace /dev/sdX with the
+   correct path to the SD card device):
+
+ sudo dd if=uboot-Linksprite_pcDuino3_Nano_defconfig-2015.07_u-boot-sunxi-with-spl.bin of=/dev/sdX bs=1024 seek=8
+
+   Then, install using the installation and configuration steps.
+
+Serial console
+
+     This article or section needs expansion.                                 
+     Reason: The exact console parameter is needed. (Discuss in Talk:NixOS on 
+     ARM/PcDuino3 Nano#)                                                      
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+Notes about the boot process
+
+   USB keyboards and HDMI displays work perfectly. Also a 3.3v serial port
+   via the 3-pin header works.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/PcDuino3_Nano&oldid=4766"
+   Hidden categories:
+     * Pages or sections flagged with Template:outdated
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 26 December 2021, at 22:17.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

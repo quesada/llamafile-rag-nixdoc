@@ -1,0 +1,136 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #06 - NixOS Weekly
+
+   Published on Mon Jun 29 2020
+
+                               #06 - NixOS Weekly
+
+                                      News
+
+Announcements
+
+     * Nix error messages proposal: phase 2, PR 1 merged!
+
+       Nearly every C++ file in the repo was touched! This will be the
+       biggest PR, by far, for this project. Getting this in is a major feat!
+
+       Next up, I’m looking forward to finishing out this phase with showing
+       the lines of code for errors, and supporting show-trace in the new
+       format. I expect that PR to be much easier, both to make the changes
+       and to review them.
+
+     * Long-term reproducibility with Nix and Software Heritage
+
+     * RFC 70: Merge nixos-hardware into nixpkgs
+
+     * NixOS 20.09 Release Manager has been selected
+
+Tutorials & Resources
+
+     * So, tell me about Nix
+
+       An introduction to the Nix ecosystem and a collection of resources to
+       get started.
+
+     * NixOS: How it works and how to install it!
+
+       Thorough overview of NixOS.
+
+     * Github actions powered by Nix Shell & Cachix
+
+     * Tutorial: Ad hoc developer environments
+
+       Introduction how to get started with Nix for development in teams.
+
+     * Tutorial: Towards reproducibility: Pinning nixpkgs
+
+       Introduction for achieving reproducibility with Nix.
+
+     * Tutorial: building and running Docker images
+
+     * Anti-patterns in Nix language
+
+       A few short notes what to avoid when writing Nix.
+
+     * ZuriHac: Overhaul of haskell.nix getting started
+
+     * netboot.nix: 15 second netboot iterations
+
+     * Windows-on-NixOS, part 2: Make it go fast!
+
+     * Reproducible Builds with Nix
+
+       How Status.im, a messaging app, uses Nix to achieve the ‘holy grail’
+       of reproducible builds.
+
+     * Mach-nix: Create python environments quick and easy
+
+     * homelab using Nix and NixOS
+
+     * PureScript on Nix without dependency codegen
+
+     * Nix & libSystem
+
+       How nixpkgs links against macOS’s system libraries.
+
+     * home-manager template: get started in a reproducible way.
+
+     * Encypted Btrfs Root with Opt-in State on NixOS
+
+     * NixOS ❄: tmpfs as root & NixOS ❄: tmpfs as home
+
+       Tutorial with step by step instructions for installing NixOS on tmpfs.
+       Also an introduction to how to have a usable /home on tmpfs.
+
+Jobs
+
+     * Help Shopify rebuild our world in Nix
+
+       Shopify is looking to grow a Nix team to continue its roll-out of
+       Nix-based environments to development, CI, and production, across
+       macOS and Linux.
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

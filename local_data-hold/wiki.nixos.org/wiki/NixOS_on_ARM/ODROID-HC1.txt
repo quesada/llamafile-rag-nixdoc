@@ -1,0 +1,159 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Known Problems
+          * 3.1 Hardkernel Kernel
+          * 3.2 Mainline Kernel
+          * 3.3 Ethernet, SATA in stage1
+   [ ] Toggle the table of contents
+
+                            NixOS on ARM/ODROID-HC1
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   Hardkernel ODROID-HC1 & ODROID-HC2
+   Manufacturer       Hardkernel      
+   Architecture       ARMv7           
+   Bootloader         U-Boot          
+   Boot options       SD              
+
+Status
+
+   Mostly working, but some manual steps needed to get it running.
+
+Board-specific installation notes
+
+    1. Flash the multiplatform ARMv7 SD card image onto a Micro SD card.
+    2. Install the ODROID XU3 bootloader:
+          * If you can run ARMv7 binaries (either natively or with QEMU), you
+            can use nix-shell -p odroid-xu3-bootloader --run 'sd_fuse-xu3
+            /dev/mmcblkp0' (replace mmcblkp0 with the device node for your SD
+            card).
+          * If you are cross compiling, the script will not run as it'll try
+            to use ARMv7 binaries, but you can manually flash the needed
+            parts:
+
+     dd conv=notrunc bs=512 seek=1    of=/dev/mmcblk0 if=./result/lib/sd_fuse-xu3/bl1.bin.hardkernel
+     dd conv=notrunc bs=512 seek=31   of=/dev/mmcblk0 if=./result/lib/sd_fuse-xu3/bl2.bin.hardkernel.1mb_uboot
+     dd conv=notrunc bs=512 seek=63   of=/dev/mmcblk0 if=./result/lib/sd_fuse-xu3/u-boot-dtb.bin
+     dd conv=notrunc bs=512 seek=2111 of=/dev/mmcblk0 if=./result/lib/sd_fuse-xu3/tzsw.bin.hardkernel
+
+    3. If you cross compiled the boot loader, U-Boot will try to load an
+       incorrect device tree blob. The easiest way to fix that is to mount
+       the root partition (the second partition on the SD card), and modify
+       boot/extlinux/extlinux.conf to include FDT exynos5422-odroidhc1.dtb
+       (the HC1 and HC2 both use the same DTB file, there is no
+       exynos5422-odroidhc2.dtb). This will be needed every time the
+       configuration is regenerated, so it is best to reinstall the
+       bootloader natively once the system has booted for the first time.
+
+   The system is now ready to boot. SSH is disabled, so you'll need to access
+   it via the serial port. As the image is based off of the NixOS installer
+   you should be automatically logged into the nixos account and both nixos
+   and root should have no password set.
+
+Known Problems
+
+  Hardkernel Kernel
+
+   You can use the Hardkernel fork of the Linux kernel by setting
+   boot.kernelPackages = pkgs.linuxPackages_hardkernel_latest. Note that this
+   is currently a 4.14 LTS kernel.
+
+   This kernel does not reboot correctly with the default settings. To work
+   around this you can set boot.consoleLogLevel = 7;. Powering the system off
+   and then unplugging the power supply shortly to make it start up again
+   also works.
+
+  Mainline Kernel
+
+   The mainline kernel also doesn't reboot correctly, but works fine when
+   booted from a cold system. When doing a warm reboot the SATA port will not
+   work and the ethernet port might also be unusable.
+
+  Ethernet, SATA in stage1
+
+   To use the SATA disk in stage1, for example to move the Nix store off of
+   the Micro SD card, add boot.initrd.availableKernelModules = [ "uas" ];.
+
+   To use a network connection, for example for remotely unlocking an
+   encrypted root partition, add this to your configuration:
+
+ boot.initrd.kernelModules = [ "r8152" ];
+ boot.initrd.preLVMCommands = lib.mkBefore "waitDevice /sys/class/net/eth0";
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/ODROID-HC1&oldid=7821"
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 18 July 2020, at 09:16.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,95 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Clickpad issues
+   [ ] Toggle the table of contents
+
+                                    Touchpad
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Clickpad issues
+
+   If your touchpad physical click (or clickpad) like for Lenovo Thinkpad or
+   MacBook touchpad is disabled after a kernel update, this might be due to a
+   kernel bug on the 6.1+ Linux.
+
+   To restore the previous behavior, add to your Nixos hardware
+   configuration:
+
+   # Avoid touchpad click to tap (clickpad) bug. For more detail see:
+   # https://wiki.archlinux.org/title/Touchpad_Synaptics#Touchpad_does_not_work_after_resuming_from_hibernate/suspend
+   boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Touchpad&oldid=10881"
+   Category:
+     * Hardware
+     * This page was last edited on 27 September 2023, at 09:36.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

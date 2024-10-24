@@ -1,0 +1,222 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS configurations
+          * 1.1 Hardware configurations
+          * 1.2 System configurations
+     * 2 User configurations
+     * 3 NixOps configurations
+     * 4 krops configurations
+     * 5 Projects using nix
+     * 6 Overlays
+     * 7 See also
+   [ ] Toggle the table of contents
+
+                            Configuration Collection
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+NixOS configurations
+
+   Alphabetically sorted lists of different configuration repositories, by
+   the community members of NixOS.
+
+  Hardware configurations
+
+   nixos-hardware - NixOS code snippets for dedicated hardware 
+
+  System configurations
+
+   @aaronjanse's flake, with packages customized using wrappers               
+   @alex3rd’s config                                                          
+   @Andrew’s configuration                                                    
+   @areina's NixOS config                                                     
+   @axelf4's NixOS config                                                     
+   @badele's NixOS homelab configuration                                      
+   @baitinq's NixOS config                                                    
+   @balsoft’s config                                                          
+   @barrucadu's NixOS config                                                  
+   @Baughn's NixOS config                                                     
+   @bbigras's flake configs (NixOS + Home-Manager)                            
+   @bddvlpr's NixOS + home-manager                                            
+   @bennofs's NixOS config                                                    
+   @bobbbay's NixOS + Home Manager + flake-utils-plus config                  
+   @cab’s flake                                                               
+   @casept's NixOS config                                                     
+   @coreyoconnor's NixOS configs                                              
+   @CrazedProgrammer's NixOS config                                           
+   @DAlperin's NixOS flake + home-manager                                     
+   @davidak's NixOS + home-manager config                                     
+   @davidtwco NixOS & home-manager config                                     
+   @dieracdelta's NixOS + home-manager config                                 
+   @drupol flake configs (NixOS + Home-Manager)                               
+   @eisfunke's NixOS + home-manager + flake config                            
+   @FedericoSchonborn's NixOS + Nix on Droid + Home Manager config            
+   @felschr's NixOS & home-manager config                                     
+   @figsoda's NixOS config                                                    
+   @fufexan's NixOS + home-manager config                                     
+   @gytis-ivaskevicius's NixOS + home-manager + flake-utils-plus config       
+   @hutzdog's NixOS + home-manager + flake-utils-plus literate config         
+   @hyper_ch's NixOS config                                                   
+   @iammrinal0's NixOS with home-manager using flakes config                  
+   @infinisil's NixOS config                                                  
+   @ixxie's NixOS config                                                      
+   @jwiegley's NixOS config                                                   
+   @K900’s pile of configs                                                    
+   @kanashimia’s config                                                       
+   @kenranunderscore's NixOS + home-manager config                            
+   @khaneliman’s snowfall-lib + home-manager + nixvim + sops-nix flake config 
+   for darwin and NixOS                                                       
+   @l0b0's NixOS config                                                       
+   @Lord-Valen's Hive                                                         
+   @marijanp's NixOS + home-manager config                                    
+   @mbledkowski's NixOS (and other) config                                    
+   @mikeyobrien's NixOS + home-manager config                                 
+   @mjm's NixOS + nix-darwin + home-manager flake                             
+   @mogria's NixOS config                                                     
+   @mxjessie's NixOS config                                                   
+   @Myhlamaeus's NixOS & home-manager config                                  
+   @natto1784's NixOS & home-manager config                                   
+   @netcave's NixOS config                                                    
+   @nickjanus's NixOS config                                                  
+   @NobbZ flake                                                               
+   @Nommy’s flake                                                             
+   @Panadestein’s flake + home-manager                                        
+   @phanirithvij’s NixOS config flake                                         
+   @pSub's NixOS config                                                       
+   @periklis's Nix config for macOS                                           
+   @prikhi's NixOS config                                                     
+   @qubasa's Clan config                                                      
+   @rasendubi's NixOS config                                                  
+   @RGBCube's NixOS configuration collection                                  
+   @roosemberth's NixOS config                                                
+   @ryan4yin's flake for NixOS + macOS + home-manager, with a                 
+   beginner-friendly tutorial                                                 
+   @saksmt’s config                                                           
+   @samuelgrf's NixOS config                                                  
+   @savage42’s config                                                         
+   @SeTSeR’s config                                                           
+   @selfuryon’s config                                                        
+   @sheenobu's NixOS + home manager config                                    
+   @siraben's NixOS config                                                    
+   @SnabbLab's NixOS config                                                   
+   @Synthetica9's NixOS config                                                
+   @tejing's NixOS + home-manager flake config                                
+   @termslang’s config                                                        
+   @TheMaxMur's NixOS & Nix-Darwin & Home-Manager config                      
+   @thiagokokada’s NixOS + home-manager config                                
+   @tomodachi94’s NixOS and Home-Manager config                               
+   @trishume's NixOS config                                                   
+   @utdemir NixOS & home-manager config                                       
+   @Weathercold's modular NixOS & home-manager flake + package overlay        
+   @yurrriq's NixOS & home-manager configs                                    
+   @yusdacra's NixOS & home-manager configs                                   
+   @Zaechus's NixOS flake + home-manager config                               
+   stockholm configuration and deployment of machines owned by the members of 
+   #krebs                                                                     
+   NixOS configurations of the OpenLab Augsburg (@aszlig, @devhell,           
+   @sternenseemann, @Profpatsch)                                              
+
+User configurations
+
+                            ~/.nixpkgs configuration
+   @akavel's Nixpkgs config                      
+   @NobbZ' Home Manager configuration in a flake 
+   @matthewbauer's Nixpkgs config                
+   @pSub's Nixpkgs config                        
+
+NixOps configurations
+
+   @headcounter's NixOps config                                       
+   @LnL7's NixOS docker config                                        
+   IOHK, blockchain startup, open-sources it's NixOps infrastructure. 
+
+krops configurations
+
+   stockholm krops configuration 
+
+Projects using nix
+
+   Mozilla             Provides an overlay for some of their projects. 
+   Rhodecode           Uses Nix for building their Python VCS server.  
+   Zentralwerk Network Multi-tenant building network                   
+
+Overlays
+
+   See Alternative Package Sets.
+
+See also
+
+     * Comparison of NixOS setups
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Configuration_Collection&oldid=17486"
+   Category:
+     * Community
+     * This page was last edited on 15 September 2024, at 09:24.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

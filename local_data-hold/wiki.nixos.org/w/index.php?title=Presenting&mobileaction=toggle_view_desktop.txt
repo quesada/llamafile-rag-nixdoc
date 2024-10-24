@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Purpose
+     * 2 Compelling components
+     * 3 What to focus on
+     * 4 Live demos
+   [ ] Toggle the table of contents
+
+                                   Presenting
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   So you'd like to present Nix or NixOS to a group or organization?
+
+   Great, we have put together this page to help you get started!
+
+   We considered putting together a canned presentation, and maybe we still
+   will but we think it's more compelling when an individual presents a
+   message that they really own. Ideally, users will see your presentation
+   and leave feeling excited to try NixOS.
+
+Purpose
+
+   Begin by considering the purpose of your presentation:
+
+     * Make it personal to you
+     * Why do you want to give this presentation?
+     * Why is giving the presentation important?
+
+Compelling components
+
+   Think about how you want to communicate the value or benefits of Nix:
+
+     * Telling a story
+     * Use the following needs to features framework:
+    1. Situation that leads to a problem
+    2. Implications of that problem, pain points
+    3. How does Nix or NixOS take care of that problem
+     * Live demos are exciting and compelling, but also risky, so be sure to
+       practice and have contingency plans!
+
+   Bonus idea: fold these ideas together into a single cohesive whole.
+
+What to focus on
+
+   When brainstorming your presentation, consider the following questions:
+
+     * What's important about Nix to you?
+     * What makes you excited about Nix?
+     * What do you usually show others when showing them Nix?
+     * When showing others Nix, what gets them excited?
+     * What do they most like about Nix?
+
+   Answers to these questions could include:
+
+     * Reproducible Builds
+     * Managing Dependency Relationships
+     * Fearlessly making changes
+     * Constant time rollbacks
+     * Configuring from a single canonical location
+     * Being part of something big, early
+     * Building skills in Nix
+     * Learning basic semantics of system management on an as-needed basis
+
+Live demos
+
+   The best live demos will be the unique ones you come up with yourself, but
+   to get you started, we have a basic set of examples:
+
+     * Vignettes in the Examples on nixos.org.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Presenting&oldid=12494"
+   Category:
+     * Community
+     * This page was last edited on 24 April 2024, at 20:38.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

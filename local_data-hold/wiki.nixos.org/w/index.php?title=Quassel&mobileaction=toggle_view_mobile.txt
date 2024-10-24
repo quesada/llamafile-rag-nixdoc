@@ -1,0 +1,192 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Client
+     * 2 Server
+     * 3 SSL
+     * 4 PostgreSQL
+   [ ] Toggle the table of contents
+
+                                    Quassel
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   From the homepage:
+
+   Quassel IRC is a modern, cross-platform, distributed IRC client, meaning
+   that one (or multiple) client(s) can attach to and detach from a central
+   core -- much like the popular combination of screen and a text-based IRC
+   client such as WeeChat, but graphical. In addition to this unique feature,
+   we aim to bring a pleasurable, comfortable chatting experience to all
+   major platforms (including Linux®, Windows®, and MacOS X® as well as
+   Android smartphones), making communication with your peers not only
+   convenient, but also ubiquitous available.
+
+Client
+
+   Previously, multiple builds of Quassel clients were provided in Nixpkgs.
+   It is not the case anymore.
+
+   The client is quasselClient.
+
+Server
+
+   To enable the Quassel server (variously referred to as the Quassel daemon
+   or Quassel Core), add
+
+ services.quassel.enable = true;
+
+   to your NixOS configuration. By default, the server only accepts
+   connections from the local machine; set
+
+ services.quassel.interfaces = [ "0.0.0.0" ];
+ networking.firewall.allowedTCPPorts = [ 4242 ];
+
+   to accept external connections.
+
+     Tip                                                                      
+     In order to affect your system by your nix-language-specific changes you 
+     have to evaluate it, run (as root):                                      
+                                                                              
+     # nixos-rebuild switch                                                   
+
+   The first time you connect to the new server, a wizard will guide you
+   through the remaining configuration steps. Before connecting to the new
+   server, you may wish to optionally configure SSL or PostgreSQL.
+
+SSL
+
+   The Quassel server can use SSL if a certificate is provided. Install
+   openssl (using nix-env or by adding it to environment.systemPackages) and
+   run
+
+ sudo -u quassel mkdir -p /home/quassel/.config/quassel-irc.org
+ sudo -u quassel openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /home/quassel/.config/quassel-irc.org/quasselCert.pem -out /home/quassel/.config/quassel-irc.org/quasselCert.pem
+
+   You will be prompted for some details about the certificate. If
+   quassel.service was running, restart it by running:
+
+ sudo systemctl restart quassel.service
+
+PostgreSQL
+
+   By default, Quassel uses an SQLite database, but it can be configured to
+   use PostgreSQL for better performance. (If you aren't sure which database
+   backend you want to use, stay with SQLite because it is always possible to
+   switch to PostgreSQL later.)
+
+   Start by enabling the PostgreSQL service in your NixOS configuration:
+
+  /* Enable the PostgreSQL service */
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql94;
+  };
+ 
+  /* Only start Quassel after PostgreSQL has started */
+  systemd.services.quassel.after = [ "postgresql.service" ];
+ 
+  /* Make the quasselcore command available in the shell */
+  environment.systemPackages = [ pkgs.quasselDaemon_qt5 ];
+
+   Activate this configuration with nixos-rebuild switch. Create a PostgreSQL
+   role (user) for Quassel:
+
+ sudo createuser -A -D -P -E -W quassel
+
+   You will be prompted for a password; you will also need to provide the
+   password to Quassel, so don't forget it! Create a PostgreSQL database for
+   Quassel:
+
+ sudo createdb -O quassel -E UTF8 quassel
+
+   If you have never connected to this Quassel server before, you can connect
+   now and select the PostgreSQL backend when prompted. You will need to
+   provide the PostgreSQL username (quassel) and password you created above.
+
+   If you are switching from the SQLite backend to the PostgreSQL backend,
+   you will need to migrate the existing data. Stop the Quassel server with
+
+ sudo systemctl stop quassel.service
+
+   Start the migration with
+
+ sudo -u quassel quasselcore --configdir=/home/quassel/.config/quassel-irc.org --select-backend=PostgreSQL
+
+   You will need to provide the PostgreSQL username (quassel) and password
+   you created above. When this is finished, restart the Quassel server:
+
+ sudo systemctl start quassel.service
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Quassel&oldid=1466"
+   Category:
+     * Applications
+     * This page was last edited on 9 August 2022, at 20:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

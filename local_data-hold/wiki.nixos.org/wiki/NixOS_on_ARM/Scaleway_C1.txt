@@ -1,0 +1,105 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            NixOS on ARM/Scaleway C1
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+    This article or section needs expansion.                                  
+    Reason: Explicit instructions for the C1 servers should be added, once it 
+    is working. (Discuss in Talk:NixOS on ARM/Scaleway C1#)                   
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   NixOS historically had some support^[1] to work on Scaleway C1 servers. It
+   may be possible to boot a C1 server using the approach described in
+   Install NixOS on Scaleway X86 Virtual Cloud Server.
+
+   At the time of writing (Dec 2017), that servers does not boot the NixOS
+   kernel, although boot the kernel from
+   http://mirror.scaleway.com/kernel/armv7l/4.9.67-mainline-rev1/ using
+   instructions from Install_NixOS_on_Scaleway_X86_Virtual_Cloud_Server with
+   the only difference in tags: instead of X86's:
+
+ KEXEC_KERNEL=/boot/nixos-kernel
+ KEXEC_INITRD=/boot/nixos-initrd
+ KEXEC_APPEND=init=/boot/nixos-init
+
+   There should be
+
+ KEXEC_KERNEL=http://mirror.scaleway.com/kernel/armv7l/4.9.93-mainline-rev1/zImage
+ KEXEC_INITRD=/boot/nixos-initrd
+ KEXEC_APPEND=init=/boot/nixos-init
+
+   It is to be investigated the difference between those kernels.
+
+    1. ↑ lib/systems/platforms.nix
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Scaleway_C1&oldid=4840"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 9 October 2018, at 18:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

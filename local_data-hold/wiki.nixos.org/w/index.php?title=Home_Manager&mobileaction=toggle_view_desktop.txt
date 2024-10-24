@@ -1,0 +1,350 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration
+          * 1.1 Installation as a user
+          * 1.2 Usage as a NixOS module
+          * 1.3 Usage as a NixOS module in a Flake
+     * 2 Usage
+          * 2.1 Using Home Manager as a declarative version of nix-env
+          * 2.2 Usage on non-NixOS Linux
+          * 2.3 Managing your dotfiles
+          * 2.4 Examples
+     * 3 FAQ
+          * 3.1 I cannot set GNOME or Gtk themes via home-manager
+          * 3.2 Installed apps don’t show up in Ubuntu's/GNOME's "Show
+            Applications"
+          * 3.3 Workaround with home on tmpfs and standalone installation
+     * 4 Templates
+     * 5 Alternatives
+     * 6 See also
+   [ ] Toggle the table of contents
+
+                                  Home Manager
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Home Manager is a system for managing a user environment using the Nix
+   package manager. In other words, Home Manager lets you
+
+     * install software declaratively in your user profile, rather than using
+       nix-env
+     * manage dotfiles in the home directory of your user.
+
+   Home Manager has many options, which can look daunting at first, but most
+   of those options only boil down to creating some dotfiles and installing
+   some software in a way similar way to nix-env.
+
+   Note: Before attempting to use Home Manager please read the warning.
+
+Configuration
+
+   Home Manager can be configured as a user in
+   ~/.config/home-manager/home.nix or as a module inside configuration.nix.
+
+  Installation as a user
+
+   Follow the official guide
+
+   Your configuration is stored in ~/.config/home-manager/home.nix. Each time
+   you modify it, rerun home-manager switch for changes to have effect.
+
+   Note that to work correctly, home-manager needs your shell to source
+   ~/.nix-profile/etc/profile.d/hm-session-vars.sh. The most convenient way
+   to do so is to have home-manager manage your whole shell configuration, eg
+   programs.bash.enable = true; or programs.zsh.enable = true;. But in this
+   case your whole bashrc is managed with Home Manager: the years of
+   customization you accumulated in your former .bashrc must be migrated to
+   Home Manager options, which may take some time. The quick and dirty way to
+   do the migration is to move your bashrc to some other location and source
+   it from Home Manager:
+
+ { pkgs, ...}: {
+   programs.bash = {
+     enable = true;
+     bashrcExtra = ''
+       . ~/oldbashrc
+     '';
+   };
+ }
+
+  Usage as a NixOS module
+
+   Here is a nixos module template you can use:
+
+ { config, pkgs, ... }:
+ let
+   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+ in
+ {
+   imports = [
+     (import "${home-manager}/nixos")
+   ];
+
+   home-manager.users.my_username = {
+     /* The home.stateVersion option does not have a default and must be set */
+     home.stateVersion = "18.09";
+     /* Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ]; */
+   };
+ }
+
+   It can either be incorporated in /etc/nixos/configuration.nix or be placed
+   in a standalone file and imported in configuration.nix: imports = [
+   ./thefile.nix ].
+
+   Whenever you change you home-manager configuration, you must rerun
+   nixos-rebuild switch. With this method, changing the configuration of an
+   unprivileged user requires to run a command as root.
+
+  Usage as a NixOS module in a Flake
+
+   Here is the skeleton of how to add Home Manager as a module to your
+   system(s) via your flake:
+
+ {
+   inputs = {
+     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+     home-manager = {
+       url = "github:nix-community/home-manager/release-24.05";
+       inputs.nixpkgs.follows = "nixpkgs"
+     };
+   };
+   outputs = { self, nixpkgs, home-manager, ... }@inputs:
+     nixosConfigurations.ExampleMachine = nixosConfiguration "ExmapleMachine"
+       system = "x86_64-linux";
+       modules = [
+           ./configuration.nix
+           home-manager.nixosModules.home-manager
+           {
+             home-manager.useGlobalPkgs = true;
+             home-manager.useUserPackages = true;
+             home-manager.users.your-username = import ./home.nix;
+         };
+       ];
+     };
+   };
+ }
+
+   Here's an example of home manager configuration in ./home.nix
+
+ { config, pkgs, ... }:
+
+ {
+   # Home Manager needs a bit of information about you and the
+   # paths it should manage.
+   home.username = "your-username";
+   home.homeDirectory = "/home/your-username";
+
+   # This value determines the Home Manager release that your
+   # configuration is compatible with. This helps avoid breakage
+   # when a new Home Manager release introduces backwards
+   # incompatible changes.
+   #
+   # You can update Home Manager without changing this value. See
+   # the Home Manager release notes for a list of state version
+   # changes in each release.
+   home.stateVersion = "24.05";
+
+   # Let Home Manager install and manage itself.
+   programs.home-manager.enable = true;
+ }
+
+   Of course you'll probably want to keep more stuff in there than just a
+   state version, but the state version is required.
+
+   The downside to doing it this way over the User config is that you have to
+   do a full system rebuild; the home manager config is part of the full
+   system, and so must be built as root or at least a trusted user.
+
+Usage
+
+  Using Home Manager as a declarative version of nix-env
+
+   Nix-env has problematic behavior due to its imperative nature. For
+   example, after installing java 8 with nix-env -i jdk8, running nix-env
+   --upgrade upgrades java to 10 despite the fact that we initially
+   explicitly requested java 8.
+
+   Installing software with Home-manager avoids this problem:
+
+ { pkgs, ...}: {
+   home.packages = [ pkgs.jdk8 ];
+ }
+
+   It is a perfectly valid use case for home-manager to only install software
+   with home.packages without managing dotfiles at all.
+
+  Usage on non-NixOS Linux
+
+   Home Manager has an option to automatically set some environment variables
+   that will ease usage of software installed with nix on non-NixOS linux
+   (fixing local issues, settings XDG_DATA_DIRS, etc.):
+
+ { pkgs, ...}: {
+   targets.genericLinux.enable = true;
+ }
+
+  Managing your dotfiles
+
+   Home Manager has options to configure many common tools. As an example,
+   adding the following
+
+   programs.git = {
+     enable = true;
+     userName  = "my_git_username";
+     userEmail = "my_git_username@gmail.com";
+   };
+
+   will make Home Manager generate a .config/git/config file for you.
+
+   Even for programs for which Home Manager doesn't have configuration
+   options, you can use it to manage your dotfiles directly, e.g.
+
+   xdg.configFile."i3blocks/config".source = ./i3blocks.conf;
+   home.file.".gdbinit".text = ''
+       set auto-load safe-path /nix/store
+   '';
+
+   This will create symlink $XDG_CONFIG_HOME/i3blocks/config and ~/.gdbinit.
+
+   Note: In both ways ("source" and "text"), the symlink points to a target
+   in /nix/store. The difference is that, "source" would overwrite the
+   content of the dot file, while "text" would add the text to the dot file
+   that may also be affected in other places.
+
+   You have the whole list of the options available in home-manager here
+
+  Examples
+
+     * Yurii Rashkovskii's home.nix
+     * bsima's configs
+     * drupol's config, with flakes
+
+FAQ
+
+  I cannot set GNOME or Gtk themes via home-manager
+
+   If you get an error about ca.desrt.conf or dconf.service on NixOS, add
+
+ programs.dconf.enable = true;
+
+   to your system configuration.
+
+  Installed apps don’t show up in Ubuntu's/GNOME's "Show Applications"
+
+   Consider some of the workarounds here:
+   https://github.com/nix-community/home-manager/issues/1439.
+
+  Workaround with home on tmpfs and standalone installation
+
+   home-on-tmpfs users who installed home-manager standalone may meet
+   problems that cannot load configs after reboot, caused by auto cleaning
+   symlink under the toplevel of the home directory. You need to ensure
+   /home/<user>/.nix-profile exists since the standalone install will not act
+   symlink while the system boots.
+
+   If your toplevel of home is on tmpfs, one possible workaround is manually
+   write activationScripts to link the directory:
+
+   system.activationScripts = {
+     # workaround with tmpfs as home and home-manager, since it not preserve
+     # ~/.nix-profile symlink after reboot.
+     profile-init.text =
+       ''
+         ln -sfn /home/${user}/.local/state/nix/profiles/profile /home/${user}/.nix-profile
+       '';
+   };
+
+   Other files may also need to manually symlink in this case.
+
+Templates
+
+     * https://github.com/juspay/nix-dev-home A home-manager template
+       providing useful tools & settings for Nix-based development.
+
+Alternatives
+
+     * Wrappers vs. Dotfiles shows how (per-user) wrapper scripts can be used
+       in place of dotfiles in the user's home directory
+     * wrapper-manager, an implementation of the idea above using the module
+       system
+
+See also
+
+     * Starting from a machine with a minimal freshly installed NixOS ISO
+       (KDE Plasma version), this video outlines the basics of using Home
+       Manager as of 2021: Wil T's "NixOS Installation Guide" (Home Manager
+       section starts at 27:22)
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Home_Manager&oldid=17909"
+   Categories:
+     * Software
+     * Home Manager
+     * This page was last edited on 20 October 2024, at 14:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

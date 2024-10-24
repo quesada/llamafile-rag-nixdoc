@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Move nixpkgs documentation to the wiki
+       2 comments
+   [ ] Toggle the table of contents
+
+                                    Talk:K3s
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 6 June by Superherointj in topic Move nixpkgs
+   documentation to the wiki
+
+Move nixpkgs documentation to the wiki
+
+   Latest comment: 6 June2 comments2 people in discussion
+
+   @Superherointj: Instead of deleting the content from the wiki and
+   referring to nixpkgs, how about we do the reverse and move the content
+   here, with a link from the repo README? The wiki is better for
+   discoverability, especially via search engines. Also, IMO the wiki is
+   where all user documentation should eventually reside together in a
+   central place. Sdht0 (talk) 15:42, 6 June 2024 (UTC)Reply
+
+           Currently the single source of truth for K3s docs is at nixpkgs.
+           It was agreed by K3s maintainers:
+           https://github.com/NixOS/nixpkgs/issues/313252
+           https://github.com/NixOS/nixpkgs/pull/314395
+           It's preferable to point to current information over keeping stale
+           information. Currently it is not planned to duplicate information.
+           But effort has been put into improving K3s docs at nixpkgs.
+           Users can still contribute to Wiki, to be eventually integrated to
+           K3s docs at nixpkgs. Or to contribute directly to K3s docs at
+           Nixpkgs, if they feel the need. Superherointj (talk) 19:49, 6 June
+           2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:K3s&oldid=13088"
+     * This page was last edited on 6 June 2024, at 19:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

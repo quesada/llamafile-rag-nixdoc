@@ -1,0 +1,188 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Backlight: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    1 July 2024
+
+     * curprev [ ] [ ] 21:0721:07, 1 July 2024‎ Klinger talk contribs‎ m
+       5,768 bytes +30‎ link to category instead of redirect page
+
+    19 December 2023
+
+     * curprev [ ] [ ] 17:1317:13, 19 December 2023‎ imported>RamReso‎ 5,738
+       bytes +550‎ added example for brightnessctl and added a note for
+       device of brightnessctl
+
+    5 January 2022
+
+     * curprev [ ] [ ] 06:0406:04, 5 January 2022‎ imported>Vater‎ m 5,188
+       bytes +8‎ form (fixing Category:Pages with syntax highlighting errors)
+       and add a first (content) category
+
+    9 July 2020
+
+     * curprev [ ] [ ] 11:4811:48, 9 July 2020‎ imported>Con-f-use‎ 5,180
+       bytes +373‎ example udev rule for /sys/class method
+
+    8 July 2020
+
+     * curprev [ ] [ ] 12:2312:23, 8 July 2020‎ imported>Con-f-use‎ 4,807
+       bytes +462‎ sys/class brightness
+
+    17 April 2020
+
+     * curprev [ ] [ ] 06:4606:46, 17 April 2020‎ imported>Graham33‎ 4,345
+       bytes +254‎ Add info on OLED screens (which don't technically have a
+       backlight)
+
+    15 February 2020
+
+     * curprev [ ] [ ] 22:5722:57, 15 February 2020‎ imported>Primeos‎ 4,091
+       bytes +25‎ →‎brightnessctl: Document the new systemd support
+       (https://github.com/NixOS/nixpkgs/pull/79663)
+
+    30 January 2020
+
+     * curprev [ ] [ ] 17:3917:39, 30 January 2020‎ imported>Fadenb‎ 4,066
+       bytes −99‎ Update `light` instructions
+
+    25 May 2019
+
+     * curprev [ ] [ ] 13:5213:52, 25 May 2019‎ imported>Bmillwood‎ m 4,165
+       bytes +1‎ typo fix "brighness" -> "brightness"
+
+    24 March 2019
+
+     * curprev [ ] [ ] 18:0918:09, 24 March 2019‎ imported>Iceychris‎ m 4,164
+       bytes +142‎ No edit summary
+
+    8 March 2019
+
+     * curprev [ ] [ ] 00:3800:38, 8 March 2019‎ imported>Hhm‎ 4,022 bytes
+       +403‎ add brightnessctl info
+
+    6 May 2018
+
+     * curprev [ ] [ ] 19:3619:36, 6 May 2018‎ imported>Samueldr‎ m 3,619
+       bytes −15‎ No edit summary
+     * curprev [ ] [ ] 17:4817:48, 6 May 2018‎ imported>Samueldr‎ m 3,634
+       bytes −538‎ Finalizes cleaning and re-working.
+     * curprev [ ] [ ] 17:0817:08, 6 May 2018‎ imported>Samueldr‎ m 4,172
+       bytes +472‎ WIP, cleaning and re-working sections
+     * curprev [ ] [ ] 03:0103:01, 6 May 2018‎ imported>BenSchaeffner‎ 3,700
+       bytes −11‎ No edit summary
+     * curprev [ ] [ ] 02:5702:57, 6 May 2018‎ imported>BenSchaeffner‎ 3,711
+       bytes +177‎ No edit summary
+     * curprev [ ] [ ] 02:4802:48, 6 May 2018‎ imported>BenSchaeffner‎ 3,534
+       bytes +2,837‎ No edit summary
+     * curprev [ ] [ ] 01:5101:51, 6 May 2018‎ imported>Samueldr‎ m 697 bytes
+       +109‎ Adds `see also`.
+     * curprev [ ] [ ] 01:5001:50, 6 May 2018‎ imported>Samueldr‎ m 588 bytes
+       +144‎ →‎xbacklight
+     * curprev [ ] [ ] 01:4801:48, 6 May 2018‎ imported>Samueldr‎ 444 bytes
+       +444‎ inits page with stubby intro paragraphs.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Backlight"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

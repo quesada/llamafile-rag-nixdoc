@@ -1,0 +1,333 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Sway: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    26 September 2024
+
+     * curprev [ ] [ ] 09:1109:11, 26 September 2024‎ Zarelit talk contribs‎
+       9,643 bytes +85‎ →‎Systemd services: Original snippet does not allow
+       kanshi to connect to the display Tag: Visual edit
+
+    11 September 2024
+
+     * curprev [ ] [ ] 08:4608:46, 11 September 2024‎ Onny talk contribs‎ m
+       9,558 bytes +49‎ →‎Brightness and volume Tag: Visual edit
+     * curprev [ ] [ ] 07:4407:44, 11 September 2024‎ Onny talk contribs‎
+       9,509 bytes +516‎ Restructure, add config section Tag: Visual edit
+
+    4 September 2024
+
+     * curprev [ ] [ ] 08:5508:55, 4 September 2024‎ Lulu talk contribs‎
+       8,993 bytes −467‎ Remove duplicated entry "Touchscreen input bound to
+       the wrong monitor in multi-monitor setups" Tag: Visual edit
+     * curprev [ ] [ ] 07:3207:32, 4 September 2024‎ Mic92 talk contribs‎
+       9,460 bytes +466‎ imported from old wiki
+     * curprev [ ] [ ] 07:3007:30, 4 September 2024‎ Mic92 talk contribs‎
+       8,994 bytes 0‎ capitalize Sway
+
+    1 September 2024
+
+     * curprev [ ] [ ] 18:0618:06, 1 September 2024‎ Lulu talk contribs‎
+       8,994 bytes +202‎ →‎Touchscreen input bound to the wrong monitor in
+       multi-monitor setups: add link to the relevant github issue Tag:
+       Visual edit
+     * curprev [ ] [ ] 14:0014:00, 1 September 2024‎ Lulu talk contribs‎ m
+       8,792 bytes +48‎ Add syntax highlighting to the troubleshooting
+       section about touchscreen input Tag: Visual edit: Switched
+     * curprev [ ] [ ] 13:5113:51, 1 September 2024‎ Lulu talk contribs‎ m
+       8,744 bytes +11‎ →‎Touchscreen input bound to the wrong monitor in
+       multi-monitor setups
+     * curprev [ ] [ ] 13:4613:46, 1 September 2024‎ Lulu talk contribs‎
+       8,733 bytes +455‎ →‎Troubleshooting Tag: Visual edit
+
+    18 August 2024
+
+     * curprev [ ] [ ] 16:3316:33, 18 August 2024‎ Serif talk contribs‎ m
+       8,278 bytes +9‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 16:3116:31, 18 August 2024‎ Serif talk contribs‎ 8,269
+       bytes −183‎ Deleted the line 'Note that if you enable Sway using NixOS
+       (via programs.sway.enable = true; in configuration.nix), your Home
+       Manager configurations for Sway will be ignored.' as this seems to not
+       be true by my own testing. Tag: Visual edit
+     * curprev [ ] [ ] 15:3115:31, 18 August 2024‎ Serif talk contribs‎ m
+       8,452 bytes +1‎ →‎Missing fonts on Xorg applications: fixed typo Tag:
+       Visual edit
+
+    21 July 2024
+
+     * curprev [ ] [ ] 20:2420:24, 21 July 2024‎ Onny talk contribs‎ 8,451
+       bytes +1,091‎ Add wl-togglescreens script Tag: Visual edit
+
+    3 May 2024
+
+     * curprev [ ] [ ] 00:5900:59, 3 May 2024‎ RafTeog talk contribs‎ 7,360
+       bytes +225‎ →‎Troubleshooting Tag: Visual edit
+
+    1 April 2024
+
+     * curprev [ ] [ ] 20:3620:36, 1 April 2024‎ Florisandrei talk contribs‎
+       7,135 bytes +1,037‎ No edit summary Tag: Visual edit: Switched
+
+    21 March 2024
+
+     * curprev [ ] [ ] 21:2221:22, 21 March 2024‎ imported>Hypnosis2839‎
+       6,098 bytes −201‎ →‎Using NixOS: remove pipewire/screensharing as it's
+       mentioned elsewhere
+     * curprev [ ] [ ] 21:2121:21, 21 March 2024‎ imported>Hypnosis2839‎
+       6,299 bytes −3,009‎ →‎Using NixOS: cut out redundant config
+
+    9 March 2024
+
+     * curprev [ ] [ ] 16:1916:19, 9 March 2024‎ imported>Jpsecher‎ m 9,308
+       bytes −1‎ Stray character
+
+    22 February 2024
+
+     * curprev [ ] [ ] 08:4008:40, 22 February 2024‎ imported>Picnoir‎ 9,309
+       bytes +163‎ Add gnome keyrig
+
+    16 February 2024
+
+     * curprev [ ] [ ] 05:4305:43, 16 February 2024‎ imported>Anuramat‎ m
+       9,146 bytes −52‎ removed redundant datadirs export (taken care of by
+       gtk wrapper)
+
+    31 January 2024
+
+     * curprev [ ] [ ] 19:0919:09, 31 January 2024‎ imported>NWuensche‎ m
+       9,198 bytes +3‎ No edit summary
+
+    31 December 2023
+
+     * curprev [ ] [ ] 18:3018:30, 31 December 2023‎ imported>Dkrejsa‎ 9,195
+       bytes +75‎ Without 'pkgs.dbus' in envionrment.systemPackages,
+       dbus-update-activation-environment is not available in the path
+
+    25 December 2023
+
+     * curprev [ ] [ ] 17:5117:51, 25 December 2023‎ imported>Nyadiia‎ m
+       9,120 bytes +9‎ Update Home Manager URL to new site
+
+    5 December 2023
+
+     * curprev [ ] [ ] 00:1600:16, 5 December 2023‎ imported>Vieta‎ 9,111
+       bytes 0‎ fonts -> packages
+
+    26 November 2023
+
+     * curprev [ ] [ ] 22:3422:34, 26 November 2023‎ imported>Vieta‎ 9,111
+       bytes +1‎ closed function
+
+    4 November 2023
+
+     * curprev [ ] [ ] 18:4318:43, 4 November 2023‎ imported>Artturin‎ 9,110
+       bytes +402‎ add realtime
+
+    9 October 2023
+
+     * curprev [ ] [ ] 20:1820:18, 9 October 2023‎ imported>Artturin‎ m 8,708
+       bytes +27‎ Not markdown
+     * curprev [ ] [ ] 20:1720:17, 9 October 2023‎ imported>Artturin‎ 8,681
+       bytes −258‎ simplify swaylock fix
+
+    25 August 2023
+
+     * curprev [ ] [ ] 18:2318:23, 25 August 2023‎ imported>Tmpm697‎ 8,939
+       bytes +179‎ Update issue with dunst need to active dbus manually when
+       use HM
+
+    11 July 2023
+
+     * curprev [ ] [ ] 00:2100:21, 11 July 2023‎ imported>Colinsane‎ m 8,760
+       bytes −14‎ fix code indentation
+
+    15 June 2023
+
+     * curprev [ ] [ ] 07:0907:09, 15 June 2023‎ imported>Techhazard‎ 8,774
+       bytes +499‎ added swaylock pam config
+
+    19 May 2023
+
+     * curprev [ ] [ ] 12:1112:11, 19 May 2023‎ imported>6t8k‎ m 8,275 bytes
+       −9‎ Don't install sway twice. `programs.sway` already does this, leads
+       to collisions in the nix store all else unchanged.
+
+    28 March 2023
+
+     * curprev [ ] [ ] 21:1121:11, 28 March 2023‎ imported>Ahoneybun‎ 8,284
+       bytes +44‎ No edit summary
+     * curprev [ ] [ ] 21:0221:02, 28 March 2023‎ imported>Ahoneybun‎ 8,240
+       bytes −1‎ Remove dead packages and add wdisplays
+
+    31 January 2023
+
+     * curprev [ ] [ ] 06:4406:44, 31 January 2023‎ imported>Zaporter‎ m
+       8,241 bytes −2‎ Two typos
+
+    15 January 2023
+
+     * curprev [ ] [ ] 12:0912:09, 15 January 2023‎ imported>Creaaidev‎ 8,243
+       bytes +658‎ Add small tip for missing fonts in xorg applications
+
+    26 December 2022
+
+     * curprev [ ] [ ] 01:3801:38, 26 December 2022‎ imported>Janik‎ m 7,585
+       bytes +67‎ added xdg-utils as recommended programm
+
+    20 December 2022
+
+     * curprev [ ] [ ] 06:5106:51, 20 December 2022‎ imported>Onny‎ m 7,518
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 06:5006:50, 20 December 2022‎ imported>Onny‎ 7,519
+       bytes +514‎ Add info on cursor size
+
+    7 December 2022
+
+     * curprev [ ] [ ] 04:4404:44, 7 December 2022‎ imported>Tamiyo‎ 7,005
+       bytes −25‎ gtkUsePortal = true; is deprecated as of 20.11
+
+    6 December 2022
+
+     * curprev [ ] [ ] 00:4600:46, 6 December 2022‎ imported>MattCairns‎ m
+       7,030 bytes +7‎ Fix syntax error in code example for home-manager
+       setup.
+
+    25 November 2022
+
+     * curprev [ ] [ ] 20:1020:10, 25 November 2022‎ imported>Alberand‎ m
+       7,023 bytes +40‎ Add short note for newebies - what kanshi is? I was
+       confused if I need it. And fixed missing quote.
+
+    18 October 2022
+
+     * curprev [ ] [ ] 02:5402:54, 18 October 2022‎ imported>LoganWalls‎
+       6,983 bytes +1,102‎ Add information about setting up Sway with Home
+       Manager
+
+    11 October 2022
+
+     * curprev [ ] [ ] 17:0317:03, 11 October 2022‎ imported>FedX-sudo‎ m
+       5,881 bytes +1‎ gnome3 has been renamed to gnome
+     * curprev [ ] [ ] 17:0217:02, 11 October 2022‎ imported>FedX-sudo‎ 5,880
+       bytes −1‎ gnome3 has been renamed to gnome
+
+    2 October 2022
+
+     * curprev [ ] [ ] 16:0016:00, 2 October 2022‎ imported>Zach-hill‎ m
+       5,881 bytes +26‎ Added to "Applications" category.
+
+    28 September 2022
+
+     * curprev [ ] [ ] 02:4002:40, 28 September 2022‎ imported>Danielbarter‎
+       m 5,855 bytes 0‎ No edit summary
+     * curprev [ ] [ ] 02:3602:36, 28 September 2022‎ imported>Danielbarter‎
+       5,855 bytes +70‎ No edit summary
+     * curprev [ ] [ ] 02:3302:33, 28 September 2022‎ imported>Danielbarter‎
+       5,785 bytes +700‎ added a small section about systemd services
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Sway"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

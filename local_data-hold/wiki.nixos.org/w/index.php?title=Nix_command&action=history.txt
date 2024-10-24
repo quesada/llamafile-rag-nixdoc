@@ -1,0 +1,241 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Nix command: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    1 April 2024
+
+     * curprev [ ] [ ] 18:0618:06, 1 April 2024‎ Admin talk contribs‎ 2,707
+       bytes +384‎ import from old wiki Tag: Visual edit: Switched
+
+    26 September 2023
+
+     * curprev [ ] [ ] 08:4508:45, 26 September 2023‎ imported>IgorM‎ m 2,323
+       bytes +10‎ Fixed syntax highlighting
+
+    20 December 2022
+
+     * curprev [ ] [ ] 13:1113:11, 20 December 2022‎
+       imported>Fricklerhandwerk‎ 2,313 bytes +1,083‎ add notes on switching
+       between nix-env and nix-profile
+
+    3 October 2022
+
+     * curprev [ ] [ ] 23:0223:02, 3 October 2022‎ imported>Gdamjan‎ 1,230
+       bytes +129‎ No edit summary
+
+    4 August 2022
+
+     * curprev [ ] [ ] 08:1208:12, 4 August 2022‎ imported>Fricklerhandwerk‎
+       1,101 bytes +16‎ nix -> Nix package manager
+     * curprev [ ] [ ] 08:1208:12, 4 August 2022‎ imported>Fricklerhandwerk‎
+       1,085 bytes +26‎ add link to manual
+     * curprev [ ] [ ] 08:1008:10, 4 August 2022‎ imported>Fricklerhandwerk‎
+       1,059 bytes −22‎ remove category: Software
+     * curprev [ ] [ ] 08:1008:10, 4 August 2022‎ imported>Fricklerhandwerk‎
+       1,081 bytes −13,860‎ remove reference, this was fully redundant with
+       the Nix manual
+
+    16 July 2022
+
+     * curprev [ ] [ ] 18:5618:56, 16 July 2022‎ imported>Pinkcreeper100‎
+       14,941 bytes −83‎ No edit summary
+
+    1 March 2022
+
+     * curprev [ ] [ ] 14:3414:34, 1 March 2022‎ imported>Fendor‎ m 15,024
+       bytes +2‎ Make it a bit more clearer the man page is located at `man 5
+       nix.conf` and not at `man nix.conf5`. (At least I was confused by this
+       notation)
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:1706:17, 20 September 2021‎ imported>Nix‎ m 15,022
+       bytes +22‎ add categories: Nix and Software
+
+    5 September 2021
+
+     * curprev [ ] [ ] 19:4319:43, 5 September 2021‎ imported>Artturin‎ m
+       15,000 bytes +19‎ add Category:Nix
+
+    1 July 2021
+
+     * curprev [ ] [ ] 16:2216:22, 1 July 2021‎ imported>Mic92‎ 14,981 bytes
+       +9,351‎ →‎Common flags
+
+    18 May 2021
+
+     * curprev [ ] [ ] 02:1902:19, 18 May 2021‎ imported>Samuela‎ 5,630 bytes
+       +2‎ No edit summary
+     * curprev [ ] [ ] 02:1802:18, 18 May 2021‎ imported>Samuela‎ 5,628 bytes
+       +5‎ No edit summary
+     * curprev [ ] [ ] 02:1702:17, 18 May 2021‎ imported>Samuela‎ 5,623 bytes
+       −1‎ No edit summary
+     * curprev [ ] [ ] 02:1702:17, 18 May 2021‎ imported>Samuela‎ 5,624 bytes
+       +196‎ No edit summary
+     * curprev [ ] [ ] 02:1502:15, 18 May 2021‎ imported>Samuela‎ 5,428 bytes
+       +42‎ No edit summary
+     * curprev [ ] [ ] 02:1402:14, 18 May 2021‎ imported>Samuela‎ 5,386 bytes
+       −55‎ No edit summary
+     * curprev [ ] [ ] 02:1302:13, 18 May 2021‎ imported>Samuela‎ 5,441 bytes
+       +247‎ No edit summary
+
+    2 April 2021
+
+     * curprev [ ] [ ] 16:4216:42, 2 April 2021‎ imported>SabryTarek‎ m 5,194
+       bytes −1‎ No edit summary
+
+    7 August 2020
+
+     * curprev [ ] [ ] 06:0906:09, 7 August 2020‎ imported>Mic92‎ 5,195 bytes
+       +1,039‎ No edit summary
+
+    26 July 2020
+
+     * curprev [ ] [ ] 08:2008:20, 26 July 2020‎ imported>Mic92‎ 4,156 bytes
+       +20‎ →‎Utility/scripting commands
+     * curprev [ ] [ ] 08:0508:05, 26 July 2020‎ imported>Mic92‎ 4,136 bytes
+       +83‎ →‎Enabling the nix command
+     * curprev [ ] [ ] 07:3407:34, 26 July 2020‎ imported>Mic92‎ 4,053 bytes
+       +8‎ →‎Infrequently used commands
+     * curprev [ ] [ ] 07:2607:26, 26 July 2020‎ imported>Mic92‎ 4,045 bytes
+       +5‎ →‎Main commands
+     * curprev [ ] [ ] 06:5606:56, 26 July 2020‎ imported>Mic92‎ 4,040 bytes
+       +367‎ make page links for every subcommand
+     * curprev [ ] [ ] 06:4706:47, 26 July 2020‎ imported>Mic92‎ 3,673 bytes
+       −1,424‎ →‎Main commands
+     * curprev [ ] [ ] 06:3506:35, 26 July 2020‎ imported>Mic92‎ 5,097 bytes
+       −657‎ →‎nix build: move to own page
+
+    25 July 2020
+
+     * curprev [ ] [ ] 23:2423:24, 25 July 2020‎ imported>Mic92‎ 5,754 bytes
+       +823‎ Add nix flake subcommands
+     * curprev [ ] [ ] 23:1723:17, 25 July 2020‎ imported>Mic92‎ 4,931 bytes
+       −1‎ →‎Examples
+     * curprev [ ] [ ] 23:1623:16, 25 July 2020‎ imported>Mic92‎ 4,932 bytes
+       −36‎ →‎Examples
+     * curprev [ ] [ ] 23:1523:15, 25 July 2020‎ imported>Mic92‎ 4,968 bytes
+       −1‎ →‎Description =
+     * curprev [ ] [ ] 23:1523:15, 25 July 2020‎ imported>Mic92‎ 4,969 bytes
+       +51‎ →‎Usage
+     * curprev [ ] [ ] 23:1423:14, 25 July 2020‎ imported>Mic92‎ 4,918 bytes
+       +749‎ add nix develop
+     * curprev [ ] [ ] 23:0923:09, 25 July 2020‎ imported>Mic92‎ 4,169 bytes
+       −6‎ →‎Examples
+     * curprev [ ] [ ] 23:0923:09, 25 July 2020‎ imported>Mic92‎ 4,175 bytes
+       +1‎ →‎Examples =
+     * curprev [ ] [ ] 23:0823:08, 25 July 2020‎ imported>Mic92‎ 4,174 bytes
+       +576‎ add nix build examples
+     * curprev [ ] [ ] 22:0522:05, 25 July 2020‎ imported>Mic92‎ 3,598 bytes
+       +1‎ →‎Main commands
+     * curprev [ ] [ ] 22:0422:04, 25 July 2020‎ imported>Mic92‎ 3,597 bytes
+       +7‎ →‎Main commands
+     * curprev [ ] [ ] 22:0322:03, 25 July 2020‎ imported>Mic92‎ 3,590 bytes
+       +4‎ fix heading
+     * curprev [ ] [ ] 22:0222:02, 25 July 2020‎ imported>Mic92‎ 3,586 bytes
+       +3,586‎ add nix command page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nix_command"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

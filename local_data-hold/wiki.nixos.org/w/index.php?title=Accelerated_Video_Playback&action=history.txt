@@ -1,0 +1,269 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  Accelerated Video Playback: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    21 August 2024
+
+     * curprev [ ] [ ] 14:0514:05, 21 August 2024‎ Unabomberlive talk
+       contribs‎ 2,955 bytes +60‎ Marked this version for translation Tags:
+       Mobile edit Mobile web edit
+
+    21 July 2024
+
+     * curprev [ ] [ ] 13:5413:54, 21 July 2024‎ Unabomberlive talk contribs‎
+       2,895 bytes +25‎ No edit summary
+     * curprev [ ] [ ] 13:5213:52, 21 July 2024‎ Unabomberlive talk contribs‎
+       2,870 bytes +157‎ No edit summary
+     * curprev [ ] [ ] 13:4413:44, 21 July 2024‎ Unabomberlive talk contribs‎
+       2,713 bytes +195‎ Marked this version for translation
+     * curprev [ ] [ ] 13:4313:43, 21 July 2024‎ Unabomberlive talk contribs‎
+       2,518 bytes +146‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 13:3913:39, 21 July 2024‎ Unabomberlive talk contribs‎
+       2,372 bytes +38‎ No edit summary
+
+    27 June 2024
+
+     * curprev [ ] [ ] 06:4906:49, 27 June 2024‎ Sakshatshinde talk contribs‎
+       2,334 bytes +193‎ Fixed Broadwell year 2015 to 2014 and added a note
+       for intel-vaapi-driver to be used instead of intel-media-driiver for
+       Skylake if users want to prioritize browser performance. Tag: Visual
+       edit
+     * curprev [ ] [ ] 05:4805:48, 27 June 2024‎ Mic92 talk contribs‎ 2,141
+       bytes +89‎ hardware.graphics -> hardware.opengl
+
+    23 April 2024
+
+     * curprev [ ] [ ] 17:5017:50, 23 April 2024‎ Ponder talk contribs‎ 2,052
+       bytes +8‎ →‎Intel: Explain Broadwell in terms of years
+     * curprev [ ] [ ] 17:1617:16, 23 April 2024‎ Ponder talk contribs‎ m
+       2,044 bytes +3‎ More specific category - Video
+
+    8 April 2024
+
+     * curprev [ ] [ ] 04:3404:34, 8 April 2024‎ Sdht0 talk contribs‎ 2,041
+       bytes +20‎ Add category
+     * curprev [ ] [ ] 04:3304:33, 8 April 2024‎ Sdht0 talk contribs‎ m 2,021
+       bytes 0‎ →‎Also see: lowercase
+     * curprev [ ] [ ] 04:3204:32, 8 April 2024‎ Sdht0 talk contribs‎ 2,021
+       bytes −20‎ →‎Chromium: Update link
+     * curprev [ ] [ ] 04:1504:15, 8 April 2024‎ Sdht0 talk contribs‎ 2,041
+       bytes −972‎ Copy edit
+     * curprev [ ] [ ] 03:5203:52, 8 April 2024‎ Sdht0 talk contribs‎ 3,013
+       bytes +5‎ "See also" section
+
+    6 April 2024
+
+     * curprev [ ] [ ] 01:0301:03, 6 April 2024‎ Ibizaman talk contribs‎ m
+       3,008 bytes +160‎ Add an example for AMD iGPU. I'm adding it because I
+       searched examples in the wiki and elsewhere and didn't find anything
+       related to AMD. It was maybe too obvious but just one line of config
+       is enough. Tag: Visual edit
+
+    1 April 2024
+
+     * curprev [ ] [ ] 15:0115:01, 1 April 2024‎ Mic92 talk contribs‎ 2,848
+       bytes −17‎ Remove really old driver
+     * curprev [ ] [ ] 13:5313:53, 1 April 2024‎ Mic92 talk contribs‎ 2,865
+       bytes −24‎ fix links
+
+    22 February 2024
+
+     * curprev [ ] [ ] 22:5722:57, 22 February 2024‎
+       imported>Madsrumlenordstrom‎ m 2,889 bytes +162‎ Changed vaapiIntel to
+       its new package name intel-vaapi-driver. Currently vaapiIntel is
+       aliases to intel-vaapi-driver so in the given example (before my edit)
+       a collision would occur if vaapiIntel was attempted installed along
+       with intel-vaapi-driver.
+
+    22 April 2022
+
+     * curprev [ ] [ ] 16:4116:41, 22 April 2022‎ imported>SuperSamus‎ 2,727
+       bytes +7‎ Fix link
+
+    6 February 2021
+
+     * curprev [ ] [ ] 23:0823:08, 6 February 2021‎ imported>Blitz‎ 2,720
+       bytes −473‎ The kcmp system call seemed to have been a red herring
+
+    5 February 2021
+
+     * curprev [ ] [ ] 21:5921:59, 5 February 2021‎ imported>Blitz‎ 3,193
+       bytes +473‎ Add kcmp hint for amdgpu
+
+    4 September 2020
+
+     * curprev [ ] [ ] 12:5912:59, 4 September 2020‎ imported>Primeos‎ m
+       2,720 bytes +145‎ →‎Applications: Add a useful external link for
+       Firefox
+     * curprev [ ] [ ] 12:5412:54, 4 September 2020‎ imported>Primeos‎ m
+       2,575 bytes +35‎ Add the driver names for the two Intel drivers
+
+    7 May 2020
+
+     * curprev [ ] [ ] 14:2614:26, 7 May 2020‎ imported>Asymmetric‎ 2,540
+       bytes +32‎ improve mpv config
+
+    18 April 2020
+
+     * curprev [ ] [ ] 12:4512:45, 18 April 2020‎ imported>Primeos‎ 2,508
+       bytes −141‎ →‎Chromium: Replace the outdated information
+     * curprev [ ] [ ] 12:4112:41, 18 April 2020‎ imported>Primeos‎ 2,649
+       bytes +291‎ Add test/verification instructions
+     * curprev [ ] [ ] 12:3212:32, 18 April 2020‎ imported>Primeos‎ 2,358
+       bytes +140‎ Add the 32 bit example that I removed from
+       https://nixos.wiki/wiki/Chromium
+
+    18 July 2019
+
+     * curprev [ ] [ ] 09:5109:51, 18 July 2019‎ imported>Doronbehar‎ m 2,218
+       bytes +4‎ →‎MPV: Make MPV headline an internal link
+
+    26 March 2019
+
+     * curprev [ ] [ ] 21:0921:09, 26 March 2019‎ imported>Colemickens‎ 2,214
+       bytes +122‎ chromium vaapi update
+     * curprev [ ] [ ] 21:0621:06, 26 March 2019‎ imported>Colemickens‎ 2,092
+       bytes −20‎ No edit summary
+     * curprev [ ] [ ] 21:0221:02, 26 March 2019‎ imported>Colemickens‎ 2,112
+       bytes +102‎ No edit summary
+     * curprev [ ] [ ] 21:0121:01, 26 March 2019‎ imported>Colemickens‎ 2,010
+       bytes +44‎ No edit summary
+
+    18 February 2019
+
+     * curprev [ ] [ ] 10:2810:28, 18 February 2019‎ imported>Makefu‎ m 1,966
+       bytes +19‎ syntax highlight
+     * curprev [ ] [ ] 10:2710:27, 18 February 2019‎ imported>Makefu‎ m 1,947
+       bytes +68‎ add note for nixos-19.03
+     * curprev [ ] [ ] 06:1606:16, 18 February 2019‎ imported>Colemickens‎
+       1,879 bytes +281‎ add info about intel-media-driver
+
+    3 February 2019
+
+     * curprev [ ] [ ] 10:2210:22, 3 February 2019‎ imported>Mic92‎ 1,598
+       bytes +328‎ mpv: video acceleration
+
+    29 January 2019
+
+     * curprev [ ] [ ] 22:1422:14, 29 January 2019‎ imported>Hyperfekt‎ 1,270
+       bytes +282‎ No edit summary
+
+    11 December 2018
+
+     * curprev [ ] [ ] 08:0908:09, 11 December 2018‎ imported>Colemickens‎ m
+       988 bytes +32‎ markdown -> mediawiki syntax
+     * curprev [ ] [ ] 08:0608:06, 11 December 2018‎ imported>Colemickens‎
+       956 bytes +374‎ Add intel hybrid codec information
+     * curprev [ ] [ ] 07:4507:45, 11 December 2018‎ imported>Makefu‎ 582
+       bytes +118‎ add nixos-hardware
+     * curprev [ ] [ ] 07:4307:43, 11 December 2018‎ imported>Colemickens‎
+       464 bytes +160‎ No edit summary
+     * curprev [ ] [ ] 07:4307:43, 11 December 2018‎ imported>Colemickens‎
+       304 bytes +304‎ Created page with "This page is meant to help with
+       techniques for getting accelerated video playback working in NixOS.
+       Sample configuration: { ... hardware.opengl = { enable =..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Accelerated_Video_Playback"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

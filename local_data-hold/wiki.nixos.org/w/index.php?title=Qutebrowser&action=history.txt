@@ -1,0 +1,138 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Qutebrowser: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    26 September 2024
+
+     * curprev [ ] [ ] 20:4620:46, 26 September 2024‎ Klinger talk contribs‎
+       m 3,753 bytes +78‎ added link, added category webbrowsers. extended
+       description Tag: Visual edit
+
+    18 September 2024
+
+     * curprev [ ] [ ] 05:0305:03, 18 September 2024‎ Phanirithvij talk
+       contribs‎ m 3,675 bytes 0‎ re-ran command and update output
+     * curprev [ ] [ ] 05:0105:01, 18 September 2024‎ Phanirithvij talk
+       contribs‎ m 3,675 bytes −4‎ re-ran command and update output
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:0020:00, 19 April 2024‎ Klinger talk contribs‎ m
+       3,679 bytes −26‎ Category:Applications
+
+    6 November 2022
+
+     * curprev [ ] [ ] 12:2812:28, 6 November 2022‎ imported>Jlamur‎ 3,705
+       bytes +1‎ typo in installing Widevine
+     * curprev [ ] [ ] 12:2312:23, 6 November 2022‎ imported>Jlamur‎ 3,704
+       bytes +1,206‎ add widevine install guide
+
+    11 July 2022
+
+     * curprev [ ] [ ] 06:2606:26, 11 July 2022‎ imported>Winny‎ 2,498 bytes
+       +2,498‎ create page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Qutebrowser"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

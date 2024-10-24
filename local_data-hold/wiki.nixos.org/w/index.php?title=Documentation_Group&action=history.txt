@@ -1,0 +1,130 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                     Documentation Group: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    15 September 2024
+
+     * curprev [ ] [ ] 11:1211:12, 15 September 2024‎ Phanirithvij talk
+       contribs‎ 244 bytes −124‎ remove freenode link
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:3420:34, 24 April 2024‎ Klinger talk contribs‎ m
+       368 bytes +23‎ No edit summary
+
+    27 October 2019
+
+     * curprev [ ] [ ] 11:4911:49, 27 October 2019‎ imported>Azazel75‎ m 345
+       bytes +19‎ Update discourse link
+     * curprev [ ] [ ] 11:0111:01, 27 October 2019‎ imported>Azazel75‎ 326
+       bytes −39‎ Remove double title
+     * curprev [ ] [ ] 10:5910:59, 27 October 2019‎ imported>Azazel75‎ 365
+       bytes +365‎ Created page with " == Documentation discussion group ==
+       At the NixCon 2019 in Brno a group has formed to discuss about the
+       improvements to the Nix, Nixpkgs and NixOS documentation. You can
+       r..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Documentation_Group"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

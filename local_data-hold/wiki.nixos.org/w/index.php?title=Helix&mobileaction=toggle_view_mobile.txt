@@ -1,0 +1,138 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 With Home Manager
+     * 2 Configuration
+   [ ] Toggle the table of contents
+
+                                     Helix
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Helix is a modal text-editor inspired by Neovim and Kakoune, written in
+   Rust. Compared to neovim, it is preconfigured with the functions that most
+   people need (for example tree-sitter for syntax highlighting). It has no
+   plugin system. It uses (neo-)vim motions keybindings, but it uses the
+   object-verb approach (visually highlighting text and then executing a
+   function on it). It is intended for people who like to use a modal text
+   editor but don't want to spend a lot of time configuring it.
+
+Installation
+
+   Helix can be installed system-wide on NixOS with the helix package:
+
+ environment.systemPackages = [ pkgs.helix ];
+
+   Depending on the programming languages it is helpful to install additional
+   packages from nixpgks. To show what packages are needed, it is helpful to
+   check hx --health.
+
+  With Home Manager
+
+   Home Manager provides a module for configuring helix.
+
+ programs.helix = {
+   enable = true;
+   settings = {
+     theme = "autumn_night_transparent";
+     editor.cursor-shape = {
+       normal = "block";
+       insert = "bar";
+       select = "underline";
+     };
+   };
+   languages.language = [{
+     name = "nix";
+     auto-format = true;
+     formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
+   }];
+   themes = {
+     autumn_night_transparent = {
+       "inherits" = "autumn_night";
+       "ui.background" = { };
+     };
+   };
+ };
+
+Configuration
+
+   The configuration is stored in two files: ~/.config/helix/config.toml and
+   ~/.config/helix/language.toml.
+
+     * The full configuration options are described on the Helix
+       documentation.
+     * For programming languages (LSP, formatter, ..) see the Helix wiki.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Helix&oldid=13520"
+   Categories:
+     * Applications
+     * Text Editor
+     * This page was last edited on 25 June 2024, at 18:46.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

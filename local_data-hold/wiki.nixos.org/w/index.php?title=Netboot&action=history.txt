@@ -1,0 +1,208 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Netboot: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:4221:42, 24 April 2024‎ Klinger talk contribs‎ m
+       2,647 bytes +21‎ Category:Booting
+
+    7 December 2023
+
+     * curprev [ ] [ ] 11:5811:58, 7 December 2023‎ imported>Vilvo‎ m 2,626
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 11:5611:56, 7 December 2023‎ imported>Vilvo‎ m 2,626
+       bytes −2‎ update link to match link target default branch name change
+       from master to main
+
+    18 January 2023
+
+     * curprev [ ] [ ] 22:0622:06, 18 January 2023‎ imported>Erikarvstedt‎ m
+       2,628 bytes +13‎ add iptables `-w` arg
+
+    12 January 2023
+
+     * curprev [ ] [ ] 13:1613:16, 12 January 2023‎ imported>Erikarvstedt‎ m
+       2,615 bytes −17‎ No edit summary
+     * curprev [ ] [ ] 13:1113:11, 12 January 2023‎ imported>Erikarvstedt‎ m
+       2,632 bytes −1‎ No edit summary
+     * curprev [ ] [ ] 13:1013:10, 12 January 2023‎ imported>Erikarvstedt‎ m
+       2,633 bytes +110‎ Share sys pkgs with host pkgs
+     * curprev [ ] [ ] 12:5712:57, 12 January 2023‎ imported>Erikarvstedt‎
+       2,523 bytes −67‎ Example: Allow differing boot and host systems
+     * curprev [ ] [ ] 12:3212:32, 12 January 2023‎ imported>Erikarvstedt‎
+       2,590 bytes +678‎ Improve example: Move script definition to system
+       build. Fix old `nix build` syntax. Add firewall commands.
+
+    26 December 2022
+
+     * curprev [ ] [ ] 00:5000:50, 26 December 2022‎ imported>Janik‎ m 1,912
+       bytes +14‎ updated link of pixiecore to the current version
+
+    21 June 2022
+
+     * curprev [ ] [ ] 11:0411:04, 21 June 2022‎ imported>Dhxgit‎ m 1,898
+       bytes +6‎ Port 4011 is needed to successfully netboot UEFI systems ->
+       https://github.com/danderson/netboot/blob/master/pixiecore/README.booting.md#step-15-pxe-ish
+
+    7 June 2022
+
+     * curprev [ ] [ ] 17:2817:28, 7 June 2022‎ imported>Erikarvstedt‎ 1,892
+       bytes −140‎ update installer system. sshd has been enabled by default
+       since nixpkgs a5872edf2f61d97a4ada2734d543eaaefe25c916
+
+    1 June 2022
+
+     * curprev [ ] [ ] 03:3203:32, 1 June 2022‎ imported>Ichbinjoe‎ m 2,032
+       bytes −3‎ Building this specifies that mingetty -> getty, and then
+       errors out - rename fixes.
+
+    27 November 2020
+
+     * curprev [ ] [ ] 20:5220:52, 27 November 2020‎ imported>Erikarvstedt‎ m
+       2,035 bytes +82‎ update to nixpkgs 20.09
+     * curprev [ ] [ ] 20:4920:49, 27 November 2020‎ imported>Erikarvstedt‎ m
+       1,953 bytes −86‎ update to nixpkgs 20.09
+
+    15 May 2020
+
+     * curprev [ ] [ ] 11:4111:41, 15 May 2020‎ imported>Erikarvstedt‎ m
+       2,039 bytes +1‎ No edit summary
+     * curprev [ ] [ ] 11:3911:39, 15 May 2020‎ imported>Erikarvstedt‎ m
+       2,038 bytes −50‎ No edit summary
+     * curprev [ ] [ ] 11:3711:37, 15 May 2020‎ imported>Erikarvstedt‎ m
+       2,088 bytes −1‎ No edit summary
+     * curprev [ ] [ ] 11:3711:37, 15 May 2020‎ imported>Erikarvstedt‎ 2,089
+       bytes −370‎ Use native pixiecore, remove Docker
+
+    7 December 2019
+
+     * curprev [ ] [ ] 22:1022:10, 7 December 2019‎ imported>Erikarvstedt‎
+       2,459 bytes +1,840‎ Add section 'Building and serving a netboot image'
+
+    15 February 2019
+
+     * curprev [ ] [ ] 21:3421:34, 15 February 2019‎ imported>Hhm‎ m 619
+       bytes 0‎ fix link
+     * curprev [ ] [ ] 21:3421:34, 15 February 2019‎ imported>Hhm‎ 619 bytes
+       +23‎ netboot.xyz link
+
+    14 February 2019
+
+     * curprev [ ] [ ] 10:3910:39, 14 February 2019‎ imported>Lassulus‎ 596
+       bytes −312‎ No edit summary
+
+    4 February 2019
+
+     * curprev [ ] [ ] 16:0616:06, 4 February 2019‎ imported>Makefu‎ 908
+       bytes +406‎ add building and hosting
+     * curprev [ ] [ ] 15:3315:33, 4 February 2019‎ imported>Lassulus‎ 502
+       bytes +502‎ Created page with "There is experimentall netboot.xyz
+       support by Lassulus. You can test it by using the <b>Test forked
+       netboot.xyz branch or hash</b> feature. You can reach it in
+       netboot.xyz t..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Netboot"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

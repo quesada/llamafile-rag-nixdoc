@@ -1,0 +1,138 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Include a dry step-by-step tutorial to create a VM on Hetzner
+       3 comments
+   [ ] Toggle the table of contents
+
+                      Talk:Install NixOS on Hetzner Cloud
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 26 June by Oldhomemovie in topic Include a dry
+   step-by-step tutorial to create a VM on Hetzner
+
+Include a dry step-by-step tutorial to create a VM on Hetzner
+
+   Latest comment: 26 June3 comments2 people in discussion
+
+   Hi! I recently created a tutorial about creating a new VM on Hetzner and
+   installing NixOS on it. I published the tutorial on Reddit. Today I
+   learned about this wiki, and I was thinking of moving the tutorial here.
+   Here's the tutorial I did:
+   https://www.reddit.com/r/NixOS/comments/1dis8w4/from_scratch_vm_on_hetzner_using_hcloud_utility/.
+
+   I noticed these words on the page: it would be neat to document how to
+   boot from the NixOS ISO and create the machine based on an online
+   description including https://github.com/nix-community/disko specs -
+   should be a quick way to set up bespoke 'throwaway' machines.
+
+   With one exception, e.g. having an online description (which I understand
+   as a flake available online, for example as a repository on GitHub) - this
+   is exactly what my tutorial covers.
+
+   Would it be OK to directly include the tutorial on the page? It's kind of
+   lengthy... If including it on this page is not quite OK, would a separate
+   page be alright? I'm new to NixOS community and need a bit of guidance.
+   Oldhomemovie (talk) 10:08, 19 June 2024 (UTC)Reply
+
+           I would love to have your tutorial here. I think its not too long
+           it can fit in this page, just make a new heading and enter it
+           here. It is always possible to restructure the content and move
+           content to other pages. As the wiki is also for beginners it may
+           be a good idea to add a short description how to morph the
+           installed system in a system without flake usage after install? At
+           least I prefer my Hetzner server this way ;-).
+           It would be nice to have you as a regular contributor here. Just
+           be respectful if you change other peoples content in a disruptive
+           way: Talk about it first. Its a good way to use the user pages for
+           this. There are often good reasons why something is written in a
+           certain way, but often its just dumped information and people are
+           happy if other people improve it. Klinger (talk) 19:02, 19 June
+           2024 (UTC)Reply
+
+                        With minor edits, I've ported the tutorial from
+                        Reddit. Kindly, please review if / when you have
+                        time. I tried to keep the balance between adding step
+                        explanations while also keeping it compact.
+                        > morph the installed system in a system without
+                        flake usage after install?
+                        Interesting idea. I haven't done this before. In my
+                        humble opinion, I'm for keeping the tutorial
+                        reasonably small and opinionated, so that newcomers
+                        are able to follow it & get a working OS without
+                        thinking too much. Perhaps, a separate step-by-step
+                        that doesn't use flakes would also be "cleaner"?
+                        Although I that would be partially replicating what
+                        the official NixOS documentation does. Oldhomemovie
+                        (talk) 21:23, 26 June 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Install_NixOS_on_Hetzner_Cloud&oldid=13595"
+     * This page was last edited on 26 June 2024, at 21:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

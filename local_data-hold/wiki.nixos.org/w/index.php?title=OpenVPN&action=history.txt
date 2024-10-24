@@ -1,0 +1,153 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           OpenVPN: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 June 2024
+
+     * curprev [ ] [ ] 13:4913:49, 7 June 2024‎ Mic92 talk contribs‎ 4,649
+       bytes +511‎ imported from old wiki
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:0120:01, 19 April 2024‎ Klinger talk contribs‎ m
+       4,138 bytes +23‎ Category:Networking Category:Applications
+
+    21 December 2023
+
+     * curprev [ ] [ ] 20:2520:25, 21 December 2023‎ imported>MatthiasvB‎
+       4,115 bytes +358‎ Added line that potentially fixes DNS issues
+
+    21 October 2020
+
+     * curprev [ ] [ ] 10:4810:48, 21 October 2020‎ imported>Zarkone‎ 3,757
+       bytes +185‎ Small instruction on how to start/stop created VPN
+       services.
+
+    16 May 2018
+
+     * curprev [ ] [ ] 01:3101:31, 16 May 2018‎ imported>Samueldr‎ m 3,572
+       bytes +15‎ fixes heading levels
+
+    21 February 2018
+
+     * curprev [ ] [ ] 12:0012:00, 21 February 2018‎ imported>Gnidorah‎ m
+       3,557 bytes +37‎ No edit summary
+     * curprev [ ] [ ] 06:2506:25, 21 February 2018‎ imported>Gnidorah‎ 3,520
+       bytes +4‎ fixes
+
+    24 October 2017
+
+     * curprev [ ] [ ] 22:0122:01, 24 October 2017‎ imported>HLandau‎ m 3,516
+       bytes +28‎ No edit summary
+     * curprev [ ] [ ] 21:3721:37, 24 October 2017‎ imported>HLandau‎ 3,488
+       bytes −304‎ No edit summary
+     * curprev [ ] [ ] 21:2121:21, 24 October 2017‎ imported>HLandau‎ 3,792
+       bytes +3,792‎ Created page with " === VPN Client === Auto-starting
+       openvpn on Nixos can easily be done by enabling it in the
+       configuration nix. Just place the configs where you want them to have
+       and set it up..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/OpenVPN"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

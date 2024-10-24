@@ -1,0 +1,164 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      NixOS as a desktop: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 July 2024
+
+     * curprev [ ] [ ] 11:4811:48, 24 July 2024‎ Bot-wxt1221 talk contribs‎
+       4,834 bytes +3‎ Undo revision 15517 by Bot-wxt1221 (talk) Tag: Undo
+     * curprev [ ] [ ] 11:4811:48, 24 July 2024‎ Bot-wxt1221 talk contribs‎
+       4,831 bytes −3‎ No edit summary
+
+    1 April 2024
+
+     * curprev [ ] [ ] 21:4621:46, 1 April 2024‎ Rhendric talk contribs‎
+       4,834 bytes +940‎ →‎Modularizing your configuration Tag: Visual edit:
+       Switched
+
+    6 July 2023
+
+     * curprev [ ] [ ] 07:3807:38, 6 July 2023‎ imported>Nickbouwhuis‎ m
+       3,894 bytes +2‎ my mistake. reading is hard
+     * curprev [ ] [ ] 07:3707:37, 6 July 2023‎ imported>Nickbouwhuis‎ m
+       3,892 bytes −2‎ fixed some weird wording
+
+    14 October 2022
+
+     * curprev [ ] [ ] 22:1622:16, 14 October 2022‎ imported>L0b0‎ 3,894
+       bytes +18‎ Citation needed for home manager being preferred
+
+    26 September 2021
+
+     * curprev [ ] [ ] 12:1712:17, 26 September 2021‎ imported>Nix‎ 3,876
+       bytes +93‎ add comparison page
+
+    22 September 2021
+
+     * curprev [ ] [ ] 04:1804:18, 22 September 2021‎ imported>Nix‎ m 3,783
+       bytes +59‎ link to good short example
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:2305:23, 20 September 2021‎ imported>Nix‎ m 3,724
+       bytes −19‎ →‎Learn by example: redundant
+     * curprev [ ] [ ] 05:2205:22, 20 September 2021‎ imported>Nix‎ 3,743
+       bytes +128‎ add Configuration Collection
+     * curprev [ ] [ ] 01:3101:31, 20 September 2021‎ imported>Nix‎ m 3,615
+       bytes +19‎ add Guide category
+
+    19 September 2021
+
+     * curprev [ ] [ ] 23:2523:25, 19 September 2021‎ imported>Nix‎ m 3,596
+       bytes +22‎ Add category
+     * curprev [ ] [ ] 23:1423:14, 19 September 2021‎ imported>Nix‎ m 3,574
+       bytes +206‎ Also mention this is a good starting point for most other
+       intents
+     * curprev [ ] [ ] 17:2617:26, 19 September 2021‎ imported>Nix‎ 3,368
+       bytes +3,368‎ Make a good intro page to present what looks like the
+       clearest path for new people to get started with using NixOS as a
+       desktop
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_as_a_desktop"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

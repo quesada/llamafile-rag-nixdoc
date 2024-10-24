@@ -1,0 +1,114 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+        Information for "Category:Pages with syntax highlighting errors"
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title               Category:Pages with syntax highlighting errors 
+   Default sort key            Pages with syntax highlighting errors          
+   Page length (in bytes)      671                                            
+   Namespace ID                14                                             
+   Namespace                   Category                                       
+   Page ID                     1255                                           
+   Page content language       en - English                                   
+   Page content model          wikitext                                       
+   Indexing by robots          Allowed                                        
+   Number of redirects to this 0                                              
+   page                        
+
+Category information
+
+   Total number of members 125 
+   Number of pages         125 
+   Number of subcategories 0   
+   Number of files         0   
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 Samueldr (talk | contribs)    
+   Date of page creation                        23:22, 4 April 2024           
+   Latest editor                                Tomodachi94 (talk | contribs) 
+   Date of latest edit                          01:14, 23 June 2024           
+   Total number of edits                        6                             
+   Total number of distinct authors             2                             
+   Recent number of edits (within past 90 days) 0                             
+   Recent number of distinct authors            0                             
+
+Page properties
+
+   Magic word (1)   * __HIDDENCAT__   
+
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Category:Pages_with_syntax_highlighting_errors"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

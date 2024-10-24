@@ -1,0 +1,174 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+    Install NixOS on a Server With a Different Filesystem: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 April 2024
+
+     * curprev [ ] [ ] 09:3209:32, 5 April 2024‎ Mic92 talk contribs‎ 6,119
+       bytes +3‎ fixup markup Tag: Visual edit: Switched
+     * curprev [ ] [ ] 09:3109:31, 5 April 2024‎ Mic92 talk contribs‎ 6,116
+       bytes +134‎ mention nixos-anywhere Tag: Visual edit: Switched
+     * curprev [ ] [ ] 01:3501:35, 5 April 2024‎ Samueldr talk contribs‎ m
+       5,982 bytes +126‎ fixed deprecated syntax
+
+    18 December 2022
+
+     * curprev [ ] [ ] 17:2617:26, 18 December 2022‎ imported>Bebehei‎ 5,856
+       bytes −74‎ Debian9 is outdated in the meantime
+     * curprev [ ] [ ] 17:2517:25, 18 December 2022‎ imported>Bebehei‎ m
+       5,930 bytes 0‎ Fix typo: .gz -> .xz
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:0005:00, 20 September 2021‎ imported>Nix‎ m 5,930
+       bytes +21‎ add Server category
+
+    18 August 2019
+
+     * curprev [ ] [ ] 04:4204:42, 18 August 2019‎ imported>Infinisil‎ m
+       5,909 bytes −262‎ Needs more Ram
+
+    21 April 2019
+
+     * curprev [ ] [ ] 19:0319:03, 21 April 2019‎ imported>Infinisil‎ 6,171
+       bytes −40‎ Note that the new manual section only works if the
+       filesystem doesn't need to be changed
+
+    17 May 2018
+
+     * curprev [ ] [ ] 20:2820:28, 17 May 2018‎ imported>Makefu‎ 6,211 bytes
+       +225‎ add notice about official nixos manual section at the top
+     * curprev [ ] [ ] 17:0117:01, 17 May 2018‎ imported>Symphorien‎ 5,986
+       bytes +124‎ →‎NIXOS_LUSTRATE: link to the manual
+
+    27 January 2018
+
+     * curprev [ ] [ ] 15:3515:35, 27 January 2018‎ imported>Tilpner‎ m 5,862
+       bytes +5‎ No edit summary
+
+    5 December 2017
+
+     * curprev [ ] [ ] 05:0105:01, 5 December 2017‎ imported>Volth‎ 5,857
+       bytes +67‎ NIXOS_LUSTRATE
+
+    25 November 2017
+
+     * curprev [ ] [ ] 22:1622:16, 25 November 2017‎ imported>Sjau‎ 5,790
+       bytes +8‎ No edit summary
+     * curprev [ ] [ ] 22:1522:15, 25 November 2017‎ imported>Sjau‎ m 5,782
+       bytes +70‎ No edit summary
+     * curprev [ ] [ ] 22:1022:10, 25 November 2017‎ imported>Sjau‎ m 5,712
+       bytes +10‎ No edit summary
+     * curprev [ ] [ ] 22:0522:05, 25 November 2017‎ imported>Sjau‎ m 5,702
+       bytes +12‎ No edit summary
+     * curprev [ ] [ ] 21:5321:53, 25 November 2017‎ imported>Infinisil‎
+       5,690 bytes +5,690‎ Created page with "Usually when installing NixOS,
+       you boot from an external USB device containing the installer, which
+       makes it easy to change the underlying filesystem. On a remote server
+       howev..."
+   [ Compare selected revisions ]
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Install_NixOS_on_a_Server_With_a_Different_Filesystem"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

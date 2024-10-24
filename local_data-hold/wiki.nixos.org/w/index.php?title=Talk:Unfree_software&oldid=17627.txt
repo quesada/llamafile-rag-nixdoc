@@ -1,0 +1,87 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                              Talk:Unfree software
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 22:40, 25 September 2024 by Quatquatt (talk | contribs)
+   (Quatquatt moved page Talk:Unfree Software to Talk:Unfree software over
+   redirect: Made the wrong change, sorry about that :3)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Usage of nixpkgs.config all over the page seems misleading in light of
+   nixpkgs PR 257458 - fail when nixpkgs.config is set with explicit pkgs,
+   remove all nixpkgs.config usages in in-tree modules.
+
+   There is no native support for defining unfree software in multiple places
+   - nixpkgs issues 197325. There is a solution in the comments of this
+   issue. It might be worth including in the page until native support is
+   provided.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Unfree_software&oldid=17627"
+     * This page was last edited on 25 September 2024, at 22:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,120 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Further configuration
+   [ ] Toggle the table of contents
+
+                                     Sonarr
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple
+   RSS feeds for new episodes of your favorite shows and will grab, sort and
+   rename them. It can also be configured to automatically upgrade the
+   quality of files already downloaded when a better quality format becomes
+   available.
+
+                                     Setup
+
+   Sonarr is best installed as a service on NixOS in your configuration.nix.
+
+   A basic install can be done using the following options:
+
+ services.sonarr = {
+   enable = true;
+   openFirewall = true;
+ };
+
+   The openFirewall option is used to open port 8989 on the host firewall.
+
+                             Further configuration
+
+   Sonarr can be further configured using NixOS options.
+
+ services.sonarr = {
+   ...
+   user = "user";
+   group = "group";
+   dataDir = "path/to/directory"
+ };
+
+   Both the user and group options are used to specify which user and group
+   is used to run Sonarr. The dataDir option specifies the directory where
+   Sonarr stores its data files, and can be set to a custom location. When
+   setting the dataDir option, be careful of permissions as a specified user
+   still needs the correct read/write permissions in this directory.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Sonarr&oldid=12254"
+   Categories:
+     * Applications
+     * Server
+     * This page was last edited on 19 April 2024, at 18:02.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

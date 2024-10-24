@@ -1,0 +1,144 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Building programs
+          * 1.1 GNAT
+               * 1.1.1 Building static binaries
+   [ ] Toggle the table of contents
+
+                                      Ada
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Ada is a programming language.
+
+Building programs
+
+  GNAT
+
+   The GNAT Ada toolchain is fully packaged in Nixpkgs and can be used to
+   build software. It has a bit less convenience than typical C/C++
+   toolchains due to its small user base. A simple Ada program using GPR can
+   be built as follows:
+
+ { stdenv, gnat, gprbuild, glibc }:
+
+ stdenv.mkDerivation {
+   pname = "an-ada-program";
+   version = "1.2.3";
+
+   src = ...;
+
+   nativeBuildInputs = [
+     gprbuild
+     gnat
+   ];
+
+   dontConfigure = true;
+
+   buildPhase = ''
+     runHook preBuild
+
+     gprbuild
+
+     runHook postBuild
+   '';
+
+   installPhase = ''
+     runHook preInstall
+
+     mkdir -p $out/bin
+
+     # Only install what we need to run the binary.
+     gprinstall --prefix=$out hello.gpr \
+       --no-project \
+       --no-manifest \
+       --mode=usage
+
+     runHook postInstall
+   '';
+ }
+
+    Building static binaries
+
+   If you try to build static binaries, you need to add the static version of
+   libc manually. For this, add glibc to the derivation parameters (at the
+   top) and add the following to the derivation itself.
+
+   buildInputs = [
+     glibc.static
+   ];
+
+   There is an example on GitHub.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Ada&oldid=13390"
+   Category:
+     * Languages
+     * This page was last edited on 22 June 2024, at 06:31.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

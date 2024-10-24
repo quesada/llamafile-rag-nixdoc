@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 See also
+   [ ] Toggle the table of contents
+
+                                     Crater
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 19:15, 24 April 2024 by Klinger (talk | contribs)
+   (Category:Server Category:Web Applications)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Crater is a web application for managing invoices, clients and payments.
+
+Installation
+
+   Note: Parts of this instruction and module are not yet stable and will be
+   available in the upcoming NixOS 23.05 release.
+
+   To setup Crater locally, this is the most minimal configuration to get
+   started
+
+ /etc/nixos/configuration.nix
+
+ services.crater.enable = true;
+
+   After that Crater will be available at http://localhost . Complete the
+   setup by choosing your default language and setting up your user profile.
+
+See also
+
+     * Invoiceplane, alternative self-hosted invoicing application
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Crater&oldid=12414"
+   Categories:
+     * Server
+     * Web Applications
+     * This page was last edited on 24 April 2024, at 19:15.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

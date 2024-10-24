@@ -1,0 +1,76 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+   Published on Wed Feb 27 2019
+
+                                      News
+
+     * Moving from Homebrew to Nix Package Manager
+
+       Salar wrote a step-by-step tutorial how to migrate from homebrew to
+       Nix.
+
+     * nixos/printers: declarative configuration
+
+       Tired of manually configuring your CUPS printers every time you set up
+       a new NixOS host? Please take a look and give it a try to see whether
+       everything works with your setup!
+
+     * Static Nix: a command-line swiss army knife
+
+       Matthew shows how using statically linked Nix in a 5MB binary, one can
+       use Nix without root. With an one-liner shell, you can use Nix to
+       install any software on a Linux machine.
+
+     * Nix SRE position in San Francisco, CA
+
+       While the job description doesn’t mention Nix (yet), we’ve been hinted
+       it is a Nix job.
+
+     * Manage a static website with Hugo and Nix
+
+       Wael wrote a step-by-step tutorial for deploying a static site (blog)
+       using Hugo static generator.
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

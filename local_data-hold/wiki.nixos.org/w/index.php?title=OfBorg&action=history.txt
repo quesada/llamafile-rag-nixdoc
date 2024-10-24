@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            OfBorg: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 October 2024
+
+     * curprev [ ] [ ] 01:0501:05, 7 October 2024‎ Fidgetingbits talk
+       contribs‎ 2,429 bytes +471‎ Add reference to the meaning of the name
+       OfBorg and some additional links
+
+    28 September 2024
+
+     * curprev [ ] [ ] 08:1808:18, 28 September 2024‎ Sorrel talk contribs‎
+       1,958 bytes +135‎ →‎Status: add note about stats.php Tag: Visual edit
+
+    12 September 2024
+
+     * curprev [ ] [ ] 09:0309:03, 12 September 2024‎ H7x4 talk contribs‎ m
+       1,823 bytes +715‎ Add links to ofborg status pages
+
+    5 April 2024
+
+     * curprev [ ] [ ] 00:5800:58, 5 April 2024‎ Samueldr talk contribs‎ m
+       1,108 bytes +39‎ No edit summary
+
+    2 January 2023
+
+     * curprev [ ] [ ] 21:0321:03, 2 January 2023‎ imported>Tomodachi94‎ m
+       1,069 bytes +207‎ Add link for commands and wiki
+
+    1 January 2023
+
+     * curprev [ ] [ ] 05:3005:30, 1 January 2023‎ imported>Tomodachi94‎ m
+       862 bytes +20‎ Fix link to NEL
+     * curprev [ ] [ ] 00:3100:31, 1 January 2023‎ imported>Tomodachi94‎ m
+       842 bytes 0‎ Make WIP
+     * curprev [ ] [ ] 00:3000:30, 1 January 2023‎ imported>Tomodachi94‎ 842
+       bytes +842‎ Create page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/OfBorg"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Shelving the old article table
+     * 2 Blogs?
+   [ ] Toggle the table of contents
+
+                                 Talk:Resources
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Shelving the old article table
+
+   Reworking the main page so we're not highlighting a bunch of dead links.
+   Putting the old table article table here. Can bring it back in if it fills
+   out more, though I think Reference will stick to official manual links.
+
+                              NixOS Wiki Resources
+   Category  NixOS      Nix        Nix Language Nixpkgs   NixOps    Hydra     
+   Pedias    NixOS      Nix        Nix Language Nixpkgs   NixOps    Hydra     
+   Guide     NixOS      Nix Guide  Nix Language Nixpkgs   NixOps    Hydra     
+             Guide                 Guide        Guide     Guide     Guide     
+   Tutorial  NixOS      Nix        Nix Language Nixpkgs   NixOps    Hydra     
+             Tutorial   Tutorial   Tutorial     Tutorial  Tutorial  Tutorial  
+   Cookbook  NixOS      Nix        Nix Language Nixpkgs   NixOps    Hydra     
+             Cookbook   Cookbook   Cookbook     Cookbook  Cookbook  Cookbook  
+   Reference NixOS      Nix        Nix Language Nixpkgs   NixOps    Hydra     
+             Reference  Reference  Reference    Reference Reference Reference 
+
+   The goal is to eventually have strong articles for every entry of this
+   table, but initial efforts will target the first row and first column.
+
+Blogs?
+
+   There are plenty of NixOS blogs. Should they have their own page or own
+   heading on this page?
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Resources&oldid=13550"
+     * This page was last edited on 25 June 2024, at 20:41.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

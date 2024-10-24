@@ -1,0 +1,120 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                Category:Nixpkgs
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+   Pages related to working with and on the nixpkgs repository.
+
+Pages in category "Nixpkgs"
+
+   The following 16 pages are in this category, out of 16 total.
+
+  A
+
+     * Alternative Package Sets
+
+  F
+
+     * FAQ
+     * FAQ/en
+     * FAQ/zh-cn
+
+  H
+
+     * How to fetch Nixpkgs with an empty NIX PATH
+
+  N
+
+     * Nix For Lang Packaging
+     * Nixpkgs
+     * Nixpkgs/Create and debug packages
+     * Nixpkgs enhancements
+     * Nixpkgs/Update Scripts
+
+  O
+
+     * Overlays
+
+  P
+
+     * Packaging/Binaries
+     * Packaging/Examples
+
+  S
+
+     * Searching packages
+
+  U
+
+     * Unfree software
+     * Using Clang instead of GCC
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Nixpkgs&oldid=5178"
+     * This page was last edited on 3 August 2022, at 08:04.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

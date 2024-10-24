@@ -1,0 +1,275 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Packages
+          * 1.1 Pre-flakes
+          * 1.2 mesa updates/changes
+     * 2 Modules
+          * 2.1 Pre-flakes
+          * 2.2 Flakes
+               * 2.2.1 Vm example
+               * 2.2.2 Testing the cross-compilation of modules
+   [ ] Toggle the table of contents
+
+                           Nixpkgs/Reviewing changes
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Guides and examples for reviewing nixpkgs pull requests
+
+Packages
+
+  Pre-flakes
+
+ nixpkgs.overlays = let
+   owner = "Artturin";
+   branchname = "cups-filters-update"; # branchname or rev
+   pkgsReview = pkgs.fetchzip {
+     url = "https://github.com/${owner}/nixpkgs/archive/${branchname}.tar.gz";
+     # Change to 52 zeroes when the archive needs to be redownloaded
+     sha256 = "sha256-/OR/uEqCy4QlManW9LcySsDXoTXFJ8G/xjhIsEpM4zM=";
+   };
+   # local checkout
+   #pkgsReview = /home/artturin/nixgits/my-nixpkgs;
+ in [
+   (self: super: {
+     review = import pkgsReview { overlays = []; config = super.config; };
+     cups-filters = self.review.cups-filters;
+   })
+ ];
+
+  mesa updates/changes
+
+   i(Artturin) tested https://github.com/NixOS/nixpkgs/pull/160267 this way
+   this can also be used to test other changes for which overlaying would
+   rebuild too many packages.
+
+ hardware.opengl = let
+   patched-pkgs = import (pkgs.applyPatches {
+     src = pkgs.path;
+     patches = [
+       (pkgs.fetchpatch {
+       url = "https://github.com/NixOS/nixpkgs/commit/4e199a91dc49659ea3ecd7f8e174d6ade2a1d717.patch";
+       sha256 = "sha256-xgZXntLx7U120RJ78RTw3+oSmlQ2qdwfVaLM+/H6ReA=";
+       })
+     ];
+   }) { config = pkgs.config; };
+ in {
+   package = patched-pkgs.mesa.drivers;
+   package32 = patched-pkgs.pkgsi686Linux.mesa.drivers;
+ };
+
+Modules
+
+  Pre-flakes
+
+   You may use the rev instead of the branchname, the rev will get
+   redownloaded when changed but the branch wont be redownloaded
+
+ # if it is not a new module
+ disabledModules = [ "module.nix" ];
+
+ imports = let
+   # If you need to use it for long term then use a fetcher which takes a hash
+   pkgsReview = builtins.fetchTarball {
+     url = "https://github.com/USERNAME/nixpkgs/archive/BRANCHNAME.tar.gz";
+   #pkgsReview = ../nixpkgs;
+   };
+ in [
+   (import "${pkgsReview}/nixos/modules/module.nix")
+ ];
+
+   for example
+
+ disabledModules = [ "config/swap.nix" "tasks/filesystems.nix" ];
+
+ imports = let
+   # If you need to use it for long term then use a fetcher which takes a hash
+   pkgsReview = builtins.fetchTarball {
+     url = "https://github.com/Artturin/nixpkgs/archive/add-swap-options.tar.gz";
+   #pkgsReview = ../nixpkgs
+   };
+ in [
+   (import "${pkgsReview}/nixos/modules/config/swap.nix")
+   (import "${pkgsReview}/nixos/modules/tasks/filesystems.nix")
+ ];
+
+   swapDevices = [
+     { "device" = "/swapfile"; "options" = [ "nofail" "noatime" ]; "priority" =  0; "discardPolicy" = "once"; }
+   ];
+
+  Flakes
+
+    Vm example
+
+   run with
+
+ $ nix run
+
+   When the pull request is updated or forcepushed, run
+
+ $ nix run --update-input pkgsReview
+
+   To update the commit hash
+
+ {
+   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+   inputs.pkgsReview.url = "github:Artturin/nixpkgs/pipewirejackldpath";
+   #inputs.pkgsReview.url = "/home/artturin/nixgits/my-nixpkgs";
+
+   outputs = inputs@{ self, nixpkgs, pkgsReview }: {
+
+     nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
+       system = "x86_64-linux";
+       specialArgs = { inherit inputs; };
+       modules = [
+         ({ pkgs, ... }: {
+           disabledModules = [ "services/desktops/pipewire/pipewire.nix" ];
+           imports = [
+             "${inputs.pkgsReview}/nixos/modules/services/desktops/pipewire/pipewire.nix"
+
+             # For virtualisation settings
+             "${inputs.nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
+           ];
+
+           services.pipewire.enable = true;
+
+           # Documentation for these is in nixos/modules/virtualisation/qemu-vm.nix
+           virtualisation = {
+             memorySize = 1024 * 3;
+             diskSize = 1024 * 3;
+             cores = 4;
+             msize = 104857600;
+           };
+
+           users.mutableUsers = false;
+           users.users.root = {
+             password = "root";
+           };
+           users.users.user = {
+             password = "user";
+             isNormalUser = true;
+             extraGroups = [ "wheel" ];
+           };
+         })
+       ];
+     };
+     # So that we can just run 'nix run' instead of
+     # 'nix build ".#nixosConfigurations.vm.config.system.build.vm" && ./result/bin/run-nixos-vm'
+     defaultPackage.x86_64-linux = self.nixosConfigurations.vm.config.system.build.vm;
+     defaultApp.x86_64-linux = {
+       type = "app";
+       program = "${self.defaultPackage.x86_64-linux}/bin/run-nixos-vm";
+     };
+   };
+ }
+
+    Testing the cross-compilation of modules
+
+   For example
+
+   an improved version can be found at
+   https://github.com/NixOS/nixpkgs/pull/142273#issuecomment-948225922
+
+ $ nix build .#nixosConfigurations.nixos.config.services.xserver.displayManager.sessionData.desktops
+
+ {
+   inputs = {
+     nixpkgs.url = "github:ju1m/nixpkgs/display-managers";
+   };
+
+   outputs = inputs@{ self, nixpkgs }: {
+
+     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+       system = "x86_64-linux";
+       modules = [
+         ({ pkgs, lib, config, ... }: {
+           nixpkgs.crossSystem = lib.systems.examples.aarch64-multiplatform;
+           services.xserver = {
+             enable = true;
+             desktopManager.session = [
+               { name = "home-manager";
+                 start = ''
+                   ${pkgs.runtimeShell} $HOME/.hm-xsession &
+                   waitPID=$!
+                 '';
+                 bgSupport = true;
+               }
+             ];
+           };
+         })
+       ];
+     };
+   };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nixpkgs/Reviewing_changes&oldid=17701"
+     * This page was last edited on 2 October 2024, at 17:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

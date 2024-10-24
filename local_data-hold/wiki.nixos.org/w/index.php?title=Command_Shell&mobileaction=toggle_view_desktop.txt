@@ -1,0 +1,142 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Enable
+     * 2 Changing the default shell
+          * 2.1 For all users
+          * 2.2 For a specific user
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                 Command Shell
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   A shell is a program that translates text commands (like ls, vim, reboot
+   etc) into instructions for your computer. The default shell on NixOS is
+   bash, but it can be easily changed.
+
+   Note: Zsh is used here as an example. You can use other shells, e.g. fish
+   or nushell.
+
+Enable
+
+   When adding a new shell, always enable the shell system-wide, even if it's
+   already enabled in your Home Manager configuration, otherwise it won't
+   source the necessary files.
+
+   For example, for Zsh:
+
+ /etc/nixos/configuration.nix
+
+ programs.zsh.enable = true;
+
+Changing the default shell
+
+  For all users
+
+   To set a command shell as the default for all users, use the
+   defaultUserShell option.
+
+   For example, to set Zsh as the default user shell for all users:
+
+ /etc/nixos/configuration.nix
+
+ users.defaultUserShell = pkgs.zsh;
+
+  For a specific user
+
+   To set a command shell as the default for a particular user, use the
+   <name>.shell option.
+
+   For example, to set user "myuser"'s shell to fish:
+
+ /etc/nixos/configuration.nix
+
+ users.users.myuser.shell = pkgs.fish;
+
+   You can also choose whether or not a user should use the default shell:
+
+ /etc/nixos/configuration.nix
+
+ users.users.myuser.useDefaultShell = true;
+
+See also
+
+     * Fish
+     * Nushell
+     * Zsh
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Command_Shell&oldid=11695"
+   Categories:
+     * Configuration
+     * Software
+     * Shell
+     * This page was last edited on 6 April 2024, at 08:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

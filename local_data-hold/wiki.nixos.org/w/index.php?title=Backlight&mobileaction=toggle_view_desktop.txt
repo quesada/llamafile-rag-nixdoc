@@ -1,0 +1,228 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Kernel native
+     * 2 Desktop Environment native
+     * 3 xbacklight
+     * 4 light
+     * 5 brightnessctl
+     * 6 /sys/class/backlight/...
+     * 7 Tips
+          * 7.1 Key mapping
+     * 8 OLED Screens
+     * 9 See also
+   [ ] Toggle the table of contents
+
+                                   Backlight
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This page documents methods for controlling backlight (aka screen
+   brightness) and tips to control it via hotkeys.
+
+Kernel native
+
+   Some laptops, using a recent enough kernel, will automatically handle
+   increasing and decreasing the backlight using the hot keys. The following
+   tools will allow scripting or controlling the backlight using other means,
+   if desired.
+
+Desktop Environment native
+
+   Some desktop environments will handle querying and setting the backlight,
+   including configuring the backlight keys. These include at least: Plasma
+   (KDE) and XFCE. It may be needed to configure or start some desktop
+   environment-specific services.
+
+xbacklight
+
+   xbacklight uses X to change the light settings. This can be inconvenient
+   in some situations, e.g. for use with the services.actkbd service, which
+   doesn't know about the X session. It, though, has an history of being more
+   compatible with different hardware, especially newer hardware^[citation
+   needed]
+
+   To install xbacklight globally, add this to your configuration.nix.
+
+   environment.systemPackages = with pkgs; [ xorg.xbacklight ];
+
+   Alternatively, use nix-env -iA nixos.xorg.xbacklight to install it to your
+   user profile.
+
+light
+
+   light does not use X to change the light settings. This can be used in
+   situations where the X service isn't available. While it does not use X,
+   it will need some privileges to work.
+
+   To enable the use of light, add this to your configuration.nix and make
+   sure that your user is a member of the video group.
+
+   programs.light.enable = true;
+
+   The following commands will allow you to test light:
+
+     * light -U 30 — the screen should become darker.
+     * light -A 30 — the screen should become brighter.
+
+   Be careful using light -U, as you might turn your backlight completely
+   off! You will not be able to see what you're typing anymore.
+
+brightnessctl
+
+   brightnessctl (homepage) is another option, which, like light, would work
+   even without X or on Wayland.
+
+   You can use it by simply installing the package. Since brightnessctl
+   supports the systemd-logind API it should work out of the box (i.e.
+   without installing any udev rules or using a setuid wrapper).
+
+   The following commands will allow you to test brightnessctl:
+
+     * brightnessctl set 5%- - the screen should become darker.
+     * brightnessctl set 5%+ - the screen should become brighter.
+
+   If you get an error like Failed to set brightness: Protocol error, check
+   that you are using the right device. You can get a list of the devices
+   with running brightnessctl -l and then specify the device with -d
+   deviceName.
+
+   Example: brightnessctl set 5%- -d intel_backlight
+
+/sys/class/backlight/...
+
+   The /sys/class/backlight/*/brightness files are a built-in way to set
+   brightness. Use them e.g. with:
+
+   sudo tee /sys/class/backlight/intel_backlight/brightness <<< 300
+
+   to set the brightness to 300, where the maximum is stored in
+   brightness_max. You can set file permissions e.g. with a udev rule, if you
+   don't want to use sudo. Here is an example udev rule, where you will
+   likely have to replace intel_backlight, with the name in your
+   /sys/class/backlight/:
+
+   services.udev.extraRules = ''
+     ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+   '';
+
+Tips
+
+  Key mapping
+
+   While controlling the backlight via the command line is useful, it would
+   be preferable to control it using key bindings. This is especially true
+   considering most laptops have backlight control keys.
+
+   There are two main choices to add key bindings, using a system-level
+   service like actkbd or using an X session tool, either provided by your
+   Desktop environment, Window manager or a tool like xbindkeys.
+
+   Depending on the tools that work for controlling the backlight you will be
+   able to choose one of those options.
+
+                  light xbacklight 
+   System service Yes   With hacks 
+   X session      Yes   Yes        
+
+   Follows, an example mapping for use with actkbd:
+
+   Note: This was verified to work with
+     * NixOS 18.03 on a Lenovo T440 and
+     * NixOS 19.09pre173166.373488e6f4c on a Lenovo X240
+   it may work on other models, but is unconfirmed. See actkbd for details on
+   finding out the proper key bindings. Also check if the path to the light
+   binary is correct.
+
+   programs.light.enable = true;
+   services.actkbd = {
+     enable = true;
+     bindings = [
+       { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
+       { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
+     ];
+   };
+
+OLED Screens
+
+   OLED screens do not have a backlight, but their perceived brightness can
+   be changed via xrandr:
+
+     * xrandr --output <output> --brightness .5 - dim to 50%
+     * xrandr --output <output> --brightness 1 - no dimming
+
+See also
+
+     * Arch Linux wiki page about the backlight
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Backlight&oldid=13665"
+   Category:
+     * Hardware
+     * This page was last edited on 1 July 2024, at 21:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Configuration
+          * 2.1 Templates
+   [ ] Toggle the table of contents
+
+                                    Eintopf
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Eintopf is a community event calendar for groups and places.
+
+Setup
+
+   Note: The module is not yet part of the latest NixOS stable release and
+   will be available with version 24.11.
+
+   A minimal local example setup would look like this
+
+ environment.etc."eintopf-secrets".text = ''
+ EINTOPF_ADMIN_PASSWORD=test123
+ '';
+
+ services.eintopf = {
+   enable = true;
+   settings.EINTOPF_ADMIN_EMAIL = "test@example.org";
+   secrets = [ /etc/eintopf-secrets ];
+ };
+
+   The web service will be available at http://localhost:3333. The
+   administration login page is available at http://localhost:3333/backstage
+   where you can use the credentials specified above.
+
+Configuration
+
+  Templates
+
+   Following example packages the "karlsunruh" template and set it as default
+   for Eintopf.
+
+ { pkgs, ... }:
+ let
+
+   template-karlsunruh = pkgs.stdenv.mkDerivation {
+     name = "karlsunruh";
+     src = pkgs.fetchgit {
+       url = "https://git.project-insanity.org/onny/eintopf-karlsunruh.git";
+       rev = "81cb96424b1162b6dd20c1b22f03dbdf49ae30d4";
+       hash = "sha256-+OeZG6+yZ0CwuIEN7pc0MankepZ6npiOD8RMyvWhQrY=";
+     };
+     dontBuild = true;
+     installPhase = ''
+       cp -r . $out/
+     '';
+   };
+
+ in
+ {
+
+   services.eintopf = {
+     enable = true;
+     settings = {
+       EINTOPF_THEMES = "eintopf,${template-karlsunruh}";
+     };
+   };
+
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Eintopf&oldid=13906"
+   Categories:
+     * Server
+     * Web Applications
+     * This page was last edited on 10 July 2024, at 12:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

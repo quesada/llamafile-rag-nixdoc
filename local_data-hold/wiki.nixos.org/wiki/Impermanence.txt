@@ -1,0 +1,329 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Persisting
+     * 2 Home Managing
+     * 3 Troubleshooting
+          * 3.1 builder for '/nix/store/file-name.service.drv' failed to
+            produce output path for output 'out' at
+            '/nix/store/file-name.service'
+     * 4 See Also
+   [ ] Toggle the table of contents
+
+                                  Impermanence
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Warning: When setting up impermanence, make sure that you have declared
+   password for your user to be able to log-in after the deployment as for
+   example the nixos installer declares passwords imperatively.
+
+   Impermanence in NixOS is where your root directory gets wiped every reboot
+   (such as by mounting a tmpfs to /). Such a setup is possible because NixOS
+   only needs /boot and /nix in order to boot, all other system files are
+   simply links to files in /nix. /boot and /nix still need to be stored on a
+   hard drive or SSD.
+
+   Example hardware-configuration.nix settings:
+
+   fileSystems."/" =
+     { device = "none";
+       fsType = "tmpfs";
+       options = [ "size=3G" "mode=755" ]; # mode=755 so only root can write to those files
+     };
+   fileSystems."/home/username" =
+     { device = "none";
+       fsType = "tmpfs";  # Can be stored on normal drive or on tmpfs as well
+       options = [ "size=4G" "mode=777" ];
+     };
+   fileSystems."/nix" =  # can be LUKS encrypted
+     { device = "/dev/disk/by-uuid/UUID";
+       fsType = "ext4";
+     };
+   fileSystems."/boot" =
+     { device = "/dev/disk/by-uuid/UUID";
+       fsType = "vfat";
+     };
+   # Can mount any other partitions as well
+
+  Persisting
+
+   Some files and folders should be persisted between reboots though (such as
+   /etc/nixos/). This can be accomplished through bind mounts or by using the
+   NixOS Impermanence module, which will set up bind mounts and links as
+   needed.
+
+   Put in configuration.nix:
+
+ { config, pkgs, ... }:
+
+ let
+   impermanence = builtins.fetchTarball "https://github.com/nix-community/impermanence/archive/master.tar.gz";
+ in
+ {
+   imports = [ "${impermanence}/nixos.nix" ];
+
+   environment.persistence."/nix/persist/system" = {
+     hideMounts = true;
+     directories = [
+       "/var/log"
+       "/var/lib/bluetooth"
+       "/var/lib/nixos"
+       "/var/lib/systemd/coredump"
+       "/etc/NetworkManager/system-connections"
+       { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
+     ];
+     files = [
+       "/etc/machine-id"
+       { file = "/etc/nix/id_rsa"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+     ];
+   };
+ }
+
+  Home Managing
+
+   You can just make a home partition on a drive and mount it as normal, so
+   everything in /home or /home/username will be persisted. If you want your
+   home to be impermanent as well, then mount it on tmpfs the same way as
+   root.
+
+   For persisting files in your home, you could simply use Home Manager like
+   normal. However, then files are stored read-only in the Nix store. In
+   order to persist files while still being writable, you can use the Home
+   Manager Impermanence module. It will fuse mount folders and link files
+   from persistent storage into your home directory.
+
+   Note: /home/user should be on a separate tmpfs, otherwise you'll get the
+   error fuse: mountpoint not empty.
+
+   Put in configuration.nix:
+
+ { config, pkgs, ... }:
+ let
+   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz";
+   impermanence = builtins.fetchTarball "https://github.com/nix-community/impermanence/archive/master.tar.gz";
+ in
+ {
+   imports = [
+     (import "${home-manager}/nixos")
+   ];
+
+   # might not be needed
+   programs.fuse.userAllowOther = true;
+
+   # Home Manager config goes in here
+   home-manager.users.<username> = {
+     home.homeDirectory = "/home/<username>";
+     imports = [ "${impermanence}/home-manager.nix" ];
+
+     programs = {
+       home-manager.enable = true;
+       git = {   # can use home-manager normally as well as with persistence
+         enable = true;
+         userName  = "Example";
+         userEmail = "Example@example.com";
+       };
+     };
+
+     home.persistence."/nix/dotfiles" = {
+       removePrefixDirectory = true;   # for GNU Stow styled dotfile folders
+       allowOther = true;
+       directories = [
+         "Atom/.atom/atom-discord"  
+         "Atom/.atom/packages"
+         "Clementine/.config/Clementine"
+
+         # fuse mounted from /nix/dotfiles/Firefox/.mozilla to /home/$USERNAME/.mozilla
+         "Firefox/.mozilla"
+       ];
+       files = [
+         "Atom/.atom/config.cson"
+         "Atom/.atom/github.cson"
+       ];
+     };
+
+
+     # fricking KDE Plasma has a bazillion files and each needs to be linked individually
+     # because they're all just shoved into ~/.config and not into a single folder.
+     # It's separate from the other dotfiles so I can write ".config"
+     # instead of "Plasma/.config"
+     home.persistence."/nix/dotfiles/Plasma" = {
+       removePrefixDirectory = false;
+       allowOther = true;
+       directories = [
+         ".config/gtk-3.0"   # fuse mounted from /nix/dotfiles/Plasma/.config/gtk-3.0
+         ".config/gtk-4.0"     # to /home/$USERNAME/.config/gtk-3.0
+         ".config/KDE"
+         ".config/kde.org"
+         ".config/plasma-workspace"
+         ".config/xsettingsd"
+         ".kde"
+
+         ".local/share/baloo"
+         ".local/share/dolphin"
+         ".local/share/kactivitymanagerd"
+         ".local/share/kate"
+         ".local/share/klipper"
+         ".local/share/konsole"
+         ".local/share/kscreen"
+         ".local/share/kwalletd"
+         ".local/share/kxmlgui5"
+         ".local/share/RecentDocuments"
+         ".local/share/sddm"
+       ];
+       files = [
+         ".config/akregatorrc"
+         ".config/baloofileinformationrc"
+         ".config/baloofilerc"
+         ".config/bluedevilglobalrc"
+         ".config/device_automounter_kcmrc"
+         ".config/dolphinrc"
+         ".config/filetypesrc"
+         ".config/gtkrc"
+         ".config/gtkrc-2.0"
+         ".config/gwenviewrc"
+         ".config/kactivitymanagerd-pluginsrc"
+         ".config/kactivitymanagerd-statsrc"
+         ".config/kactivitymanagerd-switcher"
+         ".config/kactivitymanagerdrc"
+         ".config/katemetainfos"
+         ".config/katerc"
+         ".config/kateschemarc"
+         ".config/katevirc"
+         ".config/kcmfonts"
+         ".config/kcminputrc"
+         ".config/kconf_updaterc"
+         ".config/kded5rc"
+         ".config/kdeglobals"
+         ".config/kgammarc"
+         ".config/kglobalshortcutsrc"
+         ".config/khotkeysrc"
+         ".config/kmixrc"
+         ".config/konsolerc"
+         ".config/kscreenlockerrc"
+         ".config/ksmserverrc"
+         ".config/ksplashrc"
+         ".config/ktimezonedrc"
+         ".config/kwinrc"
+         ".config/kwinrulesrc"
+         ".config/kxkbrc"
+         ".config/mimeapps.list"
+         ".config/partitionmanagerrc"
+         ".config/plasma-localerc"
+         ".config/plasma-nm"
+         ".config/plasma-org.kde.plasma.desktop-appletsrc"
+         ".config/plasmanotifyrc"
+         ".config/plasmarc"
+         ".config/plasmashellrc"
+         ".config/PlasmaUserFeedback"
+         ".config/plasmawindowed-appletsrc"
+         ".config/plasmawindowedrc"
+         ".config/powermanagementprofilesrc"
+         ".config/spectaclerc"
+         ".config/startkderc"
+         ".config/systemsettingsrc"
+         ".config/Trolltech.conf"
+         ".config/user-dirs.dirs"
+         ".config/user-dirs.locale"
+
+         ".local/share/krunnerstaterc"
+         ".local/share/user-places.xbel"
+         ".local/share/user-places.xbel.bak"
+         ".local/share/user-places.xbel.tbcache"
+       ];
+     };
+
+     home.stateVersion = "21.11";
+   };
+ }
+
+  Troubleshooting
+
+    builder for '/nix/store/file-name.service.drv' failed to produce output path
+    for output 'out' at '/nix/store/file-name.service'
+
+   This can happen if your NixOS version is later than your Home-Manager
+   version (ex. NixOS 22.05 with Home-Manager 21.11). See
+   https://github.com/nix-community/impermanence/issues/95.
+
+  See Also
+
+   https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/ - Examples of using the
+   NixOS modules
+
+   https://grahamc.com/blog/erase-your-darlings - Explaining why you might
+   want to do this. Uses ZFS snapshots instead of tmpfs.
+
+   https://mt-caret.github.io/blog/posts/2020-06-29-optin-state.html -
+   Encypted Btrfs Root with Opt-in State on NixOS. Uses Btrfs instead of
+   tmpfs or ZFS.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Impermanence&oldid=17775"
+     * This page was last edited on 12 October 2024, at 02:04.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

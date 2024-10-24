@@ -1,0 +1,308 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          WordPress: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    4 June 2024
+
+     * curprev [ ] [ ] 15:4715:47, 4 June 2024‎ Klinger talk contribs‎ m
+       16,801 bytes 0‎ changed example from 21.11 to 24.05 Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:5120:51, 19 April 2024‎ Klinger talk contribs‎ m
+       16,801 bytes −2‎ Category:Server Category:Web Applications Tag: Visual
+       edit: Switched
+
+    3 April 2024
+
+     * curprev [ ] [ ] 14:5514:55, 3 April 2024‎ Weijia talk contribs‎ m
+       16,803 bytes 0‎ Weijia moved page Wordpress to WordPress: Misspelled
+       title
+     * curprev [ ] [ ] 14:5514:55, 3 April 2024‎ Weijia talk contribs‎ m
+       16,803 bytes 0‎ s/Wordpress/WordPress/g
+
+    5 February 2024
+
+     * curprev [ ] [ ] 12:5712:57, 5 February 2024‎ imported>Onny‎ 16,803
+       bytes −102‎ wordpressPackage set now provides license information
+
+    19 December 2023
+
+     * curprev [ ] [ ] 16:5016:50, 19 December 2023‎ imported>Onny‎ 16,905
+       bytes 0‎ Update upgrade example to latest Wordpress version
+
+    22 November 2023
+
+     * curprev [ ] [ ] 17:2717:27, 22 November 2023‎ imported>Vieta‎ 16,905
+       bytes −9‎ correcting error of ; [
+
+    29 September 2023
+
+     * curprev [ ] [ ] 08:4608:46, 29 September 2023‎ imported>Onny‎ m 16,914
+       bytes −3‎ No edit summary
+
+    28 September 2023
+
+     * curprev [ ] [ ] 13:1813:18, 28 September 2023‎ imported>Onny‎ 16,917
+       bytes +400‎ Add section on max upload filesize config
+
+    7 August 2023
+
+     * curprev [ ] [ ] 10:4910:49, 7 August 2023‎ imported>Onny‎ 16,517 bytes
+       −66‎ Remove deprecation note
+
+    14 June 2023
+
+     * curprev [ ] [ ] 11:3211:32, 14 June 2023‎ imported>Onny‎ 16,583 bytes
+       +185‎ Add additional known issue for missing translation files in
+       wordpressPackages
+
+    1 June 2023
+
+     * curprev [ ] [ ] 10:3710:37, 1 June 2023‎ imported>Onny‎ 16,398 bytes
+       −125‎ Remove note on NixOS 23.05 release
+
+    26 May 2023
+
+     * curprev [ ] [ ] 20:2820:28, 26 May 2023‎ imported>Onny‎ m 16,523 bytes
+       0‎ No edit summary
+
+    23 May 2023
+
+     * curprev [ ] [ ] 11:0211:02, 23 May 2023‎ imported>Onny‎ 16,523 bytes
+       +178‎ Update to new interface of NixOS 23.05
+
+    3 May 2023
+
+     * curprev [ ] [ ] 12:5112:51, 3 May 2023‎ imported>Onny‎ 16,345 bytes
+       +619‎ Add known issues
+
+    5 April 2023
+
+     * curprev [ ] [ ] 07:2907:29, 5 April 2023‎ imported>Virusdave‎ m 15,726
+       bytes −8‎ Fix option type in example
+     * curprev [ ] [ ] 07:0607:06, 5 April 2023‎ imported>Virusdave‎ m 15,734
+       bytes +8‎ Fix option that is a list not an attrset
+     * curprev [ ] [ ] 07:0607:06, 5 April 2023‎ imported>Virusdave‎ m 15,726
+       bytes −8‎ Fix option that is a list not an attrset
+
+    2 April 2023
+
+     * curprev [ ] [ ] 12:3412:34, 2 April 2023‎ imported>Onny‎ m 15,734
+       bytes +31‎ No edit summary
+     * curprev [ ] [ ] 12:3212:32, 2 April 2023‎ imported>Onny‎ 15,703 bytes
+       +738‎ Add example on using wp-cli
+
+    30 March 2023
+
+     * curprev [ ] [ ] 10:0610:06, 30 March 2023‎ imported>Onny‎ 14,965 bytes
+       +725‎ Add section on security hardening
+
+    28 January 2023
+
+     * curprev [ ] [ ] 10:1610:16, 28 January 2023‎ imported>Onny‎ 14,240
+       bytes −41‎ Update custom theme example to new attrs option format
+     * curprev [ ] [ ] 10:1110:11, 28 January 2023‎ imported>Onny‎ 14,281
+       bytes +95‎ Update themes and plugins option two new attrs format
+
+    17 January 2023
+
+     * curprev [ ] [ ] 22:3522:35, 17 January 2023‎ imported>Onny‎ m 14,186
+       bytes −9‎ No edit summary
+     * curprev [ ] [ ] 19:3819:38, 17 January 2023‎ imported>Onny‎ m 14,195
+       bytes +4‎ No edit summary
+     * curprev [ ] [ ] 19:2319:23, 17 January 2023‎ imported>Onny‎ m 14,191
+       bytes +5‎ No edit summary
+     * curprev [ ] [ ] 19:1019:10, 17 January 2023‎ imported>Onny‎ m 14,186
+       bytes −9‎ No edit summary
+     * curprev [ ] [ ] 19:0919:09, 17 January 2023‎ imported>Onny‎ 14,195
+       bytes +432‎ Add notes about the new settings option
+
+    14 January 2023
+
+     * curprev [ ] [ ] 12:1512:15, 14 January 2023‎ imported>Onny‎ 13,763
+       bytes −5‎ Update instructions on manually package Wordpress plugins
+
+    5 January 2023
+
+     * curprev [ ] [ ] 13:3013:30, 5 January 2023‎ imported>Onny‎ 13,768
+       bytes +680‎ Add notes about Wordpress version upgrades
+
+    5 December 2022
+
+     * curprev [ ] [ ] 13:5313:53, 5 December 2022‎ imported>Onny‎ 13,088
+       bytes −125‎ Remove notice about ongoing development since NixOS 22.11
+       is released
+
+    4 December 2022
+
+     * curprev [ ] [ ] 00:5800:58, 4 December 2022‎ imported>Bsima‎ 13,213
+       bytes +8‎ grammar
+
+    24 October 2022
+
+     * curprev [ ] [ ] 13:0513:05, 24 October 2022‎ imported>Onny‎ m 13,205
+       bytes +432‎ No edit summary
+     * curprev [ ] [ ] 12:4712:47, 24 October 2022‎ imported>Onny‎ m 12,773
+       bytes +648‎ No edit summary
+
+    23 October 2022
+
+     * curprev [ ] [ ] 20:2820:28, 23 October 2022‎ imported>Onny‎ m 12,125
+       bytes +232‎ No edit summary
+     * curprev [ ] [ ] 20:2020:20, 23 October 2022‎ imported>Onny‎ m 11,893
+       bytes +833‎ No edit summary
+     * curprev [ ] [ ] 20:0620:06, 23 October 2022‎ imported>Onny‎ m 11,060
+       bytes +256‎ No edit summary
+     * curprev [ ] [ ] 20:0220:02, 23 October 2022‎ imported>Onny‎ m 10,804
+       bytes +1,723‎ No edit summary
+     * curprev [ ] [ ] 16:2016:20, 23 October 2022‎ imported>Onny‎ 9,081
+       bytes +2,020‎ Add notes on SEO
+
+    22 October 2022
+
+     * curprev [ ] [ ] 10:3310:33, 22 October 2022‎ imported>Onny‎ m 7,061
+       bytes −2‎ No edit summary
+
+    18 October 2022
+
+     * curprev [ ] [ ] 14:1714:17, 18 October 2022‎ imported>Onny‎ 7,063
+       bytes −191‎ Remove adminAddr option which hopefully gets optional in
+       22.11
+
+    8 October 2022
+
+     * curprev [ ] [ ] 08:5608:56, 8 October 2022‎ imported>Onny‎ m 7,254
+       bytes +443‎ No edit summary
+     * curprev [ ] [ ] 08:4208:42, 8 October 2022‎ imported>Onny‎ m 6,811
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 08:3908:39, 8 October 2022‎ imported>Onny‎ m 6,811
+       bytes +1‎ No edit summary
+     * curprev [ ] [ ] 08:3908:39, 8 October 2022‎ imported>Onny‎ 6,810 bytes
+       +875‎ Add note on mail delivery
+
+    6 October 2022
+
+     * curprev [ ] [ ] 20:5520:55, 6 October 2022‎ imported>Onny‎ m 5,935
+       bytes −80‎ No edit summary
+     * curprev [ ] [ ] 20:5420:54, 6 October 2022‎ imported>Onny‎ m 6,015
+       bytes +4‎ No edit summary
+     * curprev [ ] [ ] 20:5320:53, 6 October 2022‎ imported>Onny‎ 6,011 bytes
+       +143‎ Update information on wordpressPackages
+
+    29 September 2022
+
+     * curprev [ ] [ ] 11:4311:43, 29 September 2022‎ imported>Onny‎ m 5,868
+       bytes −36‎ No edit summary
+
+    18 September 2022
+
+     * curprev [ ] [ ] 15:1515:15, 18 September 2022‎ imported>Onny‎ m 5,904
+       bytes −110‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/WordPress"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,234 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                Dual Booting NixOS and Windows: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 September 2024
+
+     * curprev [ ] [ ] 10:0610:06, 24 September 2024‎ IFreilicht talk
+       contribs‎ 9,431 bytes +3,982‎ Add method to boot Windows if it is
+       installed on a different drive than NixOS Tag: Visual edit
+
+    15 September 2024
+
+     * curprev [ ] [ ] 09:5909:59, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 5,449 bytes −30‎ remove original and have only archive
+       mirror
+
+    8 April 2024
+
+     * curprev [ ] [ ] 05:3205:32, 8 April 2024‎ Sdht0 talk contribs‎ 5,479
+       bytes −305‎ →‎Grub: Remove old info
+     * curprev [ ] [ ] 05:3205:32, 8 April 2024‎ Sdht0 talk contribs‎ 5,784
+       bytes +859‎ →‎systemd-boot: Mention xbootldr
+     * curprev [ ] [ ] 05:1805:18, 8 April 2024‎ Sdht0 talk contribs‎ 4,925
+       bytes +77‎ →‎systemd-boot: mention bootctl
+     * curprev [ ] [ ] 05:1505:15, 8 April 2024‎ Sdht0 talk contribs‎ 4,848
+       bytes −92‎ →‎systemd-boot: copy edit
+     * curprev [ ] [ ] 05:1205:12, 8 April 2024‎ Sdht0 talk contribs‎ 4,940
+       bytes −23‎ →‎System time: more concise
+     * curprev [ ] [ ] 05:1205:12, 8 April 2024‎ Sdht0 talk contribs‎ m 4,963
+       bytes −16‎ →‎System time: concise
+     * curprev [ ] [ ] 05:1105:11, 8 April 2024‎ Sdht0 talk contribs‎ 4,979
+       bytes −25‎ Add proper sections
+
+    7 April 2024
+
+     * curprev [ ] [ ] 15:5415:54, 7 April 2024‎ Starfish2228 talk contribs‎
+       5,004 bytes +315‎ →‎Autodetection with os-prober: add note about
+       systemd-boot
+
+    23 February 2024
+
+     * curprev [ ] [ ] 17:1217:12, 23 February 2024‎ imported>Loosetooth‎
+       4,689 bytes +399‎ No edit summary
+
+    27 September 2023
+
+     * curprev [ ] [ ] 09:2209:22, 27 September 2023‎ imported>IgorM‎ m 4,290
+       bytes +23‎ Added category
+
+    24 July 2023
+
+     * curprev [ ] [ ] 05:2305:23, 24 July 2023‎ imported>Hypnosis2839‎ 4,267
+       bytes −340‎ remove deprecated option
+
+    9 July 2023
+
+     * curprev [ ] [ ] 15:1715:17, 9 July 2023‎ imported>Niscolas‎ m 4,607
+       bytes +276‎ No edit summary
+
+    30 July 2022
+
+     * curprev [ ] [ ] 03:3903:39, 30 July 2022‎ imported>Iopq‎ 4,331 bytes
+       −3‎ efi setup as default
+
+    15 June 2021
+
+     * curprev [ ] [ ] 11:4611:46, 15 June 2021‎ imported>Sinity‎ 4,334 bytes
+       +104‎ No edit summary
+     * curprev [ ] [ ] 11:4411:44, 15 June 2021‎ imported>Sinity‎ 4,230 bytes
+       −2‎ No edit summary
+     * curprev [ ] [ ] 11:4311:43, 15 June 2021‎ imported>Sinity‎ 4,232 bytes
+       +466‎ No edit summary
+
+    15 October 2020
+
+     * curprev [ ] [ ] 16:3816:38, 15 October 2020‎ imported>Opoppe‎ m 3,766
+       bytes 0‎ Fix typo
+
+    19 January 2020
+
+     * curprev [ ] [ ] 18:4218:42, 19 January 2020‎ imported>Pulsation‎ 3,766
+       bytes 0‎ fix typo in `--fs-uuid` search option, according to
+       https://www.gnu.org/software/grub/manual/grub/html_node/search.html
+
+    5 March 2019
+
+     * curprev [ ] [ ] 16:4216:42, 5 March 2019‎ imported>Makefu‎ m 3,766
+       bytes +129‎ add archive.org mirror to dead link
+
+    9 December 2018
+
+     * curprev [ ] [ ] 04:1504:15, 9 December 2018‎ imported>Whitehouse3001‎
+       m 3,637 bytes +189‎ Add a link to an article on dual-booting NixOS and
+       Windows
+
+    31 May 2018
+
+     * curprev [ ] [ ] 14:2414:24, 31 May 2018‎ imported>Symphorien‎ 3,448
+       bytes +720‎ mention os-prober
+
+    29 May 2018
+
+     * curprev [ ] [ ] 18:3718:37, 29 May 2018‎ imported>Samueldr‎ m 2,728
+       bytes +38‎ →‎EFI + Grub: Fixes comment, the previous statement wasn't
+       false, but may have been surprising when compared to the installation
+       section of the manual
+     * curprev [ ] [ ] 18:3218:32, 29 May 2018‎ imported>Jeschli‎ 2,690 bytes
+       −4‎ efiSysMountPoint needs the boot directory which is normally just
+       /boot
+
+    17 March 2018
+
+     * curprev [ ] [ ] 12:0412:04, 17 March 2018‎ imported>Samueldr‎ m 2,694
+       bytes +94‎ Mirrors structure for == MBR ==
+     * curprev [ ] [ ] 12:0012:00, 17 March 2018‎ imported>Samueldr‎ m 2,600
+       bytes +8‎ Fixes title levels (= → ==)
+     * curprev [ ] [ ] 03:5003:50, 17 March 2018‎ imported>Leocp1‎ 2,592
+       bytes +1,978‎ added GRUB EFI configuration
+
+    27 August 2017
+
+     * curprev [ ] [ ] 09:1509:15, 27 August 2017‎ imported>Fadenb‎ m 614
+       bytes +15‎ →‎MBR + Grub: syntaxhighlight
+
+    21 August 2017
+
+     * curprev [ ] [ ] 18:1418:14, 21 August 2017‎ imported>Makefu‎ 599 bytes
+       +599‎ initial batch of nixos-users
+   [ Compare selected revisions ]
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Dual_Booting_NixOS_and_Windows"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

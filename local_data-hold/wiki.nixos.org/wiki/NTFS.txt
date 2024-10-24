@@ -1,0 +1,168 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Enable NTFS support at boot
+          * 1.1 Enable write mode
+     * 2 Mount NTFS filesystem
+     * 3 Mount NTFS filesystem on boot
+     * 4 Troubleshooting
+          * 4.1 Read-only file system
+   [ ] Toggle the table of contents
+
+                                      NTFS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   New Technology File System (NTFS) is a proprietary journaling file system
+   developed by Microsoft. It is still in use by modern Windows system,
+   although NTFS didnt evolve since the release of version 3.1 in 2001.
+
+Enable NTFS support at boot
+
+ boot.supportedFilesystems = [ "ntfs" ];
+
+   NixOS uses NTFS-3G for NTFS support.
+
+  Enable write mode
+
+   fileSystems."/path/to/mount/to" =
+     { device = "/path/to/the/device";
+       fsType = "ntfs-3g";
+       options = [ "rw" "uid=theUidOfYourUser"];
+     };
+
+Mount NTFS filesystem
+
+ # mount /dev/sdeX /mnt -t ntfs3
+
+Mount NTFS filesystem on boot
+
+    1. Add NTFS support to /etc/nixos/configuration.nix (see #Enable NTFS
+       support at boot above)
+    2. Run the following commands
+
+ # Apply new config on next boot
+ sudo nixos-rebuild boot
+ # Reboot your system
+ reboot
+
+ # Mount the hard drive. Replace X & /mnt/folder as needed
+ mount /dev/sdX /mnt/folder -t ntfs3
+
+ # Generate /etc/nixos/hardware-configuration.nix
+ nixos-generate-config
+
+    3. Edit /etc/nixos/hardware-configuration.nix
+
+   # /etc/nixos/hardware-configuration.nix
+
+   # Your /dev/disk/by/uuid/... and /mnt/folder will have different names!
+   fileSystems."/mnt/folder" =
+       { device = "/dev/disk/by-uuid/7997ef90-6333-4c60-b137-d5cf2423e91b";
+ -       fsType = "ntfs3";
+ +       fsType = "ntfs-3g";
+ +       options = [ "rw" "uid=UID"];
+       };
+
+       Note: you can quickly find your UID by running echo $UID
+    4. Run nixos-rebuild switch
+    5. Done!
+
+Troubleshooting
+
+  Read-only file system
+
+   This is most likely caused by Windows not marking the disk as "clean" and
+   unmounted.
+
+   To verify:
+
+ journalctl -b0 | grep -i "The disk contains an unclean file system"
+
+   It should return a similar message to what follows:
+
+ The disk contains an unclean file system (0,0). Metadata
+ kept in Windows cache, refused to mount. Falling back to
+ read-only mount because the NTFS partition is in an unsafe
+ state. Please resume and shutdown Windows fully (no
+ hibernation or fast restarting.)
+
+   If you have shutdown Windows fully, and not used hibernation, it may be
+   caused by the fast startup or fast boot feature of Windows. It has been
+   reported that major Windows updates may reset this setting to on.
+
+   This TechNet entry explains how to disable fast startup. Additionally,
+   this blog post on howtogeek.com explains how the fast startup mode works,
+   and how to disable it.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=NTFS&oldid=17662"
+   Category:
+     * Filesystem
+     * This page was last edited on 27 September 2024, at 08:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

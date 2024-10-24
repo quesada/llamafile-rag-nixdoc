@@ -1,0 +1,111 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 pcscd is not strictly required
+     * 2 udev setup
+     * 3 pkgs.yubikey-personalization seems outdated
+   [ ] Toggle the table of contents
+
+                                  Talk:Yubikey
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 15:49, 5 April 2024 by Con-f-use (talk | contribs)
+   (→‎pkgs.yubikey-personalization seems outdated: new section)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+  pcscd is not strictly required
+
+   I've had my fair share of problems with the pcscd, namely that it often
+   required restarts to function. Fortunately I noticed that gpg-agent can
+   work without it just fine. The only thing standing in my way was a missing
+   udev rule for the Yubikey Neo:
+
+     # Yubikey 4/5 U2F+CCID
+     SUBSYSTEM=="usb", ATTR{idVendor}=="1050", ATTR{idProduct}=="0406", ENV{ID_SECURITY_TOKEN}="1", GROUP="wheel"
+
+   I'm not putting this in the main article as it'd probably need an invasive
+   edit since it mentions pcscd everywhere.
+
+  udev setup
+
+   I needed to set up udev to make the Yubikeys readable as well. My solution
+   was to: 1 . Add libfido2 to services.dev.udev.packages 2. Create
+   `users.groups.plugdev = {};` and add my user to the `plugdev` group.
+
+pkgs.yubikey-personalization seems outdated
+
+   pkgs.yubikey-personalization afik is for yubikey series 1 and 2. No idea
+   what the replacement for 5 Series and Bio is, but it ain't that.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Yubikey&oldid=11662"
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 5 April 2024, at 15:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

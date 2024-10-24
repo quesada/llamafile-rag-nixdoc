@@ -1,0 +1,139 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Category:Guide: Revision history
+
+   Help
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    18 April 2024
+
+     * curprev [ ] [ ] 20:3620:36, 18 April 2024‎ Klinger talk contribs‎
+       2,183 bytes +301‎ →‎Comparison to other resource page types Tag:
+       Visual edit
+
+    20 September 2021
+
+     * curprev [ ] [ ] 09:0809:08, 20 September 2021‎ imported>Nix‎ 1,882
+       bytes +23‎ make Guide a subcategory of "Resource"
+     * curprev [ ] [ ] 01:1301:13, 20 September 2021‎ imported>Nix‎ m 1,859
+       bytes +42‎ little more on reference category
+     * curprev [ ] [ ] 01:0601:06, 20 September 2021‎ imported>Nix‎ 1,817
+       bytes +1,433‎ Updating description to be more in line with typical
+       usage of "guide", with regards to reference sites like this wiki. Add
+       comparison to other major resource types
+
+    23 August 2017
+
+     * curprev [ ] [ ] 11:4611:46, 23 August 2017‎ imported>Makefu‎ m 384
+       bytes 0‎ Makefu moved page Category:How-To to Category:Guide without
+       leaving a redirect: Rename
+
+    22 August 2017
+
+     * curprev [ ] [ ] 19:2919:29, 22 August 2017‎ imported>Makefu‎ 384 bytes
+       +384‎ Created page with "How-to guides take the reader through the
+       steps required to solve a real-world problem. They are recipes,
+       directions to achieve a specific end - for example: how to create
+       a..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Category:Guide"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

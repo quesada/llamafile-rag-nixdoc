@@ -1,0 +1,133 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Slock: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:3306:33, 20 September 2021‎ imported>Nix‎ m 589
+       bytes −1‎ move to Applications category
+
+    24 October 2017
+
+     * curprev [ ] [ ] 22:5722:57, 24 October 2017‎ imported>HLandau‎ 590
+       bytes +265‎ No edit summary
+
+    23 August 2017
+
+     * curprev [ ] [ ] 21:3621:36, 23 August 2017‎ imported>Mic92‎ 325 bytes
+       −62‎ →‎cannot disable the out-of-memory killer for this process
+
+    1 July 2017
+
+     * curprev [ ] [ ] 12:0712:07, 1 July 2017‎ imported>Fadenb‎ 387 bytes
+       +10‎ No edit summary
+     * curprev [ ] [ ] 12:0312:03, 1 July 2017‎ imported>Fadenb‎ 377 bytes
+       +377‎ Created page with "== Setup == === cannot disable the
+       out-of-memory killer for this process === slock requires root for
+       accessing passwords and protecting itself from OOM killing. To fix
+       this er..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Slock"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,170 @@
+   Link: canonical
+   Link: index: Index
+   Link: search: Search
+   Link: next: Frequently Asked Questions
+   Link: prev: Best practices
+   Skip to main content [ ] [ ]
+   _____________________ Ctrl+K
+   [IMG] nix.dev
+   IFrame
+
+   Official documentation for getting things done with Nix.
+
+   _____________________ Ctrl+K
+     * Install Nix
+     * Tutorials [ ]
+          * First steps [ ]
+               * Ad hoc shell environments
+               * Reproducible interpreted scripts
+               * Declarative shell environments
+               * Towards reproducibility: pinning Nixpkgs
+          * Nix language basics
+          * Packaging existing software
+          * Package parameters and overrides with callPackage
+          * Working with local files
+          * Cross compilation
+          * Module system [ ]
+               * 1. A basic module
+               * 2. Module system deep dive
+          * NixOS [ ]
+               * NixOS virtual machines
+               * Building a bootable ISO image
+               * Building and running Docker images
+               * Integration testing with NixOS virtual machines
+               * Provisioning remote machines via SSH
+               * Installing NixOS on a Raspberry Pi
+               * Deploying NixOS using Terraform
+               * Setting up an HTTP binary cache
+               * Setting up distributed builds
+     * Guides [ ]
+          * Recipes [ ]
+               * Configure Nix to use a custom binary cache
+               * Automatic environments
+               * Dependencies in the development shell
+               * Managing remote sources
+               * Python development environment
+               * Setting up post-build hooks
+               * Continuous integration with GitHub Actions
+          * Best practices
+          * Troubleshooting
+          * Frequently Asked Questions
+     * Reference [ ]
+          * Glossary
+          * Nix reference manual [ ]
+               * Nix pre-release (development)
+               * Nix 2.24 (latest)
+               * Nix 2.18 (in Nixpkgs rolling)
+               * Nix 2.18 (in Nixpkgs 24.05)
+               * Nix 2.18 (in Nixpkgs 23.11)
+          * Nixpkgs manual
+          * NixOS manual
+          * Community projects
+          * Support tools
+          * Further reading
+          * Pinning Nixpkgs
+     * Concepts [ ]
+          * Flakes
+          * Frequently Asked Questions
+     * Contributing [ ]
+          * How to contribute
+          * How to get help
+          * Contributing documentation [ ]
+               * Documentation resources
+               * Documentation framework
+               * Style guide
+               * How to write a tutorial
+     * Acknowledgements [ ]
+          * Sponsors
+     * Repository
+     * Suggest edit
+     * Open issue
+     * .md
+     * .pdf
+   [ Submit ]
+
+                                Troubleshooting
+
+Contents
+
+     * What to do if a binary cache is down or unreachable?
+     * How to force Nix to re-check if something exists in the binary cache?
+     * How to fix: error: querying path in database: database disk image is
+       malformed
+     * How to fix: error: current Nix store schema is version 10, but I only
+       support 7
+     * How to fix: writing to file: Connection reset by peer
+
+                                Troubleshooting#
+
+   This page is a collection of tips to solve problems you may encounter
+   using Nix.
+
+What to do if a binary cache is down or unreachable?#
+
+   Pass --option substitute false to Nix commands.
+
+How to force Nix to re-check if something exists in the binary cache?#
+
+   Nix keeps track of what’s available in binary caches so it doesn’t have to
+   query them on every command. This includes negative answers, that is, if a
+   given store path cannot be substituted.
+
+   Pass the --narinfo-cache-negative-ttl option to set the cache timeout in
+   seconds.
+
+How to fix: error: querying path in database: database disk image is malformed#
+
+   This is a known issue. Try:
+
+ $ sqlite3 /nix/var/nix/db/db.sqlite "pragma integrity_check"
+
+   Which will print the errors in the database. If the errors are due to
+   missing references, the following may work:
+
+ $ mv /nix/var/nix/db/db.sqlite /nix/var/nix/db/db.sqlite-bkp
+ $ sqlite3 /nix/var/nix/db/db.sqlite-bkp ".dump" | sqlite3 /nix/var/nix/db/db.sqlite
+
+How to fix: error: current Nix store schema is version 10, but I only support 7#
+
+   This is a known issue.
+
+   It means that using a new version of Nix upgraded the SQLite schema of the
+   database, and then you tried to use an older version Nix.
+
+   The solution is to dump the database, and use the old Nix version to
+   re-import the data:
+
+ $ /path/to/nix/unstable/bin/nix-store --dump-db > /tmp/db.dump
+ $ mv /nix/var/nix/db /nix/var/nix/db.toonew
+ $ mkdir /nix/var/nix/db
+ $ nix-store --load-db < /tmp/db.dump
+
+How to fix: writing to file: Connection reset by peer#
+
+   This may mean you are trying to import a too large file or directory into
+   the Nix store, or your machine is running out of resources, such as disk
+   space or memory.
+
+   Try to reduce the size of the directory to import, or run garbage
+   collection.
+
+   previous
+
+   Best practices
+
+   next
+
+   Frequently Asked Questions
+
+   Contents
+     * What to do if a binary cache is down or unreachable?
+     * How to force Nix to re-check if something exists in the binary cache?
+     * How to fix: error: querying path in database: database disk image is
+       malformed
+     * How to fix: error: current Nix store schema is version 10, but I only
+       support 7
+     * How to fix: writing to file: Connection reset by peer
+
+   By the Nix documentation team and contributors.
+
+   © Copyright 2016-2024, NixOS Foundation.

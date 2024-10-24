@@ -1,0 +1,233 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Report issues
+     * 2 Create pull requests
+          * 2.1 Hack Nixpkgs
+          * 2.2 Run tests locally
+               * 2.2.1 Called without required argument
+                    * 2.2.1.1 Avoid alias
+                    * 2.2.1.2 Make optional
+          * 2.3 Manage your local repository
+     * 3 Becoming a Nixpkgs maintainer
+          * 3.1 Building all of the packages you maintain
+     * 4 Maintain your nixpkgs fork
+          * 4.1 Update master
+   [ ] Toggle the table of contents
+
+                              Nixpkgs/Contributing
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Development in NixOS primarily driven by the work in nixpkgs on GitHub.
+   This repository contains both all packages available in your NixOS channel
+   and all the options you can use for configuring your system with your
+   configuration.nix. To get your text editor to recognize Nix expressions,
+   consider installing a Nix Editor Modes for Nix Files.
+
+Report issues
+
+   Any issue can be reported in the nixpkgs issue tracker on GitHub. Keep in
+   mind that all work on nixpkgs is being done by volunteers and you cannot
+   expect a quick response and solution for all problems you may face. In
+   general Pull Requests have a much shorter round-trip-time.
+
+Create pull requests
+
+   If you want to see your package being provided by a channel, creating an
+   issue will most likely not enough. It is up to you to create a nix package
+   description in Nixpkgs and create a pull request in the Nixpkgs
+   repository. Pull requests are a way to tell a GitHub project that you've
+   created some changes, which maintainers can easily review, comment on and,
+   and finally merge into the repository.
+
+   See How to create pull requests in nixpkgs CONTRIBUTING.md.
+
+  Hack Nixpkgs
+
+   Make any modifications you want to your local copy of the repository, then
+   build the package from the root of the nixpkgs directory with:
+
+ nix-build -A $yourpackage
+
+   The output of your build will be located under the result/ subdirectory.
+   Try running the freshly built binaries in result/bin and check that
+   everything is OK.
+
+   To test the changes on a NixOS machine, rebuild the system using your
+   newly hacked Nixpkgs by executing:
+
+ sudo nixos-rebuild switch -I nixpkgs=/path/to/local/nixpkgs
+
+  Run tests locally
+
+   Pushing commits to Github will run tests on Github.
+   We can run these tests locally, to reduce "commit noise" from failing
+   tests
+
+ cd nixpkgs
+
+ # Basic evaluation checks
+ nix-build pkgs/top-level/release.nix -A tarball.nixpkgs-basic-release-checks \
+ --arg supportedSystems '[ "aarch64-darwin" "aarch64-linux" "x86_64-linux" "x86_64-darwin"  ]'
+
+ # list all derivations
+ nix-env --query --available --out-path --file ./. --show-trace
+
+ # build
+ nix-build -A $yourpackage
+
+   Tests on Github:
+
+     * Basic evaluation checks
+     * Checking EditorConfig
+          * Read https://editorconfig.org/#download to configure your editor
+     * ofborg-eval will call nix-build -A $yourpackage
+
+    Called without required argument
+
+   This error is produced by nixpkgs-basic-release-checks (Basic evaluation
+   checks)
+
+ anonymous function at /path/to/your-package.nix called without required argument 'some-dependency'
+
+   Usually, a dependency (some-dependency) is not available on a certain
+   platform, for example on aarch64-darwin
+
+   To see how other packages handle this dependency:
+
+ cd nixpkgs/pkgs
+ grep -r some-dependency
+ # -r = --recursive
+
+      Avoid alias
+
+   Solution 1: Replace alias names with the real package names. For example:
+
+     * utillinux → util-linux
+     * double_conversion → double-conversion
+
+      Make optional
+
+   Solution 2: Make it an optional dependency:
+
+ { lib
+ , stdenv
+ , some-dependency ? null
+ , another-dependency
+ }:
+
+ stdenv.mkDerivation {
+   buildInputs =
+     [ another-dependency ]
+     ++ lib.optionals (!stdenv.isDarwin) [ some-dependency ]
+     # some-dependency is missing on darwin
+   ;
+ }
+
+  Manage your local repository
+
+   Tips & tricks for managing your nixpkgs checkout are kept in the page on
+   git.
+
+Becoming a Nixpkgs maintainer
+
+   See maintainers in nixpkgs
+
+  Building all of the packages you maintain
+
+ nix-build maintainers/scripts/build.nix --argstr maintainer your-nick
+
+Maintain your nixpkgs fork
+
+  Update master
+
+   Add nixpkgs as a remote called upstream:
+
+ git remote add upstream https://github.com/NixOS/nixpkgs.git
+
+   You only have to do it once.
+
+ git checkout master        #1
+ git fetch upstream
+ git branch -u upstream/master
+
+   1. make sure you're on the master branch
+
+   after the above steps you only have to git pull to update the master
+   branch
+
+   source
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nixpkgs/Contributing&oldid=12479"
+   Category:
+     * Community
+     * This page was last edited on 24 April 2024, at 20:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

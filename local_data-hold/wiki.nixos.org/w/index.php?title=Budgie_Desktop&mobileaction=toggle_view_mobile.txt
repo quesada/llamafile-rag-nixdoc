@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installing Budgie Desktop
+     * 2 Excluding some Budgie Desktop applications from the default install
+   [ ] Toggle the table of contents
+
+                                 Budgie Desktop
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The Budgie Desktop is a feature-rich, modern desktop designed to keep out
+   the way of the user.
+
+Installing Budgie Desktop
+
+   To use the Budgie Desktop, add this to your configuration.nix:
+
+ services.xserver.enable = true;
+ services.xserver.desktopManager.budgie.enable = true;
+ services.xserver.displayManager.lightdm.enable = true;
+
+Excluding some Budgie Desktop applications from the default install
+
+   Not all applications that come pre-installed with the Budgie Desktop are
+   desirable for everyone to have on their machines. There's a way to edit
+   configuration.nix to exclude these kinds of packages, for example as
+   follows:
+
+ environment.budgie.excludePackages = with pkgs; [
+   mate.mate-terminal
+   vlc
+ ];
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Budgie_Desktop&oldid=10736"
+   Categories:
+     * Desktop environment
+     * Applications
+     * This page was last edited on 22 July 2023, at 18:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

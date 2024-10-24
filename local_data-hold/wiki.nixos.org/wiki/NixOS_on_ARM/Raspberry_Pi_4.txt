@@ -1,0 +1,448 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+          * 2.1 Configuration
+          * 2.2 USB boot
+          * 2.3 GPU support
+               * 2.3.1 Without GPU
+               * 2.3.2 With GPU
+          * 2.4 Tools
+          * 2.5 Audio
+          * 2.6 Networking
+          * 2.7 Using GPIO pins as non-root
+          * 2.8 Enabling the SPI
+          * 2.9 HDMI-CEC
+          * 2.10 Enabling Bluetooth
+     * 3 Notes about the boot process
+          * 3.1 Updating U-Boot/Firmware
+     * 4 Troubleshooting
+          * 4.1 Audio not playing and Bluetooth: no controller available
+          * 4.2 Touch screen not working
+   [ ] Toggle the table of contents
+
+                          NixOS on ARM/Raspberry Pi 4
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   The Raspberry Pi family of devices is a series of single-board computers
+   made by the Raspberry Pi Foundation. They are all based on Broadcom
+   System-on-a-chip (SoCs).
+
+   Raspberry Pi 4 Family
+   A Raspberry Pi 4.
+   Manufacturer Raspberry Pi Foundation        
+   Architecture AArch64                        
+   Bootloader   Custom or U-Boot               
+   Boot order   Configurable; SD, USB, Netboot 
+   Maintainer   
+   Raspberry Pi 4B
+   SoC          BCM2711                        
+
+Status
+
+   The Raspberry Pi 4 Family is only supported as AArch64. Use as armv7 is
+   community supported.
+
+Board-specific installation notes
+
+   First follow the generic installation steps to get the installer image and
+   install using the installation and configuration steps.
+
+   The Raspberry Pi 4B works with the generic SD image.
+
+   Sample instructions for installing NixOS on a Raspberry Pi are available
+   at nix.dev.
+
+   Warning: Note that the Raspberry Pi 4 has two HDMI outputs, and apparently
+   sometimes the user prompt for the console/TTY is displayed on HDMI 1 while
+   the boot process is displayed on HDMI 0 (this may even be the case with
+   the official (non NixOs) non-graphical lite image). So if after the
+   message "Welcome on NixOs" at the end of phase 2 your screen goes
+   black/disconnects, try to use the other HDMI port. See the related bug
+   here.
+
+  Configuration
+
+   Using nixos-generate-config will generate the required minimal
+   configuration.
+
+   Raspberry Pi 4 is well-supported on modern kernels. However, if you
+   encounter issues with GPU support or other deviceTree quirks, you may wish
+   to add the nixos-hardware channel:
+
+   nix-channel --add
+   https://github.com/NixOS/nixos-hardware/archive/master.tar.gz
+   nixos-hardware
+
+   nix-channel --update
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, lib, ... }:
+ {
+   imports =
+     [
+       <nixos-hardware/raspberry-pi/4>
+       ./hardware-configuration.nix
+     ];
+   hardware = {
+     raspberry-pi."4".apply-overlays-dtmerge.enable = true;
+     deviceTree = {
+       enable = true;
+       filter = "*rpi-4-*.dtb";
+     };
+   };
+   console.enable = false;
+   environment.systemPackages = with pkgs; [
+     libraspberrypi
+     raspberrypi-eeprom
+   ];
+   system.stateVersion = "23.11";
+ }
+
+  USB boot
+
+   For USB booting to work properly, a firmware update might be needed:
+
+  $ nix-shell -p raspberrypi-eeprom
+  $ rpi-eeprom-update -d -a
+
+   Now reboot the device so it can update the firmware from the boot
+   partition.
+
+  GPU support
+
+   The following configuration samples are built on the assumption that they
+   are added to an already working configuration. They are not complete
+   configurations.
+
+    Without GPU
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   services.xserver = {
+     enable = true;
+     displayManager.lightdm.enable = true;
+     desktopManager.gnome.enable = true;
+     videoDrivers = [ "fbdev" ];
+   };
+ }
+
+    With GPU
+
+   In nixos-hardware#261 an option has been added to use the fkms-3d
+   (modesetting) overlay which uses the V3D renderer. This will only work
+   with the vendor kernel, which is the default in NixOS.
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { pkgs, ... }:
+
+ {
+   imports = [
+     .../nixos-hardware/raspberry-pi/4
+   ];
+
+   hardware.raspberry-pi."4".fkms-3d.enable = true;
+
+   services.xserver = {
+     enable = true;
+     displayManager.lightdm.enable = true;
+     desktopManager.gnome.enable = true;
+   };
+ }
+
+  Tools
+
+   The raspberry tools are available in the libraspberrypi package and
+   include commands like vcgencmd to measure temperature and CPU frequency.
+
+  Audio
+
+   In addition to the usual config, you will need to enable hardware audio
+   support:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   # Enable audio devices
+   boot.kernelParams = [ "snd_bcm2835.enable_hdmi=1" "snd_bcm2835.enable_headphones=1" ];
+   boot.loader.raspberryPi.firmwareConfig = ''
+     dtparam=audio=on
+   '';
+ }
+
+   If you're running headless, you can also disable HDMI audio and force use
+   of the headphones jack by adding hdmi_ignore_edid_audio=1 on a line below
+   dtparam=audio=on.
+
+  Networking
+
+   Ethernet and wifi interfaces should work out of the box. In addition to
+   normal network configuration, consider disabling wifi powersaving if you
+   experience slowness or issues with the host becoming unreachable on the
+   network shortly after boot. For NetworkManager, the following
+   configuration is sufficient:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   # Basic networking
+   networking.networkmanager.enable = true;
+   # Prevent host becoming unreachable on wifi after some time.
+   networking.networkmanager.wifi.powersave = false;
+ }
+
+  Using GPIO pins as non-root
+
+   By default, the GPIO pins are enabled, but can only be accessed by the
+   root user. This can be addressed by adding a udev rule to your
+   configuration that changes the ownership of /dev/gpiomem and the other
+   required devices.
+
+   The following code adds a group gpio and adds the user mygpiouser to that
+   group. You probably want to put your own user name here.
+
+   The extraRules changes the owner of gpiomem and all other files needed for
+   GPIO to work to root:gpio and changes the permissions to 0660. Therefore,
+   the root user and anyone in the gpio group can now access the GPIO pins.
+
+   # Create gpio group
+   users.groups.gpio = {};
+
+   # Change permissions gpio devices
+   services.udev.extraRules = ''
+     SUBSYSTEM=="bcm2835-gpiomem", KERNEL=="gpiomem", GROUP="gpio",MODE="0660"
+     SUBSYSTEM=="gpio", KERNEL=="gpiochip*", ACTION=="add", RUN+="${pkgs.bash}/bin/bash -c 'chown root:gpio /sys/class/gpio/export /sys/class/gpio/unexport ; chmod 220 /sys/class/gpio/export /sys/class/gpio/unexport'"
+     SUBSYSTEM=="gpio", KERNEL=="gpio*", ACTION=="add",RUN+="${pkgs.bash}/bin/bash -c 'chown root:gpio /sys%p/active_low /sys%p/direction /sys%p/edge /sys%p/value ; chmod 660 /sys%p/active_low /sys%p/direction /sys%p/edge /sys%p/value'"
+   '';
+
+   # Add user to group
+   users = {
+     users.mygpiouser = {
+       extraGroups = [ "gpio" ... ];
+       ....
+     };
+   };
+
+  Enabling the SPI
+
+   To enable the SPI, you would normally add dtparam=spi=on to
+   /boot/config.txt. This is not possible on NixOS, and instead you have to
+   apply a device tree overlay. For this we use the
+   hardware.deviceTree.overlays option. After applying the overlay, we add an
+   spi group and change the owner of the spidev device to it, similarly to
+   GPIO.
+
+ hardware.raspberry-pi."4".apply-overlays-dtmerge.enable = true;
+ hardware.deviceTree = {
+   enable = true;
+   filter = "*-rpi-*.dtb";
+   overlays = [
+     {
+       name = "spi";
+       dtboFile = ./spi0-0cs.dtbo;
+     }
+   ];
+ };
+
+ users.groups.spi = {};
+
+ services.udev.extraRules = ''
+   SUBSYSTEM=="spidev", KERNEL=="spidev0.0", GROUP="spi", MODE="0660"
+ '';
+
+   The the spi0-0cd.dtso file can be downloaded here. You might have to
+   change the compatible field to "raspberrypi" in the dtbo file.
+
+  HDMI-CEC
+
+   A few bits and pieces for using HDMI-CEC on the Pi4:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { pkgs, ... }:
+
+ {
+   # an overlay to enable raspberrypi support in libcec, and thus cec-client
+   nixpkgs.overlays = [
+     # nixos-22.05
+     # (self: super: { libcec = super.libcec.override { inherit (self) libraspberrypi; }; })
+     # nixos-22.11
+     (self: super: { libcec = super.libcec.override { withLibraspberrypi = true; }; })
+   ];
+
+   # install libcec, which includes cec-client (requires root or "video" group, see udev rule below)
+   # scan for devices: `echo 'scan' | cec-client -s -d 1`
+   # set pi as active source: `echo 'as' | cec-client -s -d 1`
+   environment.systemPackages = with pkgs; [
+     libcec
+   ];
+
+   services.udev.extraRules = ''
+     # allow access to raspi cec device for video group (and optionally register it as a systemd device, used below)
+     KERNEL=="vchiq", GROUP="video", MODE="0660", TAG+="systemd", ENV{SYSTEMD_ALIAS}="/dev/vchiq"
+   '';
+
+   # optional: attach a persisted cec-client to `/run/cec.fifo`, to avoid the CEC ~1s startup delay per command
+   # scan for devices: `echo 'scan' > /run/cec.fifo ; journalctl -u cec-client.service`
+   # set pi as active source: `echo 'as' > /run/cec.fifo`
+   systemd.sockets."cec-client" = {
+     after = [ "dev-vchiq.device" ];
+     bindsTo = [ "dev-vchiq.device" ];
+     wantedBy = [ "sockets.target" ];
+     socketConfig = {
+       ListenFIFO = "/run/cec.fifo";
+       SocketGroup = "video";
+       SocketMode = "0660";
+     };
+   };
+   systemd.services."cec-client" = {
+     after = [ "dev-vchiq.device" ];
+     bindsTo = [ "dev-vchiq.device" ];
+     wantedBy = [ "multi-user.target" ];
+     serviceConfig = {
+       ExecStart = ''${pkgs.libcec}/bin/cec-client -d 1'';
+       ExecStop = ''/bin/sh -c "echo q > /run/cec.fifo"'';
+       StandardInput = "socket";
+       StandardOutput = "journal";
+       Restart="no";
+   };
+ }
+
+  Enabling Bluetooth
+
+   One might get bluetooth to work with this in the configuration file:
+
+    
+
+ /etc/nixos/configuration.nix
+
+   systemd.services.btattach = {
+     before = [ "bluetooth.service" ];
+     after = [ "dev-ttyAMA0.device" ];
+     wantedBy = [ "multi-user.target" ];
+     serviceConfig = {
+       ExecStart = "${pkgs.bluez}/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000";
+     };
+   };
+
+Notes about the boot process
+
+   Unless using an extremely early WIP image, the Raspberry Pi 4B boots using
+   the U-Boot platform firmware.
+
+  Updating U-Boot/Firmware
+
+ 
+ $ nix-shell -p raspberrypi-eeprom
+ $ sudo mount /dev/disk/by-label/FIRMWARE /mnt
+ $ sudo BOOTFS=/mnt FIRMWARE_RELEASE_STATUS=stable rpi-eeprom-update -d -a
+
+   source
+
+Troubleshooting
+
+  Audio not playing and Bluetooth: no controller available
+
+   On the Raspberry Pi kernel, the jack may never play audio, and no
+   Bluetooth devices may ever be found. To get this to work, it is
+   recommended to switch to the mainline kernel. See nixpkgs#123725 for more
+   info.
+
+  Touch screen not working
+
+   You have to declare this in your configuration.nix^[1]:
+
+ hardware.raspberry-pi."4" = {
+   touch-ft5406.enable = true;
+ };
+
+    1. ↑
+       https://discourse.nixos.org/t/cant-get-nixos-x-to-work-on-a-raspberry-pi-with-dsi-display/44532/3
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Raspberry_Pi_4&oldid=17744"
+     * This page was last edited on 8 October 2024, at 14:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

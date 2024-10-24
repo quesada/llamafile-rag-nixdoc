@@ -1,0 +1,399 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 About
+     * 2 Guide series
+          * 2.1 Introduction To Nix and NixOS
+               * 2.1.1 What is Nix?
+               * 2.1.2 What is NixOS?
+               * 2.1.3 So why NixOS?
+          * 2.2 NixOS Installation Guide
+          * 2.3 How to put NixOS config into a git repository
+          * 2.4 NixOS Filesystem Overview
+               * 2.4.1 NixOS Filesystem
+               * 2.4.2 Nix Store
+               * 2.4.3 Nix Profiles
+               * 2.4.4 Nix Configuration
+               * 2.4.5 Log Files
+          * 2.5 Nix Language Overview
+               * 2.5.1 Scary terms
+               * 2.5.2 Language Structures
+               * 2.5.3 Language Special Statements
+               * 2.5.4 Helpful Resources
+               * 2.5.5 REPL
+               * 2.5.6 Language Server
+               * 2.5.7 Manuals
+          * 2.6 Nix Shell
+               * 2.6.1 What is a Nix Shell?
+          * 2.7 Intro to Flakes
+               * 2.7.1 What are Flakes?
+               * 2.7.2 Setup for Flakes
+               * 2.7.3 What can you put in outputs?
+          * 2.8 Moving NixOS System Configuration into a Flake
+   [ ] Toggle the table of contents
+
+                                Wil T Nix Guides
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+About
+
+   In early 2021, Wilfred Taylor (Wil T), produced a series of eight video
+   guides covering the Nix ecosystem from the ground up. This page is an
+   overview with information about each guide. These guides are perhaps
+   currently the best available video resource for getting an early
+   understanding of Nix, and will step you through getting a working NixOS
+   machine.
+
+   The series runs for a total of 3 hours and 32 minutes. It starts with a
+   general overview, progresses to setting up a NixOS desktop, covers
+   managing NixOS config repositories, gives a general overview of the Nix
+   ecosystem and enough hands-on exploration to get oriented, and ends with
+   coverage of Flakes and migration of configurations to a Flake based
+   system.
+
+   At the time of production, NixOS 20.09 was the latest release, so the
+   guides are using it. Currently, i.e. on 21.05 or unstable, not much has
+   changed that would impact following the guides as produced.
+
+Guide series
+
+   For convenience, a page with the playlist in order is available: Wil T's
+   Nix Guides Playlist
+
+  Introduction To Nix and NixOS
+
+   Video Link Playtime: ~11 minutes
+
+   In this introductory video, Wil opens with an overview of Nix, and a
+   slide:
+
+    What is Nix?
+
+     * Package build system
+     * Reproducible builds
+     * Build isolation
+     * Nix Store
+     * Nixpkgs
+
+   Starting at 3:32, he moves on to ...
+
+    What is NixOS?
+
+     * Linux distro built on Nix
+     * Nix Modules
+     * Profiles and Generations
+
+   ... at 5:30 ...
+
+    So why NixOS?
+
+     * Infrastructure as Code
+     * Easily tinker and recover
+     * Modify packages and add your own
+     * Development Shells
+
+  NixOS Installation Guide
+
+   Video Link Playtime: ~55 minutes
+
+   This video opens with an install guide, using a graphical KDE Plasma ISO.
+
+   Beginning around 27:22, most of the rest of the guide covers using Home
+   Manager to manage your configuration (e.g. dotfiles).
+
+   Remaining marks...
+
+     * 48:44, he presents the search tools and documentation on the main
+       nixos.org site.
+     * 51:50, he introduces this NixOS community wiki.
+     * 52:57, he introduces Nix Pills for getting a deeper understanding of
+       Nix.
+     * 53:38, he begins coverage of the community resources available.
+
+  How to put NixOS config into a git repository
+
+   Video Link Playtime: ~31 minutes
+
+   This guide opens with a recap of where all NixOS configurations are
+   managed. After the first minute, it covers initializing a git repo with
+   all the configuration files and some convenience scripts for updates.
+
+   At 14:25, he begins coverage of using git crypt to manage secrets (e.g.
+   passwords and private keys) in the repository, which spans the rest of the
+   video.
+
+  NixOS Filesystem Overview
+
+   Video Link Playtime: ~20 minutes
+
+   In this video, Wil covers details of where things are stored and how the
+   filesystem is structured.
+
+   At 1:22 ...
+
+    NixOS Filesystem
+
+     * Missing directories or very few files
+     * Can't directly modify files in /etc
+     * Where are all the files?
+     * Path
+          * /home/wil/.nix-profile/bin
+          * /run/current-system/sw/bin
+
+   ... at 3:34 he moves on to explaining the Nix Store ("store," as in, "a
+   place for things," not as in, "buy things") ...
+
+    Nix Store
+
+     * Located at /nix/store
+     * Read only
+     * Derivations
+     * Garbage Collection
+
+   ... from 9:24 ...
+
+    Nix Profiles
+
+     * Located at /nix/profiles
+     * System (also at /run/current-system')
+     * Per User (also at ~/.nix-profile)
+
+   ... from 14:29 ...
+
+    Nix Configuration
+
+     * Located at /etc/nix/nix.conf
+     * NixOS configure in configuration.nix
+     * Non NixOS systems you can modify
+
+   ... from 17:16 ...
+
+    Log Files
+
+     * nix log
+     * Will give you the command to run when a build fails
+     * You can run it with nix log /nix/store/<path to folder>
+
+  Nix Language Overview
+
+   Video Link Playtime: ~31 minutes
+
+   Wil presents the Nix language itself. He reiterates early that the
+   language is quite simple and not "scary" ...
+
+    Scary terms
+
+     * Functional
+     * Lazy Evaluation
+     * Immutable
+     * Derivations
+
+   ... from 6:07 ...
+
+    Language Structures
+
+     * Variables
+     * Sets
+     * Lists
+     * Functions
+     * Derivations
+     * Derivation wrappers
+          * mkDerivation
+          * runCommand
+          * writeScriptBin
+
+   ... from 14:11 ...
+
+    Language Special Statements
+
+     * with
+     * import
+     * inherit
+     * if
+     * let
+
+   ... from 20:46 ...
+
+    Helpful Resources
+
+     * Repl
+     * Language Server
+     * Manuals
+
+   ... 21:08 ...
+
+    REPL
+
+     * Can open with nix repl
+     * Can close with ctrl + d
+     * Set variables to values and output them to the repl
+     * import files
+
+   ... from 22:08, he covers integrating understanding of the Nix language
+   for text editors and IDEs ...
+
+    Language Server
+
+     * https://github.com/nix-community/rnix-lsp
+     * Supports:
+          * vim (COC, LSP Client, vim-lsp)
+          * Emacs (lsp-mode, eglot)
+          * Kakoune (kak-lsp)
+          * VSCode (vscode-nix-ide)
+
+   ... from 23:49 ...
+
+    Manuals
+
+     * https://nixos.org/learn.html
+     * Nix Manual
+     * Nixpkgs Manual
+
+  Nix Shell
+
+   Video Link Playtime: ~11 minutes
+
+   Wil quickly explains using Nix Shell to create isolated development
+   environments (comparing it to Docker). From 1:40 ...
+
+    What is a Nix Shell?
+
+     * Originally designed to debug nix
+     * Can be used as a development environment
+
+   ... from 2:29: "Simple shell" ... from 4:17: "More complicated shell" ...
+   from 7:38: "How to add scripts to shell"
+
+  Intro to Flakes
+
+   Video Link Playtime: ~20 minutes
+
+   Wil opens with warning that Flakes are still under heavy development as a
+   relatively new feature, and also iterates that they are very awesome.
+
+   From 0:56 ...
+
+    What are Flakes?
+
+     * Project file
+     * Dependency Management
+     * Updates
+
+   ... from 2:52 ...
+
+    Setup for Flakes
+
+     * Nix client update - 2.4 Pre (pkgs.nixFlakes)
+     * Nix Shell
+
+   ... from 4:42: "Creating a flake" ... from 8:08: "Nix inputs and registry"
+   ... from 12:16: "Nix outputs" ... from 13:14 ...
+
+    What can you put in outputs?
+
+     * Packages
+     * Modules
+     * Applications
+     * Shells
+     * Home Manager Configuration
+     * Nix System Configuration
+     * Anything else
+
+  Moving NixOS System Configuration into a Flake
+
+   Video Link Playtime: ~33 minutes
+
+   In the last video, Wil explains how to move your NixOS system
+   configuration and Home Manager configuration into a nix flake file. This
+   can help you with control of which versions of packages you are pointing
+   to and make it easier to manage your system changes over time. In the
+   first few minutes he explains how to modify your NixOS system
+   configuration in order to enable the experimental flakes feature.
+
+   From 4:22, he does nix flake init, and begins setting up the flake file.
+
+   From 16:08, he starts nixos-rebuild build ... after migrating basic
+   configurations from the previous videos into the flake setup. Most of the
+   rest of the video goes into detail about building out helper scripts and
+   re-integrating setup using the flake structure.
+
+   From 28:54, he summarizes the change and outlines examples of how flakes
+   make it more logical and convenient to expand and modularize your system
+   configurations going forward (e.g., by creating roles that apply to
+   different types of systems).
+
+   From 30:10, he presents his own flake-based configuration on Github.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Wil_T_Nix_Guides&oldid=9206"
+   Category:
+     * Desktop
+     * This page was last edited on 19 September 2021, at 23:26.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

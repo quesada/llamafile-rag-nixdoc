@@ -1,0 +1,86 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Talk:Packaging/Examples
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 29 April 2020 by Makefu
+
+   I really like the idea to have such page, however i think each example
+   should be fleshed out a bit with exaplanation which points towards the
+   quirks which were needed to package the software.
+
+   e.g. for minecraft we patchelf the binaries because there is no source
+   code and finally use makeWrapper to add all the required binaries in the
+   PATH and add the required libraries via LD_LIBRARY_PATH. there is also
+   some googleapps wrapper stuff going on which is just above my knowledge
+   why this is necessary in first place --Makefu (talk) 12:27, 29 April 2020
+   (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Packaging/Examples&oldid=7564"
+     * This page was last edited on 30 April 2020, at 12:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

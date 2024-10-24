@@ -1,0 +1,124 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Zotero LibreOffice add-on
+     * 2 Zotero Firefox add-on
+   [ ] Toggle the table of contents
+
+                                     Zotero
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section is out of date.                                   
+    Reason: This page has not been edited for several years. Please remove    
+    this notice if the content is accurate. (Discuss in Talk:Zotero)          
+    Once the page has been updated this notice can be removed.                
+
+Zotero LibreOffice add-on
+
+   Install either the community fork, or the official version of the plugin.
+   The official version is included in zotero, located here:
+
+ ${pkgs.zotero}/usr/lib/zotero-bin-7.0/integration/libreoffice/Zotero_LibreOffice_Integration.oxt
+
+   This can also be done through nix build nixpkgs#zotero, then locating the
+   file in result. Both plugins depend on a java runtime environment. Install
+   pkgs.temurin-jre-bin-17 and select it from the list in the LibreOffice
+   options at LibreOffice -> Advanced and restart LibreOffice.
+
+Zotero Firefox add-on
+
+   The Zotero Firefox add-on works as expected with one caveat; the pdftotext
+   and pdfinfo plugins it needs in order to index and pull metadata from PDFs
+   you wish to add to your library.
+
+   The solution, for now, is as follows (this assumes that you have the
+   Zotero plugin installed and configured sans PDF support): NB: The symlinks
+   DO NOT survive an update between Firefox versions, so everytime your
+   Firefox is updated you will have to repeat the below process! In your
+   filesystem navigate to ~/.mozilla/firefox/<profile>/zotero Create the
+   following symlinks and ensure that they are named EXACTLY as described
+   here:
+
+ ln -s /run/current-system/sw/bin/pdftotext pdftotext-Linux-<architecture> (e.g., pdftotext-Linux-x86_64)
+ ln -s /run/current-system/sw/bin/pdfinfo pdfinfo-Linux-<architecture>
+
+   Launch Firefox and go to the Zotero add-on preferences; click on the
+   "Search" tab and you should find that both, pdftotext and pdfinfo, are
+   recognized and their version is either "UNKNOWN" or the correct version
+   number. This is trivial and should not deter you. You can now use the PDF
+   metadata retrieval capabilities.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Zotero&oldid=17700"
+   Hidden categories:
+     * Pages with syntax highlighting errors
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 2 October 2024, at 15:46.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,779 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Python development environments with Nix
+          * 1.1 Using the Nixpkgs Python infrastructure via shell.nix
+            (recommended)
+               * 1.1.1 Using a Python package not in Nixpkgs
+          * 1.2 Running compiled libraries
+               * 1.2.1 Setup nix-ld
+               * 1.2.2 Prefix library paths using wrapProgram
+          * 1.3 Using venv
+          * 1.4 Using uv
+          * 1.5 Using poetry
+               * 1.5.1 poetry2nix
+          * 1.6 Using micromamba
+          * 1.7 Using conda
+               * 1.7.1 Imperative use
+     * 2 Package a Python application
+          * 2.1 With setup.py
+          * 2.2 With pyproject.toml
+     * 3 Nixpkgs Python contribution guidelines
+          * 3.1 Libraries
+          * 3.2 Applications
+     * 4 Special Modules
+          * 4.1 GNOME
+     * 5 Performance
+          * 5.1 Regression
+          * 5.2 Possible Optimizations
+     * 6 Troubleshooting
+          * 6.1 My module cannot be imported
+     * 7 See also
+   [ ] Toggle the table of contents
+
+                                     Python
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Python development environments with Nix
+
+   Nix supports a number of approaches to creating "development environments"
+   for Python programming. These provide functionality analogous to
+   virtualenv or conda: a shell environment with access to pinned versions of
+   the python executable and Python packages.
+
+  Using the Nixpkgs Python infrastructure via shell.nix (recommended)
+
+   Nixpkgs has the few last Python versions packaged, as well as a consequent
+   set of Python packages packaged that you can use to quickly create a
+   Python environment.
+
+   Create a file shell.nix in the project directory, with the following
+   template:
+
+ # shell.nix
+ let
+   # We pin to a specific nixpkgs commit for reproducibility.
+   # Last updated: 2024-04-29. Check for new commits at https://status.nixos.org.
+   pkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/cf8cc1201be8bc71b7cbbbdaf349b22f4f99c7ae.tar.gz") {};
+ in pkgs.mkShell {
+   packages = [
+     (pkgs.python3.withPackages (python-pkgs: with python-pkgs; [
+       # select Python packages here
+       pandas
+       requests
+     ]))
+   ];
+ }
+
+   In this example, we create a Python environment with packages pandas and
+   requests.
+
+   You can find Python packages that are available in Nixpkgs using
+   search.nixos.org. For instance, type a Python package name like numpy in
+   the search bar and click on the search button on the right. You can narrow
+   down results by clicking on eg. "python311Packages" in the "Package sets"
+   section on the left. Note that in the snippet above, on lines 8 and 9,
+   each package is listed in the form python-pkgs.<name> where <name>
+   corresponds to the one found in search.nixos.org . See Nix language basics
+   for more information on the python-pkgs attribute set.
+
+   Once you have picked the Python packages you want, run nix-shell (or nix
+   develop -f shell.nix) to build the Python environment and enter it. Once
+   in the environment Python will be available in your PATH, so you can run
+   eg. python --version.
+
+    Using a Python package not in Nixpkgs
+
+   Python packages in Nixpkgs are created and updated by Nixpkgs maintainers.
+   Although the community invests a great effort to keep a complete and
+   up-to-date package set, some packages you want may be missing, out of
+   date, or broken. To use your own packages in a Nix environment, you may
+   package it yourself.
+
+   The following is a high-level overview. For a complete explanation, see
+   Developing with Python in the Nixpkgs Manual.
+
+   Generally, you may create a file that looks like this:
+
+ # toolz.nix
+ { lib
+ , buildPythonPackage
+ , fetchPypi
+ , setuptools
+ , wheel
+ }:
+ buildPythonPackage rec {
+   pname = "toolz";
+   version = "0.10.0";
+   src = fetchPypi {
+     inherit pname version;
+     hash = "sha256-CP3V73yWSArRHBLUct4hrNMjWZlvaaUlkpm1QP66RWA=";
+   };
+   # do not run tests
+   doCheck = false;
+   # specific to buildPythonPackage, see its reference
+   pyproject = true;
+   build-system = [
+     setuptools
+     wheel
+   ];
+ }
+
+   Given the file above is named toolz.nix and is the same directory as the
+   previous shell.nix , you can edit shell.nix to use the package toolz above
+   like so:
+
+ # shell.nix
+ let
+   pkgs = import <nixpkgs> {};
+   python = pkgs.python3.override {
+     self = python;
+     packageOverrides = pyfinal: pyprev: {
+       toolz = pyfinal.callPackage ./toolz.nix { };
+     };
+   };
+ in pkgs.mkShell {
+   packages = [
+     (python.withPackages (python-pkgs: [
+       # select Python packages here
+       python-pkgs.pandas
+       python-pkgs.requests
+       python-pkgs.toolz
+     ]))
+   ];
+ }
+
+   Next time you enter the shell specified by this file, Nix will build and
+   include the Python package you have written.
+
+  Running compiled libraries
+
+   If you want to run some compiled libraries as for example grpcio^[1], you
+   may encounter the following error :
+
+ $ python -c 'import grpc'
+ Traceback (most recent call last):
+   File "<string>", line 1, in <module>
+   File "/.../grpc/__init__.py", line 22, in <module>
+     from grpc import _compression
+   File "/.../grpc/_compression.py", line 20, in <module>
+     from grpc._cython import cygrpc
+ ImportError: libstdc++.so.6: cannot open shared object file: No such file or directory
+
+   This means that the library use compiled dynamically linked binaries that
+   your NixOs environment fail to resolve.
+
+   On NixOS, installing packages that need to compile code or use C libraries
+   from outside of the nix package manager may fail if dependencies are not
+   found in the expected locations. There are multiple ways to make it work:
+
+     * Use fix-python, this is most suited for beginners.
+     * Create a FHS user env with buildFHSUserEnv.
+     * Setup nix-ld^[2] in your NixOS configuration.
+     * Prefix library paths using wrapProgram utility.
+
+    Setup nix-ld
+
+   nix-ld^[2] allow you to run unpatched dynamic binaries on NixOS.
+
+   The following configuration automatically fix the dependencies:
+
+ let
+   python = pkgs.python311;
+   # We currently take all libraries from systemd and nix as the default
+   # https://github.com/NixOS/nixpkgs/blob/c339c066b893e5683830ba870b1ccd3bbea88ece/nixos/modules/programs/nix-ld.nix#L44
+   pythonldlibpath = lib.makeLibraryPath (with pkgs; [
+     zlib
+     zstd
+     stdenv.cc.cc
+     curl
+     openssl
+     attr
+     libssh
+     bzip2
+     libxml2
+     acl
+     libsodium
+     util-linux
+     xz
+     systemd
+   ]);
+   patchedpython = (python.overrideAttrs (
+     previousAttrs: {
+       # Add the nix-ld libraries to the LD_LIBRARY_PATH.
+       # creating a new library path from all desired libraries
+       postInstall = previousAttrs.postInstall + ''
+         mv  "$out/bin/python3.11" "$out/bin/unpatched_python3.11"
+         cat << EOF >> "$out/bin/python3.11"
+         #!/run/current-system/sw/bin/bash
+         export LD_LIBRARY_PATH="${pythonldlibpath}"
+         exec "$out/bin/unpatched_python3.11" "\$@"
+         EOF
+         chmod +x "$out/bin/python3.11"
+       '';
+     }
+   ));
+   # if you want poetry
+   patchedpoetry =  ((pkgs.poetry.override { python3 = patchedpython; }).overrideAttrs (
+     previousAttrs: {
+       # same as above, but for poetry
+       # not that if you dont keep the blank line bellow, it crashes :(
+       postInstall = previousAttrs.postInstall + ''
+         mv "$out/bin/poetry" "$out/bin/unpatched_poetry"
+         cat << EOF >> "$out/bin/poetry"
+         #!/run/current-system/sw/bin/bash
+         export LD_LIBRARY_PATH="${pythonldlibpath}"
+         exec "$out/bin/unpatched_poetry" "\$@"
+         EOF
+         chmod +x "$out/bin/poetry"
+       '';
+     }
+   ));
+ in
+ {
+   # Some other config...
+  
+   environment.systemPackages = with pkgs; [
+     patchedpython
+     # if you want poetry
+     patchedpoetry
+   ];
+ }
+
+   This configuration set the LD_LIBRARY_PATH environment variable before
+   running python using the overrideAttrs^[3] function to override the
+   postInstall script of cpython mkDerivation^[4].
+
+   After this step, you should be able to install compiled libraries using
+   venv, poetry, conda or other packages managers...
+
+    Prefix library paths using wrapProgram
+
+   wrapProgram is a part of the makeWrapper build input^[5]. By combining it
+   with the symlinkJoin, we can create a wrapper around the Python executable
+   that will always set the required library paths. It’s worth noting that,
+   for this solution to be compatible with Darwin, we need to use a different
+   wrap prefix, as shown in the example below.
+
+ let
+   # We currently take all libraries from systemd and nix as the default
+   # https://github.com/NixOS/nixpkgs/blob/c339c066b893e5683830ba870b1ccd3bbea88ece/nixos/modules/programs/nix-ld.nix#L44
+   pythonldlibpath = lib.makeLibraryPath (with pkgs; [
+     zlib
+     zstd
+     stdenv.cc.cc
+     curl
+     openssl
+     attr
+     libssh
+     bzip2
+     libxml2
+     acl
+     libsodium
+     util-linux
+     xz
+     systemd
+   ]);
+   # Darwin requires a different library path prefix
+   wrapPrefix = if (!pkgs.stdenv.isDarwin) then "LD_LIBRARY_PATH" else "DYLD_LIBRARY_PATH";
+   patchedpython = (pkgs.symlinkJoin {
+     name = "python";
+     paths = [ pkgs.python312 ];
+     buildInputs = [ pkgs.makeWrapper ];
+     postBuild = ''
+       wrapProgram "$out/bin/python3.12" --prefix ${wrapPrefix} : "${pythonldlibpath}"
+     '';
+   });
+ in
+ {
+   environment.systemPackages = with pkgs; [
+     patchedpython
+   ];
+ }
+
+  Using venv
+
+   To create a Python virtual environment with venv:
+
+ $ nix-shell -p python3 --command "python -m venv .venv --copies"
+
+   You can then activate and use the Python virtual environment as usual and
+   install dependencies with pip and similar.
+
+  Using uv
+
+     A single tool to replace pip, pip-tools, pipx, poetry, pyenv,
+     virtualenv, and more.
+
+   uv is very simple to use. Simply uv init to get started. No need for
+   shells, as it creates virtual environments. As a systemPackage
+
+ environment.systemPackages = with pkgs; [
+     uv
+ ];
+
+   or as a home-manager package
+
+ home.packages = with pkgs; [
+     uv
+ ];
+
+  Using poetry
+
+ # shell.nix
+ let
+   pkgs = import <nixpkgs> {};
+ in pkgs.mkShell {
+   packages = with pkgs; [
+     python310
+     (poetry.override { python3 = python310; })
+   ];
+ }
+
+    poetry2nix
+
+   poetry2nix uses the contents of a poetry.lock and pyproject.toml file to
+   create Nix derivations. It has several functions for generating
+   development environments and python projects. Because some older python
+   projects rely on deprecated build systems (see edgecase.md for more info),
+   poetry2nix provides overrides so these packages can still be built.
+
+  Using micromamba
+
+   Install the micromamba package to create environments and install packages
+   as documented by micromamba.
+
+   To activate an environment you will need a FHS environment e.g.:
+
+ $ nix-shell -E 'with import <nixpkgs> {}; (pkgs.buildFHSUserEnv { name = "fhs"; }).env'
+ $ eval "$(micromamba shell hook -s bash)"
+ $ micromamba activate my-environment
+ $ python
+ >>> import numpy as np
+
+   Eventually you'll probably want to put this in a shell.nix so you won't
+   have to type all that stuff every time e.g.:
+
+ { pkgs ? import <nixpkgs> {}}:
+ let
+   fhs = pkgs.buildFHSUserEnv {
+     name = "my-fhs-environment";
+
+     targetPkgs = _: [
+       pkgs.micromamba
+     ];
+
+     profile = ''
+       set -e
+       eval "$(micromamba shell hook --shell=posix)"
+       export MAMBA_ROOT_PREFIX=${builtins.getEnv "PWD"}/.mamba
+       if ! test -d $MAMBA_ROOT_PREFIX/envs/my-mamba-environment; then
+           micromamba create --yes -q -n my-mamba-environment
+       fi
+       micromamba activate my-mamba-environment
+       micromamba install --yes -f conda-requirements.txt -c conda-forge
+       set +e
+     '';
+   };
+ in fhs.env
+
+  Using conda
+
+   Install the package conda and run
+
+ $ conda-shell
+ $ conda-install
+ $ conda env update --file environment.yml
+
+    Imperative use
+
+   It is also possible to use conda-install directly. On first use, run:
+
+ $ conda-shell
+ $ conda-install
+
+   to set up conda in ~/.conda
+
+Package a Python application
+
+  With setup.py
+
+   To package a Python application that uses setup.py you can use
+   buildPythonApplication. More details about this and similar functions can
+   be found in the nixpkgs manual.
+
+   For example, we can package this simple flask server main.py:
+
+ #!/usr/bin/env python
+
+ from flask import Flask
+
+ app = Flask(__name__)
+
+ @app.route('/')
+ def hello_world():
+     return 'Hello, World!'
+
+ if __name__ == '__main__':
+     app.run(host="0.0.0.0", port=8080)
+
+   We also need a setup.py file, like this:
+
+ from setuptools import setup, find_packages
+
+ setup(name='myFlaskServer',
+       version='1.0',
+       # Modules to import from other scripts:
+       packages=find_packages(),
+       # Executables
+       scripts=["main.py"],
+      )
+
+   Then, we use the buildPythonApplication in the default.nix:
+
+ { pkgs ? import <nixpkgs> {} }:
+
+ pkgs.python3Packages.buildPythonApplication {
+   pname = "myFlaskApp";
+   version = "0.1.0";
+
+   propagatedBuildInputs = with pkgs.python3Packages; [
+     flask
+   ];
+
+   src = ./.;
+ }
+
+   Finally, build your project using nix-build. The result will be executable
+   in ./result/bin/app.py.
+
+  With pyproject.toml
+
+   When your project is using pyproject.tomlyou can use pyproject.nix to
+   package your application.
+
+   First, a simple file structure could look like this:
+
+ ├── app/
+     └── main.py
+ ├── flake.nix
+ ├── pyproject.toml
+ └── README.md
+
+   To reuse the example from above, we use the same flask application:
+
+ from flask import Flask
+
+ app = Flask(__name__)
+
+ @app.route('/')
+ def hello_world():
+     return 'Hello, World!'
+
+ if __name__ == '__main__':
+     app.run(host="0.0.0.0", port=8080)
+
+   Also, you need to define the pyproject.toml. Here, we only show some of
+   the important parts. Please refer to pyproject.nix documentation for a
+   full example.
+
+ [project]
+ name = "my-app"
+ version = "0.1.0"
+ description = "Simple app"
+
+ # define any Python dependencies
+ dependencies = [
+   "flask>3",
+ ]
+
+ # define the CLI executable
+ # Here, we define the entry point to be the 'main()' function in the module 'app/main.py'
+ [project.scripts]
+ cli = "app.main:main"
+
+   We package the application by calling the loadPyproject function from
+   pyproject.nix. Again, we only show a minimal example. More information can
+   be found in the documentation. Note that this example relies on flakes in
+   contrast to some of the others on this page.
+
+ {
+   description = "A basic flake using pyproject.toml project metadata";
+
+   inputs = {
+     pyproject-nix = {
+       url = "github:nix-community/pyproject.nix";
+       inputs.nixpkgs.follows = "nixpkgs";
+     };
+   };
+
+   outputs = { nixpkgs, pyproject-nix, ... }:
+     let
+       inherit (nixpkgs) lib;
+
+       project = pyproject-nix.lib.project.loadPyproject {
+         # Read & unmarshal pyproject.toml relative to this project root.
+         # projectRoot is also used to set `src` for renderers such as buildPythonPackage.
+         projectRoot = ./.;
+       };
+
+       # This example is only using x86_64-linux
+       pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+       python = pkgs.python3;
+
+     in
+     {
+       # Build our package using `buildPythonPackage
+       packages.x86_64-linux.default =
+         let
+           # Returns an attribute set that can be passed to `buildPythonPackage`.
+           attrs = project.renderers.buildPythonPackage { inherit python; };
+         in
+         # Pass attributes to buildPythonPackage.
+         # Here is a good spot to add on any missing or custom attributes.
+         python.pkgs.buildPythonPackage (attrs // {
+           env.CUSTOM_ENVVAR = "hello";
+         });
+     };
+ }
+
+   To run the application, call nix run.
+
+   You can also launch an IDE under nix develop and get full dependency
+   resolution. For example, the following command opens VS Code in the
+   constructed environment:
+
+ $ nix develop --command code
+
+Nixpkgs Python contribution guidelines
+
+  Libraries
+
+   According to the official guidelines for Python, new package expressions
+   for libraries should be placed in
+   pkgs/development/python-modules/<name>/default.nix.
+
+   Those expressions are then referenced from
+   pkgs/top-level/python-packages.nix as in
+
+   aenum = callPackage ../development/python-modules/aenum { };
+
+  Applications
+
+   Applications meant to be executed should be referenced directly from
+   pkgs/top-level/all-packages.nix.
+
+   Other Python packages used in the Python package of the application should
+   be taken from the callPackage argument pythonPackages , which guarantees
+   that they belong to the same "pythonPackage" set. For example:
+
+ { lib
+ , pythonPackages
+ }:
+ buildPythonApplication {
+   propagatedBuildInputs = [ pythonPackages.numpy ];
+   # ...
+ }
+
+Special Modules
+
+  GNOME
+
+   gobject-introspection based python modules need some environment variables
+   to work correctly. For standalone applications, wrapGAppsHook (see the
+   relevant documentation) wraps the executable with the necessary variables.
+   But this is not fit for development. In this case use a nix-shell with
+   gobject-introspection and all the libraries you are using (gtk and so on)
+   as buildInputs. For example:
+
+ $ nix-shell -p gobjectIntrospection gtk3 'python2.withPackages (ps: with ps; [ pygobject3 ])' --run "python -c \"import pygtkcompat; pygtkcompat.enable_gtk(version='3.0')\""
+
+   Or, if you want to use matplotlib interactively:
+
+ $ nix-shell -p gobject-introspection gtk3 'python36.withPackages(ps : with ps; [ matplotlib pygobject3 ipython ])'
+ $ ipython
+
+ In [1]: import matplotlib
+ In [2]: matplotlib.use('gtk3agg')
+ In [3]: import matplotlib.pyplot as plt
+ In [4]: plt.ion()
+ In [5]: plt.plot([1,3,2,4])
+
+   You can also set backend : GTK3Agg in your
+   ~/.config/matplotlib/matplotlibrc file to avoid having to call
+   matplotlib.use('gtk3agg').
+
+Performance
+
+   The derivation of CPython that is available via nixpkgs only contains
+   optimizations that do not harm reproducibility. Link-Time-Optimization
+   (LTO) is only enabled on 64-bit Linux systems, while Profile Guided
+   Optimization (PGO) is currently disabled. See Configuring Python 3.1.3.
+   Performance options Additionally, when compiling something within
+   nix-shell or a derivation security hardening flags are passed to the
+   compiler by default which may have a small performance impact.
+
+   At the time of writing certain optimizations cause Python wheels to be
+   non-reproducible and increase install times. For a detailed overview of
+   the trials and tribulations of discovering such performance regressions
+   see Why is the nix-compiled Python slower?.
+
+  Regression
+
+   With the nixpkgs version of Python you can expect anywhere from a 30-40%
+   regression on synthetic benchmarks. For example:
+
+ ## Ubuntu's Python 3.8
+ username:dir$ python3.8 -c "import timeit; print(timeit.Timer('for i in range(100): oct(i)', 'gc.enable()').repeat(5))"
+ [7.831622750498354, 7.82998560462147, 7.830805554986, 7.823807033710182, 7.84282516874373]
+
+ ## nix-shell's Python 3.8
+ [nix-shell:~/src]$ python3.8 -c "import timeit; print(timeit.Timer('for i in range(100): oct(i)', 'gc.enable()').repeat(5))"
+ [10.431915327906609, 10.435049421153963, 10.449542525224388, 10.440207410603762, 10.431304694153368]
+
+   However, synthetic benchmarks are not necessarily reflective of real-world
+   performance. In common real-world situations, the performance difference
+   between optimized and non-optimized interpreters is minimal. For example,
+   using pylint with a significant number of custom linters to scan a very
+   large Python codebase (>6000 files) resulted in only a 5.5% difference.
+   Other workflows that were not performance sensitive saw no impact to their
+   run times.
+
+  Possible Optimizations
+
+   If you run code that heavily depends on Python performance, and you desire
+   the most performant Python interpreter possible, here are some possible
+   things you can do:
+
+     * Enable the enableOptimizations flag for your Python derivation. See
+       Example. Do note that this will cause you to compile Python the first
+       time that you run it which will take a few minutes.
+     * Switch to a newer version of Python. In the example above, going from
+       3.8 to 3.10 yielded an average 7.5% performance improvement, but this
+       is only a single benchmark. Switching versions most likely won't make
+       all your code 7.5% faster.
+     * Disable hardening. Beware this only yields a small performance boost
+       and it has impacts beyond Python code. See Hardening in Nixpkgs.
+
+   Ultimately, it is up to your use case to determine if you need an
+   optimized version of the Python interpreter. We encourage you to benchmark
+   and test your code to determine if this is something that would benefit
+   you.
+
+Troubleshooting
+
+  My module cannot be imported
+
+   If you are unable to do `import yourmodule` there are a number of reasons
+   that could explain that.
+
+   First, make sure that you installed/added your module to python. Typically
+   you would use something like (python3.withPackages (ps: with ps; [
+   yourmodule ])) in the list of installed applications.
+
+   It is also still possible (e.g. when using nix-shell) that you aren't
+   using the python interpreter you want because another package provides its
+   own python3.withPackages in buildInputs, for example, yosys. In this case,
+   you should either include that package (or all needed packages) in your
+   withPackages list to only have a single Python interpreter. Or you can
+   change the order of your packages, such that the python3.withPackages
+   comes first, and becomes the Python interpreter that you get.
+
+   If you packaged yourself your application, make sure to use
+   buildPythonPackage and **not** buildPythonApplication or
+   stdenv.mkDerivation. The reason is that python3.withPackages filters the
+   packages to check that they are built using the appropriate python
+   interpreter: this is done by verifying that the derivation has a
+   pythonModule attribute and only buildPythonPackage sets this value
+   (passthru here) thanks to, notably passthru = { pythonModule = python; }.
+   If you used stdenv.mkDerivation then you can maybe set this value
+   manually, but it's safer to simply use buildPythonPackage {format =
+   "other"; … your derivation …} instead of mkDerivation.
+
+See also
+
+     * "Python" in Nixpkgs Manual
+    1. ↑ https://pypi.org/project/grpcio/
+    2. ↑ ^2.0 ^2.1 https://github.com/Mic92/nix-ld
+    3. ↑ https://nixos.org/manual/nixpkgs/stable/#sec-pkg-overrideAttrs
+    4. ↑
+       https://github.com/NixOS/nixpkgs/blob/24.05/pkgs/development/interpreters/python/cpython/default.nix
+    5. ↑
+       https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/setup-hooks/make-wrapper.sh
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Python&oldid=17805"
+   Categories:
+     * Languages
+     * Python
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 15 October 2024, at 13:31.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

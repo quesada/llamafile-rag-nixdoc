@@ -1,0 +1,172 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup through Docker
+   [ ] Toggle the table of contents
+
+                                   Craft CMS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Craft CMS#)              
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   There is (as of writing) no built-in service for Craft CMS. However, this
+   can be built around with Docker! The following instructions are based on
+   the Docker instructions on the Craft CMS website and experimentation.
+
+Setup through Docker
+
+    1. Install Craft CMS
+
+ # From https://craftcms.com/knowledge-base/docker-for-local-development
+
+ # Create and move into a new directory:
+ mkdir craft-docker
+ cd craft-docker
+
+ # Bootstrap a new Craft installation with Composer:
+ docker run \
+   --rm \
+   --volume $PWD:/app \
+   composer \
+   composer create-project craftcms/craft . --ignore-platform-reqs
+
+    2. Create docker-compose.yml
+
+ # /home/username/craftcms/docker-compose.yml
+ services:
+   web:
+     image: docker.io/craftcms/nginx:8.2
+     ports:
+       - "4004:8080"
+     volumes:
+       - /home/username/craft-docker/:/app  # Craft CMS installation
+     environment:
+       - CRAFT_DB_DRIVER=pgsql
+       - CRAFT_DB_SERVER=db
+       - CRAFT_DB_PORT=5432
+       - CRAFT_DB_DATABASE=db
+       - CRAFT_DB_USER=db
+       - CRAFT_DB_PASSWORD=RANDOM
+       - CRAFT_DB_SCHEMA=public
+       - CRAFT_DB_TABLE_PREFIX=
+    
+     depends_on:
+       db:
+         condition: service_healthy
+  
+   db:
+     image: docker.io/postgres:13-alpine
+     expose:
+       - 5432
+     healthcheck:
+       test: ["CMD", "pg_isready", "-U", "db", "-d", "db"]
+       interval: 5s
+       retries: 3
+     environment:
+       POSTGRES_DB: db
+       POSTGRES_USER: db
+       POSTGRES_PASSWORD: RANDOM
+     volumes:
+       - db_data:/var/lib/postgresql/data
+
+ volumes:
+   db_data:
+
+    3. Modify your NixOS setup along the following lines:
+
+ # /etc/nixos/configuration.nix
+ { config, pkgs, ... }:
+
+ {
+   virtualisation.docker.enable = true;
+
+   systemd.services.craftcms = {
+     script = "${pkgs.docker-compose}/bin/docker-compose up --force-recreate";
+     serviceConfig.WorkingDirectory = "/home/username/craftcms/";  # Point to directory with docker-compose.yml
+     # path = with pkgs; [ docker ];  # Uncomment in case docker executable is not found
+     wantedBy = ["multi-user.target"];
+     after = ["docker.service" "docker.socket"];
+   };
+ }
+
+    4. Expose 127.0.0.1:4004 so it can be reached by other devices, and
+       navigate to example.com/index.php?p=admin/install (replacing
+       example.com with your domain or ip:port)
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Craft_CMS&oldid=13560"
+   Categories:
+     * Applications
+     * Web Applications
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 26 June 2024, at 09:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

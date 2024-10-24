@@ -1,0 +1,100 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Steam launches sucessfully with symlinks in fonts dir.
+       1 comment
+   [ ] Toggle the table of contents
+
+                                   Talk:Fonts
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 10 August by Merrkry in topic Steam launches sucessfully
+   with symlinks in fonts dir.
+
+Steam launches sucessfully with symlinks in fonts dir.
+
+   Latest comment: 10 August1 comment1 person in discussion
+
+   I have a symlink ~/.local/share/font/system that points to
+   /run/current-system/sw/share/X11/fonts and gave flatpak read-only access
+   to xdg-fonts, xdg-icons /run/current-system/sw/share/X11/fonts and
+   /nix/store.
+
+   Flatpak steam launches fine for me.
+
+   A lot of work happens upstream and maybe the problem is already fixed. We
+   should consider remove the warning of flatpak steam not working.
+
+   However, it's only my personal setup and I am looking for more
+   reproducible results. Merrkry (talk) 06:36, 10 August 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Fonts&oldid=16577"
+     * This page was last edited on 10 August 2024, at 06:38.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

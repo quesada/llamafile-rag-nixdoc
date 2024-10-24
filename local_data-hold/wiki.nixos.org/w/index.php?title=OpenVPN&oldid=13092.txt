@@ -1,0 +1,247 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 VPN Client
+          * 1.1 Mounting filesystems via a VPN
+          * 1.2 Supporting legacy cipher providers
+     * 2 VPN Server
+          * 2.1 Simple one-client VPN gateway server
+   [ ] Toggle the table of contents
+
+                                    OpenVPN
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 13:49, 7 June 2024 by Mic92 (talk | contribs) (imported
+   from old wiki)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+VPN Client
+
+   OpenVPN can be configured for automatic startup by enabling it in
+   /etc/nixos/configuration.nix:
+
+ {
+   ...
+   services.openvpn.servers = {
+     officeVPN  = { config = '' config /root/nixos/openvpn/officeVPN.conf ''; };
+     homeVPN    = { config = '' config /root/nixos/openvpn/homeVPN.conf ''; };
+     serverVPN  = { config = '' config /root/nixos/openvpn/serverVPN.conf ''; };
+   };
+   ...
+ }
+
+   You will need to create the referenced configuration files. The above
+   example will start three VPN instances; more can be added.
+
+   Ensure you use absolute paths for any files such as certificates and keys
+   referenced from the configuration files.
+
+   Use systemctl to start/stop VPN service. Each generated service will have
+   a prefix `openvpn-`:
+
+ systemctl start openvpn-officeVPN.service
+
+   Should you have trouble with DNS resolution for services that should be
+   available via the VPN, try adding the following to the config:
+
+ {
+   ...
+   services.openvpn.servers = {
+     officeVPN  = {
+       config = '' config /root/nixos/openvpn/officeVPN.conf '';
+       updateResolvConf = true;
+     };
+   };
+   ...
+ }
+
+  Mounting filesystems via a VPN
+
+   If you mount filesystems through the VPN, the filesystem will not be
+   unmounted properly because the VPN connection will be shut down prior to
+   unmounting the filesystem. However, newer systemd versions allow you to
+   set mount options to unmount the mount before closing the VPN connection
+   via the mount option x-systemd.requires=openvpn-vpnname.service.
+
+   Example mount configurations:
+
+ {
+   ...
+   fileSystems."/mnt/office" = {
+     device = "//10.8.0.x/Share";
+     fsType = "cifs";
+     options = [ "noauto" "user" "uid=1000" "gid=100" "username=xxx" "password=xxx" "iocharset=utf8"
+       "x-systemd.requires=openvpn-officeVPN.service" ];
+   };
+   fileSystems."/mnt/home" = {
+     device = "//10.9.0.x/Share";
+     fsType = "cifs";
+     options = [ "noauto" "user" "uid=1000" "gid=100" "username=xxx" "password=xxx" "iocharset=utf8"
+       "x-systemd.requires=openvpn-homeVPN.service" ];
+   };
+   ...
+ }
+
+   If you want to run OpenVPN clients in NixOS declarative containers, you
+   will need to set the enableTun container option.
+
+  Supporting legacy cipher providers
+
+   If you need to connect to servers with legacy ciphers (e.g. BF-CBC), one
+   way is to override OpenVPN to use openssl_legacy package (which is
+   configured to enable legacy providers), for example via an overlay:
+
+ final: prev: {
+   openvpn = prev.openvpn.override {
+     openssl = prev.openssl_legacy;
+   };
+ }
+
+VPN Server
+
+  Simple one-client VPN gateway server
+
+   The following is an example of a VPN server configuration which supports a
+   single known client.
+
+ let
+   # generate via openvpn --genkey --secret openvpn-laptop.key
+   client-key = "/root/openvpn-laptop.key";
+   domain = "vpn.localhost.localdomain";
+   vpn-dev = "tun0";
+   port = 1194;
+ in {
+   # sudo systemctl start nat
+   networking.nat = {
+     enable = true;
+     externalInterface = <your-server-out-if>;
+     internalInterfaces  = [ vpn-dev ];
+   };
+   networking.firewall.trustedInterfaces = [ vpn-dev ];
+   networking.firewall.allowedUDPPorts = [ port ];
+   environment.systemPackages = [ pkgs.openvpn ]; # for key generation
+   services.openvpn.servers.smartphone.config = ''
+     dev ${vpn-dev}
+     proto udp
+     ifconfig 10.8.0.1 10.8.0.2
+     secret ${client-key}
+     port ${toString port}
+
+     cipher AES-256-CBC
+     auth-nocache
+
+     comp-lzo
+     keepalive 10 60
+     ping-timer-rem
+     persist-tun
+     persist-key
+   '';
+
+   environment.etc."openvpn/smartphone-client.ovpn" = {
+     text = ''
+       dev tun
+       remote "${domain}"
+       ifconfig 10.8.0.2 10.8.0.1
+       port ${toString port}
+       redirect-gateway def1
+
+       cipher AES-256-CBC
+       auth-nocache
+
+       comp-lzo
+       keepalive 10 60
+       resolv-retry infinite
+       nobind
+       persist-key
+       persist-tun
+       secret [inline]
+
+     '';
+     mode = "600";
+   };
+   system.activationScripts.openvpn-addkey = ''
+     f="/etc/openvpn/smartphone-client.ovpn"
+     if ! grep -q '<secret>' $f; then
+       echo "appending secret key"
+       echo "<secret>" >> $f
+       cat ${client-key} >> $f
+       echo "</secret>" >> $f
+     fi
+   '';
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=OpenVPN&oldid=13092"
+   Categories:
+     * Networking
+     * Applications
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 7 June 2024, at 13:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

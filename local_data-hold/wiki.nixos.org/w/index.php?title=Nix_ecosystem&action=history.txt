@@ -1,0 +1,287 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Nix ecosystem: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    12 July 2024
+
+     * curprev [ ] [ ] 13:2713:27, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 3,775 bytes +13‎ No edit summary
+     * curprev [ ] [ ] 12:4112:41, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 3,762 bytes +88‎ Marked this version for translation
+     * curprev [ ] [ ] 12:4112:41, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 3,674 bytes +25‎ No edit summary
+
+    5 May 2024
+
+     * curprev [ ] [ ] 19:0819:08, 5 May 2024‎ Klinger talk contribs‎ m 3,649
+       bytes +12‎ Category:Pedias Category:NixOS Category:nix
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:3617:36, 19 April 2024‎ Klinger talk contribs‎ m
+       3,637 bytes −23‎ removed category ecosystem (no other entry)
+
+    15 April 2024
+
+     * curprev [ ] [ ] 18:3418:34, 15 April 2024‎ Klinger talk contribs‎
+       3,660 bytes +863‎ Simple description of the usage of the ecosystem by
+       users and developers Tag: Visual edit
+     * curprev [ ] [ ] 17:5517:55, 15 April 2024‎ Klinger talk contribs‎ m
+       2,797 bytes −723‎ →‎Additional inofficial ecosystem: moved inofficail
+       (build) ecosystem from the Nixos (core) ecosystem page to the
+       applications page. Reason: The Nixos Ecosystem is the first link you
+       are urged to click on the wiki landing page - and these CI are not
+       important for newcomers in their first minutes.
+     * curprev [ ] [ ] 17:2217:22, 15 April 2024‎ Klinger talk contribs‎ m
+       3,520 bytes +47‎ slightly adjusted position of text and naming (core
+       vs extended). This way its more aligned to the „applications“ page.
+       Tag: Visual edit: Switched
+     * curprev [ ] [ ] 17:0817:08, 15 April 2024‎ Klinger talk contribs‎
+       3,473 bytes +33‎ renamed the main paragraphs to better distinguish
+       between them Tag: Visual edit
+     * curprev [ ] [ ] 17:0317:03, 15 April 2024‎ Klinger talk contribs‎ m
+       3,440 bytes 0‎ →‎Software: changed the order of items in table to
+       match the graphical order below („the NixOS ecosystem stack“) Tag:
+       Visual edit: Switched
+
+    8 April 2024
+
+     * curprev [ ] [ ] 05:1205:12, 8 April 2024‎ Samueldr talk contribs‎ m
+       3,440 bytes +672‎ (2/2) inline styles for the table Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 05:0005:00, 8 April 2024‎ Samueldr talk contribs‎ m
+       2,768 bytes +233‎ (1/2) Move stack from image to table Tag: Visual
+       edit
+
+    4 April 2024
+
+     * curprev [ ] [ ] 17:5717:57, 4 April 2024‎ Fricklerhandwerk talk
+       contribs‎ m 2,535 bytes 0‎ Fricklerhandwerk moved page Nix Ecosystem
+       to Nix ecosystem
+
+    2 April 2024
+
+     * curprev [ ] [ ] 14:2714:27, 2 April 2024‎ RGBCube talk contribs‎ m
+       2,535 bytes +164‎ Add Garnix to the services list Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 10:2010:20, 2 April 2024‎ Gdforj talk contribs‎ m
+       2,371 bytes −2‎ →‎Services: avoid double negation to improve clarity
+       Tag: Visual edit
+
+    24 October 2023
+
+     * curprev [ ] [ ] 14:2414:24, 24 October 2023‎ imported>Mic92‎ 2,373
+       bytes −328‎ Drop NixOps from the ecosystem (it's no longer maintained
+       or widely used)
+
+    5 September 2023
+
+     * curprev [ ] [ ] 00:1600:16, 5 September 2023‎
+       imported>Fricklerhandwerk‎ 2,701 bytes +18‎ call it Nix language
+       consistently
+
+    4 August 2023
+
+     * curprev [ ] [ ] 22:0922:09, 4 August 2023‎ imported>Blingblingdolla‎ m
+       2,683 bytes +1‎ Remove French.
+
+    24 June 2023
+
+     * curprev [ ] [ ] 18:2118:21, 24 June 2023‎ imported>Nix‎ m 2,682 bytes
+       −788‎ Restore illustration. Table is redundant
+
+    24 March 2023
+
+     * curprev [ ] [ ] 11:4511:45, 24 March 2023‎ imported>Vater‎ m 3,470
+       bytes −16‎ →‎Software
+     * curprev [ ] [ ] 11:4411:44, 24 March 2023‎ imported>Vater‎ m 3,486
+       bytes +785‎ No edit summary
+
+    8 January 2023
+
+     * curprev [ ] [ ] 22:3022:30, 8 January 2023‎ imported>Blitz‎ 2,701
+       bytes +7‎ Update nixbuild info
+
+    20 September 2021
+
+     * curprev [ ] [ ] 00:2600:26, 20 September 2021‎ imported>Nix‎ m 2,694
+       bytes −4‎ move to pedias category
+
+    4 April 2021
+
+     * curprev [ ] [ ] 15:4115:41, 4 April 2021‎ imported>Tomberek‎ m 2,698
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 15:4015:40, 4 April 2021‎ imported>Tomberek‎ 2,696
+       bytes +56‎ Clarify licenses
+     * curprev [ ] [ ] 15:3715:37, 4 April 2021‎ imported>Tomberek‎ 2,640
+       bytes +80‎ There was confusion about the status of these services.
+
+    5 March 2020
+
+     * curprev [ ] [ ] 14:4714:47, 5 March 2020‎ imported>Roberth‎ 2,560
+       bytes +442‎ Add SaaS services
+
+    1 June 2018
+
+     * curprev [ ] [ ] 21:5021:50, 1 June 2018‎ imported>Ixxie‎ 2,118 bytes
+       +4‎ No edit summary
+     * curprev [ ] [ ] 21:5021:50, 1 June 2018‎ imported>Ixxie‎ 2,114 bytes
+       +192‎ No edit summary
+     * curprev [ ] [ ] 21:4821:48, 1 June 2018‎ imported>Ixxie‎ 1,922 bytes
+       +4‎ No edit summary
+     * curprev [ ] [ ] 21:4821:48, 1 June 2018‎ imported>Ixxie‎ 1,918 bytes
+       +62‎ No edit summary
+
+    27 May 2018
+
+     * curprev [ ] [ ] 11:3811:38, 27 May 2018‎ imported>Ixxie‎ 1,856 bytes
+       −3‎ No edit summary
+
+    26 November 2017
+
+     * curprev [ ] [ ] 09:1309:13, 26 November 2017‎ imported>Ixxie‎ 1,859
+       bytes +6‎ No edit summary
+
+    25 November 2017
+
+     * curprev [ ] [ ] 17:1717:17, 25 November 2017‎ imported>Ixxie‎ 1,853
+       bytes −40‎ No edit summary
+     * curprev [ ] [ ] 17:1517:15, 25 November 2017‎ imported>Ixxie‎ 1,893
+       bytes −4‎ No edit summary
+     * curprev [ ] [ ] 17:1517:15, 25 November 2017‎ imported>Ixxie‎ 1,897
+       bytes −28‎ No edit summary
+     * curprev [ ] [ ] 17:1317:13, 25 November 2017‎ imported>Ixxie‎ 1,925
+       bytes −8‎ No edit summary
+     * curprev [ ] [ ] 13:3713:37, 25 November 2017‎ imported>Ixxie‎ 1,933
+       bytes −12‎ No edit summary
+     * curprev [ ] [ ] 13:3613:36, 25 November 2017‎ imported>Ixxie‎ 1,945
+       bytes −13‎ No edit summary
+     * curprev [ ] [ ] 13:3413:34, 25 November 2017‎ imported>Ixxie‎ 1,958
+       bytes −10‎ No edit summary
+     * curprev [ ] [ ] 13:3413:34, 25 November 2017‎ imported>Ixxie‎ 1,968
+       bytes −9‎ No edit summary
+     * curprev [ ] [ ] 13:3413:34, 25 November 2017‎ imported>Ixxie‎ 1,977
+       bytes −25‎ No edit summary
+     * curprev [ ] [ ] 13:3313:33, 25 November 2017‎ imported>Ixxie‎ 2,002
+       bytes −6‎ No edit summary
+     * curprev [ ] [ ] 13:2813:28, 25 November 2017‎ imported>Ixxie‎ 2,008
+       bytes +9‎ No edit summary
+     * curprev [ ] [ ] 13:2813:28, 25 November 2017‎ imported>Ixxie‎ 1,999
+       bytes −27‎ No edit summary
+     * curprev [ ] [ ] 13:2713:27, 25 November 2017‎ imported>Ixxie‎ 2,026
+       bytes +7‎ No edit summary
+     * curprev [ ] [ ] 13:2013:20, 25 November 2017‎ imported>Ixxie‎ 2,019
+       bytes −50‎ removed initial and final bullets
+     * curprev [ ] [ ] 13:1913:19, 25 November 2017‎ imported>Ixxie‎ 2,069
+       bytes −23‎ No edit summary
+     * curprev [ ] [ ] 13:1613:16, 25 November 2017‎ imported>HLandau‎ m
+       2,092 bytes +1‎ No edit summary
+     * curprev [ ] [ ] 13:1613:16, 25 November 2017‎ imported>Ixxie‎ 2,091
+       bytes +63‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Nix_ecosystem"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

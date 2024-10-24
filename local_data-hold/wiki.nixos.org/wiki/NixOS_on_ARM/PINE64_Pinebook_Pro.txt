@@ -1,0 +1,145 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Serial console
+     * 4 Compatibility notes
+     * 5 Resources
+   [ ] Toggle the table of contents
+
+                        NixOS on ARM/PINE64 Pinebook Pro
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   The Pinebook Pro is a laptop design based on the Rockchip RK3399 SoC.
+
+   PINEBOOK Pro 
+   A Pinebook Pro.
+   Manufacturer PINE64 (Pine Microsystems Inc.) 
+   Architecture AArch64                         
+   Bootloader   U-Boot^[1]                      
+   Boot order   SPI, eMMC, SD                   
+   Maintainer   
+
+   It can boot from SD or from an included and replaceable eMMC module.
+
+Status
+
+   Hardware support is partially complete and can be achieved using the
+   overlay provided by nixos-hardware. A README with more information can be
+   found into the specific device folder.
+
+   You can also consider looking at previous work:
+
+     * https://github.com/Thra11/nixpkgs-overlays-rk3399
+
+   There is more information in the respective READMEs, but the gist of it is
+   that those repositories can be used to build a system image either through
+   cross-compilation or native aarch64-linux build, with the usual caveats.
+
+   The repositories also serve as an overlay that can be used in your system
+   configuration thereafter.
+
+Board-specific installation notes
+
+    1. Install the board-specific TowBoot to SPI
+    2. Get the generic aarch64 sd-image and boot from it
+    3. Just follow the normal installation procedure
+
+Serial console
+
+   Details about the pinout for the headphone jack are available on the
+   PINE64 wiki. It is also available on their store. The serial settings are
+   the usual Rockchip settings.
+
+Compatibility notes
+
+     * The keyboard may not send input when pressing mod4(pine key)+cursor
+       combinations. This issue is resolved using the revised keyboard
+       firmware.
+
+     This article or section needs expansion.                                 
+     Reason: This article is a stub. (Discuss in Talk:NixOS on ARM/PINE64     
+     Pinebook Pro#)                                                           
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+Resources
+
+     * Official product page
+     * Pinebook Pro @ Pine64 Wiki
+    1. ↑ Mainline patch: https://patchwork.ozlabs.org/patch/1194525/
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/PINE64_Pinebook_Pro&oldid=17493"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 15 September 2024, at 10:08.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

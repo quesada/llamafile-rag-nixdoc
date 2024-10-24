@@ -1,0 +1,118 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                    #08 - Not all those who wander are lost
+
+   Published on Fri May 19 2017
+
+                    #08 - Not all those who wander are lost
+
+   Welcome to another edition of NixOS Weekly.
+
+   Major announcements include NixCon 2017 and the old wiki migration. This
+   edition adds a new Tooling section for possibly useful Nix-related tools
+   in addition to News, Jobs, Reading, and Events.
+
+                                      News
+
+     * NixCon 2017 October 28-31, Munich.
+
+       Call for participation is open until July 31.
+
+     * The Wiki is dead. Long live the Wikis!
+
+       This is the change that disable the wiki.
+
+       The old wiki has been for a while now with ongoing work on updating
+       and migrating the content.
+
+       Current options are the Community Cookbook and the nixos-users Wiki.
+       The latter is editable by anyone with a GitHub account.
+
+     * Nix has a thankful community.
+
+       Profpatsch did some quick analysis of IRC messages. Summary:
+
+          * 1.9% contain the word “thank”
+          * 2.4% last year
+
+                                      Jobs
+
+     * IOHK is hiring
+     * CircuitHub is hiring (Haskell+NixOS)
+
+                                    Reading
+
+     * Intro to Nix Channels and Reproducible NixOS Environment
+
+       See also the Cookbook.
+
+     * Use NixOS for macOS TimeMachine backups.
+
+     * Building Maven Packages with Nix
+
+       See also the mvn2nix mailing list discussion.
+
+     * My Journey into Nix
+
+       lobste.rs discussion
+
+     * DistroWatch review of NixOS
+
+     * Falling in love with NixOS
+
+                                    Tooling
+
+     * pnix-shell.sh: creates gc-roots for all dependencies of a shell.nix.
+     * nix-package-search: cached queries for nix-env -qa.
+     * nix-zsh-completions: ZSH completions for Nix and NixOS tools.
+     * Auto install/run missing programs.
+
+                                Events / Meetups
+
+     * NixOps Meetup May 26, Munich
+
+       Topics: the NixOps container backend. Possible hackathon afterwards.
+
+                                Editor’s corner
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help! Create or comment on the pull request for the next edition
+   or help with the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

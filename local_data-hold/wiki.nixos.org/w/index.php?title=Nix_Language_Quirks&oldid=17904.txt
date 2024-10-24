@@ -1,0 +1,373 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 with and let
+     * 2 Old let syntax
+     * 3 Default values are not bound in @ syntax
+     * 4 Something that looks like both record attribute and let-binding
+     * 5 Imports and namespaces
+     * 6 builtins.replaceStrings key match on ""
+     * 7 Indented strings trim leading whitespace
+     * 8 Integer precision
+     * 9 No negative number literals
+     * 10 Attribute set entries with a name that evaluates to null will not
+       be added to the set
+     * 11 Nix Language FAQ
+          * 11.1 Q: What is the shortest id function definition?
+          * 11.2 Q: Why not x:x?
+          * 11.3 Q: Can Nix code be interpolated?
+          * 11.4 Q: Can it be eval-ed from string?
+   [ ] Toggle the table of contents
+
+                              Nix Language Quirks
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 08:39, 20 October 2024 by Fidgetingbits (talk | contribs)
+   (→‎Indented strings trim leading whitespace: Remove unnecessary sentence
+   and clarify wording)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+    This article or section is a candidate for merging with Nix Expression    
+    Language.                                                                 
+    Notes: same type of information in the expression language article        
+    (Discuss in Talk:Nix Language Quirks#)                                    
+
+with and let
+
+   with gets less priority than let. This can lead to confusions, especially
+   if you like to write with pkgs;:
+
+ nix-repl> pkgs = { x = 1; }
+
+ nix-repl> with pkgs; x
+ 1
+
+ nix-repl> with pkgs; let x = 2; in x
+ 2
+
+   So we see, that let binding overrides with binding. But what about this?
+
+ nix-repl> let x = 2; in with pkgs; x
+ 2
+
+   In this case, with and let have different priority when resolving names.
+
+   Good discussion on this topic
+
+   Generally the use of with is discouraged. See the best practices guide for
+   how best to use inherit as an alternative.
+
+Old let syntax
+
+   This is an old Nix syntax, that probably isn't used much
+
+ nix-repl> let { x = 1; y = x + 1; body = y; }
+ 2
+
+   It is equivalent to modern syntax expression let x = 1; y = x + 1; in y.
+   Note, that it doesn't require rec keyword.
+
+   Note, that it isn't equivalent to with rec { x = 1; y = x + 1; body = y;
+   }; body because of mentioned with and let quirk, but is same as rec { x =
+   1; y = x + 1; body = y; }.body
+
+Default values are not bound in @ syntax
+
+   Destructured arguments can have default values, but those default values
+   are part of the full function argument.
+
+   In the following example, calling the function that binds a default value
+   "a" to the argument's attribute a with an empty attribute set as an
+   argument will produce an empty attribute set args instead of { a = "a"; }:
+
+ (args@{a ? "a"}: args) {}
+
+   { }
+
+   Related: GitHub issue filed 2017
+
+Something that looks like both record attribute and let-binding
+
+   Destructuring function argument - is a great feature of Nix.
+
+ nix-repl> f = { x ? 1, y ? 2 }: x + y
+
+ nix-repl> f { }
+ 3
+
+   The fact that we can add @args argument assignment is also cool
+
+ nix-repl> f = { x ? 1, y ? 2, ... }@args: with args; x + y + z
+
+ nix-repl> f { z = 3; }
+ 6
+
+   But don't be fooled, args doesn't necessarily contain x and y:
+
+ nix-repl> f = { x ? 1, y ? 2, ... }@args: args.x + args.y + args.z
+
+ nix-repl> f { z = 3;}
+ error: attribute ‘x’ missing, at (string):1:30
+
+   These x and y are in fact let-bindings, but overridable ones.
+
+Imports and namespaces
+
+   There is a keyword import, but it's equivalent in other languages is eval.
+   It can be used for namespacing too:
+
+ let
+   pkgs = import <nixpkgs> {};
+   lib = import <nixpkgs/lib>;
+ in
+   pkgs.runCommand (lib.strings.removePrefix "....
+
+   consider using import here as using qualified import ... in Haskell or
+   import ... in Python.
+
+   Another way of importing is with import ...;, which corresponds to Python
+   from ... import *.
+
+   But because of not very great IDE support in Nix, with import ...; is
+   discouraged. Rather use inherit, especially if you are targeting source
+   code for Nix newcomers:
+
+ let
+   lib = import <nixpkgs/lib>;
+   inherit (lib.strings)
+     removePrefix removeSuffix
+   ;
+   inherit (lib.lists)
+     isList init drop
+   ;
+ in
+   removePrefix ...
+
+   inherit has higher priority than with, and conflicts with let
+
+ nix-repl> let pkgs = { x = 1; }; x = 2; x = 3; inherit (pkgs) x; in x
+ error: attribute ‘x’ at (string):1:31 already defined at (string):1:24
+
+   This makes it a sane citizen of Nix lanugage... except it has a twin,
+   called { inherit ...; }. They DON'T do the same - let inherit ... adds
+   let-bindings, and { inherit ...; } adds attributes to a record.
+
+builtins.replaceStrings key match on ""
+
+   Syntax:
+
+ builtins.replaceStrings [match] [replace] string
+
+   The builtins.replaceStrings function allows matching "" in string. [match]
+   gets checked sequentially, and when "" is checked - it always matches. And
+   so - when "" is checked it always inserts the corresponding replacement
+   from [replace], then the next char in string gets inserted, and then the
+   next char after that from string gets processed.
+
+ nix-repl> builtins.replaceStrings ["" "e"] [" " "i"] "Hello world"
+ " H e l l o   w o r l d "
+ nix-repl> builtins.replaceStrings ["ll" ""] [" " "i"] "Hello world"
+ "iHie ioi iwioirilidi"
+
+Indented strings trim leading whitespace
+
+   Leading spaces are removed from both single-line and multi-line indented
+   strings.
+
+ ''  s  '' == "s  "
+
+   Usually, indented strings have multiple lines:
+
+ ''
+   s
+ '' == "s\n"
+
+   Though note that tab characters are not stripped:
+
+ ''
+         s
+ '' ==  "        s\n"
+
+   This is documented in more detail in the String section of the Nix
+   reference manual. Also see NixOS/nix#7834 and NixOS/nix#9971 for more
+   information.
+
+Integer precision
+
+   Integer precision is limited to 64-bit in the original Nix interpreter.
+
+   So the valid integer range is from -2**63 to 2**63-1 = from
+   -9223372036854775808 to 9223372036854775807
+
+   Integer overflow is not an error
+
+ nix-repl> 9223372036854775807 + 1
+ -9223372036854775808
+
+   Invalid integer literals throw
+
+ nix-repl> 9223372036854775808 
+ error: invalid integer '9223372036854775808'
+
+No negative number literals
+
+   Negative numbers are parsed as "zero minus positive"
+
+ nix-instantiate --parse --expr '(-1)'
+ (__sub 0 1)
+
+   So this throws, because the positive number is out of range
+
+ nix-repl> -9223372036854775808
+ error: invalid integer '9223372036854775808'
+
+   but this works
+
+ nix-repl> -9223372036854775807 - 1
+ -9223372036854775808
+
+Attribute set entries with a name that evaluates to null will not be added to
+the set
+
+   From this section of the Nix Reference Manual:
+
+     In the special case where an attribute name inside of a set declaration
+     evaluates to null (which is normally an error, as null cannot be coerced
+     to a string), that attribute is simply not added to the set:
+
+     { ${if foo then "bar" else null} = true; }
+
+     This will evaluate to {} if foo evaluates to false.
+
+   The relevant source can be found here.
+
+   This feature can be used to conditionally include or exclude attribute set
+   entries, for example:
+
+ nix-repl> { ${if true then "foo" else null} = "bar"; }     
+ { foo = "bar"; }
+
+ nix-repl> { ${if false then "foo" else null} = "bar"; }
+ { }
+
+   This might be used as an alternative to conditionally merging attribute
+   sets using // like the following:
+
+ { a = "b"; } // (if true then { foo = "bar"; } else { } )
+
+Nix Language FAQ
+
+  Q: What is the shortest id function definition?
+
+   A: x: x
+
+  Q: Why not x:x?
+
+   A:
+
+ nix-repl> builtins.typeOf (x: x)
+ "lambda"
+ nix-repl> builtins.typeOf (x:x)
+ "string"
+
+   ! Can you figure out how can this happens before reading explanation?
+
+   Note: Nix 1.12 should fix this
+
+  Q: Can Nix code be interpolated?
+
+   No, only attribute names can.
+
+ nix-repl> let ${"x"} = 2; in x
+ 2
+
+ nix-repl> with { ${"x"} = 2; }; x
+ 2
+
+ nix-repl> let x = 1; y = ${x}; in y
+ error: syntax error, unexpected DOLLAR_CURLY, at (string):1:16
+
+  Q: Can it be eval-ed from string?
+
+   A: Yes, but it is not recommended as "eval" is generally regarded as an
+   easy to abuse language feature. It is possible but only via the store (not
+   as bad as "import from derivation", but still not suitable for hot code
+   paths):
+
+ nix-repl> let code = "(x: x) ''id function was called''"; in import (builtins.toFile "eval" code)
+ "id function was called"
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nix_Language_Quirks&oldid=17904"
+   Category:
+     * Nix Language
+   Hidden category:
+     * Pages or sections flagged with Template:Merge
+     * This page was last edited on 20 October 2024, at 08:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

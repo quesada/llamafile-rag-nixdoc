@@ -1,0 +1,145 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 About
+     * 2 Usage
+     * 3 Example
+   [ ] Toggle the table of contents
+
+                               Template:expansion
+
+     * Template
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a template. It should be used as part of other articles. For
+   more information, see Help:Template.
+
+   Please do not experiment with this template; you could ruin all pages
+   using this template. If you want to edit this template, copy the text to
+   Template:Sandbox, edit and test it there, and copy it back when it works.
+
+   Feel free to discuss this template in the talk page.
+
+   If you wanted to create a new page instead, use the search box to search
+   for the title of the new page you want to create and follow the link
+   Create the page "XYZ" on this wiki! in the results page. An alternative is
+   to create a dangling link to the new page from an existing page. A final
+   option is to directly visit the expected URL of the page.
+
+About
+
+   An expansion flag used to indicate incomplete articles.
+
+Usage
+
+   This template should be added at the beginning of articles or sections
+   lacking in detail. Ensure to cite specific concerns with the first
+   argument and possibly also on the flagged article's discussion page.
+
+ {{Expansion|reason}}
+
+   You can override the default discussion page with a second optional
+   argument:
+
+ {{Expansion|reason|Talk:Alternative Page}}
+
+   Alternatively you can point to a specific section in the default talk page
+   with the named section parameter:
+
+ {{Expansion|reason|section=Section name}}
+
+   Flagged pages can be found in Special:WhatLinksHere/Template:Expansion or
+   in Category:Pages or sections flagged with Template:Expansion. If
+   knowledgeable in a subject, users are encouraged to participate to expand
+   the article or section and remove the {{Expansion}} flag when finished.
+
+   Note: The talk page is linked through an external link: this is to avoid
+   polluting Special:WantedPages when the talk page does not exist.
+
+Example
+
+ {{Expansion|This is just a demonstration template.}}
+
+    This article or section needs expansion.                                  
+    Reason: This is just a demonstration template. (Discuss in Template       
+    talk:Expansion#)                                                          
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+     ----------------------------------------------------------------------
+
+ {{Expansion}}
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Template talk:Expansion#)     
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Template:Expansion&oldid=11776"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 6 April 2024, at 21:18.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,46 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                            NixOS sprint in Slovenia
+
+   Published on Thu Aug 15 2013
+
+                            NixOS sprint in Slovenia
+
+   A sprint focused on NixOS and Kotti will be held 22-26 July 2013 in Lokve,
+   Slovenia. It is organised by Termitnjak and sponsored by LogicBlox.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

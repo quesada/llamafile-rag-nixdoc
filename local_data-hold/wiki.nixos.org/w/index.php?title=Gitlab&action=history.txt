@@ -1,0 +1,188 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Gitlab: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    27 September 2024
+
+     * curprev [ ] [ ] 08:2808:28, 27 September 2024‎ Mic92 talk contribs‎
+       5,399 bytes −1‎ remove line break
+     * curprev [ ] [ ] 08:2808:28, 27 September 2024‎ Mic92 talk contribs‎
+       5,400 bytes +473‎ imported from old wiki
+
+    3 September 2024
+
+     * curprev [ ] [ ] 22:4922:49, 3 September 2024‎ Purefan talk contribs‎ m
+       4,927 bytes +1‎ tiny typo Tag: Visual edit
+
+    29 June 2024
+
+     * curprev [ ] [ ] 18:4218:42, 29 June 2024‎ Silver talk contribs‎ 4,926
+       bytes +492‎ Improved the docs on migration to nixos hosted gitlab.
+       Tag: Visual edit
+
+    19 June 2024
+
+     * curprev [ ] [ ] 19:4119:41, 19 June 2024‎ Onny talk contribs‎ 4,434
+       bytes +341‎ Add notes on Gitlab behind reverse proxy Tag: Visual edit
+     * curprev [ ] [ ] 15:1215:12, 19 June 2024‎ Onny talk contribs‎ 4,093
+       bytes +169‎ Clarify initial root login Tag: Visual edit
+
+    15 May 2024
+
+     * curprev [ ] [ ] 21:0521:05, 15 May 2024‎ Klinger talk contribs‎ 3,924
+       bytes +141‎ added link to manual Tag: Visual edit: Switched
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:4920:49, 19 April 2024‎ Klinger talk contribs‎ m
+       3,783 bytes −2‎ Category:Server Category:Web Applications
+
+    10 April 2024
+
+     * curprev [ ] [ ] 02:2602:26, 10 April 2024‎ Fidgetingbits talk
+       contribs‎ m 3,785 bytes 0‎ fix typo Tags: Mobile edit Mobile web edit
+
+    11 January 2024
+
+     * curprev [ ] [ ] 10:4410:44, 11 January 2024‎ imported>Researchcrowbar‎
+       3,785 bytes +338‎ Add a note about weak initial root password
+     * curprev [ ] [ ] 10:1610:16, 11 January 2024‎ imported>Researchcrowbar‎
+       m 3,447 bytes +18‎ Use stronger initial passwords
+
+    30 April 2023
+
+     * curprev [ ] [ ] 17:1517:15, 30 April 2023‎ imported>Mweinelt‎ m 3,429
+       bytes +1‎ Nix is a package manager, NixOS is the distro that provides
+       the module
+     * curprev [ ] [ ] 15:5015:50, 30 April 2023‎ imported>F2k1de‎ 3,428
+       bytes +754‎ No edit summary
+
+    25 April 2023
+
+     * curprev [ ] [ ] 10:4810:48, 25 April 2023‎ imported>F2k1de‎ 2,674
+       bytes +492‎ →‎Installation
+
+    25 November 2022
+
+     * curprev [ ] [ ] 10:0710:07, 25 November 2022‎ imported>Onny‎ 2,182
+       bytes +243‎ Add notes about maintenance tasks
+
+    24 November 2022
+
+     * curprev [ ] [ ] 20:4620:46, 24 November 2022‎ imported>Onny‎ m 1,939
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 20:4520:45, 24 November 2022‎ imported>Onny‎ 1,940
+       bytes +873‎ Add troubleshooting section for running behind reverse
+       proxy
+     * curprev [ ] [ ] 19:2319:23, 24 November 2022‎ imported>Onny‎ m 1,067
+       bytes −17‎ No edit summary
+
+    15 October 2022
+
+     * curprev [ ] [ ] 08:3808:38, 15 October 2022‎ imported>Onny‎ 1,084
+       bytes +1,084‎ Initial page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Gitlab"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

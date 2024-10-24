@@ -1,0 +1,229 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 PulseAudio
+          * 2.1 PulseAudio workaround 1
+          * 2.2 PulseAudio workaround 2
+     * 3 ALSA
+     * 4 PipeWire
+          * 4.1 PipeWire workaround
+     * 5 Further reading
+   [ ] Toggle the table of contents
+
+                                      MPD
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Installation
+
+   A typical config, running MPD system-wide, will look like this:
+
+ services.mpd = {
+   enable = true;
+   musicDirectory = "/path/to/music";
+   extraConfig = ''
+     # must specify one or more outputs in order to play audio!
+     # (e.g. ALSA, PulseAudio, PipeWire), see next sections
+   '';
+
+   # Optional:
+   network.listenAddress = "any"; # if you want to allow non-localhost connections
+   network.startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+ };
+
+   Still missing in the above configuration is one or more audio_outputs. We
+   will now see how MPD can be configured to work with ALSA, PulseAudio and
+   PipeWire.
+
+PulseAudio
+
+   In order to use MPD with PulseAudio, enable sound support in the NixOS
+   configuration.nix :
+
+ # Enable sound.
+ sound.enable = true;
+ hardware.pulseaudio.enable = true;
+
+   Then, add a PulseAudio output to MPD:
+
+ services.mpd.extraConfig = ''
+   audio_output {
+     type "pulse"
+     name "My PulseAudio" # this can be whatever you want
+   }
+ '';
+
+   Now, according to
+   https://wiki.archlinux.org/index.php/Music_Player_Daemon/Tips_and_tricks#Local_(with_separate_mpd_user),
+   this will not work, because MPD and Pulseaudio are ran by different users.
+
+  PulseAudio workaround 1
+
+   One way to work around this issue is to configure MPD to use PulseAudio's
+   TCP module to send sound to localhost". To enable the required PulseAudio
+   modules, add
+
+ hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
+
+   to configuration.nix
+
+   And add server "127.0.0.1" to MPD's config to tell it to connect to
+   PulseAudio's local sound server.
+
+ services.mpd.extraConfig = ''
+   audio_output {
+     type "pulse"
+     name "Pulseaudio"
+     server "127.0.0.1" # add this line - MPD must connect to the local sound server
+   }
+ '';
+
+   After editing the configuration and running # nixos-rebuild switch, you
+   can test if everything is working by using a MPD client, such as MPC.
+
+  PulseAudio workaround 2
+
+   Another workaround is to configure NixOS to run PulseAudio system-wide.
+
+ hardware.pulseaudio.systemWide = true;
+
+ services.mpd.extraConfig = ''
+     audio_output {
+       type "pulse"
+       name "Pulseaudio"
+       mixer_type      "hardware"      # optional
+       mixer_device    "default"       # optional
+       mixer_control   "PCM"           # optional
+       mixer_index     "0"             # optional
+     }  '';
+ };
+
+ALSA
+
+   You can also use alsa, just add audio output to services.mpd.extraConfig:
+
+ services.mpd.extraConfig = ''
+   audio_output {
+     type "alsa"
+     name "My ALSA"
+     device                      "hw:0,0"        # optional
+     format                      "44100:16:2"    # optional
+     mixer_type          "hardware"
+     mixer_device        "default"
+     mixer_control       "PCM"
+   }
+ '';
+
+PipeWire
+
+   Make sure PipeWire is enabled. See PipeWire
+
+   To use PipeWire, create an audio_output for it:
+
+ services.mpd.extraConfig = ''
+   audio_output {
+     type "pipewire"
+     name "My PipeWire Output"
+   }
+ '';
+
+   See https://mpd.readthedocs.io/en/stable/plugins.html#pipewire for more
+   options. However, similar to PulseAudio, MPD cannot connect to the
+   PipeWire socket because MPD will by default run under a different user
+   than PipeWire.
+
+  PipeWire workaround
+
+   PipeWire typically runs as a normal user, while MPD will run under a
+   system user. A workaround is to configure MPD to run under the same user
+   as PipeWire:
+
+ services.mpd.user = "userRunningPipeWire";
+ systemd.services.mpd.environment = {
+     # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
+     XDG_RUNTIME_DIR = "/run/user/${toString config.users.users.userRunningPipeWire.uid}"; # User-id must match above user. MPD will look inside this directory for the PipeWire socket.
+ };
+
+   Source:
+   https://github.com/NixOS/nixpkgs/issues/102547#issuecomment-1016671189
+
+Further reading
+
+   MPD's output plugin documentation:
+   https://mpd.readthedocs.io/en/stable/plugins.html#output-plugins
+
+   Arch Wiki : https://wiki.archlinux.org/index.php/Mpd
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=MPD&oldid=14466"
+   Categories:
+     * Audio
+     * Applications
+     * This page was last edited on 13 July 2024, at 07:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

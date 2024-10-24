@@ -1,0 +1,108 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Running without KDE
+   [ ] Toggle the table of contents
+
+                                   Konqueror
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 16:59, 12 July 2024 by Klinger (talk | contribs)
+   (Category:File Manager)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+   Other languages:
+     * English
+     * français
+     * русский
+
+   Konqueror is a file manager application preinstalled in KDE/Plasma Desktop
+   Environments.
+
+Running without KDE
+
+   Since NixOS makes it easy to run individual KDE applications without
+   running the KDE Plasma desktop manager, one can easily install Konqueror
+   as a file manager; but (as of NixOS Stable 22.11) it won't show thumbnails
+   (which it calls "preview icons").
+
+   The fix (again, as of NixOS Stable 22.11) seems to be to install these
+   packages in environment.systemPackages, in addition to
+   libsForQt5.konqueror:
+
+     * ffmpegthumbnailer
+     * libsForQt5.kdegraphics-thumbnailers
+     * libsForQt5.ffmpegthumbs
+     * libsForQt5.kio-extras
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Konqueror&oldid=14175"
+   Categories:
+     * Applications
+     * File Manager
+     * This page was last edited on 12 July 2024, at 16:59.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

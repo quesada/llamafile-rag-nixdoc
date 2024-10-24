@@ -1,0 +1,329 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                   Configuration Collection: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    15 September 2024
+
+     * curprev [ ] [ ] 09:2409:24, 15 September 2024‎ Qubasa talk contribs‎
+       11,502 bytes −13‎ Change @luis to @qubasa and correct repo link
+     * curprev [ ] [ ] 08:5508:55, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 11,515 bytes −97‎ remove taktoa's config, it is 404 and
+       can't find a new one in user's repos
+
+    14 September 2024
+
+     * curprev [ ] [ ] 19:2919:29, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 11,612 bytes −123‎ @pSub's no longer using nixops (grep in
+       repo)
+     * curprev [ ] [ ] 19:0319:03, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 11,735 bytes −94‎ remove @semigroupoids’s config 404
+     * curprev [ ] [ ] 18:4918:49, 14 September 2024‎ Phanirithvij talk
+       contribs‎ 11,829 bytes +9‎ remove cartons config, add mine
+
+    17 August 2024
+
+     * curprev [ ] [ ] 06:3506:35, 17 August 2024‎ Marijanp talk contribs‎ m
+       11,820 bytes +123‎ Add marijanp's nixos-config link
+
+    12 August 2024
+
+     * curprev [ ] [ ] 20:3720:37, 12 August 2024‎ TheMaxMur talk contribs‎
+       11,697 bytes +137‎ Add TheMaxMur configuration link Tag: Visual edit:
+       Switched
+
+    12 July 2024
+
+     * curprev [ ] [ ] 12:5812:58, 12 July 2024‎ Kokada talk contribs‎ 11,560
+       bytes +21‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 12:5512:55, 12 July 2024‎ Kokada talk contribs‎ 11,539
+       bytes +103‎ No edit summary Tag: Visual edit: Switched
+
+    24 June 2024
+
+     * curprev [ ] [ ] 00:3300:33, 24 June 2024‎ Samueldr talk contribs‎
+       11,436 bytes −107‎ Remove self, since I left the project...
+
+    20 June 2024
+
+     * curprev [ ] [ ] 18:0418:04, 20 June 2024‎ Tomodachi94 talk contribs‎ m
+       11,543 bytes +121‎ add https://github.com/tomodachi94/dotfiles
+
+    22 May 2024
+
+     * curprev [ ] [ ] 23:2123:21, 22 May 2024‎ Samueldr talk contribs‎ m
+       11,422 bytes −120‎ Drop banned user's contribution
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:3520:35, 24 April 2024‎ Klinger talk contribs‎ m
+       11,542 bytes +23‎ Category:Community
+
+    14 April 2024
+
+     * curprev [ ] [ ] 23:1123:11, 14 April 2024‎ Weathercold talk contribs‎
+       m 11,519 bytes +17‎ Change table names to headers, unify format Tag:
+       Visual edit: Switched
+
+    2 April 2024
+
+     * curprev [ ] [ ] 14:4114:41, 2 April 2024‎ RGBCube talk contribs‎ m
+       11,502 bytes +107‎ Add RGBCube's configuration
+     * curprev [ ] [ ] 13:3613:36, 2 April 2024‎ Khaneliman talk contribs‎ m
+       11,395 bytes −2‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 13:3213:32, 2 April 2024‎ Khaneliman talk contribs‎
+       11,397 bytes +175‎ Add my own config Tag: Visual edit: Switched
+
+    29 February 2024
+
+     * curprev [ ] [ ] 13:5113:51, 29 February 2024‎
+       imported>FedericoSchonborn‎ m 11,222 bytes +2‎ Moved to Codeberg
+
+    9 February 2024
+
+     * curprev [ ] [ ] 18:3818:38, 9 February 2024‎ imported>Bddvlpr‎ m
+       11,220 bytes −19‎ Moved my deploy-rs configuration elsewhere
+       (github:bddvlpr/nix-infra)
+
+    17 January 2024
+
+     * curprev [ ] [ ] 06:3406:34, 17 January 2024‎ imported>Andrew‎ m 11,239
+       bytes +10‎ Update address of my configuration
+
+    9 December 2023
+
+     * curprev [ ] [ ] 18:0218:02, 9 December 2023‎ imported>Srid‎ 11,229
+       bytes +120‎ Add srid's config
+
+    9 November 2023
+
+     * curprev [ ] [ ] 18:2018:20, 9 November 2023‎ imported>Mjm‎ 11,109
+       bytes +118‎ add mjm's config
+
+    11 August 2023
+
+     * curprev [ ] [ ] 21:2721:27, 11 August 2023‎ imported>Bddvlpr‎ m 10,991
+       bytes +125‎ Added bddvlpr's config
+
+    5 August 2023
+
+     * curprev [ ] [ ] 17:5217:52, 5 August 2023‎ imported>Mbledkowski‎ m
+       10,866 bytes +114‎ Added my own config.
+
+    20 July 2023
+
+     * curprev [ ] [ ] 05:5705:57, 20 July 2023‎ imported>NobbZ‎ 10,752 bytes
+       −38‎ fix NobbZ' description and links
+
+    5 July 2023
+
+     * curprev [ ] [ ] 20:3920:39, 5 July 2023‎ imported>L0b0‎ m 10,790 bytes
+       −7‎ No edit summary
+
+    5 June 2023
+
+     * curprev [ ] [ ] 19:1519:15, 5 June 2023‎ imported>Ryan4yin‎ 10,797
+       bytes +6‎ No edit summary
+     * curprev [ ] [ ] 19:1219:12, 5 June 2023‎ imported>Ryan4yin‎ 10,791
+       bytes +153‎ No edit summary
+
+    30 May 2023
+
+     * curprev [ ] [ ] 16:5816:58, 30 May 2023‎ imported>FedericoSchonborn‎
+       10,638 bytes +144‎ Add @FedericoSchonborn
+     * curprev [ ] [ ] 08:5708:57, 30 May 2023‎ imported>Badele‎ 10,494 bytes
+       +110‎ Add badele's homelab configuration
+
+    15 May 2023
+
+     * curprev [ ] [ ] 22:5222:52, 15 May 2023‎ imported>Andrew‎ 10,384 bytes
+       +100‎ Add my configuration
+
+    8 May 2023
+
+     * curprev [ ] [ ] 10:5510:55, 8 May 2023‎ imported>Panadestein‎ 10,284
+       bytes +116‎ Added new config
+
+    13 April 2023
+
+     * curprev [ ] [ ] 08:1108:11, 13 April 2023‎ imported>Eisfunke‎ 10,168
+       bytes +120‎ Add @eisfunke's config
+
+    3 April 2023
+
+     * curprev [ ] [ ] 22:2122:21, 3 April 2023‎ imported>Bbigras‎ m 10,048
+       bytes +120‎ add my own nix config
+
+    12 March 2023
+
+     * curprev [ ] [ ] 21:3821:38, 12 March 2023‎ imported>Lord-Valen‎ m
+       9,928 bytes −8‎ Reflect changes to my config
+
+    7 March 2023
+
+     * curprev [ ] [ ] 11:0811:08, 7 March 2023‎ imported>Drupol‎ m 9,936
+       bytes +23‎ add more details
+     * curprev [ ] [ ] 11:0611:06, 7 March 2023‎ imported>Drupol‎ m 9,913
+       bytes 0‎ change gitlab into github
+     * curprev [ ] [ ] 11:0511:05, 7 March 2023‎ imported>Drupol‎ m 9,913
+       bytes +93‎ add my repo
+
+    6 February 2023
+
+     * curprev [ ] [ ] 16:0716:07, 6 February 2023‎ imported>Baitinq‎ m 9,820
+       bytes +2‎ Typo
+     * curprev [ ] [ ] 16:0616:06, 6 February 2023‎ imported>Baitinq‎ 9,818
+       bytes +96‎ Added my configuration
+
+    1 February 2023
+
+     * curprev [ ] [ ] 15:4015:40, 1 February 2023‎ imported>Figsoda‎ 9,722
+       bytes +89‎ add figsoda's config
+
+    11 January 2023
+
+     * curprev [ ] [ ] 13:4313:43, 11 January 2023‎ imported>Axelf‎ 9,633
+       bytes +96‎ Add axelf4's NixOS config
+
+    6 January 2023
+
+     * curprev [ ] [ ] 04:4004:40, 6 January 2023‎ imported>Lord-Valen‎ m
+       9,537 bytes +109‎ Add my config
+
+    30 October 2022
+
+     * curprev [ ] [ ] 18:0118:01, 30 October 2022‎ imported>Weathercold‎ m
+       9,428 bytes +142‎ Add my configuration to the collection
+
+    14 October 2022
+
+     * curprev [ ] [ ] 22:1822:18, 14 October 2022‎ imported>L0b0‎ 9,286
+       bytes +94‎ My setup
+
+    11 September 2022
+
+     * curprev [ ] [ ] 18:3518:35, 11 September 2022‎ imported>K900‎ 9,192
+       bytes +88‎ No edit summary
+
+    18 August 2022
+
+     * curprev [ ] [ ] 06:1606:16, 18 August 2022‎ imported>Cab404‎ 9,104
+       bytes −89‎ No edit summary
+     * curprev [ ] [ ] 06:1506:15, 18 August 2022‎ imported>Cab404‎ 9,193
+       bytes +1,116‎ Adding ru_nixos community configs, sorting
+
+    15 July 2022
+
+     * curprev [ ] [ ] 00:5000:50, 15 July 2022‎ imported>Zaechus‎ m 8,077
+       bytes +6‎ No edit summary
+
+    17 April 2022
+
+     * curprev [ ] [ ] 14:4514:45, 17 April 2022‎ imported>Natto1784‎ m 8,071
+       bytes −7‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Configuration_Collection"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,119 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Install Thunderbird
+     * 2 Configuration of Thunderbird
+     * 3 Troubleshooting
+     * 4 References
+   [ ] Toggle the table of contents
+
+                                  Thunderbird
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Thunderbird is an open-source e-mail client for desktop environments,
+   which also functions as a full personal information manager with a
+   calendar and address book, as well as an RSS feed reader, chat client
+   (IRC/XMPP/Matrix), and news client.
+
+Install Thunderbird
+
+   In NixOS 24.11 onwards, set programs.thunderbird.enable = true.
+
+   In NixOS 24.05 or older, add pkgs.thunderbird to
+   environment.systemPackages.
+
+Configuration of Thunderbird
+
+   Thunderbird stores configuration and data in the hidden .thunderbird
+   folder in the home directories. There are the following solutions:
+
+     * Use Nixpkgs, currently setting policies and preferences is supported
+       (Usable in unstable, will be available in version 24.11).
+     * Use Home Manager.
+     * Manual configuration with the Thunderbird GUI and backup (and move to
+       others PCs) of the .thunderbird folder. Using IMAP with server-side
+       storage will enable to have several instances of Thunderbird with the
+       same settings and e-mail content.
+
+Troubleshooting
+
+   (nothing yet)
+
+References
+
+     * Thunderbird website: https://www.thunderbird.net/
+     * Thunderbird source code: https://hg.mozilla.org/comm-central
+     * List of Nixpkgs' Thunderbird options
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Thunderbird&oldid=17761"
+   Category:
+     * Applications
+     * This page was last edited on 9 October 2024, at 23:35.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

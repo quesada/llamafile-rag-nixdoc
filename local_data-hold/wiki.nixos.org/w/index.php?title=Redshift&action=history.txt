@@ -1,0 +1,158 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Redshift: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 July 2024
+
+     * curprev [ ] [ ] 08:0808:08, 5 July 2024‎ Layer-09 talk contribs‎ m
+       3,953 bytes +660‎ No edit summary
+     * curprev [ ] [ ] 07:4007:40, 5 July 2024‎ Layer-09 talk contribs‎ m
+       3,293 bytes −10‎ No edit summary
+     * curprev [ ] [ ] 07:3607:36, 5 July 2024‎ Layer-09 talk contribs‎ 3,303
+       bytes +698‎ Changed the layout, added more information
+
+    17 December 2022
+
+     * curprev [ ] [ ] 13:0613:06, 17 December 2022‎ imported>Onny‎ m 2,605
+       bytes −13‎ No edit summary
+     * curprev [ ] [ ] 13:0313:03, 17 December 2022‎ imported>Onny‎ 2,618
+       bytes +118‎ Reference alternative implementation, add category
+
+    26 April 2021
+
+     * curprev [ ] [ ] 20:0620:06, 26 April 2021‎ imported>Alexnortung‎ m
+       2,500 bytes +35‎ Added a comment showing how to set location.provider.
+
+    12 November 2020
+
+     * curprev [ ] [ ] 16:4516:45, 12 November 2020‎ imported>Feliix42‎ 2,465
+       bytes +972‎ Add note about redshift itself and add note that explains
+       how redshift can silently fail to start when location is not found.
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:4521:45, 24 September 2020‎ imported>Garbas‎ m
+       1,493 bytes +9‎ No edit summary
+
+    3 August 2020
+
+     * curprev [ ] [ ] 09:0109:01, 3 August 2020‎ imported>Voidless‎ m 1,484
+       bytes −2‎ No edit summary
+     * curprev [ ] [ ] 08:4808:48, 3 August 2020‎ imported>Voidless‎ 1,486
+       bytes +512‎ Added a section on how to use redshift as a user
+
+    23 April 2020
+
+     * curprev [ ] [ ] 15:3815:38, 23 April 2020‎ imported>Andriokha‎ 974
+       bytes −12‎ No edit summary
+     * curprev [ ] [ ] 15:3715:37, 23 April 2020‎ imported>Andriokha‎ 986
+       bytes −70‎ It looks like you don't need to explicitly install packages
+       needed for a service.
+     * curprev [ ] [ ] 11:5611:56, 23 April 2020‎ imported>Andriokha‎ 1,056
+       bytes +1,056‎ Add basic description of setting up a location provider
+       and the redshift service.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Redshift"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,138 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Graphics: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 October 2024
+
+     * curprev [ ] [ ] 13:0713:07, 6 October 2024‎ Scrumplex talk contribs‎ m
+       5,208 bytes +364‎ Add VDPAU failing to detect correct driver on
+       Wayland Tag: Visual edit
+
+    25 August 2024
+
+     * curprev [ ] [ ] 18:1818:18, 25 August 2024‎ Klinger talk contribs‎ m
+       4,844 bytes +20‎ Category:Video
+
+    17 August 2024
+
+     * curprev [ ] [ ] 08:4308:43, 17 August 2024‎ Jopejoe1 talk contribs‎
+       4,824 bytes +27‎ Added Amd and nvidia links Tags: Mobile edit Mobile
+       web edit
+
+    13 August 2024
+
+     * curprev [ ] [ ] 16:2416:24, 13 August 2024‎ Eisfunke talk contribs‎
+       4,797 bytes +4,797‎ Created page with "This is intended to be an
+       overview of how setting up graphics on NixOS works. ==
+       Hardware-Specific Pages == * Intel Graphics == Kernel-Level ==
+       Kernel-level GPU support is provided by a kernel module. E.g. for AMD
+       GPUs (including iGPUs) that's <code>amdgpu</code>. The module is
+       loaded automatically based on the detected hardware. On x86 devices,
+       detection is done automatically through ACPI. On ARM devices such as
+       the Raspberry Pi, information about hardware is pr..." Tag: Visual
+       edit: Switched
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Graphics"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

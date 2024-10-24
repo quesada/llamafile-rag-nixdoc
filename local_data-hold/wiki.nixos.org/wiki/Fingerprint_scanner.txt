@@ -1,0 +1,112 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Install
+     * 2 Enroll fingerprint
+   [ ] Toggle the table of contents
+
+                              Fingerprint scanner
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Fingerprint scanners (on laptop computers) can be used to unlock devices
+   instead of using passwords.
+
+Install
+
+ # Start the driver at boot
+ systemd.services.fprintd = {
+   wantedBy = [ "multi-user.target" ];
+   serviceConfig.Type = "simple";
+ };
+
+ # Install the driver
+ services.fprintd.enable = true;
+ # If simply enabling fprintd is not enough, try enabling fprintd.tod...
+ services.fprintd.tod.enable = true;
+ # ...and use one of the next four drivers
+ services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; # Goodix driver module
+ # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-elan # Elan(04f3:0c4b) driver
+ # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090; # driver for 2016 ThinkPads
+ # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix-550a # Goodix 550a driver (from Lenovo)
+
+Enroll fingerprint
+
+   Just run
+
+ sudo fprintd-enroll
+
+   or use the UI in the Desktop Environment if available.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Fingerprint_scanner&oldid=14201"
+   Category:
+     * Hardware
+     * This page was last edited on 12 July 2024, at 20:29.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

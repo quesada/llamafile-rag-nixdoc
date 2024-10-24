@@ -1,0 +1,166 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             ACME: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    10 October 2024
+
+     * curprev [ ] [ ] 20:2020:20, 10 October 2024‎ WoutSwinkels talk
+       contribs‎ 4,476 bytes +1,104‎ →‎Setup
+
+    5 August 2024
+
+     * curprev [ ] [ ] 16:3016:30, 5 August 2024‎ Ibizaman talk contribs‎ m
+       3,372 bytes −219‎ Deduplicate sentence. Tag: Visual edit
+
+    4 August 2024
+
+     * curprev [ ] [ ] 16:2216:22, 4 August 2024‎ Tboston talk contribs‎
+       3,591 bytes +1,249‎ Added wildcard example and clarification on the
+       group usage Tag: Visual edit
+
+    3 August 2024
+
+     * curprev [ ] [ ] 18:1718:17, 3 August 2024‎ Sandro talk contribs‎ 2,342
+       bytes −8‎ Remove maybe confusing mx1 subdomain
+     * curprev [ ] [ ] 18:1618:16, 3 August 2024‎ Sandro talk contribs‎ 2,350
+       bytes 0‎ Change example to nginx
+     * curprev [ ] [ ] 18:1518:15, 3 August 2024‎ Sandro talk contribs‎ 2,350
+       bytes +187‎ Improve group wording
+
+    24 April 2024
+
+     * curprev [ ] [ ] 19:3419:34, 24 April 2024‎ Klinger talk contribs‎ m
+       2,163 bytes +47‎ No edit summary
+
+    19 April 2024
+
+     * curprev [ ] [ ] 05:1605:16, 19 April 2024‎ Mic92 talk contribs‎ 2,116
+       bytes 0‎ copy from old wiki
+
+    2 March 2024
+
+     * curprev [ ] [ ] 04:1004:10, 2 March 2024‎ imported>Samuela‎ 2,116
+       bytes +330‎ No edit summary
+
+    29 February 2024
+
+     * curprev [ ] [ ] 23:4223:42, 29 February 2024‎ imported>Samuela‎ 1,786
+       bytes +1‎ No edit summary
+
+    22 April 2023
+
+     * curprev [ ] [ ] 11:5911:59, 22 April 2023‎ imported>Onny‎ 1,785 bytes
+       +363‎ Add usage infos
+     * curprev [ ] [ ] 11:3911:39, 22 April 2023‎ imported>Onny‎ m 1,422
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 11:3911:39, 22 April 2023‎ imported>Onny‎ m 1,422
+       bytes −70‎ No edit summary
+     * curprev [ ] [ ] 11:3811:38, 22 April 2023‎ imported>Onny‎ m 1,492
+       bytes +617‎ No edit summary
+     * curprev [ ] [ ] 11:2811:28, 22 April 2023‎ imported>Onny‎ 875 bytes
+       +875‎ Initial page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/ACME"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

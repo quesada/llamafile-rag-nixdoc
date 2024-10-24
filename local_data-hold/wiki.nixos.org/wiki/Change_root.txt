@@ -1,0 +1,167 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Using nixos-enter
+     * 2 Manual chroot
+     * 3 Troubleshooting
+          * 3.1 1. nixos-rebuild fails with "System has not been booted with
+            <program> as init system."
+   [ ] Toggle the table of contents
+
+                                  Change root
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Chroot is an operation that changes the apparent root directory for the
+   current running process and their children. A program that is run in such
+   a modified environment cannot access files and commands outside that
+   environmental directory tree. This modified environment is called a chroot
+   jail.
+
+                               Using nixos-enter
+
+   nixos-enter allows to access a NixOS installation from a NixOS rescue
+   system.
+
+   The nixos-enter program is part of NixOS. Before it runs provides a shell,
+   the script mounts api filesystems like /proc and setups the profile and
+   /etc of the target system. To use it, setup /mnt as described in the
+   installation manual.
+
+   At the time of writting, the following mount commands should suffice:
+
+ $ mount -o bind /dev/disk/by-label/<ROOT_LABEL> /mnt/
+ $ # mount any partitions you might have; here we assume only home and nix exist
+ $ mkdir -p /mnt/{home,nix}
+ $ mount -o bind /dev/disk/by-label/<HOME_LABEL> /mnt/home
+ $ mount -o bind /dev/disk/by-label/<NIX_LABEL> /mnt/nix
+
+   Then run nixos-enter:
+
+ $ nixos-enter
+
+   Note, that when using nixos-rebuild inside the environment provided by
+   nixos-enter, you have to give nixos-rebuild subcommands the --option
+   sandbox false option, otherwise derivation builds will fail with the
+   following error:
+
+ error: cloning builder process: Operation not permitted
+ error: unable to start build process
+
+                                 Manual chroot
+
+   If a NixOS rescue system is not available, the chroot can be done manually
+   from another Linux distribution.
+
+   Mount the file system containing the NixOS to chroot into at /mnt, using
+   e.g.:
+
+ mount /dev/relevantPartitionNameHere /mnt
+
+   .
+
+   Mount the host system's Linux run-time api file systems inside the mount,
+   then populate /run using the activate script and chroot inside, starting a
+   bash shell (adapted from here; you may copy all these lines into your
+   terminal as one block to run them):
+
+ mount -o bind /dev /mnt/dev
+ mount -o bind /proc /mnt/proc
+ mount -o bind /sys /mnt/sys
+ chroot /mnt /nix/var/nix/profiles/system/activate
+ chroot /mnt /run/current-system/sw/bin/bash
+
+   You should now be in your NixOS system, and should be able to adjust it by
+   e.g. editing /etc/nixos/configuration.nix and running nixos-rebuild switch
+   as usual. Remember that you may have to establish Internet access within
+   the chroot for some commands.
+
+                                Troubleshooting
+
+1. nixos-rebuild fails with "System has not been booted with <program> as init
+system."
+
+   In some cases, such as when using systemd-networkd as the bootloader,
+   nixos-rebuild commands might fail with a message similar to
+
+ error: System has not been booted with systemd as init system (PID 1). Can't operate.
+
+   If you have tried to use nixos-rebuild switch, you can try nixos-rebuild
+   boot instead. Should that also fail, you can append
+   NIXOS_SWITCH_USE_DIRTY_ENV=1 to the commands, which should bypass the
+   error while also setting the proper boot entries, if the bootloader is
+   detected.
+
+   Finally, should all else fail, nixos-install should work as a replacement
+   changing the root.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Change_root&oldid=5398"
+     * This page was last edited on 3 March 2024, at 12:54.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

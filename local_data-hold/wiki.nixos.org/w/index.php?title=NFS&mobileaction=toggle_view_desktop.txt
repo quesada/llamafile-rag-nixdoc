@@ -1,0 +1,315 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Server
+          * 1.1 Firewall
+     * 2 Client
+          * 2.1 Specifying NFS version
+          * 2.2 Lazy-mounting
+          * 2.3 Auto-disconnecting
+          * 2.4 Using systemd.mounts and systemd.automounts
+     * 3 Nix store on NFS
+   [ ] Toggle the table of contents
+
+                                      NFS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Server
+
+   Let's say that we've got one server-machine with 4 directories that we
+   want to share: /mnt/kotomi, /mnt/mafuyu, /mnt/sen and /mnt/tomoyo.
+
+   First, we have to create a dedicated directory from which our NFS server
+   will access the data:
+
+ $ mkdir /export
+
+   You may need to change ownership of the /export directory to
+   nobody:nogroup
+
+   Then we have to either move our already-existing directories inside
+   /export (using mv from the command line) or bind-mount them there:
+
+ {
+   fileSystems."/export/mafuyu" = {
+     device = "/mnt/mafuyu";
+     options = [ "bind" ];
+   };
+
+   fileSystems."/export/sen" = {
+     device = "/mnt/sen";
+     options = [ "bind" ];
+   };
+
+   fileSystems."/export/tomoyo" = {
+     device = "/mnt/tomoyo";
+     options = [ "bind" ];
+   };
+
+   fileSystems."/export/kotomi" = {
+     device = "/mnt/kotomi";
+     options = [ "bind" ];
+   };
+ }
+
+   Having the filesystem ready, we can proceed to configure the NFS server
+   itself:
+
+ {
+   services.nfs.server.enable = true;
+   services.nfs.server.exports = ''
+     /export         192.168.1.10(rw,fsid=0,no_subtree_check) 192.168.1.15(rw,fsid=0,no_subtree_check)
+     /export/kotomi  192.168.1.10(rw,nohide,insecure,no_subtree_check) 192.168.1.15(rw,nohide,insecure,no_subtree_check)
+     /export/mafuyu  192.168.1.10(rw,nohide,insecure,no_subtree_check) 192.168.1.15(rw,nohide,insecure,no_subtree_check)
+     /export/sen     192.168.1.10(rw,nohide,insecure,no_subtree_check) 192.168.1.15(rw,nohide,insecure,no_subtree_check)
+     /export/tomoyo  192.168.1.10(rw,nohide,insecure,no_subtree_check) 192.168.1.15(rw,nohide,insecure,no_subtree_check)
+   '';
+ }
+
+   This configuration exposes all our shares to 2 local IPs; you can find
+   more examples at Gentoo's wiki [1].
+
+   Other options are available on the NixOS option page or via the
+   nixos-option command.
+
+  Firewall
+
+   If your server-machine has a firewall turned on (as NixOS does by default,
+   for instance), don't forget to open appropriate ports; e.g. for NFSv4:
+
+ networking.firewall.allowedTCPPorts = [ 2049 ];
+
+   Many clients only support NFSv3, which requires the server to have fixed
+   ports:
+
+   services.nfs.server = {
+     enable = true;
+     # fixed rpc.statd port; for firewall
+     lockdPort = 4001;
+     mountdPort = 4002;
+     statdPort = 4000;
+     extraNfsdConfig = '''';
+   };
+   networking.firewall = {
+     enable = true;
+       # for NFSv3; view with `rpcinfo -p`
+     allowedTCPPorts = [ 111  2049 4000 4001 4002 20048 ];
+     allowedUDPPorts = [ 111 2049 4000 4001  4002 20048 ];
+   };
+
+Client
+
+   Continuing the server example, mounting the now-exposed tomoyo share on
+   another box (on a client) is as simple as:
+
+ {
+   fileSystems."/mnt/tomoyo" = {
+     device = "server:/tomoyo";
+     fsType = "nfs";
+   };
+ }
+
+   Replace "server" in the above device attribute with the IP address or DNS
+   entry of the NFS server. Note that clients see exposed shares as if they
+   were exposed at the root level - i.e. /export/foo becomes /foo (in the
+   device option). Other, regular fileSystems options apply.
+
+  Specifying NFS version
+
+   You can specify NFS version by adding the "nfsvers=" option:
+
+ {
+   fileSystems."/mnt/tomoyo" = {
+     # ...
+     options = [ "nfsvers=4.2" ];
+   };
+ }
+
+  Lazy-mounting
+
+   By default, all shares will be mounted right when your machine starts -
+   apart from being simply unwanted sometimes, this may also cause issues
+   when your computer doesn't have a stable network connection or uses WiFi;
+   you can fix this by telling systemd to mount your shares the first time
+   they are accessed (instead of keeping them mounted at all times):
+
+ {
+   fileSystems."/mnt/tomoyo" = {
+     # ...
+     options = [ "x-systemd.automount" "noauto" ];
+   };
+ }
+
+  Auto-disconnecting
+
+   You can tell systemd to disconnect your NFS-client from the NFS-server
+   when the directory has not been accessed for some time:
+
+ {
+   fileSystems."/mnt/tomoyo" = {
+     # ...
+     options = [ "x-systemd.idle-timeout=600" ]; # disconnects after 10 minutes (i.e. 600 seconds)
+   };
+ }
+
+  Using systemd.mounts and systemd.automounts
+
+   Here is an example with auto-disconnecting and lazy-mounting implemented,
+   and the noatime mount option added.
+
+   Note that wantedBy = [ "multi-user.target" ]; is required for the
+   automount unit to start at boot.
+
+   Also note that x-systemd mount options are unneeded, as they are a
+   representation of systemd options in fstab(5) format. They get parsed and
+   converted to unit files by systemd-fstab-generator(8) as mentioned in
+   systemd.mount(5).
+
+ {
+   services.rpcbind.enable = true; # needed for NFS
+   systemd.mounts = [{
+     type = "nfs";
+     mountConfig = {
+       Options = "noatime";
+     };
+     what = "server:/tomoyo";
+     where = "/mnt/tomoyo";
+   }];
+
+   systemd.automounts = [{
+     wantedBy = [ "multi-user.target" ];
+     automountConfig = {
+       TimeoutIdleSec = "600";
+     };
+     where = "/mnt/tomoyo";
+   }];
+ }
+
+   Multiple mounts with the exact same options can benefit from abstraction.
+
+ {
+   services.rpcbind.enable = true; # needed for NFS
+   systemd.mounts = let commonMountOptions = {
+     type = "nfs";
+     mountConfig = {
+       Options = "noatime";
+     };
+   };
+
+   in
+
+   [
+     (commonMountOptions // {
+       what = "server:/tomoyo";
+       where = "/mnt/tomoyo";
+     })
+
+     (commonMountOptions // {
+       what = "server:/oyomot";
+       where = "/mnt/oyomot";
+     })
+   ];
+
+   systemd.automounts = let commonAutoMountOptions = {
+     wantedBy = [ "multi-user.target" ];
+     automountConfig = {
+       TimeoutIdleSec = "600";
+     };
+   };
+
+   in
+
+   [
+     (commonAutoMountOptions // { where = "/mnt/tomoyo"; })
+     (commonAutoMountOptions // { where = "/mnt/oyomot"; })
+   ];
+ }
+
+Nix store on NFS
+
+   In a single-user setup (not on Nixos) the Nix store can be also exported
+   over NFS (common in HPC clusters) to share package over the networks. The
+   only requirement is to also pass local_lock=flock or local_lock=all as
+   mount option to allow the nix packages to take locks on modifications.
+   Example entry in fstab:
+
+ <host_or_ip>/nix /nix nfs nofail,x-systemd.device-timeout=4,local_lock=all 0 0
+
+   TODO: Why this? That seems extremely unsafe. This disables NFS locks
+   (which apply to all NFS clients), and makes locks local, meaning a lock
+   taken by one NFS client isn't seen by another, and both can take their
+   locks. So this removes protection against concurrent writes, which Nix
+   assumes.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=NFS&oldid=15347"
+   Category:
+     * Filesystem
+     * This page was last edited on 22 July 2024, at 01:41.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,230 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Virt-manager: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    1 August 2024
+
+     * curprev [ ] [ ] 12:1412:14, 1 August 2024‎ Mic92 talk contribs‎ 2,730
+       bytes +89‎ import from old wiki Tag: Visual edit: Switched
+
+    10 July 2024
+
+     * curprev [ ] [ ] 15:3515:35, 10 July 2024‎ Randomizedcoder talk
+       contribs‎ 2,641 bytes +250‎ →‎Networking: Comment about documentation
+       issue Tag: Visual edit
+
+    18 June 2024
+
+     * curprev [ ] [ ] 18:1918:19, 18 June 2024‎ Klinger talk contribs‎ 2,391
+       bytes +139‎ Added link to virt-manager. Expanded the description (made
+       it more specific) Tag: Visual edit
+
+    10 June 2024
+
+     * curprev [ ] [ ] 23:5423:54, 10 June 2024‎ PopeRigby talk contribs‎
+       2,252 bytes −870‎ Removed section about fixing "Could not detect a
+       default hypervisor" on first startup, as it's no longer relevant. Tag:
+       Visual edit
+
+    3 June 2024
+
+     * curprev [ ] [ ] 14:3914:39, 3 June 2024‎ Mic92 talk contribs‎ 3,122
+       bytes −328‎ Remove 23.11pre options.
+
+    22 April 2024
+
+     * curprev [ ] [ ] 01:5101:51, 22 April 2024‎ Nebu talk contribs‎ 3,450
+       bytes +333‎ add section on wayland Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:0520:05, 19 April 2024‎ Klinger talk contribs‎
+       3,117 bytes +71‎ added beginning sentence Tag: Visual edit: Switched
+
+    6 February 2024
+
+     * curprev [ ] [ ] 03:3503:35, 6 February 2024‎ imported>Abowen‎ m 3,046
+       bytes +57‎ No edit summary
+
+    23 January 2024
+
+     * curprev [ ] [ ] 09:4209:42, 23 January 2024‎ imported>Abowen‎ m 2,989
+       bytes +279‎ Basic advice for improving virt manager experience
+
+    10 January 2024
+
+     * curprev [ ] [ ] 14:2814:28, 10 January 2024‎ imported>Softmoth‎ 2,710
+       bytes +398‎ Provide instructions for getting the QEMU guest agent
+       working under libvirt
+
+    29 December 2023
+
+     * curprev [ ] [ ] 09:2709:27, 29 December 2023‎ imported>Neubeki‎ m
+       2,312 bytes +2‎ Add networking section to clear up why virbr0 is not
+       accessible after enabling virt-manager and libvirtd
+     * curprev [ ] [ ] 09:2709:27, 29 December 2023‎ imported>Neubeki‎ m
+       2,310 bytes +279‎ Add networking section to clear up why virbr0 is not
+       accessible after enabling virt-manager and libvirtd
+
+    13 December 2023
+
+     * curprev [ ] [ ] 11:2311:23, 13 December 2023‎
+       imported>Why-not-try-calmer‎ 2,031 bytes +327‎ No edit summary
+
+    26 October 2023
+
+     * curprev [ ] [ ] 14:4814:48, 26 October 2023‎ imported>Skylark‎ m 1,704
+       bytes 0‎ Typo 'decoratively'
+
+    25 October 2023
+
+     * curprev [ ] [ ] 09:3809:38, 25 October 2023‎
+       imported>The-furry-hubofeverything‎ 1,704 bytes +227‎ Module
+       upstreamed and available for unstable
+
+    8 October 2023
+
+     * curprev [ ] [ ] 10:5710:57, 8 October 2023‎
+       imported>The-furry-hubofeverything‎ m 1,477 bytes +51‎ Added note to
+       explain dconf, numerous issues were created on nixpkgs were related to
+       this
+
+    20 August 2023
+
+     * curprev [ ] [ ] 14:5914:59, 20 August 2023‎ imported>BridgerB‎ m 1,426
+       bytes +58‎ No edit summary
+
+    2 August 2023
+
+     * curprev [ ] [ ] 13:4713:47, 2 August 2023‎ imported>Timokau‎ 1,368
+       bytes +444‎ Add declarative way of configuring the default hypervisor.
+
+    6 May 2022
+
+     * curprev [ ] [ ] 16:1016:10, 6 May 2022‎ imported>Zaechus‎ m 924 bytes
+       −45‎ Minor grammar and formatting changes
+
+    29 April 2022
+
+     * curprev [ ] [ ] 18:5218:52, 29 April 2022‎ imported>Replaycoding‎ m
+       969 bytes +1‎ Add semicolon to end of line
+
+    20 May 2021
+
+     * curprev [ ] [ ] 13:4513:45, 20 May 2021‎ imported>Kuetemeier‎ m 968
+       bytes 0‎ Fix a typo / parameter name
+
+    29 November 2020
+
+     * curprev [ ] [ ] 13:5413:54, 29 November 2020‎ imported>Nasirhm‎ 968
+       bytes +332‎ Addition of instructions to add user in libvirtd group
+
+    15 November 2020
+
+     * curprev [ ] [ ] 19:2519:25, 15 November 2020‎ imported>Artturin‎ 636
+       bytes +636‎ add virt-manager page and instructions
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Virt-manager"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

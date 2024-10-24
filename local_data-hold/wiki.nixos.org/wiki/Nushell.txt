@@ -1,0 +1,163 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+          * 2.1 Examples
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                    Nushell
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Nushell is a powerfull shell written in Rust.
+
+Installation
+
+   See Command Shell example if you want Nushell as your default shell.
+
+ /etc/nixos/configuration.nix
+
+ users.users.myuser= {
+    ... 
+         shell = pkgs.nushell;
+ };
+
+Configuration
+
+   Nushell can be configured with Home Manager.
+
+    Examples
+
+   Configuration with Starship prompt and autosuggestion support with
+   carapace
+
+ ~/.config/nixpkgs/home.nix
+
+ programs = {
+     nushell = { enable = true;
+       # The config.nu can be anywhere you want if you like to edit your Nushell with Nu
+       configFile.source = ./.../config.nu;
+       # for editing directly to config.nu
+       extraConfig = ''
+        let carapace_completer = {|spans|
+            carapace $spans.0 nushell ...$spans | from json
+        }
+        $env.config = {
+         show_banner: false,
+         completions: {
+         case_sensitive: false # case-sensitive completions
+         quick: true    # set to false to prevent auto-selecting completions
+         partial: true    # set to false to prevent partial filling of the prompt
+         algorithm: "fuzzy"    # prefix or fuzzy
+         external: {
+         # set to false to prevent nushell looking into $env.PATH to find more suggestions
+             enable: true
+         # set to lower can improve completion performance at the cost of omitting some options
+             max_results: 100
+             completer: $carapace_completer # check 'carapace_completer'
+           }
+         }
+        }
+        $env.PATH = ($env.PATH |
+        split row (char esep) |
+        prepend /home/myuser/.apps |
+        append /usr/bin/env
+        )
+        '';
+        shellAliases = {
+        vi = "hx";
+        vim = "hx";
+        nano = "hx";
+        };
+    }; 
+    carapace.enable = true;
+    carapace.enableNushellIntegration = true;
+
+    starship = { enable = true;
+        settings = {
+          add_newline = true;
+          character = {
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[➜](bold red)";
+        };
+     };
+   };
+ };
+
+See also
+
+     * Command Shell
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nushell&oldid=12141"
+   Category:
+     * Shell
+     * This page was last edited on 17 April 2024, at 16:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

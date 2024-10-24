@@ -1,0 +1,194 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Security: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    22 April 2024
+
+     * curprev [ ] [ ] 12:2012:20, 22 April 2024‎ Elikoga talk contribs‎
+       10,937 bytes −54‎ →‎Core Nix features: Reorder paragraphs to place
+       Security by Obscurity last Tag: Visual edit
+
+    24 April 2023
+
+     * curprev [ ] [ ] 09:2209:22, 24 April 2023‎ imported>Snowman6081‎ m
+       10,991 bytes −37‎ Update secure boot section to directly mention
+       lanzaboote.
+
+    26 September 2022
+
+     * curprev [ ] [ ] 21:4321:43, 26 September 2022‎ imported>Astro‎ 11,028
+       bytes +98‎ →‎Virtual machines: add microvm.nix
+
+    25 September 2022
+
+     * curprev [ ] [ ] 18:0218:02, 25 September 2022‎ imported>Vater‎ 10,930
+       bytes +113‎ →‎Secure Boot
+
+    28 January 2022
+
+     * curprev [ ] [ ] 08:2608:26, 28 January 2022‎ imported>Erdnaxe‎ 10,817
+       bytes +289‎ Add link to Systemd_Hardening wiki page
+
+    27 September 2021
+
+     * curprev [ ] [ ] 23:2623:26, 27 September 2021‎ imported>Nix‎ 10,528
+       bytes +230‎ →‎Virtual machines: add firecracker ref
+     * curprev [ ] [ ] 23:1423:14, 27 September 2021‎ imported>Nix‎ m 10,298
+       bytes +1‎ →‎Flatpaks: move link
+     * curprev [ ] [ ] 23:0923:09, 27 September 2021‎ imported>Nix‎ 10,297
+       bytes +219‎ →‎Virtual machines: KVM breakout reference
+     * curprev [ ] [ ] 23:0223:02, 27 September 2021‎ imported>Nix‎ 10,078
+       bytes +102‎ →‎Flatpaks: flatpak reference
+     * curprev [ ] [ ] 20:4520:45, 27 September 2021‎ imported>Nix‎ 9,976
+       bytes +82‎ →‎SELinux: add link
+     * curprev [ ] [ ] 20:3720:37, 27 September 2021‎ imported>Nix‎ 9,894
+       bytes +200‎ →‎Awaiting NixOS support: add SELinux
+     * curprev [ ] [ ] 20:3020:30, 27 September 2021‎ imported>Nix‎ 9,694
+       bytes +553‎ →‎Isolation: add Docker section
+     * curprev [ ] [ ] 20:1120:11, 27 September 2021‎ imported>Nix‎ 9,141
+       bytes +366‎ add Secure Boot
+     * curprev [ ] [ ] 19:2319:23, 27 September 2021‎ imported>Nix‎ 8,775
+       bytes +133‎ →‎Encryption: add Pid Eins blog reference on Linux
+       encryption
+     * curprev [ ] [ ] 18:4218:42, 27 September 2021‎ imported>Nix‎ 8,642
+       bytes +95‎ add vulnix to NixOS refs
+     * curprev [ ] [ ] 17:2517:25, 27 September 2021‎ imported>Nix‎ 8,547
+       bytes +208‎ →‎Virtual machines: add reference
+     * curprev [ ] [ ] 17:1617:16, 27 September 2021‎ imported>Nix‎ 8,339
+       bytes −64‎ restructure
+     * curprev [ ] [ ] 17:1217:12, 27 September 2021‎ imported>Nix‎ 8,403
+       bytes +449‎ →‎Virtual machines
+     * curprev [ ] [ ] 17:0617:06, 27 September 2021‎ imported>Nix‎ 7,954
+       bytes +189‎ →‎References
+     * curprev [ ] [ ] 17:0217:02, 27 September 2021‎ imported>Nix‎ 7,765
+       bytes +132‎ →‎References: add reference for cgroups and containers
+       from NGINX blog
+     * curprev [ ] [ ] 16:5816:58, 27 September 2021‎ imported>Nix‎ m 7,633
+       bytes +2‎ →‎Firewall: typo
+     * curprev [ ] [ ] 16:5716:57, 27 September 2021‎ imported>Nix‎ 7,631
+       bytes +522‎ →‎Supported: add firewall
+     * curprev [ ] [ ] 16:4916:49, 27 September 2021‎ imported>Nix‎ 7,109
+       bytes +327‎ add to see also
+     * curprev [ ] [ ] 09:1109:11, 27 September 2021‎ imported>Nix‎ 6,782
+       bytes +924‎ add more refs
+     * curprev [ ] [ ] 08:5208:52, 27 September 2021‎ imported>Nix‎ 5,858
+       bytes +415‎ →‎Virtual machines: update section
+     * curprev [ ] [ ] 08:1608:16, 27 September 2021‎ imported>Nix‎ m 5,443
+       bytes 0‎ →‎Isolation: fix placement
+     * curprev [ ] [ ] 07:5207:52, 27 September 2021‎ imported>Nix‎ 5,443
+       bytes +668‎ →‎Core features: add data integrity and authenticity
+     * curprev [ ] [ ] 05:5905:59, 27 September 2021‎ imported>Nix‎ 4,775
+       bytes +671‎ →‎Supported: add virtualization details
+     * curprev [ ] [ ] 05:4305:43, 27 September 2021‎ imported>Nix‎ m 4,104
+       bytes 0‎ →‎References: newline
+     * curprev [ ] [ ] 05:4305:43, 27 September 2021‎ imported>Nix‎ 4,104
+       bytes +132‎ →‎Isolation: add more on container isolation
+     * curprev [ ] [ ] 05:3005:30, 27 September 2021‎ imported>Nix‎ 3,972
+       bytes +457‎ add encryption, LUKS
+     * curprev [ ] [ ] 05:1605:16, 27 September 2021‎ imported>Nix‎ 3,515
+       bytes +3,515‎ start writing security story for Nix
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Security"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

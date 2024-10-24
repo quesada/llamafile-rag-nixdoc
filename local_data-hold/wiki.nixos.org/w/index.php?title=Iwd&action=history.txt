@@ -1,0 +1,159 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Iwd: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    4 March 2024
+
+     * curprev [ ] [ ] 20:1820:18, 4 March 2024‎ imported>Hucksy‎ 2,531 bytes
+       +618‎ Add details on how to configure iwd
+
+    9 August 2022
+
+     * curprev [ ] [ ] 20:0720:07, 9 August 2022‎ imported>Fufexan‎ m 1,913
+       bytes +24‎ Add page to Networking category
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5705:57, 20 September 2021‎ imported>Nix‎ m 1,889
+       bytes +27‎ add Software/Applications subcategory
+
+    8 July 2021
+
+     * curprev [ ] [ ] 16:5016:50, 8 July 2021‎ imported>Yuu‎ m 1,862 bytes
+       +16‎ No edit summary
+     * curprev [ ] [ ] 16:1116:11, 8 July 2021‎ imported>Yuu‎ 1,846 bytes
+       +10‎ No edit summary
+     * curprev [ ] [ ] 16:1016:10, 8 July 2021‎ imported>Yuu‎ m 1,836 bytes
+       +16‎ No edit summary
+
+    7 July 2021
+
+     * curprev [ ] [ ] 19:1819:18, 7 July 2021‎ imported>Yuu‎ 1,820 bytes −3‎
+       No edit summary
+     * curprev [ ] [ ] 19:1719:17, 7 July 2021‎ imported>Yuu‎ 1,823 bytes
+       +395‎ add
+
+    14 January 2020
+
+     * curprev [ ] [ ] 08:4808:48, 14 January 2020‎ imported>Eoli3n‎ 1,428
+       bytes +170‎ No edit summary
+     * curprev [ ] [ ] 08:4408:44, 14 January 2020‎ imported>Makefu‎ 1,258
+       bytes +584‎ add gnome-keyring remark
+
+    7 January 2020
+
+     * curprev [ ] [ ] 09:3109:31, 7 January 2020‎ imported>Makefu‎ 674 bytes
+       −29‎ use option instead of extraConfig for networkmanager
+
+    12 October 2019
+
+     * curprev [ ] [ ] 21:2521:25, 12 October 2019‎ imported>Vdot0x23‎ 703
+       bytes +703‎ Created page with "iwd (iNet wireless daemon) is a
+       Linux-only wireless daemon aiming to decrease the time spent making
+       connections. = Using iwd = iwd can be enabled with the following
+       snippet...."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Iwd"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

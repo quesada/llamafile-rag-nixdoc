@@ -1,0 +1,166 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Making disk visible in your file explorer
+     * 2 Porting /etc/fstab
+     * 3 Mount order
+     * 4 Bind mounts
+     * 5 References
+   [ ] Toggle the table of contents
+
+                                  Filesystems
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   fileSystems is a NixOS option that allows the user to mount filesystems at
+   specific mount points. The mounted filesystems may also be encrypted. Also
+   see the fileSystem option documentation.
+
+   For boot mount options, check here.
+
+   Common example filesystem mount. You can put this in configuration.nix:
+
+  fileSystems."/mnt/exampleDrive" = {
+    device = "/dev/disk/by-uuid/4f999afe-6114-4531-ba37-4bf4a00efd9e";
+    fsType = "exfat";
+    options = [ # If you don't have this options attribute, it'll default to "defaults"
+      # boot options for fstab. Search up fstab mount options you can use
+      "users" # Allows any user to mount and unmount
+      "nofail" # Prevent system from failing if this drive doesn't mount
+      "exec" # Permit execution of binaries and other executable files
+    ];
+  };
+
+Making disk visible in your file explorer
+
+   You might not see the disk in your file explorer (ie GNOME Nautilus). Add
+   to the options: x-gvfs-show and it'll show up.
+
+Porting /etc/fstab
+
+   The options specified in /etc/fstab may not be fully compatible with NixOS
+   fileSystems options. For example, here are some options NixOS doesn't
+   recognize that are available on some Linux distributions:
+
+     * iocharset
+     * rw (but it seems to not be needed)
+     * uid with username rather than actual uid
+
+Mount order
+
+   Without any specification, the mount order is up to the implementation
+   (probably alphabetic).
+
+   Should the order in which filesystems are mounted is important, users
+   should make use of the fileSystems.<mount>.depends option. This is useful
+   for example in #Bind mounts
+
+Bind mounts
+
+     Bind mounting allows a filesystem hierarchy or a file to be mounted at a
+     different mount point. Unlike a symbolic link, a bind mount does not
+     exist on the filesystem itself. In the following example, the path
+     /olddir will be mounted in /newdir ^[1]
+
+   These are used to make files or folders available in other parts of the
+   filesystem hierarchy. In order to do so both source and target filesystems
+   have to be mounted first.
+
+ fileSystems."/mnt/datastore".label = "datastore";
+ fileSystems."/mnt/aggregator".label = "aggregator";
+
+ ####################
+ # Bind mounts
+
+ # Mount /mnt/datastore/applications/app1 on /mnt/aggregator/app1
+ # Accessing /mnt/aggregator/app1 will actually access /mnt/datastore/...
+ fileSystems."/mnt/aggregator/app1" = {
+   depends = [
+       # The mounts above have to be mounted in this given order
+       "/mnt/datastore"
+       "/mnt/aggregator"
+   ];
+   device = "/mnt/datastore/applications/app1";
+   fsType = "none";
+   options = [
+     "bind"
+     "ro" # The filesystem hierarchy will be read-only when accessed from /mnt/aggregator/app1
+   ];
+ };
+
+                                   References
+
+    1. ↑ Wikipedia - Bind mount
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Filesystems&oldid=17738"
+   Categories:
+     * Filesystem
+     * NixOS
+     * This page was last edited on 7 October 2024, at 21:30.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

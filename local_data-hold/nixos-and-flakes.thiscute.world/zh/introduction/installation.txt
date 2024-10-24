@@ -1,0 +1,163 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS 与 Flakes
+   SearchK
+   Main Navigation首页前言开始使用最佳实践
+
+   简体中文
+
+   English
+
+   简体中文
+
+   English
+
+   Appearance
+
+   Menu
+   Return to top
+   Sidebar Navigation
+
+前言
+
+   前言
+
+开始使用
+
+   简介
+
+   优缺点
+
+   安装
+
+Nix 语言
+
+   快速入门
+
+NixOS 与 Flakes
+
+   开始使用 NixOS
+
+   Flakes 简介
+
+   使用 Flakes 管理 NixOS
+
+   NixOS 的 flake.nix 内容详解
+
+   Flakes 的组合能力与 Nixpkgs 模块系统
+
+   安装使用 Home Manager
+
+   模块化系统配置
+
+   更新系统
+
+   降级或升级软件包
+
+   其他杂七杂八的内容
+
+Nixpkgs 高级用法
+
+   简介
+
+   callPackage
+
+   Overriding
+
+   Overlays
+
+   多 Nixpkgs 实例的妙用
+
+Nix Store 与二进制缓存
+
+   简介
+
+   添加二进制缓存服务器
+
+   搭建你自己的缓存服务器
+
+NixOS 最佳实践
+
+   简介
+
+   运行非 NixOS 的二进制文件
+
+   简化常用的 NixOS 相关命令
+
+   加速 Dotfiles 的调试
+
+   自定义 NIX_PATH 与 Flake Registry
+
+   远程部署 NixOS 配置
+
+   调试 Nix 软件包与 Nix 表达式
+
+Flakes 的其他玩法
+
+   简介
+
+   Flake Inputs
+
+   Flake Outputs
+
+   新一代 Nix 命令行工具的使用
+
+   模块系统与自定义 options
+
+   [WIP]Testing
+
+在 NixOS 上进行开发工作
+
+   nix shell, nix develop & pkgs.runCommand
+
+   各语言的开发环境
+
+   [WIP]软件打包
+
+   跨平台编译
+
+   分布式构建
+
+   [WIP]内核开发
+
+其他进阶话题
+
+   其他进阶话题
+
+常见问题 FAQ
+
+   常见问题 FAQ
+
+   On this page
+
+                                   安装 NixOS ​
+
+   Nix 有多种安装方式：
+
+    1. 以包管理器的形式安装到 MacOS/Linux/WSL 三种系统上
+    2. 也可以直接安装 NixOS，这是 Nix 官方推出的一个 Linux 发行版，使用 Nix 包管理器来管理整个系统环境。
+
+   本书主要介绍 NixOS 与 Flakes 的使用，因此不展开讨论。
+
+   NixOS 的安装不难，与许多传统发行版类似，它提供了一个对新手非常友好的 GUI 安装程序。请移步 NixOS-CN 的系统安装教程
+   查看详细的安装步骤。
+
+   其他可能有用的参考资料：
+
+    1. NixOS 官网
+    2. 复用 flake 管理 NixOS WSL: 使用 WSL 的用户可以参考下这篇文章
+    3. ryan4yin/nix-darwin-kickstarter: macOS 用户可以通过这个模板仓库结合本书的内容来学习使用 Nix.
+   Edit this page
+
+   Last updated:
+
+   Pager
+   Previous page优缺点
+   Next page快速入门
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

@@ -1,0 +1,434 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+          * 2.1 Declarative Configuration
+          * 2.2 Imperative Operations
+               * 2.2.1 User Environments
+               * 2.2.2 Channels
+     * 3 Internals
+          * 3.1 Comparison with traditional Linux Distributions
+          * 3.2 Usage of the Nix store
+          * 3.3 Modules
+          * 3.4 Generations
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                    Overview of the NixOS Linux distribution
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: Incomplete (reason: it needs to be an easy introduction, because  
+    its one of the first articles new users read here. Thats why it needs to  
+    be simplified a bit and more complex topics should be moved to other      
+    articles)) (Discuss in Talk:Overview of the NixOS Linux distribution#)    
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   NixOS is a Linux distribution based on the Nix package manager and build
+   system. It supports declarative system-wide configuration management as
+   well as atomic upgrades and rollbacks, although it can additionally
+   support imperative package and user management. In NixOS, all components
+   of the distribution — including the kernel, installed packages and system
+   configuration files — are built by Nix from pure functions called Nix
+   expressions.
+
+   Since Nix uses binary caching, this provides a unique compromise between
+   the binary-oriented approach used by distributions such as Debian and the
+   source-oriented approach used by distributions such as Gentoo. Binaries
+   can be used for standard components, and custom-built packages and modules
+   can be used automatically when a pre-built binary is not available.
+
+   Stable NixOS releases are delivered twice a year (around the end of May
+   and the end of November). NixOS was created by Eelco Dolstra and Armijn
+   Hemel, and initially released in 2003. It is community developed and
+   maintained under the stewardship of the NixOS Foundation.
+
+Installation
+
+   For a full installation guide, see the Installation chapter of the NixOS
+   manual. This wiki also includes alternative or supplemental guides, such
+   as NixOS as a desktop.
+
+   Most users will install NixOS via one of the ISO images. Both "graphical"
+   and "minimal" ISO variants are available for each supported architecture;
+   the "graphical" images are suitable for users intending to install a
+   desktop environment, and the "minimal" images are suitable for users
+   intending to install NixOS in a server role or desiring a smaller ISO
+   image. The ISO images are hybrid images which can be burnt to optical
+   media or copied raw to a USB drive and booted as-is. See the installation
+   guide for details.
+
+   In addition to the ISO images, the download page provides a number of
+   alternative methods for installing NixOS. These include:
+
+     * Virtual appliances in OVA format (compatible with VirtualBox);
+     * Amazon EC2 AMIs;
+
+   Additionally, many existing Linux installations can be converted into
+   NixOS installations using nixos-infect or nixos-in-place; this is
+   particularly useful for installing NixOS on hosting providers which do not
+   natively support NixOS.
+
+   For information on installing NixOS on various ARM devices, see NixOS on
+   ARM.
+
+Usage
+
+  Declarative Configuration
+
+   One of NixOS's most distinguishing features is the ability to
+   declaratively configure the whole system. This is done by specifying a
+   configuration file which specifies the entire system state, including
+   which packages should be installed and all the various system settings and
+   options. This configuration file is normally located at
+   /etc/nixos/configuration.nix (although another location may be specified
+   using the environment variable NIX_PATH, or using nixos-rebuild's -I
+   option to override the <nixos> lookup path); after the configuration file
+   is modified, the new configuration is then made active by running
+   nixos-rebuild switch. The switch is atomic and can be rolled back if
+   necessary. Most users keep the configuration files under /etc/nixos in a
+   version control system such as Git.
+
+   Conventional distributions require users to manually modify configuration
+   files, but these changes are not tracked. If distributions change the
+   default contents of configuration files, these changes often have to be
+   manually merged by users if they have previously modified the file, or the
+   distribution modifications may not be integrated at all, leading to
+   undesired configuration drift. Configuration settings and changes are
+   rarely recorded in a version control system. These shortcomings are often
+   rectified after-the-fact if at all by configuration management solutions
+   such as Puppet or Chef. These tools reconcile system configuration with a
+   description of the expected state. However, these tools are not integrated
+   into the operating system design and are simply layered on top, and OS
+   configuration may still vary where an aspect of OS configuration has not
+   been specified in the description of expected state.
+
+   By comparison, NixOS's declarative configuration system provides a fully
+   integrated facility for OS configuration management. Failure to specify
+   any given item of configuration results in that item having a well-defined
+   state, rather than being allowed to drift unmonitored. Because the full
+   system configuration is captured in the NixOS configuration system, this
+   also makes NixOS highly suited to the automatic deployment of
+   configuration in environments such as automated server farms; tools such
+   as NixOps make this easy.
+
+   Here is a simple example of a NixOS system configuration:
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, ... }:
+
+ {
+     # Import other configuration modules
+     # (hardware-configuration.nix is autogenerated upon installation)
+     # paths in nix expressions are always relative the file which defines them
+     imports = [
+         ./hardware-configuration.nix
+         ./my-dev-tools.nix
+         ./my-desktop-env.nix
+         ./etc.nix
+     ];
+
+     # Name your host machine
+     networking.hostName = "mymachine";
+
+     # Set your time zone.
+     time.timeZone = "Europe/Utrecht";
+
+     # Enter keyboard layout
+     services.xserver.layout = "us";
+     services.xserver.xkbVariant = "altgr-intl";
+
+     # Define user accounts
+     users.users.myuser = {
+       extraGroups = [ "wheel" "networkmanager" ];
+       isNormalUser = true;
+     };
+    
+     # Install some packages
+     environment.systemPackages = with pkgs; [
+       ddate
+       testdisk
+     ];
+ 
+     # Enable the OpenSSH daemon
+     services.openssh.enable = true;
+    
+ }
+
+   For inspiration, a variety of NixOS configuration files made by community
+   members can be found in the Configuration Collection.
+
+  Imperative Operations
+
+   While NixOS is typically configured declaratively as much as possible,
+   these are a few domains where imperative operations are still necessary;
+   these include user environment management and channel management.
+
+    User Environments
+
+   In addition to declarative system configuration, NixOS users can utilize
+   Nix's imperative nix-env command to install packages at the user level,
+   without changing the system state. See the user environments section of
+   the Nix article for more information.
+
+    Channels
+
+   NixOS, as well as Nix packages and NixOS modules are distributed through
+   Nix channels: mechanisms for distributing Nix expressions as well as the
+   associated binary caches for them. These channels are what determine which
+   version of NixOS you are using, and they can be broadly categorized into
+   stable and unstable channels, and large and small channels. Most users
+   will want the stable/large channel, currently nixos-24.05. For more
+   information on channels and how to choose them, see the Channel branches
+   article.
+
+   Like packages installed via nix-env, channels are managed at user-level.
+   NixOS uses the channels set for the root user to update the system-wide
+   configuration; channels set for other users control only the user
+   environment for that user. If you wish to change the channel used by the
+   system-level configuration (/etc/nixos/configuration.nix), ensure you run
+   the correct nix-channel command as root:
+
+                          Common nix-channel commands
+   Listing current channels    nix-channel --list                             
+   Adding a primary channel    nix-channel --add                              
+                               https://nixos.org/channels/channel-name nixos  
+   Adding other channels       nix-channel --add https://some.channel/url     
+                               my-alias                                       
+   Remove a channel            nix-channel --remove channel-alias             
+   Updating a channel          nix-channel --update channel-alias             
+   Updating all channels       nix-channel --update                           
+   Rollback the last update                                                   
+   (useful if the last update  nix-channel --rollback
+   breaks the nixos-rebuild)   
+
+   Note that updating channels won't cause a rebuild in itself; if you want
+   to update channels and rebuild, you can run nixos-rebuild --upgrade switch
+   to do both in one step.
+
+Internals
+
+  Comparison with traditional Linux Distributions
+
+   Main Article: Nix vs. Linux Standard Base
+
+   The main difference between NixOS and other Linux distributions is that
+   NixOS does not follow the Linux Standard Base file system structure. On
+   LSB-compliant systems software is stored under /{,usr}/{bin,lib,share} and
+   configuration is generally stored in /etc. Software binaries are available
+   in the user environment if they are placed in one of the LSB's /bin
+   directories. When a program references dynamic libraries it will search
+   for the required libraries in the LSB folders (/lib, /usr/lib).
+
+   In NixOS however /lib and /usr/lib do not exist. Instead all system
+   libraries, binaries, kernels, firmware and configuration files are placed
+   in the Nix store. The files and directories in /nix/store are named by
+   hashes of the information describing the built data. All of the files and
+   directories placed in the Nix store are immutable. /bin and /usr/bin are
+   almost absent: they contain only /bin/sh and /usr/bin/env respectively, to
+   provide minimal compatibility with existing scripts using shebang lines.
+   User-level environments are implemented using a large number of symbolic
+   links to all required packages and auxiliary files. These environments are
+   called profiles and are stored in /nix/var/nix/profiles, each user having
+   their own profiles. Structuring the system in this way is how NixOS
+   obtains its key advantages over conventional Linux distributions, such as
+   atomicity and rollback support.
+
+  Usage of the Nix store
+
+   A lot of confusion for newcomers arises from the fact that configuration
+   is stored in the read-only /nix/store tree along with all the installed
+   packages. This fact makes it impossible to manually edit system
+   configuration; all configuration changes must be performed by editing the
+   /etc/nixos/configuration.nix file and executing nixos-rebuild switch.
+   NixOS provides the module system for editing all required configurations.
+   Users should first use the option search tool to check if the option they
+   need exists before attempting to manually add files or configuration via
+   low-level NixOS features like activation scripts.
+
+   The system purity makes it possible to keep system configuration in a
+   central place, without the need to edit multiple files. This configuration
+   can be distributed or version controlled as desired. It also provides for
+   determinism; if you provide the same inputs, the same version of Nixpkgs
+   and the same /etc/nixos/configuration.nix you will get the exact same
+   system state.
+
+  Modules
+
+   The NixOS module system as defined in Nixpkgs provides the means necessary
+   to customize the configuration of the OS. It is used to enable and
+   customize services such as nginx, enable firmware and customize the
+   kernel.
+
+   All module configuration is generally performed by adding options to
+   /etc/nixos/configuration.nix. Most of the examples in the wiki show how
+   this file can be used to configure the OS.
+
+   The NixOS module system implements a typing system which allows
+   typechecking of option settings. It also enables options defined in
+   multiple places to be merged automatically. This allows you to spread your
+   configuration over multiple files, and the options you set across all of
+   those files will be merged together:
+
+ /etc/nixos/configuration.nix
+
+ {
+   imports = [
+     ./basic-webserver.nix
+     ./blog.nix
+   ];
+ }
+
+ /etc/nixos/basic-webserver.nix
+
+ {
+   services.nginx.enable = true;
+   services.nginx.virtualHosts."example.com" = {
+     root = "/var/www/example.com";
+   };
+ }
+
+ /etc/nixos/blog.nix
+
+ {
+   services.nginx.virtualHosts."blog.example.com" = {
+     root = "/var/www/blog.example.com";
+   };
+ }
+
+   See the Modules section of the NixOS Manual for more details.
+
+  Generations
+
+   Every time the system state is rebuilt using nixos-rebuild switch, a new
+   generation is created. You can revert to the previous generation at any
+   time, which is useful if a configuration change (or system update) turns
+   out to be detrimental.
+
+   You can roll back via:
+
+ $ nix-env --rollback               # roll back a user environment
+ $ nixos-rebuild switch --rollback  # roll back a system environment
+
+   NixOS also places entries for previous generations in the bootloader menu,
+   so as a last resort you can always revert to a previous configuration by
+   rebooting. To set the currently booted generation as the default run
+
+ $ /run/current-system/bin/switch-to-configuration boot
+
+   Because NixOS keeps previous generations of system state available in case
+   rollback is desired, old package versions aren't deleted from your system
+   immediately after an update. You can delete old generations manually:
+
+ # delete generations older than 30 days
+ $ nix-collect-garbage --delete-older-than 30d
+
+ # delete ALL previous generations - you can no longer rollback after running this
+ $ nix-collect-garbage -d
+
+   List generations:
+
+ # as root
+ $ nix-env --list-generations --profile /nix/var/nix/profiles/system
+
+   Switch generations:
+
+ # as root switch to generation 204
+ $ nix-env --profile /nix/var/nix/profiles/system --switch-generation 204
+
+   delete broken generation(s):
+
+ # as root delete broken generations 205 and 206
+ $ nix-env --profile /nix/var/nix/profiles/system --delete-generations 205 206
+
+   You can configure automatic garbage collection by setting the nix.gc
+   options in /etc/nixos/configuration.nix. This is recommended, as it keeps
+   the size of the Nix store down.
+
+See also
+
+     * NixOS modules, a library for modular Nix expressions which powers the
+       declarative configuration of NixOS.
+     * NixOS VM tests, a library for creating reproducible infrastructure
+       tests, based on Nixpkgs, NixOS, QEMU and Perl.
+     * NixOS & Flakes Book (Ryan4yin, 2023) - 🛠️ ❤️ An unofficial NixOS &
+       Flakes book for beginners.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Overview_of_the_NixOS_Linux_distribution&oldid=17422"
+   Categories:
+     * Pedias
+     * NixOS
+     * Nix
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 14 September 2024, at 08:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,153 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuring
+          * 1.1 For NixOS
+          * 1.2 For Nix CLI
+     * 2 See also
+   [ ] Toggle the table of contents
+
+                                Unfree software
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Unfree software refers to software that has restrictive licensing on
+   modification and/or redistribution. These types of software cannot be
+   freely provided or distributed in an official capacity, which means that
+   they are neither built by Hydra, nor as they cached on the official binary
+   cache. Despite this, Nixpkgs offers a very large collection of unfree
+   software as derivations, however they cannot be used by default without
+   configuring Nixpkgs and opting in to unfree software usage.
+
+Configuring
+
+  For NixOS
+
+   NixOS offers a module that can configure Nixpkgs, which will retroactively
+   change the pkgs across your configuration to use the new settings,
+   including allowing for unfree packages.
+
+ { config, lib, pkgs, ... }: {
+   nixpkgs.config.allowUnfree = true; # Allows all packages that are marked unfree to be built.
+
+   environment.systemPackages = with pkgs; [
+     steam # No error!
+   ];
+ }
+
+   You may instead configure this on a per-package basis via
+   allowUnfreePredicate.
+
+   Note: Please note that this function has awkward semantics and
+   occasionally doesn't work as expected. Issues like this should be raised
+   directly in Nixpkgs.
+
+ { config, lib, pkgs, ... }: {
+   # Add packages by their "derivation name" here.
+   # Find the derivation name from https://search.nixos.org/
+   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+     "steam"
+   ];
+ }
+
+  For Nix CLI
+
+   As you may have noticed, the above configuration does not apply globally
+   to your NixOS system (and is not applicable for non-NixOS users). Instead,
+   you can configure Nixpkgs at a user level by writing your configuration in
+   ~/.config/nixpkgs/config.nix.
+
+   Note: This file is ignored using nix3 commands, leaving you with the
+   environment variable technique as the easiest resort.
+
+ ~/.config/nixpkgs/config.nix
+
+ {
+   allowUnfree = true;
+ }
+
+   You can alternatively set the environment variable NIXPKGS_ALLOW_UNFREE=1,
+   which is automatically picked up by the Nix CLI. For newer nix3 commands,
+   you will need to additionally pass --impure, otherwise the environment
+   variable is ignored.
+
+ $ export NIXPKGS_ALLOW_UNFREE=1
+ $ nix-shell -p vscode --command 'code' # nix-legacy
+ $ nix run --impure nixpkgs#vscode # nix3
+
+See also
+
+     * Nixpkgs manual on allowing unfree packages
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Unfree_software&oldid=17888"
+   Categories:
+     * Software
+     * Nixpkgs
+     * This page was last edited on 18 October 2024, at 01:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

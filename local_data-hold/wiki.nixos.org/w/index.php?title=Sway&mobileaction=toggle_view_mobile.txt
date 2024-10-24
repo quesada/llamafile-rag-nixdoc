@@ -1,0 +1,402 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+          * 1.1 Using NixOS
+          * 1.2 Using Home Manager
+          * 1.3 Systemd services
+          * 1.4 Using greeter
+     * 2 Configuration
+          * 2.1 Keyboard layout
+          * 2.2 High-DPI scaling
+          * 2.3 Brightness and volume
+     * 3 Troubleshooting
+          * 3.1 Cursor is too tiny on HiDPI displays
+          * 3.2 Missing fonts on Xorg applications
+          * 3.3 Swaylock cannot be unlocked with the correct password
+          * 3.4 Inferior performance compared to other distributions
+          * 3.5 WLR Error when trying to launch Sway
+          * 3.6 Touchscreen input bound to the wrong monitor in multi-monitor
+            setups
+     * 4 Tips and tricks
+          * 4.1 Toggle monitor modes script
+   [ ] Toggle the table of contents
+
+                                      Sway
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Sway is a tiling Wayland compositor and a drop-in replacement for the i3
+   window manager for X11. It works with your existing i3 configuration and
+   supports most of i3's features, plus a few extras. i3 migration guide
+
+Setup
+
+   You can install Sway by enabling it in NixOS directly, or by using Home
+   Manager, or both.
+
+  Using NixOS
+
+   Here is a minimal configuration:
+
+ { config, pkgs, lib, ... }:
+ {
+   environment.systemPackages = with pkgs; [
+     grim # screenshot functionality
+     slurp # screenshot functionality
+     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+     mako # notification system developed by swaywm maintainer
+   ];
+
+   # Enable the gnome-keyring secrets vault.
+   # Will be exposed through DBus to programs willing to store secrets.
+   services.gnome.gnome-keyring.enable = true;
+
+   # enable Sway window manager
+   programs.sway = {
+     enable = true;
+     wrapperFeatures.gtk = true;
+   };
+ }
+
+   A few general comments:
+
+     * There is some friction between GTK theming and Sway. Currently the
+       Sway developers suggest using gsettings to set gtk theme attributes as
+       described here [1]. There is currently a plan to allow GTK theme
+       attributes to be set directly in the Sway config.
+     * Running Sway as a systemd user service is not recommended [2] [3]
+
+  Using Home Manager
+
+   To set up Sway using Home Manager, first you must enable Polkit in your
+   nix configuration:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ security.polkit.enable = true;
+
+   Then you can enable Sway in your home manager configuration. Here is a
+   minimal example:
+
+   wayland.windowManager.sway = {
+     enable = true;
+     config = rec {
+       modifier = "Mod4";
+       # Use kitty as default terminal
+       terminal = "kitty";
+       startup = [
+         # Launch Firefox on start
+         {command = "firefox";}
+       ];
+     };
+   };
+
+   See Home Manager's Options for Sway for a complete list of configuration
+   options.
+
+   You might need to active dbus manually from .zshrc to use i.e: dunst, see
+   Dunst crashes if run as service
+
+  Systemd services
+
+   Kanshi is an output configuration daemon. As explained above, we don't run
+   Sway itself as a systemd service. There are auxiliary daemons that we do
+   want to run as systemd services, for example Kanshi [4], which implements
+   monitor hot swapping. It would be enabled as follows:
+
+    
+
+ /etc/nixos/configuration.nix
+
+   # kanshi systemd service
+   systemd.user.services.kanshi = {
+     description = "kanshi daemon";
+     environment = {
+       WAYLAND_DISPLAY="wayland-1";
+       DISPLAY = ":0";
+     };
+     serviceConfig = {
+       Type = "simple";
+       ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+     };
+   };
+
+    
+
+ sway config
+
+ # give Sway a little time to startup before starting kanshi.
+ exec sleep 5; systemctl --user start kanshi.service
+
+   When you launch Sway, the systemd service is started.
+
+  Using greeter
+
+   Installing a greeter based on greetd is the most straightforward way to
+   launch Sway.
+
+   Tuigreet does not even need a separate compositor to launch.
+
+    
+
+ /etc/nixos/configuration.nix
+
+ services.greetd = {                                                     
+   enable = true;                                                        
+   settings = {                                                          
+     default_session = {                                                 
+       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+       user = "greeter";                                                 
+     };                                                                  
+   };                                                                    
+ };
+
+Configuration
+
+   Sway can be configured for specific users using Home-Manager or manually
+   through configuration files. Default is /etc/sway/config and custom user
+   configuration in ~/.config/sway/config.
+
+  Keyboard layout
+
+   Changing layout for all keyboards to German (de)
+
+ input * xkb_layout "de"
+
+  High-DPI scaling
+
+   Changing scale for all screens to factor 1.5
+
+ output * scale 1.5
+
+  Brightness and volume
+
+   If you are on a laptop, you can set up brightness and volume function keys
+   as follows:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ users.users.yourusername.extraGroups = [ "video" ];
+ programs.light.enable = true;
+ environment.systemPackages = [ pkgs.pulseaudio ];
+
+    
+
+ sway config
+
+ # Brightness
+ bindsym XF86MonBrightnessDown exec light -U 10
+ bindsym XF86MonBrightnessUp exec light -A 10
+
+ # Volume
+ bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
+ bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
+ bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+
+Troubleshooting
+
+  Cursor is too tiny on HiDPI displays
+
+   Using Home Manager try configuring a general mouse cursor size and theme
+
+ home-manager.users.myUser = {
+
+     home.pointerCursor = {
+       name = "Adwaita";
+       package = pkgs.gnome.adwaita-icon-theme;
+       size = 24;
+       x11 = {
+         enable = true;
+         defaultCursor = "Adwaita";
+       };
+     };
+
+ };
+
+   Replace myUser with your user running the graphical environment.
+
+  Missing fonts on Xorg applications
+
+   If fonts for certain languages are missing in Xorg applications (e.g.
+   Japanese fonts don't appear in Discord) even though they're in the system,
+   you can set them as default fonts in your configuration file.
+
+   fonts = {
+     packages = with pkgs; [
+       noto-fonts
+       noto-fonts-cjk
+       noto-fonts-emoji
+       font-awesome
+       source-han-sans
+       source-han-sans-japanese
+       source-han-serif-japanese
+     ];
+     fontconfig.defaultFonts = {
+       serif = [ "Noto Serif" "Source Han Serif" ];
+       sansSerif = [ "Noto Sans" "Source Han Sans" ];
+     };
+   };
+
+  Swaylock cannot be unlocked with the correct password
+
+   Add the following to your NixOS configuration.
+
+   security.pam.services.swaylock = {};
+
+   The programs.sway.enable option does this automatically.
+
+  Inferior performance compared to other distributions
+
+   Enabling realtime may improve latency and reduce stuttering, specially in
+   high load scenarios.
+
+ security.pam.loginLimits = [
+   { domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
+ ];
+
+   Enabling this option allows any program run by the "users" group to
+   request real-time priority.
+
+  WLR Error when trying to launch Sway
+
+   When this happens on a new nixos system, enabling opengl in
+   configuration.nix may fix this issue.
+
+ hardware.opengl.enable = true;
+
+  Touchscreen input bound to the wrong monitor in multi-monitor setups
+
+   See this GitHub issue for Sway and the solution give in this response.
+
+   Using Home Manager add the following to your Sway configuration:
+
+    wayland.windowManager.sway = {
+      [...]
+      config = {
+        [...]
+        input = {
+          [...]
+          "type:touch" = {
+            # Replace touchscreen_output_identifier with the identifier of your touchscreen.
+            map_to_output = touchscreen_output_identifier;
+          };
+        };
+      };
+    };
+
+Tips and tricks
+
+  Toggle monitor modes script
+
+   Following script toggles screen / monitor modes if executed. It can also
+   be mapped to a specific key in Sway.
+
+   First add the Flake input required for the script
+
+ {
+   inputs = {
+     [...]
+     wl-togglescreens.url = "git+https://git.project-insanity.org/onny/wl-togglescreens.git?ref=main";
+   };
+
+   outputs = {self, nixpkgs, ...}@inputs: {
+     nixosConfigurations.myhost = inputs.nixpkgs.lib.nixosSystem {
+       system = "x86_64-linux";
+       specialArgs.inputs = inputs;
+       [...]
+
+   Map the script binary to a specific key
+
+ { config, pkgs, lib, inputs, ... }:{
+   home-manager.users.onny = {
+     programs = {
+       [...]
+       wayland.windowManager.sway = {
+         enable = true;
+         config = {
+           [...]
+           keybindings = lib.mkOptionDefault{
+             [...]
+             "XF86Display" = "exec ${inputs.wl-togglescreens.packages.x86_64-linux.wl-togglescreens}/bin/wl-togglescreens";
+           };
+         };
+       };
+     };
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Sway&oldid=17630"
+   Categories:
+     * Window managers
+     * Applications
+     * This page was last edited on 26 September 2024, at 09:11.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,94 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+#10 - Redox on NixOS, ad-hoc container images, nix-mode.el, static site deploys,
+                                     a job
+
+   Published on Thu Jun 27 2019
+
+#10 - Redox on NixOS, ad-hoc container images, nix-mode.el, static site deploys,
+                                     a job
+
+                                      News
+
+     * A set of patches to build Redox on NixOS
+
+       An attempt to embrace Nix instead of constantly working around the
+       limitations to build Redox OS. The ultra optimistic long-term goal is
+       to be a competing alternative to the GNU make build system the project
+       currently uses, to make Redox builds reproducible and reliable.
+
+     * An experiment: ad-hoc container images
+
+       made by @tazjin
+
+     * Using NixOS as an stateless workstation
+
+       EuAndreh goes through the journey of installing NixOS on their laptop.
+
+     * nix-mode.el 1.4.1 release
+
+       Added support for the indentation function smie-indent-line in
+       NixOS/nix-mode#79 & NixOS/nix-mode#80. Thanks to @j-piecuch and
+       @matthewbauer for the work and testing.
+
+     * PDT Partners is looking for an experienced engineer
+
+       For our Software Infrastructure team, which is responsible for our
+       build, packaging, CI and deployment tooling. We’re using Nix to
+       package our complex C++ and Python stack, and as part of our wider
+       development environment for our fast-moving trading and research
+       applications.
+
+     * Complete overkill or exactly right? Deploying a static site using nix
+
+     * Introducing nixpkgs-tungsten: The most convenient way to working with
+       Tungsten Fabric
+
+       Tungsten Fabric is the open-source offering of Contrail by Juniper
+       Networks - a powerful SDN solution used by many big names in the IT
+       industry. The nixpkgs-tungsten project provides tools and workflows
+       that make it much easier to work with, and on Tungsten Fabric itself.
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,451 @@
+   Link: canonical
+   Link: index: Index
+   Link: search: Search
+   Link: next: Provisioning remote machines via SSH
+   Link: prev: Building and running Docker images
+   Skip to main content [ ] [ ]
+   _____________________ Ctrl+K
+   [IMG] nix.dev
+   IFrame
+
+   Official documentation for getting things done with Nix.
+
+   _____________________ Ctrl+K
+     * Install Nix
+     * Tutorials [ ]
+          * First steps [ ]
+               * Ad hoc shell environments
+               * Reproducible interpreted scripts
+               * Declarative shell environments
+               * Towards reproducibility: pinning Nixpkgs
+          * Nix language basics
+          * Packaging existing software
+          * Package parameters and overrides with callPackage
+          * Working with local files
+          * Cross compilation
+          * Module system [ ]
+               * 1. A basic module
+               * 2. Module system deep dive
+          * NixOS [ ]
+               * NixOS virtual machines
+               * Building a bootable ISO image
+               * Building and running Docker images
+               * Integration testing with NixOS virtual machines
+               * Provisioning remote machines via SSH
+               * Installing NixOS on a Raspberry Pi
+               * Deploying NixOS using Terraform
+               * Setting up an HTTP binary cache
+               * Setting up distributed builds
+     * Guides [ ]
+          * Recipes [ ]
+               * Configure Nix to use a custom binary cache
+               * Automatic environments
+               * Dependencies in the development shell
+               * Managing remote sources
+               * Python development environment
+               * Setting up post-build hooks
+               * Continuous integration with GitHub Actions
+          * Best practices
+          * Troubleshooting
+          * Frequently Asked Questions
+     * Reference [ ]
+          * Glossary
+          * Nix reference manual [ ]
+               * Nix pre-release (development)
+               * Nix 2.24 (latest)
+               * Nix 2.18 (in Nixpkgs rolling)
+               * Nix 2.18 (in Nixpkgs 24.05)
+               * Nix 2.18 (in Nixpkgs 23.11)
+          * Nixpkgs manual
+          * NixOS manual
+          * Community projects
+          * Support tools
+          * Further reading
+          * Pinning Nixpkgs
+     * Concepts [ ]
+          * Flakes
+          * Frequently Asked Questions
+     * Contributing [ ]
+          * How to contribute
+          * How to get help
+          * Contributing documentation [ ]
+               * Documentation resources
+               * Documentation framework
+               * Style guide
+               * How to write a tutorial
+     * Acknowledgements [ ]
+          * Sponsors
+     * Repository
+     * Suggest edit
+     * Open issue
+     * .md
+     * .pdf
+   [ Submit ]
+
+                Integration testing with NixOS virtual machines
+
+Contents
+
+     * What will you learn?
+     * What do you need?
+     * Introduction
+     * The testers.runNixOSTest function
+     * Minimal example
+     * Running tests
+     * Interactive Python shell in the virtual machine
+     * Tests with multiple virtual machines
+     * Additional information regarding NixOS tests
+     * Next steps
+
+                Integration testing with NixOS virtual machines#
+
+What will you learn?#
+
+   This tutorial introduces Nixpkgs functionality for testing NixOS
+   configurations. It also shows how to set up distributed test scenarios
+   that involve multiple machines.
+
+What do you need?#
+
+     * A working Nix installation on Linux, or NixOS
+
+     * Basic knowledge of the Nix language
+
+     * Basic knowledge of NixOS configuration
+
+Introduction#
+
+   Nixpkgs provides a test environment to automate integration testing for
+   distributed systems. It allows defining tests based on a set of
+   declarative NixOS configurations and using a Python shell to interact with
+   them through QEMU as the backend. Those tests are widely used to ensure
+   that NixOS works as intended, so in general they are called NixOS Tests.
+   They can be written and launched outside of NixOS, on any Linux
+   machine[1].
+
+   Integration tests are reproducible due to the design properties of Nix,
+   making them a valuable part of a continuous integration (CI) pipeline.
+
+The testers.runNixOSTest function#
+
+   NixOS VM tests are defined using the testers.runNixOSTest function. The
+   pattern for NixOS VM tests looks like this:
+
+  1let
+  2  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-23.11";
+  3  pkgs = import nixpkgs { config = {}; overlays = []; };
+  4in
+  5
+  6pkgs.testers.runNixOSTest {
+  7  name = "test-name";
+  8  nodes = {
+  9    machine1 = { config, pkgs, ... }: {
+ 10      # ...
+ 11    };
+ 12    machine2 = { config, pkgs, ... }: {
+ 13      # ...
+ 14    };
+ 15  };
+ 16  testScript = { nodes, ... }: ''
+ 17    # ...
+ 18  '';
+ 19}
+
+   The function testers.runNixOSTest takes a module to specify the test
+   options. Because this module only sets configuration values, one can use
+   the abbreviated module notation.
+
+   The following configuration values must be set:
+
+     * name defines the name of the test.
+
+     * nodes contains a set of named configurations, because a test script
+       can involve more than one virtual machine. Each virtual machine is
+       created from a NixOS configuration.
+
+     * testScript defines the Python test script, either as literal string or
+       as a function that takes a nodes attribute. This Python test script
+       can access the virtual machines via the names used for the nodes. It
+       has super user rights in the virtual machines. In the Python script
+       each virtual machine is accessible via the machine object. NixOS
+       provides various methods to run tests on these configurations.
+
+   The test framework automatically starts the virtual machines and runs the
+   Python script.
+
+Minimal example#
+
+   As a minimal test on the default configuration, we will check if the user
+   root and alice can run Firefox. We will build the example up from scratch.
+
+    1. Use a pinned version of Nixpkgs, and explicitly set configuration
+       options and overlays to avoid them being inadvertently overridden by
+       global configuration:
+
+ 1let
+ 2  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-23.11";
+ 3  pkgs = import nixpkgs { config = {}; overlays = []; };
+ 4in
+ 5
+ 6pkgs.testers.runNixOSTest {
+ 7  # ...
+ 8}
+
+    2. Label the test with a descriptive name:
+
+ 1name = "minimal-test";
+
+    3. Because this example only uses one virtual machine, the node we
+       specify is simply called machine. This name is arbitrary and can be
+       chosen freely. As configuration you use the relevant parts of the
+       default configuration, that we used in a previous tutorial:
+
+  1nodes.machine = { config, pkgs, ... }: {
+  2  users.users.alice = {
+  3    isNormalUser = true;
+  4    extraGroups = [ "wheel" ];
+  5    packages = with pkgs; [
+  6      firefox
+  7      tree
+  8    ];
+  9  };
+ 10
+ 11  system.stateVersion = "23.11";
+ 12};
+
+    4. This is the test script:
+
+ 1machine.wait_for_unit("default.target")
+ 2machine.succeed("su -- alice -c 'which firefox'")
+ 3machine.fail("su -- root -c 'which firefox'")
+
+       This Python script refers to machine which is the name chosen for the
+       virtual machine configuration used in the nodes attribute set.
+
+       The script waits until systemd reaches default.target. It uses the su
+       command to switch between users and the which command to check if the
+       user has access to firefox. It expects that the command which firefox
+       to succeed for user alice and to fail for root.
+
+       This script will be the value of the testScript attribute.
+
+   The complete minimal-test.nix file content looks like the following:
+
+  1let
+  2  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-23.11";
+  3  pkgs = import nixpkgs { config = {}; overlays = []; };
+  4in
+  5
+  6pkgs.testers.runNixOSTest {
+  7  name = "minimal-test";
+  8
+  9  nodes.machine = { config, pkgs, ... }: {
+ 10
+ 11    users.users.alice = {
+ 12      isNormalUser = true;
+ 13      extraGroups = [ "wheel" ];
+ 14      packages = with pkgs; [
+ 15        firefox
+ 16        tree
+ 17      ];
+ 18    };
+ 19
+ 20    system.stateVersion = "23.11";
+ 21  };
+ 22
+ 23  testScript = ''
+ 24    machine.wait_for_unit("default.target")
+ 25    machine.succeed("su -- alice -c 'which firefox'")
+ 26    machine.fail("su -- root -c 'which firefox'")
+ 27  '';
+ 28}
+
+Running tests#
+
+   To set up all machines and run the test script:
+
+ $ nix-build minimal-test.nix
+
+ ...
+ test script finished in 10.96s
+ cleaning up
+ killing machine (pid 10)
+ (0.00 seconds)
+ /nix/store/bx7z3imvxxpwkkza10vb23czhw7873w2-vm-test-run-minimal-test
+
+Interactive Python shell in the virtual machine#
+
+   When developing tests or when something breaks, it’s useful to
+   interactively tinker with the test or access a terminal for a machine.
+
+   To start an interactive Python session with the testing framework:
+
+ $ $(nix-build -A driverInteractive minimal-test.nix)/bin/nixos-test-driver
+
+   Here you can run any of the testing operations. Execute the testScript
+   attribute from minimal-test.nix with the test_script() function.
+
+   If a virtual machine is not yet started, the test environment takes care
+   of it on the first call of a method on a machine object.
+
+   But you can also manually trigger the start of the virtual machine with:
+
+ >>> machine.start()
+
+   for a specific node,
+
+   or
+
+ >>> start_all()
+
+   for all nodes.
+
+   You can enter a interactive shell on the virtual machine using:
+
+ >>> machine.shell_interact()
+
+   and run shell commands like:
+
+ uname -a
+
+ Linux server 5.10.37 #1-NixOS SMP Fri May 14 07:50:46 UTC 2021 x86_64 GNU/Linux
+
+   Re-running successful tests
+
+   Because test results are kept in the Nix store, a successful test is
+   cached. This means that Nix will not run the test a second time as long as
+   the test setup (node configuration and test script) stays semantically the
+   same. Therefore, to run a test again, one needs to remove the result.
+
+   If you would try to delete the result using the symbolic link, you will
+   get the following error:
+
+ nix-store --delete ./result
+
+ finding garbage collector roots...
+ 0 store paths deleted, 0.00 MiB freed
+ error: Cannot delete path '/nix/store/4klj06bsilkqkn6h2sia8dcsi72wbcfl-vm-test-run-unnamed' since it is still alive. To find out why, use: nix-store --query --roots
+
+   Instead, remove the symbolic link and only then remove the cached result:
+
+ rm ./result
+ nix-store --delete /nix/store/4klj06bsilkqkn6h2sia8dcsi72wbcfl-vm-test-run-unnamed
+
+   This can be also done with one command:
+
+ result=$(readlink -f ./result) rm ./result && nix-store --delete $result
+
+Tests with multiple virtual machines#
+
+   Tests can involve multiple virtual machines, for example to test
+   client-server-communication.
+
+   The following example setup includes:
+
+     * A virtual machine named server running nginx with default
+       configuration.
+
+     * A virtual machine named client that has curl available to make an HTTP
+       request.
+
+     * A testScript orchestrating testing logic between client and server.
+
+   The complete client-server-test.nix file content looks like the following:
+
+ let
+   nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-23.11";
+   pkgs = import nixpkgs { config = {}; overlays = []; };
+ in
+
+ pkgs.testers.runNixOSTest {
+   name = "client-server-test";
+
+   nodes.server = { pkgs, ... }: {
+     networking = {
+       firewall = {
+         allowedTCPPorts = [ 80 ];
+       };
+     };
+     services.nginx = {
+       enable = true;
+       virtualHosts."server" = {};
+     };
+   };
+
+   nodes.client = { pkgs, ... }: {
+     environment.systemPackages = with pkgs; [
+       curl
+     ];
+   };
+
+   testScript = ''
+     server.wait_for_unit("default.target")
+     client.wait_for_unit("default.target")
+     client.succeed("curl http://server/ | grep -o \"Welcome to nginx!\"")
+   '';
+ }
+
+   The test script performs the following steps:
+
+    1. Start the server and wait for it to be ready.
+
+    2. Start the client and wait for it to be ready.
+
+    3. Run curl on the client and use grep to check the expected return
+       string. The test passes or fails based on the return value.
+
+   Run the test:
+
+ $ nix-build client-server-test.nix
+
+Additional information regarding NixOS tests#
+
+     * Running integration tests on CI requires hardware acceleration, which
+       many CIs do not support.
+
+       To run integration tests in GitHub Actions see how to disable hardware
+       acceleration.
+
+     * NixOS comes with a large set of tests that can serve as educational
+       examples.
+
+       A good inspiration is Matrix bridging with an IRC.
+
+Next steps#
+
+     * Module system deep dive
+
+     * Building a bootable ISO image
+
+     * Building and running Docker images
+
+     ----------------------------------------------------------------------
+
+   [1]
+
+   Support for running NixOS VM tests on macOS is also implemented but
+   currently undocumented.
+
+   previous
+
+   Building and running Docker images
+
+   next
+
+   Provisioning remote machines via SSH
+
+   Contents
+     * What will you learn?
+     * What do you need?
+     * Introduction
+     * The testers.runNixOSTest function
+     * Minimal example
+     * Running tests
+     * Interactive Python shell in the virtual machine
+     * Tests with multiple virtual machines
+     * Additional information regarding NixOS tests
+     * Next steps
+
+   By the Nix documentation team and contributors.
+
+   © Copyright 2016-2024, NixOS Foundation.

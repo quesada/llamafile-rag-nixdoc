@@ -1,0 +1,146 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Transmission: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    28 February 2024
+
+     * curprev [ ] [ ] 00:0600:06, 28 February 2024‎
+       imported>Jmarmstrong1207‎ 2,240 bytes −5‎ Modify service configuration
+       section to be easier to understand for newer users. Remove section
+       about losing settings at relaunch, because I believe that has been
+       fixed. It works on my machine
+
+    19 February 2024
+
+     * curprev [ ] [ ] 12:4312:43, 19 February 2024‎
+       imported>Jmarmstrong1207‎ 2,245 bytes +5‎ Change to outdated tag
+     * curprev [ ] [ ] 08:5508:55, 19 February 2024‎
+       imported>Jmarmstrong1207‎ 2,240 bytes +318‎ Add installation guide
+     * curprev [ ] [ ] 08:5208:52, 19 February 2024‎
+       imported>Jmarmstrong1207‎ m 1,922 bytes +160‎ Added note of possible
+       deletion for service config
+
+    4 October 2023
+
+     * curprev [ ] [ ] 11:5711:57, 4 October 2023‎ imported>IgorM‎ 1,762
+       bytes +523‎ Added example for remote access
+
+    9 August 2022
+
+     * curprev [ ] [ ] 20:0920:09, 9 August 2022‎ imported>Fufexan‎ m 1,239
+       bytes +28‎ Add page to Applications category
+
+    26 April 2019
+
+     * curprev [ ] [ ] 08:1108:11, 26 April 2019‎ imported>Dywedir‎ m 1,211
+       bytes −1‎ Update link
+
+    17 December 2017
+
+     * curprev [ ] [ ] 03:0103:01, 17 December 2017‎ imported>Samueldr‎ 1,212
+       bytes +1,212‎ Creates page with details about the configuration.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Transmission"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

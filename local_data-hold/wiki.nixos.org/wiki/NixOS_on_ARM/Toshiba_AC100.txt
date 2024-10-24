@@ -1,0 +1,144 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Installation notes
+     * 3 Resources
+   [ ] Toggle the table of contents
+
+                           NixOS on ARM/Toshiba AC100
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   Toshiba AC100
+   Architecture ARMv7        
+   Codename     Compal PAZ00 
+
+Status
+
+     This article or section is out of date.                                  
+     Reason: Section refers to old user-provided images. Should be reviewed   
+     with cross-compilation, or native compilation through userspace          
+     emulation. (Discuss in Talk:NixOS on ARM/Toshiba AC100)                  
+     Once the page has been updated this notice can be removed.               
+
+   It has been reported as working with @dezgeg's ARMv7 images by
+   User:Roberth following these instructions.
+
+Installation notes
+
+   The Toshiba AC100 used to ship with Android 2, the fastboot bootloader and
+   a custom partition table format. Nowadays, you can install U-boot on it.
+   It is advisable to make a back-up (documented elsewhere; you'll need
+   nvflash as documented below).
+
+   In order to modify the operating system, you need to connect the AC100
+   with a mini-usb cable to an Intel system we'll call the host. On the host,
+   build the nvflash tool:
+
+ pkgs.stdenv.mkDerivation {
+     name = "tegra-driver-package";
+     version = "r16.5.0";
+     src = pkgs.fetchurl {
+       url = http://developer.download.nvidia.com/mobile/tegra/l4t/r16.5.0/ventana_release_armhf/Tegra20_Linux_R16.5_armhf.tbz2;
+       sha256 = "11qmqj0yillwfapzcfjr4px4z8l7zkh0v3xrfpr9riff54xsidq2";
+     };
+     configurePhase = "";
+     buildPhase = "";
+     checkPhase = "";
+     installPhase = ''
+       mkdir $out
+       cp -r * $out/
+     '';
+ }
+
+   Build the nvflash tool and follow the instructions for installing U-boot
+   starting with the getbct.sh step at
+   https://paz00.ru/index.php/Migrate_to_U-Boot#With_prebuilt_sosuboot-tegra_archive_or_sdcard_image_.28PC_not_required.29
+
+   When U-boot is installed, proceed with the sd-image-armv7l-linux.img image
+   from https://www.cs.helsinki.fi/u/tmtynkky/nixos-arm/installer/ and follow
+   the general NixOS installation instructions. If the first installation
+   attempt fails, you will need to use the U-boot command line to select an
+   alternative installation medium, using something like (please correct):
+
+ setenv boot_targets=usb0
+ run distro_boot
+
+Resources
+
+     * Embedded Linux Wiki article
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Toshiba_AC100&oldid=4756"
+   Hidden categories:
+     * Pages with syntax highlighting errors
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 26 December 2021, at 22:17.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

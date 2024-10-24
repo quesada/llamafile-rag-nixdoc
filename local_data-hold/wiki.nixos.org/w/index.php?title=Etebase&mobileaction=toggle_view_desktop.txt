@@ -1,0 +1,191 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Example configurations
+          * 1.1 Nginx example
+          * 1.2 Caddy example
+     * 2 Admin user
+          * 2.1 CLI Method
+          * 2.2 INI Method
+          * 2.3 After
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                    Etebase
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Etebase is an end-to-end encrypted backend as a service. Think Firebase,
+   but encrypted in a way that only your users can access their data.
+
+Example configurations
+
+     * For the server to accept requests from a remote machine
+       services.etebase-server.settings.allowed_hosts.allowed_host1 variable
+       should be set as the server's subdomain/domain name and your proxy has
+       to present a Host header.
+     * The django secret key is preferably a randomly generated key, the use
+       of a secret managing scheme might prove useful. see
+       Comparison_of_secret_managing_schemes.
+     * services.etebase-server.global.secret_file needs to be writeable by
+       configured services.etebase-server.user. If you're experiencing errors
+       on initial setup, make sure there is no file at the filepath so that
+       Etebase can generate it
+
+  Nginx example
+
+   This is a basic configuration to run the Etebase server:
+
+   networking.firewall.allowedTCPPorts = [ 443 ];
+   services = {
+     etebase-server = {
+       enable = true;
+       unixSocket = "/var/lib/etebase-server/etebase-server.sock";
+       user = "etebase-server";
+       settings = {
+         global.debug = false;
+         global.secret_file = "/path/to/secret";
+         allowed_hosts.allowed_host1 = "etebase.your.domain";
+       };
+     };
+     nginx = {
+       enable = true;
+       recommendedOptimisation = true;
+       recommendedProxySettings = true;
+       recommendedTlsSettings = true;
+       recommendedGzipSettings = true;
+       virtualHosts."etebase.your.domain" = {
+         enableACME = true;
+         forceSSL = true;
+         locations."/".proxyPass = "http://unix:/var/lib/etebase-server/etebase-server.sock";
+       };
+     };
+   };
+
+  Caddy example
+
+ services.caddy = {
+   enable = true;
+   virtualHosts = {
+     "etebase.your.domain".extraConfig = ''
+       reverse_proxy 127.0.0.1:8001 {
+         header_up Host {upstream_hostport}
+       }
+     '';
+   };
+ };
+
+ services.etebase-server = {
+   enable = true;
+   settings = {
+     allowed_hosts = {
+       allowed_host2 = "etebase.your.domain";
+       allowed_host1 = "127.0.0.1";
+     };
+     global.secret_file = "/path/to/secret";
+   };
+ };
+
+Admin user
+
+   To use the Etebase server, the creation of an admin account is required.
+   This requires manual intervention:
+
+    CLI Method
+
+   Note: This method possibly might only when using the NixOS service. If
+   this command fails, use the INI Method described below
+
+ sudo etebase-server createsuperuser
+
+    INI Method
+
+   First you need to find where the generated .ini configuration file is
+   located:
+
+ ls /nix/store | grep etebase-server.ini
+
+   As a super user, run this command:
+   ETEBASE_EASY_CONFIG_PATH=/path/to/etebase-server.ini etebase-server
+   createsuperuser and that should prompt you to create a user.
+
+    After
+
+   Login with these credentials to https://etebase.your.domain/admin and
+   create users for your etebase clients through the GUI.
+
+See also
+
+     * https://github.com/etesync/server#usage
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Etebase&oldid=17045"
+   Category:
+     * Server
+     * This page was last edited on 2 September 2024, at 12:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

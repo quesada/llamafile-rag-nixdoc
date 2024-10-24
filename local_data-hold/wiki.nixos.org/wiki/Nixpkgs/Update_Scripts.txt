@@ -1,0 +1,125 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Update Scripts
+          * 1.1 Git Updater
+          * 1.2 Unstable Git Updater
+   [ ] Toggle the table of contents
+
+                             Nixpkgs/Update Scripts
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Update Scripts can be added to packages via setting, passthru.updateScript
+   which is then executed by r-ryantm to create an updated pull request or
+   can be manually invoked via nix-shell maintainers/scripts/update.nix
+   --argstr package <packagename>.
+
+Update Scripts
+
+   List of prepackaged update scripts.
+
+  Git Updater
+
+   Updates to the latest git tag.
+
+ passthru.updateScript = gitUpdater {
+   ignoredVersions = ""; # Optional - Filter to ignore versions
+   rev-prefix = "v"; # Optional - set if tags have a prefix before the version number
+   odd-unstable = false; # Optional - Ignore odd numberd versions
+   patchlevel-unstable = false; # Optional - Ignore patchlevel versions
+   url = null; #  Optional - Set this to a git url when the src is not a git repo
+ };
+
+   Source:
+   https://github.com/NixOS/nixpkgs/blob/master/pkgs/common-updater/git-updater.nix
+
+  Unstable Git Updater
+
+   Updates to the latest git tag
+
+ passthru.updateScript = unstableGitUpdater {
+   branch = null; # Optional - Which branch should be updated from
+   url = null; # Optional - The git url, if empty it will be set to src.gitRepoUrl
+   tagPrefix = "v"; # Optional - strip this prefix from a tag name
+   hardcodeZeroVersion = false; # Optional - Use a made-up version "0" instead of latest tag. Use when the project's tagging system is incompatible with what we expect from versions
+   tagFormat = "*"; # Optional - A `git describe --tags --match '<format>'` pattern that tags must match to be considered
+   tagConverter = null; # Optional - command to convert more complex tag formats. It receives the git tag via stdin and should convert it into x.y.z format to stdout. Example: https://github.com/NixOS/nixpkgs/blob/master/pkgs/by-name/ch/chirp/package.nix#L41-L45
+   shallowClone = true; # Optional - do not perform a complete clone
+ };
+
+   Source:
+   https://github.com/NixOS/nixpkgs/blob/master/pkgs/common-updater/unstable-updater.nix
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nixpkgs/Update_Scripts&oldid=17716"
+   Category:
+     * Nixpkgs
+     * This page was last edited on 5 October 2024, at 21:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

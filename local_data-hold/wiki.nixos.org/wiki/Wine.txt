@@ -1,0 +1,125 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 32-bit and 64-bit Support
+   [ ] Toggle the table of contents
+
+                                      Wine
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Wine is an application to run Windows applications and games.
+
+32-bit and 64-bit Support
+
+   On x86_64-linux, the wine package supports by default both 32- and 64-bit
+   applications. On every other platform, the wine package supports by
+   default only 32-bit applications.
+
+   These defaults can however be overwritten like this:
+
+ {
+   environment.systemPackages = with pkgs; [
+     # ...
+
+     # support both 32- and 64-bit applications
+     wineWowPackages.stable
+
+     # support 32-bit only
+     wine
+
+     # support 64-bit only
+     (wine.override { wineBuild = "wine64"; })
+
+     # support 64-bit only
+     wine64
+
+     # wine-staging (version with experimental features)
+     wineWowPackages.staging
+
+     # winetricks (all versions)
+     winetricks
+
+     # native wayland support (unstable)
+     wineWowPackages.waylandFull
+   ];
+ }
+
+   If you get the error wine: '/path/to/your/wineprefix' is a 64-bit
+   installation, it cannot be used with a 32-bit wineserver., then you need a
+   64-bit build like wineWowPackages.
+
+   The override method is mentioned in the manual.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Wine&oldid=12227"
+   Categories:
+     * Applications
+     * Gaming
+     * This page was last edited on 19 April 2024, at 17:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

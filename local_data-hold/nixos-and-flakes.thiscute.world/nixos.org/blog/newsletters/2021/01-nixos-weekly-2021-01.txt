@@ -1,0 +1,106 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #01 - NixOS Weekly
+
+   Published on Thu Jan 21 2021
+
+                               #01 - NixOS Weekly
+
+                                      News
+
+Announcements
+
+     * RFC 0080 Change NixOS releases to YY.05,YY.11 accepted
+
+       The next NixOS stable release will be 21.05.
+
+     * agenix - manage NixOS secrets - public beta
+
+       Agenix is a command-line tool for managing secrets encrypted with your
+       existing SSH keys. It includes a NixOS module, age, for adding
+       encrypted secrets into the Nix store and decrypting them.
+
+     * Cachix: Postmortem of outage on 20th December
+
+Tutorials
+
+     * Deploying with GitHub Actions and more Nix
+
+     * Scrive Nix Workshop specialized for Haskell developers
+
+     * Installing NixOS on a raspberry pi 4
+
+       As the raspberry pi 4 is still not officially supported, this is a
+       tutorial on how to get a base installation going if necessary without
+       a screen.
+
+     * Tailscale on NixOS: A New Minecraft Server in Ten Minutes
+
+     * Encrypted Secrets with NixOS
+
+Resources
+
+     * autopatchelf - allowing arbitrary binaries to run on NixOS
+
+     * Podcast: A content addressable store for Nix with Théophane Hufschmitt
+
+     * Mobile NixOS: November 2020 round-up
+
+     * tex2nix
+
+       Generate small texlive environments for your document.
+
+     * NixOS in the Cloud, step-by-step: part 1
+
+     * nix-ld
+
+       Run unpatched dynamic binaries on NixOS.
+
+     * NixOS cloud images
+
+       Additional NixOS install images for Amazon (aarch64, x86_64),
+       openstack and kexec.
+
+                         Contribute to the NixOS Weekly
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,251 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                   Creating a NixOS live CD: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    1 August 2024
+
+     * curprev [ ] [ ] 21:3321:33, 1 August 2024‎ JadeTheDragon talk
+       contribs‎ m 4,862 bytes +20‎ →‎Static IP Address: Changed
+       networking.interfaces.eth0.ip4 to
+       networking.interfaces.eth0.ipv4.addresses to be consistent with the
+       current proper usage ( as of 24.05 ) Tag: Visual edit
+
+    30 July 2024
+
+     * curprev [ ] [ ] 12:4412:44, 30 July 2024‎ Jopejoe1 talk contribs‎
+       4,842 bytes +120‎ Marked this version for translation
+     * curprev [ ] [ ] 12:4412:44, 30 July 2024‎ Jopejoe1 talk contribs‎ m
+       4,722 bytes −41‎ Improvements for translations
+
+    22 July 2024
+
+     * curprev [ ] [ ] 19:3119:31, 22 July 2024‎ Unabomberlive talk contribs‎
+       4,763 bytes +168‎ Marked this version for translation Tags: Mobile
+       edit Mobile web edit
+     * curprev [ ] [ ] 19:3119:31, 22 July 2024‎ Unabomberlive talk contribs‎
+       m 4,595 bytes +25‎ No edit summary Tags: Manual revert Mobile edit
+       Mobile web edit
+     * curprev [ ] [ ] 19:3019:30, 22 July 2024‎ Unabomberlive talk contribs‎
+       4,570 bytes −25‎ No edit summary Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 18:0618:06, 22 July 2024‎ Unabomberlive talk contribs‎
+       4,595 bytes −175‎ No edit summary Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 18:0318:03, 22 July 2024‎ Unabomberlive talk contribs‎
+       4,770 bytes −25‎ No edit summary Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 18:0218:02, 22 July 2024‎ Unabomberlive talk contribs‎
+       4,795 bytes −115‎ No edit summary Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 18:0018:00, 22 July 2024‎ Unabomberlive talk contribs‎
+       m 4,910 bytes +129‎ No edit summary Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 17:5217:52, 22 July 2024‎ Unabomberlive talk contribs‎
+       4,781 bytes +207‎ Marked this version for translation Tags: Mobile
+       edit Mobile web edit
+     * curprev [ ] [ ] 17:5117:51, 22 July 2024‎ Unabomberlive talk contribs‎
+       4,574 bytes +301‎ Make translatable Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 17:4517:45, 22 July 2024‎ Unabomberlive talk contribs‎
+       m 4,273 bytes +25‎ No edit summary Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 16:0116:01, 22 July 2024‎ Misuzu talk contribs‎ 4,248
+       bytes +35‎ Update flake example Tag: Visual edit
+     * curprev [ ] [ ] 15:5815:58, 22 July 2024‎ Starfish2228 talk contribs‎
+       m 4,213 bytes +1‎ →‎Building: fix more typo
+     * curprev [ ] [ ] 15:5615:56, 22 July 2024‎ Starfish2228 talk contribs‎
+       m 4,212 bytes +14‎ →‎Building: clean up typos
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:1221:12, 19 April 2024‎ Klinger talk contribs‎ m
+       4,198 bytes −26‎ No edit summary
+
+    26 November 2023
+
+     * curprev [ ] [ ] 08:3008:30, 26 November 2023‎ imported>Onny‎ m 4,224
+       bytes −3‎ No edit summary
+
+    24 November 2023
+
+     * curprev [ ] [ ] 12:0912:09, 24 November 2023‎ imported>Onny‎ m 4,227
+       bytes +51‎ No edit summary
+     * curprev [ ] [ ] 12:0412:04, 24 November 2023‎ imported>Onny‎ 4,176
+       bytes +897‎ Add nix flakes example
+
+    21 September 2022
+
+     * curprev [ ] [ ] 13:5513:55, 21 September 2022‎ imported>Nilp0inter‎
+       3,279 bytes +19‎ Boot fail because default memory limit is to low.
+       Also without KVM enable the boot is very very slow.
+
+    31 August 2022
+
+     * curprev [ ] [ ] 14:5414:54, 31 August 2022‎ imported>Milahu‎ 3,260
+       bytes +1,184‎ add section: Building faster
+
+    4 April 2022
+
+     * curprev [ ] [ ] 13:2713:27, 4 April 2022‎ imported>Privacy1st‎ m 2,076
+       bytes +17‎ update broken link
+
+    20 September 2021
+
+     * curprev [ ] [ ] 08:5208:52, 20 September 2021‎ imported>Nix‎ m 2,059
+       bytes +3‎ category: cookbook
+
+    8 December 2018
+
+     * curprev [ ] [ ] 17:4417:44, 8 December 2018‎ imported>Mic92‎ 2,056
+       bytes −216‎ isos do now have zfs again
+     * curprev [ ] [ ] 14:0814:08, 8 December 2018‎ imported>Spacekookie‎ m
+       2,272 bytes 0‎ Fixing nameserver option name
+
+    6 April 2018
+
+     * curprev [ ] [ ] 03:2103:21, 6 April 2018‎ imported>Sh4r3m4n‎ 2,272
+       bytes +5‎ Make building and SSH sections compatible (prefix pkgs.
+       because there is no with clause)
+     * curprev [ ] [ ] 03:1903:19, 6 April 2018‎ imported>Sh4r3m4n‎ 2,267
+       bytes +2‎ Fix SSH configuration typo (it produced a syntax error)
+
+    24 October 2017
+
+     * curprev [ ] [ ] 20:4820:48, 24 October 2017‎ imported>HLandau‎ 2,265
+       bytes −159‎ No edit summary
+
+    23 August 2017
+
+     * curprev [ ] [ ] 11:2011:20, 23 August 2017‎ imported>Makefu‎ m 2,424
+       bytes −52‎ How-To -> Guide
+
+    22 August 2017
+
+     * curprev [ ] [ ] 20:1220:12, 22 August 2017‎ imported>Mic92‎ 2,476
+       bytes +159‎ →‎how to build your own image
+     * curprev [ ] [ ] 20:0920:09, 22 August 2017‎ imported>Mic92‎ 2,317
+       bytes +83‎ →‎how to build your own image
+     * curprev [ ] [ ] 20:0720:07, 22 August 2017‎ imported>Mic92‎ 2,234
+       bytes +3‎ No edit summary
+     * curprev [ ] [ ] 20:0720:07, 22 August 2017‎ imported>Mic92‎ 2,231
+       bytes +337‎ →‎how to build your own image
+     * curprev [ ] [ ] 20:0420:04, 22 August 2017‎ imported>Mic92‎ 1,894
+       bytes +333‎ →‎Start SSH with your SSH key
+     * curprev [ ] [ ] 19:2219:22, 22 August 2017‎ imported>Makefu‎ m 1,561
+       bytes +51‎ No edit summary
+
+    21 August 2017
+
+     * curprev [ ] [ ] 18:3618:36, 21 August 2017‎ imported>Makefu‎ m 1,510
+       bytes +4‎ No edit summary
+     * curprev [ ] [ ] 18:3518:35, 21 August 2017‎ imported>Makefu‎ m 1,506
+       bytes −15‎ No edit summary
+     * curprev [ ] [ ] 18:3518:35, 21 August 2017‎ imported>Makefu‎ 1,521
+       bytes −969‎ remove old howto code
+     * curprev [ ] [ ] 18:2818:28, 21 August 2017‎ imported>Makefu‎ 2,490
+       bytes −633‎ remove old code
+
+    30 June 2017
+
+     * curprev [ ] [ ] 10:1010:10, 30 June 2017‎ imported>Fadenb‎ 3,123 bytes
+       +3,123‎ Created page with "== motivation == creating a modified NIXOS
+       live CD out of a working nixos installation gives you the benefits: *
+       verify what is included * no need to download it * it is easy..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Creating_a_NixOS_live_CD"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

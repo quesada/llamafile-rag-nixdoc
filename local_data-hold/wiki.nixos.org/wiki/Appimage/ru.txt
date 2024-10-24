@@ -1,0 +1,179 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Использование
+          * 1.1 Запуск
+          * 1.2 Упаковывание AppImage
+     * 2 Настройка
+     * 3 Зарегистрируйте файлы AppImage как исполняемый тип в binfmt_misc
+   [ ] Toggle the table of contents
+
+                                    Appimage
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Appimage and the translation
+   is 82% complete.
+   Other languages:
+     * English
+     * русский
+     * 日本語
+
+   AppImage is a monolithic packaging format for linux applications. It
+   contains all dependencies in one file that is composed of an executable
+   with a tacked on filesystem.
+
+Использование
+
+  Запуск
+
+   В большинстве дистрибутивов все, что нужно сделать, это загрузить файл
+   .AppImage, сделать его исполняемым chmod +x $AppImage и выполнить его.
+   Однако это не работает в NixOS «из коробки», поскольку файлы AppImage
+   обычно (если не всегда) зависят от определенных библиотек находящихся в
+   жёстко заданных путях.
+
+ $ nix-shell -p appimage-run
+ $ appimage-run $AppImageFile
+
+  Упаковывание AppImage
+
+   См. руководство Nixpkgs manual on wrapping AppImage packages. Если кратко,
+   AppImage извлекается, а все зависимости добавляются в качестве
+   зависимостей сборки nix. Следующий пример представляет собой производную
+   для программы Quba, которая также распространяется в виде AppImage.
+
+ {
+   lib,
+   appimageTools,
+   fetchurl,
+ }:
+ let
+   version = "1.4.0";
+   pname = "quba";
+   name = "${pname}-${version}";
+
+   <div lang="en" dir="ltr" class="mw-content-ltr">
+ src = fetchurl {
+     url = "https://github.com/ZUGFeRD/quba-viewer/releases/download/v${version}/Quba-${version}.AppImage";
+     hash = "sha256-EsTF7W1np5qbQQh3pdqsFe32olvGK3AowGWjqHPEfoM=";
+   };
+ </div>
+
+   appimageContents = appimageTools.extractType1 { inherit name src; };
+ in
+ appimageTools.wrapType1 {
+   inherit name src;
+
+   extraInstallCommands = ''
+     mv $out/bin/${name} $out/bin/${pname}
+     install -m 444 -D ${appimageContents}/${pname}.desktop -t $out/share/applications
+     substituteInPlace $out/share/applications/${pname}.desktop \
+       --replace-fail 'Exec=AppRun' 'Exec=${pname}'
+     cp -r ${appimageContents}/usr/share/icons $out/share
+   '';
+
+   <div lang="en" dir="ltr" class="mw-content-ltr">
+ meta = {
+     description = "Viewer for electronic invoices";
+     homepage = "https://github.com/ZUGFeRD/quba-viewer";
+     downloadPage = "https://github.com/ZUGFeRD/quba-viewer/releases";
+     license = lib.licenses.asl20;
+     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+     maintainers = with lib.maintainers; [ onny ];
+     platforms = [ "x86_64-linux" ];
+   };
+ }
+
+Настройка
+
+Зарегистрируйте файлы AppImage как исполняемый тип в binfmt_misc
+
+   Вы можете указать ядру Linux использовать интерпретатор (например,
+   appimage-run) при выполнении определенных двоичных файлов через
+   использование binfmt_misc, либо по расширению имени файла, либо по
+   совпадению магических чисел. Приведенная ниже конфигурация NixOS
+   регистрирует файлы AppImage (ELF-файлы с магическим числом "AI" + 0x02)
+   для запуска с помощью appimage-run в качестве интерпретатора.
+
+   С NixOS 24.05, имеется опция binfmt:
+
+ programs.appimage = {
+   enable = true;
+   binfmt = true;
+ };
+
+   Таким образом файлы AppImage могут вызываться напрямую, как если бы они
+   были обычными программами
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Appimage/ru&oldid=16710"
+   Category:
+     * Software/ru
+     * This page was last edited on 14 August 2024, at 10:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

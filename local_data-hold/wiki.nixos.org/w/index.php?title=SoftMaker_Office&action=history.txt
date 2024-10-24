@@ -1,0 +1,144 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       SoftMaker Office: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 July 2024
+
+     * curprev [ ] [ ] 18:1218:12, 5 July 2024‎ Klinger talk contribs‎ m
+       3,734 bytes +26‎ Category:Applications added
+
+    18 April 2024
+
+     * curprev [ ] [ ] 20:2520:25, 18 April 2024‎ Klinger talk contribs‎
+       3,708 bytes +175‎ added: short description of the programs included in
+       introduction Tag: Visual edit: Switched
+
+    2 November 2023
+
+     * curprev [ ] [ ] 10:0810:08, 2 November 2023‎ imported>Yannickloth‎ m
+       3,533 bytes +396‎ Add instructions to install SoftMaker Office 2021
+       version 1064
+     * curprev [ ] [ ] 09:5209:52, 2 November 2023‎ imported>Yannickloth‎ m
+       3,137 bytes +441‎ Add instructions to install SoftMaker Office 2021
+       version 1060
+
+    4 June 2021
+
+     * curprev [ ] [ ] 14:5314:53, 4 June 2021‎ imported>Yannickloth‎ 2,696
+       bytes +461‎ fix hash/sha256 for 21.05
+
+    28 May 2021
+
+     * curprev [ ] [ ] 16:1516:15, 28 May 2021‎ imported>Yannickloth‎ m 2,235
+       bytes 0‎ Yannickloth moved page SoftMakerOffice to SoftMaker Office:
+       Title is not correct without space
+     * curprev [ ] [ ] 16:1416:14, 28 May 2021‎ imported>Yannickloth‎ 2,235
+       bytes +20‎ No edit summary
+     * curprev [ ] [ ] 16:0916:09, 28 May 2021‎ imported>Yannickloth‎ 2,215
+       bytes +2,215‎ Explain how to install latest and previous editions of
+       SoftMaker Office
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/SoftMaker_Office"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

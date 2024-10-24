@@ -1,0 +1,113 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Issues
+          * 1.1 Fixing full-text search
+   [ ] Toggle the table of contents
+
+                                     Logseq
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 21:44, 3 April 2024 by Jopejoe1 (talk | contribs) (Move to
+   Application Category)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Issues
+
+  Fixing full-text search
+
+   Warning: Electron 20 is outdated and insecure. Output will tell you to
+   explicitly allow insecure packages.
+
+   Add the following overlay to Home Manager or configuration.nix
+
+ nixpkgs.overlays = [
+   (
+     final: prev: {
+       logseq = prev.logseq.overrideAttrs (oldAttrs: {
+         postFixup = ''
+           makeWrapper ${prev.electron_20}/bin/electron $out/bin/${oldAttrs.pname} \
+             --set "LOCAL_GIT_DIRECTORY" ${prev.git} \
+             --add-flags $out/share/${oldAttrs.pname}/resources/app \
+             --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}" \
+             --prefix LD_LIBRARY_PATH : "${prev.lib.makeLibraryPath [ prev.stdenv.cc.cc.lib ]}"
+         '';
+       });
+     }
+   )
+ ];
+
+   Source: GitHub Issue #230212
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Logseq&oldid=11481"
+   Category:
+     * Applications
+     * This page was last edited on 3 April 2024, at 21:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,122 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Git http server: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    30 April 2024
+
+     * curprev [ ] [ ] 13:2513:25, 30 April 2024‎ Bratorange talk contribs‎
+       1,826 bytes +22‎ →‎Example Configuration Tag: Visual edit
+     * curprev [ ] [ ] 13:2513:25, 30 April 2024‎ Bratorange talk contribs‎
+       1,804 bytes +1,804‎ Created page with " == Example Configuration ==
+       <syntaxhighlight lang="nixos"> { config, pkgs, ... }: { # We will be
+       using nginx as web server. As nginx doesnt support cgi scrips # but
+       fastcgi. We need fcgiwrap to forward requests # -(https)-> nginx
+       -(fastcgi)-> fcgiwrap -(cgi)-> git-http-backend
+       services.fcgiwrap.enable = true; services.fcgiwrap.user = "nginx";
+       services.nginx.enable = true;
+       services.nginx.virtualHosts."git.example.com" = { # use ssl fo..."
+       Tag: Visual edit
+   Retrieved from "https://wiki.nixos.org/wiki/Git_http_server"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

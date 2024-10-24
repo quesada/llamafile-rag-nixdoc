@@ -1,0 +1,93 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                 Talk:Printing
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 10 June 2022 by Ddelabru
+
+   Proposed replacement for hp-setup example command
+
+   On NixOS 22.05 I can't use
+
+ $ nix run nixpkgs.hplipWithPlugin -c sudo hp-setup
+
+   because the nix run command has a different syntax that doesn't recognize
+   the -c flag. What ended up working for me (on XFCE but not on Sway, but
+   that's another matter) is:
+
+ $ NIXPKGS_ALLOW_UNFREE=1 nix --extra-experimental-features nix-command --extra-experimental-features --flakes shell --impure nixpkgs#hplipWithPlugin --command sudo hp-setup
+
+   I arrived at this through experimentation and I don't know if it fully
+   fits best practices, so I'm proposing it on the Talk page instead of just
+   adding it to the article.
+
+   Ddelabru (talk) 18:45, 10 June 2022 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Printing&oldid=9812"
+     * This page was last edited on 10 June 2022, at 18:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

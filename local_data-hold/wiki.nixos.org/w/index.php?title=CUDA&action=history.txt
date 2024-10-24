@@ -1,0 +1,191 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             CUDA: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    30 July 2024
+
+     * curprev [ ] [ ] 13:0113:01, 30 July 2024‎ Razushi talk contribs‎ 7,759
+       bytes −44‎ →‎cudatoolkit, cudnn, and related packages: Updated broken
+       links to cuDNN and cuTENSOR, please verify. Update date refers to the
+       last verification, not example updates. Tag: Visual edit
+     * curprev [ ] [ ] 12:1312:13, 30 July 2024‎ Razushi talk contribs‎ 7,803
+       bytes +15‎ →‎cudatoolkit, cudnn, and related packages: Went through
+       history to check what happened. Commit:
+       https://github.com/NixOS/nixpkgs/commit/875e43dfd70a3e58573d94d44e4c931d464ae76a
+       Tag: Visual edit
+
+    14 May 2024
+
+     * curprev [ ] [ ] 10:0810:08, 14 May 2024‎ Eljamm talk contribs‎ m 7,788
+       bytes +180‎ →‎Setting up CUDA Binary Cache
+     * curprev [ ] [ ] 08:5608:56, 14 May 2024‎ Eljamm talk contribs‎ m 7,608
+       bytes +15‎ →‎Non-NixOS
+     * curprev [ ] [ ] 08:4808:48, 14 May 2024‎ Eljamm talk contribs‎ 7,593
+       bytes +1,520‎ Add section for using the cuda-maintainers Binary Cache
+       Tag: Visual edit: Switched
+     * curprev [ ] [ ] 07:3707:37, 14 May 2024‎ Eljamm talk contribs‎ m 6,073
+       bytes +28‎ Wrap important information in tip/warning blocks for better
+       readability Tag: Visual edit: Switched
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:2120:21, 24 April 2024‎ Klinger talk contribs‎ m
+       6,045 bytes +21‎ No edit summary
+
+    21 April 2024
+
+     * curprev [ ] [ ] 18:1718:17, 21 April 2024‎ Vodros talk contribs‎ m
+       6,024 bytes +2‎ Fix nixpkgs cudatoolkit link Tag: Visual edit
+
+    26 February 2024
+
+     * curprev [ ] [ ] 16:5916:59, 26 February 2024‎ imported>Ghthor‎ m 6,022
+       bytes −11‎ fix a dead link
+
+    16 November 2023
+
+     * curprev [ ] [ ] 17:4617:46, 16 November 2023‎ imported>Luke‎ 6,033
+       bytes +581‎ No edit summary
+
+    25 July 2023
+
+     * curprev [ ] [ ] 12:5012:50, 25 July 2023‎ imported>Hypnosis2839‎ m
+       5,452 bytes +2‎ fix changed links
+     * curprev [ ] [ ] 12:4512:45, 25 July 2023‎ imported>Hypnosis2839‎ m
+       5,450 bytes −136‎ update GH links to point to master rather than old
+       rev
+
+    30 October 2022
+
+     * curprev [ ] [ ] 11:3911:39, 30 October 2022‎ imported>Zylanx‎ 5,586
+       bytes −105‎ Fix the shells to be buildable and fix the formatting of
+       the files wrt. angle brackets. Is there a better fix for that?
+
+    8 October 2022
+
+     * curprev [ ] [ ] 13:1513:15, 8 October 2022‎ imported>Cafkafk‎ 5,691
+       bytes +2‎ updated utillinux -> util-linux
+
+    5 July 2022
+
+     * curprev [ ] [ ] 20:5620:56, 5 July 2022‎ imported>Lucasew‎ 5,689 bytes
+       +1,139‎ add details about my adventure with CUDA on GCP
+     * curprev [ ] [ ] 20:2820:28, 5 July 2022‎ imported>Lucasew‎ 4,550 bytes
+       0‎ fix typo
+
+    31 March 2022
+
+     * curprev [ ] [ ] 19:2519:25, 31 March 2022‎ imported>Samuela‎ 4,550
+       bytes +266‎ No edit summary
+     * curprev [ ] [ ] 19:1919:19, 31 March 2022‎ imported>Samuela‎ 4,284
+       bytes +48‎ No edit summary
+     * curprev [ ] [ ] 19:1719:17, 31 March 2022‎ imported>Samuela‎ 4,236
+       bytes +4,236‎ Created page with "NixOS supports using NVIDIA GPUs for
+       pure computing purposes, not just for graphics. For example, many
+       users rely on NixOS for machine learning both locally and on cloud
+       insta..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/CUDA"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

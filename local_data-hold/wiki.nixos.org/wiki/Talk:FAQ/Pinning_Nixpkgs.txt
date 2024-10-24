@@ -1,0 +1,116 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Talk:FAQ/Pinning Nixpkgs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   < Talk:FAQ
+
+   I would like to achieve something like a lock file, but optionally used.
+
+
+ # This allows overriding pkgs by passing `--arg production ...`
+ {
+   production ? false,
+   nixpkgs ? import <nixpkgs> {}
+ }:
+
+ let
+   # Look here for information about how to generate `nixpkgs-version.json`.
+   #  → https://wiki.nixos.org/wiki/FAQ/Pinning_Nixpkgs
+   pinned = builtins.fromJSON (builtins.readFile ./nixpkgs.lock);
+   inherit (pinned) url rev;
+   ref = "nixos-unstable";
+
+   # Load packages from the pinned version.
+   pinnedNixpkgs = import (builtins.fetchGit {
+     inherit ref url rev;
+   }) {};
+
+   # Update ./nixpkgs.lock
+   nixpkgsUpdate = nixpkgs.writeScriptBin "update-nixpkgs" ''
+     #!/bin/sh
+     ${nixpkgs.nix-prefetch-git}/bin/nix-prefetch-git ${url} refs/heads/${ref} > nixpkgs.lock
+   '';
+
+   pkgs = if production then pinnedNixpkgs else nixpkgs;
+ in
+
+ with pkgs; mkShell {
+   buildInputs = [
+     nodejs
+     nixpkgsUpdate
+   ];
+ }
+
+
+
+   Obviously this doens't work, but its close... not sure what I missed
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:FAQ/Pinning_Nixpkgs&oldid=11397"
+     * This page was last edited on 3 April 2024, at 18:09.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

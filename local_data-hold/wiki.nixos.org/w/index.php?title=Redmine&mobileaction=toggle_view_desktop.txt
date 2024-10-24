@@ -1,0 +1,152 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 configuration examples
+          * 1.1 minimal configuration
+          * 1.2 basic configuration
+     * 2 login
+   [ ] Toggle the table of contents
+
+                                    Redmine
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Redmine (wikipedia:en:Redmine) is available as a module.
+
+configuration examples
+
+    minimal configuration
+
+ # system.stateVersion = "22.05";
+
+   services.redmine.enable = true;
+
+   networking.firewall.allowedTCPPorts = [ 3000 ];
+
+           unencrypted http (only)
+
+   http://hostName.domain.tld:3000
+
+    basic configuration
+
+ # system.stateVersion = "22.05";
+
+ # networking.hostName = "redmine";
+ # networking.domain = "domain.tld";
+
+   services.redmine.enable = true;
+
+   services.nginx.enable = true;
+ # services.nginx.recommendedOptimisation = true;
+ #  services.nginx.recommendedGzipSettings = true;
+
+ # services.nginx.recommendedProxySettings = true;
+   services.nginx.virtualHosts."${config.networking.fqdn}" = {
+     locations."/" = {
+       proxyPass = "http://127.0.0.1:3000";
+     };
+     forceSSL = true;
+     enableACME = true;
+   };
+ # services.nginx.recommendedTlsSettings = true;
+   security.acme.defaults.email = "acme@${config.networking.domain}";
+   security.acme.acceptTerms = true;
+
+ #  networking.firewall.allowedTCPPorts = [ 80 443 3000 ];
+   networking.firewall.allowedTCPPorts = [ 80 443 ];
+
+   https://redmine.domain.tld
+
+login
+
+   (first you have to) login in as the initial account
+
+           this initial account is having highest privileges
+
+   https://redmine.domain.tld/login
+
+                Login
+                        admin
+
+                Password
+                        admin
+
+           Login
+
+   (redmine forces you to) change the password
+
+   https://redmine.domain.tld/my/password
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Redmine&oldid=10202"
+   Categories:
+     * Guide
+     * Applications
+     * This page was last edited on 6 November 2022, at 17:03.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

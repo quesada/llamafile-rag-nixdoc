@@ -1,0 +1,167 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                   Wiki NixOS
+
+     * Page
+     * Discussion
+   [ ] français
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page NixOS Wiki and the
+   translation is 64% complete.
+   Outdated translations are marked like this.
+   Other languages:
+     * English
+     * español
+     * français
+     * русский
+     * 中文（中国大陆）
+     * 日本語
+     * 한국어
+
+    Bien débuter
+
+   {{{3}}}
+
+     * Home-manager to manage user profile & home directory contents
+     * Nix Flakes instead of nix-channel
+
+   These add complexity and may be confusing at first, and you may even
+   decide that you don't need them. Start with plain Nix/NixOS, and only
+   integrate Home Manager and/or Flakes into your setup once you're confident
+   with Nix/NixOS and comprehend their significance.}}
+
+    Installer NixOS
+     * Sur votre ordinateur, avec NixOS comme environnement de bureau
+     * Sur ARM, avec NixOS sur ARM
+     * Sur l'infonuage, avec les hébergeurs supportants NixOS
+
+    Documentation
+
+   Votre première lecture devrait être la page des Ressources, qui sert de
+   porte d'entrée pour les sujets de documentation les plus importants. Voir
+   les points importants ci-dessous.
+
+   Références principales:
+
+     * Manuel NixOS
+     * Manuel Nix
+     * Manuel Nixpkgs
+     * Manuel Hydra
+
+   Catégories majeures du wiki:
+
+     * Programmes et logiciels
+     * Matériel
+     * Ordinateurs de bureau - comment les configurer
+     * Serveurs - comment les configurer
+     * Communauté - personnes, communication, contribution à NixOS
+
+   Voir aussi:
+
+     * FAQ
+     * Nix comparé aux systèmes Linux standards
+     * Lexique du projet Nix
+     * Antisèche / Comparaison entre Ubuntu et NixOS
+
+    Pages spéciales
+     * Vue d'ensemble des pages spéciales
+     * Toutes les pages de wiki.nixos.org
+     * Toutes les catégories de wiki.nixos.org
+     * Changements récents non validés de wiki.nixos.org
+
+    Rentrer en contact
+
+   {{{3}}}
+
+    News
+
+    2024-09-02 — Wiki editors use Manual of Style
+
+   The Wiki team discussed and put into effect the Manual of Style for
+   editing wiki articles. This is a huge step towards clear and consistent
+   documentation. All editors are encouraged to follow this guide.
+
+    2024-08-22 — Wiki editors meeting
+
+   All interested wiki editors meet on 22th of August at 21:15 CEST in a
+   Jitsi conference.
+
+   Agenda: https://pad.lassul.us/wiki-agenda?view
+
+    2024-07-05 — Wiki editors meeting
+
+   All interested wiki editors meet on 5th of July at 13:00 CEST in a Jitsi
+   conference.
+
+    2024-04-01 — Launch of the wiki
+
+   The official NixOS wiki has taken off! If you want to find out why there
+   is a new wiki effort, check out the FAQ.
+
+   ... all news articles →
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Wiki/fr&oldid=17167"
+     * This page was last edited on 5 September 2024, at 17:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

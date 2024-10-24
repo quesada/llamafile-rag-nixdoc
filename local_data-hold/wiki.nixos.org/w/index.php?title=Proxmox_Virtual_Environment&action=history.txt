@@ -1,0 +1,175 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                 Proxmox Virtual Environment: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:3317:33, 19 April 2024‎ Klinger talk contribs‎ m
+       5,525 bytes +52‎ Category:VirtualizationCategory:Software
+
+    11 February 2024
+
+     * curprev [ ] [ ] 15:4815:48, 11 February 2024‎ imported>Lindenk‎ m
+       5,473 bytes 0‎ fixed typo
+
+    26 November 2023
+
+     * curprev [ ] [ ] 03:3503:35, 26 November 2023‎ imported>Bradfitz‎ m
+       5,473 bytes +1‎ typo fixes
+
+    6 August 2023
+
+     * curprev [ ] [ ] 09:1109:11, 6 August 2023‎ imported>Ztr-pen‎ 5,472
+       bytes +106‎ Reboot required for nixos-rebuild switch to work based on
+       recent install. A root password is required as autologin stop working
+       on reboot.
+
+    22 July 2023
+
+     * curprev [ ] [ ] 20:3420:34, 22 July 2023‎ imported>Benley‎ 5,366 bytes
+       −186‎ Remove redundant mention of PVE 7.2 support & remnant of
+       hand-patching docs
+     * curprev [ ] [ ] 20:3220:32, 22 July 2023‎ imported>Benley‎ 5,552 bytes
+       +156‎ add note about /dev/console mode in LXC
+     * curprev [ ] [ ] 20:2820:28, 22 July 2023‎ imported>Benley‎ 5,396 bytes
+       −2,885‎ Document supported PVE version, remove outdated section about
+       patching pve-container
+
+    5 November 2022
+
+     * curprev [ ] [ ] 23:3423:34, 5 November 2022‎ imported>Vater‎ m 8,281
+       bytes +71‎ No edit summary
+     * curprev [ ] [ ] 21:1821:18, 5 November 2022‎ imported>Vater‎ 8,210
+       bytes +492‎ No edit summary
+     * curprev [ ] [ ] 21:1721:17, 5 November 2022‎ imported>Vater‎ 7,718
+       bytes −22‎ No edit summary
+     * curprev [ ] [ ] 21:1521:15, 5 November 2022‎ imported>Vater‎ 7,740
+       bytes +585‎ No edit summary
+     * curprev [ ] [ ] 21:1421:14, 5 November 2022‎ imported>Vater‎ m 7,155
+       bytes +62‎ No edit summary
+     * curprev [ ] [ ] 21:1221:12, 5 November 2022‎ imported>Vater‎ m 7,093
+       bytes 0‎ Vater moved page Proxmox to Proxmox Virtual Environment:
+       proxmox has several products
+     * curprev [ ] [ ] 02:5602:56, 5 November 2022‎ imported>Tpwrules‎ 7,093
+       bytes +254‎ update for recent versions and show configuration
+
+    30 April 2022
+
+     * curprev [ ] [ ] 06:0906:09, 30 April 2022‎ imported>Benley‎ 6,839
+       bytes −47‎ →‎Patching pve-container: pve-container 4.1-5 has been
+       released with the nixos fixes
+
+    9 March 2022
+
+     * curprev [ ] [ ] 18:1518:15, 9 March 2022‎ imported>Illustris‎ m 6,886
+       bytes −13‎ No edit summary
+     * curprev [ ] [ ] 18:1518:15, 9 March 2022‎ imported>Illustris‎ 6,899
+       bytes +6,899‎ Created page with "= Proxmox = <blockquote>As of the
+       date of writing this page (6 March 2022) nixos-unstable has the
+       necessary changes. The changes needed to proxmox for supporting NixOS
+       LXCs h..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Proxmox_Virtual_Environment"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

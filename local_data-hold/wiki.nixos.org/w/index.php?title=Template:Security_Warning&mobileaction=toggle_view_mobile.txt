@@ -1,0 +1,112 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Usage
+     * 2 Example
+   [ ] Toggle the table of contents
+
+                           Template:Security Warning
+
+     * Template
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a template. It should be used as part of other articles. For
+   more information, see Help:Template.
+
+   Please do not experiment with this template; you could ruin all pages
+   using this template. If you want to edit this template, copy the text to
+   Template:Sandbox, edit and test it there, and copy it back when it works.
+
+   Feel free to discuss this template in the talk page.
+
+   If you wanted to create a new page instead, use the search box to search
+   for the title of the new page you want to create and follow the link
+   Create the page "XYZ" on this wiki! in the results page. An alternative is
+   to create a dangling link to the new page from an existing page. A final
+   option is to directly visit the expected URL of the page.
+
+Usage
+
+   {{Security Warning|This is just a demonstration template.}}
+
+   {{Security Warning|This is just a demonstration
+   template.|heading=Replacement Title}}
+
+Example
+
+    Warning                                
+    This is just a demonstration template. 
+
+    Replacement Title                      
+    This is just a demonstration template. 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Template:Security_Warning&oldid=11732"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 6 April 2024, at 20:04.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

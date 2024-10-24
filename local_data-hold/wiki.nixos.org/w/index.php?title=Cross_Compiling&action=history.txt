@@ -1,0 +1,255 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Cross Compiling: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    13 October 2024
+
+     * curprev [ ] [ ] 19:1319:13, 13 October 2024‎ Frontear talk contribs‎ m
+       11,317 bytes −72‎ more clear edits with correct references to
+       platforms Tag: Visual edit
+     * curprev [ ] [ ] 19:0919:09, 13 October 2024‎ Frontear talk contribs‎ m
+       11,389 bytes −9‎ minor grammar edit Tag: Visual edit
+     * curprev [ ] [ ] 07:1807:18, 13 October 2024‎ Frontear talk contribs‎ m
+       11,398 bytes +742‎ add a small desc of host/build platform Tag: Visual
+       edit
+
+    10 October 2024
+
+     * curprev [ ] [ ] 22:1322:13, 10 October 2024‎ Frontear talk contribs‎ m
+       10,656 bytes 0‎ improved wording in binary cache section Tag: Visual
+       edit
+     * curprev [ ] [ ] 22:1222:12, 10 October 2024‎ Frontear talk contribs‎ m
+       10,656 bytes +17‎ add section for basics. Tag: Visual edit
+     * curprev [ ] [ ] 22:1122:11, 10 October 2024‎ Frontear talk contribs‎
+       10,639 bytes +4,648‎ majorly overhaul the cross-compilation page with
+       more details, better examples, and modernized nix code. Tag: Visual
+       edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:0721:07, 24 April 2024‎ Klinger talk contribs‎ m
+       5,991 bytes +43‎ Category:nix Category:Development
+
+    22 April 2024
+
+     * curprev [ ] [ ] 14:5114:51, 22 April 2024‎ TornaxO7 talk contribs‎ m
+       5,948 bytes −3‎ nix shell: Replace `buildInputs` with `packages` Tag:
+       Visual edit
+
+    12 December 2021
+
+     * curprev [ ] [ ] 19:1519:15, 12 December 2021‎ imported>AleXoundOS‎ m
+       5,951 bytes +5‎ fix some punctuation
+     * curprev [ ] [ ] 17:4717:47, 12 December 2021‎ imported>AleXoundOS‎ m
+       5,946 bytes +1‎ fix typo: Stack linking -> Static linking
+
+    23 May 2021
+
+     * curprev [ ] [ ] 19:4019:40, 23 May 2021‎ imported>Symphorien‎ 5,945
+       bytes +86‎ show how to use pkgsCross to get a shell, and remove
+       mentions of pre-18.09
+
+    16 June 2020
+
+     * curprev [ ] [ ] 19:4719:47, 16 June 2020‎ imported>Jtojnar‎ m 5,859
+       bytes +1‎ do not use pkgconfig alias
+
+    15 February 2020
+
+     * curprev [ ] [ ] 20:2920:29, 15 February 2020‎ imported>Danbst‎ 5,858
+       bytes +1,338‎ lazy cross compiling
+
+    6 November 2019
+
+     * curprev [ ] [ ] 21:2121:21, 6 November 2019‎ imported>Symphorien‎
+       4,520 bytes +580‎ add snippet using lib.systems.example
+
+    8 May 2019
+
+     * curprev [ ] [ ] 14:1714:17, 8 May 2019‎ imported>Symphorien‎ 3,940
+       bytes +546‎ →‎How to obtain a shell with a cross compiler: mention
+       using callPackage to have native build inputs
+
+    7 March 2019
+
+     * curprev [ ] [ ] 21:4921:49, 7 March 2019‎ imported>Symphorien‎ 3,394
+       bytes +161‎ add a link to the examples of target systems in nixpkgs
+
+    9 February 2019
+
+     * curprev [ ] [ ] 21:0821:08, 9 February 2019‎ imported>Symphorien‎ m
+       3,233 bytes +28‎ mention the name of the file, now that the header is
+       gone
+     * curprev [ ] [ ] 21:0421:04, 9 February 2019‎ imported>Samueldr‎ m
+       3,205 bytes +1‎ fixes escaping issue →‎How to obtain a shell with a
+       cross compiler
+     * curprev [ ] [ ] 20:5920:59, 9 February 2019‎ imported>Symphorien‎
+       3,204 bytes +431‎ add an example shell file
+
+    30 December 2018
+
+     * curprev [ ] [ ] 21:5721:57, 30 December 2018‎ imported>Mic92‎ 2,773
+       bytes +156‎ add workshop link
+
+    29 December 2018
+
+     * curprev [ ] [ ] 13:1813:18, 29 December 2018‎ imported>Mic92‎ 2,617
+       bytes +13‎ fix link
+     * curprev [ ] [ ] 13:1413:14, 29 December 2018‎ imported>Mic92‎ 2,604
+       bytes +93‎ →‎References
+
+    25 November 2018
+
+     * curprev [ ] [ ] 02:1102:11, 25 November 2018‎ imported>Ericson2314‎ m
+       2,511 bytes −1‎ Fix link, again
+     * curprev [ ] [ ] 02:1102:11, 25 November 2018‎ imported>Ericson2314‎
+       2,512 bytes +1‎ Fix link
+     * curprev [ ] [ ] 02:1002:10, 25 November 2018‎ imported>Ericson2314‎ m
+       2,511 bytes +119‎ Add backup IRC log source
+
+    23 November 2018
+
+     * curprev [ ] [ ] 02:3502:35, 23 November 2018‎ imported>Mic92‎ 2,392
+       bytes +1,409‎ short faq on build inputs
+
+    7 August 2018
+
+     * curprev [ ] [ ] 12:0612:06, 7 August 2018‎ imported>Srhb‎ m 983 bytes
+       0‎ typo
+
+    3 August 2018
+
+     * curprev [ ] [ ] 20:3020:30, 3 August 2018‎ imported>Samueldr‎ 983
+       bytes +135‎ What a fine way to put the triple in perspective.
+
+    26 July 2018
+
+     * curprev [ ] [ ] 08:0708:07, 26 July 2018‎ imported>Makefu‎ 848 bytes
+       +506‎ add introduction to cross-compiling by mbauer
+
+    28 June 2018
+
+     * curprev [ ] [ ] 22:1122:11, 28 June 2018‎ imported>Mic92‎ 342 bytes
+       +70‎ link to manual
+
+    5 June 2018
+
+     * curprev [ ] [ ] 21:1721:17, 5 June 2018‎ imported>Makefu‎ m 272 bytes
+       +5‎ fix markup
+     * curprev [ ] [ ] 21:1721:17, 5 June 2018‎ imported>Makefu‎ 267 bytes
+       +93‎ No edit summary
+
+    19 March 2018
+
+     * curprev [ ] [ ] 16:3416:34, 19 March 2018‎ imported>Makefu‎ m 174
+       bytes 0‎ typo
+     * curprev [ ] [ ] 16:3416:34, 19 March 2018‎ imported>Makefu‎ 174 bytes
+       +132‎ No edit summary
+     * curprev [ ] [ ] 16:2716:27, 19 March 2018‎ imported>Makefu‎ 42 bytes
+       +42‎ Makefu moved page Cross Compiling to Packaging/32bit
+       Applications: not really cross-compiling
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Cross_Compiling"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

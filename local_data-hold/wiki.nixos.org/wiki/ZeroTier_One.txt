@@ -1,0 +1,101 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Example config
+   [ ] Toggle the table of contents
+
+                                  ZeroTier One
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   ZeroTierOne is the open source ethernet switch for the ZeroTier network.
+   It is a way to connect devices over private networks anywhere in the
+   world. Its done by creating a network and then joining two or more devices
+   to that network.
+
+Example config
+
+ services.zerotierone = {
+   enable = true;
+   joinNetworks = [
+     "6465f4ee45356976"
+     "71e441cc137b93c8"
+   ];
+ };
+
+   Warning: This configuration will automatically join networks, but will not
+   leave them automatically. This still has to be done manually: see
+   services.zerotierone.joinNetworks
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=ZeroTier_One&oldid=13559"
+   Categories:
+     * Applications
+     * Networking
+     * This page was last edited on 26 June 2024, at 09:25.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

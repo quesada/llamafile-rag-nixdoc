@@ -1,0 +1,177 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Globally, in a package repository tree
+     * 2 For a specific package in a repository tree
+     * 3 Using Nix CLI on existing packages
+     * 4 Using an external override definition
+     * 5 With nix-shell
+     * 6 See also
+   [ ] Toggle the table of contents
+
+                           Using Clang instead of GCC
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   You can use Clang instead of GCC as a compiler for any package by
+   overriding stdenv, which contains the compilation toolchain, with:
+
+ stdenv = pkgs.clangStdenv;
+
+   or to get a specific version of clang:
+
+ stdenv = pkgs.llvmPackages_9.stdenv;
+
+   Depending on the case you may want to set this value in different
+   location, and using different mechanism.
+
+   Note you may get errors like fatal error: ... file not found on standard
+   library #include directives, because of this bug
+   https://github.com/NixOS/nixpkgs/issues/150655
+
+Globally, in a package repository tree
+
+   If you have a set of packages in a repository tree, you can set the stdenv
+   value in the scope where the callPackage are called. Be carefull all the
+   packages present in the scope will be built with Clang because the
+   callPackage that resolves the package function inputs will use the
+   pkgs.clangStdenv for all packages.
+
+ rec {
+     stdenv = pkgs.clangStdenv;
+     foo = callPackage ./foo { };
+     bar = callPackage ./bar { };
+ }
+
+   or import nixpkgs with replaceStdenv.
+
+ import <nixpkgs> { config = { replaceStdenv = ({ pkgs }: pkgs.clangStdenv); }; }
+
+For a specific package in a repository tree
+
+   If you a one specific package in your package repository that you want to
+   build with Clang. You can either override stdenv in the callPackage or
+   creating a package override.
+
+   Here only foo will be built with Clang, and only with Clang.
+
+ rec {
+     foo = callPackage ./foo { stdenv = pkgs.clangStdenv; };
+     bar = callPackage ./bar { };
+ }
+
+   But if you want both toolchains you can use:
+
+ rec {
+     foo_gcc = callPackage ./foo { };
+     foo_clang = callPackage ./foo { stdenv = pkgs.clangStdenv; };
+     bar = callPackage ./bar { };
+ }
+
+Using Nix CLI on existing packages
+
+   Directly inline with CLI just do:
+
+ nix-build -E "with import <nixpkgs> {}; pkgs.hello.override{ stdenv = pkgs.clangStdenv; }"
+
+   or, if you want a shell for development:
+
+ nix-shell -E "with import <nixpkgs> {}; pkgs.hello.override{ stdenv = pkgs.clangStdenv; }"
+
+Using an external override definition
+
+ # in file ./hello_with_clan.nix
+ with import <nixpkgs> {};
+ hello.override {
+     # use Clang instead of GCC
+     stdenv = pkgs.clangStdenv;
+ }
+
+ nix-build ./hello_with_clan.nix
+
+With nix-shell
+
+   To use clang in nix-shell instead of gcc:
+
+ # in file ./shell.nix
+ with import <nixpkgs> {};
+ clangStdenv.mkDerivation {
+   name = "clang-nix-shell";
+   buildInputs = [ /* add libraries here */ ];
+ }
+
+See also
+
+     * C # Use a different compiler version
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Using_Clang_instead_of_GCC&oldid=5751"
+   Category:
+     * Nixpkgs
+     * This page was last edited on 15 October 2023, at 03:08.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

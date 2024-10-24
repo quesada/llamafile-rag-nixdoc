@@ -1,0 +1,297 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             KDE: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    20 October 2024
+
+     * curprev [ ] [ ] 05:4805:48, 20 October 2024‎ ExRyuske talk contribs‎ m
+       4,902 bytes −1‎ fixed syntax mistake
+
+    1 October 2024
+
+     * curprev [ ] [ ] 21:1621:16, 1 October 2024‎ Klinger talk contribs‎ m
+       4,903 bytes +37‎ link added Tag: Visual edit
+
+    15 September 2024
+
+     * curprev [ ] [ ] 05:4305:43, 15 September 2024‎ Ezri talk contribs‎
+       4,866 bytes +121‎ →‎Tips and tricks: Show user option to add a profile
+       picture for their sddm login screen. Tag: Visual edit
+
+    13 September 2024
+
+     * curprev [ ] [ ] 19:5619:56, 13 September 2024‎ Klinger talk contribs‎
+       m 4,745 bytes +17‎ Category:KDE added
+
+    12 September 2024
+
+     * curprev [ ] [ ] 17:1817:18, 12 September 2024‎ Paolumu talk contribs‎
+       m 4,728 bytes +14‎ minor wording changes Tag: Visual edit
+
+    17 August 2024
+
+     * curprev [ ] [ ] 18:5518:55, 17 August 2024‎ Sandro talk contribs‎
+       4,714 bytes −162‎ Drop dconf setting which is enabled by default
+     * curprev [ ] [ ] 18:5418:54, 17 August 2024‎ Sandro talk contribs‎
+       4,876 bytes 0‎ Plasma 6 first
+     * curprev [ ] [ ] 18:5418:54, 17 August 2024‎ Sandro talk contribs‎
+       4,876 bytes 0‎ Plasma 6 first
+     * curprev [ ] [ ] 18:5318:53, 17 August 2024‎ Sandro talk contribs‎
+       4,876 bytes +12‎ xserver for plasma 6 is optional
+     * curprev [ ] [ ] 18:5218:52, 17 August 2024‎ Sandro talk contribs‎
+       4,864 bytes −27‎ Update links into nixpkgs, change wording
+     * curprev [ ] [ ] 18:4918:49, 17 August 2024‎ Sandro talk contribs‎
+       4,891 bytes −255‎ Delete unnecessary pipewire section as both plasma 5
+       and plasma 6 enabled pipewire by default
+     * curprev [ ] [ ] 18:4818:48, 17 August 2024‎ Sandro talk contribs‎
+       5,146 bytes 0‎ fix typo Tag: Visual edit: Switched
+     * curprev [ ] [ ] 08:0508:05, 17 August 2024‎ Mic92 talk contribs‎ 5,146
+       bytes +255‎ imported from old wiki
+
+    25 June 2024
+
+     * curprev [ ] [ ] 07:1407:14, 25 June 2024‎ Sandro talk contribs‎ 4,891
+       bytes +46‎ →‎Rootless X11 Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 07:1307:13, 25 June 2024‎ Sandro talk contribs‎ 4,845
+       bytes +63‎ →‎Plasma 5 Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 07:1207:12, 25 June 2024‎ Sandro talk contribs‎ 4,782
+       bytes −498‎ →‎KMail Renders Blank Messages Tags: Mobile edit Mobile
+       web edit
+     * curprev [ ] [ ] 07:1207:12, 25 June 2024‎ Sandro talk contribs‎ 5,280
+       bytes +27‎ →‎GTK themes are not applied in Wayland applications /
+       Window Decorations missing / Cursor looks different Tags: Mobile edit
+       Mobile web edit
+
+    23 June 2024
+
+     * curprev [ ] [ ] 10:1910:19, 23 June 2024‎ Mic92 talk contribs‎ 5,253
+       bytes 0‎ Prefer Plasma 6 over 5
+     * curprev [ ] [ ] 10:1810:18, 23 June 2024‎ Mic92 talk contribs‎ 5,253
+       bytes −8‎ update displaymanager configuration
+
+    13 June 2024
+
+     * curprev [ ] [ ] 00:4400:44, 13 June 2024‎ Itslychee talk contribs‎ m
+       5,261 bytes −36‎ plasma6: omit unstable from plasma6 as it's available
+       on 24.05 now Tag: Visual edit
+
+    6 May 2024
+
+     * curprev [ ] [ ] 15:2215:22, 6 May 2024‎ Jervw talk contribs‎ m 5,297
+       bytes +7‎ →‎GNOME desktop integration Tag: Visual edit
+
+    5 May 2024
+
+     * curprev [ ] [ ] 11:1711:17, 5 May 2024‎ Vater talk contribs‎ m 5,290
+       bytes +46‎ →‎Plasma 6
+     * curprev [ ] [ ] 10:4410:44, 5 May 2024‎ Vater talk contribs‎ 5,244
+       bytes 0‎ →‎Plasma 6:
+       https://github.com/NixOS/nixpkgs/blob/e9be42459999a253a9f92559b1f5b72e1b44c13d/nixos/modules/services/display-managers/sddm.nix#L134
+       ;
+       https://github.com/NixOS/nixpkgs/blob/e9be42459999a253a9f92559b1f5b72e1b44c13d/nixos/modules/services/display-managers/sddm.nix#L45
+
+    8 April 2024
+
+     * curprev [ ] [ ] 14:1214:12, 8 April 2024‎ Sandro talk contribs‎ 5,244
+       bytes +7‎ →‎Plasma-Manager Tag: Visual edit: Switched
+     * curprev [ ] [ ] 14:0514:05, 8 April 2024‎ Sdht0 talk contribs‎ 5,237
+       bytes +263‎ →‎Configuration: rootless x11
+     * curprev [ ] [ ] 14:0214:02, 8 April 2024‎ Sdht0 talk contribs‎ 4,974
+       bytes +2‎ →‎Installation: Use template
+     * curprev [ ] [ ] 13:5013:50, 8 April 2024‎ Sdht0 talk contribs‎ 4,972
+       bytes +50‎ Copy edit and move sections
+     * curprev [ ] [ ] 13:3013:30, 8 April 2024‎ Sdht0 talk contribs‎ m 4,922
+       bytes +44‎ →‎Wayland/X11 session: Fixes
+     * curprev [ ] [ ] 13:2813:28, 8 April 2024‎ Sdht0 talk contribs‎ 4,878
+       bytes −219‎ Copy edit and reorder sections
+     * curprev [ ] [ ] 13:2313:23, 8 April 2024‎ Sdht0 talk contribs‎ 5,097
+       bytes +23‎ Add Tips and tricks section
+     * curprev [ ] [ ] 13:2313:23, 8 April 2024‎ Sdht0 talk contribs‎ m 5,074
+       bytes +2‎ →‎Troubleshoots: Update heading
+
+    4 April 2024
+
+     * curprev [ ] [ ] 21:4521:45, 4 April 2024‎ Zyansheep talk contribs‎
+       5,072 bytes +29‎ added previous advice to not include sddm lines
+       before i tested it locally with reboot. bricked my system! Tag: Visual
+       edit
+     * curprev [ ] [ ] 20:1620:16, 4 April 2024‎ Zyansheep talk contribs‎
+       5,043 bytes +120‎ give some more nuance on how to install plasma 6 and
+       what it comes with Tag: Visual edit
+
+    18 March 2024
+
+     * curprev [ ] [ ] 21:5121:51, 18 March 2024‎ imported>Lumarius‎ 4,923
+       bytes +59‎ The example for installing a Qt theme using Kvantum uses
+       Home Manager.
+     * curprev [ ] [ ] 21:4621:46, 18 March 2024‎ imported>Lumarius‎ 4,864
+       bytes +630‎ Added an example for installing a Qt theme using Kvantum.
+
+    17 March 2024
+
+     * curprev [ ] [ ] 15:4915:49, 17 March 2024‎ imported>Steadygaze‎ 4,234
+       bytes −8‎ Undo revision 11382 by Steadygaze (talk)
+     * curprev [ ] [ ] 15:4815:48, 17 March 2024‎ imported>Steadygaze‎ 4,242
+       bytes +8‎ Fix plasma6 option name (still includes "xserver")
+
+    16 March 2024
+
+     * curprev [ ] [ ] 15:1715:17, 16 March 2024‎ imported>Volse01‎ m 4,234
+       bytes −8‎ updated to the new configuration.nix command so users wont
+       get a warning
+
+    11 March 2024
+
+     * curprev [ ] [ ] 23:4723:47, 11 March 2024‎ imported>Mohaim‎ m 4,242
+       bytes +2‎ No edit summary
+
+    1 March 2024
+
+     * curprev [ ] [ ] 08:3608:36, 1 March 2024‎ imported>Matthias Thym‎
+       4,240 bytes +587‎ Added information for using KDE Plasma 6
+     * curprev [ ] [ ] 00:1100:11, 1 March 2024‎ imported>Abowen‎ m 3,653
+       bytes +87‎ KDE 6
+
+    28 February 2024
+
+     * curprev [ ] [ ] 19:0319:03, 28 February 2024‎ imported>Dietr1ch‎ m
+       3,566 bytes +227‎ No edit summary
+
+    5 January 2024
+
+     * curprev [ ] [ ] 14:1914:19, 5 January 2024‎ imported>Gileri‎ 3,339
+       bytes +59‎ Only optional packages can be excluded. Thanks to
+       https://discourse.nixos.org/t/cant-remove-kwallet/29873/2
+
+    24 December 2023
+
+     * curprev [ ] [ ] 11:4511:45, 24 December 2023‎ imported>Onny‎ 3,280
+       bytes +307‎ Add section on theme configuration
+
+    17 November 2023
+
+     * curprev [ ] [ ] 15:1515:15, 17 November 2023‎ imported>Vieta‎ 2,973
+       bytes +39‎ No edit summary
+     * curprev [ ] [ ] 14:3214:32, 17 November 2023‎ imported>Vieta‎ 2,934
+       bytes −14‎ No edit summary
+     * curprev [ ] [ ] 14:2914:29, 17 November 2023‎ imported>Vieta‎ 2,948
+       bytes +130‎ No edit summary
+     * curprev [ ] [ ] 14:2114:21, 17 November 2023‎ imported>Vieta‎ 2,818
+       bytes +304‎ plasma-manager
+
+    1 November 2023
+
+     * curprev [ ] [ ] 17:1617:16, 1 November 2023‎ imported>Writer‎ 2,514
+       bytes +300‎ No edit summary
+
+    12 June 2023
+
+     * curprev [ ] [ ] 17:3917:39, 12 June 2023‎ imported>Drupol‎ m 2,214
+       bytes +153‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/KDE"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

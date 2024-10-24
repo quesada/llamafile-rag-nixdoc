@@ -1,0 +1,113 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                   Information for "Proxmox Linux Container"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Proxmox Linux Container 
+   Default sort key                 Proxmox Linux Container 
+   Page length (in bytes)           5,049                   
+   Namespace ID                     0                       
+   Page ID                          400                     
+   Page content language            en - English            
+   Page content model               wikitext                
+   Indexing by robots               Allowed                 
+   Number of redirects to this page 0                       
+   Counted as a content page        Yes                     
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>Samueldr         
+   Date of page creation                        01:40, 10 May 2018        
+   Latest editor                                Nani8ot (talk | contribs) 
+   Date of latest edit                          13:48, 6 September 2024   
+   Total number of edits                        16                        
+   Total number of distinct authors             10                        
+   Recent number of edits (within past 90 days) 3                         
+   Recent number of distinct authors            1                         
+
+Page properties
+
+                             This page is a member of a hidden category:      
+   Hidden category (1)                                                        
+                               * Category:Pages or sections flagged with      
+                                 Template:outdated                            
+                             Templates used on this page:                     
+                                                                              
+   Transcluded templates (3)   * Template:META Message (view source)          
+                               * Template:Outdated (view source)              
+                               * Template:Tip (view source)                   
+
+   Retrieved from "https://wiki.nixos.org/wiki/Proxmox_Linux_Container"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

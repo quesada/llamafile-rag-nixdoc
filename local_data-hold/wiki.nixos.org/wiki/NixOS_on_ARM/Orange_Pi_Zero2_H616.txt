@@ -1,0 +1,297 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+          * 2.1 Fastest way
+          * 2.2 Better way
+     * 3 Serial console
+     * 4 Ethernet
+     * 5 Periphery
+          * 5.1 USB
+          * 5.2 WiFi
+          * 5.3 HDMI
+     * 6 Resources
+   [ ] Toggle the table of contents
+
+                       NixOS on ARM/Orange Pi Zero2 H616
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   Orange Pi Zero2 (H616)
+   An Orange Pi Zero Plus2 (H5).
+   Manufacturer Xunlong / Orange Pi 
+   Architecture AArch64             
+   Bootloader   Upstream u-boot^[1] 
+   Maintainer   Ein-shved           
+
+Status
+
+   Upstream unstable NixOS AArch64 image will boot on the Orange Pi Zero2
+   (H616), using the proper upstream u-boot.
+
+   The limited support of allwiner H616 soc was introduced to the Linux
+   upstream kernel since 6.0 version, see periphery for details.
+
+Board-specific installation notes
+
+  Fastest way
+
+   First follow the generic installation steps to get the installer image on
+   an SD card.
+
+   U-Boot needs to be copied to specific sectors on the microSD card with dd.
+   Download u-boot for the board, and copy it to the correct location with
+   (again, replace /dev/sdX with the correct path to the SD card device):
+
+ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/sdX bs=1024 seek=8
+
+   Then, install using the installation and configuration steps.
+
+  Better way
+
+   To get the more useful output from board better to build image with kernel
+   which supports more periphery (like USB). See periphery.
+
+Serial console
+
+   The default console configuration from sd-image-aarch64 works out of the
+   box.
+
+Ethernet
+
+   Connected at 1Gbps mode.
+
+Periphery
+
+   Current newest numerated kernel version 6.1 does not contains full H616
+   sock support. At least some regulators and USB blocks are missing in DTS.
+   But they are available in master branch.
+
+   Here is flake with which an image with better periphery support (at least
+   - USB) may be build.
+
+ {
+   description = "Build image for OrangePi Zero 2";
+   inputs = {
+     nixpkgs.url = github:nixos/nixpkgs/nixos-22.11;
+   };
+   outputs = { self, nixpkgs }: let
+     system = "aarch64-linux";
+
+     #Build manipulation
+     stateVersion = "22.11";   # NixOS Version
+     useUnstableKernel = true; # Set to false to use mainline kernel
+     compressImage = true;     # Set to false to disable image compressing
+
+     pkgs = nixpkgs.legacyPackages.x86_64-linux.pkgsCross.aarch64-multiplatform;
+
+     # Build unstable kernel
+     kernel =
+       with pkgs;
+       with lib;
+       buildLinux rec {
+         kernelPatches = [
+           linuxKernel.kernelPatches.bridge_stp_helper
+           linuxKernel.kernelPatches.request_key_helper
+         ];
+         src = fetchGit {
+           url = git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;
+           rev = "8395ae05cb5a2e31d36106e8c85efa11cda849be";
+         };
+         version = "6.1.0";
+         modDirVersion = version;
+         extraMeta.branch = versions.majorMinor version;
+       };
+
+     # Boot related configuration
+     bootConfig = let
+       bootloaderPackage = pkgs.ubootOrangePiZero2;
+       bootloaderSubpath = "/u-boot-sunxi-with-spl.bin";
+       # Disable ZFS support to prevent problems with fresh kernels.
+       filesystems = pkgs.lib.mkForce [ "btrfs" "reiserfs" "vfat" "f2fs" "xfs"
+                                        "ntfs" "cifs" /* "zfs" */ "ext4" "vfat"
+                                      ];
+     in {
+       system.stateVersion = stateVersion;
+       boot.kernelPackages = if useUnstableKernel
+         then pkgs.linuxPackagesFor kernel
+         else pkgs.linuxPackages_latest;
+       boot.supportedFilesystems = filesystems;
+       boot.initrd.supportedFilesystems = filesystems;
+       sdImage = {
+         postBuildCommands = ''
+           # Emplace bootloader to specific place in firmware file
+           dd if=${bootloaderPackage}${bootloaderSubpath} of=$img    \
+             bs=8 seek=1024                                          \
+             conv=notrunc # prevent truncation of image
+         '';
+         inherit compressImage;
+       };
+     };
+
+     # NixOS configuration
+     nixosSystem = nixpkgs.lib.nixosSystem rec {
+       inherit system;
+       modules = [
+         # Default aarch64 SOC System
+         "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+         # Minimal configuration
+         "${nixpkgs}/nixos/modules/profiles/minimal.nix"
+         { config = bootConfig; }
+         # Put your configuration here. e.g. ./configuration.nix
+       ];
+     };
+   in {
+     inherit system;
+     # Run nix build .#images.orangePiZero2 to build image.
+     images = {
+       orangePiZero2 = nixosSystem.config.system.build.sdImage;
+     };
+   };
+ }
+
+   Note: Be careful with such firmware - the unstable kernel version may be
+   harmfull
+
+  USB
+
+   The suggested master kernel supports only the onboard usb ports (not sure
+   about USB type-C). If you want to use extension board or D+/D- pins, you
+   need to add dts overlay to enable ehci and ohci ports. Just enable them
+   all, putting this to configuration:
+
+       hardware.deviceTree = {
+         enable = true;
+         filter = "sun50i-h616-orangepi-zero2.dtb";
+         overlays = [
+           {
+             name = "sun50i-h616-orangepi-zero2.dtb";
+             dtsText = ''
+               /dts-v1/;
+               /plugin/;
+
+               / {
+                 compatible = "xunlong,orangepi-zero2", "allwinner,sun50i-h616";
+               };
+
+               &ehci0 {
+                 status = "okay";
+               };
+
+               &ehci1 {
+                 status = "okay";
+               };
+
+               &ehci2 {
+                 status = "okay";
+               };
+
+               &ehci3 {
+                 status = "okay";
+               };
+
+               &ohci0 {
+                 status = "okay";
+               };
+
+               &ohci1 {
+                 status = "okay";
+               };
+
+               &ohci2 {
+                 status = "okay";
+               };
+
+               &ohci3 {
+                 status = "okay";
+               };
+             '';
+           }
+         ];
+       };
+
+  WiFi
+
+   According to SOC dts, Wi-Fi does not supported yet in mainline.
+
+  HDMI
+
+   According to SOC dts, HDMI does not supported yet in mainline.
+
+Resources
+
+     * Official product page
+     * wiki page
+    1. ↑ https://github.com/NixOS/nixpkgs/pull/125743
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Orange_Pi_Zero2_H616&oldid=10267"
+     * This page was last edited on 24 December 2022, at 12:41.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,109 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Search nixpkgs
+          * 1.1 Search nixpkgs packages
+          * 1.2 Search nixpkgs options
+     * 2 Search Home Manager
+   [ ] Toggle the table of contents
+
+                                  NixOS search
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Search nixpkgs
+
+   From https://search.nixos.org you can search nixpkgs packages and options.
+
+  Search nixpkgs packages
+
+   The package search searches among nixpkgs packages in either the stable
+   release or unstable. For the returned packages, you can view the version,
+   and follow links the the nixpkgs source and to the program's home page.
+
+   See also Searching packages
+
+  Search nixpkgs options
+
+   The options search allows searching of nixpkgs module options. For each
+   option, you are presented with a description, example and the default
+   setting. There is also a link to the source code of the module that
+   defines the option.
+
+Search Home Manager
+
+   To search Home Manager options, you can use
+   https://home-manager-options.extranix.com/
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_search&oldid=12434"
+   Category:
+     * Nix
+     * This page was last edited on 24 April 2024, at 19:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

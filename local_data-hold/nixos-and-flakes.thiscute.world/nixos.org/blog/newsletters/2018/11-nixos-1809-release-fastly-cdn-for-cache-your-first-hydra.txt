@@ -1,0 +1,59 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+       #11 - NixOS 18.09 release, Fastly CDN for cache, your first Hydra
+
+   Published on Wed Oct 10 2018
+
+       #11 - NixOS 18.09 release, Fastly CDN for cache, your first Hydra
+
+                                      News
+
+     * cache.nixos.org moved from Amazon to Fastly.
+     * A very hacky proof of concept of a lisp in Nix
+     * NixOS 18.09 Jellyfish released
+     * Request for maintenance: Azure blobs
+     * Your First Hydra
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

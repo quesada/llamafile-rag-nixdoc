@@ -1,0 +1,96 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Install
+     * 2 Configuration
+   [ ] Toggle the table of contents
+
+                                   OpenSearch
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Install
+
+   services.opensearch.enable = true;
+
+Configuration
+
+   By default OpenSearch is configured to run as a single-node. You can
+   modify any OpenSearch configuration using services.opensearch.settings.
+   Example:
+
+   services.opensearch.enable = true;
+   services.opensearch.settings = {
+     "cluster.name" = "my-cluster";
+   };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=OpenSearch&oldid=10485"
+     * This page was last edited on 17 February 2023, at 07:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

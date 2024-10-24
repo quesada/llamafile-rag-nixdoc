@@ -1,0 +1,165 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setting-up Nix for CA derivations
+          * 1.1 On NixOS
+          * 1.2 Non NixOS
+     * 2 Using CA derivations
+     * 3 Ensuring that a derivation is properly content-addressed
+     * 4 Links
+   [ ] Toggle the table of contents
+
+                                 Ca-derivations
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   ca derivations (or more formally Floating content-addressed derivations)
+   is an upcoming feature of the Nix package manager.
+
+   Without entering too much into the details − this blog post or the
+   relevant section in Eelco’s PhD thesis provide a more detailed explanation
+   of the underlying idea and its consequences − content-addressed Nix is an
+   extension of the Nix model bringing several new possibilities. In
+   particular, it enables “early cutoff” (stopping a rebuild if it can be
+   proved that the end-result will be the same as something already known),
+   which could reduce hydra’s (and yours) load and storage a lot. It also
+   changes the Trust model of Nix, allowing for example several users to
+   share the same store without trusting each other.
+
+Setting-up Nix for CA derivations
+
+   Being still an experimental feature, CA derivations are currently only
+   available on unstable Nix versions, and require an explicit opt-in.
+
+  On NixOS
+
+   In NixOS this can be achieved with the following options in
+   configuration.nix.
+
+ { pkgs, ... }: {
+    nix = {
+     extraOptions = ''
+       experimental-features = ca-derivations
+     '';
+    };
+ }
+
+  Non NixOS
+
+   Make sure the file `/etc/nix/nix.conf` exists and contains the following:
+
+ experimental-features = ca-derivations
+
+Using CA derivations
+
+   The feature is currently opt-in, meaning that each derivation must
+   individually be marked as content-addressed. When using nixpkgs-unstable,
+   this can be done by setting __contentAddressed = true in the call to
+   mkDerivation.
+
+   It is also possible to mark all the derivations as content-addressed by
+   default, by passing config.contentAddressedByDefault = true as argument to
+   nixpkgs.
+
+   Be warned that although there’s a hydra instance testing some stuff, it’s
+   not a channel blocker, and its associated binary cache won’t contain
+   nearly as many things as cache.nixos.org. So doing so will probably entail
+   rebuilding most of your system yourself, and you might encounter some
+   unexpected breakages.
+
+   To use the binary cache cache.ngi0.nixos.org to speed up your builds,
+   merge the following into your nix.conf:
+
+ substituters = https://cache.ngi0.nixos.org/
+ trusted-public-keys = cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA=
+
+Ensuring that a derivation is properly content-addressed
+
+   Once a derivation has been built, one can check that it is indeed
+   content-addressed by running nix path-info --sigs {outPath}. If this
+   yields a line containing ca:fixed:r:…, then it means that the path is
+   indeed content-addressed (and as such is trusted by your system). For
+   example:
+
+ $ nix-build '<nixpkgs>' --arg config '{ contentAddressedByDefault = true; }' -A vim
+ /nix/store/988jq9bj7s336q48bzdaamcl90k5g1yw-vim-8.2.2567
+ $ nix path-info --sigs ./result
+ /nix/store/988jq9bj7s336q48bzdaamcl90k5g1yw-vim-8.2.2567    ca:fixed:r:sha256:0z37vk3ndszn3p2in3li6rk3kln1lfqd9b6vl6w0qhkn7bixqibc
+
+Links
+
+   Tweag + Nix dev update #12:
+   https://discourse.nixos.org/t/tweag-nix-dev-update-12/13185/3
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Ca-derivations&oldid=8821"
+   Category:
+     * Nix
+     * This page was last edited on 10 October 2023, at 03:15.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

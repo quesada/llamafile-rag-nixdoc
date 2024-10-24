@@ -1,0 +1,108 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Vim: Difference between revisions
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+   ← Older edit
+   VisualWikitext
+
+Revision as of 12:02, 30 July 2024 view source                                        Latest revision as of 07:24, 4 September 2024 view source
+Jopejoe1 (talk | contribs)                                                            Mic92 (talk | contribs)
+trusted                                                                               Bureaucrats, Interface administrators, Administrators, trusted
+118 edits                                                                             316 edits
+Marked this version for translation                                                   imported from old wiki (Remove outdated docs about adding new plugins and point to
+← Older edit                                                                          corresponding section in nixpkgs)
+                                                                                       
+Line 369:                                                                             Line 369:
+ <!--T:46-->                                                                           <!--T:46-->                                                                           
+ As per the instructions found in                                                      Please see                                                                            
+ https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/vim.section.md  https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/vim.section.md. 
+                                                                                      
+ <!--T:93-->                                                                          
+ * First run <code>./update.py</code>.                                                
+                                                                                      
+ <!--T:94-->                                                                          
+ * Commit the changes with the commit message "vimPlugins: Update".                   
+                                                                                      
+ <!--T:95-->                                                                          
+ * Add your plugin to ./vim-plugin-names (please try to maintain the list             
+ alphabetically sorted). You can customize the branch by appending for example        
+ <code>@main</code> to an entry (search the file for examples)                        
+                                                                                      
+ <!--T:96-->                                                                          
+ * Run <code>./update.py</code> once again to generate the plugin's nix expression.   
+                                                                                      
+ <!--T:97-->                                                                          
+ * Commit your changes one more time, this time with the message formated as such:    
+ "vimPlugins.[plugin-name]: init at [version]".                                       
+                                                                                      
+ <!--T:98-->                                                                          
+ * If you need to add additional code/patches to the generated code, add those lines  
+ to <code>pkgs/misc/vim-plugins/vim2nix/additional-nix-code</code> and rerun          
+ <code>./update.py</code>. They will be included in the generated code.               
+ ==== Notes Regarding Plugins ==== <!--T:47-->                                         ==== Notes Regarding Plugins ==== <!--T:47-->                                         
+
+   Retrieved from "https://wiki.nixos.org/wiki/Vim"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

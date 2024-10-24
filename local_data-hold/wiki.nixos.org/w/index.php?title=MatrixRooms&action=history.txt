@@ -1,0 +1,196 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         MatrixRooms: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    15 September 2024
+
+     * curprev [ ] [ ] 06:1706:17, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 6,537 bytes +75‎ add nixos wiki channel
+     * curprev [ ] [ ] 06:1506:15, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 6,462 bytes −4‎ fix matrix space link
+
+    1 May 2024
+
+     * curprev [ ] [ ] 09:3309:33, 1 May 2024‎ Patka talk contribs‎ 6,466
+       bytes +10‎ No edit summary Tags: Mobile edit Mobile web edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:3320:33, 24 April 2024‎ Klinger talk contribs‎ m
+       6,456 bytes +23‎ Category:Community
+
+    19 April 2024
+
+     * curprev [ ] [ ] 09:5809:58, 19 April 2024‎ Patka talk contribs‎ m
+       6,433 bytes +63‎ Add newly created Russian Matrix room
+
+    9 April 2024
+
+     * curprev [ ] [ ] 08:0608:06, 9 April 2024‎ Hexa talk contribs‎ 6,370
+       bytes −22‎ →‎Location-specific: Fix room link for #darmstadt:nixos.org
+       Tag: Visual edit
+     * curprev [ ] [ ] 06:3106:31, 9 April 2024‎ Patka talk contribs‎ m 6,392
+       bytes −160‎ Fix duplicates and typo's
+
+    8 April 2024
+
+     * curprev [ ] [ ] 12:4512:45, 8 April 2024‎ Patka talk contribs‎ 6,552
+       bytes +2,062‎ Finish adding all topic rooms
+
+    7 April 2024
+
+     * curprev [ ] [ ] 18:5718:57, 7 April 2024‎ Patka talk contribs‎ m 4,490
+       bytes +7‎ Fix small copy paste error
+     * curprev [ ] [ ] 18:1818:18, 7 April 2024‎ Patka talk contribs‎ m 4,483
+       bytes −2,095‎ Oops, made a mistake copying from my local document that
+       also had some old stuff in it... Now removed. Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 18:1618:16, 7 April 2024‎ Patka talk contribs‎ 6,578
+       bytes +3,316‎ Added some more topic rooms (still WIP) Tag: Visual
+       edit: Switched
+
+    5 April 2024
+
+     * curprev [ ] [ ] 21:5021:50, 5 April 2024‎ Samueldr talk contribs‎ m
+       3,262 bytes 0‎ →‎Written language: Alphabetically order language rooms
+       Tag: Visual edit
+     * curprev [ ] [ ] 21:4921:49, 5 April 2024‎ Samueldr talk contribs‎ m
+       3,262 bytes −205‎ Review order and fix broken data Tag: Visual edit
+     * curprev [ ] [ ] 21:4721:47, 5 April 2024‎ Samueldr talk contribs‎ m
+       3,467 bytes +4‎ →‎Location-specific: re-locate city Tag: Visual edit
+     * curprev [ ] [ ] 21:4621:46, 5 April 2024‎ Samueldr talk contribs‎ m
+       3,463 bytes +73‎ Properly separate *location*-based rooms from
+       *language*-based rooms. The two-letter codes were supposed to be
+       reserved for language rooms, but it seems like it drifted since. Tag:
+       Visual edit
+     * curprev [ ] [ ] 17:2917:29, 5 April 2024‎ Patka talk contribs‎ m 3,390
+       bytes −1‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 17:2817:28, 5 April 2024‎ Patka talk contribs‎ 3,391
+       bytes +1,267‎ Added part of the Topic rooms. Not finished yet. Tag:
+       Visual edit: Switched
+     * curprev [ ] [ ] 17:2617:26, 5 April 2024‎ Patka talk contribs‎ m 2,124
+       bytes +31‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 13:5213:52, 5 April 2024‎ Patka talk contribs‎ m 2,093
+       bytes −6‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 13:5113:51, 5 April 2024‎ Patka talk contribs‎ 2,099
+       bytes +1,281‎ Move links into a table. Added international rooms.
+       (intention is to gradually add every single room) Tag: Visual edit:
+       Switched
+
+    4 April 2024
+
+     * curprev [ ] [ ] 23:2623:26, 4 April 2024‎ Qyriad talk contribs‎ 818
+       bytes +96‎ added the channel titles for #dev, #chat, #nix, #nix-dev,
+       and #nix-lang Tag: 2017 source edit
+
+    10 June 2021
+
+     * curprev [ ] [ ] 21:5921:59, 10 June 2021‎ imported>Kevincox‎ m 722
+       bytes −67‎ Learn wiki formatting.
+     * curprev [ ] [ ] 21:5721:57, 10 June 2021‎ imported>Kevincox‎ 789 bytes
+       +789‎ Create.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/MatrixRooms"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

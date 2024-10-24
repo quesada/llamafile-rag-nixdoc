@@ -1,0 +1,68 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                     Log in
+
+   [ ] English
+   [ ] Tools
+   Tools
+   Actions
+   General
+     * Special pages
+     * Printable version
+   Username
+   _____________________
+   Password
+   _____________________
+   [ ]  Keep me logged in
+   Log in
+   Login with github (don't fill out above)
+   Help with logging in
+   Forgot your password?
+   Don't have an account?Join NixOS Wiki
+   Retrieved from "https://wiki.nixos.org/wiki/Special:UserLogin"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

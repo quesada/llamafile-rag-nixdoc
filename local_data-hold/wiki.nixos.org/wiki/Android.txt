@@ -1,0 +1,362 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Using the Android SDK
+     * 2 Creating emulators without Nix
+          * 2.1 hardware acceleration
+     * 3 adb setup
+          * 3.1 Use Older Platform Version
+     * 4 Interaction with your Android device
+          * 4.1 adb shell on device
+          * 4.2 Transferring files from/to an Android device
+     * 5 Android Development
+          * 5.1 Android Studio
+          * 5.2 gradlew
+          * 5.3 Building Android on NixOS
+          * 5.4 Android Debug Bridge
+   [ ] Toggle the table of contents
+
+                                    Android
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Using the Android SDK
+
+   NixOS uses the androidenv package for building android SDKs and manually
+   creating emulators without the use of Android Studio. Example android sdk
+   is androidenv.androidPkgs_9_0.androidsdk. They also include all of the SDK
+   tools such as sdkmanager and avdmanager needed to create emulators.
+
+   Note: androidenv.androidPkgs_9_0 has been replaced with
+   androidenv.androidPkgs in nixos 24.11, see
+   backward-incompatibilities-sec-release-2411-incompatibilities, so all the
+   androidPkgs_9_0 references below need be changed after 24.11 gets
+   released.
+
+   The first link provides a guide for creating a custom android SDK, using a
+   predefined SDK, and how to nixify an emulator. The second link is an extra
+   guide that might have some helpful tips for improving your workflow.
+
+    1. Official Android SDK guide from NixOS.org
+    2. Reproducing Android app deployments
+
+   When creating emulators with Nix's emulateApp function as mentioned in the
+   first link, your IDE should now be able to recognize the emulator but you
+   won't be able to run the code. To run it, view the first link on how to
+   run the apk file in the emulator.
+
+   To run emulateApp, build it with nix-build fileName.nix. It'll build in
+   the folder result. run it with ./result/bin/run-test-emulator
+
+Creating emulators without Nix
+
+   If you don't want to nixify your emulators, you can use Android Studio and
+   set up emulators there like a regular system.
+
+   Using sdkmanager and avdmanager from the Android SDK may not work given
+   how Nix stores its files. You can use them from the Android Studio GUI.
+
+   When using machine images from the SDK, you will need to run them with
+   steam-run, and possibly pass extra flags, e.g.:
+
+   steam-run ~/Android/Sdk/emulator/emulator -feature -Vulkan @Pixel_5_API_33
+
+  hardware acceleration
+
+   NOTE: Whether this here is effective needs more research and confirmation.
+   My colleague and I have seen the emulator using around 800% CPU. So far,
+   the following has improved that on my side.
+
+   See also the nixpkgs issue where people tried to trace issues.
+
+   Add your user to the kvm group:
+
+ {
+   users.users.<your-user>.extraGroups = [ "kvm" ];
+ }
+
+adb setup
+
+   To enable adb in NixOS for unprivileged users add these lines to your
+   configuration.nix. This is mandatory for all further interactions with
+   your android device.
+
+ {
+   programs.adb.enable = true;
+   users.users.<your-user>.extraGroups = [ "adbusers" ];
+ }
+
+   This will add additional udev rules for unprivileged access as well as add
+   adb to your $PATH.
+
+   Alternatively, if you don't want to install adb globally but do want to
+   configure the udev rules, you can:
+
+ {
+   services.udev.packages = [
+     pkgs.android-udev-rules
+   ];
+ }
+
+  Use Older Platform Version
+
+   If you would like to get older platform version, you can write the
+   following.
+
+ { pkgs ? import <nixpkgs> {
+   config.android_sdk.accept_license = true;
+   overlays = [
+     (self: super: {
+       androidPkgs_8_0 = super.androidenv.composeAndroidPackages {
+         platformVersions = [ "26" ];
+         abiVersions = [ "x86" "x86_64"];
+       };
+     })
+   ];
+ } }:
+
+ (pkgs.buildFHSUserEnv {
+   name = "android-sdk-env";
+   targetPkgs = pkgs: (with pkgs;
+     [
+       androidPkgs_8_0.androidsdk
+       glibc
+     ]);
+   runScript = "bash";
+ }).env
+
+Interaction with your Android device
+
+  adb shell on device
+
+   First open a nix-shell with the platform tools and connect your device:
+
+ $ nix-shell -p androidenv.androidPkgs.platform-tools
+ % adb devices
+ List of devices attached
+ * daemon not running; starting now at tcp:5037
+ * daemon started successfully
+ BH90272JCU      unauthorized
+
+   Troubleshooting: no device is listed
+
+   A popup appears on your phone to allow your computer access to it. After
+   allowing, you can:
+
+ % adb devices
+ List of devices attached
+ BH90272JCU      device
+ % adb shell
+
+   You can also connect to an already-running adb server:
+
+ $ # For nixos < 19.03
+ $ # nix-shell -p androidenv.platformTools
+ $ nix-shell -p androidenv.androidPkgs_9_0.platform-tools
+ % adb connect 192.168.1.10
+ % adb shell
+
+  Transferring files from/to an Android device
+
+   There are two main methods for newer devices:
+
+     * adb push and adb pull: see above.
+     * via MTP, see the corresponding page
+
+Android Development
+
+  Android Studio
+
+   To develop apps using Android Studio, install it to your system.
+
+ {
+   pkgs.android-studio
+ }
+
+  gradlew
+
+   It's possible to create a build environment (shell.nix) to use with
+   gradlew as a FHS environment:
+
+ { pkgs ? import <nixpkgs> {config.android_sdk.accept_license = true;} }:
+
+ (pkgs.buildFHSUserEnv {
+   name = "android-sdk-env";
+   targetPkgs = pkgs: (with pkgs;
+     [
+       androidenv.androidPkgs_9_0.androidsdk
+       glibc
+     ]);
+   runScript = "bash";
+ }).env
+
+   As an alternative, it's often enough to override just the aapt2 binary for
+   the gradle build process:
+
+ { pkgs ? import <nixpkgs> {config.android_sdk.accept_license = true;} }:
+
+ let
+   androidSdk = pkgs.androidenv.androidPkgs_9_0.androidsdk;
+ in
+ pkgs.mkShell {
+   buildInputs = with pkgs; [
+     androidSdk
+     glibc
+   ];
+   # override the aapt2 that gradle uses with the nix-shipped version
+   GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/28.0.3/aapt2";
+ }
+
+   See the androidenv documentation for full examples.
+
+  Building Android on NixOS
+
+   It's possible to use nix-shell with buildFHSUserEnv to set up an
+   environment in which it's viable to build Android without huge amounts of
+   editing. This is an example shell.nix file.
+
+ { pkgs ? import <nixpkgs> {} }:
+ 
+ let fhs = pkgs.buildFHSUserEnv {
+   name = "android-env";
+   targetPkgs = pkgs: with pkgs;
+     [
+       git
+       gitRepo
+       gnupg
+       python2
+       curl
+       procps
+       openssl
+       gnumake
+       nettools
+       # For nixos < 19.03, use `androidenv.platformTools`, or for nixos > 24.05 use `androidenv.androidPkgs.platform-tools`
+       androidenv.androidPkgs_9_0.platform-tools
+       jdk
+       schedtool
+       util-linux
+       m4
+       gperf
+       perl
+       libxml2
+       zip
+       unzip
+       bison
+       flex
+       lzop
+       python3
+     ];
+   multiPkgs = pkgs: with pkgs;
+     [ zlib
+       ncurses5
+     ];
+   runScript = "bash";
+   profile = ''
+     export ALLOW_NINJA_ENV=true
+     export USE_CCACHE=1
+     export ANDROID_JAVA_HOME=${pkgs.jdk.home}sdkmanager install avd
+     export LD_LIBRARY_PATH=/usr/lib:/usr/lib32
+   '';
+ };
+ in pkgs.stdenv.mkDerivation {
+   name = "android-env-shell";
+   nativeBuildInputs = [ fhs ];
+   shellHook = "exec android-env";
+
+ }
+
+  Android Debug Bridge
+
+ {
+   programs.adb.enable = true;
+   services.udev.extraRules = ''
+     # replace the "[]" for the idVendor and idProduct variable
+     SUBSYSTEM=="usb", ATTR{idVendor}=="[]", MODE="[]", GROUP="adbusers", TAG+="uaccess"
+     SUBSYSTEM=="usb", ATTR{idVendor}=="[]", ATTR{idProduct}=="[]", SYMLINK+="android_adb"
+     SUBSYSTEM=="usb", ATTR{idVendor}=="[]", ATTR{idProduct}=="[]", SYMLINK+="android_fastboot"
+   '';
+
+   # add user to adbusers group
+   users.users.myUser = {
+    isNormalUser = true;
+    extraGroups = [ "adbusers" ];
+   };
+ }
+
+    1. more information on that snippet
+    2. A shell.nix to build LineageOS
+    3. robotnix, building aosp roms (e.g. LineageOS) with nix.
+    4. LineageOS build setup using terranix and hcloud, based on the
+       shell.nix to build LineageOS. Useful if you are in a rush and don't
+       have to much CPU power on your hand.
+    5. Archlinux Wiki to Android_Debug_Bridge
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Android&oldid=17605"
+     * This page was last edited on 23 September 2024, at 17:46.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

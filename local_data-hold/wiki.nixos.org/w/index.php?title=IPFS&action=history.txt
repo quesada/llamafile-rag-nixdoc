@@ -1,0 +1,150 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             IPFS: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    1 April 2024
+
+     * curprev [ ] [ ] 16:4516:45, 1 April 2024‎ Luflosi talk contribs‎ 1,654
+       bytes +155‎ Add instructions for adding the user to the correct group
+       Tag: Visual edit
+
+    17 December 2023
+
+     * curprev [ ] [ ] 20:3420:34, 17 December 2023‎ imported>Luflosi‎ 1,499
+       bytes −3‎ Change installation instructions to match the current state
+       of the NixOS module
+
+    26 August 2023
+
+     * curprev [ ] [ ] 15:3615:36, 26 August 2023‎ imported>Mbledkowski‎
+       1,502 bytes +1‎ No edit summary
+
+    11 August 2023
+
+     * curprev [ ] [ ] 02:1502:15, 11 August 2023‎
+       imported>JackyWangMislantiaJnirvana‎ 1,501 bytes +259‎ No edit summary
+
+    18 April 2023
+
+     * curprev [ ] [ ] 17:3717:37, 18 April 2023‎ imported>Onny‎ m 1,242
+       bytes −10‎ No edit summary
+     * curprev [ ] [ ] 17:2017:20, 18 April 2023‎ imported>Onny‎ m 1,252
+       bytes 0‎ Onny moved page Ipfs to IPFS: Corresponds to the application
+       naming convention
+     * curprev [ ] [ ] 16:3316:33, 18 April 2023‎ imported>Onny‎ m 1,252
+       bytes −173‎ No edit summary
+     * curprev [ ] [ ] 16:2516:25, 18 April 2023‎ imported>Onny‎ m 1,425
+       bytes +1‎ No edit summary
+     * curprev [ ] [ ] 16:2216:22, 18 April 2023‎ imported>Onny‎ m 1,424
+       bytes +9‎ No edit summary
+     * curprev [ ] [ ] 16:2116:21, 18 April 2023‎ imported>Onny‎ m 1,415
+       bytes +213‎ No edit summary
+     * curprev [ ] [ ] 16:1116:11, 18 April 2023‎ imported>Onny‎ m 1,202
+       bytes +99‎ No edit summary
+     * curprev [ ] [ ] 16:0816:08, 18 April 2023‎ imported>Onny‎ 1,103 bytes
+       +1,103‎ Initial page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/IPFS"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

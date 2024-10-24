@@ -1,0 +1,173 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+          * 2.1 Manual DNS challenge
+          * 2.2 DNS challenge using a plugin
+   [ ] Toggle the table of contents
+
+                                    Certbot
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Certbot is Electronic Frontier Foundation's ACME client, which is written
+   in Python and provides conveniences like automatic web server
+   configuration and a built-in webserver for the HTTP challenge. Certbot is
+   recommended by Let's Encrypt.
+
+   Note: It is recommended to use the the ACME service module, available
+   through security.acme, instead of certbot. Please consult the ACME page on
+   how to use it.
+
+Installation
+
+   Note: Following example describes the usage of an experimental module
+   which is still being reviewed as an open PR and might not be ready for
+   production.
+
+   Install certbot application and enable systemd-timer for automated renewal
+   of certificates
+
+ /etc/nixos/configuration.nix
+
+ services.certbot = {
+   enable = true;
+   agreeTerms = true;
+ };
+
+Usage
+
+   It is possible to use several different methods to generate and configure
+   certificates. Verification is done manually, via web servers or DNS
+   records. Not all methods are covered here, for more information please
+   consult the upstream documentation.
+
+   Generated certificates and keys by using the commands below will be stored
+   as /etc/letsencrypt/live/example.org/fullchain.pem and
+   /etc/letsencrypt/live/example.org/privkey.pem, readable by the acme group.
+
+  Manual DNS challenge
+
+   The following command will generate a SSL certificate key pair for the
+   domain example.org using the DNS authentication mechanism. After running
+   this command, you'll get asked by the script to paste a specific key into
+   your DNS records for example.org.
+
+ # certbot certonly --manual --preferred-challenges dns -d example.org --register-unsafely-without-email --agree-tos
+
+  DNS challenge using a plugin
+
+   Currently there are several certbot plugins already packaged. While the
+   plugin usage should be similar for most of them, you should look up
+   upstream documentation on how to use them. In this example we're going to
+   configure and use the plugin for the hosting provider INWX.
+
+   Warning: Do not use a plaintext password in production, this is for
+   demonstration only
+
+   Installing certbot system wide with specific plugin included
+
+ /etc/nixos/configuration.nix
+
+ environment.etc."letsencrypt/inwx.cfg" = {
+   text = ''
+     dns_inwx_url = "https://api.domrobot.com/xmlrpc/"
+     dns_inwx_username = "username"
+     dns_inwx_password = "password"
+     dns_inwx_shared_secret = "your_shared_secret"
+   '';
+   mode = "0600";
+ };
+
+ services.certbot = {
+   enable = true;
+   agreeTerms = true;
+   package = pkgs.certbot.withPlugins (ps: with ps; [ certbot-dns-inwx ]);
+ }
+
+   Shared secret must be set in the configuration but you only have to
+   configure the value if you're using 2FA on INWX.
+
+   Manually configure and generate certificates for example.org using the
+   inwx-plugin
+
+ # certbot certonly -a dns-inwx -d example.org --register-unsafely-without-email --agree-tos
+
+   Now that a specific domain is configured to get renewed using the plugin,
+   the systemd-timer of the certbot module will automatically renew it after
+   expiration.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Certbot&oldid=17734"
+   Categories:
+     * Server
+     * Applications
+     * This page was last edited on 7 October 2024, at 07:48.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

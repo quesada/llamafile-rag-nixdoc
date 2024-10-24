@@ -1,0 +1,176 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             VPN: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    8 June 2021
+
+     * curprev [ ] [ ] 05:0905:09, 8 June 2021‎ imported>Pancho‎ m 121 bytes
+       0‎ Fix capitalization and target of WireGuard link
+
+    24 October 2017
+
+     * curprev [ ] [ ] 21:2321:23, 24 October 2017‎ imported>HLandau‎ 121
+       bytes −7,812‎ Replaced content with "* VPN setup instructions for
+       OpenVPN * VPN setup instructions for Wireguard Category:NixOS"
+
+    17 October 2017
+
+     * curprev [ ] [ ] 11:1711:17, 17 October 2017‎ imported>Sjau‎ m 7,933
+       bytes +1‎ →‎Client Instance
+     * curprev [ ] [ ] 08:1308:13, 17 October 2017‎ imported>Mic92‎ 7,932
+       bytes −172‎ dns issue in wireguard has been resolved
+
+    16 October 2017
+
+     * curprev [ ] [ ] 18:5518:55, 16 October 2017‎ imported>Fadenb‎ m 8,104
+       bytes −1‎ →‎More info: typo fix
+     * curprev [ ] [ ] 18:3118:31, 16 October 2017‎ imported>Tilpner‎ m 8,105
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 12:2212:22, 16 October 2017‎ imported>Sjau‎ 8,105
+       bytes +80‎ →‎Wireguard
+     * curprev [ ] [ ] 10:3410:34, 16 October 2017‎ imported>Sjau‎ 8,025
+       bytes +27‎ No edit summary
+     * curprev [ ] [ ] 10:3210:32, 16 October 2017‎ imported>Sjau‎ 7,998
+       bytes +11‎ No edit summary
+     * curprev [ ] [ ] 10:3010:30, 16 October 2017‎ imported>Sjau‎ 7,987
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 10:3010:30, 16 October 2017‎ imported>Sjau‎ 7,987
+       bytes −17‎ No edit summary
+     * curprev [ ] [ ] 10:2810:28, 16 October 2017‎ imported>Sjau‎ 8,004
+       bytes +4,038‎ Added wireguard
+
+    25 September 2017
+
+     * curprev [ ] [ ] 19:1419:14, 25 September 2017‎ imported>Makefu‎ 3,966
+       bytes +1,960‎ →‎OpenVPN: add server
+
+    21 September 2017
+
+     * curprev [ ] [ ] 19:4919:49, 21 September 2017‎ imported>Danbst‎ 2,006
+       bytes +155‎ →‎OpenVPN
+
+    20 September 2017
+
+     * curprev [ ] [ ] 07:1307:13, 20 September 2017‎ imported>Makefu‎ 1,851
+       bytes +20‎ No edit summary
+
+    17 September 2017
+
+     * curprev [ ] [ ] 16:3816:38, 17 September 2017‎ imported>Sjau‎ 1,831
+       bytes +1,660‎ →‎OpenVPN
+
+    24 August 2017
+
+     * curprev [ ] [ ] 00:1100:11, 24 August 2017‎ imported>Mic92‎ 171 bytes
+       +49‎ No edit summary
+
+    23 August 2017
+
+     * curprev [ ] [ ] 23:3223:32, 23 August 2017‎ imported>Volth‎ 122 bytes
+       +122‎ Created page with "=== PPTP === ... === L2TP === ... === IPSec
+       === ... === Tinc === ... === SoftEther === ... === ZeroTier === ..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/VPN"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

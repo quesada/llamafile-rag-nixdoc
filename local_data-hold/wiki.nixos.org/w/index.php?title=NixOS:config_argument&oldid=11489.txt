@@ -1,0 +1,203 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Simple Case
+     * 2 Conditional Statements
+     * 3 Common Pattern
+   [ ] Toggle the table of contents
+
+                             NixOS:config argument
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 03:20, 4 April 2024 by Raf (talk | contribs) (changed
+   instances of pkgs.lib to more commonly available lib)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   This argument gives access to the entire configuration of the system. It
+   is computed from option declarations and option definitions defined inside
+   all modules used for the system.
+
+Simple Case
+
+   The following code is used to support the explanation.
+
+ {config, pkgs, lib ...}:
+
+ {
+   options = {
+     foo = lib.mkOption {
+       description = "...";
+     };
+   };
+
+   config = {
+     bar = config.foo;
+   };
+ }
+
+   This snippet of code is a module which declare the option "foo" and define
+   the option "bar". The option "bar" is defined with the value config.foo.
+   This attribute foo of the config argument, is the result of the evaluation
+   of the definitions and the declarations of the option "foo". Definitions
+   of the option "foo" may exists in other module used by the system.
+
+   Adding additional modules to the system may change the value of config.foo
+   and may change the behavior of the previous module.
+
+Conditional Statements
+
+   The process of module computation is highly recursive and may cause
+   trouble when you want to add control flow statements. A common mistake is
+   to use "if" or "assert" statements in the computation of a module.
+
+ {config, pkgs, lib, ...}:
+
+ {
+   options = {
+     foo = lib.mkOption {
+       default = false;
+       type = with lib.types; bool;
+       description = "foo boolean option";
+     };
+   };
+
+   config =
+     if config.foo then
+       { bar = 42; }
+     else
+       {};
+ }
+
+   The previous module cause an infinite recursion:
+
+     * The config attribute is evaluated. This evaluation needs the result of
+       the if statement.
+     * The if statement is evaluated. This evaluation needs the result of the
+       condition.
+     * The condition (config.foo) is evaluated. This evaluation needs the
+       result of the config argument.
+     * The config argument is evaluated. This evaluation needs the result of
+       merging of all modules.
+     * The merge function of the modules is evaluated. This evaluation needs
+       the evaluation of each module config attribute.
+
+   To avoid such infinite recursion, properties have been introduced, thus
+   the previous code should be rewritten in:
+
+ {config, pkgs, lib, ...}:
+
+ {
+   options = {
+     foo = lib.mkOption {
+       default = false;
+       type = with lib.types; bool;
+       description = "foo boolean";
+     };
+   };
+
+   config = lib.mkIf config.foo {
+     bar = 42;
+   };
+ }
+
+Common Pattern
+
+   Often, the module declare options embedded inside an attribute set. To
+   access these options, we add an attribute cfg as a shortcut notation.
+
+ {config, pkgs, lib, ...}:
+
+ let
+   cfg = config.foo.bar.baz;
+
+   # ...
+ in
+
+ with lib; {
+   options = {
+     foo.bar.baz = {
+       enable = mkOption { /* ... */ };
+       option1 = mkOption { /* ... */ };
+       option2 = mkOption { /* ... */ };
+       option3 = mkOption { /* ... */ };
+     };
+   };
+
+   config = mkIf cfg.enable {
+     # ...
+   };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS:config_argument&oldid=11489"
+   Categories:
+     * Reference
+     * NixOS
+     * This page was last edited on 4 April 2024, at 03:20.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

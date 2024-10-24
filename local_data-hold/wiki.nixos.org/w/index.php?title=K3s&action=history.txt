@@ -1,0 +1,304 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             K3s: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    18 June 2024
+
+     * curprev [ ] [ ] 21:5421:54, 18 June 2024‎ Klinger talk contribs‎ 328
+       bytes +189‎ Category:Container. Link. Description. Tag: Visual edit:
+       Switched
+
+    6 June 2024
+
+     * curprev [ ] [ ] 19:5119:51, 6 June 2024‎ Superherointj talk contribs‎
+       m 139 bytes +8‎ k3s: NixOS's K3s Tag: Visual edit
+     * curprev [ ] [ ] 19:3019:30, 6 June 2024‎ Superherointj talk contribs‎
+       131 bytes −92‎ k3s: remove note on not duplicating information Tag:
+       Visual edit
+     * curprev [ ] [ ] 14:4814:48, 6 June 2024‎ Superherointj talk contribs‎
+       223 bytes −10,732‎ K3s documentation is available at Nixpkgs Tag:
+       Replaced
+
+    8 May 2024
+
+     * curprev [ ] [ ] 12:4612:46, 8 May 2024‎ Superherointj talk contribs‎
+       10,955 bytes +61‎ →‎Syncing K3s in multiple hosts: Syncing of
+       configuration.nix's git repository Tag: Visual edit
+     * curprev [ ] [ ] 12:4312:43, 8 May 2024‎ Superherointj talk contribs‎
+       10,894 bytes +238‎ →‎Stopping K3s: Syncing in multiple hosts Tag:
+       Visual edit
+
+    7 May 2024
+
+     * curprev [ ] [ ] 14:3114:31, 7 May 2024‎ Superherointj talk contribs‎
+       10,656 bytes +241‎ →‎Upkeep: Stopping K3s and Token requiring reset
+       Tag: Visual edit
+     * curprev [ ] [ ] 14:1414:14, 7 May 2024‎ Superherointj talk contribs‎
+       10,415 bytes +123‎ →‎Cluster Reset: k3s-uninstall.sh mention Tag:
+       Visual edit
+
+    1 May 2024
+
+     * curprev [ ] [ ] 15:4215:42, 1 May 2024‎ Mic92 talk contribs‎ 10,292
+       bytes +1,158‎ imported from old wiki
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:0321:03, 19 April 2024‎ Klinger talk contribs‎ m
+       9,134 bytes −4‎ Category:Applications Category:Server
+       Category:Container
+
+    5 April 2024
+
+     * curprev [ ] [ ] 01:3501:35, 5 April 2024‎ Samueldr talk contribs‎ m
+       9,138 bytes +18‎ fixed deprecated syntax
+
+    15 March 2024
+
+     * curprev [ ] [ ] 15:2415:24, 15 March 2024‎ imported>Superherointj‎
+       9,120 bytes −98‎ →‎FailedKillPod: failed to get network "cbr0" cached
+       result
+     * curprev [ ] [ ] 15:1915:19, 15 March 2024‎ imported>Superherointj‎
+       9,218 bytes −69‎ →‎FailedKillPod: failed to get network "cbr0" cached
+       result
+     * curprev [ ] [ ] 15:1515:15, 15 March 2024‎ imported>Superherointj‎
+       9,287 bytes +448‎ →‎Troubleshooting: FailedKillPod failed to get
+       network "cbr0" cached result
+
+    14 March 2024
+
+     * curprev [ ] [ ] 19:2919:29, 14 March 2024‎ imported>Superherointj‎
+       8,839 bytes +165‎ Release support
+
+    13 March 2024
+
+     * curprev [ ] [ ] 05:0205:02, 13 March 2024‎ imported>Mic92‎ m 8,674
+       bytes −1‎ cleanup whitespace
+
+    12 March 2024
+
+     * curprev [ ] [ ] 20:2620:26, 12 March 2024‎ imported>Atropos112‎ 8,675
+       bytes +1‎ No edit summary
+     * curprev [ ] [ ] 20:2620:26, 12 March 2024‎ imported>Atropos112‎ 8,674
+       bytes +236‎ No edit summary
+
+    21 February 2024
+
+     * curprev [ ] [ ] 14:1914:19, 21 February 2024‎ imported>Superherointj‎
+       m 8,438 bytes +21‎ →‎Longhorn: parametrize hostname
+
+    20 February 2024
+
+     * curprev [ ] [ ] 17:1817:18, 20 February 2024‎ imported>Superherointj‎
+       8,417 bytes −580‎ →‎Network policies: remove it, it's stale
+     * curprev [ ] [ ] 17:1617:16, 20 February 2024‎ imported>Superherointj‎
+       m 8,997 bytes +10‎ →‎Kyverno Policy for Fixing Longhorn Container
+
+    18 February 2024
+
+     * curprev [ ] [ ] 22:5322:53, 18 February 2024‎ imported>Superherointj‎
+       8,987 bytes +2,146‎ Add Storage section with Longhorn and NFS
+       information
+
+    8 February 2024
+
+     * curprev [ ] [ ] 18:2418:24, 8 February 2024‎ imported>Rockofox‎ m
+       6,841 bytes +1‎ Small spelling mistake
+
+    16 January 2024
+
+     * curprev [ ] [ ] 15:3015:30, 16 January 2024‎ imported>SteffeyDev‎ m
+       6,840 bytes +269‎ No edit summary
+
+    9 December 2023
+
+     * curprev [ ] [ ] 21:0321:03, 9 December 2023‎ imported>Atropos112‎ m
+       6,571 bytes +11‎ saw some typos after last edit, correcting (nvidia
+       section only).
+     * curprev [ ] [ ] 21:0221:02, 9 December 2023‎ imported>Atropos112‎
+       6,560 bytes +2,092‎ Added nvidia support
+
+    14 November 2023
+
+     * curprev [ ] [ ] 18:2918:29, 14 November 2023‎ imported>Remedan‎ m
+       4,468 bytes +5‎ Fix missing brace
+     * curprev [ ] [ ] 18:2818:28, 14 November 2023‎ imported>Remedan‎ 4,463
+       bytes +1,032‎ Add examples fo a multi-node cluster
+
+    26 October 2023
+
+     * curprev [ ] [ ] 11:4511:45, 26 October 2023‎
+       imported>Georgiancamarasan‎ m 3,431 bytes +6‎ Fixed minor spellcheck
+       issues
+
+    21 October 2023
+
+     * curprev [ ] [ ] 02:4702:47, 21 October 2023‎ imported>Mcsaucy‎ 3,425
+       bytes +201‎ document that you need ports 2379 and 2380 for etcd peers
+       and clients if using HA with etcd
+
+    17 June 2023
+
+     * curprev [ ] [ ] 16:0316:03, 17 June 2023‎ imported>KazaniAvali‎ m
+       3,224 bytes 0‎ Spelling correction for Raspberry
+
+    18 February 2023
+
+     * curprev [ ] [ ] 13:2513:25, 18 February 2023‎ imported>Timstott‎ 3,224
+       bytes +577‎ Instructions to fix k3s network policies
+
+    21 January 2023
+
+     * curprev [ ] [ ] 20:0720:07, 21 January 2023‎ imported>Fundur‎ 2,647
+       bytes +453‎ Raspberry Pi not working due to memory cgroup fixed
+
+    3 May 2022
+
+     * curprev [ ] [ ] 14:4514:45, 3 May 2022‎ imported>Azazel75‎ 2,194 bytes
+       +411‎ add flannel config
+
+    5 January 2022
+
+     * curprev [ ] [ ] 05:5805:58, 5 January 2022‎ imported>Vater‎ m 1,783
+       bytes +8‎ No edit summary
+     * curprev [ ] [ ] 05:1505:15, 5 January 2022‎ imported>Vater‎ m 1,775
+       bytes +27‎ specific kind of software
+
+    5 November 2021
+
+     * curprev [ ] [ ] 18:0618:06, 5 November 2021‎ imported>Mic92‎ 1,748
+       bytes +508‎ add multi-node setup
+     * curprev [ ] [ ] 17:1717:17, 5 November 2021‎ imported>Bsima‎ 1,240
+       bytes +56‎ add k3s package & sudo
+     * curprev [ ] [ ] 17:0817:08, 5 November 2021‎ imported>Bsima‎ m 1,184
+       bytes +1‎ →‎Single node setup
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5905:59, 20 September 2021‎ imported>Nix‎ m 1,183
+       bytes +20‎ add Server category
+     * curprev [ ] [ ] 05:5905:59, 20 September 2021‎ imported>Nix‎ m 1,163
+       bytes +27‎ add Software/Applications subcategory
+
+    5 June 2021
+
+     * curprev [ ] [ ] 04:1204:12, 5 June 2021‎ imported>Euank‎ 1,136 bytes
+       +85‎ No edit summary
+     * curprev [ ] [ ] 04:1004:10, 5 June 2021‎ imported>Euank‎ 1,051 bytes
+       +37‎ Update to a working example of k3s.extraFlags
+
+    31 May 2021
+
+     * curprev [ ] [ ] 20:5520:55, 31 May 2021‎ imported>Mic92‎ 1,014 bytes
+       +423‎ describe zfs setup
+     * curprev [ ] [ ] 20:4820:48, 31 May 2021‎ imported>Mic92‎ 591 bytes
+       +142‎ add firewall.
+     * curprev [ ] [ ] 20:4620:46, 31 May 2021‎ imported>Mic92‎ 449 bytes
+       +12‎ cleanup
+     * curprev [ ] [ ] 20:4520:45, 31 May 2021‎ imported>Mic92‎ 437 bytes
+       +437‎ describe single node setup
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/K3s"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

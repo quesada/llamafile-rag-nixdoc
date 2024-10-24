@@ -1,0 +1,132 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Category:NixOS on ARM
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Revision as of 19:21, 24 April 2024 by Klinger (talk | contribs)
+   (Category:Hardware)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Media in category "NixOS on ARM"
+
+   The following 24 files are in this category, out of 24 total.
+
+     * [IMG]
+       Bananapim64.jpg 750 × 526; 85 KB
+     * [IMG]
+       Firefly AIO-3399C.png 800 × 550; 761 KB
+     * [IMG]
+       NanoPC-T4.png 416 × 288; 259 KB
+     * [IMG]
+       NanoPi-R6C.jpg 1,752 × 1,320; 467 KB
+     * [IMG]
+       NanoPi-R6C UEFI Firmware.png 1,041 × 427; 40 KB
+     * [IMG]
+       ODROID-C2.jpg 529 × 375; 52 KB
+     * [IMG]
+       Orange pi one.jpg 744 × 522; 140 KB
+     * [IMG]
+       Orange-pi-zero-plus-two-h5 20180922 165004.jpg 885 × 721; 158 KB
+     * [IMG]
+       Orange-pi-zero-two-h616.png 592 × 592; 257 KB
+     * [IMG]
+       Pine-a64-lts.jpg 688 × 558; 118 KB
+     * [IMG]
+       Pine-A64-LTS partial-pinout.png 2,000 × 400; 70 KB
+     * [IMG]
+       Pinebook-a64-11-glamour.jpg 3,166 × 3,314; 867 KB
+     * [IMG]
+       Pinebook-Pro-glamour.jpg 2,102 × 2,191; 416 KB
+     * [IMG]
+       Radxa ROCK 5B.jpg 973 × 782; 116 KB
+     * [IMG]
+       Radxa ROCK 5B UEFI Firmware.png 1,041 × 430; 46 KB
+     * [IMG]
+       Raspberry pi 3 glamour.jpg 1,040 × 830; 188 KB
+     * [IMG]
+       Raspberry Pi 4, 2 GB RAM version 4.jpg 3,562 × 2,671; 1.65 MB
+     * [IMG]
+       Raspberry Pi 5, 8 GB RAM.jpg 1,000 × 1,000; 372 KB
+     * [IMG]
+       Riscv visionfive2.jpg 640 × 526; 142 KB
+     * [IMG]
+       ROCK64.jpg 460 × 460; 98 KB
+     * [IMG]
+       ROCKPro64.jpg 600 × 600; 105 KB
+     * [IMG]
+       ROC-RK3328-CC.png 980 × 653; 620 KB
+     * [IMG]
+       ROC-RK3399-PC-pinout.png 2,000 × 1,164; 147 KB
+     * [IMG]
+       Teres-A64-glamour.png 1,920 × 1,080; 593 KB
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:NixOS_on_ARM&oldid=12422"
+   Category:
+     * Hardware
+     * This page was last edited on 24 April 2024, at 19:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

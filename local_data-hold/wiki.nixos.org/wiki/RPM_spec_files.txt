@@ -1,0 +1,96 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Examples
+     * 2 See also
+   [ ] Toggle the table of contents
+
+                                 RPM spec files
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   *.spec files describe build instructions for the RPM Package Manager
+   (RedHat, Fedora ...)
+
+Examples
+
+     * slurm-spank-stunnel.spec (pull request)
+
+See also
+
+     * nix-template-rpm.py to generate nix files from spec files
+     * Spec Files in Fedora Docs
+     * Packaging Tutorial in Fedora Docs
+     * What is a SPEC File in RPM Packaging Guide
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=RPM_spec_files&oldid=12466"
+   Category:
+     * Development
+     * This page was last edited on 24 April 2024, at 20:20.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

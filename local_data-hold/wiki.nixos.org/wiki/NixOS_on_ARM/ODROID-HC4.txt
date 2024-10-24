@@ -1,0 +1,168 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+          * 2.1 Petitboot removal
+          * 2.2 NixOS installation
+     * 3 Known issues
+          * 3.1 Fan doesn't work by default
+     * 4 No HDMI audio by default
+     * 5 Resources
+   [ ] Toggle the table of contents
+
+                            NixOS on ARM/ODROID-HC4
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   Hardkernel ODROID-HC4
+   Manufacturer Hardkernel      
+   Architecture AArch64         
+   Bootloader   U-Boot          
+   Boot options microSD (SATA?) 
+
+Status
+
+   Mostly working, but some manual steps needed to get it running.
+
+   U-boot support in NixPkgs is currently in review: NixPkgs Pull Request
+   #101454
+
+Board-specific installation notes
+
+  Petitboot removal
+
+   Petitboot is installed on the SPI memory of the Odroid HC4 from factory.
+   To be able to load an upstreamed version of U-Boot without having to press
+   a hardware button at each boot, you may remove it. Please proceed with
+   caution, this will make Hardkernel images unbootable!
+
+   From the Petitboot, go for “Exit to shell” and enter these commands to
+   remove Petitboot:
+
+ flash_eraseall /dev/mtd0
+ flash_eraseall /dev/mtd1
+ flash_eraseall /dev/mtd2
+ flash_eraseall /dev/mtd3
+
+   This will make your SPI flash memory empty and the device will now start
+   from SD on next boot.
+
+   See this Odroid forum topic to restore Petitboot.
+
+  NixOS installation
+
+    1. First follow the generic installation steps to get the latest stable
+       installer image.
+    2. Uncompress the .zst file. One may use the unzstd command (equivalent
+       to zstd -d) on supported machines. The zstd commands can be accessed
+       from the zstd package.
+    3. Patch this image (.img file) with U-Boot for Odroid HC4.
+
+ # Clone content of samueldr's wip/odroidc4 branch, edit the defconfig file, and build
+ git clone https://github.com/samueldr/nixpkgs --depth 1 -b wip/odroidc4 && cd nixpkgs
+ test "$(uname)" '==' 'Darwin' && sed -i '' 's/defconfig = "odroid-c4_defconfig"/defconfig = "odroid-hc4_defconfig"/' pkgs/misc/uboot/default.nix || sed -i 's/defconfig = "odroid-c4_defconfig"/defconfig = "odroid-hc4_defconfig"/' pkgs/misc/uboot/default.nix
+ nix-build -I "nixpkgs=$PWD" -A pkgsCross.aarch64-multiplatform.ubootOdroidC4
+ sudo dd if=result/u-boot.bin of=PATH/TO/nixos-sd-image-21.05.XXXX.XXXXXXXX-aarch64-linux.img  conv=fsync,notrunc bs=512 seek=1
+
+    4. Flash the modified SD image file (.img) to a microSD card. This will
+       erase all the data on the card!
+
+Known issues
+
+  Fan doesn't work by default
+
+   You need to use software fan control (via fancontrol) for this. You may
+   refer to [nixos-hardware Odroid HC4 module] for fancontrol configuration.
+
+No HDMI audio by default
+
+   After enabling ALSA you should see a sound card named "ODROID-HC4". Audio
+   is not correctly routed by default so you might need to open alsa-mixer
+   and change:
+
+     * FRDDR_A SINK 1 SEL to OUT 1
+     * FRDDR_A SRC 1 EN to on
+     * TDMOUT_B SRC SEL to IN 0
+     * TOHDMITX to on
+     * TOHDMITX I2S SRC to I2S B
+
+   After these changes, speaker-test -c 2 should output white noise.
+
+Resources
+
+     * Official product page
+     * NixOS configuration for the ODROID HC4 microcomputer by considerate
+     * Armbian Odroid HC4
+     * U-Boot for Odroid C4 documentation
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/ODROID-HC4&oldid=9141"
+     * This page was last edited on 9 April 2023, at 10:15.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

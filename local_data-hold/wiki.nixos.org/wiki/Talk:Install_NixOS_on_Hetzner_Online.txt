@@ -1,0 +1,136 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 testing 2022-03-26 Install NixOS on Hetzner Online#Bootstrap from
+       the Rescue System
+     * 2 testing 2024-10-10 Install NixOS on Hetzner Online#Bootstrap from
+       the Rescue System
+     * 3 Rename article?
+     * 4 nixos-anywhere
+     * 5 2023-07-08: kexec and kexec-bundle are currently broken in
+       nixos-generate
+   [ ] Toggle the table of contents
+
+                      Talk:Install NixOS on Hetzner Online
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+testing 2022-03-26 Install NixOS on Hetzner Online#Bootstrap from the Rescue
+System
+
+           nixos-generate -o /home/foo/result -f kexec-bundle -c
+           /home/foo/config.nix
+
+   fails
+
+   trying
+
+           nixos-generate -o /home/foo/result -f kexec -c
+           /home/foo/config.nix
+
+   works
+
+testing 2024-10-10 Install NixOS on Hetzner Online#Bootstrap from the Rescue
+System
+
+   I tested using nix-env -f
+   https://github.com/nix-community/nixos-generators/archive/1.8.0.tar.gz -i
+   -v
+
+           nixos-generate -o /root/result -f kexec-bundle -c /root/config.nix
+
+   fails
+
+Rename article?
+
+   I just deleted a large section about bootstrapping NixOS on Hetzner Cloud.
+   The header of this article specifically mentions that Hetzner Online and
+   Hetzner Cloud are two different services, and that this article deals with
+   Hetzner Online's dedicated servers.
+
+   I'm thinking that it might be worth making this more clear by renaming the
+   article title – the distinction between Online/Cloud IS confusing, and the
+   title could do better. Maybe "Install NixOS on Hetzner Online (Dedicated
+   Servers)" or "NixOS on Hetzner Online Dedicated Servers" to allow for
+   expanding the article to cover any other specifics for this provider.
+
+nixos-anywhere
+
+   https://github.com/numtide/nixos-anywhere worked very well for installing
+   NixOS on a EX101 dedicated server. If anyone wants to expand this article
+   ...
+
+2023-07-08: kexec and kexec-bundle are currently broken in nixos-generate
+
+   See https://github.com/nix-community/nixos-generators/issues/259
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Install_NixOS_on_Hetzner_Online&oldid=17773"
+     * This page was last edited on 10 October 2024, at 23:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

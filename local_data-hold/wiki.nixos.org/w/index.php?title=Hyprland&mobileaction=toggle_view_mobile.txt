@@ -1,0 +1,280 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Using NixOS
+          * 1.2 Using Home Manager
+          * 1.3 Using Flake
+     * 2 Configuration
+          * 2.1 Using Home Manager
+     * 3 Plugin
+     * 4 Usage
+     * 5 Troubleshooting
+          * 5.1 Swaylock
+     * 6 See also
+   [ ] Toggle the table of contents
+
+                                    Hyprland
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: Incomplete (reason: (Adding incrementally through testing and     
+    verification.)) (Discuss in Talk:Hyprland#)                               
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   Warning: At the moment, upstream provides a better documentation regarding
+   installation and configuration. Please refer to it instead.
+
+   Hyprland is a wlroots-based tiling Wayland compositor written in C++.
+   Noteworthy features of Hyprland include dynamic tiling, tabbed windows, a
+   clean and readable C++ code-base, and a custom renderer that provides
+   window animations, rounded corners, and Dual-Kawase Blur on transparent
+   windows. General usage and configuration is thoroughly documented at
+   Hyprland wiki.
+
+Installation
+
+   Note: The respective modules should already take care of the majority of
+   mentioned items in this list.
+
+   To run Hyprland properly you need to enables critical components, such as:
+
+     * polkit
+     * xdg-desktop-portal-hyprland
+     * graphics drivers : Nvidia, AMD
+     * fonts
+     * dconf
+     * xwayland
+     * display manager
+
+   If you use gdm or ldm: add a proper Desktop Entry to your display manager.
+
+  Using NixOS
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {pkgs, ...}:
+ {
+   programs.hyprland = {
+     # Install the packages from nixpkgs
+     enable = true;
+     # Whether to enable XWayland
+     xwayland.enable = true;
+   };
+   # ...
+ }
+
+   See all modules for NixOS
+
+  Using Home Manager
+
+    
+
+ /etc/nixos/home.nix or ~/.config/home-manager/home.nix
+
+ {config, pkgs, ... }:
+ {
+   wayland.windowManager.hyprland = {
+     # Whether to enable Hyprland wayland compositor
+     enable = true;
+     # The hyprland package to use
+     package = pkgs.hyprland;
+     # Whether to enable XWayland
+     xwayland.enable = true;
+
+     # Optional
+     # Whether to enable hyprland-session.target on hyprland startup
+     systemd.enable = true;
+   };
+   # ...
+ }
+
+   See all modules for Home Manager
+
+  Using Flake
+
+Configuration
+
+  Using Home Manager
+
+   You have two options for configuring the settings:
+
+   1. Compose the configuration using Nix syntax:
+
+    
+
+ /etc/nixos/home.nix or ~/.config/home-manager/home.nix
+
+ {config, pkgs, ... }:
+ {
+   wayland.windowManager.hyprland.settings = {
+     decoration = {
+       shadow_offset = "0 5";
+       "col.shadow" = "rgba(00000099)";
+     };
+
+     "$mod" = "SUPER";
+
+     bindm = [
+       # mouse movements
+       "$mod, mouse:272, movewindow"
+       "$mod, mouse:273, resizewindow"
+       "$mod ALT, mouse:272, resizewindow"
+     ];
+   };
+   # ...
+ }
+
+   2. You can also use Hyprland's syntax to write the file like this: :
+
+    
+
+ /etc/nixos/home.nix or ~/.config/home-manager/home.nix
+
+ {config, pkgs, ... }:
+ {
+   xdg.configFile."hypr/hyprland.conf".text = ''
+     decoration {
+       shadow_offset = 0 5
+       col.shadow = rgba(00000099)
+     }
+
+     $mod = SUPER
+
+     bindm = $mod, mouse:272, movewindow
+     bindm = $mod, mouse:273, resizewindow
+     bindm = $mod ALT, mouse:272, resizewindow
+   '';
+   # ...
+ }
+
+Plugin
+
+   You need use flake for her, example:
+
+   put this in your flake.nix
+
+    
+
+ /etc/nixos/flake.nix or ~/.config/home-manager/flake.nix
+
+ {
+   inputs = {
+     # ...
+     hyprland.url = "github:hyprwm/Hyprland";
+     plugin_name = {
+         url = "github:maintener/plugin_name";
+         inputs.hyprland.follows = "hyprland"; # IMPORTANT
+     };
+   };
+ }
+
+   then, inside your home-manager module:
+
+    
+
+ /etc/nixos/flake.nix or ~/.config/home-manager/flake.nix
+
+ {
+   wayland.windowManager.hyprland = {
+     plugins = [
+         inputs.plugin_name.packages.${pkgs.system}.default
+     ];
+   };
+ }
+
+   List of plugins
+
+Usage
+
+Troubleshooting
+
+  Swaylock
+
+   If swaylock cannot be unlocked with the correct password:
+   security.pam.services.swaylock = {};
+
+See also
+
+     * Hyprland Website
+     * The official documentation
+     * Hyprland Github Page
+     * Community-maintained list of tools, plugins and extensions
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hyprland&oldid=16990"
+   Categories:
+     * Window managers
+     * Applications
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 30 August 2024, at 08:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

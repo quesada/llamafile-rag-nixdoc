@@ -1,0 +1,191 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Supported devices
+          * 1.1 Upstream (NixOS) supported devices
+          * 1.2 Community supported devices
+               * 1.2.1 Special Devices
+     * 2 Installation
+          * 2.1 Getting the installer
+               * 2.1.1 SD card images (SBCs and similar platforms)
+     * 3 Binary cache
+     * 4 NixOS Support
+          * 4.1 Awaiting upstream RISC-V support
+     * 5 Resources
+          * 5.1 Subpages
+     * 6 References
+   [ ] Toggle the table of contents
+
+                                     RISC-V
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:RISC-V#)                 
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+Supported devices
+
+   Table legend:
+
+     * SoC - https://en.wikipedia.org/wiki/System_on_a_chip
+     * ISA - https://en.wikipedia.org/wiki/Instruction_set_architecture
+
+  Upstream (NixOS) supported devices
+
+   NixOS has no official support for riscv64-linux architecture on the
+   nixpkgs-unstable and stable channel.
+
+  Community supported devices
+
+   Manufacturer Board         SoC    ISA    CPU      RAM         Storage      
+                                            2×                                
+   StarFive     StarFive      JH7100 RV64GC SiFive   8GB LPDDR4  microSD
+                VisionFive                  U74 @    
+                                            1.5 GHz  
+                                            4×                   microSD,     
+   StarFive     StarFive      JH7110 RV64GC SiFive   2GB/4GB/8GB eMMC, M.2    
+                VisionFive 2                U74 @    LPDDR4      M-Key        
+                                            1.5 GHz  
+
+    Special Devices
+
+   It is possible to emulate a RISC-V platform with QEMU. Programs may
+   occasionally crash on QEMU with a segmentation fault despite working on
+   native RISC-V hardware.^[1]^[2]
+
+   Manufacturer Board SoC ISA                   CPU       RAM       Storage   
+                          Anything QEMU         Anything  Anything  Anything  
+   QEMU               —   supports              QEMU      QEMU      QEMU      
+                                                supports  supports  supports  
+
+Installation
+
+  Getting the installer
+
+    SD card images (SBCs and similar platforms)
+
+   For riscv64 it is possible to download images from the community.
+
+     * Hifive Unmatched
+     * VisionFive 1
+     * VisionFive 2
+     * STAR64
+     * Lichee Pi 4A
+
+   Build or download the image.
+
+   If the image has the extension .zst, it will need to be decompressed
+   before writing to installation device. Use nix-shell -p zstd --run "unzstd
+   <img-name>.img.zst" to decompress the image.
+
+Binary cache
+
+     * misuzu
+     * by Nick Cao
+
+NixOS Support
+
+   All RISC-V platforms are experimental for the time being.
+
+   There is a dedicated room for the upstream effort on Matrix,
+   matrix:r/riscv:nixos.org.
+
+  Awaiting upstream RISC-V support
+
+     * LuaJIT
+     * OpenJDK
+     * GHC
+     * Valgrind
+
+Resources
+
+     * https://wiki.riscv.org/display/HOME/Language+Runtimes
+     * https://github.com/NixOS/nixos-hardware
+
+  Subpages
+
+   The following is a list of all sub-pages of the NixOS on RISC-V topic.
+
+     * VisionFive 2
+
+   The following is a list of all sub-pages of the Meetings/RISC-V.
+
+     * 2023-09-10
+
+References
+
+    1. ↑ Nixpkgs #300550
+    2. ↑ Nixpkgs #300618
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=RISC-V&oldid=15545"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 26 July 2024, at 22:42.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

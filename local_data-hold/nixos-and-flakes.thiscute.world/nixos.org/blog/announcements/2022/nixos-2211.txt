@@ -1,0 +1,111 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              NixOS 22.11 released
+
+   Published on Thu Dec 01 2022
+
+                              NixOS 22.11 released
+
+   NixOS 22.11 Raccoon logo
+
+   Hey everyone, we are Martin Weinelt and Janne Heß, the release managers
+   for this stable release and we are very proud to announce the public
+   availability of NixOS 22.11 “Raccoon”.
+
+   This release will receive bugfixes and security updates for seven months
+   (up until 2023-06-30).
+
+     * Release manual
+          * Highlights
+          * Internal changes
+          * Notable version Updates
+          * Backward Incompatibilities
+          * Other Notable Changes
+          * New Services
+     * Upgrade Instructions
+     * ISO Image Downloads
+
+   The 22.11 release was made possible due to the efforts of 1652
+   contributors, who authored 30371 commits since the previous release. Our
+   thanks go the contributors who also take care of the continued stability
+   and security of our stable distribution.
+
+   NixOS is already known as the most up to date distribution while also
+   being the distribution with the most packages. This release saw 16678 new
+   packages and 14680 updated packages in nixpkgs. We also removed 2812
+   packages in an effort to keep the package set maintainable and secure. In
+   addition to packages the NixOS distribution also features modules and
+   tests that make it what it is. This release brought 91 new modules and
+   removed 20. In that process we added 1322 options and removed 487.
+
+  Password hashing migration
+
+   During the NixOS 22.11 lifecycle old password hashes may need to be
+   updated, because we plan to disable weak password hashes in NixOS 23.05.
+   We consider password hashing methods weak, if the libxcrypt project did
+   not flag them strong. If your system is configured with weak hashes a
+   script will emit a warning during activation. We expect most users
+   accounts to be set up with sha512crypt (hash prefixed with $6$) which we
+   will continue to support. Interactively configured passwords can be
+   updated using passwd, new password hashes can be generated through
+   mkpasswd.
+
+  aarch64-linux channel merge
+
+   The separate aarch64-linux specific channels have been discontinued. Their
+   jobs have been merged into the generic nixos-22.11 and nixos-22.11-small
+   channels and will thereby receive updates at the same time as their
+   x86_64-linux counterparts.
+
+  Special Thanks
+
+   We want to personally thank Winter and Jörg Thalheim for editorializing
+   the release notes, Vladimír Čunát for his tireless effort in managing
+   jobsets and staging cycles, and Graham Christensen for dutifully tending
+   to our build infrastructure.
+
+  Reflections and Closing
+
+   I’m thankful for being given the chance to guide the release process. It
+   is an exciting experience and seeing the tremendous collaborative effort
+   the community invests to make the release a success is inspiring. While
+   previous release managers made great strides to document the process there
+   are lots of steps that could be benefit from better documentation and more
+   tooling. It is our hope that future release managers and the community
+   will iterate further on this.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

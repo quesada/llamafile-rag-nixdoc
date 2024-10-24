@@ -1,0 +1,267 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         NixOS on ARM: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    10 October 2024
+
+     * curprev [ ] [ ] 03:1503:15, 10 October 2024‎ Msgilligan talk contribs‎
+       13,726 bytes +161‎ Add Radxa ROCK 4 to table (will add linked page
+       next) Tag: Visual edit: Switched
+
+    12 July 2024
+
+     * curprev [ ] [ ] 22:1922:19, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 13,565 bytes +13‎ No edit summary
+     * curprev [ ] [ ] 21:3221:32, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 13,552 bytes +531‎ Marked this version for translation
+     * curprev [ ] [ ] 21:3221:32, 12 July 2024‎ Nicolas-goudry talk
+       contribs‎ 13,021 bytes +25‎ No edit summary
+
+    25 June 2024
+
+     * curprev [ ] [ ] 20:5620:56, 25 June 2024‎ Klinger talk contribs‎ m
+       12,996 bytes +5‎ →‎Community supported devices
+
+    9 April 2024
+
+     * curprev [ ] [ ] 03:2003:20, 9 April 2024‎ Samueldr talk contribs‎ m
+       12,991 bytes +2‎ →‎Community supported devices: Fix ISA for two
+       entries
+     * curprev [ ] [ ] 03:1803:18, 9 April 2024‎ Samueldr talk contribs‎
+       12,989 bytes +10‎ Try making the main table sortable Tag: Visual edit
+
+    8 April 2024
+
+     * curprev [ ] [ ] 01:1701:17, 8 April 2024‎ Samueldr talk contribs‎ m
+       12,979 bytes −13‎ →‎NixOS installation & configuration: update title
+
+    7 April 2024
+
+     * curprev [ ] [ ] 04:5404:54, 7 April 2024‎ Samueldr talk contribs‎ m
+       12,992 bytes +35‎ →‎Details about the boot process: Cross-reference
+       awkwardness
+     * curprev [ ] [ ] 04:5004:50, 7 April 2024‎ Samueldr talk contribs‎ m
+       12,957 bytes +1‎ →‎Details about the boot process: reword
+     * curprev [ ] [ ] 04:4904:49, 7 April 2024‎ Samueldr talk contribs‎ m
+       12,956 bytes −3‎ Fix link
+     * curprev [ ] [ ] 04:4404:44, 7 April 2024‎ Samueldr talk contribs‎ m
+       12,959 bytes +12‎ Re-ordering sections Tag: Visual edit
+     * curprev [ ] [ ] 04:4304:43, 7 April 2024‎ Samueldr talk contribs‎ m
+       12,947 bytes −4,399‎ →‎Porting NixOS to new boards: split section
+     * curprev [ ] [ ] 04:4204:42, 7 April 2024‎ Samueldr talk contribs‎ m
+       17,346 bytes +1‎ Re-ordering sections Tag: Visual edit
+     * curprev [ ] [ ] 04:3904:39, 7 April 2024‎ Samueldr talk contribs‎ m
+       17,345 bytes +551‎ →‎Enable UART: Rework into a more generic and
+       useful section Tag: Visual edit
+     * curprev [ ] [ ] 04:3204:32, 7 April 2024‎ Samueldr talk contribs‎ m
+       16,794 bytes −4,093‎ →‎NixOS installation & configuration
+     * curprev [ ] [ ] 04:3104:31, 7 April 2024‎ Samueldr talk contribs‎ m
+       20,887 bytes +1‎ →‎Binary cache
+     * curprev [ ] [ ] 04:3104:31, 7 April 2024‎ Samueldr talk contribs‎ m
+       20,886 bytes −2,179‎ →‎Installation: Split installation
+     * curprev [ ] [ ] 04:2904:29, 7 April 2024‎ Samueldr talk contribs‎ m
+       23,065 bytes −380‎ →‎Installer image with custom U-Boot
+     * curprev [ ] [ ] 04:2804:28, 7 April 2024‎ Samueldr talk contribs‎ m
+       23,445 bytes −247‎ →‎Board-specific installation notes
+     * curprev [ ] [ ] 04:2704:27, 7 April 2024‎ Samueldr talk contribs‎ m
+       23,692 bytes −4,275‎ →‎Build your own image natively
+     * curprev [ ] [ ] 04:2504:25, 7 April 2024‎ Samueldr talk contribs‎ m
+       27,967 bytes +198‎ →‎Resources: Add additional links Tag: Visual edit
+     * curprev [ ] [ ] 04:2304:23, 7 April 2024‎ Samueldr talk contribs‎ m
+       27,769 bytes +27‎ →‎Support Tag: Visual edit
+     * curprev [ ] [ ] 04:2204:22, 7 April 2024‎ Samueldr talk contribs‎ m
+       27,742 bytes −588‎ →‎Details about the boot process: Strip down
+       implementation details Tag: Visual edit
+     * curprev [ ] [ ] 04:1104:11, 7 April 2024‎ Samueldr talk contribs‎ m
+       28,330 bytes +45‎ →‎Details about the boot process
+     * curprev [ ] [ ] 03:0003:00, 7 April 2024‎ Samueldr talk contribs‎ m
+       28,285 bytes +16‎ Reword first sentence accordingly
+     * curprev [ ] [ ] 02:5902:59, 7 April 2024‎ Samueldr talk contribs‎ m
+       28,269 bytes +99‎ Make this obvious.
+
+    5 April 2024
+
+     * curprev [ ] [ ] 03:1203:12, 5 April 2024‎ Samueldr talk contribs‎ m
+       28,170 bytes −2‎ Fixes in the cores column Tag: Visual edit
+     * curprev [ ] [ ] 03:0903:09, 5 April 2024‎ Samueldr talk contribs‎ m
+       28,172 bytes +117‎ Add novena to the list Tag: Visual edit
+
+    4 April 2024
+
+     * curprev [ ] [ ] 23:2423:24, 4 April 2024‎ Samueldr talk contribs‎ m
+       28,055 bytes +42‎ No edit summary
+     * curprev [ ] [ ] 23:2023:20, 4 April 2024‎ Samueldr talk contribs‎ m
+       28,013 bytes +14‎ No edit summary
+     * curprev [ ] [ ] 23:1623:16, 4 April 2024‎ Samueldr talk contribs‎ m
+       27,999 bytes 0‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 22:0122:01, 4 April 2024‎ Samueldr talk contribs‎ m
+       27,999 bytes +186‎ →‎Community supported devices
+     * curprev [ ] [ ] 22:0022:00, 4 April 2024‎ Samueldr talk contribs‎ m
+       27,813 bytes +27‎ No edit summary
+     * curprev [ ] [ ] 21:5521:55, 4 April 2024‎ Samueldr talk contribs‎ m
+       27,786 bytes −11‎ No edit summary
+
+    1 April 2024
+
+     * curprev [ ] [ ] 20:4820:48, 1 April 2024‎ Samueldr talk contribs‎
+       27,797 bytes −87‎ →‎SD card images (SBCs and similar platforms) Tag:
+       Visual edit
+     * curprev [ ] [ ] 20:4820:48, 1 April 2024‎ Samueldr talk contribs‎
+       27,884 bytes +6‎ No edit summary Tag: Visual edit
+     * curprev [ ] [ ] 18:2218:22, 1 April 2024‎ Samueldr talk contribs‎
+       27,878 bytes 0‎ Reword intro paragraph Tag: Visual edit
+
+    27 February 2024
+
+     * curprev [ ] [ ] 06:5806:58, 27 February 2024‎ imported>Ganagram‎ m
+       27,878 bytes +174‎ →‎Community supported devices
+
+    1 February 2024
+
+     * curprev [ ] [ ] 22:5722:57, 1 February 2024‎ imported>Tarinaky‎ 27,704
+       bytes −13‎ No edit summary
+     * curprev [ ] [ ] 22:5722:57, 1 February 2024‎ imported>Tarinaky‎ 27,717
+       bytes +13‎ No edit summary
+     * curprev [ ] [ ] 22:5622:56, 1 February 2024‎ imported>Tarinaky‎ m
+       27,704 bytes +12‎ No edit summary
+     * curprev [ ] [ ] 22:5422:54, 1 February 2024‎ imported>Tarinaky‎ 27,692
+       bytes +160‎ Adding uConsole instructions
+
+    5 January 2024
+
+     * curprev [ ] [ ] 20:4020:40, 5 January 2024‎ imported>Leo60228‎ 27,532
+       bytes +153‎ Add Raspberry Pi 5 as community supported
+
+    6 December 2023
+
+     * curprev [ ] [ ] 12:5412:54, 6 December 2023‎ imported>Onny‎ 27,379
+       bytes 0‎ Updated sd card image downloads to latest 23.11
+
+    13 November 2023
+
+     * curprev [ ] [ ] 11:5711:57, 13 November 2023‎ imported>Jakubgs‎ 27,379
+       bytes +190‎ No edit summary
+
+    18 October 2023
+
+     * curprev [ ] [ ] 07:3007:30, 18 October 2023‎ imported>Programmerino‎
+       27,189 bytes +165‎ Add AML-S905X-CC-V2 listing
+
+    8 October 2023
+
+     * curprev [ ] [ ] 13:3613:36, 8 October 2023‎ imported>Shoetten‎ m
+       27,024 bytes +89‎ add hint that nix-daemon.service needs restarting
+     * curprev [ ] [ ] 13:3213:32, 8 October 2023‎ imported>Shoetten‎ m
+       26,935 bytes +7‎ fix qemu path on arch linux
+
+    5 July 2023
+
+     * curprev [ ] [ ] 05:5805:58, 5 July 2023‎ imported>Samueldr‎ m 26,928
+       bytes −288‎ Fixups
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_on_ARM"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

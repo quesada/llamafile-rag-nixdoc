@@ -1,0 +1,172 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Setup
+          * 2.1 Mattermost
+          * 2.2 Nginx
+               * 2.2.1 Installation
+               * 2.2.2 Setup
+     * 3 References
+   [ ] Toggle the table of contents
+
+                                   Mattermost
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Mattermost is an open source, self-hosted Slack-alternative. As an
+   alternative to proprietary SaaS messaging, Mattermost brings all your team
+   communication into one place, making it searchable and accessible
+   anywhere.^[1]
+
+Installation
+
+   Add mattermost to your environment.systemPackages.
+
+ environment.systemPackages = with pkgs; [
+   mattermost
+ ];
+
+Setup
+
+  Mattermost
+
+   To setup Mattermost, you need to enable its service, and provide it with a
+   site url.
+
+ services.mattermost = {
+   enable = true;
+   siteUrl = "https://mattermost.example.com"; # Set this to the URL you will be hosting the site on.
+ };
+
+   After a rebuild, Mattermost will now be accessible at
+   http://127.0.0.1:8065. To set it up to match your siteUrl, follow the
+   Nginx config below.
+
+  Nginx
+
+   While optional, if you are hosting Mattermost alongside other web
+   services, or need SSL (https), you will likely want to set up a web server
+   like Nginx.
+
+    Installation
+
+   Add nginx to your environment.systemPackages.
+
+ environment.systemPackages = with pkgs; [
+   mattermost
+   nginx
+ ];
+
+    Setup
+
+   The following is an example Nginx setup that enables SSL, and configures
+   mattermost.example.com to route to Mattermost.
+
+ # Allow ports 80 and 443 for Nginx
+ networking.firewall.allowedTCPPorts = [ 80 443 ];
+
+ # Set up for SSL certification
+ security.acme = {
+   acceptTerms = true;
+   defaults.email = "webmaster@example.com"; # Replace with your preferred email address.
+ };
+
+ # Configure Nginx
+ services.nginx = {
+   enable = true;
+   recommendedProxySettings = true;
+   recommendedTlsSettings = true;   
+   virtualHosts = {
+     # Replace with the domain from your siteUrl
+     "mattermost.example.com" = {
+       forceSSL = true; # Enforce SSL for the site
+       enableACME = true; # Enable SSL for the site
+       locations."/" = {
+         proxyPass = "http://127.0.0.1:8065"; # Route to Mattermost
+         proxyWebsockets = true;
+       };
+     };
+   };
+ };
+
+   After a rebuild, Mattermost will now be accessible at siteUrl (assuming
+   you have configured your DNS).
+
+References
+
+    1. ↑ https://wiki.archlinux.org/title/Mattermost
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Mattermost&oldid=13071"
+   Categories:
+     * Applications
+     * Server
+     * Web Applications
+     * This page was last edited on 5 June 2024, at 17:46.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

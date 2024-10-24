@@ -1,0 +1,396 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Périphériques supportés
+          * 1.1 Périphériques supportés en amont (NixOS)
+          * 1.2 Périphériques supportés par la communauté
+               * 1.2.1 Périphériques particuliers
+     * 2 Installation
+     * 3 Configuration initiale
+     * 4 Dépannage
+          * 4.1 Bloqué à Starting kernel ...
+          * 4.2 Détails sur le processus de démarrage
+     * 5 Caches de binaires
+          * 5.1 AArch64
+          * 5.2 armv6l and armv7l
+     * 6 Obtenir de l'aide
+     * 7 Ressources
+          * 7.1 Voir également
+          * 7.2 Sous-pages
+   [ ] Toggle the table of contents
+
+                                 NixOS sur ARM
+
+     * Page
+     * Discussion
+   [ ] français
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page NixOS on ARM and the
+   translation is 96% complete.
+   Other languages:
+     * English
+     * français
+     * русский
+   NixOS supporte les ARM 64-bit.
+
+   Le niveau de support global d'ARM varie en fonction de l'architecture, des
+   écosystèmes spécifiques et des cartes.
+
+   La manière dont ARM est intégré dans NixOS consiste à créer des
+   constructions génériques de premier ordre. Cela veut dire qu'à partir du
+   moment où une carte est supportée en amont par le noyau et le
+   micrologiciel de plateforme, NixOS est censé fonctionner sur ces cartes
+   dès lors qu'ils sont mis à jour.
+
+   Il est néanmoins possible, si nécessaire, de construire et utiliser un
+   micrologiciel de plateforme et un noyau personnalisés pour des cartes
+   spécifiques^[référence nécessaire].
+
+   À ce jour (début 2024) seul AArch64 dispose d'un support complet en amont.
+   Ceci dit, cela ne veut pas dire qu'armv6l ou armv7l sont ignorés pour
+   autant, des corrections sont développées et approuvées au besoin. Ce qui
+   fait défaut sont le support et la construction de binaires. Au moment de
+   l'écriture de cet article, il n'y a pas de caches disponibles pour armv6l
+   ou armv7l.
+
+   Pour les liens vers les images disque, incluant les installations UEFI
+   dirigez-vous vers la page d'installation.
+
+Périphériques supportés
+
+   Légende du tableau:
+
+     * SoC - https://fr.wikipedia.org/wiki/Syst%C3%A8me_sur_une_puce
+     * ISA - https://en.wikipedia.org/wiki/Instruction_set_architecture
+
+  Périphériques supportés en amont (NixOS)
+
+   NixOS supporte ces cartes d'architecture AArch64 sur les canaux
+   nixpkgs-unstable et stable.
+
+   Le support de ces cartes est le même que celui fournit par les
+   distributions Linux standard.
+
+   Constructeur  Carte     SoC      ISA      CPU            RAM   Stockage    
+   Raspberry Pi  Raspberry Broadcom AArch64  4× Cortex-A53                    
+   Foundation    Pi 3      BCM2837  / ARMv7  @ 1.2 - 1.4    1 GB  SD/microSD
+                                             GHz            
+   Raspberry Pi  Raspberry Broadcom AArch64  4× Cortex-A72  1-8   microSD,    
+   Foundation    Pi 4      BCM2711  / ARMv7  @ 1.5 - 1.8    GB    eMMC        
+                                             GHz            
+
+  Périphériques supportés par la communauté
+
+   Ces cartes ne sont pas assurés d'être fonctionnelles.
+
+   The baseline support level expected is “Just as much as mainline Linux and
+   U-Boot supports them”, except if specified otherwise.
+
+Manufacturer    Board           SoC       ISA     CPU          RAM      Storage      
+                Apple Silicon   M1/M1                                                
+Apple           Macs            Pro/M1    AArch64 —            —        NVMe
+                                Max       
+ASUS            Tinker Board    Rockchip  ARMv7   4×           2 GB     microSD      
+                                RK3288            Cortex-A17   
+Banana Pi       Banana Pi       Allwinner ARMv7   2× Cortex-A7 1 GB     SD, SATA     
+                                A20       
+Banana Pi M64   Banana Pi M64   Allwinner AArch64 4×           2 GB     microSD, 8GB 
+                                A64               Cortex-A53            eMMc         
+Banana Pi       Banana Pi       Amlogic   AArch64 4×           4 GB     microSD, 16G 
+BPI-M5          BPI-M5          S905X3            Cortex-A55   LPDDR4   eMMC         
+BeagleBoard.org BeagleBone      TI AM335x ARMv7   1× Cortex-A8 512 MB   4 GB eMMC,   
+                Black           (src)             @ 1 GHz               microSD      
+                                                  2×                                 
+                                Rockchip          Cortex-A72 @          8/16 GB      
+Firefly         AIO-3399C       RK3399    AArch64 2.0 GHz, 4×  2/4 GB   eMMC,        
+                                                  Cortex-A53 @          microSD
+                                                  1.5 Ghz      
+                                                  2×                                 
+                                Rockchip          Cortex-A72 @          16 GB eMMC,  
+FriendlyElec    NanoPC-T4       RK3399    AArch64 2.0 GHz, 4×  4 GB     microSD,     
+                                                  Cortex-A53 @          NVMe
+                                                  1.5 Ghz      
+                                                  2×                                 
+                                Rockchip          Cortex-A72 @          optional     
+FriendlyElec    NanoPi-M4       RK3399    AArch64 2.0 GHz, 4×  4 GB     eMMC,        
+                                                  Cortex-A53 @          microSD
+                                                  1.5 Ghz      
+                                                  4× ARM                optional     
+                                Rockchip          Cortex-A76 @ 4 GB / 8 eMMC,        
+FriendlyElec    NanoPi-R6C      RK3588S   AArch64 2.4 GHz, 4×  GB       microSD,     
+                                                  Cortex-A55 @          NVMe         
+                                                  1.8 Ghz      
+                                                  4×                                 
+                ODROID-HC1 &    Samsung           Cortex-A15 @ 
+Hardkernel      ODROID-HC2      Exynos    ARMv7   2GHz, 4×     2 GB     microSD
+                                5422              Cortex-A7 @  
+                                                  1.4GHz       
+                                Amlogic           4×                    eMMC,        
+Hardkernel      ODROID-C2       S905      AArch64 Cortex-A53 @ 2 GB     microSD      
+                                                  1.5GHz       
+                                Amlogic           4×                    microSD,     
+Hardkernel      ODROID-HC4      S905X3    AArch64 Cortex-A55 @ 4 GB     SATA         
+                                                  1.8GHz       
+Kosagi          Kosagi Novena   i.MX6     ARMv7   4× Cortex-A9 4 GB     microSD,     
+                                                  @ 1.2 GHz             SATA         
+                                                  2×                                 
+                                Rockchip          Cortex-A72 @          eMMC,        
+Libre Computer  ROC-RK3399-PC   RK3399    AArch64 2.0 GHz, 4×  4 GB     microSD,     
+                                                  Cortex-A53 @          NVMe
+                                                  1.5 Ghz      
+                                Rockchip          4×                    eMMC,        
+Libre Computer  ROC-RK3328-CC   RK3328    AArch64 Cortex-A53 @ 4 GB     microSD      
+                                                  1.4GHz       
+                                Amlogic           4×                    eMMC,        
+Libre Computer  AML-S905X-CC-V2 S905X     AArch64 Cortex-A53 @ 1/2GB    microSD      
+                                                  1.512 GHz    
+                                Allwinner         2× Cortex-A7          4 GB NAND,   
+Linksprite      pcDuino3 Nano   A20       ARMv7   @ 1 GHz      1 GB     microSD,     
+                                                                        SATA         
+                                Tegra             4×                    16 GB eMMC,  
+NVIDIA          Jetson TK1      K1/T124   ARMv7   Cortex-A15 @ 2 GB     SD, SATA     
+                                                  2.3 GHz      
+                i.MX 8M Plus    i.MX 8M           4×                    32 GB eMMC,  
+NXP             EVK             Plus      AArch64 Cortex-A53 @ 6 GB     microSD      
+                                                  1.8 Ghz      
+                                                  4×                                 
+NXP             i.MX 8M Quad    i.MX 8M   AArch64 Cortex-A53 @ 3 GB     16 GB eMMC,  
+                EVK             Quad              1.5 Ghz + 1×          microSD
+                                                  Cortex-M4    
+                                AllWinner         4×                    16 GB eMMC,  
+OLIMEX          Teres-A64       A64       AArch64 Cortex-A53 @ 2GB      microSD      
+                                                  1.1 GHz      
+Orange Pi       Orange Pi One   Allwinner ARMv7   4× Cortex-A7 512 MB   microSD      
+                                H3                @ 1.2 GHz    
+Orange Pi       Orange Pi PC    Allwinner ARMv7   4× Cortex-A7 1 GB     SD/microSD   
+                                H3                @ 1.6 GHz    
+                Orange Pi Zero  Allwinner         4×                    SD/microSD + 
+Orange Pi       Plus2 (H5)      H5        AArch64 Cortex-A53   1 GB     8GB eMMC     
+                                                  @ 1.2 GHz    
+                Orange Pi Zero2 Allwinner         4×                    SD/microSD + 
+Orange Pi       (H616)          H616      AArch64 Cortex-A53   1 GB     2MB SPI      
+                                                  @ 1.2 GHz             Flash        
+                Orange Pi R1    Rockchip          4×                                 
+Orange Pi       Plus LTS        RK3328    AArch64 Cortex-A53 @ 1 GB     microSD
+                                                  1.5 GHz      
+                                                  4×                                 
+                                Rockchip          Cortex-A76 @ 4/8/16   microSD,     
+Orange Pi       Orange Pi 5     RK3588s   AArch64 2.4GHz,      GB       NVMe
+                                                  4×Cortex-A55 
+                                                  @ 1.8 GHz    
+                                                  4×                                 
+                Orange Pi 5     Rockchip          Cortex-A76 @ 4/8/16   eMMC,        
+Orange Pi       Plus            RK3588    AArch64 2.4GHz,      GB       microSD,     
+                                                  4×Cortex-A55          NVMe
+                                                  @ 1.8 GHz    
+                                Allwinner         4×                    microSD &    
+PINE64          PINE A64-LTS    R18       AArch64 Cortex-A53   2 GB     eMMC         
+                                                  @ ? GHz      
+                                Allwinner         4×                    microSD &    
+PINE64          Pinebook        A64       AArch64 Cortex-A53   2 GB     eMMC         
+                                                  @ ? Ghz      
+                                                  2×                                 
+                                Rockchip          Cortex-A72 @          microSD &    
+PINE64          Pinebook Pro    RK3399    AArch64 2.0 GHz, 4×  4 GB     eMMC
+                                                  Cortex-A53 @ 
+                                                  1.5 Ghz      
+                                Rockchip          4×                                 
+PINE64          ROCK64          RK3328    AArch64 Cortex-A53 @ 1/2/4 GB microSD/eMMC
+                                                  1.5 GHz      
+                                                  2×                                 
+                                Rockchip          Cortex-A72 @ 
+PINE64          ROCKPro64       RK3399    AArch64 2.0 GHz, 4×  2/4 GB   microSD/eMMC
+                                                  Cortex-A53 @ 
+                                                  1.5 Ghz      
+                                                  2×                                 
+                                Rockchip          Cortex-A72 @ 
+Clockworkpi     uConsole A06    RK3399    AArch64 2.0 GHz, 4×  4 GB     microSD
+                                                  Cortex-A53 @ 
+                                                  1.5 Ghz      
+                                                  4×                                 
+                                Rockchip          Cortex-A76 @ 4/8/16   eMMC,        
+Radxa           ROCK5 Model B   RK3588    AArch64 2.4GHz,      GB       microSD,     
+                                                  4×Cortex-A55          NVMe
+                                                  @ 1.8 GHz    
+                                                  4×                                 
+                                Rockchip          Cortex-A76 @ 4/8/16   eMMC,        
+Radxa           ROCK5 Model A   RK3588s   AArch64 2.4GHz,      GB       microSD,     
+                                                  4×Cortex-A55          NVMe
+                                                  @ 1.8 GHz    
+Raspberry Pi    Raspberry Pi    Broadcom  ARMv6   1 × ARM1176  256 MB / SD/microSD   
+Foundation                      BCM2835           @ 700 MHz    512 MB   
+Raspberry Pi    Raspberry Pi 2  Broadcom  ARMv7   4× Cortex-A7 1 GB     SD/microSD   
+Foundation                      BCM2836           @ 900 MHz    
+Raspberry Pi                    Broadcom  AArch64 4×                                 
+Foundation      Raspberry Pi 3  BCM2837   / ARMv7 Cortex-A53 @ 1 GB     SD/microSD
+                                                  1.2 GHz      
+Raspberry Pi                    Broadcom  AArch64 4×                                 
+Foundation      Raspberry Pi 4  BCM2711   / ARMv7 Cortex-A53 @ 1-8 GB   microSD
+                                                  1.5 GHz      
+Raspberry Pi                    Broadcom          4×                                 
+Foundation      Raspberry Pi 5  BCM2712   AArch64 Cortex-A76 @ 4-8 GB   microSD
+                                                  2.4 GHz      
+Toshiba         AC100 (mini     Tegra 2   ARMv7   2× Cortex-A9 512 MB   8–32 GB      
+                laptop)         250 (T20)         @ 1 GHz               eMMC, SD     
+                Wandboard       Freescale         1×/2×/4×     512 MB / microSD,     
+Wandboard       Solo/Dual/Quad  i.MX6     ARMv7   Cortex-A9 @  1 GB /   SATA         
+                                                  1000 MHz     2 GB     
+
+    Périphériques particuliers
+
+   Il est possible d'émuler la plateforme ARM avec QEMU.
+
+   Constructeur Carte SoC ISA   CPU       RAM          Stockage               
+   QEMU         QEMU  —   ARMv7 jusqu'à 8 jusqu'à 2 GB Tout ce que QEMU       
+                                                       supporte               
+
+Installation
+
+   Main article: NixOS_on_ARM/Installation
+
+Configuration initiale
+
+   Main article: NixOS_on_ARM/Initial_Configuration
+
+Dépannage
+
+  Bloqué à Starting kernel ...
+
+   Le démarrage de NixOS peut sembler être bloqué à Starting kernel ....
+
+   Il est peu probable que le processus soit bloqué à ce niveau. Ceci est le
+   dernier message affiché par U-Boot. U-Boot affiche en même temps l'écran
+   et la console.
+
+   Pour voir les messages du noyau et la sortie du démarrage, le “stdout” du
+   noyau doit être configuré de manière appropriée.
+
+   Le stdout du noyau varie en fonction de la sémantique.
+
+     * Lorsqu'il n'y a pas d'argument console= valide dans la ligne de
+       command du noyau, la valeur par défaut utilisée est celle de la
+       propriété /chosen/stdout-path de l'arborescence de périphérique.
+       (Généralement une console de série.)
+     * Quand plusieurs paramètres console= sont présents, le noyau prend
+       seulement en compte la première valeur valide pour stdout.
+
+   En d'autre termes, la solution est d'activer le paramètre console=
+   approprié en fonction de la configuration de votre matériel et de votre
+   système.
+
+     * Pour l'écran, ajouter console=tty0.
+     * Pour la console de série, référez-vous à la configuration du
+       périphérique cible.
+
+  Détails sur le processus de démarrage
+
+   NixOS peut également être démarré sur ARM avec l'UEFI. La sémantique est
+   généralement la même que sur les autres architectures. Notez que
+   l'utilisation d'arborescence de périphérique au lieu d'ACPI dans le
+   matériel grand public peut rendre cela légèrement bizarre.
+
+   Il est courant pour le matériel de classe SBC que les cartes utilisent
+   U-Boot comme micrologiciel de plateforme et comme chargeur de démarrage.
+   Consultez la section sur utiliser NixOS avec U-Boot.
+
+Caches de binaires
+
+  AArch64
+
+   L'instance officielle Hydra de NixOS construit un ensemble complet de
+   binaires (disponibles sur https://cache.nixos.org) pour l'architecture
+   AArch64 sur les canaux nixpkgs-unstable et stable.
+
+  armv6l and armv7l
+
+   Par le passé, certains utilisateurs ont fait de leur mieux pour fournir
+   des caches pour ARM 32 bit, cependant aucun n'est actuellement disponible.
+
+Obtenir de l'aide
+
+   There is a dedicated room for the upstream NixOS effort on Matrix,
+   #nixos-on-arm:nixos.org.
+
+   N'hésitez pas à poser des questions. Notez cependant que le temps de
+   réponse peut grandement varier en fonction du niveau d'information
+   fournit.
+
+Ressources
+
+  Voir également
+
+     * U-Boot, souvent associé au matériel de type SBC.
+     * Mobile NixOS qui fournit une sémantique améliorée pour des sémantiques
+       de démarrage non standard.
+
+  Sous-pages
+
+   Ci-dessous une liste des sous-pages du sujet NixOS sur ARM.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/fr&oldid=14465"
+     * This page was last edited on 12 July 2024, at 22:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

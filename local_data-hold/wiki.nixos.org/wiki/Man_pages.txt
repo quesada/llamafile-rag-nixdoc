@@ -1,0 +1,139 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS: Display configuration options
+     * 2 NixOS: Some man pages are missing
+          * 2.1 Development man pages
+     * 3 Mandoc as the default man page viewer
+          * 3.1 Apropos
+   [ ] Toggle the table of contents
+
+                                   Man pages
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Man pages are a form of documentation available on Unix-like systems.
+
+   See the Archwiki and Wikipedia entries for more information.
+
+NixOS: Display configuration options
+
+   The NixOS option system creates a manpage with all options and their
+   documentation.
+
+ $ man 5 configuration.nix
+
+   This is a lightweight alternative to the “Configuration Options” page in
+   nixos-help. There is also NixOS options website
+
+NixOS: Some man pages are missing
+
+  Development man pages
+
+   The “Linux man-pages project” provides a set of documentation of the Linux
+   programming API, mostly section `3`. You can access them by adding them to
+   your system packages:
+
+ environment.systemPackages = [ pkgs.man-pages pkgs.man-pages-posix ];
+
+   To try it out: man 3 scanf.
+
+   Libraries and development utilities might provide additional documentation
+   and manpages. You can add those to your system like this:
+
+ documentation.dev.enable = true;
+
+   See also: the other options in the `documentation` namespace.
+
+Mandoc as the default man page viewer
+
+   Mandoc is a set of tools designed for working with mdoc(7), the preferred
+   roff macro language for BSD manual pages, as well as man(7), the
+   historical roff macro language used in UNIX manuals. It can be used as an
+   alternative to man-db.
+
+   To use mandoc as the default man page viewer add following code to your
+   config:
+
+ documentation.man = {
+   # In order to enable to mandoc man-db has to be disabled.
+   man-db.enable = false;
+   mandoc.enable = true;
+ };
+
+   See also: the Mandoc website.
+
+  Apropos
+
+   See Apropos.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Man_pages&oldid=6550"
+     * This page was last edited on 30 November 2023, at 21:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

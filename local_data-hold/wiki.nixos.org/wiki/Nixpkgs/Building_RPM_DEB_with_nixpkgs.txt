@@ -1,0 +1,158 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 How it works
+     * 2 Preparation of the host machine
+     * 3 How to build a deb/rpm with nixpkgs
+   [ ] Toggle the table of contents
+
+                     Nixpkgs/Building RPM DEB with nixpkgs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Nixpkgs/Building RPM DEB 
+    with nixpkgs#)                                                            
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+     ----------------------------------------------------------------------
+
+   Please note that this page is under construction and the provided
+   information is incomplete. Reach out to matthiasbeyer if this page was not
+   updated in a long time.
+
+     ----------------------------------------------------------------------
+
+How it works
+
+   To build deb/rpm packages with nix/nixpkgs, it is critical to understand
+   the process. Hence a short intro:
+
+   To build a deb or rpm package with nixpkgs, the build process needs a disk
+   image which it then uses to boot a virtual machine (as in Qemu). Inside
+   this virtual machine, the deb/rpm package is compiled from a tarball and
+   then packaged using the respective tools for deb/rpm packaging.
+
+   Luckily, all that requirements are shipped inside nixpkgs itself.
+
+Preparation of the host machine
+
+   The host machine has to be prepared for the build process.
+
+   In the evaluation for this article, a CentOS 7 amd64 machine running in
+   vmware was used. On the machine, the nix package manager was installed via
+   curl https://nixos.org/nix/install | sh as suggested on
+   https://nixos.org/nix/ > "Get Nix".
+
+   The configuration file /etc/nix/nix.conf was edited for the following
+   contents:
+
+ sandbox = false
+ system-features = [ kvm nixos-test benchmark big-parallel ]
+
+   This step might not be necessary on a NixOS installation.
+
+How to build a deb/rpm with nixpkgs
+
+   The following approach can be used to try out building a .deb package with
+   nixpkgs:
+
+    1. Clone the official nixpkgs repository into ~/nixpkgs
+    2. Add a file to the nixpkgs repository ./deb.nix with the following
+       contents:
+
+   (In this scenario, ncurses was built for testing the whole approach)
+
+ let
+   pkgs = (import ./default.nix {});
+   vm    = pkgs.vmTools.diskImageFuns.centos7x86_64 {};
+   args = {
+     diskImage = vm;
+     diskImageFormat = "qcow2";
+     src       = pkgs.ncurses.src;
+     name      = "ncurses-deb";
+     buildInputs = [];
+     meta.description = "No descr";
+   };
+ in pkgs.releaseTools.debBuild args
+
+   and then this file was called: nix-build ./deb.nix.
+
+   This loads the relevant disk images from the channel mirror and spins up
+   the Qemu VM to build the package. The deb file (in this case, as we're
+   building a deb with the expression from above) is located in
+   ./result/debs/ after a successful build.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nixpkgs/Building_RPM_DEB_with_nixpkgs&oldid=6680"
+   Hidden categories:
+     * Pages with syntax highlighting errors
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 18 October 2022, at 07:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

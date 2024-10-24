@@ -1,0 +1,158 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            NetBox: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    25 June 2024
+
+     * curprev [ ] [ ] 19:4719:47, 25 June 2024‎ Klinger talk contribs‎ m
+       3,346 bytes 0‎ Acme to ACME link
+
+    9 May 2024
+
+     * curprev [ ] [ ] 17:5517:55, 9 May 2024‎ Xyz00777 talk contribs‎ m
+       3,346 bytes +4‎ →‎With Transport encryption: forget to add 443 at with
+       TLS encryption Tag: Visual edit
+     * curprev [ ] [ ] 17:3017:30, 9 May 2024‎ Xyz00777 talk contribs‎ 3,342
+       bytes +1,572‎ - added encryption configuration - added Troubleshooting
+       information - fixed some minor bugs in the basic configuration
+       description Tag: Visual edit
+
+    8 May 2024
+
+     * curprev [ ] [ ] 22:4222:42, 8 May 2024‎ Xyz00777 talk contribs‎ 1,770
+       bytes −795‎ the configuration was in my opinion a little bit
+       confusing. i got it to work with my done changes. i dont have an ssl
+       intern at the moment so i cant do with ssl configuration. when i have
+       one i will update these page Tag: Visual edit
+
+    15 February 2024
+
+     * curprev [ ] [ ] 18:5118:51, 15 February 2024‎ imported>Jeyemwey‎ 2,565
+       bytes −5,037‎ Simplify, reformat and remove postgres code
+
+    19 November 2022
+
+     * curprev [ ] [ ] 02:4202:42, 19 November 2022‎ imported>Vater‎ m 7,602
+       bytes +72‎ No edit summary
+
+    9 November 2022
+
+     * curprev [ ] [ ] 06:0206:02, 9 November 2022‎ imported>Vater‎ m 7,530
+       bytes +125‎ →‎basic configuration
+     * curprev [ ] [ ] 05:5505:55, 9 November 2022‎ imported>Vater‎ m 7,405
+       bytes +45‎ →‎basic configuration
+     * curprev [ ] [ ] 05:5105:51, 9 November 2022‎ imported>Vater‎ m 7,360
+       bytes +7‎ →‎minimal configuration
+     * curprev [ ] [ ] 05:5005:50, 9 November 2022‎ imported>Vater‎ 7,353
+       bytes +1,115‎ No edit summary
+     * curprev [ ] [ ] 03:0203:02, 9 November 2022‎ imported>Vater‎ 6,238
+       bytes +3,806‎ →‎login
+     * curprev [ ] [ ] 02:2202:22, 9 November 2022‎ imported>Vater‎ 2,432
+       bytes +2,432‎ Created page with "[https://netbox.dev/ {{PAGENAME}}]
+       (<s>[[wikipedia:en:{{PAGENAME}}]]</s>) is available as a module. ==
+       configuration examples == ==== minimal configuration ==== <!-- <s..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/NetBox"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

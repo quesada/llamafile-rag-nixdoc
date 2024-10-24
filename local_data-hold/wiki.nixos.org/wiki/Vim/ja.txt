@@ -1,0 +1,586 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 インストール
+          * 1.1 ベーシックインストール
+          * 1.2 Home Managerを使用した例
+          * 1.3 Vimスペルファイル
+               * 1.3.1 NeoVim with Coc for Python
+     * 2 System wide vim/nvim configuration
+     * 3 Custom setup without using Home Manager
+          * 3.1 Customizations
+          * 3.2 Examples
+               * 3.2.1 Apply custom vimrc configuration
+          * 3.3 Using vim's builtin packaging capability
+          * 3.4 Using Pathogen as manager
+          * 3.5 Using Vim-Plug as manager
+          * 3.6 Adding new plugins
+               * 3.6.1 Notes Regarding Plugins
+          * 3.7 Add a new custom plugin to the users packages
+               * 3.7.1 Using flake
+          * 3.8 Vim as a Python IDE
+               * 3.8.1 Using language client
+          * 3.9 Real life examples
+          * 3.10 YouCompleteMe
+     * 4 Python 3 support for vim
+     * 5 gvim and gview
+   [ ] Toggle the table of contents
+
+                                      Vim
+
+     * Page
+     * Discussion
+   [ ] 日本語
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Vim and the translation is
+   9% complete.
+   Outdated translations are marked like this.
+   Other languages:
+     * Deutsch
+     * English
+     * русский
+     * 日本語
+
+   Vim (vi improved) is a highly configurable modal text editor program for
+   the terminal.
+
+インストール
+
+  ベーシックインストール
+
+   On unstable:
+
+   programs.vim.enable = true;
+
+   or
+
+   programs.vim = {
+     enable = true;
+     package = pkgs.vim_configurable;
+   };
+
+   On 24.05 or older:
+
+   environment.systemPackages = with pkgs; [ vim ];
+
+   もしくは
+
+   environment.systemPackages = with pkgs; [ vim_configurable ];
+
+  Home Managerを使用した例
+
+   VimはHome Managerを使用して簡単にセットアップ出来ます。以下は最低限の一例です：
+
+   programs.vim = {
+     enable = true;
+     plugins = with pkgs.vimPlugins; [ vim-airline ];
+     settings = { ignorecase = true; };
+     extraConfig = ''
+       set mouse=a
+     '';
+   };
+
+   programs.vim = {
+     enable = true;
+     plugins = with pkgs.vimPlugins; [ vim-airline ];
+     settings = { ignorecase = true; };
+     extraConfig = ''
+       set mouse=a
+     '';
+   };
+
+   See [1] for the full set of options.
+
+  Vimスペルファイル
+
+   個々のスペルファイルをパッケージ化することで、ユーザーディレクトリにスペルファイルをインストールするようにhome-managerを設定することができます。以下はneovimとフランス語の例です：
+
+ let
+ nvim-spell-fr-utf8-dictionary = builtins.fetchurl {
+   url = "http://ftp.vim.org/vim/runtime/spell/fr.utf-8.spl";
+   sha256 = "abfb9702b98d887c175ace58f1ab39733dc08d03b674d914f56344ef86e63b61";
+ };
+
+ nvim-spell-fr-utf8-suggestions = builtins.fetchurl {
+   url = "http://ftp.vim.org/vim/runtime/spell/fr.utf-8.sug";
+   sha256 = "0294bc32b42c90bbb286a89e23ca3773b7ef50eff1ab523b1513d6a25c6b3f58";
+ };
+
+ nvim-spell-fr-latin1-dictionary = builtins.fetchurl {
+   url = "http://ftp.vim.org/vim/runtime/spell/fr.latin1.spl";
+   sha256 = "086ccda0891594c93eab143aa83ffbbd25d013c1b82866bbb48bb1cb788cc2ff";
+ };
+
+ nvim-spell-fr-latin1-suggestions = builtins.fetchurl {
+   url = "http://ftp.vim.org/vim/runtime/spell/fr.latin1.sug";
+   sha256 = "5cb2c97901b9ca81bf765532099c0329e2223c139baa764058822debd2e0d22a";
+ };
+ in
+ {
+   xdg.configFile."nvim/spell/fr.utf-8.spl".source = nvim-spell-fr-utf8-dictionary;
+   xdg.configFile."nvim/spell/fr.utf-8.sug".source = nvim-spell-fr-utf8-suggestions;
+   xdg.configFile."nvim/spell/fr.latin1.spl".source = nvim-spell-fr-latin1-dictionary;
+   xdg.configFile."nvim/spell/fr.latin1.sug".source = nvim-spell-fr-latin1-suggestions;
+ }
+
+    NeoVim with Coc for Python
+
+   For NeoVim use this home manager config:
+   https://github.com/NixOS/nixpkgs/issues/98166#issuecomment-725319238
+
+System wide vim/nvim configuration
+
+   If you want a system wide "baseline" configuration for vim/nvim here are
+   two examples:.
+
+   On unstable:
+
+ { pkgs, ... }:
+ {
+   programs.vim = {
+     enable = true;
+     defaultEditor = true;
+     package = (pkgs.vim_configurable.override {  }).customize{
+       name = "vim";
+       <div lang="en" dir="ltr" class="mw-content-ltr">
+ # Install plugins for example for syntax highlighting of nix files
+ </div>
+       vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+         start = [ vim-nix vim-lastplace ];
+         opt = [];
+       };
+       vimrcConfig.customRC = ''
+         <div lang="en" dir="ltr" class="mw-content-ltr">
+ " your custom vimrc
+ </div>
+         set nocompatible
+         set backspace=indent,eol,start
+         <div lang="en" dir="ltr" class="mw-content-ltr">
+ " Turn on syntax highlighting by default
+ </div>
+         syntax on
+         " ...
+       '';
+     };
+   };
+ }
+
+   On 24.05 or older:
+
+ { pkgs, ... }:
+ {
+   environment.variables = { EDITOR = "vim";
+   environment.systemPackages = with pkgs; [
+     ((vim_configurable.override {  }).customize{
+       name = "vim";
+       <div lang="en" dir="ltr" class="mw-content-ltr">
+ # Install plugins for example for syntax highlighting of nix files
+ </div>
+       vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+         start = [ vim-nix vim-lastplace ];
+         opt = [];
+       };
+       vimrcConfig.customRC = ''
+         <div lang="en" dir="ltr" class="mw-content-ltr">
+ " your custom vimrc
+ </div>
+         set nocompatible
+         set backspace=indent,eol,start
+         <div lang="en" dir="ltr" class="mw-content-ltr">
+ " Turn on syntax highlighting by default
+ </div>
+         syntax on
+         " ...
+       '';
+     }
+   )];
+ }
+
+ { pkgs, ... }:
+ {
+   programs.neovim = {
+     enable = true;
+     defaultEditor = true;
+     vimAlias = true;
+     configure = {
+       customRC = ''
+         <div lang="en" dir="ltr" class="mw-content-ltr">
+ " your custom vimrc
+ </div>
+         set nocompatible
+         set backspace=indent,eol,start
+         " ...
+       '';
+       packages.myPlugins = with pkgs.vimPlugins; {
+         start = [ vim-lastplace vim-nix ];
+         opt = [];
+       };
+     };
+   };
+ }
+
+   import these in your configuration.nix and
+
+ {   
+   imports =   
+     [
+       ./vim.nix
+     ];
+   # ...
+ }
+
+Custom setup without using Home Manager
+
+   Note: To get a general overview about how to set up your vim in nix, refer
+   to mpscholten's blog
+
+   Vim plugins can be installed with the help of nix. You can omit using vim
+   plugin managers and do everything in your .nixpkgs/config.
+
+   A lot of documentation about package management and configuration of vim
+   in nix is stored at [2] in nixpkgs.
+
+  Customizations
+
+   Both vim and neovim can be further configured to include your favorite
+   plugins and additional libraries. To list all available vim plugins, run
+   nix search nixpkgs#vimPlugins.
+
+   Add the following code to your ~/.nixpkgs/config.nix:
+
+ {
+   packageOverrides = pkgs: with pkgs; {
+     myVim = vim_configurable.customize {
+       name = "vim-with-plugins";
+       <div lang="en" dir="ltr" class="mw-content-ltr">
+ # add here code from the example section
+ </div>
+     };
+     myNeovim = neovim.override {
+       configure = {
+         customRC = ''
+           <div lang="en" dir="ltr" class="mw-content-ltr">
+ # here your custom configuration goes!
+ </div>
+         '';
+         packages.myVimPackage = with pkgs.vimPlugins; {
+           <div lang="en" dir="ltr" class="mw-content-ltr">
+ # see examples below how to use custom packages
+ </div>
+           start = [ ];
+           opt = [ ];
+         };
+       };    
+     };
+   };
+ }
+
+   After that you can install your special grafted `myVim` or `myNeovim`
+   packages.
+
+  Examples
+
+    Apply custom vimrc configuration
+
+   NB: you must use vimrcConfig.customRC rather than installing a ~/.vimrc by
+   hand, since the customized Vim will silently ignore any vimrc in your home
+   directory.
+
+ vim_configurable.customize {
+   name = "vim-with-plugins";
+   <div lang="en" dir="ltr" class="mw-content-ltr">
+ # add custom .vimrc lines like this:
+ </div>
+   vimrcConfig.customRC = ''
+     set hidden
+     set colorcolumn=80
+   '';
+ }
+
+   If you need to run code before plugins are added, you can use
+   vimrcConfig.beforePlugins (be sure to include set nocompatible if you
+   override the default value).
+
+  Using vim's builtin packaging capability
+
+ vim_configurable.customize {
+   vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
+     <div lang="en" dir="ltr" class="mw-content-ltr">
+ # loaded on launch
+ </div>
+     start = [ YouCompleteMe fugitive ];
+     <div lang="en" dir="ltr" class="mw-content-ltr">
+ # manually loadable by calling `:packadd $plugin-name`
+ </div>
+     opt = [ phpCompletion elm-vim ];
+     <div lang="en" dir="ltr" class="mw-content-ltr">
+ # To automatically load a plugin when opening a filetype, add vimrc lines like:
+ </div>
+     # autocmd FileType php :packadd phpCompletion
+   }
+ };
+
+   Note that dynamically loading with opt may be buggy and the workaround is
+   to use start instead.
+
+  Using Pathogen as manager
+
+   There is a pathogen implementation as well, but its startup is slower and
+   [VAM] has more features.
+
+ vimrcConfig.pathogen.knownPlugins = vimPlugins; # optional
+ vimrcConfig.pathogen.pluginNames = [ "vim-addon-nix" "youcompleteme" ];
+
+  Using Vim-Plug as manager
+
+ vimrcConfig.plug.plugins = with pkgs.vimPlugins; [vim-addon-nix youcompleteme];
+
+  Adding new plugins
+
+   As per the instructions found in
+   https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/vim.section.md
+
+     * First run ./update.py.
+     * Commit the changes with the commit message "vimPlugins: Update".
+     * Add your plugin to ./vim-plugin-names (please try to maintain the list
+       alphabetically sorted). You can customize the branch by appending for
+       example @main to an entry (search the file for examples)
+     * Run ./update.py once again to generate the plugin's nix expression.
+     * Commit your changes one more time, this time with the message formated
+       as such: "vimPlugins.[plugin-name]: init at [version]".
+     * If you need to add additional code/patches to the generated code, add
+       those lines to pkgs/misc/vim-plugins/vim2nix/additional-nix-code and
+       rerun ./update.py. They will be included in the generated code.
+
+    Notes Regarding Plugins
+
+   For additional info, you may wish to look at documentation on the nixpkgs
+   repository.
+
+  Add a new custom plugin to the users packages
+
+   Sometimes you do not want to change upstream plugins, for this you can use
+   vimUtils.buildVimPlugin to create your own:
+
+ let
+   vim-better-whitespace = pkgs.vimUtils.buildVimPlugin {
+     name = "vim-better-whitespace";
+     src = pkgs.fetchFromGitHub {
+       owner = "ntpeters";
+       repo = "vim-better-whitespace";
+       rev = "984c8da518799a6bfb8214e1acdcfd10f5f1eed7";
+       sha256 = "10l01a8xaivz6n01x6hzfx7gd0igd0wcf9ril0sllqzbq7yx2bbk";
+     };
+   };
+ in {
+   users.users.<yourNickname>.packages = [
+     (pkgs.vim_configurable.customize {
+       vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
+         start = [ vim-better-whitespace ];
+       };
+     })
+   ];
+ };
+
+    Using flake
+
+   configuration.nix:
+
+ { inputs, ... }:
+ {
+   nixpkgs = {
+     overlays = [
+       (self: super:
+         let
+           winresizer-vim = super.vimUtils.buildVimPlugin {
+             name = "winresizer-vim";
+             src = inputs.winresizer-vim;
+           };
+         in
+         {
+           vimPlugins =
+             super.vimPlugins // {
+               inherit winresizer-vim;
+             };
+         }
+       )
+     ];
+   };
+
+   flake.nix:
+
+ {
+   inputs = {
+     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
+     winresizer-vim = {
+       url = "github:simeji/winresizer";
+       flake = false;
+     };
+   };
+
+   outputs = inputs@{ nixpkgs, ... }: {
+     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+       system = "x86_64-linux";
+       specialArgs = { inherit inputs; };
+       modules = [
+         ./configuration.nix
+         ./hardware-configuration.nix
+         { nix.registry.nixpkgs.flake = nixpkgs; }
+       ];
+     };
+   };
+ }
+
+   Then we can update the package with nix flake lock --update-input
+   winresizer-vim, or update all inputs in flake.nix with nix flake update.
+
+  Vim as a Python IDE
+
+   The following snippet will make a full featured python IDE.
+
+    Using language client
+
+ vim_configurable.customize {
+   vimrcConfig = {
+     customRC = ''
+       let g:LanguageClient_serverCommands = {
+         \ 'python': ['pyls']
+         \ }
+        nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+        nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
+        nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+        nnoremap <silent> gr :call LanguageClient_textDocument_references()<CR>
+        nnoremap <silent> gs :call LanguageClient_textDocument_documentSymbol()<CR>
+        nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+        nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<CR>
+     '';
+     packages.myVimPackage = with pkgs.vimPlugins; {
+       start = [ LanguageClient-neovim ];
+     }
+ };
+
+   Then put the following expression in environment.systemPackages or in the
+   home-manager package list, to install python-language-server:
+
+ (python3.withPackages(ps: [
+   ps.python-language-server
+   <div lang="en" dir="ltr" class="mw-content-ltr">
+ # the following plugins are optional, they provide type checking, import sorting and code formatting
+ </div>
+   ps.pyls-mypy ps.pyls-isort ps.pyls-black
+ ]))
+
+  Real life examples
+
+     * Jagajaga’s config
+     * andrewrk's config
+     * wagnerf42's config (good for rust language)
+
+  YouCompleteMe
+
+   Currently the youcompleteme plugin uses unwrapped clang on linux. This
+   causes it to not find stdlib.h. There is a workaround you can put in your
+   .ycm_extra_conf.py file, which works by executing the C/C++ compiler and
+   getting it to output the list of search paths - which includes the search
+   path to find stdlib.h.
+
+   A better alternative to youcompleteme for C/C++ is to use cquery in
+   combination with the LanguageClient-neovim. It will also find in c header
+   files when used in a nix-shell if you install cquery from nixpkgs as it
+   uses a custom shell wrapper
+
+Python 3 support for vim
+
+   If you have defined your vim configuration in a `./my_vim.nix` file you
+   can install vim with the python 3 support instead of python2 by overriding
+   the python version like the following:
+
+ (pkgs.callPackage ./my_vim.nix {                                                                                                                                                         
+       vim_configurable = vim_configurable.override { python = python3; };                                                                                                                    
+ })
+
+gvim and gview
+
+   gvim and gview may be installed using the vimHugeX attribute name (package
+   name vim_configurable).
+
+ $ nix-env -iA nixos.vimHugeX
+
+   If you are using vim_configurable.customize, you can enable wrapGui to
+   make gvim available, though this won't give you gview:
+
+ vim_configured = pkgs.vim_configurable.customize {
+   name = "vim";
+   wrapGui = true;
+ };
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Vim/ja&oldid=15821"
+   Categories:
+     * Applications
+     * Text Editor/ja
+     * This page was last edited on 30 July 2024, at 12:03.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

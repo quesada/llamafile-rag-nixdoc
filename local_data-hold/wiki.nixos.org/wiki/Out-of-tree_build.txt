@@ -1,0 +1,111 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                               Out-of-tree build
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   By default, stdenv.mkDerivation will run configure and make in the source
+   root,
+   but some projects require an out-of-tree build
+
+   Example: the build script
+
+ ./autogen.sh
+
+ # out-of-tree build
+ mkdir build
+ cd build
+
+ ../configure --enable-feature-a
+
+ make
+
+ make install
+
+   can be translated to the Nix expression
+
+ stdenv.mkDerivation {
+
+   preConfigure = ''
+     patchShebangs .
+     ./autogen.sh
+
+     mkdir build
+     cd build
+   '';
+
+   configureScript = "../configure";
+
+   configureFlags = [
+     "--enable-feature-a"
+   ];
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Out-of-tree_build&oldid=9775"
+     * This page was last edited on 23 May 2022, at 15:29.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

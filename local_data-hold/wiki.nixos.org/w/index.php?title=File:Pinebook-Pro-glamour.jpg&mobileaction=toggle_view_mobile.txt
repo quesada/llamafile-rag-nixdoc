@@ -1,0 +1,151 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         File:Pinebook-Pro-glamour.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:Pinebook-Pro-glamour.jpg
+   Size of this preview: 575 × 599 pixels. Other resolution: 2,102 × 2,191
+   pixels.
+
+   Original file ‎(2,102 × 2,191 pixels, file size: 416 KB, MIME type:
+   image/jpeg)
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time    Thumbnail        Dimensions User              Comment 
+                        Thumbnail for    2,102 ×                      
+   current 01:48, 7     version as of    2,191 (416 Imported>Samueldr
+           January 2020 01:48, 7 January KB)        
+                        2020             
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/PINE64 Pinebook Pro
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   Camera manufacturer              Razer                                     
+   Camera model                     Phone 2                                   
+   Exposure time                    1/120 sec (0.0083333333333333)            
+   F Number                         f/1.75                                    
+   ISO speed rating                 177                                       
+   Date and time of data generation 20:35, 6 January 2020                     
+   Lens focal length                4.288 mm                                  
+   Orientation                      Normal                                    
+   Horizontal resolution            72 dpi                                    
+   Vertical resolution              72 dpi                                    
+   Software used                    GIMP 2.10.12                              
+   File change date and time        20:48, 6 January 2020                     
+   Y and C positioning              Centered                                  
+   Exposure Program                 Normal program                            
+   Exif version                     2.2                                       
+   Date and time of digitizing      20:35, 6 January 2020                     
+                                     1. Y                                     
+   Meaning of each component         2. Cb                                    
+                                     3. Cr                                    
+                                     4. does not exist                        
+   APEX shutter speed               6.906                                     
+   APEX aperture                    1.61                                      
+   APEX brightness                  1.24                                      
+   Maximum land aperture            1.61 APEX (f/1.75)                        
+   Metering mode                    Average                                   
+   Light source                     Unknown                                   
+   Flash                            Flash did not fire, compulsory flash      
+                                    suppression                               
+   DateTime subseconds              073252                                    
+   DateTimeOriginal subseconds      073252                                    
+   DateTimeDigitized subseconds     073252                                    
+   Supported Flashpix version       1                                         
+   Color space                      sRGB                                      
+   Sensing method                   0                                         
+   Scene type                       A directly photographed image             
+   Exposure mode                    Auto exposure                             
+   White balance                    Auto white balance                        
+   Focal length in 35 mm film       0 mm                                      
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Pinebook-Pro-glamour.jpg&oldid=11970"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

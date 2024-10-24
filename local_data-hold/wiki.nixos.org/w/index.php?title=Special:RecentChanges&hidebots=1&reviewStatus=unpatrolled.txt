@@ -1,0 +1,308 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                 Recent changes
+
+   Help
+   [ ] English
+   [ ] Tools
+   Tools
+   Actions
+   General
+     * Atom
+     * Special pages
+     * Printable version
+
+   Track the most recent changes to the wiki on this page.
+
+   Recent changes options Show last 50 | 100 | 250 | 500 changes in last 1 |
+   3 | 7 | 14 | 30 days
+   Hide registered users | Hide anonymous users | Hide my edits | Show bots |
+   Hide minor edits
+   Show new changes starting from 22:26, 21 October 2024
+
+     ----------------------------------------------------------------------
+
+               [ ] all                                                        
+               [ ] (Main)                                                     
+               [ ] Talk                                                       
+               [ ] User                                                       
+               [ ] User talk                                                  
+               [ ] NixOS Wiki                                                 
+               [ ] NixOS Wiki talk                                            
+               [ ] File                                                       
+               [ ] File talk                                                  
+   Namespace:  [ ] MediaWiki                                                  
+               [ ] MediaWiki talk                                             
+               [ ] Template                                                   
+               [ ] Template talk                                              
+               [ ] Help                                                       
+               [ ] Help talk                                                  
+               [ ] Category                                                   
+               [ ] Category talk                                              
+               [ ] Translations                                               
+               [ ] Translations talk [ ]  Invert selection [ ]  Associated    
+               namespace                                                      
+               _____________________                                          
+               2017 source edit                                               
+               Blanking                                                       
+               discussiontools (hidden tag)                                   
+               discussiontools-added-comment (hidden tag)                     
+               discussiontools-source (hidden tag)                            
+               discussiontools-source-enhanced (hidden tag)                   
+               discussiontools-visual (hidden tag)                            
+               Manual revert                                                  
+               Mobile edit                                                    
+               Mobile web edit                                                
+   Tag filter: New redirect                                                   
+               New topic                                                      
+               Redirect target changed                                        
+               Removed redirect                                               
+               Replaced                                                       
+               Reply                                                          
+               Reverted                                                       
+               Rollback                                                       
+               translate-translation-pages (hidden tag)                       
+               Undo                                                           
+               Visual edit                                                    
+               Visual edit: Switched [ ]  Invert selection [ Show ]           
+
+   List of abbreviations:
+
+   N
+           This edit created a new page (also see list of new pages)
+
+   m
+           This is a minor edit
+
+   b
+           This edit was performed by a bot
+
+   (±123)
+           The page size changed by this number of bytes
+
+    21 October 2024
+
+           19:57  User creation log  User account ClarkR583517886 talk        
+                  contribs was created ‎                                      
+
+           16:08  Nextcloud‎ diffhist  +729‎  Onny talk contribs (Add app     
+                  specific configuration) Tag: Visual edit                    
+
+   [ ]
+
+      N    10:16  Rollback nixpkgs‎‎ 9 changes history +3,986‎ [Sedlund‎      
+                  (9×)]                                                       
+       m          10:16 (cur | prev) +342‎ Sedlund talk contribs (rewording)  
+                  Tag: Visual edit                                            
+       m          06:26 (cur | prev) +25‎ Sedlund talk contribs (typos) Tag:  
+                  Visual edit                                                 
+       m          06:11 (cur | prev) −11‎ Sedlund talk contribs (formatting)  
+                  Tag: Visual edit                                            
+       m          06:10 (cur | prev) 0‎ Sedlund talk contribs (formatting)    
+                  Tag: Visual edit                                            
+       m          05:59 (cur | prev) +61‎ Sedlund talk contribs (stable       
+                  release jobset also has tested job) Tag: Visual edit        
+       m          05:57 (cur | prev) +90‎ Sedlund talk contribs (typos) Tag:  
+                  Visual edit                                                 
+       m          05:42 (cur | prev) −4‎ Sedlund talk contribs (typos) Tag:   
+                  Visual edit                                                 
+       m          05:30 (cur | prev) +68‎ Sedlund talk contribs (wordage)     
+                  Tag: Visual edit                                            
+                  05:19 (cur | prev) +3,415‎ Sedlund talk contribs (init:     
+      N           Nixpkgs rollback - using Hydra as source of truth) Tag:     
+                  Visual edit                                                 
+
+   [ ]
+
+           05:16  (Upload log)‎ [Sedlund‎ (11×)]                              
+                  05:16 Sedlund talk contribs uploaded                        
+                  File:11-hydra-jobset-jobs-tested-last-success.png ‎         
+                  05:11 Sedlund talk contribs uploaded                        
+                  File:10-hydra-jobset-jobs-tested-last-successful.png ‎      
+                  05:10 Sedlund talk contribs uploaded                        
+                  File:9-hydra-jobset-jobs-tested.png ‎                       
+                  05:06 Sedlund talk contribs uploaded                        
+                  File:8-hydra-jobset-overview.png ‎                          
+                  05:02 Sedlund talk contribs uploaded                        
+                  File:7-hydra-build-evals.png ‎                              
+                  05:00 Sedlund talk contribs uploaded                        
+                  File:6-hydra-build-summary.png ‎                            
+                  04:57 Sedlund talk contribs uploaded                        
+                  File:5-hydra-job-packages.png ‎                             
+                  04:55 Sedlund talk contribs uploaded File:4-hydra-jobs.png  
+                  ‎                                                           
+                  04:53 Sedlund talk contribs uploaded                        
+                  File:3-hdrya-jobset-jobs-tab.png ‎                          
+                  04:50 Sedlund talk contribs uploaded                        
+                  File:2-hydria-jobsets.png ‎                                 
+                  04:45 Sedlund talk contribs uploaded                        
+                  File:1-hydra-projects.png ‎                                 
+
+   [ ]
+
+           04:33  Ghidra‎‎ 3 changes history +5,090‎ [Fidgetingbits‎ (3×)]    
+                  04:33 (cur | prev) −1‎ Fidgetingbits talk contribs          
+                  (→‎Install Ghidra on NixOS: note that ghidra-bin doesn't    
+                  support extensions earlier)                                 
+                  01:11 (cur | prev) +1,856‎ Fidgetingbits talk contribs (Add 
+                  note and example about declarative preferences)             
+                  00:45 (cur | prev) +3,235‎ Fidgetingbits talk contribs (Add 
+                  details about using an overlay to update Ghidra and give an 
+                  example of adding extensions)                               
+
+    20 October 2024
+
+           22:53  Flakes‎ diffhist  −4‎  Sandro talk contribs (Fix headlines  
+                  order)                                                      
+
+           15:52  Btrbk‎ diffhist  −3‎  Onny talk contribs Tag: Visual    
+                  edit                                                    
+
+                  Home Manager‎ diffhist  +568‎  Rrdpad talk contribs (fix    
+           14:23  home manager module and add home manager config) Tag:       
+                  Visual edit                                                 
+
+   [ ]
+
+           09:48  Specialisation‎‎ 2 changes history −222‎ [Patryk27‎ (2×)]   
+       m          09:48 (cur | prev) +2‎ Patryk27 talk contribs Tag: Visual   
+                  edit                                                        
+                  09:43 (cur | prev) −224‎ Patryk27 talk contribs (→‎Runtime  
+                  activation) Tag: Visual edit: Switched                      
+
+           08:47  Steam‎ diffhist  −10‎  Fidgetingbits talk contribs (→‎NixOS 
+                  21.11: clarify wording) Tags: Mobile edit Mobile web edit   
+
+   [ ]
+
+           08:46  VR‎‎ 2 changes history +1,411‎ [Titaniumtown‎;              
+                  Fidgetingbits‎]                                             
+                  08:46 (cur | prev) +27‎ Fidgetingbits talk contribs         
+                  (→‎WiVRn + Steam: styling) Tags: Mobile edit Mobile web     
+                  edit                                                        
+                  06:15 (cur | prev) +1,384‎ Titaniumtown talk contribs (Add  
+                  WiVRn Entry) Tag: Visual edit                               
+
+   [ ]
+
+           08:39  Nix Language Quirks‎‎ 4 changes history +257‎               
+                  [Fidgetingbits‎ (4×)]                                       
+                  08:39 (cur | prev) −15‎ Fidgetingbits talk contribs         
+                  (→‎Indented strings trim leading whitespace: Remove         
+                  unnecessary sentence and clarify wording) Tags: Mobile edit 
+                  Mobile web edit                                             
+                  08:35 (cur | prev) +66‎ Fidgetingbits talk contribs (→‎Old  
+                  let syntax: add link to 2017 thread mentioning old syntax)  
+                  Tags: Mobile edit Mobile web edit                           
+                  08:19 (cur | prev) 0‎ Fidgetingbits talk contribs (→‎with   
+       m          and let: fix capitalization) Tags: Mobile edit Mobile web   
+                  edit                                                        
+                  08:19 (cur | prev) +206‎ Fidgetingbits talk contribs        
+                  (→‎with and let: Slightly reword and link to best practices 
+                  guide) Tags: Mobile edit Mobile web edit                    
+
+       m   05:48  KDE‎ diffhist  −1‎  ExRyuske talk contribs (fixed syntax    
+                  mistake)                                                    
+
+           03:36  User creation log  User account Titaniumtown talk contribs  
+                  was created ‎                                               
+
+    19 October 2024
+
+           20:06  Bluetooth‎ diffhist  −180‎  Onny talk contribs (Cleanup)    
+                  Tag: Visual edit                                            
+
+   [ ]
+
+           16:27  (User creation log)‎ [Mwoodpatrick‎; Jarrodsfarrell‎]       
+                  16:27 User account Mwoodpatrick talk contribs was created ‎ 
+                  01:21 User account Jarrodsfarrell talk contribs was created 
+                  ‎                                                           
+
+                  Nixpkgs/Modifying Packages‎ diffhist  +10‎  Fidgetingbits   
+           15:10  talk contribs (Add link and tweak styling) Tags: Mobile     
+                  edit Mobile web edit                                        
+
+   [ ]
+
+           15:04  Nix vs. Linux Standard Base‎‎ 2 changes history +91‎        
+                  [Fidgetingbits‎ (2×)]                                       
+                  15:04 (cur | prev) +13‎ Fidgetingbits talk contribs         
+                  (→‎Build and install from Source: formatting) Tags: Mobile  
+                  edit Mobile web edit                                        
+                  15:03 (cur | prev) +78‎ Fidgetingbits talk contribs         
+                  (→‎Package Installation: tweak formatting) Tags: Mobile     
+                  edit Mobile web edit                                        
+
+   [ ]
+
+           03:43  Nix Language Quirks‎‎ 3 changes history +440‎               
+                  [Fidgetingbits‎ (3×)]                                       
+                  03:43 (cur | prev) +51‎ Fidgetingbits talk contribs         
+                  (→‎Integer precision: add 64-bit reference link) Tags:      
+                  Mobile edit Mobile web edit                                 
+                  03:38 (cur | prev) +215‎ Fidgetingbits talk contribs        
+                  (→‎builtins.replaceStrings key match on "": Improve grammar 
+                  and formatting) Tags: Mobile edit Mobile web edit           
+                  03:27 (cur | prev) +174‎ Fidgetingbits talk contribs (Link  
+                  to manual for indented strings. Also change capitalization  
+                  to match manual) Tags: Mobile edit Mobile web edit          
+
+   [ ]
+
+           01:44  Btrbk‎‎ 2 changes history +1,263‎ [Jarrodsfarrell‎ (2×)]    
+       m          01:44 (cur | prev) +5‎ Jarrodsfarrell talk contribs         
+                  (Correct which man page to use.) Tag: Visual edit: Switched 
+                  01:42 (cur | prev) +1,258‎ Jarrodsfarrell talk contribs     
+                  (Added a section for local /home snapshots—inspired from my 
+                  systems—and in the previous section points out that         
+                  subvolume can instead be a attribute set. Carry-over from   
+                  the unofficial wiki.) Tag: Visual edit: Switched            
+
+   Retrieved from "https://wiki.nixos.org/wiki/Special:RecentChanges"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

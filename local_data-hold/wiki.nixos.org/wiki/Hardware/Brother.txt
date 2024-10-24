@@ -1,0 +1,109 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Troubleshooting
+          * 1.1 With proper paper setting, printout is shifted or cropped
+   [ ] Toggle the table of contents
+
+                                Hardware/Brother
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to Hardware Hub
+
+Troubleshooting
+
+  With proper paper setting, printout is shifted or cropped
+
+   This may happen because of the way the brother drivers are made, it seems
+   there is a bug in the handling of paper type, and it does not only affect
+   NixOS.
+
+   To see if this problem affects you, look at the `rc` file for your
+   printer, in the package for your drivers.
+
+ /nix/store/.../opt/brother/Printers/[model]/inf/br[model]rc
+
+   There will be a line as such:
+
+ PaperType=A4
+
+   The problem can be inverted depending on the driver, some will default to
+   A4 and some to Letter.
+
+   One way this can be worked-around is by patching the rc file at build
+   time^[1]. This will not allow switching paper type at runtime.
+
+     ----------------------------------------------------------------------
+
+    1. ↑
+       https://ubuntuforums.org/showthread.php?t=1450999&p=11197947#post11197947
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/Brother&oldid=11465"
+     * This page was last edited on 3 April 2024, at 20:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

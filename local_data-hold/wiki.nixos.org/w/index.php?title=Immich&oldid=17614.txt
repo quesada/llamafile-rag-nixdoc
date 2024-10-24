@@ -1,0 +1,122 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+          * 1.1 Hardware Accelerated Transcoding using VA-API
+   [ ] Toggle the table of contents
+
+                                     Immich
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 20:19, 24 September 2024 by Scrumplex (talk | contribs)
+   (Fix heading of VA-API section)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Immich is an open-source software, designed to provide a self-hosted
+   alternative for managing and backing up photos and videos, with a focus on
+   privacy and ease of use.
+
+Setup
+
+   Note: The module is not yet part of the latest NixOS stable release and is
+   currently in a PR at https://github.com/NixOS/nixpkgs/pull/324127
+
+   The following example configuration will enable Immich locally
+
+ /etc/nixos/configuration.nix
+
+ services.immich = {
+   enable = true;
+   environment.IMMICH_MACHINE_LEARNING_URL = "http://localhost:3003";
+ };
+
+   After applying the configuration you can access the instance via
+   http://localhost:3001.
+
+  Hardware Accelerated Transcoding using VA-API
+
+   First make sure you have configured hardware acceleration on your system
+   as described in Accelerated Video Playback.
+
+   To make use of hardware accelerated video transcoding using VA-API, make
+   sure to add your Immich user to the render and video groups. If you are
+   using the default immich user, you can use the following snippet to enable
+   VA-API support.
+
+ /etc/nixos/configuration.nix
+
+ users.users.immich.extraGroups = [ "video" "render" ];
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Immich&oldid=17614"
+   Categories:
+     * Server
+     * Web Applications
+     * This page was last edited on 24 September 2024, at 20:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

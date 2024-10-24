@@ -1,0 +1,341 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Getting Started
+     * 2 Development
+          * 2.1 Basics
+          * 2.2 Declaring dependencies
+     * 3 Tips and tricks
+          * 3.1 Executing cross compiled binaries
+          * 3.2 Leveraging the binary cache
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                Cross Compiling
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Cross Compiling#)        
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   Nixpkgs provides excellent support in configuring it for cross-platform
+   compiling tasks since 18.09^[citation needed].
+
+   In order to prepare Nixpkgs for a cross-compiling environment, it needs to
+   be aware of both the platform that performs the build-step, and the
+   platform that will execute the resulting binaries. The former is referred
+   to as the buildPlatform, while the latter is hostPlatform.
+
+     If you were compiling a program from your system for a Raspberry PI, you
+     would be the buildPlatform whereas the Raspberry PI would be the
+     hostPlatform.
+
+   Furthermore, in order to provide more granular control to declaring
+   dependencies in these environments, Nixpkgs derivations expose an
+   exhaustive set of attributes that can explicitly define when are where
+   dependencies are required. A full reference to these can be found in the
+   Nixpkgs manual.
+
+Getting Started
+
+   Nixpkgs exposes two configuration attributes that map internally to the
+   expected behaviors of the build/host platforms as described above. These
+   attributes can be set when importing Nixpkgs as a Nix expression:
+
+ let
+   pkgs = import <nixpkgs> {
+     localSystem = "x86_64-linux"; # buildPlatform
+     crossSystem = "aarch64-linux"; # hostPlatform
+   };
+ in pkgs.hello
+
+   The above will provide a derivation result for the hello derivation that
+   can run on an aarch64-linux system. This can sometimes be tedious
+   especially for common hostPlatform targets. Fortunately, Nixpkgs exposes a
+   pkgsCross attribute that provides pre-configured cross compiling targets.
+   The snippet above converted to using pkgsCross can be shorted to:
+
+ let
+   pkgs = import <nixpkgs> {
+     localSystem = "x86_64-linux";
+   };
+ in pkgs.pkgsCross.aarch64-multiplatform.hello
+
+   You can perform the same operations using the CLI, and Nix will correctly
+   evaluate the localSystem based on your current system:
+
+ nix-build '<nixpkgs>' -A pkgsCross.aarch64-multiplatform.hello # nix-legacy
+ nix build nixpkgs#pkgsCross.aarch64-multiplatform.hello # nix3
+
+   All of the above snippets will resolve to the exact same derivation
+   result, which will provide a binary for GNU Hello that can execute only on
+   an aarch64 system. There are many other systems pkgsCross has defined, you
+   can see an exhaustive list of all of them on your system:
+
+ $ nix-instantiate --eval --expr 'builtins.attrNames (import <nixpkgs> {}).pkgsCross' --json | nix-shell -p jq --command 'jq' # nix-legacy
+ $ nix eval --impure --expr 'builtins.attrNames (import <nixpkgs> {}).pkgsCross' --json | nix run nixpkgs#jq # nix3
+
+   If you instead prefer to write your systems directly, through localSystem
+   and crossSystem, you can refer to nixpkgs/lib/systems/examples.nix for
+   examples of platforms exposed as attributes. These can be directly used
+   in-place for the aforementioned arguments:
+
+ let
+   lib = import <nixpkgs/lib>;
+   pkgs = import <nixpkgs> {
+     #localSystem = ...;
+     crossSystem = lib.systems.examples.aarch64-multiplatform;
+   };
+ in pkgs.hello
+
+Development
+
+  Basics
+
+   Using the same ideas as above, we can create development environments
+   which provide us with a compilation suite that can perform
+   cross-compilation for us. A very simple development shell (colloquially
+   called a "devshell") can be written as:
+
+ # shell.nix
+ {
+   pkgs ? import <nixpkgs> {
+     localSystem = "x86_64-linux";
+     crossSystem = "aarch64-linux";
+   },
+ }:
+ pkgs.mkShell {
+   # By default this provides gcc, ar, ld, and some other bare minimum tools
+ }
+
+   Entering this development shell via nix-shell shell.nix will add the
+   relevant compiler tools to your PATH temporarily. Similar to other Linux
+   systems, all cross-compiling tools are prefixed with relevant platform
+   prefixes, which means simply typing gcc will not work. However, the
+   provided mkShell will introduce environment variables for your devshell,
+   such as $CC, $AR, $LD, and more. At the time of writing, official
+   documentation on an exhaustive list of these variables does not exist, but
+   you can view them for your devshell through the command-line:
+
+ $ $EDITOR $(nix-build ./shell.nix) # opens your EDITOR with a massive bash script full of declare -x ...
+
+   Given these environment variables, you can run compile your software using
+   the exact same commands with fairly minimal changes (changing hardcoded
+   gcc values into $CC, for example):
+
+ $ $CC -o main src/main.c
+ $ file main
+ main: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /nix/store/qa51m8r8rjnigk5hf7sxv0hw7qr7l4bc-glibc-aarch64-unknown-linux-gnu-2.39-52/lib/ld-linux-aarch64.so.1, for GNU/Linux 3.10.0, not stripped
+
+   The above snippet will have minor differences depending on when you run
+   it, but the main thing to notice is ARM aarch64, which tells us our
+   software was able to successfully cross compile.
+
+  Declaring dependencies
+
+   If you try to declare build-time dependencies within the devshell (such as
+   pkgs.cmake), you will quickly realize that these derivations are actually
+   being built for the crossSystem, making them unusable on your system
+   architecture (see #49526). There are ways around this, but in general once
+   you've gotten to this point you should prefer writing a derivation, which
+   will make it not only easier to write both derivations, but will allow you
+   to follow the recommended practices for using Nix.
+
+   If you would prefer to continue building within the devshell, you can use
+   callPackage, which will magically resolve the dependencies for the correct
+   architecture, provided you place them in the correct attributes:
+
+ # shell.nix
+ {
+   pkgs ? import <nixpkgs> {
+     #localSystem = ...;
+     crossSystem = "aarch64-linux";
+   },
+ }:
+ pkgs.callPackage (
+   {
+     mkShell,
+
+     pkg-config,
+     libGL,
+   }:
+   mkShell {
+     # Derivations that must run on the buildPlatform.
+     nativeBuildInputs = [
+       pkg-config
+     ];
+
+     # Derivations that must link with the targetPlatform.
+     buildInputs = [
+       libGL
+     ];
+   }
+ ) {}
+
+   The above snippet will drop you into a devshell that provides pkg-config
+   as a native binary (accessible through $PKG_CONFIG), while also allowing
+   linking to a valid libGL for the crossSystem.
+
+   For more information regarding the above, namely the usage of
+   nativeBuildInputs and buildInputs, see stdenv dependencies for a in-depth
+   explanation. Alternatively, a simplified explanation can be found in a
+   comment on the Nixpkgs repo.
+
+Tips and tricks
+
+  Executing cross compiled binaries
+
+   By using QEMU, we can natively execute a cross-compiled binary through an
+   emulation layer. This will result in degraded performance but is very
+   suitable for testing the functionality of a binary.
+
+   If you are on NixOS, this functionality can be provided automatically on
+   any cross-compiled binary by setting boot.binfmt.emulatedSystems in your
+   configuration. After rebuilding, attempting to run a cross-compiled binary
+   will automatically invoke qemu indirectly through the binfmt_misc kernel
+   feature.
+
+ $ ./result
+ Hello World!
+ $ ./result-aarch64-linux
+ Hello World!
+
+   Otherwise, you can use the pkgs.qemu-user to download qemu user space
+   programs (or use any installed by your distro) to run your package easily.
+
+ $ ./result
+ Hello World!
+ $ qemu-aarch64 ./result-aarch64-linux
+ Hello World!
+
+  Leveraging the binary cache
+
+   You will likely have noticed that resolving derivations through either
+   pkgsCross or a configured Nixpkgs instance results in your system needing
+   to build the binary. This is because cross-compiled binaries are not
+   cached on the official binary cache. Fortunately, there are a small set of
+   systems that are actively built and cached officially. At the time of
+   writing, this only includes aarch64-linux, aarch64-darwin, i686-linux,
+   x86_64-linux, and x86_64-darwin. If your platform targets include these,
+   you may be able to leverage a slight hack to avoid large-scale builds.
+
+     Please note that this is not recommended, as it hacks around some
+     internal details of Nixpkgs which are subject to change at any time.
+
+   An example of this using pkgs.SDL2:
+
+ let
+   # this will use aarch64 binaries from binary cache, so no need to build those
+   pkgsArm = import <nixpkgs> {
+     system = "aarch64-linux";
+   };
+
+   # these will be your cross packages
+   pkgsCross = import <nixpkgs> {
+     overlays = [
+       (self: super: {
+         # we want to hack on SDL, don't want to hack on those. Some even don't cross-compile
+         inherit (pkgsArm)
+           xorg libpulseaudio libGL guile systemd libxkbcommon
+           ;
+       })
+     ];
+     #localSystem = ...;
+     crossSystem = "aarch64-linux";
+   };
+ in pkgsCross.SDL2.override {
+   # These should be neither pkgsCross, nor pkgsArm
+   # because those trigger
+   # > cannot execute binary file: Exec format error
+   # In this case it was enough to just use buildPackages variants,
+   # but in general, there may be problems
+   inherit (pkgsCross.buildPackages)
+     wayland wayland-protocols
+     ;
+ }
+
+See also
+
+     * NixOS on ARM
+     * Packaging/32bit Applications
+     * Cheatsheet#Cross-compile packages
+     * Nixpkgs manual on cross compiling
+     * Introduction to Cross Compilation with nix by Matthew Bauer
+     * Slides from the cross-compilation workshop on 35c3
+     * 2018-08-03 discussion on #nixos (Mirror of chat on Matrix.org)
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Cross_Compiling&oldid=17794"
+   Categories:
+     * Nix
+     * Development
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 13 October 2024, at 19:13.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

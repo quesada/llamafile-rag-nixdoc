@@ -1,0 +1,166 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Arduino IDE 2.x
+     * 2 Arduino IDE 1.x
+          * 2.1 shell.nix
+          * 2.2 Upload program
+     * 3 Arduino CLI
+          * 3.1 Build Arduino project with Nix
+     * 4 Serial console
+     * 5 See also
+   [ ] Toggle the table of contents
+
+                                    Arduino
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The Arduino ecosystem offers two Versions of the Arduino IDE and an
+   Arduino CLI that both base on. The latter can be used for building Arduino
+   projects with nix.
+
+Arduino IDE 2.x
+
+   The Arduino IDE 2.x is available in nixpkgs as arduino-ide
+
+Arduino IDE 1.x
+
+   This is the old Arduino IDE and it is available as arduino in nixpkgs. It
+   is still used for many projects.
+
+  shell.nix
+
+ { pkgs ? import <nixpkgs> {} }:
+
+ with pkgs;
+
+ mkShell {
+   buildInputs = [
+     arduino
+     #gnumake # upload with Makefile
+     #screen # serial console
+   ];
+ }
+
+  Upload program
+
+   Upload to an Arduino Nano board
+
+ time \
+ arduino --board arduino:avr:nano --port /dev/ttyUSB0 --upload Blink.cpp
+
+ Loading configuration...
+ Initializing packages...
+ Preparing boards...
+ Verifying...
+ Uploading...
+
+ real    0m28.913s
+
+Arduino CLI
+
+   The Arduino CLI is available as arduino-cli in nixpkgs.
+
+  Build Arduino project with Nix
+
+   Ardunio-Nix allows generating all dependencies from an Arduino project as
+   Nix dependencies. The Arduino-Env patch makes it possible to build these
+   Arduino project within Nix.
+
+     * Arduino-Nix: https://github.com/bouk/arduino-nix
+     * Ardunio-Env patch:
+       https://github.com/clerie/arduino-nix/tree/clerie/arduino-env
+
+Serial console
+
+   See: Serial Console
+
+ screen /dev/ttyUSB0
+
+ # set baud rate. default is 9600
+ screen /dev/ttyUSB0 9600
+
+   see also: https://wiki.archlinux.org/title/GNU_Screen
+
+   see also: https://wiki.archlinux.org/title/Working_with_the_serial_console
+
+See also
+
+     * Embedded
+          * shell.nix for Arduino IDE
+     * https://wiki.archlinux.org/title/Arduino
+     * https://github.com/boredom101/nixduino
+     * https://www.arduino.cc/en/Tutorial/BuiltInExamples/Blink
+     * https://vid.bina.me/tools/arduino/arduino-on-nixos/
+     * Arduino Connection on NixOS
+     * https://rzetterberg.github.io/teensy-development-on-nixos.html
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Arduino&oldid=10219"
+     * This page was last edited on 17 December 2023, at 18:35.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,119 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installing as an OBS-Studio plugin
+   [ ] Toggle the table of contents
+
+                                    Droidcam
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 18:02, 18 June 2024 by Klinger (talk | contribs)
+   (Category:Applications (fix))
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Droidcam is a mobile app (Android, iOS). With Droidcam the mobile device
+   can be used as webcam for a PC.
+
+Installing as an OBS-Studio plugin
+
+   Its possible to use Droidcam as a virtual camera in OBS Studio.
+
+ # /etc/nixos/configuration.nix
+ { config, pkgs, ... }:
+
+ {
+   # Virtual cam settings: see https://wiki.nixos.org/wiki/OBS_Studio#Using_the_Virtual_Camera
+   boot.extraModulePackages = with config.boot.kernelPackages; [
+     v4l2loopback
+   ];
+   boot.extraModprobeConfig = ''
+     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+   '';
+   security.polkit.enable = true;
+
+   # Install OBS Studio with droidcam-obs
+   users.users.foo = {
+     packages = with pkgs; [
+       # ...
+       (wrapOBS {
+         plugins = with obs-studio-plugins; [
+           droidcam-obs
+         ];
+       })
+       # ...
+     ];
+   };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Droidcam&oldid=13208"
+   Category:
+     * Applications
+     * This page was last edited on 18 June 2024, at 18:02.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

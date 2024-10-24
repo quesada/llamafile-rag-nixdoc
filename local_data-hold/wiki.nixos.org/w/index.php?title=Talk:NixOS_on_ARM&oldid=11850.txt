@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 NixOS "support" for board-specific kernels or bootloaders
+       1 comment
+     * 2 Latest u-boot builds form Hydra
+       1 comment
+     * 3 Distributed Builds
+       1 comment
+     * 4 Option boot.loader.grub.devices
+   [ ] Toggle the table of contents
+
+                               Talk:NixOS on ARM
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 04:47, 7 April 2024 by Samueldr (talk | contribs) (→‎Native
+   support for raspi in nixpkgs: outdated)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+   Latest comment: 11 July 2019 by Thra11 in topic Distributed Builds
+
+NixOS "support" for board-specific kernels or bootloaders
+
+   Latest comment: 21 January 20181 comment1 person in discussion
+
+   I re-worked the introduction paragraph of the article, but I have added a
+   partly unfounded remark about NixOS being able to work with specific
+   kernels or bootloaders. The remark is built on the fact that there is a
+   raspberry pi specific image using a specific kernel, that it is possible
+   to use upstream forks with fixes for the kernel. There is no documentation
+   yet on how to use a vendor fork (e.g. allwinner non-upstream fork) for the
+   kernel or u-boot, and no documentation on how to boot NixOS when extlinux
+   support isn't present in the u-boot build.
+
+   --samueldr (talk) 00:12, 21 January 2018 (UTC)Reply
+
+     ----------------------------------------------------------------------
+
+Latest u-boot builds form Hydra
+
+   Latest comment: 3 December 20181 comment1 person in discussion
+     * https://hydra.nixos.org/jobset/nixpkgs/trunk/jobs-tab?filter=uboot
+
+   This isn't perfect, but fresh from nixpkgs-unstable.
+
+   --samueldr (talk) 01:29, 3 December 2018 (UTC)Reply
+
+     ----------------------------------------------------------------------
+
+Distributed Builds
+
+   Latest comment: 11 July 20191 comment1 person in discussion
+
+   I've added a short section about using an aarch64 remote builder to speed
+   up builds for armv6l and armv7l (With the advent of the raspberry pi 4,
+   this is probably a relatively convenient way to run nixos on the raspberry
+   pi 1 / raspberry pi zero(w) without suffering very long build times). It
+   might make sense to merge it with the section on cross-compiling with
+   qemu, which also mentions distributed builds briefly, but I wasn't sure
+   how best to do it.
+
+   Thra11 (talk) 20:33, 11 July 2019 (UTC)Reply
+
+Option boot.loader.grub.devices
+
+   I am currently trying to setup a Raspberry Pi and neither on the ARM
+   installation page, the default configuration, nor this page here, does the
+   required option "boot.loader.grub.devices" come up.
+
+   With my configuration, the system requires me to set this.
+
+   This is my configuration:
+   https://gist.github.com/ShalokShalom/f5b190f531d354614a7319a7f3d22fc1
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:NixOS_on_ARM&oldid=11850"
+     * This page was last edited on 7 April 2024, at 04:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

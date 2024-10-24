@@ -1,0 +1,310 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Java Web Start
+     * 2 JDK options
+     * 3 VSCode + Language Support for Java (TM) by Red Hat extension
+     * 4 Using Oracle JDK instead of Open JDK
+     * 5 Better font rendering
+     * 6 Overriding java jks Certificate Store
+          * 6.1 jdk8
+          * 6.2 jdk11
+     * 7 Building and Packaging
+          * 7.1 Maven
+          * 7.2 Ant
+               * 7.2.1 Ivy
+     * 8 Further reading
+   [ ] Toggle the table of contents
+
+                                      Java
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This article is about Java, the programming language.
+
+Java Web Start
+
+   Available as javaws in package adoptopenjdk-icedtea-web.
+
+JDK options
+
+   Your default choice should probably be to install jdk, which is an alias
+   the latest LTS. If you're in a server environment, go for jdk21_headless.
+   Java 21 is the currently-maintained LTS version of OpenJDK as of April
+   2024.
+
+   As you might expect, though, many flavors of Java are available in NixOS.
+
+     * OpenJDK, by far the most popular non-Oracle JVM implementation
+          * jdk8[_headless] for a legacy Java 8 VM required by some older
+            apps
+          * jdk21[_headless], the currently-supported LTS version of OpenJDK
+          * jdk22[_headless], the current version of OpenJDK
+     * Temurin, formerly AdoptOpenJDK, prebuilt binaries for OpenJDK
+          * temurin-bin points to the latest version of Temurin, which is
+            version 21 at the time of writing.
+          * temurin-jre-bin is available if you want to avoid downloading the
+            compiler and only require the runtime environment.
+     * JetBrains JDK (jetbrains.jdk), a fork of OpenJDK with modifications
+       made by JetBrains
+     * Oracle's JDK (oraclejdk), only version 8 is available.
+
+VSCode + Language Support for Java (TM) by Red Hat extension
+
+   Unfortunately the extension contains and uses a version of the JRE which
+   makes use of dynamically loaded libraries, which nix cannot accomodate
+   out-of-the-box. Fortunately there's a simple solution in the use of
+   nix-ld. Here's a simple flake.nix to get you started (I'll focus on the
+   devShell part for brevity):
+
+ devShell = pkgs.mkShell {
+   buildInputs = [
+     pkgs.gradle
+     pkgs.jdk17
+   ];
+   NIX_LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+     pkgs.stdenv.cc.cc
+     pkgs.openssl
+   ];
+   NIX_LD = pkgs.lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker";
+   # ^--- when using direnv, this line will require the 'use flake --impure' option.
+ };
+
+   The important lines are the two lines starting with "NIX_LD...". They will
+   let nix-ld wrap the required, dynamically loaded libraries so that they
+   are found when building the devShell. Another solution is to use the
+   java.jdt.ls.java.home VSCode setting to point to a nix-built Java 17. For
+   example, using home-manager's settings:
+
+ programs.vscode.enable = true;
+
+ programs.vscode.extensions = [ pkgs.vscode-extensions.redhat.java ];
+
+ programs.vscode.userSettings = {
+   "java.jdt.ls.java.home" = "${pkgs.jdk17}";
+ };
+
+   Note that this will still result in the extension downloading its own JRE,
+   it just will not be used.
+
+Using Oracle JDK instead of Open JDK
+
+   Almost all Java packages in nixpkgs use Open JDK in form of a jre
+   dependency. If you use Oracle JDK and also want other applications to use
+   it, you can simply tweak your .nixpkgs/config.nix so that your desired
+   application uses Oracles JDK or JRE.
+
+   Example with UMLet with JRE
+
+ {
+   allowUnfree = true;
+   packageOverrides = pkgs: rec {
+     umlet = pkgs.umlet.override {
+       jre = pkgs.oraclejre8;
+     };
+   };
+ }
+
+   To install the Oracle JRE system-wide, you need to explicitly accept the
+   license in addition to allowing unfree modules:
+
+ # /etc/nixos/configuration.nix
+ {
+   nixpkgs.config.allowUnfree = true;
+   programs.java = { enable = true; package = pkgs.oraclejre8; };
+ }
+
+   Working with `requireFile` (manual downloading the tarballs and manual
+   adding in to the nix store) might be annoying and nixops-unfriendly, so it
+   can be overridden in overlays
+
+ nixpkgs.overlays = let
+   files = {
+     "jdk-8u241-linux-linux-arm32-vfp-hflt.tar.gz" = /home/user/blobs/java/jdk-8u241-linux-linux-arm32-vfp-hflt.tar.gz;
+     "jdk-8u241-linux-linux-arm64-vfp-hflt.tar.gz" = /home/user/blobs/java/jdk-8u241-linux-linux-arm64-vfp-hflt.tar.gz;
+     "jdk-8u241-linux-i586.tar.gz"                 = /home/user/blobs/java/jdk-8u241-linux-i586.tar.gz;
+     "jdk-8u241-linux-x64.tar.gz"                  = /home/user/blobs/java/jdk-8u241-linux-x64.tar.gz;
+   };
+ in [
+   (self: super: {
+     requireFile = args @ {name, url, sha1 ? null, sha256 ? null}:
+       if files?${name} then
+         self.stdenvNoCC.mkDerivation {
+           inherit name;
+           outputHashMode = "flat";
+           outputHashAlgo = if sha256 != null then "sha256" else "sha1";
+           outputHash     = if sha256 != null then  sha256  else  sha1 ;
+           buildCommand   = "cp ${files.${name}} $out";
+         }
+       else
+         super.requireFile args;
+   })
+ ];
+
+Better font rendering
+
+   By default java does not enable antialiasing for font rendering. By
+   exporting environment variables, this can be fixed:
+
+ $ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
+
+   More options can be found in the archlinux wiki
+
+Overriding java jks Certificate Store
+
+   Overriding the java certificate store may be required for adding your own
+   Root certificates in case your company uses an internal PKI or the company
+   utilizes an intercepting proxy.
+
+  jdk8
+
+   Overriding the jdk8 certificate store is possible by overriding the cacert
+   parameter of the package:
+
+ { pkgs, ... }:
+ let
+   myjdk = pkgs.jdk8.override {
+     cacert = pkgs.runCommand "mycacert" {} ''
+       mkdir -p $out/etc/ssl/certs
+       cat ${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt \
+         ${./my-company-root-certificate.crt} > $out/etc/ssl/certs/ca-bundle.crt
+     '';
+   };
+ in {
+   programs.java = {
+     enable = true;
+     package = myjdk
+   };
+ }
+
+   the java package build will use the ca-bundle to run keytool and transform
+   it into jks format.
+
+   you could also use
+
+ {
+   nixpkgs.overlays = [(self: super: {jdk = super.jdk8.override { };} )];
+ }
+
+   to override the default jdk so all packages use the patched java version.
+
+  jdk11
+
+   JDK11 does not provide the cacert overridable and therefore it is not
+   possible to use the same technique to override the truststore.
+
+Building and Packaging
+
+   See the Java section in the Nixpkgs manual.
+
+  Maven
+
+   Maven is a build tool for Java. The typical build command is
+
+ mvn verify
+
+   mvn2nix, buildMavenPackage (recommended) can be used to build Maven
+   projects with Nix
+
+   See also: Packaging a Maven application with Nix and buildMavenPackage
+   source
+
+  Ant
+
+   Ant is a build tool for Java. To build the compile target, run
+
+ ant compile
+
+   To list available build targets, run
+
+ ant -p
+
+    Ivy
+
+   Ivy is a package manager for Ant, not to be confused with ivy - an
+   APL-like calculator
+
+   To fetch ivy sources manually, see for example
+   pkgs/applications/editors/jedit
+
+   To fetch ivy sources in a fixed-output-derivation, see for example
+   yacy.nix
+
+Further reading
+
+   The Nixpkgs manual has a section about Java.
+
+   English Wikipedia has an article about Java.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Java&oldid=17799"
+   Categories:
+     * Applications
+     * Languages
+     * This page was last edited on 14 October 2024, at 15:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

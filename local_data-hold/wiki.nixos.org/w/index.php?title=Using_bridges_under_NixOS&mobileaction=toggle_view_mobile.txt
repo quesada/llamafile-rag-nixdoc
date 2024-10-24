@@ -1,0 +1,100 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Using bridges under NixOS
+   [ ] Toggle the table of contents
+
+                           Using bridges under NixOS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Using bridges under NixOS
+
+   If you want to use macvtap bridges in KVM, LXC, Xen or $hypervisor on
+   NixOS you have to tell your dhcp server to not configure that interface
+   with an ip. Yes exactly the dhcp server on NixOS configures every
+   interface as long it has been told to not to.
+
+   If you are running dhcpcd then you have to define
+
+ networking.dhcpcd.denyInterfaces = [ "macvtap0@*" ]
+
+   for example.
+
+   What is the error you get when layer 2 bridges have IPs? stackoverflow
+   issue
+
+   Open bug: https://github.com/NixOS/nixpkgs/issues/67966
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Using_bridges_under_NixOS&oldid=12234"
+   Category:
+     * Virtualization
+     * This page was last edited on 19 April 2024, at 17:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,129 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Serial Console: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    17 December 2023
+
+     * curprev [ ] [ ] 18:3418:34, 17 December 2023‎ imported>Clerie‎ 2,006
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 18:3318:33, 17 December 2023‎ imported>Clerie‎ 2,006
+       bytes +486‎ No edit summary
+     * curprev [ ] [ ] 18:2618:26, 17 December 2023‎ imported>Clerie‎ 1,520
+       bytes +749‎ No edit summary
+
+    27 January 2020
+
+     * curprev [ ] [ ] 17:1117:11, 27 January 2020‎ imported>Mic92‎ 771 bytes
+       +328‎ No edit summary
+
+    24 January 2020
+
+     * curprev [ ] [ ] 21:2021:20, 24 January 2020‎ imported>Samueldr‎ m 443
+       bytes +7‎ I can't even into syntax it seems
+     * curprev [ ] [ ] 21:2021:20, 24 January 2020‎ imported>Samueldr‎ 436
+       bytes +436‎ Init with serial console wrapping tip
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Serial_Console"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

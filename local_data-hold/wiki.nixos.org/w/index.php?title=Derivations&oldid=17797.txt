@@ -1,0 +1,209 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Getting Started
+          * 1.1 src
+          * 1.2 out
+          * 1.3 meta
+     * 2 Phases
+   [ ] Toggle the table of contents
+
+                                  Derivations
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 20:32, 13 October 2024 by Frontear (talk | contribs)
+   (documenting meta and removing some talks on phases, as it's not
+   necessarily accurate and I dont want to leave the page in a half-complete
+   state without marking it as such.)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   A Nix derivation is a specification for running an executable on precisely
+   defined input files to repeatably produce output files at uniquely
+   determined file system paths^[1]. Simply put, it describes a set of steps
+   to take some input and produce some output in a deterministic manner.
+
+   Derivations are extremely powerful and a core part of Nix utility and
+   provide the core platform for how packaging is done in NixOS. The
+   low-level derivation function is extremely simple, and can become
+   repetitive to define package constructs with, so Nixpkgs hoists the
+   standard environment (colloquially referred to as the stdenv), which
+   provides a sparse set of compilation tools and a derivation construct that
+   avoids the low-level details and provides abstractions to simplify
+   packaging.
+
+Getting Started
+
+   Derivations take an input and produce an output through a series of steps.
+   For most packages, the inputs refer to the source files, the steps refer
+   to the compilation process and are called phases, and the outputs refer to
+   finalized executable binaries written to some file/directory. This
+   sequence of events can be well described within a standard environment.
+
+  src
+
+   This attribute points towards the inputs used within the derivation. This
+   can be source code, but it can also be a pre-build binary. Usually
+   depending on what the source is, a special series of steps is done to
+   ensure its correctness in a Nix environment.
+
+   This usually is downloaded via a fetcher, but it can also be a local path:
+
+ stdenv.mkDerivation {
+
+   src = ./relative-path/to/src;
+   # OR
+   src = fetchFromGitHub {
+     owner = "torvalds";
+     repo = "linux";
+     rev = "refs/tags/v6.11";
+
+     hash = "...";
+   };
+ }
+
+  out
+
+   Unlike src, this is not an attribute you set but rather an environment
+   variable which points to the finalized location of the derivation's
+   contents. The actual directory of $out is an implementation detail
+   abstracted away by Nix and the stdenv builder. Anything placed within $out
+   will then be part of the final derivation. This follows an FHS-inspired
+   like structure, where $out/bin contains binaries, $out/lib contains shared
+   objects, $out/include contains headers, and so forth. These paths will
+   become part of the derivation and are the resulting entries within the
+   /nix/store.
+
+     This attribute must point to either a file or directory, even if they
+     are empty! Failure to create this path will result in the builder
+     failing the entire build process.
+
+   This step is handled largely by the installPhase(see #Phases for more
+   details):
+
+ stdenv.mkDerivation {
+   src = ...;
+
+   installPhase = ''
+     mkdir -p $out/bin
+
+     install -Dm755 -t $out/bin ./my-binary
+   '';
+ }
+
+  meta
+
+   Unlike the previous two, this attribute has no significant relevance to
+   building and largely contains a loose set of attributes useful with the
+   context of Nixpkgs. Therefore, if you're writing a derivation that is not
+   intended for Nixpkgs, this entire attribute set can be safely omitted.
+
+   Attributes in here relate to the upstream source, or the finalized
+   derivation result. Some attributes, like meta.homepage and
+   meta.description, are used to describe and link to relevant information
+   about the upstream source this derivation builds. Attributes like
+   meta.platforms and meta.licenses are also semantically relevant to
+   upstream, but these are also useful for Nixpkgs to determine whether a
+   package can be built on a different system (and whether to allow so in
+   evaluation!), and if a package has a suitable license that allows for
+   re-distribution (caching in the official binary cache).
+
+   There are also some other attributes that are only relevant within the
+   context of Nixpkgs/Nix alone, such as meta.mainProgram, which describes
+   the binary that can be considered the "main" program. For example, the
+   cmake derivation would have meta.mainProgram set to cmake, which would be
+   resolved as $out/bin/cmake when needed.
+
+   A fully exhaustive documentation on all meta-attributes can be found in
+   the Nixpkgs manual.
+
+Phases
+
+     This article or section needs expansion.                                 
+     Reason: This article is a stub. (Discuss in Talk:Derivations#)           
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+   A phase can be described as a set of steps used to transform an input into
+   an output suitable for the next phase. Each step in the stdenv builder
+   controls a distinct part of the build process and is largely inspired from
+   GNU Autoconf convention of ./configure, make, and make install.
+
+   Each phase is written in bash syntax and can use any program defined
+   within the stdenv dependencies, alongside a very minimal set of packages
+   automatically declared within the stdenv. This minimal set include the
+   core-utils, gcc, gnumake, bash, gnuinstall, and more that are not
+   exhaustively documented anywhere^[citation needed].
+
+    1. ↑ Derivations - Nix Reference Manual
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Derivations&oldid=17797"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 13 October 2024, at 20:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

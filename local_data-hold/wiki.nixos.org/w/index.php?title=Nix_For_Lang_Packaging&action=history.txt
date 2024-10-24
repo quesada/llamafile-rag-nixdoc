@@ -1,0 +1,146 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                    Nix For Lang Packaging: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    17 December 2022
+
+     * curprev [ ] [ ] 00:0400:04, 17 December 2022‎ imported>Vater‎ m 6,591
+       bytes 0‎ No edit summary
+
+    20 September 2021
+
+     * curprev [ ] [ ] 00:2900:29, 20 September 2021‎ imported>Nix‎ m 6,591
+       bytes −2‎ recategorize
+
+    15 December 2020
+
+     * curprev [ ] [ ] 12:4912:49, 15 December 2020‎ imported>Fab‎ m 6,593
+       bytes 0‎ Update naming
+
+    19 March 2018
+
+     * curprev [ ] [ ] 16:3816:38, 19 March 2018‎ imported>Makefu‎ 6,593
+       bytes +93‎ No edit summary
+
+    3 March 2018
+
+     * curprev [ ] [ ] 20:2920:29, 3 March 2018‎ imported>Nyarly‎ 6,500 bytes
+       +71‎ No edit summary
+
+    18 December 2017
+
+     * curprev [ ] [ ] 20:2020:20, 18 December 2017‎ imported>Nyarly‎ 6,429
+       bytes +429‎ No edit summary
+     * curprev [ ] [ ] 20:0820:08, 18 December 2017‎ imported>Samueldr‎ m
+       6,000 bytes −4‎ Fixes most probably a pythonic mistake with ''' → '' /
+       """
+     * curprev [ ] [ ] 20:0720:07, 18 December 2017‎ imported>Samueldr‎ m
+       6,004 bytes +22‎ (syntaxhighlight!)
+     * curprev [ ] [ ] 20:0120:01, 18 December 2017‎ imported>Zimbatm‎ 5,982
+       bytes +5,982‎ Some thoughts on integrating Nix with $lang package
+       managers
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nix_For_Lang_Packaging"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

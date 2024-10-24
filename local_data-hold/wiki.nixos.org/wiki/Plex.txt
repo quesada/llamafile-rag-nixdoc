@@ -1,0 +1,256 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Basic setup
+          * 1.1 Allow Plex to read external drives
+     * 2 Clients
+          * 2.1 Plex Media Player
+          * 2.2 Plex Desktop
+          * 2.3 Plexamp
+     * 3 SSL access via Nginx reverse proxy
+   [ ] Toggle the table of contents
+
+                                      Plex
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Plex media server allows you to aggregate all your personal media and
+   access it anywhere you go. Enjoy your own content on all your devices with
+   Plex.
+
+Basic setup
+
+   Plex is packaged in Nix. All you need is to edit your configuration.nix. A
+   simple configuration looks like:
+
+ services.plex = {
+   enable = true;
+   openFirewall = true;
+ };
+
+   After adding this to your configuration.nix just rebuild your system.
+
+   Of course there's some more options that you can customize.
+
+   If your Plex media server is behind a router, you'll need to forward TCP
+   port 32400 to your Plex media server.
+
+   Access Plex media server by browsing to http://lan_ip:32400/web
+
+  Allow Plex to read external drives
+
+   You might encounter permission issues when you try to access external
+   drives if you haven't configured anything else with the server yet. If you
+   haven't explicitly set up a mounting configuration for your drives and
+   instead have your desktop environment (e.g. GNOME or KDE) automatically
+   mount it when you try accessing it via their file explorers, Plex won't be
+   able to access the drive. This is because the desktop environment mounts
+   it to your user, while Plex runs by default as the "plex" user.
+
+   The easiest way to allow Plex to see these external drives is to change
+   the Plex service's user . Here is an example:
+
+ services.plex = {
+   enable = true;
+   openFirewall = true;
+   user="yourusername";
+ };
+
+   If you have changed the user option after you have already installed Plex,
+   you have to change the permissions of the folder /var/lib/plex via chown
+   to the user you set it to by doing this:
+
+   sudo chown -R /var/lib/plex
+
+   The alternative to this is to explicitly mount the drives via Filesystems.
+   This takes more effort to set up and requires every new drive you want
+   plex to see to be explicitly declared, but allows more control in what
+   Plex is allowed to see.
+
+Clients
+
+  Plex Media Player
+
+   Plex Media Player is Plex's media client, packaged in Nix as
+   plex-media-player.
+
+  Plex Desktop
+
+   Alternatively, a more newer and modern Plex client called Plex Desktop is
+   packaged in Nix as plex-desktop.
+
+   To be able to sign in in Plex Desktop, you may need to set
+   xdg.portal.xdgOpenUsePortal = true; in your NixOS configuration. See this
+   issue.
+
+  Plexamp
+
+   Plex also provide Plexamp for music. It's packaged in Nix but (as of
+   August 2024) only for x86_64.
+
+SSL access via Nginx reverse proxy
+
+   Because of several redirects within Plex media server it's not easy to
+   make it accessible through SSL. The browser can complain, even if you have
+   configured proper SSL certificates in your Plex setup.
+
+   Fortunately Nginx can be used as a reverse proxy server to access Plex
+   media server. Most of the configuration below comes from kopfpilot on the
+   Plex forum.
+
+ # Nginx Reverse SSL Proxy
+ services.nginx = {
+   enable = true;
+   # give a name to the virtual host. It also becomes the server name.
+   virtualHosts."sub.domain.tld" = {
+     # Since we want a secure connection, we force SSL
+     forceSSL = true;
+
+     # http2 can more performant for streaming: https://blog.cloudflare.com/introducing-http2/
+     http2 = true;
+
+     # Provide the ssl cert and key for the vhost
+     sslCertificate = "/https-cert.pem";
+     sslCertificateKey = "/https-key.pem";
+     extraConfig = ''
+
+       #Some players don't reopen a socket and playback stops totally instead of resuming after an extended pause
+       send_timeout 100m;
+
+       # Why this is important: https://blog.cloudflare.com/ocsp-stapling-how-cloudflare-just-made-ssl-30/
+       ssl_stapling on;
+       ssl_stapling_verify on;
+
+       ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+       ssl_prefer_server_ciphers on;
+       #Intentionally not hardened for security for player support and encryption video streams has a lot of overhead with something like AES-256-GCM-SHA384.
+       ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA';
+
+       # Forward real ip and host to Plex
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header X-Forwarded-Proto $scheme;
+       proxy_set_header Host $server_addr;
+       proxy_set_header Referer $server_addr;
+       proxy_set_header Origin $server_addr;
+
+       # Plex has A LOT of javascript, xml and html. This helps a lot, but if it causes playback issues with devices turn it off.
+       gzip on;
+       gzip_vary on;
+       gzip_min_length 1000;
+       gzip_proxied any;
+       gzip_types text/plain text/css text/xml application/xml text/javascript application/x-javascript image/svg+xml;
+       gzip_disable "MSIE [1-6]\.";
+
+       # Nginx default client_max_body_size is 1MB, which breaks Camera Upload feature from the phones.
+       # Increasing the limit fixes the issue. Anyhow, if 4K videos are expected to be uploaded, the size might need to be increased even more
+       client_max_body_size 100M;
+
+       # Plex headers
+       proxy_set_header X-Plex-Client-Identifier $http_x_plex_client_identifier;
+       proxy_set_header X-Plex-Device $http_x_plex_device;
+       proxy_set_header X-Plex-Device-Name $http_x_plex_device_name;
+       proxy_set_header X-Plex-Platform $http_x_plex_platform;
+       proxy_set_header X-Plex-Platform-Version $http_x_plex_platform_version;
+       proxy_set_header X-Plex-Product $http_x_plex_product;
+       proxy_set_header X-Plex-Token $http_x_plex_token;
+       proxy_set_header X-Plex-Version $http_x_plex_version;
+       proxy_set_header X-Plex-Nocache $http_x_plex_nocache;
+       proxy_set_header X-Plex-Provides $http_x_plex_provides;
+       proxy_set_header X-Plex-Device-Vendor $http_x_plex_device_vendor;
+       proxy_set_header X-Plex-Model $http_x_plex_model;
+
+       # Websockets
+       proxy_http_version 1.1;
+       proxy_set_header Upgrade $http_upgrade;
+       proxy_set_header Connection "upgrade";
+
+       # Buffering off send to the client as soon as the data is received from Plex.
+       proxy_redirect off;
+       proxy_buffering off;
+     '';
+     locations."/" = {
+       proxyPass = "http://plex.domain.tld:32400/";
+     };
+   };
+ };
+
+   In order to use that, basically set the vhost name from sub.domain.tld to
+   your actual (sub)domain name. Also point to the right sslCertificate and
+   sslCertificateKey. Finally set the proxyPass address to where your Plex
+   media server is.
+
+   After applying the changes, just browse to https://sub.domain.tld/web. Of
+   course use your actual (sub)domain name.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Plex&oldid=17722"
+   Category:
+     * Applications
+     * This page was last edited on 6 October 2024, at 13:33.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,129 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Known issues
+     * 3 Configuration
+          * 3.1 BIOS
+          * 3.2 darp6
+               * 3.2.1 Intel 10th Gen
+          * 3.3 Tech Docs
+   [ ] Toggle the table of contents
+
+                              System76 Darter Pro
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to Hardware Hub
+
+   System76 Darter Pro
+   System76 Darter Pro
+   Manufacturer System76     
+   Architecture x86_64-linux 
+   darp6        
+   Status       supported    
+   Maintainer   Ahoneybun    
+
+   The System76 Darter Pro is a Linux laptop running System76 Open Firmware
+   (based on coreboot+EDK2) from System76
+
+Status
+
+   The device boots NixOS.
+
+Known issues
+
+Configuration
+
+  BIOS
+
+   These are handled by the firmware-manager package which can be enabled in
+   your configuration like this:
+
+  {
+    hardware.system76.enableAll = true;
+  };
+
+  darp6
+
+    Intel 10th Gen
+
+     * NixOS Hardware module for flakes:
+       nixos-hardware.nixosModules.system76-darp6
+     * NixOS Hardware module for channels: <nixos-hardware/system76/darp6>
+
+  Tech Docs
+
+   This goes over replacing and upgrading components such as RAM and drives.
+
+   https://tech-docs.system76.com/models/darp6/README.html
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/System76/darp6&oldid=17815"
+     * This page was last edited on 15 October 2024, at 16:00.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

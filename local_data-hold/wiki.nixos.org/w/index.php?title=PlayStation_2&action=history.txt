@@ -1,0 +1,232 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        PlayStation 2: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    8 October 2024
+
+     * curprev [ ] [ ] 11:4611:46, 8 October 2024‎ FalsePattern talk
+       contribs‎ 5,803 bytes +24‎ fix bad package name (autotools ->
+       autoconf, automake, libtool) Tag: Visual edit: Switched
+
+    15 September 2024
+
+     * curprev [ ] [ ] 05:5705:57, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 5,779 bytes +64‎ add download source for the archive
+     * curprev [ ] [ ] 05:5505:55, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 5,715 bytes +100‎ wlauncher web archive link, discord file
+       is dead
+
+    15 August 2024
+
+     * curprev [ ] [ ] 19:5619:56, 15 August 2024‎ Tomodachi94 talk contribs‎
+       m 5,615 bytes 0‎ Tomodachi94 moved page Playstation2 to PlayStation 2:
+       Misspelled title
+     * curprev [ ] [ ] 19:4919:49, 15 August 2024‎ Tomodachi94 talk contribs‎
+       m 5,615 bytes +22‎ add Category:Hardware
+
+    3 August 2024
+
+     * curprev [ ] [ ] 08:0008:00, 3 August 2024‎ FalsePattern talk contribs‎
+       m 5,593 bytes +54‎ ps2dev now requires autotools, and
+       CMAKE_INSTALL_PREFIX is also needed, otherwise a build step attempts
+       to write binaries to /var/empty/local (Tested on 2024-08-03) Tag:
+       Visual edit: Switched
+
+    19 April 2024
+
+     * curprev [ ] [ ] 16:4016:40, 19 April 2024‎ Klinger talk contribs‎ m
+       5,539 bytes −43‎ No edit summary
+
+    8 March 2022
+
+     * curprev [ ] [ ] 17:1817:18, 8 March 2022‎ imported>Bignaux‎ m 5,582
+       bytes +50‎ No edit summary
+
+    18 May 2021
+
+     * curprev [ ] [ ] 19:2219:22, 18 May 2021‎ imported>GovanifY‎ m 5,532
+       bytes +71‎ hardening makes gcc build fail on ps2dev because of
+       formatting warnings treated as errors
+     * curprev [ ] [ ] 16:3516:35, 18 May 2021‎ imported>GovanifY‎ 5,461
+       bytes +17‎ mpfr includes are missing in FHS since dev isn't
+       automatically used
+     * curprev [ ] [ ] 16:2116:21, 18 May 2021‎ imported>GovanifY‎ 5,444
+       bytes +90‎ update to ps2dev instead of ps2toolchain for those that
+       need it
+
+    13 April 2021
+
+     * curprev [ ] [ ] 14:3114:31, 13 April 2021‎ imported>Bignaux‎ m 5,354
+       bytes −21‎ →‎install wLauncher
+     * curprev [ ] [ ] 14:3014:30, 13 April 2021‎ imported>Bignaux‎ m 5,375
+       bytes +18‎ No edit summary
+
+    4 April 2021
+
+     * curprev [ ] [ ] 14:5114:51, 4 April 2021‎ imported>Bignaux‎ 5,357
+       bytes +333‎ add APA infos
+
+    12 December 2020
+
+     * curprev [ ] [ ] 17:0217:02, 12 December 2020‎ imported>Bignaux‎ m
+       5,024 bytes −232‎ No edit summary
+     * curprev [ ] [ ] 12:3812:38, 12 December 2020‎ imported>Bignaux‎ 5,256
+       bytes +459‎ hdl_dump initialize
+     * curprev [ ] [ ] 12:1512:15, 12 December 2020‎ imported>Bignaux‎ 4,797
+       bytes +322‎ PlayStation 2 Expansion Bay note
+
+    10 December 2020
+
+     * curprev [ ] [ ] 17:0017:00, 10 December 2020‎ imported>Bignaux‎ m
+       4,475 bytes +348‎ No edit summary
+
+    3 December 2020
+
+     * curprev [ ] [ ] 12:2312:23, 3 December 2020‎ imported>Bignaux‎ m 4,127
+       bytes 0‎ No edit summary
+
+    28 November 2020
+
+     * curprev [ ] [ ] 11:1711:17, 28 November 2020‎ imported>GovanifY‎ 4,127
+       bytes +1,510‎ Added a dev section for crazy people doing ps2 dev in
+       2020 like me
+
+    3 May 2020
+
+     * curprev [ ] [ ] 11:4011:40, 3 May 2020‎ imported>DamienCassou‎ 2,617
+       bytes +154‎ Add a link to the Games page
+
+    13 February 2020
+
+     * curprev [ ] [ ] 12:0912:09, 13 February 2020‎ imported>Bignaux‎ m
+       2,463 bytes +52‎ No edit summary
+     * curprev [ ] [ ] 08:2208:22, 13 February 2020‎ imported>Bignaux‎ m
+       2,411 bytes +23‎ No edit summary
+
+    12 February 2020
+
+     * curprev [ ] [ ] 16:3816:38, 12 February 2020‎ imported>Bignaux‎ m
+       2,388 bytes +10‎ No edit summary
+     * curprev [ ] [ ] 16:3616:36, 12 February 2020‎ imported>Bignaux‎ 2,378
+       bytes +490‎ No edit summary
+
+    3 February 2020
+
+     * curprev [ ] [ ] 22:1122:11, 3 February 2020‎ imported>Bignaux‎ m 1,888
+       bytes +103‎ No edit summary
+     * curprev [ ] [ ] 21:1221:12, 3 February 2020‎ imported>Bignaux‎ m 1,785
+       bytes +102‎ No edit summary
+     * curprev [ ] [ ] 11:2511:25, 3 February 2020‎ imported>Bignaux‎ 1,683
+       bytes +466‎ No edit summary
+     * curprev [ ] [ ] 06:5106:51, 3 February 2020‎ imported>Bignaux‎ 1,217
+       bytes +982‎ No edit summary
+     * curprev [ ] [ ] 05:5405:54, 3 February 2020‎ imported>Bignaux‎ 235
+       bytes +235‎ Created page with " == Partitioning == You could use
+       pfsshell == Samba == == FTP transfer == * PC side : PS2 doesn't
+       support TLS, use plain FTP. (tested with filezilla) * PS2 side : You
+       n..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/PlayStation_2"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

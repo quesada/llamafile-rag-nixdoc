@@ -1,0 +1,170 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Configuration of GPU acceleration
+     * 3 Usage via CLI
+          * 3.1 Download a model and run interactive prompt
+          * 3.2 Send a prompt to ollama
+     * 4 Usage via web API
+     * 5 Troubleshooting
+          * 5.1 AMD GPU with open source driver
+   [ ] Toggle the table of contents
+
+                                     Ollama
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Ollama is an open-source framework designed to facilitate the deployment
+   of large language models on local environments. It aims to simplify the
+   complexities involved in running and managing these models, providing a
+   seamless experience for users across different operating systems.
+
+Setup
+
+   Add following line to your system configuration
+
+ services.ollama.enable = true;
+
+Configuration of GPU acceleration
+
+   Its possible to use following values for acceleration:
+
+     * false: disable GPU, only use CPU
+     * "rocm": supported by most modern AMD GPUs
+     * "cuda": supported by most modern NVIDIA GPUs
+
+   Example: Enable GPU acceleration for Nvidia graphic cards
+
+ services.ollama = {
+   enable = true;
+   acceleration = "cuda";
+ };
+
+Usage via CLI
+
+  Download a model and run interactive prompt
+
+   Example: Download and run Mistral LLM model as an interactive prompt
+
+ ollama run mistral
+
+   For other models see Ollama library.
+
+  Send a prompt to ollama
+
+   Example: To download and run codellama with 13 billion parameters in the
+   "instruct" variant and send a prompt:
+
+ ollama run codellama:13b-instruct "Write an extended Python program with a typical structure. It should print the numbers 1 to 10 to standard output."
+
+Usage via web API
+
+   Other software can use the web API (default at: http://localhost:11434 )
+   to query ollama. This works well e.g. in Intellij-IDEs with the CodeGPT
+   and the "Ollama Commit Summarizer" plugins.
+
+Troubleshooting
+
+  AMD GPU with open source driver
+
+   In certain cases ollama might not allow your system to use GPU
+   acceleration if it cannot be sure your GPU/driver is compatible.
+
+   However you can attempt to force-enable the usage of your GPU by
+   overriding the LLVM target. ^[1]
+
+   You can get the version for your GPU from the logs or like so:
+
+ $ nix-shell -p "rocmPackages.rocminfo" --run "rocminfo" | grep "gfx"
+ Name:                    gfx1031
+
+   In this example the LLVM target is "gfx1031", that is, version "10.3.1",
+   you can then override that value for ollama:
+
+ services.ollama = {
+   enable = true;
+   acceleration = "rocm";
+   environmentVariables = {
+     HCC_AMDGPU_TARGET = "gfx1031"; # used to be necessary, but doesn't seem to anymore
+   };
+   rocmOverrideGfx = "10.3.1";
+ };
+
+   If there are still errors, you can attempt to set a similar value that is
+   listed here.
+
+    1. ↑ https://github.com/ollama/ollama/blob/main/docs/gpu.md#overrides
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Ollama&oldid=17688"
+   Categories:
+     * Server
+     * Applications
+     * This page was last edited on 30 September 2024, at 21:16.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

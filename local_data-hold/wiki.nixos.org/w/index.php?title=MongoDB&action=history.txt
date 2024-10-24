@@ -1,0 +1,132 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           MongoDB: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    16 October 2024
+
+     * curprev [ ] [ ] 17:5417:54, 16 October 2024‎ Astralchroma talk
+       contribs‎ m 1,274 bytes +362‎ Warn about `mongodb` not being
+       pre-compiled Tag: Visual edit: Switched
+
+    16 September 2024
+
+     * curprev [ ] [ ] 17:1417:14, 16 September 2024‎ Ichbinmatz talk
+       contribs‎ m 912 bytes 0‎ fix typo in the link displayname Tag: Visual
+       edit
+
+    25 August 2024
+
+     * curprev [ ] [ ] 19:0419:04, 25 August 2024‎ Klinger talk contribs‎ m
+       912 bytes +43‎ Category:Server Category:Database
+
+    17 August 2024
+
+     * curprev [ ] [ ] 12:3712:37, 17 August 2024‎ Tboston talk contribs‎ m
+       869 bytes +118‎ end sentence Tag: Visual edit
+     * curprev [ ] [ ] 12:3412:34, 17 August 2024‎ Tboston talk contribs‎ 751
+       bytes +751‎ Initial mongodb article Tag: Visual edit
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/MongoDB"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

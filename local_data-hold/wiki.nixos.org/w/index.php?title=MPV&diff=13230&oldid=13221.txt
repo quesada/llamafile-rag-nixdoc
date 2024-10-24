@@ -1,0 +1,126 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       MPV: Difference between revisions
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+   ← Older editNewer edit →
+   VisualWikitext
+
+Revision as of 05:20, 19 June 2024 view source                                        Revision as of 11:55, 19 June 2024 view source
+Mic92 (talk | contribs)                                                               Mic92 (talk | contribs)
+Bureaucrats, Interface administrators, Administrators, trusted                        Bureaucrats, Interface administrators, Administrators, trusted
+316 edits                                                                             316 edits
+shorten mpv override flags, merge "mpv scripts" section into configuration section    fix configuration example
+← Older edit                                                                          Newer edit →
+Line 34:                                                                              Line 34:
+ };                                                                                    };                                                                                   
+ </syntaxhighlight>A more comprehensive configuration of MPV would look like           </syntaxhighlight>A more comprehensive configuration of MPV would look like          
+ this.<syntaxhighlight lang="nix">                                                     this.<syntaxhighlight lang="nix">                                                    
+ programs.mpv = {                                                                      { pkgs, ... }:                                                                       
+   enable = true;                                                                      {                                                                                    
+                                                                                         programs.mpv = {                                                                   
+                                                                                           enable = true;                                                                   
+                                                                                                                                                                            
+                                                                                           # Custom package configuration for MPV                                           
+                                                                                           package = (                                                                      
+                                                                                             pkgs.mpv-unwrapped.wrapper {                                                   
+   # Custom package configuration for MPV                                             
+   package =                                                                          
+     (pkgs.mpv-unwrapped.wrapper {                                                    
+       mpv = pkgs.mpv-unwrapped.override {                                            
+         waylandSupport = true;                                                       
+          # To find more scripts run this in a terminal: nix search nixpkgs                     # To find more scripts run this in a terminal: nix search nixpkgs           
+ mpvScripts                                                                            mpvScripts                                                                           
+          # The scripts are defined in the following Nixpkgs directory:                         # The scripts are defined in the following Nixpkgs directory:               
+ https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/video/mpv/scripts      https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/video/mpv/scripts     
+Line 48:                                                                              Line 49:
+            sponsorblock                                                                          sponsorblock                                                              
+          ];                                                                                    ];                                                                          
+         # Find more override options in the expression:                              
+         #                                                                            
+ https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/video/mpv/default.nix 
+       };                                                                             
+     })                                                                               
+   # MPV configuration options                                                                 mpv = pkgs.mpv-unwrapped.override {                                          
+   config = {                                                                                    # Find more override options in the expression:                            
+     profile = "high-quality";                                                                   #                                                                          
+                                                                                       https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/video/mpv/default.nix 
+     ytdl-format = "bestvideo+bestaudio";                                                        waylandSupport = true;                                                     
+     cache-default = 4000000;                                                                  };                                                                           
+                                                                                             }                                                                              
+                                                                                           );                                                                               
+                                                                                                                                                                            
+                                                                                           # MPV configuration options                                                      
+                                                                                           config = {                                                                       
+                                                                                             profile = "high-quality";                                                      
+                                                                                             ytdl-format = "bestvideo+bestaudio";                                           
+                                                                                             cache-default = 4000000;                                                       
+                                                                                           };                                                                               
+    };                                                                                    };                                                                                
+ };                                                                                    }                                                                                    
+ </syntaxhighlight>                                                                    </syntaxhighlight>                                                                   
+
+   Retrieved from "https://wiki.nixos.org/wiki/MPV"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

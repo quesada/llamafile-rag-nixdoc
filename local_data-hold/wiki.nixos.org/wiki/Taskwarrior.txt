@@ -1,0 +1,112 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Configuration
+     * 3 Sync Server
+          * 3.1 Version 2 of Taskwarrior
+          * 3.2 Version 3 of Taskwarrior
+   [ ] Toggle the table of contents
+
+                                  Taskwarrior
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Taskwarrior is an open-source, cross platform time and task management
+   tool, used to keep track of and handle tasks. It uses a command-line
+   interface, there are also graphical user interface wrappers (nixpkgs: vit)
+   and a tool for reviews (nixpkgks: tasksh) available.
+
+Installation
+
+   Taskwarrior can be installed as package from nixpkgs:
+
+     * Taskwarrior (Version 2.6.2): taskwarrior
+     * Taskwarrior (Version 3.X): taskwarrior3
+
+Configuration
+
+   There are no configuration options in NixOS.
+
+Sync Server
+
+  Version 2 of Taskwarrior
+
+   see Taskserver
+
+  Version 3 of Taskwarrior
+
+   see [1]
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Taskwarrior&oldid=13048"
+   Category:
+     * Applications
+     * This page was last edited on 3 June 2024, at 14:35.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

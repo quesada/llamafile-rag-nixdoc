@@ -1,0 +1,200 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                              St: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    30 September 2023
+
+     * curprev [ ] [ ] 09:4109:41, 30 September 2023‎ imported>IgorM‎ m 7,870
+       bytes +38‎ Fixed syntax highlighting
+
+    11 August 2022
+
+     * curprev [ ] [ ] 13:0513:05, 11 August 2022‎ imported>Lubsch‎ 7,832
+       bytes −1,340‎ Remove my faulty example
+
+    10 August 2022
+
+     * curprev [ ] [ ] 17:2117:21, 10 August 2022‎ imported>Lubsch‎ m 9,172
+       bytes +1‎ currected "prev" to "super"
+     * curprev [ ] [ ] 17:0717:07, 10 August 2022‎ imported>Lubsch‎ 9,171
+       bytes +1,339‎ Added an example using flakes
+
+    25 November 2021
+
+     * curprev [ ] [ ] 18:1018:10, 25 November 2021‎ imported>Artturin‎ m
+       7,832 bytes 0‎ Artturin moved page Suckless to St over redirect:
+       there's already a dwm page. i'll link to st and dwm on this page
+     * curprev [ ] [ ] 18:0718:07, 25 November 2021‎ imported>Artturin‎ m
+       7,832 bytes 0‎ Artturin moved page St to Suckless: dwm is on the page
+       now too
+
+    15 June 2021
+
+     * curprev [ ] [ ] 06:3606:36, 15 June 2021‎ imported>Flexagoon‎ 7,832
+       bytes +4‎ No edit summary
+
+    13 May 2021
+
+     * curprev [ ] [ ] 00:0200:02, 13 May 2021‎ imported>Alexnortung‎ 7,828
+       bytes +921‎ Added notes on how to configure st when using dwm.
+
+    10 May 2021
+
+     * curprev [ ] [ ] 19:2019:20, 10 May 2021‎ imported>Alexnortung‎ 6,907
+       bytes +353‎ added instructions to obtain hashes
+
+    15 April 2021
+
+     * curprev [ ] [ ] 18:0018:00, 15 April 2021‎ imported>Legendofmiracles‎
+       m 6,554 bytes −33‎ removes a few of the `1`'s as they really are
+       unnecessary and only clutter things up
+
+    3 January 2021
+
+     * curprev [ ] [ ] 03:4503:45, 3 January 2021‎ imported>Fuiltilt‎ 6,587
+       bytes +686‎ Example of dwm using overlay.
+
+    1 December 2020
+
+     * curprev [ ] [ ] 02:3402:34, 1 December 2020‎ imported>Thornycrackers‎
+       5,901 bytes 0‎ Update postPatch command in config setup
+
+    23 November 2020
+
+     * curprev [ ] [ ] 14:2214:22, 23 November 2020‎ imported>Artturin‎ m
+       5,901 bytes 0‎ less than and greater than showed wrong
+     * curprev [ ] [ ] 14:1914:19, 23 November 2020‎ imported>Artturin‎ 5,901
+       bytes +626‎ add troubleshooting
+
+    20 November 2020
+
+     * curprev [ ] [ ] 20:2220:22, 20 November 2020‎ imported>Artturin‎ 5,275
+       bytes +64‎ mention other suckless software
+
+    18 November 2020
+
+     * curprev [ ] [ ] 21:2821:28, 18 November 2020‎ imported>Artturin‎ 5,211
+       bytes +47‎ add to applications and use lowercase title
+
+    8 November 2020
+
+     * curprev [ ] [ ] 22:1022:10, 8 November 2020‎ imported>Mwilsoncoding‎
+       5,164 bytes +2,061‎ removed extra `pkgs` mentions, replaced curl
+       example in favor of `fetchpatch`,
+     * curprev [ ] [ ] 04:5204:52, 8 November 2020‎ imported>Artturin‎ 3,103
+       bytes +112‎ add with pkgs; and add paths
+
+    5 November 2020
+
+     * curprev [ ] [ ] 21:5121:51, 5 November 2020‎ imported>Artturin‎ 2,991
+       bytes +1,687‎ No edit summary
+
+    4 November 2020
+
+     * curprev [ ] [ ] 02:0702:07, 4 November 2020‎ imported>Mwilsoncoding‎
+       1,304 bytes +1,304‎ Installing and applying patches to st
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/St"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

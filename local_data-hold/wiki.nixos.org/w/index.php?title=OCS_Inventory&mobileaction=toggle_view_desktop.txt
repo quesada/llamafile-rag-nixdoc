@@ -1,0 +1,94 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Server
+   [ ] Toggle the table of contents
+
+                                 OCS Inventory
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   OCS Inventory NG or Open Computers and Software inventory is an
+   application designed to help IT administrator to keep track of the
+   hardware and software configurations of computers that are installed on
+   their network.
+
+   The agent is documented in the NixOS manual.
+
+Server
+
+   (server service is not available in nixpkgs)
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=OCS_Inventory&oldid=12831"
+   Categories:
+     * Server
+     * NixOS Manual
+     * This page was last edited on 15 May 2024, at 21:35.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

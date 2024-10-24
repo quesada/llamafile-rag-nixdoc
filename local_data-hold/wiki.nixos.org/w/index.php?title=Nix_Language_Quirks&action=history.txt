@@ -1,0 +1,249 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                     Nix Language Quirks: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    20 October 2024
+
+     * curprev [ ] [ ] 08:3908:39, 20 October 2024‎ Fidgetingbits talk
+       contribs‎ 9,810 bytes −15‎ →‎Indented strings trim leading whitespace:
+       Remove unnecessary sentence and clarify wording Tags: Mobile edit
+       Mobile web edit
+     * curprev [ ] [ ] 08:3508:35, 20 October 2024‎ Fidgetingbits talk
+       contribs‎ 9,825 bytes +66‎ →‎Old let syntax: add link to 2017 thread
+       mentioning old syntax Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 08:1908:19, 20 October 2024‎ Fidgetingbits talk
+       contribs‎ m 9,759 bytes 0‎ →‎with and let: fix capitalization Tags:
+       Mobile edit Mobile web edit
+     * curprev [ ] [ ] 08:1908:19, 20 October 2024‎ Fidgetingbits talk
+       contribs‎ 9,759 bytes +206‎ →‎with and let: Slightly reword and link
+       to best practices guide Tags: Mobile edit Mobile web edit
+
+    19 October 2024
+
+     * curprev [ ] [ ] 03:4303:43, 19 October 2024‎ Fidgetingbits talk
+       contribs‎ 9,553 bytes +51‎ →‎Integer precision: add 64-bit reference
+       link Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 03:3803:38, 19 October 2024‎ Fidgetingbits talk
+       contribs‎ 9,502 bytes +215‎ →‎builtins.replaceStrings key match on "":
+       Improve grammar and formatting Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 03:2703:27, 19 October 2024‎ Fidgetingbits talk
+       contribs‎ 9,287 bytes +174‎ Link to manual for indented strings. Also
+       change capitalization to match manual Tags: Mobile edit Mobile web
+       edit
+
+    16 October 2024
+
+     * curprev [ ] [ ] 03:2903:29, 16 October 2024‎ Fidgetingbits talk
+       contribs‎ m 9,113 bytes +3‎ →‎Attribute set entries with a name that
+       evaluates to null will not be added to the set
+     * curprev [ ] [ ] 02:4002:40, 16 October 2024‎ Fidgetingbits talk
+       contribs‎ 9,110 bytes +731‎ Change the title of the ${null} attribute
+       set entry since delete is misleading. Also link to the official
+       documentation about it
+
+    13 October 2024
+
+     * curprev [ ] [ ] 09:5609:56, 13 October 2024‎ Fidgetingbits talk
+       contribs‎ 8,379 bytes −96‎ Merge the conditional key names entry just
+       I added with the existing using null as a key name, and just add the
+       more clear example of using conditionals
+     * curprev [ ] [ ] 09:5309:53, 13 October 2024‎ Fidgetingbits talk
+       contribs‎ 8,475 bytes +377‎ Add quirk regarding conditional key names
+       defining attribute set entries
+
+    7 October 2024
+
+     * curprev [ ] [ ] 01:3301:33, 7 October 2024‎ Fidgetingbits talk
+       contribs‎ m 8,098 bytes +3‎ Grammar
+
+    5 August 2024
+
+     * curprev [ ] [ ] 11:2811:28, 5 August 2024‎ H7x4 talk contribs‎ 8,095
+       bytes +180‎ Add entry about using null as attrset key Tag: Visual
+       edit: Switched
+
+    3 April 2024
+
+     * curprev [ ] [ ] 13:5113:51, 3 April 2024‎ Qyriad talk contribs‎ 7,915
+       bytes +319‎ Clarify that tab characters are not stripped in indented
+       strings Tag: 2017 source edit
+
+    25 May 2023
+
+     * curprev [ ] [ ] 13:2013:20, 25 May 2023‎ imported>Roberth‎ 7,596 bytes
+       +185‎ Correct and explain the most egregious stuff
+
+    19 November 2022
+
+     * curprev [ ] [ ] 12:0212:02, 19 November 2022‎ imported>Milahu‎ m 7,411
+       bytes −1‎ fix whitespace
+     * curprev [ ] [ ] 12:0112:01, 19 November 2022‎ imported>Milahu‎ 7,412
+       bytes +487‎ add section: No negative number literals
+     * curprev [ ] [ ] 11:5411:54, 19 November 2022‎ imported>Milahu‎ 6,925
+       bytes +495‎ add section: Integer precision
+     * curprev [ ] [ ] 11:4511:45, 19 November 2022‎ imported>Milahu‎ 6,430
+       bytes +326‎ add section: Indented String trims leading whitespace
+
+    13 September 2022
+
+     * curprev [ ] [ ] 20:5320:53, 13 September 2022‎
+       imported>Fricklerhandwerk‎ 6,104 bytes +597‎ @ syntax does not bind
+       default values
+
+    4 August 2022
+
+     * curprev [ ] [ ] 08:2608:26, 4 August 2022‎ imported>Fricklerhandwerk‎
+       5,507 bytes +27‎ No edit summary
+     * curprev [ ] [ ] 08:1608:16, 4 August 2022‎ imported>Fricklerhandwerk‎
+       m 5,480 bytes 0‎ Fricklerhandwerk moved page Nix Quirks to Nix
+       Language Quirks: always clarify what kind of Nix is meant
+
+    3 September 2021
+
+     * curprev [ ] [ ] 16:5116:51, 3 September 2021‎ imported>Milahu‎ m 5,480
+       bytes +1‎ typo builtin -> builtins
+
+    20 January 2021
+
+     * curprev [ ] [ ] 21:5221:52, 20 January 2021‎ imported>Anton-Latukha‎
+       5,479 bytes +683‎ add info on replaceString matching ""
+
+    4 February 2018
+
+     * curprev [ ] [ ] 19:3319:33, 4 February 2018‎ imported>Fstamour‎ m
+       4,796 bytes 0‎ typo
+
+    1 November 2017
+
+     * curprev [ ] [ ] 12:0512:05, 1 November 2017‎ imported>Danbst‎ 4,796
+       bytes +112‎ add a note about nix 1.12
+
+    26 October 2017
+
+     * curprev [ ] [ ] 14:5814:58, 26 October 2017‎ imported>Danbst‎ m 4,684
+       bytes +3‎ →‎Imports and namespaces: fix tag
+     * curprev [ ] [ ] 11:5711:57, 26 October 2017‎ imported>Makefu‎ m 4,681
+       bytes −1‎ fix syntax
+     * curprev [ ] [ ] 11:5511:55, 26 October 2017‎ imported>Makefu‎ 4,682
+       bytes +589‎ add interpolation again
+     * curprev [ ] [ ] 11:5111:51, 26 October 2017‎ imported>Makefu‎ 4,093
+       bytes −209‎ <nowiki> -> <syntaxHighlight lang=nix>
+     * curprev [ ] [ ] 11:4111:41, 26 October 2017‎ imported>Danbst‎ 4,302
+       bytes +492‎ added interpolation/eval examples
+     * curprev [ ] [ ] 11:3311:33, 26 October 2017‎ imported>Danbst‎ 3,810
+       bytes +338‎ added x:x example
+     * curprev [ ] [ ] 11:1811:18, 26 October 2017‎ imported>Makefu‎ 3,472
+       bytes +95‎ No edit summary
+     * curprev [ ] [ ] 11:1111:11, 26 October 2017‎ imported>Danbst‎ 3,377
+       bytes +1,443‎ added imports and namespacing section
+     * curprev [ ] [ ] 10:2710:27, 26 October 2017‎ imported>Danbst‎ 1,934
+       bytes +772‎ added function argument destructuring
+     * curprev [ ] [ ] 09:4309:43, 26 October 2017‎ imported>Danbst‎ 1,162
+       bytes +533‎ added old let syntax
+     * curprev [ ] [ ] 09:3209:32, 26 October 2017‎ imported>Danbst‎ 629
+       bytes +629‎ added let and with
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nix_Language_Quirks"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

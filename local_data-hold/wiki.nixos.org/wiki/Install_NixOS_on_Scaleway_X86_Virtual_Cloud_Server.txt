@@ -1,0 +1,350 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 New method
+          * 1.1 Using the scaleway virtual console
+     * 2 Old method
+          * 2.1 Create Scaleway Instance
+          * 2.2 Build NixOS kexec Tarball
+               * 2.2.1 remote build
+                    * 2.2.1.1 copy the NixOS tarball
+               * 2.2.2 local (Scaleway instance) build
+                    * 2.2.2.1 Example configuration.nix
+          * 2.3 Start NixOS kexec System
+          * 2.4 Installing NixOS
+               * 2.4.1 Scaleway peculiarities
+                    * 2.4.1.1 Scaleway Aarch64 peculiarities
+               * 2.4.2 Step by Step Guide
+   [ ] Toggle the table of contents
+
+               Install NixOS on Scaleway X86 Virtual Cloud Server
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+                                   New method
+
+   As of November 2020, it is easy to get a NixOS VM running on Scaleway by
+   using nixos-infect and Scaleway's support for cloud init.
+
+   All that is needed is to follow the nixos-infect recipe for Digital Ocean,
+   removing the Digital Ocean-specific stuff.
+
+   Pragmatically, start an Ubuntu 20.04 Focal Fossa or Fedora VM and use the
+   following as your cloud-init startup script:
+
+ #cloud-config
+ write_files:
+ - path: /etc/nixos/host.nix
+   permissions: '0644'
+   content: |
+     {pkgs, ...}:
+     {
+       environment.systemPackages = with pkgs; [ neofetch vim ];
+     }
+ runcmd:
+   - curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect |  NIXOS_IMPORT=./host.nix NIX_CHANNEL=nixos-20.03 bash 2>&1 | tee /tmp/infect.log
+
+   You can change the packages you'd like preinstalled by modiffying the list
+   with pkgs.
+
+   On login, you will be in NixOS 20.03.
+
+Using the scaleway virtual console
+
+   Just add:
+
+ boot.initrd.kernelParams = [ "console=ttyS0" ];
+
+   to the configuration.nix
+
+                                   Old method
+
+Create Scaleway Instance
+
+   If you know the Scaleway API you can do equivalent steps via API instead
+   of using the webinterface.
+
+     * Open Scaleway "Create a server" page
+     * Enter name
+     * Select region
+     * Select server type
+          * This will only work for the V and X types of servers (e.g. VC1M
+            or X64-15GB)
+     * Select "Debian Stretch" or "Debian Mini Stretch" from the
+       distributions tab
+   Note: At the time of writing of this guide the Ubuntu Xenial did not have
+   a kexec enabled kernel and will therefore not work!
+     * Create server
+     * Wait until server has been provisioned and is done booting
+          * The status of the system can be checked on by looking at the
+            console in the web interface
+
+Build NixOS kexec Tarball
+
+  remote build
+
+   First you will need to build a NixOS kexec tarball. To do this follow the
+   steps outlined below:
+
+ git clone https://github.com/cleverca22/nix-tests.git
+ cd nix-tests/kexec/
+ # Edit configuration.nix according to your needs. An example can be found below:
+ nix-build '<nixpkgs/nixos>' -A config.system.build.kexec_tarball -I nixos-config=./configuration.nix -Q -j 4
+
+    copy the NixOS tarball
+
+     * Copy the prepared NixOS kexec tarball to the server
+
+ scp result/tarball/nixos-system-x86_64-linux.tar.xz root@51.YY.XX.93:
+
+     * Use ssh to access the server
+          * Use the corrensponding SSH key you configured at Scaleway before
+     * Extract the tarball into /
+
+ cd /; tar -xf /root/nixos-system-x86_64-linux.tar.xz
+
+  local (Scaleway instance) build
+
+   We need to start from 17.09 because that comes with Linux kernel 4.9 which
+   can be Kexec'd into from the Scaleway Debian Stretch. The system to be
+   installed later be any version since it uses the regular boot procedure.
+
+ apt-get update
+ apt-get install -y git
+ sysctl kernel.unprivileged_userns_clone=1
+ adduser nix
+ addgroup sudo nix
+ su nix # nix installer only runs as non-root
+ cd
+ curl https://nixos.org/nix/install | sh
+ source ~/.nix-profile/etc/profile.d/nix.sh
+ git clone https://github.com/cleverca22/nix-tests.git
+ cd nix-tests/kexec/
+ vim configuration.nix
+
+   remove autoreboot.nix, comment out boot.supportedFilesystems = [ "zfs" ];
+   (as in the sample config below)
+
+ NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs/archive/release-17.09.tar.gz nix-build '<nixpkgs/nixos>' -A config.system.build.kexec_tarball -I nixos-config=./configuration.nix -Q -j 4
+ exit # back to root
+ cp /home/nix/nix-tests/kexec/result/tarball/nixos-system-x86_64-linux.tar.xz /nixos.tar.xz
+ cd /
+ tar -xf nixos.tar.xz
+
+    Example configuration.nix
+
+   (removed autoreboot.nix from imports, added SSH key)
+
+ # new cmd: nix-build '<nixpkgs/nixos>' -A config.system.build.kexec_tarball -I nixos-config=./configuration.nix -Q -j 4
+
+ { lib, pkgs, config, ... }:
+
+ with lib;
+
+ {
+   imports = [ <nixpkgs/nixos/modules/installer/netboot/netboot-minimal.nix> ./kexec.nix ./justdoit.nix ];
+
+   #boot.supportedFilesystems = [ "zfs" ];
+   boot.loader.grub.enable = false;
+   boot.kernelParams = [
+     "console=ttyS0,115200"          # allows certain forms of remote access, if the hardware is setup right
+     "panic=30" "boot.panic_on_fail" # reboot the machine upon fatal boot issues
+   ];
+   systemd.services.sshd.wantedBy = mkForce [ "multi-user.target" ];
+   networking.hostName = "kexec";
+   # example way to embed an ssh pubkey into the tar
+   users.users.root.openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3.... Your-SSH-key" ];
+ }
+
+Start NixOS kexec System
+
+     * Execute the kexec_nixos script
+
+ ./kexec_nixos
+
+     * The output should look something like this:
+
+ root@scalenix:/# ./kexec_nixos
+ ++ mktemp -d
+ + cd /tmp/tmp.iDXuzu8Ec4
+ + pwd
+ /tmp/tmp.iDXuzu8Ec4
+ + mkdir initrd
+ + pushd initrd
+ /tmp/tmp.iDXuzu8Ec4/initrd /tmp/tmp.iDXuzu8Ec4
+ + cat /ssh_pubkey
+ cat: /ssh_pubkey: No such file or directory
+ + find -type f
+ + cpio -o -H newc
+ + gzip -9
+ 1 block
+ + popd
+ /tmp/tmp.iDXuzu8Ec4
+ + cat /nix/store/2lmw78k2ralvpn6fa270b53nz1xgqk8b-image/initrd extra.gz
+ + kexec -l /nix/store/2lmw78k2ralvpn6fa270b53nz1xgqk8b-image/kernel --initrd=final.gz '--append=init=/nix/store/sv9hndbkrdxr1psi2jr82hkm1ba0j8bx-nixos-system-kexec-17.09.git.f3841ab/init loglevel=4 console=ttyS0,115200 panic=30 boot.panic_on_fail'
+ + sync
+ + echo 'executing kernel, filesystems will be improperly umounted'
+ executing kernel, filesystems will be improperly umounted
+ + kexec -e
+ packet_write_wait: Connection to 51.XX.XX.93 port 22: Broken pipe
+
+     * Once the ssh connection is broken take a look at the servers console
+       in the webinterface. After a while you should see a NixOS root
+       session:
+
+   Screenshot of console showing root session 
+
+Installing NixOS
+
+  Scaleway peculiarities
+
+   Scaleway used to start up VMs differently than other providers but new
+   instances are configured for "local boot" which means they can just boot
+   from EFI.
+
+    Scaleway Aarch64 peculiarities
+
+   If your server is aarch64, there is no working kexec on initrd image
+   provided by Scaleway. So KEXEC_KERNEL tag won't work. This can be worked
+   around by compiling static kexec and copying in to /boot and also by
+   providing fake /sbin/init (a file which Scaleway's initrd launches at the
+   end)
+
+ system.build.installBootLoader = pkgs.writeScript "installBootLoader.sh" ''
+   #!/bin/sh
+
+   export TOPLEVEL="$1"
+   export PATH=${pkgs.coreutils}/bin
+
+   cp -f $TOPLEVEL/kernel /boot/kernel
+   cp -f $TOPLEVEL/initrd /boot/initrd
+   cp -f ${pkgs.pkgsMusl.kexectools.overrideDerivation(old: {configureFlags = old.configureFlags ++ ["LDFLAGS=-static"]; }) }/bin/kexec /boot/kexec
+   cp -f ${pkgs.pkgsMusl.busybox.override {enableStatic = true;}}/bin/busybox /boot/sh
+
+   mkdir -p /sbin
+   cat > /sbin/init <<EOF
+   #!/boot/sh
+   /boot/kexec -d -l /boot/kernel --initrd=/boot/initrd --append="init=$TOPLEVEL/init systemConfig=$TOPLEVEL $(cat $TOPLEVEL/kernel-params)"
+   /boot/kexec -d -e
+   EOF
+   chmod 0777 /sbin/init
+ '';
+ boot.loader.grub.enable = false;
+
+  Step by Step Guide
+
+     * Mount root volume
+
+ mount /dev/vda1 /mnt/
+
+     * Delete all existing data from the previous Debian system
+
+ rm -rf /mnt/*
+
+     * Create mountpoint for /nix on the 2nd volume (I want to use it for the
+       nix store)
+
+ mkdir /mnt/nix
+
+     * Create filesystem on the 2nd volume
+
+ mkfs.ext4 /dev/vdb -L nixstore
+
+     * Mount 2nd volume
+
+ mount /dev/vdb /mnt/nix/
+
+     * Create mountpoint for /boot to set up EFI (I want to use it for the
+       nix store)
+
+ mkdir /mnt/boot
+
+     * Mount EFI boot partition
+
+ mount /dev/vda15 /mnt/boot
+
+     * Generate NixOS config (make sure after mounting /mnt/boot so it
+       recognizes it)
+
+ nixos-generate-config --root /mnt
+
+     * Edit /mnt/etc/nixos/configuration.nix
+          * Make sure to add users/keys to access the system later via SSH
+     * Install NixOS nixos-install  --root  /mnt
+          * This might take some time
+          * Set root password at the end of it
+     * reboot
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Install_NixOS_on_Scaleway_X86_Virtual_Cloud_Server&oldid=4560"
+   Category:
+     * Server
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 26 March 2024, at 17:29.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

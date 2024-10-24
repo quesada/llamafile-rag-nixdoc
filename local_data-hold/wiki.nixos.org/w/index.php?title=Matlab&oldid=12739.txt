@@ -1,0 +1,188 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 (Recommended) Based on Doronbehar [3] repo (with or without
+            flakes)
+          * 1.2 Based on tviiti[4] repo or custom work (without flakes)
+               * 1.2.1 Weird java errors
+          * 1.3 Other possible issues
+               * 1.3.1 I can't see anything
+               * 1.3.2 No hardware support
+   [ ] Toggle the table of contents
+
+                                     Matlab
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 09:24, 12 May 2024 by Zimward (talk | contribs) (fix typo:
+   runned -> run)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   MATLAB (an abbreviation of "matrix laboratory") is a proprietary
+   multi-paradigm programming language and numeric computing environment
+   developed by MathWorks.[1]
+
+Installation
+
+   Matlab due to it's installation method and licensing is really problematic
+   to package into nixpkgs[2], that is why the only way to install it is to
+   use some imperative way (to install it outside the nix store).
+
+  (Recommended) Based on Doronbehar [3] repo (with or without flakes)
+
+   You may prefer to use this method by doronbehar. It is based on the one
+   described below, but requires less work.
+
+  Based on tviiti[4] repo or custom work (without flakes)
+
+   Firstly you need to download zipped Matlab archive for Linux from the
+   official webpage. Then create a folder for the installation files and
+   unzip the archive into that folder via unzip -X -K command.
+
+   Then you will need shell.nix file that will create proper FHS environment.
+   This shell should use buildFHSUserEnv function and should contain all the
+   relevant packages. Personally I have used tviti[5] imperative Matlab
+   shell.
+
+     Tip                                                                      
+     In case you also want to use tviti work, clone his repo and get into     
+     pkgs/matlab. Then run nix-shell and matlab-shell to get into             
+     installation environment. More info can be found in his repo[6]          
+
+   Get into the proper environment via nix-shell. Then you can safely start
+   Matlab installer by running ./install script in the Matlab installation
+   folder. It is strongly preferred to install Matlab somewhere in the user
+   home folder.
+
+   After successful installation, you should add Matlab do your
+   configuration.nix file. Personally I have used modified tvitii[7] files. I
+   have simply switched runPath to the path of freshly installed Matlab
+   folder. Then in my configuration.nix I have used his matlab folder like
+   so:
+
+ ...
+ let
+     tviti-matlab = pkgs.callPackage ./matlab { };
+ ...
+ in {
+ ...
+     environment.systemPackages = [ ... tviti-matlab.matlab  ... ];
+ ...
+
+     Tip                                                                      
+     In order to affect your system by your nix-language-specific changes you 
+     have to evaluate it, run (as root):                                      
+                                                                              
+     # nixos-rebuild switch                                                   
+
+   Now you should have matlab in your path and be able to run it via matlab
+   command.
+
+    Weird java errors
+
+   In case you have java errors, and you are using tvitii[8] derivation, you
+   may need to modify matlab.nix to something like this:
+
+ { common,  buildFHSUserEnv }:
+ buildFHSUserEnv {
+   name = "matlab";
+
+   targetPkgs = pkgs: with pkgs; common.targetPkgs pkgs;
+
+   runScript = "${common.runPath}/bin/matlab";
+ }
+
+  Other possible issues
+
+    I can't see anything
+
+   If you are using Window Manager and Matlab does not display anything, you
+   will need to use wmname command (preferably when starting your session).
+   Just run wmname LG3D, run Matlab again and the issue should be fixed.
+
+    No hardware support
+
+   There is a great answer about that here on Matlab answers[9].
+
+   Summarizing this answer:
+
+ cd <your_matlab_location>/sys/os/glnxa64/
+ sudo mv libstdc++.so.6 libstdc++.so.6.bak
+ sudo ln -s /usr/lib64/libstdc++.so.6  libstdc++.so.6
+
+   You will not have /usr/lib64/libstdc++.so.6 at the time of following the
+   steps, but Matlab will be run in FHS env, and this path will be visible
+   for it.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Matlab&oldid=12739"
+   Category:
+     * Applications
+     * This page was last edited on 12 May 2024, at 09:24.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

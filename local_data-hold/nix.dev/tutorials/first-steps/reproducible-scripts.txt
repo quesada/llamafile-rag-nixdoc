@@ -1,0 +1,215 @@
+   Link: canonical
+   Link: index: Index
+   Link: search: Search
+   Link: next: Declarative shell environments with shell.nix
+   Link: prev: Ad hoc shell environments
+   Skip to main content [ ] [ ]
+   _____________________ Ctrl+K
+   [IMG] nix.dev
+   IFrame
+
+   Official documentation for getting things done with Nix.
+
+   _____________________ Ctrl+K
+     * Install Nix
+     * Tutorials [ ]
+          * First steps [ ]
+               * Ad hoc shell environments
+               * Reproducible interpreted scripts
+               * Declarative shell environments
+               * Towards reproducibility: pinning Nixpkgs
+          * Nix language basics
+          * Packaging existing software
+          * Package parameters and overrides with callPackage
+          * Working with local files
+          * Cross compilation
+          * Module system [ ]
+               * 1. A basic module
+               * 2. Module system deep dive
+          * NixOS [ ]
+               * NixOS virtual machines
+               * Building a bootable ISO image
+               * Building and running Docker images
+               * Integration testing with NixOS virtual machines
+               * Provisioning remote machines via SSH
+               * Installing NixOS on a Raspberry Pi
+               * Deploying NixOS using Terraform
+               * Setting up an HTTP binary cache
+               * Setting up distributed builds
+     * Guides [ ]
+          * Recipes [ ]
+               * Configure Nix to use a custom binary cache
+               * Automatic environments
+               * Dependencies in the development shell
+               * Managing remote sources
+               * Python development environment
+               * Setting up post-build hooks
+               * Continuous integration with GitHub Actions
+          * Best practices
+          * Troubleshooting
+          * Frequently Asked Questions
+     * Reference [ ]
+          * Glossary
+          * Nix reference manual [ ]
+               * Nix pre-release (development)
+               * Nix 2.24 (latest)
+               * Nix 2.18 (in Nixpkgs rolling)
+               * Nix 2.18 (in Nixpkgs 24.05)
+               * Nix 2.18 (in Nixpkgs 23.11)
+          * Nixpkgs manual
+          * NixOS manual
+          * Community projects
+          * Support tools
+          * Further reading
+          * Pinning Nixpkgs
+     * Concepts [ ]
+          * Flakes
+          * Frequently Asked Questions
+     * Contributing [ ]
+          * How to contribute
+          * How to get help
+          * Contributing documentation [ ]
+               * Documentation resources
+               * Documentation framework
+               * Style guide
+               * How to write a tutorial
+     * Acknowledgements [ ]
+          * Sponsors
+     * Repository
+     * Suggest edit
+     * Open issue
+     * .md
+     * .pdf
+   [ Submit ]
+
+                        Reproducible interpreted scripts
+
+Contents
+
+     * Requirements
+     * A trivial script with non-trivial dependencies
+     * The script
+     * Next steps
+
+                       Reproducible interpreted scripts#
+
+   In this tutorial, you will learn how to use Nix to create and run
+   reproducible interpreted scripts, also known as shebang scripts.
+
+Requirements#
+
+     * A working Nix installation
+
+     * Familiarity with Bash
+
+A trivial script with non-trivial dependencies#
+
+   Take the following script, which fetches the content XML of a URL,
+   converts it to JSON, and formats it for better readability:
+
+ #! /bin/bash
+
+ curl https://github.com/NixOS/nixpkgs/releases.atom | xml2json | jq .
+
+   It requires the programs curl, xml2json, and jq. It also requires the bash
+   interpreter. If any of these dependencies are not present on the system
+   running the script, it will fail partially or altogether.
+
+   With Nix, we can declare all dependencies explicitly, and produce a script
+   that will always run on any machine that supports Nix and the required
+   packages taken from Nixpkgs.
+
+The script#
+
+   A shebang determines which program to use for running an interpreted
+   script.
+
+   We will use the shebang line #!/usr/bin/env nix-shell.
+
+   env is a program available on most modern Unix-like operating systems at
+   the file system path /usr/bin/env. It takes a command name as argument and
+   will run the first executable by that name it finds in the directories
+   listed in the environment variable $PATH.
+
+   We use nix-shell as a shebang interpreter. It takes the following
+   parameters relevant for our use case:
+
+     * -i tells which program to use for interpreting the rest of the file
+
+     * --pure excludes most environment variables when the script is run
+
+     * -p lists packages that should be present in the interpreter’s
+       environment
+
+     * -I explicitly sets the search path for packages
+
+   More details on the options can be found in the nix-shell reference
+   documentation.
+
+   Create a file named nixpkgs-releases.sh with the following content:
+
+ #!/usr/bin/env nix-shell
+ #! nix-shell -i bash --pure
+ #! nix-shell -p bash cacert curl jq python3Packages.xmljson
+ #! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/2a601aafdc5605a5133a2ca506a34a3a73377247.tar.gz
+
+ curl https://github.com/NixOS/nixpkgs/releases.atom | xml2json | jq .
+
+   The first line is a standard shebang. The additional shebang lines are a
+   Nix-specific construct.
+
+   We specify bash as the interpreter for the rest of the file with the -i
+   option.
+
+   We enable the --pure option to prevent the script from implicitly using
+   programs that may already exist on the system that will run the script.
+
+   With the -p option we specify the packages required for the script to run.
+   The command xml2json is provided by the package python3Packages.xmljson,
+   while bash, jq, and curl are provided by packages of the same name. cacert
+   must be present for SSL authentication to work.
+
+   Tip
+
+   Use search.nixos.org to find packages providing the program you need.
+
+   The parameter of -I refers to a specific Git commit of the Nixpkgs
+   repository. This ensures that the script will always run with the exact
+   same packages versions, everywhere.
+
+   Make the script executable:
+
+ chmod +x nixpkgs-releases.sh
+
+   Run the script:
+
+ ./nixpkgs-releases.sh
+
+Next steps#
+
+     * Nix language basics to learn about the Nix language, which is used to
+       declare packages and configurations.
+
+     * Declarative shell environments with shell.nix to create reproducible
+       shell environments with a declarative configuration file.
+
+     * Garbage Collection – free up storage used by the programs made
+       available through Nix
+
+   previous
+
+   Ad hoc shell environments
+
+   next
+
+   Declarative shell environments with shell.nix
+
+   Contents
+     * Requirements
+     * A trivial script with non-trivial dependencies
+     * The script
+     * Next steps
+
+   By the Nix documentation team and contributors.
+
+   © Copyright 2016-2024, NixOS Foundation.

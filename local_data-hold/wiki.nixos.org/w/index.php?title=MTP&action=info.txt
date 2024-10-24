@@ -1,0 +1,110 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Information for "MTP"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    MTP          
+   Default sort key                 MTP          
+   Page length (in bytes)           1,937        
+   Namespace ID                     0            
+   Page ID                          420          
+   Page content language            en - English 
+   Page content model               wikitext     
+   Indexing by robots               Allowed      
+   Number of redirects to this page 0            
+   Counted as a content page        Yes          
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>Symphorien      
+   Date of page creation                        10:01, 16 June 2018      
+   Latest editor                                imported>IgorM           
+   Date of latest edit                          09:37, 26 September 2023 
+   Total number of edits                        7                        
+   Total number of distinct authors             7                        
+   Recent number of edits (within past 90 days) 0                        
+   Recent number of distinct authors            0                        
+
+Page properties
+
+                             Templates used on this page:                     
+                                                                              
+   Transcluded templates (4)   * Template:Commands (view source)              
+                               * Template:META Commands Style (view source)   
+                               * Template:META Message (view source)          
+                               * Template:Tip (view source)                   
+
+   Retrieved from "https://wiki.nixos.org/wiki/MTP"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

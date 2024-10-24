@@ -1,0 +1,166 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           TexLive: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    4 September 2024
+
+     * curprev [ ] [ ] 08:2208:22, 4 September 2024‎ Alex-fu27 talk contribs‎
+       4,108 bytes +974‎ Add a section on adding a custom package to the
+       combined package set Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 17:5017:50, 19 April 2024‎ Klinger talk contribs‎ m
+       3,134 bytes +27‎ Category:Applications
+
+    26 February 2022
+
+     * curprev [ ] [ ] 20:3520:35, 26 February 2022‎ imported>2r‎ 3,107 bytes
+       +65‎ use dvisvgm for sharp latex preview
+     * curprev [ ] [ ] 20:2720:27, 26 February 2022‎ imported>2r‎ 3,042 bytes
+       +54‎ add packages for preview latex segments
+     * curprev [ ] [ ] 18:1018:10, 26 February 2022‎ imported>2r‎ 2,988 bytes
+       −45‎ update packages
+     * curprev [ ] [ ] 17:4617:46, 26 February 2022‎ imported>2r‎ 3,033 bytes
+       +450‎ latex packages needed for orgmode
+
+    20 November 2021
+
+     * curprev [ ] [ ] 06:5306:53, 20 November 2021‎ imported>4aep‎ m 2,583
+       bytes +93‎ add helpful and informative article on using LaTeX with nix
+       flakes
+
+    17 October 2020
+
+     * curprev [ ] [ ] 16:4216:42, 17 October 2020‎ imported>StefanSchroeder‎
+       m 2,490 bytes +4‎ Repair bold.
+     * curprev [ ] [ ] 16:4116:41, 17 October 2020‎ imported>StefanSchroeder‎
+       2,486 bytes +666‎ Restructured table for TeXlive schemes and added
+       another troubleshooting entry.
+
+    9 October 2020
+
+     * curprev [ ] [ ] 07:1207:12, 9 October 2020‎ imported>StefanSchroeder‎
+       m 1,820 bytes +24‎ Added new TeX-article in wiki as Further Reading
+
+    21 May 2020
+
+     * curprev [ ] [ ] 16:5616:56, 21 May 2020‎ imported>Caaaaaa‎ 1,796 bytes
+       +199‎ texlive.combine
+
+    24 April 2019
+
+     * curprev [ ] [ ] 23:3023:30, 24 April 2019‎ imported>Josephtheengineer‎
+       1,597 bytes +108‎ Added tex live guide link
+     * curprev [ ] [ ] 23:1823:18, 24 April 2019‎ imported>Josephtheengineer‎
+       1,489 bytes +515‎ Explained what each package contains
+
+    6 January 2019
+
+     * curprev [ ] [ ] 13:4413:44, 6 January 2019‎ imported>Hook‎ 974 bytes
+       +974‎ Initial TeXLive page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/TexLive"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

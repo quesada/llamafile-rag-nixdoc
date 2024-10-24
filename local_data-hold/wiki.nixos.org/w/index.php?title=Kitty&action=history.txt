@@ -1,0 +1,129 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Kitty: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    4 July 2024
+
+     * curprev [ ] [ ] 17:4117:41, 4 July 2024‎ Layer-09 talk contribs‎ m
+       4,998 bytes +359‎ Changed structure to fit with my other pages Tag:
+       Visual edit: Switched
+
+    24 June 2024
+
+     * curprev [ ] [ ] 06:3706:37, 24 June 2024‎ Layer-09 talk contribs‎ m
+       4,639 bytes −32‎ Removed numbering Tag: Visual edit
+
+    20 June 2024
+
+     * curprev [ ] [ ] 16:4716:47, 20 June 2024‎ Layer-09 talk contribs‎ m
+       4,671 bytes +35‎ Added link Tag: Visual edit
+     * curprev [ ] [ ] 08:2208:22, 20 June 2024‎ Layer-09 talk contribs‎ m
+       4,636 bytes +48‎ Added categories Tag: Visual edit
+     * curprev [ ] [ ] 08:2008:20, 20 June 2024‎ Layer-09 talk contribs‎
+       4,588 bytes +4,588‎ Created a page for the Kitty terminal Tag: Visual
+       edit
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Kitty"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

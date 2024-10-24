@@ -1,0 +1,113 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                     Information for "Storage optimization"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Storage optimization 
+   Default sort key                 Storage optimization 
+   Page length (in bytes)           13,277               
+   Namespace ID                     0                    
+   Page ID                          70                   
+   Page content language            en - English         
+   Page content model               wikitext             
+   Indexing by robots               Allowed              
+   Number of redirects to this page 1                    
+   Counted as a content page        Yes                  
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>Makefu              
+   Date of page creation                        18:14, 21 August 2017        
+   Latest editor                                Denperidge (talk | contribs) 
+   Date of latest edit                          17:08, 5 October 2024        
+   Total number of edits                        40                           
+   Total number of distinct authors             23                           
+   Recent number of edits (within past 90 days) 3                            
+   Recent number of distinct authors            3                            
+
+Page properties
+
+                             Templates used on this page:              
+                                                                       
+                               * Template:File (view source)           
+                               * Template:Ic (view source)             
+   Transcluded templates (7)   * Template:META Message (view source)   
+                               * Template:Man (view source)            
+                               * Template:Nix:option (view source)     
+                               * Template:Nixos:option (view source)   
+                               * Template:Tip (view source)            
+
+   Retrieved from "https://wiki.nixos.org/wiki/Storage_optimization"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

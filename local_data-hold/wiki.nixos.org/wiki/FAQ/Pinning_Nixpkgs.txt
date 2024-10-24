@@ -1,0 +1,314 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Nix 2.0 onwards
+     * 2 Before 2.0
+     * 3 Pinning an unstable service
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                              FAQ/Pinning Nixpkgs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   It is possible (and indeed, fairly easy) to pin a specific version of
+   Nixpkgs. This can be used to upgrade individual applications separately on
+   their own terms, and to ensure their deployability is not impacted by
+   other systems' requirements.
+
+   Another reason why one would want to pin nixpkgs is to get older versions
+   of a specific software. This site can show you all the versions a package
+   went through, and what nixpkgs revision to use to get your specific
+   version.
+
+   Note: You can sudo nix-channel --remove nixpkgs, but you still need a
+   nix-channel for nixos
+
+ sudo nix-channel --list
+ nixos https://nixos.org/channels/nixos-21.05
+
+Nix 2.0 onwards
+
+   Nix 2.0 introduces new builtins, fetchTarball and fetchGit, which make it
+   possible to fetch a specific version of nixpkgs without depending on an
+   existing one:
+
+ import (builtins.fetchTarball {
+   # Descriptive name to make the store path easier to identify
+   name = "nixos-unstable-2018-09-12";
+   # Commit hash for nixos-unstable as of 2018-09-12
+   url = "https://github.com/nixos/nixpkgs/archive/ca2ba44cab47767c8127d1c8633e2b581644eb8f.tar.gz";
+   # Hash obtained using `nix-prefetch-url --unpack <url>`
+   sha256 = "1jg7g6cfpw8qvma0y19kwyp549k1qyf11a5sg6hvn6awvmkny47v";
+ }) {}
+
+   Or, to use git for fetching:
+
+ import (builtins.fetchGit {
+   # Descriptive name to make the store path easier to identify
+   name = "nixos-unstable-2018-09-12";
+   url = "https://github.com/nixos/nixpkgs/";
+   # Commit hash for nixos-unstable as of 2018-09-12
+   # `git ls-remote https://github.com/nixos/nixpkgs nixos-unstable`
+   ref = "refs/heads/nixos-unstable";
+   rev = "ca2ba44cab47767c8127d1c8633e2b581644eb8f";
+ }) {}
+
+   If the ref attribute is omitted, we get an error like this:
+
+ fatal: not a tree object: 3d70d4ba0b6be256974910e635fadcc0e9579b2a
+ error: while evaluating the attribute 'buildInputs' of the derivation 'nix-shell' at /nix/store/b93cq865x6qxpn4dw9ivrk3yjcsm8r97-nixos-19.09/pkgs/build-support/mkshell/default.nix:28:3:
+ while evaluating 'getOutput' at /nix/store/b93cq865x6qxpn4dw9ivrk3yjcsm8r97-nixos-19.09/lib/attrsets.nix:464:23, called from undefined position:
+ while evaluating anonymous function at /nix/store/b93cq865x6qxpn4dw9ivrk3yjcsm8r97-nixos-19.09/pkgs/stdenv/generic/make-derivation.nix:142:17, called from undefined position:
+ program 'git' failed with exit code 128
+
+Before 2.0
+
+   The following code uses the host's Nixpkgs as a springboard to fetch and
+   import a specific, pinned version of Nixpkgs. This is safe because the
+   specific code we're using from the variable host Nixpkgs is using a very
+   stable API, and will be thrown away as soon as we are done importing the
+   pinned version of Nixpkgs.
+
+   Where before you would use pkgs = import <nixpkgs> {} (which uses the
+   host's Nixpkgs version) you can pin to an exact version of Nixpkgs by
+   instead using:
+
+ pkgs = let
+   hostPkgs = import <nixpkgs> {};
+   pinnedPkgs = hostPkgs.fetchFromGitHub {
+     owner = "NixOS";
+     repo = "nixpkgs";
+     # nixos-unstable as of 2017-11-13T08:53:10-00:00
+     rev = "ac355040656de04f59406ba2380a96f4124ebdad";
+     sha256 = "0frhc7mnx88sird6ipp6578k5badibsl0jfa22ab9w6qrb88j825";
+   };
+ in import pinnedPkgs {}
+
+   This can also be instead used to pull nixpkgs from an internal fork of
+   Nixpkgs, with your own changes on top. Note, however, as it stands Nix
+   1.11 has difficulties fetching repositories which require authentication,
+   this is to be fixed in Nix 1.12.
+
+   The package nix-prefetch-git can be used to automatically calculate the
+   current version and hash of a branch, and output the information to a
+   file:
+
+ $ nix-shell -p nix-prefetch-git
+ 
+ [nix-shell:~]$ nix-prefetch-git https://github.com/nixos/nixpkgs.git refs/heads/nixos-unstable > nixpkgs-version.json
+ 
+ ...
+ 
+ [nix-shell:~]$ cat nixpkgs-version.json
+ {
+   "url": "https://github.com/nixos/nixpkgs.git",
+   "rev": "f607771d0f5e4fa905afff1c772febd9f3103e1a",
+   "date": "2018-01-09T11:18:25-05:00",
+   "sha256": "1icphqpdcl8akqhfij2pxkfr7wfn86z5sr3jdjh88p9vv1550dx7",
+   "fetchSubmodules": true
+ }
+
+   This file can then be used to specify the version of Nixpkgs:
+
+ pkgs = let
+    hostPkgs = import <nixpkgs> {};
+    pinnedVersion = hostPkgs.lib.importJSON ./nixpkgs-version.json;
+    pinnedPkgs = hostPkgs.fetchFromGitHub {
+      owner = "NixOS";
+      repo = "nixpkgs";
+      inherit (pinnedVersion) rev sha256;
+    };
+  in import pinnedPkgs {};
+
+   Finally, this can be taken a step further, and you can apply extra patches
+   to the pinned version of Nixpkgs, for perhaps PRs that are not yet merged,
+   or private internal changes that you need. If you take this route,
+   probably best to move the following in to its own file that you then
+   import.
+
+ pkgs = let
+    hostPkgs = import <nixpkgs> {};
+    pinnedVersion = hostPkgs.lib.importJSON ./nixpkgs-version.json;
+    pinnedPkgs = hostPkgs.fetchFromGitHub {
+      owner = "NixOS";
+      repo = "nixpkgs";
+      inherit (pinnedVersion) rev sha256;
+    };
+ 
+    patches = [
+      ./patches/0001-my-nixpkgs-change.patch
+    ];
+ 
+    patchedPkgs = hostPkgs.runCommand "nixpkgs-${pinnedVersion.rev}"
+      {
+        inherit pinnedPkgs;
+        inherit patches;
+      }
+      ''
+        cp -r $pinnedPkgs $out
+        chmod -R +w $out
+        for p in $patches; do
+          echo "Applying patch $p";
+          patch -d $out -p1 < "$p";
+        done
+      '';
+  in import patchedPkgs {};
+
+Pinning an unstable service
+
+   How to upgrade a single package and service to an unstable version
+
+   There is probably a better way, especially once flakes come around. Some
+   packages let you specify which package to run as an option but most don't.
+   The following is a generic way that also works for those which don't.
+
+   add to configuration.nix a set allowing unstable packages. This assumes a
+   channel named nixpkgs-unstable exists, like so:
+
+ nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
+ nix-channel --update
+
+   then in configuration.nix allow unstable packages:
+
+ # Allow unstable packages.
+ nixpkgs.config = {
+   allowUnfree = true;
+   packageOverrides = pkgs: {
+     unstable = import <nixpkgs-unstable> {
+       config = config.nixpkgs.config;
+     };
+   };
+ };
+
+   This means you can now refer to unstable packages as
+   pkgs.unstable.nameofpackage which is great. For example:
+
+   environment.systemPackages = with pkgs; [
+         unstable.bind
+         unstable.dnsutils
+         vim
+   ];
+
+   This will use unstable bind and dnsutils, but the stable vim.
+
+   Except bind is a service, and if you want a service....usually you just do
+   something like:
+
+  services.bind.enable = true;
+  ...
+
+   Except services will refer to pkgs.bind, not pkgs.unstable.bind
+
+   so disable services.bind and create your own:
+
+   users.users.named =
+       { uid = config.ids.uids.bind;
+         description = "BIND daemon user";
+       };
+   systemd.services.mybind = {
+         description = "BIND Domain Name Server";
+         unitConfig.Documentation = "man:named(8)";
+         after = [ "network.target" ];
+         wantedBy = [ "multi-user.target" ];
+         preStart = ''
+         mkdir -m 0755 -p /etc/bind
+         if ! [ -f "/etc/bind/rndc.key" ]; then
+           ${pkgs.unstable.bind.out}/sbin/rndc-confgen -c /etc/bind/rndc.key -u named -a -A hmac-sha256 2>/dev/null
+         fi
+         ${pkgs.coreutils}/bin/mkdir -p /run/named
+         chown named /run/named
+       '';
+         serviceConfig = {
+         ExecStart  = "${pkgs.unstable.bind.out}/sbin/named -u named -4 -c /etc/bind/named.conf -f";
+         ExecReload = "${pkgs.unstable.bind.out}/sbin/rndc -k '/etc/bind/rndc.key' reload";
+         ExecStop   = "${pkgs.unstable.bind.out}/sbin/rndc -k '/etc/bind/rndc.key' stop";
+       };
+
+ };
+
+   where all the stuff just comes from the bind services definition(which you
+   can get from the source link on the nixos options page.) Just replace
+   named variables, and replace ${pkgs.bind.out with
+   ${pkgs.unstable.bind.out}
+
+See also
+
+   - Pinning Nixpkgs
+
+   - Towards Reproducibility: Pinning Nixpkgs
+
+   - Dependency Management
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=FAQ/Pinning_Nixpkgs&oldid=13158"
+   Hidden category:
+     * Pages with syntax highlighting errors
+     * This page was last edited on 13 June 2024, at 01:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

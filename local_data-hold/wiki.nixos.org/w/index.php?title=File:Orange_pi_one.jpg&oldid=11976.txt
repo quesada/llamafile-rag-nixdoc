@@ -1,0 +1,116 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             File:Orange pi one.jpg
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 05:22, 8 April 2024 by Samueldr (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+     * File
+     * File history
+     * File usage
+     * Metadata
+   File:Orange pi one.jpg
+   No higher resolution available.
+
+   Orange_pi_one.jpg ‎(744 × 522 pixels, file size: 140 KB, MIME type:
+   image/jpeg)
+
+   init
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time  Thumbnail            Dimensions User            Comment 
+           10:50, 8   Thumbnail for        744 × 522                          
+   current March 2019 version as of 10:50, (140 KB)   Imported>Makefu init
+                      8 March 2019         
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * NixOS on ARM/Orange Pi One
+
+Metadata
+
+   This file contains additional information, probably added from the digital
+   camera or scanner used to create or digitize it.
+
+   If the file has been modified from its original state, some details may
+   not fully reflect the modified file.
+
+   JPEG file comment Created with GIMP 
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Orange_pi_one.jpg&oldid=11976"
+   Category:
+     * NixOS on ARM
+     * This page was last edited on 8 April 2024, at 05:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

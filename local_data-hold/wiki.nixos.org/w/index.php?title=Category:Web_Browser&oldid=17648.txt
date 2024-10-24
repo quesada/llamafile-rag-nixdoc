@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                              Category:Web Browser
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Revision as of 20:50, 26 September 2024 by Klinger (talk | contribs)
+   (Category:Applications)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Pages in category "Web Browser"
+
+   The following 6 pages are in this category, out of 6 total.
+
+  C
+
+     * Chromium
+
+  F
+
+     * Firefox
+
+  L
+
+     * Librewolf
+
+  Q
+
+     * Qutebrowser
+
+  T
+
+     * Tangram
+
+  V
+
+     * Vivaldi
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Web_Browser&oldid=17648"
+   Category:
+     * Applications
+     * This page was last edited on 26 September 2024, at 20:50.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,102 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      Information for "Static Web Server"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Static Web Server 
+   Default sort key                 Static Web Server 
+   Page length (in bytes)           4,826             
+   Namespace ID                     0                 
+   Page ID                          1082              
+   Page content language            en - English      
+   Page content model               wikitext          
+   Indexing by robots               Allowed           
+   Number of redirects to this page 0                 
+   Counted as a content page        Yes               
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                               imported>Mac-chaffee            
+   Date of page creation                      01:32, 2 July 2023              
+   Latest editor                              JadeTheDragon (talk | contribs) 
+   Date of latest edit                        13:01, 4 August 2024            
+   Total number of edits                      3                               
+   Total number of distinct authors           3                               
+   Recent number of edits (within past 90     1                               
+   days)                                      
+   Recent number of distinct authors          1                               
+
+   Retrieved from "https://wiki.nixos.org/wiki/Static_Web_Server"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

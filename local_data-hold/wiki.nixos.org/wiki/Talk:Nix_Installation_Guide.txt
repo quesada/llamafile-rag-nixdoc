@@ -1,0 +1,87 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Talk:Nix Installation Guide
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   I have just added a clarifying header that refers back to more official
+   documentation here, because I had a first-time user follow the
+   instructions on this page to install Nix.
+
+   I think it's a better idea to first follow the instructions in the
+   official docs and resort to this wiki to fill the gaps.
+
+   IMO Nix has a bit of a problem with documentation being so fragmented and
+   I think linking relevant official sources is a good measure to take for
+   improving that situation.
+
+   Let me know what you think about this.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Nix_Installation_Guide&oldid=9874"
+     * This page was last edited on 6 July 2022, at 15:42.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

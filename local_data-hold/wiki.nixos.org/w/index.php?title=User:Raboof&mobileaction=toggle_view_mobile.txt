@@ -1,0 +1,277 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 whoami
+          * 1.1 Why NixOS
+               * 1.1.1 NixOS vs Debian
+               * 1.1.2 NixOS vs Arch
+               * 1.1.3 NixOS selling points
+          * 1.2 Notes
+               * 1.2.1 flakes
+               * 1.2.2 /etc/nixos/configuration.nix vs nix-env
+               * 1.2.3 using a fork of a packaged project
+               * 1.2.4 /lib64/ld-linux-x86-64.so.2
+                    * 1.2.4.1 applications
+                    * 1.2.4.2 simple builds
+                    * 1.2.4.3 more complicated builds
+               * 1.2.5 running nixos-unstable
+                    * 1.2.5.1 building graalvm
+               * 1.2.6 codium
+               * 1.2.7 sweethome3d
+   [ ] Toggle the table of contents
+
+                                  User:Raboof
+
+     * User page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * User contributions
+     * Logs
+     * View user groups
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+                                     whoami
+
+   Hi! I'm Arnout Engelen and I've been a NixOS contributor since 2019 and
+   committer since 2021. I'm keeping some notes here about how I use NixOS
+   that work for me but about which I'm not completely confident yet that
+   they should go into the upstream docs. If you see anything you'd like to
+   discuss further, feel free to get in touch!
+
+Why NixOS
+
+   Part of the reason I'm so fond of free/open source software is because it
+   blurs the line between 'producers' and 'consumers', which I think can be
+   very empowering.
+
+  NixOS vs Debian
+
+   i have been a Debian user for about 20 years. I like their principled
+   approach to open source and their tendency to look beyond Debian itself:
+   it seems pretty common for Debian maintainers to work closely with
+   upstream to fix bugs there, and there seem to be quite a number of
+   projects that get significant input from Debian even though (e.g.
+   Reproducible Builds, X.org).
+
+   What made me look beyond Debian is that the round-trip time between doing
+   a contribution and seeing it generally available is rather large, widening
+   the gap between maintainers and regular users.
+
+  NixOS vs Arch
+
+   I tried Arch for a while, but it didn't stick: I'm not a fan of the "we
+   refuse to create a nice installer because typing in commands yourself will
+   be an educational experience" attitude.
+
+   The tooling for contributing to AUR seemed clunky: weird use of git
+   (because of some compatibility with svn it appears), and AFAICS no
+   structured way to have shared maintainership of packages.
+
+  NixOS selling points
+
+   Especially as a developer, NixOS can be frustrating because build systems
+   may make assumptions about your system that do not hold on NixOS. With a
+   shell.nix you can often fulfill these assumptions, however, and getting
+   familiar with the nix language makes it easier to contribute to the
+   upstream package tree later on. It has the additional advantage that this
+   allows you to specify per-project dependencies instead of installing
+   everything globally.
+
+Notes
+
+  flakes
+
+   I see advantages of flakes: having the split between flake.nix describing
+   'abstractly' what version you want to run, and the flake.lock describing
+   the *actual* version you're running right now, is helpful. Also the new
+   structure provides some opportunities for caching.
+
+   It does introduce some dilemmas: checking in flake.lock seems rather
+   restrictive on downstream users, and will be likely to cause merge
+   conflicts when you collaborate using forks.
+
+   Also, I really like working from a local nixpkgs checkout, but that is not
+   very well-supported by flakes yet: it copies it to the nix store each
+   time, which takes a lot of disk space and is slow. Work on this is
+   underway at https://github.com/NixOS/nix/pull/6530 but seems to be
+   stalled.
+
+  /etc/nixos/configuration.nix vs nix-env
+
+   I am running NixOS on a laptop where I am the only user, so I try to do
+   all my configuration by editing /etc/nixos/configuration.nix and
+   "nixos-rebuild switch". I avoid nix-env.
+
+  using a fork of a packaged project
+
+   Sometimes, you want to use a packaged project, but with a slight twist:
+   perhaps changing something in the packaging, or perhaps just updating the
+   version or pointing to a different branch. My approach to that is to use
+   'git worktree' to check out a copy of the nixpkgs collection to
+   ~/nixpkgs-foo. Then I can make any changes I'd like in that directory, and
+   use it from /etc/nixos/configuration.nix like so:
+
+ # Edit this configuration file to define what should be installed on
+ # your system.  Help is available in the configuration.nix(5) man page
+ # and in the NixOS manual (accessible by running ‘nixos-help’).
+
+ { config, pkgs, lib, ... }:
+
+ let
+   nixpkgs-vscode = import (/home/aengelen/nixpkgs-vscode) {
+     config.allowUnfree = true;
+   };
+ in
+   ...
+   environment.systemPackages = with pkgs; [
+     ...
+     nixpkgs-vscode.vscode
+     ...
+
+   A nice thing with this approach is that if you're happy with your local
+   changes, you can use them immediately like this, but also send a PR
+   upstream to have your change incorporated in the official tree.
+
+  /lib64/ld-linux-x86-64.so.2
+
+   If you download a random binary from the internet, typically it will not
+   work because it explicitly uses /lib64/ld-linux-x86-64.so.2 as
+   interpreter.
+
+    applications
+
+   If it's an application, you can write a `shell.nix` to `patchelf` it
+   before running it:
+
+ with (import <nixpkgs> {});
+ mkShell {
+   shellHook = let
+     libPath = lib.makeLibraryPath [
+       zlib stdenv.cc.cc.lib
+     ];
+   in ''
+     patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" path/to/the/executable;
+   ''
+ }
+
+    simple builds
+
+   If it's a resource that is being downloaded as part of another project or
+   build system, you can use write a 'shell.nix' that builds a temporary
+   FHS-like structure with buildFHSUserEnv:
+
+ { pkgs ? import <nixpkgs> {} }:
+
+ (pkgs.buildFHSUserEnv {
+   name = "akka-grpc";
+
+   targetPkgs = pkgs: [ pkgs.sbt pkgs.glibc pkgs.jdk ];
+ }).env
+
+    more complicated builds
+
+   If you also want to use a more complicated shell.nix setup, such as for
+   android (https://discourse.nixos.org/t/building-an-android-app/5043), I'm
+   not sure how to achieve this. I cheated and just created a
+   /lib64/ld-linux-x86-64.so.2...
+
+  running nixos-unstable
+
+   I've been running nixos-unstable from the beginning, and this has been a
+   great experience. Being able to roll back and forth in case of trouble has
+   worked out fine, and allowed me to test with newer versions/patches
+   without interfering with regular work.
+
+   Overall upgrading is fast because binaries can be loaded from hydra, with
+   the exception of graalvm.
+
+    building graalvm
+
+   building graalvm needs some extra swap on my (32g) machine:
+
+    dd if=/dev/zero of=swapfile count=4096 bs=1MiB
+    mkswap swapfile
+    swapon swapfile
+
+   If I understand correctly there is good progress on getting this to
+   compile on hydra again underway in
+   https://github.com/NixOS/nixpkgs/pull/86244 which depends on
+   https://github.com/NixOS/nixpkgs/pull/85902
+
+  codium
+
+   Loading extensions as documented at VSCodium seems to have stopped working
+   recently, now on 467ce5a9f45aaf96110b41eb863a56866e1c2c3c . Time to
+   bisect.
+
+  sweethome3d
+
+     * depends on p7zip which has been marked insecure
+     * https://discourse.nixos.org/t/glx-not-recognised-after-mesa-update/6753/5
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=User:Raboof&oldid=7229"
+     * This page was last edited on 14 October 2023, at 11:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

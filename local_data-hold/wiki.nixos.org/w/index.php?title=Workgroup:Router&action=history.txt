@@ -1,0 +1,165 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Workgroup:Router: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 September 2024
+
+     * curprev [ ] [ ] 10:1810:18, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 1,483 bytes −43‎ original still exists
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:3120:31, 24 April 2024‎ Klinger talk contribs‎ m
+       1,526 bytes +24‎ Category:Community
+
+    4 April 2024
+
+     * curprev [ ] [ ] 22:1722:17, 4 April 2024‎ Hexa talk contribs‎ 1,502
+       bytes −93‎ Update working group to mean various people on the
+       networking chat room. Update disassembler's config URL. Fix some
+       typos. Tag: Visual edit
+
+    4 January 2024
+
+     * curprev [ ] [ ] 12:0112:01, 4 January 2024‎ imported>Raboof‎ 1,595
+       bytes +334‎ →‎Work in Progress: added some links, nixwrt is archived
+
+    8 April 2023
+
+     * curprev [ ] [ ] 21:4421:44, 8 April 2023‎ imported>Austinbutler‎ m
+       1,261 bytes +42‎ Use archive.org for Francis Begyn blog link
+     * curprev [ ] [ ] 21:0321:03, 8 April 2023‎ imported>Austinbutler‎ 1,219
+       bytes +6‎ Update link to skogsbrus.xy blog post
+
+    27 November 2022
+
+     * curprev [ ] [ ] 15:1915:19, 27 November 2022‎ imported>Teto‎ 1,213
+       bytes +241‎ add a few blogposts links to help getting started
+
+    6 August 2021
+
+     * curprev [ ] [ ] 16:1516:15, 6 August 2021‎ imported>0x4A6F‎ 972 bytes
+       +46‎ No edit summary
+
+    28 February 2018
+
+     * curprev [ ] [ ] 12:5312:53, 28 February 2018‎ imported>Makefu‎ 926
+       bytes −44‎ update link to nixwrt
+
+    15 February 2018
+
+     * curprev [ ] [ ] 07:1507:15, 15 February 2018‎ imported>Makefu‎ m 970
+       bytes −1‎ fix logic fuckup
+     * curprev [ ] [ ] 07:1307:13, 15 February 2018‎ imported>Makefu‎ 971
+       bytes −2‎ fix enumeration
+     * curprev [ ] [ ] 07:1207:12, 15 February 2018‎ imported>Makefu‎ 973
+       bytes +811‎ No edit summary
+     * curprev [ ] [ ] 05:0005:00, 15 February 2018‎ imported>Disassembler‎
+       162 bytes +5‎ No edit summary
+     * curprev [ ] [ ] 04:5904:59, 15 February 2018‎ imported>Disassembler‎
+       157 bytes +157‎ Initial page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Workgroup:Router"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

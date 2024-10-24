@@ -1,0 +1,145 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Enabling
+     * 2 Warning
+   [ ] Toggle the table of contents
+
+                                     Qtile
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 17:45, 1 June 2024 by Jooooscha (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Qtile is a full-featured, hackable tiling window manager written and
+   configured in Python.
+
+Enabling
+
+   To enable Qtile as your window manager, set
+   services.xserver.windowManager.qtile.enable = true. For example:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   services.xserver.windowManager.qtile.enable = true;
+ }
+
+   To start Qtile on Wayland from your display manager (sddm, lightdm, etc)
+   you have to add a Desktop Entry to your config like this.
+
+    
+
+ /etc/nixos/qtile.nix
+
+ { config, pkgs, lib, ... }:
+
+ {
+   nixpkgs.overlays = [
+   (self: super: {
+     qtile-unwrapped = super.qtile-unwrapped.overrideAttrs(_: rec {
+       postInstall = let
+         qtileSession = ''
+         [Desktop Entry]
+         Name=Qtile Wayland
+         Comment=Qtile on Wayland
+         Exec=qtile start -b wayland
+         Type=Application
+         '';
+         in
+         ''
+       mkdir -p $out/share/wayland-sessions
+       echo "${qtileSession}" > $out/share/wayland-sessions/qtile.desktop
+       '';
+       passthru.providedSessions = [ "qtile" ];
+     });
+   })
+ ];
+
+ services.xserver.displayManager.sessionPackages = [ pkgs.qtile-unwrapped ];
+ }
+
+Warning
+
+   The installation of Qtile leads to several of its dependencies being
+   leaked in the user's PATH. This prevents the user from running a custom
+   installation of python3 as Qtile will shadow the systemPackages in the
+   PATH with its own python3. For more information see: Cannot use Globally
+   Defined Python Environment While Inside Qtile and Kitty leaks packages
+   into system environment (Additional context)
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Qtile&oldid=13019"
+   Categories:
+     * Window managers
+     * Applications
+     * This page was last edited on 1 June 2024, at 17:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

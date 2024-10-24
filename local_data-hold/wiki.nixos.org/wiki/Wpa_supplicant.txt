@@ -1,0 +1,267 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 General
+     * 2 wpa_supplicant_gui
+     * 3 Using wpa_supplicant from within the configuration file
+     * 4 Switching Network
+     * 5 MAC spoofing
+     * 6 Eduroam
+     * 7 WEP support
+     * 8 Fixing "legacy sigalg disallowed or unsupported"
+     * 9 External links
+   [ ] Toggle the table of contents
+
+                                 wpa_supplicant
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+General
+
+   wpa_supplicant can be enabled on NixOS with networking.wireless.enable =
+   true.
+
+   Extra configuration can be specified inside
+   networking.wireless.extraConfig.
+
+wpa_supplicant_gui
+
+   To be able to use wpa_gui or wpa_cli as user put the following in your
+   configuration.nix file:
+
+ networking.wireless.userControlled.enable = true;
+
+   Also your user must be part of the wheel group (replace USER with your
+   username):
+
+ users.extraUsers.USER.extraGroups = [ "wheel" ];
+
+Using wpa_supplicant from within the configuration file
+
+   You can configure your networks with the option networks. You have to fill
+   the name(s) of your wifi(s) after the option and the preshared-key(s)
+   (usually called psk). If you do not want to have your secret key in
+   plaintext, you can use pskRaw, generated with wpa_passphrase SSID
+   password. An example of using networks :
+
+ networking.wireless.networks.Wifi_name.pskRaw = "pskRaw generated";
+
+   If you have multiple networks, and you want to set the priority, you can
+   use networking.wireless.networks.Wifi_name.priority = <value>;
+
+   A full example to connect to a university or similar network that uses
+   MSCHAPV2 (like UWF):
+
+   networking.wireless.networks."uwf-argo-air" = {
+     hidden = true;
+     auth = ''
+       key_mgmt=WPA-EAP
+       eap=PEAP
+       phase2="auth=MSCHAPV2"
+       identity="unx42"
+       password="p@$$w0rd"
+       '';
+     };
+
+   To avoid having your network password in accessible plaintext on your
+   system or in your version control consider using
+   networking.wireless.environmentFile.
+
+   Another example of simple wpa2 auth:
+
+   networking.networkmanager.enable = false;
+   networking.wireless = {
+     enable = true;  # Enables wireless support via wpa_supplicant.
+     networks."MYSSID".psk = "myPresharedKey";
+     extraConfig = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel";
+     # output ends up in /run/wpa_supplicant/wpa_supplicant.conf
+   };
+
+Switching Network
+
+   From the shell terminal, use the wpa_cli command line tool and specify the
+   network interface device with -g
+
+ wpa_cli -g /run/wpa_supplicant/wlp3s0
+ list_network
+ select_network 2
+
+   As a means to debug if things are working, open another terminal and
+   examine the logs by:
+
+ $ journalctl -u wpa_supplicant -f
+
+MAC spoofing
+
+   Since there is no option to randomize your MAC address for wpa supplicant,
+   you can instead create your own service using GNU's macchanger:
+
+ let
+         change-mac = pkgs.writeShellScript "change-mac" ''
+                 card=$1
+                 tmp=$(mktemp)
+                 ${pkgs.macchanger}/bin/macchanger "$card" -s | grep -oP "[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}:[^ ]*" > "$tmp"
+                 mac1=$(cat "$tmp" | head -n 1)
+                 mac2=$(cat "$tmp" | tail -n 1)
+                 if [ "$mac1" = "$mac2" ]; then
+                         if [ "$(cat /sys/class/net/"$card"/operstate)" = "up" ]; then
+                                 ${pkgs.iproute2}/bin/ip link set "$card" down &&
+                                 ${pkgs.macchanger}/bin/macchanger -r "$card"
+                                 ${pkgs.iproute2}/bin/ip link set "$card" up
+                         else
+                                 ${pkgs.macchanger}/bin/macchanger -r "$card"
+                         fi
+                 fi
+         '';
+ in
+         systemd.services.macchanger = {
+                 enable = true;
+                 description = "macchanger on wlan0";
+                 wants = [ "network-pre.target" ];
+                 before = [ "network-pre.target" ];
+                 bindsTo = [ "sys-subsystem-net-devices-wlan0.device" ];
+                 after = [ "sys-subsystem-net-devices-wlan0.device" ];
+                 wantedBy = [ "multi-user.target" ];
+                 serviceConfig = {
+                         Type = "oneshot";
+                         ExecStart = "${change-mac} wlan0";
+                 };
+         };
+
+   Where you need to change the wlan0 with your own wifi network interface.
+   You can list your interfaces by running ip link, your wifi network
+   interface should have "wl" prepended. Note that the above snippet fully
+   randomizes your MAC address, for more information you can read
+   macchanger's manpage. This obviously requires you to have the macchanger
+   package installed.
+
+Eduroam
+
+   Nowadays, using EAP-PWD is preferred over MSCHAPv2 when connecting to
+   eduroam or other institutional networks. It provides stronger security
+   claims and is simpler to set up. It also never transmits your password,
+   doesn't require certificates and needs less authentication roundtrips. The
+   identity and password should be given to you by your institution.
+
+  networking.wireless.networks.eduroam = {
+    auth = ''
+      key_mgmt=WPA-EAP
+      eap=PWD
+      identity="youruser@yourinstitution.edu"
+      password="p@$$w0rd"
+    '';
+  };
+
+WEP support
+
+   You may encounter a situation where you are in a hotel, for example, and
+   the WiFi uses WEP encryption. As of version 2.10 of wpa_supplicant, WEP
+   support is not enabled by default. To enable it, add the following to your
+   configuration.nix:
+
+   nixpkgs.overlays = [
+     (self: super: {
+       wpa_supplicant = super.wpa_supplicant.overrideAttrs (oldAttrs: rec {
+         extraConfig = oldAttrs.extraConfig + ''
+               CONFIG_WEP=y
+             '';
+       });
+     })
+   ];
+
+   This builds wpa_supplicant with WEP support.
+
+Fixing "legacy sigalg disallowed or unsupported"
+
+   When connecting to an institutional network fails, and something similar
+   to following lines appear in the system log:
+
+ mrt 31 17:17:19 t14 wpa_supplicant[727029]: SSL: SSL3 alert: write (local SSL3 detected an error):fatal:internal error
+ mrt 31 17:17:19 t14 wpa_supplicant[727029]: OpenSSL: openssl_handshake - SSL_connect error:0A00014D:SSL routines::legacy sigalg disallowed or unsupported
+
+   The cause is probably an outdated RADIUS server that uses an old
+   (insecure) signature algorithm. A workaround can be to reduce OpenSSL's
+   security setting to allow insecure ciphers. Add the following to your
+   NixOS configuration:
+
+ networking.wireless.extraConfig = ''
+   openssl_ciphers=DEFAULT@SECLEVEL=0
+ '';
+
+External links
+
+     * (german) article eduroam meets NixOS (with configuration) (instance
+       University of Applied Sciences Dresden: The eduroam installer for
+       GNU/Linux works for example for Ubuntu but not NixOS)
+     * NixOs: Can't connect to a WEP network: failure to add network: invalid
+       message format
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Wpa_supplicant&oldid=17487"
+     * This page was last edited on 15 September 2024, at 09:25.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

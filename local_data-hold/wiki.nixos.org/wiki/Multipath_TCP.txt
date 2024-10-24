@@ -1,0 +1,98 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                 Multipath TCP
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Multipath TCP is a TCP (Transmission Control Protocol) extension to be
+   able to use multiple paths for a single TCP connection
+   (https://datatracker.ietf.org/wg/mptcp/). Applications can aggregate the
+   troughput of a cellular and wifi link for instance.
+
+   It is backwards compatible with TCP: you don't need to modify applications
+   but just to enable an MPTCP-aware linux kernel. 2 such kernels exist: -
+   the historical out-of-tree featureful implementation developed at
+   multipath-tcp.org/
+
+  boot.kernelPackages = pkgs.linuxPackages_mptcp;
+
+   - use the upstream implementation (still being worked on) available
+   starting from linux 5.6
+
+  boot.kernelPackages = pkgs.linuxPackagesFor ( pkgs.linux_5_6.override {
+    structuredExtraConfig = with lib.kernel; {
+      MPTCP     =yes;
+      MPTCP_IPV6=yes;
+    };
+  });
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Multipath_TCP&oldid=12501"
+   Category:
+     * Networking
+     * This page was last edited on 24 April 2024, at 20:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,240 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             CDE: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:0220:02, 19 April 2024‎ Klinger talk contribs‎ m
+       9,676 bytes −53‎ Category:Cookbook Category:Desktop environment
+
+    8 April 2024
+
+     * curprev [ ] [ ] 05:3805:38, 8 April 2024‎ Samueldr talk contribs‎ m
+       9,729 bytes −18‎ Re-frame warning as low quality + warning
+
+    13 February 2023
+
+     * curprev [ ] [ ] 03:4303:43, 13 February 2023‎ imported>Vater‎ m 9,747
+       bytes +16‎ No edit summary
+     * curprev [ ] [ ] 02:5302:53, 13 February 2023‎ imported>Vater‎ m 9,731
+       bytes −1‎ No edit summary
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4105:41, 20 September 2021‎ imported>Nix‎ m 9,732
+       bytes +26‎ add Software/Applications subcategory
+     * curprev [ ] [ ] 02:0902:09, 20 September 2021‎ imported>Nix‎ m 9,706
+       bytes −19‎ recategorize
+
+    18 November 2020
+
+     * curprev [ ] [ ] 22:3322:33, 18 November 2020‎ imported>Artturin‎ m
+       9,725 bytes +13‎ add to Desktop environments category
+
+    16 November 2020
+
+     * curprev [ ] [ ] 15:4115:41, 16 November 2020‎ imported>User‎ 9,712
+       bytes +2‎ No edit summary
+
+    12 November 2020
+
+     * curprev [ ] [ ] 08:0808:08, 12 November 2020‎ imported>User‎ 9,710
+       bytes +26‎ No edit summary
+     * curprev [ ] [ ] 08:0508:05, 12 November 2020‎ imported>User‎ 9,684
+       bytes +46‎ No edit summary
+     * curprev [ ] [ ] 08:0408:04, 12 November 2020‎ imported>User‎ 9,638
+       bytes +14‎ No edit summary
+     * curprev [ ] [ ] 02:1502:15, 12 November 2020‎ imported>User‎ 9,624
+       bytes −51‎ No edit summary
+
+    11 November 2020
+
+     * curprev [ ] [ ] 16:2016:20, 11 November 2020‎ imported>User‎ 9,675
+       bytes +138‎ No edit summary
+     * curprev [ ] [ ] 16:1116:11, 11 November 2020‎ imported>User‎ 9,537
+       bytes −15‎ No edit summary
+     * curprev [ ] [ ] 16:0916:09, 11 November 2020‎ imported>User‎ 9,552
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 16:0816:08, 11 November 2020‎ imported>User‎ 9,550
+       bytes +1,249‎ No edit summary
+     * curprev [ ] [ ] 15:2715:27, 11 November 2020‎ imported>User‎ 8,301
+       bytes +16‎ No edit summary
+     * curprev [ ] [ ] 15:2515:25, 11 November 2020‎ imported>User‎ 8,285
+       bytes +3‎ No edit summary
+     * curprev [ ] [ ] 15:2215:22, 11 November 2020‎ imported>User‎ 8,282
+       bytes +587‎ No edit summary
+     * curprev [ ] [ ] 09:3809:38, 11 November 2020‎ imported>User‎ 7,695
+       bytes −3‎ No edit summary
+     * curprev [ ] [ ] 05:3105:31, 11 November 2020‎ imported>User‎ 7,698
+       bytes −52‎ No edit summary
+     * curprev [ ] [ ] 05:2205:22, 11 November 2020‎ imported>User‎ 7,750
+       bytes −4‎ No edit summary
+     * curprev [ ] [ ] 05:2005:20, 11 November 2020‎ imported>User‎ 7,754
+       bytes +19‎ Undo revision 4950 by User (talk)
+     * curprev [ ] [ ] 05:1705:17, 11 November 2020‎ imported>User‎ 7,735
+       bytes −19‎ No edit summary
+
+    4 June 2020
+
+     * curprev [ ] [ ] 13:5613:56, 4 June 2020‎ imported>User‎ 7,754 bytes
+       +24‎ No edit summary
+     * curprev [ ] [ ] 07:2307:23, 4 June 2020‎ imported>Makefu‎ 7,730 bytes
+       +227‎ add notice about the current state of this article
+
+    3 June 2020
+
+     * curprev [ ] [ ] 14:3914:39, 3 June 2020‎ imported>User‎ 7,503 bytes
+       −12‎ No edit summary
+     * curprev [ ] [ ] 14:3014:30, 3 June 2020‎ imported>User‎ 7,515 bytes
+       +1,113‎ No edit summary
+     * curprev [ ] [ ] 14:2314:23, 3 June 2020‎ imported>User‎ 6,402 bytes
+       +890‎ No edit summary
+
+    1 June 2020
+
+     * curprev [ ] [ ] 14:3414:34, 1 June 2020‎ imported>User‎ 5,512 bytes
+       +272‎ No edit summary
+
+    17 May 2020
+
+     * curprev [ ] [ ] 08:4708:47, 17 May 2020‎ imported>User‎ 5,240 bytes
+       +10‎ No edit summary
+     * curprev [ ] [ ] 08:4508:45, 17 May 2020‎ imported>User‎ 5,230 bytes
+       +30‎ No edit summary
+     * curprev [ ] [ ] 08:4208:42, 17 May 2020‎ imported>User‎ 5,200 bytes
+       +185‎ No edit summary
+     * curprev [ ] [ ] 08:1908:19, 17 May 2020‎ imported>User‎ 5,015 bytes
+       +54‎ No edit summary
+
+    16 May 2020
+
+     * curprev [ ] [ ] 13:5513:55, 16 May 2020‎ imported>User‎ 4,961 bytes
+       +122‎ No edit summary
+     * curprev [ ] [ ] 10:1310:13, 16 May 2020‎ imported>User‎ 4,839 bytes
+       +84‎ No edit summary
+     * curprev [ ] [ ] 10:0010:00, 16 May 2020‎ imported>User‎ 4,755 bytes
+       +36‎ No edit summary
+     * curprev [ ] [ ] 09:5909:59, 16 May 2020‎ imported>User‎ 4,719 bytes
+       +18‎ No edit summary
+     * curprev [ ] [ ] 07:4607:46, 16 May 2020‎ imported>User‎ 4,701 bytes
+       +90‎ No edit summary
+     * curprev [ ] [ ] 07:0407:04, 16 May 2020‎ imported>User‎ 4,611 bytes
+       +105‎ No edit summary
+     * curprev [ ] [ ] 06:5406:54, 16 May 2020‎ imported>User‎ 4,506 bytes
+       +2‎ No edit summary
+     * curprev [ ] [ ] 06:5406:54, 16 May 2020‎ imported>User‎ 4,504 bytes
+       +1‎ No edit summary
+     * curprev [ ] [ ] 06:5306:53, 16 May 2020‎ imported>User‎ 4,503 bytes
+       +337‎ No edit summary
+     * curprev [ ] [ ] 06:4406:44, 16 May 2020‎ imported>User‎ 4,166 bytes
+       +207‎ No edit summary
+     * curprev [ ] [ ] 06:3806:38, 16 May 2020‎ imported>User‎ 3,959 bytes
+       +3,959‎ Created page with "Aka '''cdesktopenv''' is a vintage desktop
+       environment. == Enabling ==
+       {{file|/etc/nixos/configuration.nix|nix|<nowiki>
+       services.xserver.desktopManager.cde.enable = true;..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/CDE"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

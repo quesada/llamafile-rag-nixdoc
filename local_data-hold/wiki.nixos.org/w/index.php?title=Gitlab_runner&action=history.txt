@@ -1,0 +1,144 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                        Gitlab runner: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    27 September 2024
+
+     * curprev [ ] [ ] 08:2708:27, 27 September 2024‎ Mic92 talk contribs‎
+       7,716 bytes +460‎ imported from old wiki
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:0421:04, 19 April 2024‎ Klinger talk contribs‎ m
+       7,256 bytes +43‎ Category:Applications Category:Server
+       Category:Container
+
+    20 October 2022
+
+     * curprev [ ] [ ] 08:2708:27, 20 October 2022‎ imported>Cynerd‎ 7,213
+       bytes +3,995‎ No edit summary
+
+    19 October 2022
+
+     * curprev [ ] [ ] 13:5313:53, 19 October 2022‎ imported>Novmar‎ m 3,218
+       bytes 0‎ No edit summary
+
+    22 July 2022
+
+     * curprev [ ] [ ] 16:4916:49, 22 July 2022‎ imported>Yajo‎ m 3,218 bytes
+       +7‎ This is the correct env to load for a daemon nix environment
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:5005:50, 20 September 2021‎ imported>Nix‎ m 3,211
+       bytes +27‎ add Software/Applications subcategory
+
+    24 November 2020
+
+     * curprev [ ] [ ] 22:4422:44, 24 November 2020‎ imported>Makefu‎ 3,184
+       bytes +3,184‎ init
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Gitlab_runner"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

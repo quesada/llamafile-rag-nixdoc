@@ -1,0 +1,319 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      Distributed build: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    4 September 2024
+
+     * curprev [ ] [ ] 07:0807:08, 4 September 2024‎ Mic92 talk contribs‎
+       17,178 bytes +40‎ imported from old wiki
+
+    10 August 2024
+
+     * curprev [ ] [ ] 09:0709:07, 10 August 2024‎ Jopejoe1 talk contribs‎
+       17,138 bytes −5‎ Use modular settings option instead of multi-line
+       string option
+
+    15 May 2024
+
+     * curprev [ ] [ ] 00:1500:15, 15 May 2024‎ Rszyma talk contribs‎ m
+       17,143 bytes +129‎ fix formatting + fix `-L` flag not working in
+       `useradd` + add info to chown `~nixremote/.ssh` dir Tags: Mobile edit
+       Mobile web edit
+
+    11 May 2024
+
+     * curprev [ ] [ ] 07:0107:01, 11 May 2024‎ Malteneuss talk contribs‎ m
+       17,014 bytes +7‎ Rephrase ssh test Tag: Visual edit
+     * curprev [ ] [ ] 06:5706:57, 11 May 2024‎ Malteneuss talk contribs‎ m
+       17,007 bytes +79‎ Add small explanation for ssh-ng Tag: Visual edit
+     * curprev [ ] [ ] 06:5506:55, 11 May 2024‎ Malteneuss talk contribs‎ m
+       16,928 bytes −2‎ Fix indentation Tag: Visual edit
+     * curprev [ ] [ ] 06:5306:53, 11 May 2024‎ Malteneuss talk contribs‎ m
+       16,930 bytes −48‎ Simplify SSH connection table Tag: Visual edit
+     * curprev [ ] [ ] 06:4506:45, 11 May 2024‎ Malteneuss talk contribs‎ m
+       16,978 bytes +3‎ Fix typo Tag: Visual edit
+     * curprev [ ] [ ] 06:4506:45, 11 May 2024‎ Malteneuss talk contribs‎ m
+       16,975 bytes +307‎ Make overall structure clearer with explicit steps
+       Tag: Visual edit
+
+    10 May 2024
+
+     * curprev [ ] [ ] 21:2121:21, 10 May 2024‎ Malteneuss talk contribs‎ m
+       16,668 bytes +554‎ Make ssh connection path setting easier to
+       understand Tag: Visual edit
+     * curprev [ ] [ ] 19:0519:05, 10 May 2024‎ Klinger talk contribs‎ m
+       16,114 bytes +2‎ Category:Nix Category:Guide Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 19:0519:05, 10 May 2024‎ Klinger talk contribs‎ 16,112
+       bytes +35‎ [Category:Nix]] [Category:Guide]]
+
+    9 May 2024
+
+     * curprev [ ] [ ] 14:4614:46, 9 May 2024‎ Malteneuss talk contribs‎ m
+       16,077 bytes +4‎ fix intro Tag: Visual edit
+     * curprev [ ] [ ] 14:4314:43, 9 May 2024‎ Malteneuss talk contribs‎ m
+       16,073 bytes +93‎ Add link to available systems strings Tag: Visual
+       edit
+     * curprev [ ] [ ] 13:5913:59, 9 May 2024‎ Malteneuss talk contribs‎ m
+       15,980 bytes +3‎ Fix sentence Tag: Visual edit
+     * curprev [ ] [ ] 13:5613:56, 9 May 2024‎ Malteneuss talk contribs‎ m
+       15,977 bytes +16‎ Fix sentence Tag: Visual edit
+     * curprev [ ] [ ] 13:5313:53, 9 May 2024‎ Malteneuss talk contribs‎ m
+       15,961 bytes +3‎ Improve sentence Tag: Visual edit
+     * curprev [ ] [ ] 13:5213:52, 9 May 2024‎ Malteneuss talk contribs‎ m
+       15,958 bytes +731‎ Make ssh access table more beginner friendly Tag:
+       Visual edit
+     * curprev [ ] [ ] 13:2813:28, 9 May 2024‎ Malteneuss talk contribs‎
+       15,227 bytes +20‎ Fix typo Tag: Visual edit
+     * curprev [ ] [ ] 13:2713:27, 9 May 2024‎ Malteneuss talk contribs‎ m
+       15,207 bytes +444‎ Rephrase introduction for beginners Tag: Visual
+       edit
+     * curprev [ ] [ ] 13:1113:11, 9 May 2024‎ Malteneuss talk contribs‎ m
+       14,763 bytes −3‎ Fix typo Tag: Visual edit
+     * curprev [ ] [ ] 13:1013:10, 9 May 2024‎ Malteneuss talk contribs‎ m
+       14,766 bytes +983‎ Extend explanations of buildMachines Tag: Visual
+       edit
+
+    13 February 2024
+
+     * curprev [ ] [ ] 12:5612:56, 13 February 2024‎ imported>IgorM‎ 13,783
+       bytes +10‎ fixed instructions for trusted-users in nix
+
+    2 December 2023
+
+     * curprev [ ] [ ] 13:2713:27, 2 December 2023‎ imported>Skylark‎ m
+       13,773 bytes −171‎ Minor copyedit + tighten wording throughout
+
+    29 May 2023
+
+     * curprev [ ] [ ] 18:2718:27, 29 May 2023‎ imported>Doronbehar‎ 13,944
+       bytes +3,811‎ Rewrite most of the guide, mostly with better
+       specification of remote vs local machine, with additional usecases.
+
+    1 May 2023
+
+     * curprev [ ] [ ] 17:1817:18, 1 May 2023‎ imported>Srid‎ 10,133 bytes
+       +30‎ →‎NixOS: Use ssh-ng (more reliable)
+
+    8 March 2023
+
+     * curprev [ ] [ ] 01:4301:43, 8 March 2023‎ imported>Natto1784‎ m 10,103
+       bytes +9‎ No edit summary
+
+    4 January 2023
+
+     * curprev [ ] [ ] 23:2523:25, 4 January 2023‎ imported>Srid‎ 10,094
+       bytes +100‎ add darwin builder
+
+    18 April 2022
+
+     * curprev [ ] [ ] 16:2416:24, 18 April 2022‎ imported>Yvan-sraka‎ m
+       9,994 bytes +42‎ Fix warning: 'ping-store' is a deprecated alias for
+       'store ping' error: experimental Nix feature 'nix-command' is
+       disabled; use '--extra-experimental-features nix-command' to override
+
+    7 April 2022
+
+     * curprev [ ] [ ] 14:2814:28, 7 April 2022‎ imported>Mohe2015‎ m 9,952
+       bytes +2‎ Fix spelling mistake in option
+
+    27 March 2022
+
+     * curprev [ ] [ ] 00:0600:06, 27 March 2022‎ imported>Aviallon‎ 9,950
+       bytes −214‎ Remove note as issue #46038 was fixed by
+       https://github.com/NixOS/nixpkgs/pull/46041
+
+    26 January 2022
+
+     * curprev [ ] [ ] 19:1619:16, 26 January 2022‎ imported>Milahu‎ 10,164
+       bytes +109‎ add link: Offloading NixOS builds to a faster machine
+
+    12 December 2021
+
+     * curprev [ ] [ ] 00:3300:33, 12 December 2021‎ imported>Danjl1100‎
+       10,055 bytes +22‎ update Nix Manual Distributed Builds chapter link
+
+    4 December 2021
+
+     * curprev [ ] [ ] 21:2721:27, 4 December 2021‎ imported>Luis-Hebendanz‎
+       m 10,033 bytes +74‎ No edit summary
+
+    7 November 2021
+
+     * curprev [ ] [ ] 11:1711:17, 7 November 2021‎ imported>Milahu‎ 9,959
+       bytes +139‎ + PermitRootLogin yes
+
+    24 October 2021
+
+     * curprev [ ] [ ] 12:0712:07, 24 October 2021‎ imported>Milahu‎ 9,820
+       bytes +17‎ nix ping-store: add <nowiki>
+     * curprev [ ] [ ] 12:0612:06, 24 October 2021‎ imported>Milahu‎ 9,803
+       bytes +11‎ nix ping-store: add "&& echo ok"
+
+    18 June 2021
+
+     * curprev [ ] [ ] 00:0300:03, 18 June 2021‎ imported>CRTified‎ m 9,792
+       bytes +38‎ No edit summary
+
+    24 June 2020
+
+     * curprev [ ] [ ] 21:5421:54, 24 June 2020‎ imported>Jonringer‎ m 9,754
+       bytes +6‎ Include llvm in big-parallel list
+
+    27 March 2020
+
+     * curprev [ ] [ ] 11:1411:14, 27 March 2020‎ imported>Symphorien‎ 9,748
+       bytes +135‎ →‎Troubleshooting: don't recommend being a trusted user
+       unconditionnaly on nixos
+
+    27 November 2019
+
+     * curprev [ ] [ ] 05:5105:51, 27 November 2019‎ imported>Petercommand‎
+       9,613 bytes +46‎ No edit summary
+
+    6 November 2019
+
+     * curprev [ ] [ ] 15:2515:25, 6 November 2019‎ imported>Danbst‎ 9,567
+       bytes +137‎ No edit summary
+
+    16 August 2019
+
+     * curprev [ ] [ ] 13:3813:38, 16 August 2019‎ imported>Mnapierkowski‎
+       9,430 bytes +154‎ Add note for builders which support multiple
+       architectures
+
+    1 May 2019
+
+     * curprev [ ] [ ] 14:3714:37, 1 May 2019‎ imported>Symphorien‎ 9,276
+       bytes +972‎ →‎Prerequisites: Explain how to have nix on PATH via ssh
+       when the remote builder uses nix-user-chroot
+     * curprev [ ] [ ] 14:2214:22, 1 May 2019‎ imported>Symphorien‎ 8,304
+       bytes +56‎ →‎Prerequisites: Replace StrictHostKeyChecking=no by
+       StrictHostKeyChecking=accept-new in the tip
+     * curprev [ ] [ ] 12:4112:41, 1 May 2019‎ imported>Symphorien‎ 8,248
+       bytes +2,303‎ Explain how to set up remote builders as substituters.
+
+    24 March 2019
+
+     * curprev [ ] [ ] 15:5415:54, 24 March 2019‎ imported>Das j‎ m 5,945
+       bytes +132‎ Add benchmark feature (used by pkgs/top-level/metrics.nix)
+
+    20 September 2018
+
+     * curprev [ ] [ ] 09:1009:10, 20 September 2018‎ imported>Endgame‎ m
+       5,813 bytes +121‎ Reminder about trustedUsers
+     * curprev [ ] [ ] 08:5208:52, 20 September 2018‎ imported>Endgame‎ 5,692
+       bytes +914‎ Add troubleshooting section; document bug wrt distributing
+       builds as a user on NixOS.
+
+    17 June 2018
+
+     * curprev [ ] [ ] 12:5412:54, 17 June 2018‎ imported>Lheckemann‎ 4,778
+       bytes +7‎ →‎Prerequisites
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Distributed_build"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

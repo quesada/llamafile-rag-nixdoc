@@ -1,0 +1,147 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  Tor Browser in a Container: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 July 2024
+
+     * curprev [ ] [ ] 11:3511:35, 6 July 2024‎ Layer-09 talk contribs‎ m
+       3,328 bytes −2‎ No edit summary Tag: Visual edit: Switched
+     * curprev [ ] [ ] 11:3511:35, 6 July 2024‎ Layer-09 talk contribs‎ 3,330
+       bytes −415‎ No edit summary
+
+    19 April 2024
+
+     * curprev [ ] [ ] 18:0618:06, 19 April 2024‎ Klinger talk contribs‎ m
+       3,745 bytes +23‎ Category:Cookbook Tag: Visual edit: Switched
+
+    4 April 2021
+
+     * curprev [ ] [ ] 23:3923:39, 4 April 2021‎ imported>Donajoj954‎ 3,722
+       bytes +116‎ Add Xpra
+
+    11 December 2019
+
+     * curprev [ ] [ ] 22:2422:24, 11 December 2019‎ imported>Equirosa‎ m
+       3,606 bytes +6‎ Small changes to help with reading comprehension.
+
+    14 March 2019
+
+     * curprev [ ] [ ] 12:4312:43, 14 March 2019‎ imported>Evrim‎ 3,600 bytes
+       +201‎ No edit summary
+     * curprev [ ] [ ] 12:3512:35, 14 March 2019‎ imported>Evrim‎ m 3,399
+       bytes −12‎ No edit summary
+     * curprev [ ] [ ] 12:3312:33, 14 March 2019‎ imported>Evrim‎ m 3,411
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 12:2612:26, 14 March 2019‎ imported>Evrim‎ m 3,409
+       bytes +775‎ No edit summary
+     * curprev [ ] [ ] 12:1712:17, 14 March 2019‎ imported>Evrim‎ m 2,634
+       bytes −62‎ No edit summary
+     * curprev [ ] [ ] 12:1212:12, 14 March 2019‎ imported>Evrim‎ 2,696 bytes
+       0‎ No edit summary
+     * curprev [ ] [ ] 12:0912:09, 14 March 2019‎ imported>Evrim‎ 2,696 bytes
+       +2,696‎ Run Tor Browser in a Nixos Container w/ Pulse, Media Support
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Tor_Browser_in_a_Container"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,111 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Replace GitHub instructions with links
+       2 comments
+   [ ] Toggle the table of contents
+
+                                  Talk:Nixpkgs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 08:16, 8 June 2018 by imported>Mic92 (→‎Replace GitHub
+   instructions with links)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+   Latest comment: 8 June 2018 by Mic92 in topic Replace GitHub instructions
+   with links
+
+Replace GitHub instructions with links
+
+   Latest comment: 8 June 20182 comments2 people in discussion
+
+   Should we replace the subsections Fork Nixpkgs on Github to Create a pull
+   request on GitHub with links to relevant pages on GitHub? Their
+   documentation is probably better than something we would produce. And
+   it'll stay up-to-date with changes on Github.
+
+   1. Join GitHub
+
+   2. Fork a repo
+
+   3. Creating and deleting branches within your repository
+
+   4. About pull requests
+
+   --Inquisitiv3 (talk) 06:29, 8 June 2018 (UTC)Reply
+
+   There are some nix specific parts that should still be kept in the
+   article. Like how to build a package using the git repository from source
+   and `Becoming a Nixpkgs maintainer`
+
+   --Mic92 (talk) 08:16, 8 June 2018 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Nixpkgs&oldid=5984"
+     * This page was last edited on 8 June 2018, at 08:16.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

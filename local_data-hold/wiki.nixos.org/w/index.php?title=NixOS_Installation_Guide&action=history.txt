@@ -1,0 +1,295 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                   NixOS Installation Guide: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    25 June 2024
+
+     * curprev [ ] [ ] 16:0016:00, 25 June 2024‎ Rrdpad talk contribs‎ 8,913
+       bytes +304‎ Add blocks for console commands Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:1221:12, 19 April 2024‎ Klinger talk contribs‎ m
+       8,609 bytes −2‎ No edit summary
+
+    12 April 2024
+
+     * curprev [ ] [ ] 18:0018:00, 12 April 2024‎ Dvntsemicolon talk
+       contribs‎ 8,611 bytes +4‎ →‎NixOS config Tags: Mobile edit Mobile web
+       edit
+     * curprev [ ] [ ] 18:0018:00, 12 April 2024‎ Dvntsemicolon talk
+       contribs‎ 8,607 bytes +8‎ →‎NixOS config Tags: Mobile edit Mobile web
+       edit
+     * curprev [ ] [ ] 17:5917:59, 12 April 2024‎ Dvntsemicolon talk
+       contribs‎ 8,599 bytes +21‎ →‎NixOS config Tags: Mobile edit Mobile web
+       edit
+     * curprev [ ] [ ] 17:5817:58, 12 April 2024‎ Dvntsemicolon talk
+       contribs‎ 8,578 bytes +13‎ →‎NixOS config: added NixOS options search
+       link Tags: Mobile edit Mobile web edit
+     * curprev [ ] [ ] 17:5617:56, 12 April 2024‎ Dvntsemicolon talk
+       contribs‎ 8,565 bytes +72‎ No edit summary Tags: Mobile edit Mobile
+       web edit
+
+    6 April 2024
+
+     * curprev [ ] [ ] 08:3008:30, 6 April 2024‎ Claes talk contribs‎ 8,493
+       bytes +169‎ Clarify installation of NixOS Tag: Visual edit
+
+    4 October 2023
+
+     * curprev [ ] [ ] 23:3323:33, 4 October 2023‎ imported>Lifeisstillgood‎
+       8,324 bytes +593‎ Friendly instructions on setting up wifi on
+       installer
+
+    25 September 2023
+
+     * curprev [ ] [ ] 11:1411:14, 25 September 2023‎ imported>Erikarvstedt‎
+       m 7,731 bytes +9‎ No edit summary
+
+    25 August 2022
+
+     * curprev [ ] [ ] 23:0023:00, 25 August 2022‎ imported>Fufexan‎ m 7,722
+       bytes −22‎ Remove incorrect "only simple on uefi" from Swap file
+
+    9 May 2022
+
+     * curprev [ ] [ ] 06:3406:34, 9 May 2022‎ imported>Rtpg‎ m 7,744 bytes
+       −4‎ Fix up formatting of list
+
+    21 April 2022
+
+     * curprev [ ] [ ] 15:0715:07, 21 April 2022‎ imported>Sympel‎ m 7,748
+       bytes +1‎ fix typo
+
+    6 April 2022
+
+     * curprev [ ] [ ] 18:5918:59, 6 April 2022‎ imported>Matu3ba‎ 7,747
+       bytes −14‎ fix headers
+     * curprev [ ] [ ] 18:5818:58, 6 April 2022‎ imported>Matu3ba‎ 7,761
+       bytes +2,183‎ add instructions from Til's Guide on youtube
+     * curprev [ ] [ ] 18:2918:29, 6 April 2022‎ imported>Matu3ba‎ m 5,578
+       bytes +62‎ better performance for dd with flushing cache
+
+    14 March 2021
+
+     * curprev [ ] [ ] 18:2818:28, 14 March 2021‎ imported>Alttttt39933‎ m
+       5,516 bytes +10‎ changes from `>` to `sudo tee` so that the command
+       will work, regardless of if the user is root or not.
+     * curprev [ ] [ ] 14:4714:47, 14 March 2021‎ imported>Alttttt39933‎ m
+       5,506 bytes +70‎ Differenciates between minimal and GUI iso. Also a
+       bit better explanation on how to use wpa_passphrase.
+
+    26 May 2020
+
+     * curprev [ ] [ ] 09:2409:24, 26 May 2020‎ imported>Smn‎ 5,436 bytes
+       −40‎ No edit summary
+     * curprev [ ] [ ] 09:2409:24, 26 May 2020‎ imported>Smn‎ 5,476 bytes −9‎
+       No edit summary
+
+    5 May 2019
+
+     * curprev [ ] [ ] 21:1321:13, 5 May 2019‎ imported>Mth‎ 5,485 bytes
+       −158‎ No edit summary
+
+    15 January 2019
+
+     * curprev [ ] [ ] 17:3817:38, 15 January 2019‎ imported>Mic92‎ 5,643
+       bytes −8‎ improve English
+
+    14 January 2019
+
+     * curprev [ ] [ ] 21:1521:15, 14 January 2019‎ imported>Makefu‎ 5,651
+       bytes +67‎ make the "no driver" section a bit more nuanced
+     * curprev [ ] [ ] 21:1021:10, 14 January 2019‎ imported>Janat08‎ m 5,584
+       bytes +4‎ No edit summary
+     * curprev [ ] [ ] 21:0921:09, 14 January 2019‎ imported>Janat08‎ 5,580
+       bytes +235‎ tethered section
+
+    24 December 2018
+
+     * curprev [ ] [ ] 11:4811:48, 24 December 2018‎ imported>Neumantm‎ m
+       5,345 bytes +57‎ Add link to page help for installing with iso through
+       multibootusb
+
+    4 January 2018
+
+     * curprev [ ] [ ] 01:1701:17, 4 January 2018‎ imported>Makefu‎ 5,288
+       bytes +192‎ add extra hint for wpa_supplicant
+     * curprev [ ] [ ] 00:3900:39, 4 January 2018‎ imported>Samueldr‎ m 5,096
+       bytes +481‎ Adds a quick note about connecting to the ineternet
+
+    26 November 2017
+
+     * curprev [ ] [ ] 19:0519:05, 26 November 2017‎ imported>Samueldr‎ m
+       4,615 bytes 0‎ well, can't bring the tip at the list level, as the
+       whole page shifts.
+     * curprev [ ] [ ] 19:0419:04, 26 November 2017‎ imported>Samueldr‎ m
+       4,615 bytes +1‎ Adds newlines as mediawiki markup is scaring me
+     * curprev [ ] [ ] 19:0319:03, 26 November 2017‎ imported>Samueldr‎ m
+       4,614 bytes −285‎ →‎From macOS: use the same instructions as the
+       manual recommends, keep the note about rdisk.
+     * curprev [ ] [ ] 01:5201:52, 26 November 2017‎ imported>Samueldr‎ m
+       4,899 bytes −151‎ Tested windows method
+     * curprev [ ] [ ] 01:5101:51, 26 November 2017‎ imported>Samueldr‎ m
+       5,050 bytes +676‎ Adds stub booting section
+
+    25 November 2017
+
+     * curprev [ ] [ ] 23:2323:23, 25 November 2017‎ imported>Samueldr‎ m
+       4,374 bytes −146‎ Removed last of outdated marks
+     * curprev [ ] [ ] 23:1023:10, 25 November 2017‎ imported>Samueldr‎ m
+       4,520 bytes −1‎ an usb a usb
+     * curprev [ ] [ ] 23:0823:08, 25 November 2017‎ imported>Samueldr‎ m
+       4,521 bytes −362‎ Updates links, removes redundant older category,
+       update outdated tag location.
+     * curprev [ ] [ ] 23:0723:07, 25 November 2017‎ imported>Samueldr‎ m
+       4,883 bytes −4,113‎ →‎Making the installation media: Updated "Making
+       the installation media"
+     * curprev [ ] [ ] 21:5821:58, 25 November 2017‎ imported>Samueldr‎ m
+       8,996 bytes +2‎ →‎Using Unetbootin: Fixes an oopsie
+     * curprev [ ] [ ] 21:5321:53, 25 November 2017‎ imported>Samueldr‎ m
+       8,994 bytes −1,398‎ →‎Using Unetbootin: moves instructions to a
+       standalone page
+     * curprev [ ] [ ] 21:0821:08, 25 November 2017‎ imported>Samueldr‎ m
+       10,392 bytes −11‎ title header
+     * curprev [ ] [ ] 21:0721:07, 25 November 2017‎ imported>Samueldr‎ m
+       10,403 bytes +1,192‎ Started the guide refactor.
+     * curprev [ ] [ ] 20:4420:44, 25 November 2017‎ imported>Samueldr‎ m
+       9,211 bytes −2,496‎ →‎Installing on VPS & Cloud Providers: moves
+       section to "NixOS friendly hosters"
+     * curprev [ ] [ ] 20:2320:23, 25 November 2017‎ imported>Samueldr‎ m
+       11,707 bytes −7,534‎ →‎Installing from Linux: Moves "Installing from
+       Linux" out of "NixOS Installation Guide"
+
+    12 November 2017
+
+     * curprev [ ] [ ] 23:0023:00, 12 November 2017‎ imported>Petersjt014‎
+       19,241 bytes +112‎ added cloud provider
+
+    14 October 2017
+
+     * curprev [ ] [ ] 06:5606:56, 14 October 2017‎ imported>Fadenb‎ m 19,129
+       bytes +1‎ →‎Amazon S3: fix section title
+
+    9 October 2017
+
+     * curprev [ ] [ ] 20:1020:10, 9 October 2017‎ imported>Makefu‎ 19,128
+       bytes +151‎ →‎Installing on VPS & Cloud Providers
+     * curprev [ ] [ ] 19:5419:54, 9 October 2017‎ imported>Makefu‎ 18,977
+       bytes +114‎ No edit summary
+
+    6 October 2017
+
+     * curprev [ ] [ ] 21:4621:46, 6 October 2017‎ imported>Ixxie‎ 18,863
+       bytes −11‎ →‎Using Unetbootin
+     * curprev [ ] [ ] 21:2921:29, 6 October 2017‎ imported>Ixxie‎ 18,874
+       bytes +23‎ Fixed headers install from linux section.
+     * curprev [ ] [ ] 21:2421:24, 6 October 2017‎ imported>Ixxie‎ 18,851
+       bytes −2‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_Installation_Guide"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,301 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 buildGoModule
+          * 1.1 Using a specific version of Go
+          * 1.2 Subpackages
+          * 1.3 Example (downloading source code from Github)
+          * 1.4 Example (local source)
+          * 1.5 Monorepo support
+          * 1.6 buildGoPackage
+     * 2 Using cgo on NixOS
+     * 3 Compile go program with static compile flag
+     * 4 Compile go program with static compile flag (take 2)
+   [ ] Toggle the table of contents
+
+                                       Go
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Go is a statically-typed language with syntax loosely derived from that of
+   C, adding garbage collected memory management, type safety, some
+   dynamic-typing capabilities, additional built-in types such as
+   variable-length arrays and key-value maps, and a large standard library.
+
+buildGoModule
+
+   nixpkgs includes a library function called buildGoModule (implementation)
+   See nixpkgs manual Language: Go
+
+   `buildGoModule` uses the version of Go that's included in `nixpkgs` to
+   build the software.
+
+    Using a specific version of Go
+
+   To build for a specific version of Go, you may need to find the
+   appropriate `pkgs.buildGoXXXModule` function to use.
+
+   This function may not be present in the version of nixpkgs that you're
+   using, for example, `buildGo122Module` is not available in
+   `github:NixOS/nixpkgs/nixos-23.05`, but is available in
+   `github:NixOS/nixpkgs/nixos-unstable`.
+
+    Subpackages
+
+   By default, `buildGoModule` will attempt to build the `main` package
+   that's in the root of the source code location.
+
+   However, it's a common pattern in Go applications to have binaries within
+   the `./cmd/binary-name` directory instead.
+
+   Setting the `subPackages` attribute to be a list of the packages to build
+   supports this pattern.
+
+    Example (downloading source code from Github)
+
+   The following `flake.nix` demonstrates how to build a Go module, where the
+   source code is located in Github. To use it, copy this file as `flake.nix`
+   into an empty directory on your computer, and run `nix build`. Nix will
+   download the source code, including dependencies, and produce a `./result`
+   folder containing a `ziti` binary.
+
+   Running `nix shell` will create a shell, where you can execute the `ziti`
+   binary.
+
+ {
+   description = "OpenZiti";
+
+   inputs = {
+     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+   };
+
+   outputs = { self, nixpkgs }:
+     let
+       allSystems = [
+         "x86_64-linux" # 64-bit Intel/AMD Linux
+         "aarch64-linux" # 64-bit ARM Linux
+         "x86_64-darwin" # 64-bit Intel macOS
+         "aarch64-darwin" # 64-bit ARM macOS
+       ];
+       forAllSystems = f: nixpkgs.lib.genAttrs allSystems (system: f {
+         pkgs = import nixpkgs { inherit system; };
+       });
+     in
+     {
+       packages = forAllSystems ({ pkgs }: {
+         default = pkgs.buildGo122Module rec {
+           pname = "openziti";
+           version = "1.0.0";
+           subPackages = [ "ziti" ];
+           src = pkgs.fetchFromGitHub {
+             owner = "openziti";
+             repo = "ziti";
+             rev = "v${version}";
+             sha256 = "sha256-2li/+XWKk+lybB1DE0unKvQrA0pKE9VIRFoEYMcbLS8=";
+           };
+           vendorHash = "sha256-uyjQd5kB61UEKSl1Qf1Gu6Fr40l4KixHSnEtTMq58Vc=";
+         };
+       });
+     };
+ }
+
+    Example (local source)
+
+   If you want to build a local project with Nix, replace the `src` attribute
+   to be the local directory, e.g.:
+
+   some-package = buildGoModule {
+     src = ./.
+   };
+
+    Monorepo support
+
+   the go.mod file must be in the source root for buildGoModule. to change
+   the source root, use
+
+   some-package = buildGoModule {
+     src = fetchFromGitHub {
+       # ...
+     } + "/path/to/module";
+     # ...
+   };
+
+  buildGoPackage
+
+   If no go.mod file is available, buildGoPackage (implementation) can be
+   used. Dependencies must be specified manually in a deps.nix file, which is
+   linked with
+
+   some-package = buildGoPackage {
+     # ...
+     goDeps = ./deps.nix;
+   };
+
+Using cgo on NixOS
+
+   On NixOS, include files and libraries aren't kept in a system-wide search
+   path. If a Go program uses cgo and attempts to include C header files, or
+   link against libraries, compilation is likely to fail.
+
+   In order to expose header files and libraries in environment variable
+   search paths, nix-shell can be used to enter an environment which provides
+   the requested development dependencies.
+
+   For example, suppose a Go program includes <sys/capability.h> (provided by
+   libcap), and links against libcap. To obtain an environment in which the
+   program can be compiled, run:
+
+ $ nix-shell -p libcap go gcc
+
+   You can verify the presence of the necessary environment variables via the
+   following command:
+
+ $ export | egrep 'NIX_.*(LDFLAGS|COMPILE|LINK)'
+
+   If you intend to compile against glibc statically (such as via go build
+   -ldflags "-s -w -linkmode external -extldflags -static"), add glibc.static
+   to the list of packages passed to nix-shell.
+
+   If you encounter this issue and receive an error about _FORTIFY_SOURCE
+   when running delve (for example in VSCode), put hardeningDisable = [
+   "fortify" ]; inside shell.nix or in the mkShell invocation argument like
+   this:
+
+ pkgs.mkShell {
+   hardeningDisable = [ "fortify" ];
+   buildInputs = [ pkgs.go_1_18 ];
+ };
+
+Compile go program with static compile flag
+
+   If go build -ldflags "-s -w -linkmode external -extldflags -static" fails
+   on NixOS, with the error message cannot find `-lpthread and cannot find
+   -lc - it is because the linker cannot find static glibc to link with. You
+   need to have glibc.static in your environment (and have CFLAGS/LDFLAGS
+   adjusted accordingly). One way to achieve this is to have something like
+   the following as shell.nix and run the compilation in a nix-shell:
+
+ with import <nixpkgs> {}; {
+   devEnv = stdenv.mkDerivation {
+     name = "dev";
+     buildInputs = [ stdenv go glibc.static ];
+     CFLAGS="-I${pkgs.glibc.dev}/include";
+     LDFLAGS="-L${pkgs.glibc}/lib";
+   };
+ }
+
+Compile go program with static compile flag (take 2)
+
+   Linking against glibc.static does not really work because glibc does not
+   really like static linking. You get a warning like warning: Using
+   'getaddrinfo' in statically linked applications requires at runtime the
+   shared libraries from the glibc version used for linking. To really create
+   a static build, use musl. Example based on buildGoModule example from
+   documentation:
+
+ pet = buildGoModule rec {
+   pname = "pet";
+   version = "0.3.4";
+
+   src = fetchFromGitHub {
+     owner = "knqyf263";
+     repo = "pet";
+     rev = "v${version}";
+     sha256 = "0m2fzpqxk7hrbxsgqplkg7h2p7gv6s1miymv3gvw0cz039skag0s";
+   };
+
+   vendorSha256 = "1879j77k96684wi554rkjxydrj8g3hpp0kvxz03sd8dmwr3lh83j";
+
+   ldflags = [
+     "-s -w -X github.com/knqyf263/pet/cmd.version=${version}"
+   ];
+
+   nativeBuildInputs = [musl];
+
+   CGO_ENABLED = 0;
+
+   ldflags = [
+     "-linkmode external"
+     "-extldflags '-static -L${musl}/lib'"
+   ];
+
+   meta = with lib; {
+     description = "Simple command-line snippet manager, written in Go";
+     homepage = "https://github.com/knqyf263/pet";
+     license = licenses.mit;
+     maintainers = with maintainers; [ kalbasit ];
+   };
+ }
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Go&oldid=17699"
+   Categories:
+     * Languages
+     * Applications
+     * This page was last edited on 2 October 2024, at 13:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

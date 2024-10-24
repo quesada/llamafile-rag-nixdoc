@@ -1,0 +1,238 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Maintenance
+     * 3 Tips and tricks
+          * 3.1 Run Gitlab behind reverse proxy
+          * 3.2 Migrating an existing Gitlab to a Nixos installation
+     * 4 Troubleshooting
+          * 4.1 Error 422 The change you requested was rejected on login
+     * 5 Notes
+   [ ] Toggle the table of contents
+
+                                     Gitlab
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   The GitLab web application offers git repository management, code reviews,
+   issue tracking, activity feeds and wikis.
+
+   This article is an extension of the NixOS manual.
+
+Installation
+
+   A minimal local installation of Gitlab might look like this
+
+ services.gitlab = {
+   enable = true;
+   databasePasswordFile = pkgs.writeText "dbPassword" "zgvcyfwsxzcwr85l";
+   initialRootPasswordFile = pkgs.writeText "rootPassword" "dakqdvp4ovhksxer";
+   secrets = {
+     secretFile = pkgs.writeText "secret" "Aig5zaic";
+     otpFile = pkgs.writeText "otpsecret" "Riew9mue";
+     dbFile = pkgs.writeText "dbsecret" "we2quaeZ";
+     jwsFile = pkgs.runCommand "oidcKeyBase" {} "${pkgs.openssl}/bin/openssl genrsa 2048 > $out";
+   };
+ };
+
+ services.nginx = {
+   enable = true;
+   recommendedProxySettings = true;
+   virtualHosts = {
+     localhost = {
+       locations."/".proxyPass = "http://unix:/run/gitlab/gitlab-workhorse.socket";
+     };
+   };
+ };
+
+ services.openssh.enable = true;
+
+ systemd.services.gitlab-backup.environment.BACKUP = "dump";
+
+   After applying the configuration head to http://localhost and login with
+   username root and the password specified in initialRootPasswordFile.
+
+   Even though it is easy to provide the secrets in the configuration.nix
+   with pkgs.writeText, keep in mind that it might not be the best method,
+   because they get written to the world readable nix-store this way. A safer
+   solution is to put them somewhere in the file system with the right chmod
+   and owner set and include them using ./<filename> or to use a secret
+   managment tool
+
+   Note: Since the version 15.7 GitLab blocks weak passwords^[1] on
+   self-managed instances by default and providing one in
+   initialRootPasswordFile results in a silent failure to create root user.
+
+Maintenance
+
+   Query info about your Gitlab instance
+
+ gitlab-rake gitlab:env:info
+
+   Check for configuration errors
+
+ gitlab-rake gitlab:check
+
+Tips and tricks
+
+  Run Gitlab behind reverse proxy
+
+   In case your Gitlab instance is running behind a reverse proxy which does
+   offer TLS encryption, you might need to adapt your configuration
+
+ services.gitlab = {
+   [...]
+   https = true;
+   port = 443;
+   host = "git.example.org";
+ };
+
+  Migrating an existing Gitlab to a Nixos installation
+
+   Make a backup on the on the old installation following the Gitlab backup
+   guide. It is important to be on the same version and edition that you want
+   to install on your new server.
+
+   Then install a Gitlab on the NixOS. Make sure you set the same secrets
+   like on the old installation.
+
+   After a successful deploy:
+
+    1. Stop the Gitlab service using systemctl stop gitlab.service.
+    2. Start Gitaly systemctl start gitaly.service
+          * It gets stopped when gitlab.service stops.
+    3. Then copy the backup *_gitlab_backup.tar to the backup folder
+          * cp 1719619965_2024_06_29_16.11.4_gitlab_backup.tar
+            /var/gitlab/state/backup
+    4. Run sudo -u gitlab gitlab-rake gitlab:backup:restore BACKUP=<name
+       before the _gitlab_backup.tar> .
+          * For example sudo -u gitlab gitlab-rake gitlab:backup:restore
+            BACKUP=1719619965_2024_06_29_16.11.4
+    5. You will be interactively asked what should be done.
+          * You will most likely be saying yes hrtr
+    6. Start the Gitlab Service again using systemctl start gitlab.service.
+
+   You may need to rebuild the system for everything to properly come up.
+
+Troubleshooting
+
+  Error 422 The change you requested was rejected on login
+
+   There might be different reasons for this error to show up after a failing
+   login. One possible issue could be that your Gitlab instance is configured
+   to be served with SSL encryption but running unencrypted behind a reverse
+   proxy
+
+ services.gitlab = {
+   enable = true;
+   port = 443;
+   https = true;
+ [...]
+
+   To solve this, add following http headers to your upstream reverse proxy.
+   In this example for the web server Caddy but it can be set for others too
+
+ caddy = {
+   enable = true;
+   virtualHosts = {
+     "git.example.org".extraConfig = ''
+       reverse_proxy http://10.100.0.3 {
+         header_up X-Forwarded-Proto https
+         header_up X-Forwarded-Ssl on
+       }
+     '';
+   };
+ };
+
+Notes
+
+   Gitlab will add a user "gitlab" to your NixOS, many tutorials online point
+   to using git over ssh with the user "git", which in our case will not
+   match since there is no user "git". If you configure your SSH hosts with
+   ~/.ssh/config this should work:
+
+  Host your.selfhosted.com
+    HostName your.selfhosted.com
+    User gitlab
+    IdentityFile /path/to/your/ssh/private/key
+    # The following are optional:
+    IdentitiesOnly yes
+    PreferredAuthentications publickey
+
+    1. ↑
+       https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/user/profile/user_passwords.md#block-weak-passwords
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Gitlab&oldid=17661"
+   Categories:
+     * Server
+     * Web Applications
+     * NixOS Manual
+     * This page was last edited on 27 September 2024, at 08:28.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

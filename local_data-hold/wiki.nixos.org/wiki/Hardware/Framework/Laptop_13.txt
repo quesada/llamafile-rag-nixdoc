@@ -1,0 +1,165 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Known issues
+     * 3 Configuration
+          * 3.1 BIOS
+          * 3.2 AMD 7040 Series
+          * 3.3 Intel 13 Gen
+          * 3.4 Intel 12 Gen
+          * 3.5 Intel 11 Gen
+   [ ] Toggle the table of contents
+
+                              Framework Laptop 13
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to Hardware Hub
+
+   Framework Laptop 13
+   Laptop 13    
+   Manufacturer Framework    
+   Architecture x86_64-linux 
+   7040 Series  
+   13 Gen       
+   12 Gen       
+   11 Gen       
+   Status       supported    
+   Maintainer   0x4A6F       
+
+   The Framework Laptop 13 is a configurable, upgradeable, and repairable
+   laptop made by the Framework company.
+
+Status
+
+   The device boots NixOS.
+
+Known issues
+
+Configuration
+
+   Framework specific NixOS hardware options are bundled within the
+   nixos-hardware project.
+
+  BIOS
+
+   BIOS updates are distributed through LVFS, which can be used by enabling
+   the fwupd service
+
+ services.fwupd.enable = true;
+
+   and then running
+
+   $ fwupdmgr update
+
+   to check for updates. Further instructions and release notes can be found
+   on the Framework BIOS and Drivers knowledgebase.
+
+  AMD 7040 Series
+
+   It is recommended to use power-profiles-daemon over tlp for the AMD
+   framework. If standby power consumption is too high (multiple watts)
+   ensure the BIOS version is at least 3.05^[1].
+
+     * NixOS Hardware module for flakes:
+       nixos-hardware.nixosModules.framework-13-7040-amd
+     * NixOS Hardware module for channels:
+       <nixos-hardware/framework/13-inch/7040-amd>
+
+  Intel 13 Gen
+
+     * NixOS Hardware module for flakes:
+       nixos-hardware.nixosModules.framework-13th-gen-intel
+     * NixOS Hardware module for channels:
+       <nixos-hardware/framework/13-inch/13th-gen-intel>
+
+   Check the nixos-hardware Readme on how to get your fingerprint reader to
+   work.
+
+  Intel 12 Gen
+
+     * NixOS Hardware module for flakes:
+       nixos-hardware.nixosModules.framework-12th-gen-intel
+     * NixOS Hardware module for channels:
+       <nixos-hardware/framework/13-inch/12th-gen-intel>
+
+  Intel 11 Gen
+
+     * NixOS Hardware module for flakes:
+       nixos-hardware.nixosModules.framework-11th-gen-intel
+     * NixOS Hardware module for channels:
+       <nixos-hardware/framework/13-inch/11th-gen-intel>
+    1. ↑
+       https://community.frame.work/t/framework-laptop-13-ryzen-7040-bios-3-05-release-and-driver-bundle/48276/239
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/Framework/Laptop_13&oldid=12881"
+   Category:
+     * Incomplete
+     * This page was last edited on 17 May 2024, at 13:08.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

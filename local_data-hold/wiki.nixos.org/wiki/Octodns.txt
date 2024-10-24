@@ -1,0 +1,157 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Usage
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                                    Octodns
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   OctoDNS is a powerful tool that allows for easy management of DNS records
+   across multiple providers. It leverages Python to provide a unified
+   interface for various DNS services, simplifying DNS administration tasks.
+
+Installation
+
+   Install OctoDNS with additional providers
+
+    
+
+ /etc/nixos/configuration.nix
+
+ environment.systemPackages = with pkgs; [
+   (octodns.withProviders (ps: [
+     octodns-providers.bind
+     octodns-providers.powerdns
+     octodns-providers.hetzner
+     octodns-providers.gandi
+   ]))
+ ];
+
+Usage
+
+   In this example we're going to configure the A record for the domain
+   example.org which is managed by the provider Gandi
+
+    
+
+ config.yaml
+
+ ---
+ providers:
+   config:
+     class: octodns.provider.yaml.YamlProvider
+     directory: ./config
+     default_ttl: 3600
+     # Records in the zone config don't have to be sorted alphabetically
+     enforce_order: False
+   gandi:
+     class: octodns_gandi.GandiProvider
+     token: env/GANDI_TOKEN
+
+ zones:
+   '*':
+     sources:
+       - config
+     targets:
+       - gandi
+
+   Inside the directory config we're going to create a file with the DNS zone
+   configuration for example.org
+
+    
+
+ config/example.org.yaml
+
+ ---
+ '':
+  - type: A
+    value: 8.8.8.8
+
+   Apply this configuration to the domain
+
+ GANDI_TOKEN=1234 octodns-sync --config config.yaml --doit
+
+See also
+
+     * Use OctoDNS as a NixOS module and declare DNS setup declarative
+       https://github.com/Janik-Haag/NixOS-DNS
+     * Dnscontrol, tool to synchronize your DNS to multiple providers from a
+       simple DSL
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Octodns&oldid=17695"
+   Categories:
+     * Applications
+     * Server
+     * Networking
+     * This page was last edited on 1 October 2024, at 21:01.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,147 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Plasma
+     * 2 Enable the Bolt daemon
+     * 3 Enroll Thunderbolt devices
+     * 4 Dell's TB16 dock
+     * 5 USB ports not working
+   [ ] Toggle the table of contents
+
+                                  Thunderbolt
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 19:42, 24 April 2024 by Klinger (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Plasma
+
+   To benefit from Plasma's UI for managing Thunderbolt devices, you may
+   install the System Settings panel. Just add this to your packages:
+   plasma5Packages.plasma-thunderbolt.
+
+Enable the Bolt daemon
+
+   Even if you don't use Gnome, you may want to enable the Bolt daemon - just
+   configure the following:
+
+ services.hardware.bolt.enable = true;
+
+   This will enable the bolt daemon on your system.
+
+   For the description of this option, cf.
+   https://search.nixos.org/options?channel=21.11&from=0&size=50&sort=relevance&type=packages&query=services.hardware.bolt.enable.
+
+Enroll Thunderbolt devices
+
+   If your Thunderbolt device does not work, execute boltctl in a terminal.
+   This will show you your connected devices, and their respective uuid. In
+   color terminals, it will show you if your device is authorized (green
+   light) or not (orange light).
+
+   For each device that is not authorized, execute boltctl enroll --chain
+   UUID_FROM_YOUR_DEVICE.
+
+   Note: You'll have to replace UUID_FROM_YOUR_DEVICE with your device's
+   actual uuid
+
+   .
+
+   Check with boltctl whether all your devices have been enrolled (green
+   light everywhere).
+
+Dell's TB16 dock
+
+   On a Dell XPS 13" 9360, the TB16 is not always authorised automatically,
+   and you may have the impression that it does not work correctly (connected
+   USB devices won't work while the DisplayPort may work...).
+
+   When connecting a TB16, boltctl shows 2 devices: Dell Thunderbolt Dock and
+   Dell Thunderbolt Cable.
+
+   It is enough to enroll the Dell Thunderbolt Dock with the --chain
+   parameter, as this will also automatically enroll the Dell Thunderbolt
+   Cable.
+
+USB ports not working
+
+   If the USB ports are not working, you can try running `echo 1 >
+   /sys/bus/pci/rescan`. If this causes the error `No bus number available
+   for hot-added bridge` to appear in `journalctl`, adding
+   `pci=assign-busses,hpbussize=0x33,realloc,hpmemsize=128M,hpmemprefsize=1G`
+   may fix your issue. (Thanks to
+   https://old.reddit.com/r/XMG_gg/comments/ic7vt7/fusion15_linux_how_to_fix_thunderbolttb3_dock_usb/
+   for the hint)
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Thunderbolt&oldid=12436"
+   Category:
+     * Hardware
+     * This page was last edited on 24 April 2024, at 19:42.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

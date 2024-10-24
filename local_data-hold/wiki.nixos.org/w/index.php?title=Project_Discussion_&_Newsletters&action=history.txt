@@ -1,0 +1,135 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+               Project Discussion & Newsletters: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:3220:32, 24 April 2024‎ Klinger talk contribs‎ m
+       1,214 bytes +23‎ No edit summary
+
+    6 August 2021
+
+     * curprev [ ] [ ] 16:2116:21, 6 August 2021‎ imported>0x4A6F‎ 1,191
+       bytes −72‎ No edit summary
+
+    27 August 2017
+
+     * curprev [ ] [ ] 13:1213:12, 27 August 2017‎ imported>Fadenb‎ m 1,263
+       bytes −2‎ →‎Users: nix-dev is now on google groups, fix link
+     * curprev [ ] [ ] 13:0813:08, 27 August 2017‎ imported>Fadenb‎ m 1,265
+       bytes 0‎ →‎This Week in NixOS: fix links
+
+    1 July 2017
+
+     * curprev [ ] [ ] 15:2615:26, 1 July 2017‎ imported>Fadenb‎ 1,265 bytes
+       +45‎ No edit summary
+     * curprev [ ] [ ] 15:2515:25, 1 July 2017‎ imported>Fadenb‎ 1,220 bytes
+       +1,220‎ Created page with " Several channels exist for NixOS project
+       discussion. Please subscribe to those which match your interests. ==
+       Project Discussion Channels == === Users === * [http://lists..."
+   [ Compare selected revisions ]
+   Retrieved from
+   "https://wiki.nixos.org/wiki/Project_Discussion_%26_Newsletters"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

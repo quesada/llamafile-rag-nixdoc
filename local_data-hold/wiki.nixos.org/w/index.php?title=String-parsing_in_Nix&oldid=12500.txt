@@ -1,0 +1,186 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 String parsers
+          * 1.1 YAML
+          * 1.2 TOML
+          * 1.3 XML
+          * 1.4 yarn.lock
+          * 1.5 mix.lock
+          * 1.6 Lisp
+          * 1.7 Arithmetic
+          * 1.8 cabal.project.freeze
+          * 1.9 IPv4 address
+          * 1.10 UUID
+          * 1.11 Linux kernel config
+          * 1.12 Python setup.cfg
+          * 1.13 PureScript
+     * 2 Parser combinators
+          * 2.1 Grammars
+     * 3 See also
+   [ ] Toggle the table of contents
+
+                             String-parsing in Nix
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 20:43, 24 April 2024 by Klinger (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+String parsers
+
+   Some string parsers written in Nix
+
+  YAML
+
+     * https://github.com/DavHau/fromYaml
+     * https://github.com/arcnmx/nixexprs/blob/master/lib/from-yaml.nix
+
+  TOML
+
+     * https://github.com/mozilla/nixpkgs-mozilla/blob/master/lib/parseTOML.nix
+
+  XML
+
+     * https://github.com/nprindle/nix-parsec/pull/6
+     * fromXML builtin? (nixpkgs#57239)
+
+  yarn.lock
+
+   Lockfile for yarn, a package manager for JavaScript
+
+     * https://github.com/nix-community/dream2nix/blob/main/src/subsystems/nodejs/translators/yarn-lock/parser.nix
+     * https://github.com/nix-community/npmlock2nix/pull/29
+     * https://github.com/nprindle/nix-parsec/pull/3
+
+  mix.lock
+
+   Lockfile for mix, a package manager for Erlang
+
+     * https://github.com/nprindle/nix-parsec/pull/3
+
+  Lisp
+
+     * https://github.com/utdemir/nixlisp/blob/main/nix/parser.nix
+     * https://github.com/nprindle/nix-parsec/pull/4
+
+  Arithmetic
+
+     * https://github.com/nprindle/nix-parsec/tree/master/examples/arithmetic
+
+  cabal.project.freeze
+
+   Lockfile for cabal, a package manager for Haskell
+
+     * https://github.com/nix-community/dream2nix/blob/main/src/subsystems/haskell/translators/cabal-freeze/parser.nix
+
+  IPv4 address
+
+     * https://github.com/NixOS/nix/issues/1491#issuecomment-318273971
+
+  UUID
+
+     * https://github.com/nprindle/nix-parsec/tree/master/examples/uuids
+
+  Linux kernel config
+
+     * https://github.com/nprindle/nix-parsec/tree/master/examples/kernel-config
+
+  Python setup.cfg
+
+     * https://github.com/seppeljordan/nix-setuptools/blob/master/lib/setuptools.nix
+
+  PureScript
+
+     * https://github.com/purs-nix/purs-nix/blob/master/parser.nix
+
+Parser combinators
+
+   Build complex parsers from many small parsers
+
+     * https://github.com/nprindle/nix-parsec - API is similar to megaparsec
+       in Haskell
+
+  Grammars
+
+     * antlr https://github.com/antlr/grammars-v4
+     * tree-sitter https://github.com/search?q=tree-sitter+grammar
+
+See also
+
+     * Add an Earley parser builtin (nix#1491)
+     * purenix - compile PureScript to Nix
+     * String parsing in other Functional Programming Languages
+          * String parsing in Haskell (google)
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=String-parsing_in_Nix&oldid=12500"
+   Categories:
+     * Nix
+     * Development
+     * This page was last edited on 24 April 2024, at 20:43.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,213 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Official Spaces
+          * 1.1 Events
+          * 1.2 Github
+          * 1.3 Forums
+          * 1.4 Chats
+               * 1.4.1 Matrix
+               * 1.4.2 Zulip
+               * 1.4.3 Jitsi
+     * 2 Officially Maintained
+          * 2.1 Mastodon
+          * 2.2 Twitter
+          * 2.3 LinkedIn
+     * 3 Unofficial Spaces
+          * 3.1 Forums
+          * 3.2 Chats
+               * 3.2.1 Discord
+               * 3.2.2 IRC
+                    * 3.2.2.1 Regional IRC
+               * 3.2.3 Regional Telegram
+     * 4 References
+   [ ] Toggle the table of contents
+
+                                  Get In Touch
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 01:00, 14 September 2024 by Marshmallow (talk | contribs)
+   (Fix: Add "References" Heading)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   This article extends nixos.org/community for how to get in touch and lists
+   additional platforms to meet community members.
+
+   See the Nix Community article to learn more about who we are.
+
+Official Spaces
+
+   These are spaces are moderated by the NixOS Moderation Team
+
+  Events
+
+   See the Events page for past and upcoming events!
+
+   See also the NixCon Fediverse or YouTube sites for past NixCon recordings.
+
+  Github
+
+     * NixOS - Official Nix Org
+          * Contribute packages on nixpkgs
+          * Develop the nix language
+          * Participate in RFC discussions
+     * Nix-Community - Explore community projects!
+
+  Forums
+
+     * Official Discourse forum - Ask for help here!
+
+  Chats
+
+    Matrix
+
+   The official NixOS Community Space has rooms on many Nix topics.
+
+     * #users:nixos.org - Main Room
+     * #wiki:nixos.org - Wiki Contributors
+
+   Note: If your client doesn't support Matrix Spaces, see the MatrixRooms
+   page for list of all rooms.
+
+    Zulip
+
+     * NixOS Governance Discussion - Ongoing NixOS Governance discussions
+       occurring here. Requires contribution to nixpkgs to participate.
+
+    Jitsi
+
+     * OfficeHours - Weekly Nix Office Hours (1600-2000 UTC Fridays, more
+       times as mentors are available)
+
+Officially Maintained
+
+   Unmoderated spaces maintained by the moderation team.
+
+    Mastodon
+
+    Twitter
+
+    LinkedIn
+
+Unofficial Spaces
+
+   Spaces maintained by members of the community.
+
+  Forums
+
+     * r/NixOS on Reddit (>25k members)
+     * !nix@programming.dev on Lemmy (>1k subscribers)
+     * Stack Overflow (>1k questions answered)
+     * Unix & Linux Stack Exchange (>400 questions answered)
+
+  Chats
+
+    Discord
+
+     * Nix/NixOS (Unoffical)
+     * Nix/NixOS Community^[1]
+
+    IRC
+
+   Previously hosted on Freenode but was switched to libera.chat. There are
+   public logs from the Freenode versions of these channels.
+
+     * #nixos - General NixOS and Nix help
+     * #nix-darwin - Nix on macOS
+     * #nixos-chat - Informal chit-chat channel when going off-topic in the
+       main channel
+     * #nixos-dev - Nix and NixOS development (#nixos for questions)
+     * #nixos-emacs - Nix Emacs discussion
+
+      Regional IRC
+
+     * #nixos-cs - Czech and Slovak NixOS community
+     * #nixos-fr - French NixOS community
+     * #nixos - German NixOS community on hackint.org (webchat)
+
+    Regional Telegram
+
+   There are some regional Telegram groups dedicated to NixOS:
+
+     * @NixOS_zhcn - Chinese, English
+     * @ru_nixos - Russian, English
+     * @nixos_en - English
+     * @nixosbr - Portuguese
+     * @nixosita - Italian
+
+References
+
+    1. ↑
+       https://discourse.nixos.org/t/new-discord-to-discuss-nix-nixos-and-the-wider-ecosystem/51953
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Get_In_Touch&oldid=17399"
+   Category:
+     * Community
+     * This page was last edited on 14 September 2024, at 01:00.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

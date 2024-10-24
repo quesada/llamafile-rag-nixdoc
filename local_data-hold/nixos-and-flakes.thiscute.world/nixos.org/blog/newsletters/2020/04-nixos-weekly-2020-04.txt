@@ -1,0 +1,107 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #04 - NixOS Weekly
+
+   Published on Fri Apr 24 2020
+
+                               #04 - NixOS Weekly
+
+                                      News
+
+Announcements
+
+     * NixOS 20.03 was released
+
+       NixOS 20.03 “Markhor” had 1014 people contribute 21597 contributions.
+
+     * Announcing Nixiosk
+
+       Declarative Kiosk systems built with NixOS.
+
+     * Announcing Marketing Team
+
+       The marketing team was founded and had their few meetings. They
+       already improved the website (see Learn page). If you want to join,
+       you will find the details in the announcement post. Let’s improve the
+       presentation of Nix/NixOS!
+
+     * nix-update
+
+       A tool for updating nix packages semi-automatically
+
+Tutorials & Resources
+
+     * The journey of packaging a .NET app on Nix
+
+     * Create and Publish a Website with Hakyll, HAProxy and NixOS
+
+     * Declarative, Decentralised, and Secure communication via Matrix,
+       Jitsi, & NixOS
+
+     * Project isolation beyond requirements.txt
+
+       How simple nix-shell integration can really make an impact on
+       developer productivity.
+
+     * Erase your darlings
+
+       Graham talks about why and how he erases his systems on each boot.
+
+     * Using Emacs in a local Nix environment
+
+     * Building a reproducible blog with Nix
+
+     * Building a web app with functional programming
+
+       A long report on building a web app with functional programming -
+       Haskell, Elm and NixOS.
+
+Jobs
+
+     * Serokell is hiring an SRE
+
+     * Nix packaging work for the Next Generation Internet
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

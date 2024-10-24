@@ -1,0 +1,103 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 No link to source, likely typo
+       2 comments
+   [ ] Toggle the table of contents
+
+                                  Talk:Immich
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 8 August by V3ntus in topic No link to source, likely typo
+
+No link to source, likely typo
+
+   Latest comment: 8 August2 comments2 people in discussion
+
+   It's great that this page exists and that Immich is being packaged for
+   NixOS. However, this page makes no reference to the source in nixpkgs. As
+   far as i can tell, the most advanced state of packaging for Immich in
+   NixOS is PR #324127 which is not merged yet, so it doesn't look like these
+   instructions would currently work.
+
+   Furthermore, it mentions multiple times "typsense" when the service used
+   is typesense.
+
+   Could we please fix these issues? :) Axx (talk) 12:29, 9 July 2024
+   (UTC)Reply
+
+           Agreed, this page needs to be more clear on the status of Immich.
+           The original PR was closed months ago and a new one was opened. I
+           changed the note slightly to point to the new PR V3ntus (talk)
+           14:04, 8 August 2024 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Immich&oldid=16520"
+     * This page was last edited on 8 August 2024, at 14:04.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

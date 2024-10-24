@@ -1,0 +1,363 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Web Configuration
+          * 1.2 Virtual machine
+     * 2 Flake jobset
+          * 2.1 Restricted Mode
+     * 3 Build a single Package from nixpkgs
+          * 3.1 Imperative Building
+          * 3.2 Declarative Building
+     * 4 Hydra Internals
+          * 4.1 Definitions
+               * 4.1.1 Project
+               * 4.1.2 Jobsets
+               * 4.1.3 Job
+               * 4.1.4 Release Set
+               * 4.1.5 Evaluation
+               * 4.1.6 Build
+     * 5 Known Issues
+     * 6 Hydra for NixOS releases
+     * 7 Resources
+   [ ] Toggle the table of contents
+
+                                     Hydra
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 07:27, 4 September 2024 by Mic92 (talk | contribs)
+   (imported from old wiki)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+   Other languages:
+     * Deutsch
+     * English
+     * русский
+
+   Hydra is a tool for continuous integration testing and software release
+   that uses a purely functional language to describe build jobs and their
+   dependencies. Continuous integration is a simple technique to improve the
+   quality of the software development process. An automated system
+   continuously or periodically checks out the source code of a project,
+   builds it, runs tests, and produces reports for the developers. Thus,
+   various errors that might accidentally be committed into the code base are
+   automatically caught.
+
+   The official Hydra servers provide pre-built binary packages to speed up
+   the update time for Nixpgs: Users do not have to compile them on their own
+   computers.
+
+   The Hydra manual provides an overview of the functionality and features of
+   Hydra, as well as an up-to-date installation guide.
+
+Installation
+
+   A full deployment can be enabled as easy as:
+
+   services.hydra = {
+     enable = true;
+     hydraURL = "http://localhost:3000"; # externally visible URL
+     notificationSender = "hydra@localhost"; # e-mail of Hydra service
+     # a standalone Hydra will require you to unset the buildMachinesFiles list to avoid using a nonexistant /etc/nix/machines
+     buildMachinesFiles = [];
+     # you will probably also want, otherwise *everything* will be built from scratch
+     useSubstitutes = true;
+   };
+
+   The module will automatically enable postgresql if you do not change the
+   services.hydra.dbi option. Database layout will be created automatically
+   by the Hydra service, however keep in mind that some state will be stored
+   in the database and a complete stateless configuration is currently not
+   possible - do your backups.
+
+     * See nixos-option or the Nixos Options page for all options
+
+  Web Configuration
+
+   Hydra will provide the web interface at localhost port 3000. However you
+   need to create a new admin user (as UNIX user hydra) before being able to
+   perform any changes:
+
+ # su - hydra
+ $ hydra-create-user alice --full-name 'Alice Q. User' \
+     --email-address 'alice@example.org' --password-prompt --role admin
+
+  Virtual machine
+
+   If not configured explicitly to do otherwise, Hydra will specify localhost
+   as the default build machine. By default, system features enabling builds
+   to be performed in virtual machines like "kvm" or "nixos-test" are not
+   enabled. Such jobs will be queued indefinitely. Those options can be
+   activated as follows:
+
+ {
+   nix.buildMachines = [
+     { hostName = "localhost";
+       protocol = null;
+       system = "x86_64-linux";
+       supportedFeatures = ["kvm" "nixos-test" "big-parallel" "benchmark"];
+       maxJobs = 8;
+     }
+   ];
+ }
+
+   This option leads to the file /etc/nix/machines being created. If the
+   hydra service config is still set to buildMachinesFiles = [], then it will
+   be ignored, so remove this option again or add /etc/nix/machines to it.
+
+Flake jobset
+
+   Configure jobset to the following:
+
+     * Type: Flake
+     * Flake URI: an URI to a repo containing a Flake like
+       git+https://git.myserver.net/user/repo.git
+
+   The Flake output should have the attribute hydraJobs containing an
+   attribute set that may be nested and reference derivations.
+
+   A sample Flake output that makes Hydra build all packages could look like
+   this:
+
+ {
+   inputs = {
+     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+   };
+   outputs = { self, nixpkgs, ... }: {
+     packages.x86_64-linux = {
+       ...
+     };
+
+     hydraJobs = {
+       inherit (self)
+         packages;
+     };
+   };
+ }
+
+  Restricted Mode
+
+   Hydra evaluates flakes in restricted mode. This prevents access to files
+   outside of the nix store, including those fetched as flake inputs. Update
+   your nix.settings.allowed-uris to include URI prefixes from which you
+   expect flake inputs to be fetched:
+
+ nix.settings.allowed-uris = [
+   "github:"
+   "git+https://github.com/"
+   "git+ssh://github.com/"
+ ];
+
+Build a single Package from nixpkgs
+
+   Right now it is not possible to build a single package from nixpkgs with
+   just that input. You will need to provide a supplementary repository which
+   defines what to build. For examples you can check the hydra-example by
+   makefu and in the Hydra Manual.
+
+  Imperative Building
+
+   These steps are required to build the hello package.
+
+    1. log into Hydra after creating a user with hydra-create-user
+    1. create new project
+     * identifier: example-hello
+     * display name: example-hello
+    1. Actions -> Create jobset
+     * identifier: hello
+     * Nix expression: release.nix in hydra-example -> will evaluate the file
+       release.nix in the given input
+     * check interval: 60
+     * scheduling shares: 1
+     * Inputs:
+
+   Input Name    Type     Value                                   Note          
+                                                                  will check    
+                                                                  out branch    
+                                                                  nixos-21.11,  
+                 git      https://github.com/nixos/nixpkgs        will be made  
+   nixpkgs       checkout nixos-21.11                             available to  
+                                                                  the nix       
+                                                                  expression    
+                                                                  via           
+                                                                  <nixpkgs>.    
+                                                                  hydra-example 
+                                                                  is used by    
+                                                                  the jobset as 
+   hydra-example git      https://github.com/makefu/hydra-example input,        
+                 checkout                                         release.nix   
+                                                                  is in the     
+                                                                  root          
+                                                                  directory     
+
+   After creation, the jobset should be in the evaluation phase where inputs
+   will be fetched. This phase may take some time as the complete nixpkgs
+   repository needs to be downloaded before continuing. The result of the
+   evaluation should be a single job which will get built.
+
+  Declarative Building
+
+   Since 2016, Hydra supports declarative creation of jobsets. Check out the
+   example repository and description by Shea Levy.
+
+Hydra Internals
+
+  Definitions
+
+   This subsection provides an overview of the Hydra-specific definitions and
+   how to configure them.
+
+    Project
+
+   A cluster of Jobs which are all coming from a single input (like a git
+   checkout), the first thing you will need to create. Every Job should be
+   able to be built independently from another. Most of the time the project
+   maps to a single repository like nixpkgs. It is comparable to the project
+   definition in Jenkins.
+
+    Jobsets
+
+   A Jobset is a list of jobs which will be run. Often a jobset fits to a
+   certain branch (master, staging, stable). A Jobset is defined by its
+   inputs and will trigger if these inputs change. For example when a new
+   commit onto a branch is added. Jobsets may depend on each other.
+
+    Job
+
+   A closure which will be built as part of a job set (like a single package,
+   iso image or tarball).
+
+    Release Set
+
+   Defines all the jobs which are described in your release. By convention a
+   file calledrelease.nix is being used. See the Hydra manual for Build
+   Recipes for a thorough description of the structure.
+
+    Evaluation
+
+   The process of interpreting nix code into a list of .drv files. These
+   files are the build recipes for all related outputs. You can introspect
+   these files by running nix show-derivation nixpkgs.hello.
+
+    Build
+
+   Instantiation of a Job which is being triggered by being part of the
+   release set.
+
+Known Issues
+
+     * hydra-queue-runner sometimes gets stuck even with builds are in the
+       queue, and the builds are not scheduled. The issue is being tracked
+       here. In the meantime, a workaround is to add a cron job that
+       regularly restarts the hydra-queue-runner systemd service. Possible
+       fix: [1]
+     * If you see error: unexpected end-of-file it can mean multiple things,
+       some of them are:
+    1. You have a miss-match between nix versions on the Hydra server and the
+       builder
+    1. It can also mean that hydra-queue-runner needs privileges on the build
+       server. Reference: [2]
+     * The default timeout for git operations is 600 seconds [3], which might
+       cause fetches of large repositories like nixos/nixpkgs to fail: error
+       fetching latest change from git repo at
+       `https://github.com/nixos/nixpkgs': timeout. The timeout can be
+       increased with the following configuration.nix snippet:
+
+ {
+   services.hydra.extraConfig = ''
+     <git-input>
+       timeout = 3600
+     </git-input>
+   '';
+ }
+
+Hydra for NixOS releases
+
+   Hydra is used for managing official Nix project releases. The project
+   Hydra server: https://hydra.nixos.org/
+
+   Some Hydra trackers for Nix projects:
+
+     * Nixpkgs
+     * NixOS
+
+Resources
+
+     * Video: Setting up a Hydra Build Farm by Peter Simons (2016)
+     * Hydra Caveats by Joepie91
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hydra&oldid=17096"
+   Categories:
+     * Pedias
+     * Hydra
+     * Nix
+     * Incomplete
+     * Software
+     * Server
+     * This page was last edited on 4 September 2024, at 07:27.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

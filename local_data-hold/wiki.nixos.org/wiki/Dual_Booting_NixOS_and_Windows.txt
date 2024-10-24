@@ -1,0 +1,390 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Autodetection
+          * 1.1 systemd-boot
+          * 1.2 os-prober
+     * 2 Manual configuration
+          * 2.1 MBR
+               * 2.1.1 Grub
+          * 2.2 UEFI
+               * 2.2.1 Grub
+               * 2.2.2 EFI with multiple disks
+                    * 2.2.2.1 systemd-boot
+                    * 2.2.2.2 Grub
+     * 3 System time
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                         Dual Booting NixOS and Windows
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   This section explains various methods to have the bootloader prompt
+   whether to boot windows or NixOS.
+
+Autodetection
+
+  systemd-boot
+
+   When systemd-boot is installed to the same EFI System Partition (ESP) that
+   Windows uses, it will automatically detect the Windows installation
+   (/EFI/Microsoft/Boot/bootmgfw.efi) and present it as a boot option.
+
+   You can verify detected boot loaders by running the bootctl command.
+
+   A system pre-installed with Windows might have a small ESP partition size
+   that is not sufficient to store the kernel and initrd files for multiple
+   NixOS generations. One solution is to create an additional XBOOTLDR
+   partition and configure systemd-boot to use it:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   fileSystems."/boot" =
+     { device = "/dev/disk/by-uuid/57D4-A2B2";
+       fsType = "vfat";
+     };
+   fileSystems."/efi" =
+     { device = "/dev/disk/by-uuid/3280-5418";
+       fsType = "vfat";
+     };
+
+   boot.loader.systemd-boot.enable = true;
+   boot.loader.efi.canTouchEfiVariables = true;
+
+   boot.loader.efi.efiSysMountPoint = "/efi";
+   boot.loader.systemd-boot.xbootldrMountPoint = "/boot";
+ }
+
+  os-prober
+
+   os-prober is a tool to autodetect which other systems are present on the
+   machine. Grub can be told to use os-prober to add a menu-entry for each of
+   them.
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, ... }: {
+   # ...
+   boot.loader.grub.enable = true;
+   boot.loader.grub.device = "nodev";
+   boot.loader.grub.useOSProber = true;
+   # ...
+
+ }
+
+Manual configuration
+
+   In case os-prober does not detect your windows partition you can configure
+   your bootloader manually to find it.
+
+  MBR
+
+   All MBR bootloaders will need at least some configuration to chainload
+   Windows.
+
+    Grub
+
+   Here is an example config:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, ... }: {
+   # ...
+   boot.loader.grub.enable = true;
+   boot.loader.grub.device = "/dev/sda";
+   boot.loader.grub.extraEntries = ''
+     menuentry "Windows 7" {
+       chainloader (hd0,1)+1
+     }
+   '';
+ }
+
+   Source:
+   https://www.reddit.com/r/NixOS/comments/31lx3i/windows_and_nixos_dual_boot/
+
+  UEFI
+
+   After setting up a 256mb EFI Partition dualboot should work out of the box
+   (at least for windows10)
+
+   Source: zimbatm.com/journal/2016/09/09/nixos-window-dual-boot
+
+   Here is another article that documents dual booting NixOS and Windows on a
+   Lenovo ThinkPad X1 Carbon (6th Gen):
+   https://github.com/andywhite37/nixos/blob/master/DUAL_BOOT_WINDOWS_GUIDE.md
+
+    Grub
+
+   Here we assume:
+
+     * the EFI partition has been mounted on /boot/efi
+     * $FS_UUID is the UUID of the EFI partition
+     * the boot.loader.systemd-boot.enable = true; line added to
+       configuration.nix by nixos-generate-config has been removed
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, ... }:
+
+ {
+   boot.loader = {
+     efi = {
+       canTouchEfiVariables = true;
+       # assuming /boot is the mount point of the  EFI partition in NixOS (as the installation section recommends).
+       efiSysMountPoint = "/boot";
+     };
+     grub = {
+       # despite what the configuration.nix manpage seems to indicate,
+       # as of release 17.09, setting device to "nodev" will still call
+       # `grub-install` if efiSupport is true
+       # (the devices list is not used by the EFI grub install,
+       # but must be set to some value in order to pass an assert in grub.nix)
+       devices = [ "nodev" ];
+       efiSupport = true;
+       enable = true;
+       # set $FS_UUID to the UUID of the EFI partition
+       extraEntries = ''
+         menuentry "Windows" {
+           insmod part_gpt
+           insmod fat
+           insmod search_fs_uuid
+           insmod chain
+           search --fs-uuid --set=root $FS_UUID
+           chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+         }
+       '';
+       version = 2;
+     };
+   };
+ }
+
+    EFI with multiple disks
+
+      systemd-boot
+
+   As systemd-boot cannot directly load binaries from other ESPs^[1], let
+   alone other disks, we have to employ edk2-uefi-shell to implement a
+   chainloading strategy^[2]. The basic config looks like this:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, ... }:
+
+ {
+   boot.loader = {
+     systemd-boot.enable = true;
+     efi.canTouchEfiVariables = true;
+
+     # Copy EDK2 Shell to boot partition
+     systemd-boot.extraFiles."efi/shell.efi" = "${pkgs.edk2-uefi-shell}/shell.efi";
+     systemd-boot.extraEntries = {
+       # Chainload Windows bootloader via EDK2 Shell
+       "windows.conf" =
+         let
+           # To determine the name of the windows boot drive, boot into edk2 first, then run
+           # `map -c` to get drive aliases, and try out running `FS1:`, then `ls EFI` to check
+           # which alias corresponds to which EFI partition.
+           boot-drive = "FS1";
+         in
+         ''
+           title Windows Bootloader
+           efi /efi/shell.efi
+           options -nointerrupt -nomap -noversion ${boot-drive}:EFI\Microsoft\Boot\Bootmgfw.efi
+           sort-key y_windows
+         '';
+       # Make EDK2 Shell available as a boot option
+       "edk2-uefi-shell.conf" = ''
+         title EDK2 UEFI Shell
+         efi /efi/shell.efi
+         sort-key z_edk2
+       '';
+     };
+   };
+  }
+
+   You can try if this works without changes, but most likely you have to
+   modify the value of boot-drive first to match your hardware configuration.
+   First, make sure you nixos-rebuild switch or nixos-rebuild boot , then
+   reboot your machine and select the entry "EDK2 UEFI Shell" from the
+   systemd-boot menu. In this shell, run the command map -c to get a list of
+   all "consistent" device mappings:
+
+ Press ESC in 1 seconds to skip startup.nsh or any other key to continue.
+ Shell> map -c
+ Mapping table
+     HD0c3: Alias(s):FS0:;BLK7:
+           PciRoot(0x0)/Pci(0x1,0x1)/Ata(0x0)/HD(3,GPT,5CBAF773-8FFA-11EB-952D-FCAA14203853,0x1DAA6000,0x32000)
+     HD0d1: Alias(s):FS1:;BLK10:
+           PciRoot(0x0)/Pci(0x1,0x1)/Ata(0x0)/HD(1,GPT,7F623BEA-5891-49EE-9980-6534716F0F50,0x800,0x1F4000)
+
+   Then, change to each of these drives by entering the drive name (not one
+   of the aliases!) and check whether the Windows bootloader is present:
+
+ Shell> HD0d1:
+ HD0d1:\> ls EFI
+ Directory of: HD0d1:\EFI\
+ 09/21/2024  22:05 <DIR>         4,096  .
+ 09/21/2024  22:05 <DIR>             0  ..
+ 09/21/2024  23:08 <DIR>         4,096  BOOT
+ 09/21/2024  22:05 <DIR>         4,096  Linux
+ 09/24/2024  08:30 <DIR>         4,096  nixos
+ 01/01/1980  00:00           1,060,672  shell.efi
+ 09/21/2024  23:08 <DIR>         4,096  systemd
+           1 File(s)   1,060,672 bytes
+           6 Dir(s)
+ HD0d1:\> HD0c3:
+ HD0c3:\> ls EFI
+ Directory of: HD0c3:\EFI\
+ 03/28/2021  21:28 <DIR>         1,024  .
+ 03/28/2021  21:28 <DIR>             0  ..
+ 03/28/2021  21:28 <DIR>         1,024  Boot
+ 03/28/2021  21:28 <DIR>         1,024  Microsoft
+           0 File(s)           0 bytes
+           4 Dir(s)
+
+   In this case, HD0d1 is the ESP of our NixOS installation, and HD0c3 is the
+   ESP of Windows.
+
+   After entering the Windows ESP, you can boot into it by running
+   EFI\Microsoft\Boot\Bootmgfw.efi. This is also useful if you have multiple
+   Windows installations and want to find out which ESP belongs to which
+   installation.
+
+   After this, you can change the value of boot-drive in the configuration
+   snippet above, nixos-rebuild switch and reboot to boot into windows. Make
+   sure that you use the actual device name, not one of the aliases, as these
+   might not be available immediately on boot, making the shell invocation
+   fail.
+
+      Grub
+
+   In Grub, the following might work:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, ... }:
+
+ {
+   boot.loader = {
+     efi.canTouchEfiVariables = true;
+     grub = {
+       enable = true;
+       devices = [ "nodev" ];
+       efiSupport = true;
+       useOSProber = true;
+     };
+   };
+ }
+
+System time
+
+   System clock might be incorrect after booting Windows and going back to
+   the NixOS. It can be fixed by either setting RTC time standard to UTC on
+   Windows, or setting it to localtime on NixOS.
+
+   Setting RTC time standard to localtime, compatible with Windows in its
+   default configuration:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+   time.hardwareClockInLocalTime = true;
+ }
+
+   See Arch Linux wiki#System time.
+
+See also
+
+     * Arch Linux wiki#GRUB
+     * NixOS GRUB installer (check the code block beginning with # install
+       EFI GRUB)
+    1. ↑ https://github.com/systemd/systemd/issues/3252
+    2. ↑ https://wiki.archlinux.org/title/Systemd-boot#Boot_from_another_disk
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Dual_Booting_NixOS_and_Windows&oldid=17610"
+   Categories:
+     * Cookbook
+     * NixOS
+     * This page was last edited on 24 September 2024, at 10:06.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

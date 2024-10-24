@@ -1,0 +1,289 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Power management
+          * 1.1 CPU performance scaling
+               * 1.1.1 thermald
+               * 1.1.2 TLP
+               * 1.1.3 auto-cpufreq
+               * 1.1.4 Powertop
+     * 2 Hardware support
+          * 2.1 Hybrid graphics
+     * 3 Troubleshooting
+          * 3.1 Laptop runs hot when on power, but not on battery
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                     Laptop
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 12:55, 11 August 2024 by Wimpy (talk | contribs) (Undo
+   revision 16587 by Wimpy (talk))
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+Power management
+
+   NixOS has several tools to help you manage the power on your system and it
+   also has a stock feature for power management. To enable the stock NixOS
+   power management tool which allows for managing hibernate and suspend
+   states you can write powerManagement.enable = true;. This tool is
+   compatible with the other tools mentioned, but the other tools may
+   overwrite this setting.
+
+  CPU performance scaling
+
+    thermald
+
+   Thermald proactively prevents overheating on Intel CPUs and works well
+   with other tools. Enabled by: services.thermald.enable = true;
+
+    TLP
+
+   A common tool used to save power on laptops is TLP, which has sensible
+   defaults for most laptops. To enable TLP you simply just write
+   services.tlp.enable = true; in your configuration.nix. However, if you
+   need a specific configuration, you can do as shown in the example below.
+
+ services.tlp = {
+       enable = true;
+       settings = {
+         CPU_SCALING_GOVERNOR_ON_AC = "performance";
+         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+         CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+         CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+         CPU_MIN_PERF_ON_AC = 0;
+         CPU_MAX_PERF_ON_AC = 100;
+         CPU_MIN_PERF_ON_BAT = 0;
+         CPU_MAX_PERF_ON_BAT = 20;
+
+        #Optional helps save long term battery health
+        START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
+        STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+
+       };
+ };
+
+   This example enables TLP and sets the minimum and maximum frequencies for
+   the CPU based on whether it is plugged into power or not. It also changes
+   the CPU scaling governor based on this.
+
+    auto-cpufreq
+
+   Another tool used for power management is auto-cpufreq which aims to
+   replace TLP. When using auto-cpufreq it is therefore recommended to
+   disable TLP as these tools are conflicting with each other. However, NixOS
+   does allow for using both at the same time, and you can therefore run them
+   in tandem at your own risk. To enable the service, add
+   services.auto-cpufreq.enable = true; to your configuration.nix.
+
+   Example of how to configure auto-cpufreq:
+
+ services.auto-cpufreq.enable = true;
+ services.auto-cpufreq.settings = {
+   battery = {
+      governor = "powersave";
+      turbo = "never";
+   };
+   charger = {
+      governor = "performance";
+      turbo = "auto";
+   };
+ };
+
+   Alternatively, if you have Flakes enabled you can also use the flake
+   directly provided by the auto-cpufreq authors to get a more up-to-date
+   version. They offer a detailed explanation how to add it to your system on
+   their GitHub page.
+   To summarize: 1) add the flake as an input to your flake.nix file and
+   enable the module:
+
+ # flake.nix
+
+ {
+     inputs = {
+         # ---Snip---
+         auto-cpufreq = {
+             url = "github:AdnanHodzic/auto-cpufreq";
+             inputs.nixpkgs.follows = "nixpkgs";
+         };
+         # ---Snip---
+     }
+
+     outputs = inputs@{nixpkgs, auto-cpufreq, ...} : {
+         nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
+             specialArgs = { inherit inputs; };
+             modules = [
+                 ./configuration.nix
+                 auto-cpufreq.nixosModules.default
+             ];
+         };
+     }
+ }
+
+   2) Then enable it in your configuration.nix file:
+
+ # configuration.nix
+
+ {inputs, pkgs, ...}: {
+     # ---Snip---
+
+     programs.auto-cpufreq.enable = true;
+
+     # optionally, you can configure your auto-cpufreq settings, if you have any
+     programs.auto-cpufreq.settings = {
+       charger = {
+         governor = "performance";
+         turbo = "auto";
+       };
+       battery = {
+         governor = "powersave";
+         turbo = "auto";
+       };
+     };
+     # ---Snip---
+ }
+
+   Since v2.0 auto-cpufreq also includes a GUI that lets you temporarily
+   override the CPU frequency governor setting.
+
+    Powertop
+
+   Powertop is a power analysis tool, but it also has a feature called
+   auto-tune which will enable power saving settings on your device. These
+   power saving settings should be almost the same as those enabled by tlp,
+   although powertop enables USB auto-suspend by default. This can make your
+   input devices such as the keyboard unresponsive for some time when it has
+   been suspended. To enable powertop: powerManagement.powertop.enable =
+   true;. This also enables the auto-tune feature of powertop.
+
+Hardware support
+
+  Hybrid graphics
+
+   Many laptops have both a dedicated and a discrete GPU. To use your laptop
+   effectively you have to manage both GPUs. For guidance on how to configure
+   the GPUs, refer to the dedicated wiki-pages for your configuration. If you
+   want to have the option to run your laptop with and without the discrete
+   GPU to save power, you can either disable it in the bios (if possible) or
+   you can use Nix's feature to define specialisations to give you two boot
+   entries on each rebuild of your system.
+
+   Example of a nvidia specialisation:
+
+ specialisation = {
+    nvidia.configuration = {
+      # Nvidia Configuration
+      services.xserver.videoDrivers = [ "nvidia" ];
+      hardware.opengl.enable = true;
+  
+      # Optionally, you may need to select the appropriate driver version for your specific GPU.
+      hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  
+      # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
+      hardware.nvidia.modesetting.enable = true;
+  
+      hardware.nvidia.prime = {
+        sync.enable = true;
+  
+        # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
+        nvidiaBusId = "PCI:1:0:0";
+  
+        # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
+        intelBusId = "PCI:0:2:0";
+      };
+   };
+ };
+
+Troubleshooting
+
+    Laptop runs hot when on power, but not on battery
+
+   If you use tlp and experience this issue a solution can be to tell tlp to
+   always run in battery mode.
+
+ services.tlp = {
+     enable = true;
+     settings = {
+       TLP_DEFAULT_MODE = "BAT";
+       TLP_PERSISTENT_DEFAULT = 1;
+     };
+  };
+
+See also
+
+     * Power Management
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Laptop&oldid=16588"
+   Categories:
+     * Hardware
+     * Cookbook
+     * This page was last edited on 11 August 2024, at 12:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

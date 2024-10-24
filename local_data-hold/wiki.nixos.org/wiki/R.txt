@@ -1,0 +1,284 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 RStudio
+     * 2 Jupyter Notebook
+     * 3 R with Lorri
+     * 4 R with Flakes and nix-direnv
+     * 5 Install an R-package from GitHub
+     * 6 A note on knitr
+     * 7 Other Editors
+     * 8 External Documentation
+     * 9 Officer package
+   [ ] Toggle the table of contents
+
+                                       R
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   R comes with a very large number of packages, many of which available
+   through nixpkgs. In particular, any package available through CRAN.
+
+   Similarly to Python, your packages must be declared when installing R.
+   Commands such as install.packages("ggplot2") will not work.
+
+   To install R with a collection of packages, a new nix package must be
+   defined, for instance
+
+ with pkgs;
+ let
+   R-with-my-packages = rWrapper.override{ packages = with rPackages; [ ggplot2 dplyr xts ]; };
+ in ...
+
+   and then you can put R-with-my-packages into your
+   environment.systemPackages for a system-wide installation, for instance.
+
+   If you with to use `nix-shell` to generate an on-the-fly environment with
+   some R packages, the command is similar:
+
+ nix-shell --packages 'rWrapper.override{packages = [ rPackages.ggplot2 ];}'
+
+RStudio
+
+   RStudio uses a standard set of packages and ignores any custom R
+   environments, like the one set up above. To install it you can use
+   rstudioWrapper just as we used rWrapper earlier.
+
+ RStudio-with-my-packages = rstudioWrapper.override{ packages = with rPackages; [ ggplot2 dplyr xts ]; };
+
+Jupyter Notebook
+
+   Use jupyterWith
+
+   This shell.nix file creates a jupyter environment with the IRKernel
+   available.
+
+ { pkgs ? import <nixpkgs> {} }:                                                
+ let                                                            
+   jupyter = import (pkgs.fetchFromGitHub {                                     
+     owner = "tweag";                                                           
+     repo = "jupyterWith";                        
+     # Replace this with current revision.                             
+     rev = "269999caa8d506e93ff56c8643cecb91ded2fdef";                          
+     sha256 = "08iig872ay8d711n2gbfzrf496m9x9a9xwr0xca9hn7j61c3xr43";           
+     fetchSubmodules = true;                                                    
+   }) {};                                                                       
+                                                                                
+   kernels = jupyter.kernels;                                                   
+                                                                                
+   irkernel = kernels.iRWith {               
+       name = "nixpkgs";                                                        
+       # Libraries to be available to the kernel.                               
+       packages = p: with p; [                                                  
+         ggplot2                                                         
+       ];                                          
+     };                                                                         
+                                                                                
+   jupyterEnvironment = (jupyter.jupyterlabWith {                               
+       kernels = [ irkernel ];                                                  
+     });                                                                        
+ in                                                                             
+   jupyterEnvironment.env
+
+R with Lorri
+
+   An example of a shell.nix for usage with lorri is shown below:
+
+ let
+   pkgs = import <nixpkgs> {};
+ in
+   pkgs.mkShell {
+     buildInputs = with pkgs; [
+       R
+       rPackages.rmarkdown
+       rPackages.knitr
+     ];
+   }
+
+R with Flakes and nix-direnv
+
+   R and accompanying R-packages can be installed using a Flake and then
+   managed/activated with nix-direnv to create a reproducible development
+   environment. After the initial setup of nix-direnv (instructions provided
+   on the GitHub README), there is a flake template provided by the
+   nix-direnv maintainers to get started. Run nix flake new -t
+   github:nix-community/nix-direnv . to initialize the flake template in your
+   current directory. This will create a `flake.nix` file that can be edited
+   to setup the R-environment:
+
+ {
+   description = "A basic flake with a shell";
+   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+   inputs.flake-utils.url = "github:numtide/flake-utils";
+
+   outputs = { self, nixpkgs, flake-utils }:
+     flake-utils.lib.eachDefaultSystem (system: let
+       pkgs = nixpkgs.legacyPackages.${system};
+     in {
+       devShells.default = pkgs.mkShell {
+         nativeBuildInputs = [ pkgs.bashInteractive ];
+         buildInputs = with pkgs; [ R rPackages.pagedown chromium pandoc ];
+        };
+     });
+ }
+
+   Saving the file and then running direnv allow in the terminal of the
+   project directory will execute the `flake.lock` and build the shell. This
+   will install the current version of R and the R-package {pagedown} that is
+   in <nixpkgs>. Note additional system dependencies may need installed for
+   certain packages to work such as pandoc for document conversion with
+   {rmarkdown}. Here, chromium is installed in the `buildInputs` so the
+   chrome_print function can be used from {pagedown}.
+
+   Emacs has support for direnv which can be setup to use R with ESS. Direnv
+   functionality can also be set in Doom Emacs under :tools in the `init.el`
+   file in `.doom.d` folder.
+
+Install an R-package from GitHub
+
+   The R-packages available in <nixpkgs> are generated from a recent snapshot
+   of CRAN. You may find certain packages a version behind or want to install
+   a package not on CRAN/Bioconducter. R-packages can be installed from
+   GitHub using `buildRPackage` and `fetchFromGitHub`. An example of
+   installing {rmarkdown} from GitHub using a Flake:
+
+ {
+   description = "A basic flake with a shell";
+   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+   inputs.flake-utils.url = "github:numtide/flake-utils";
+
+   outputs = { self, nixpkgs, flake-utils }:
+     flake-utils.lib.eachDefaultSystem (system: let
+       pkgs = nixpkgs.legacyPackages.${system};
+       rmark = pkgs.rPackages.buildRPackage {
+         name = "rmarkdown";
+         src = pkgs.fetchFromGitHub{
+           owner = "rstudio";
+           repo = "rmarkdown";
+           rev = "b87ca50c8c4d5a5876333b598aed4eb84de925a3";
+           sha256 = "12mhmmibizbxgmsns80c8h97rr7rclv9hz98zpgsl26hw3s4l0vm";
+         };
+    propagatedBuildInputs = with pkgs.rPackages; [bslib evaluate jsonlite knitr stringr tinytex yaml xfun];
+       };
+     in {
+       devShells.default = pkgs.mkShell {
+         nativeBuildInputs = [ pkgs.bashInteractive ];
+         buildInputs = with pkgs; [ R rmark pandoc ];
+       };
+     });
+ }
+
+   You will need to obtain the `rev` and `sha256` for the package on github
+   which can be found by using the `nix-prefetch-git` command line tool. For
+   the above example, running nix-prefetch-git
+   https://github.com/rstudio/rmarkdown from a terminal will generate the
+   information. You may need to manually specify other R-package/system
+   dependencies for the specific package in the `propagatedBuildInputs`. This
+   information can be found in the `DESCRIPTION` file of the R-package source
+   directory.
+
+A note on knitr
+
+   To knit a .Rmd file to a pdf (or .Rnw), you need to have included in your
+   envronment pkgs.texlive.combined.scheme-fullas well as pandoc or it will
+   fail to knit. None of the other texlive packages contain the proper
+   "frame" package. Note there are likely other workarounds but this requires
+   the least effort.
+
+Other Editors
+
+   with vim - nvim-r
+
+   with emacs - emacs speaks statistics
+
+External Documentation
+
+     * R user guide in nixpkgs manual
+
+Officer package
+
+   When the R package "officer" has been installed from the Nix package
+   manager, "save_as_docx" does not work:
+
+   Error in write_xml.xml_document(private$doc, file = private$filename) :
+   Error closing file Calls: save_as_docx ... print.rdocx -> <Anonymous> ->
+   write_xml -> write_xml.xml_document In addition: Warning messages: 1: In
+   write_xml.xml_document(private$doc, file = private$filename) : Permission
+   denie [1501] 2: In write_xml.xml_document(private$doc, file =
+   private$filename) : Permission denie [1501]
+
+   However officer does work if installed using the conventional
+   install.packages() which can be enabled as discussed in
+   https://churchman.nl/tag/r/
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=R&oldid=11174"
+   Category:
+     * Languages
+     * This page was last edited on 1 April 2024, at 13:42.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

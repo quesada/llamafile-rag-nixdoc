@@ -1,0 +1,136 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Distrobox: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    5 August 2024
+
+     * curprev [ ] [ ] 16:1316:13, 5 August 2024‎ Onny talk contribs‎ 1,528
+       bytes +231‎ →‎Using different architecture Tag: Visual edit
+     * curprev [ ] [ ] 16:0316:03, 5 August 2024‎ Onny talk contribs‎ 1,297
+       bytes 0‎ →‎Using different architecture Tag: Visual edit
+     * curprev [ ] [ ] 15:2415:24, 5 August 2024‎ Onny talk contribs‎ 1,297
+       bytes +367‎ Use with different architecture Tag: Visual edit
+     * curprev [ ] [ ] 13:0613:06, 5 August 2024‎ Onny talk contribs‎ 930
+       bytes +314‎ Add setup section Tag: Visual edit
+
+    7 July 2024
+
+     * curprev [ ] [ ] 10:3010:30, 7 July 2024‎ Tomkoid talk contribs‎ 616
+       bytes +128‎ Update info, add link to documentation
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:0721:07, 19 April 2024‎ Klinger talk contribs‎ m
+       488 bytes +1‎ typo
+     * curprev [ ] [ ] 21:0621:06, 19 April 2024‎ Klinger talk contribs‎ m
+       487 bytes +50‎ Category:Application Category:Container
+
+    29 December 2023
+
+     * curprev [ ] [ ] 22:3322:33, 29 December 2023‎ imported>Onny‎ 437 bytes
+       +437‎ Init page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Distrobox"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

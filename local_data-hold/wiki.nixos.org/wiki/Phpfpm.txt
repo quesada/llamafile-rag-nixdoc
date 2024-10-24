@@ -1,0 +1,158 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuration for nginx
+          * 1.1 Escaping special chars
+     * 2 PHP Extensions
+   [ ] Toggle the table of contents
+
+                                     Phpfpm
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   php-fpm is a fastcgi interface for php.
+
+Configuration for nginx
+
+   This configuration will set up phpfpm for serving php files from
+   ${dataDir}. Import this from your configuration.nix.
+
+ { pkgs, lib, config, ... }:
+ let
+   app = "phpdemo";
+   domain = "${app}.example.com";
+   dataDir = "/srv/http/${domain}";
+ in {
+   services.phpfpm.pools.${app} = {
+     user = app;
+     settings = {
+       "listen.owner" = config.services.nginx.user;
+       "pm" = "dynamic";
+       "pm.max_children" = 32;
+       "pm.max_requests" = 500;
+       "pm.start_servers" = 2;
+       "pm.min_spare_servers" = 2;
+       "pm.max_spare_servers" = 5;
+       "php_admin_value[error_log]" = "stderr";
+       "php_admin_flag[log_errors]" = true;
+       "catch_workers_output" = true;
+     };
+     phpEnv."PATH" = lib.makeBinPath [ pkgs.php ];
+   };
+   services.nginx = {
+     enable = true;
+     virtualHosts.${domain}.locations."/" = {
+       root = dataDir;
+       extraConfig = ''
+         fastcgi_split_path_info ^(.+\.php)(/.+)$;
+         fastcgi_pass unix:${config.services.phpfpm.pools.${app}.socket};
+         include ${pkgs.nginx}/conf/fastcgi.conf;
+       '';
+      };
+   };
+   users.users.${app} = {
+     isSystemUser = true;
+     createHome = true;
+     home = dataDir;
+     group  = app;
+   };
+   users.groups.${app} = {};
+ }
+
+  Escaping special chars
+
+   When using regular expressions in locations blocks, be ware of the need to
+   escape some special chars like \.
+
+   i.e. locations."~ ^(.+\.php)(.*)$" = { should be escaped to locations."~
+   ^(.+\\.php)(.*)$" = {
+
+   Otherwise file names like glyphpro.css will be matched and parsed by the
+   php interpreter. Which likely fails with an access error because of
+   php-fpms security.limit_extensions.
+
+   See also the nginx article.
+
+PHP Extensions
+
+   To use certain PHP extensions you will need to configure them in the
+   php.ini-configuration of phpfpm via services.phpfpm.phpOptions or
+   services.phpfpm.pools.${pool}.phpOptions:
+
+ {
+   services.phpfpm.phpOptions = ''
+     extension=${pkgs.phpExtensions.redis}/lib/php/extensions/redis.so
+     extension=${pkgs.phpExtensions.apcu}/lib/php/extensions/apcu.so
+   '';
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Phpfpm&oldid=11176"
+     * This page was last edited on 1 April 2024, at 13:45.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

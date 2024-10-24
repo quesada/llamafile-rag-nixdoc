@@ -1,0 +1,86 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Talk:Installing from Linux
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 10 October 2023 by Bphd
+
+   It turns out if your current distro won't allow CLONE_NEWNS, then you
+   can't use the chroot method to install nixos. --Kim Bruning (talk) 20:23,
+   13 April 2022 (UTC)Reply
+
+   I know this page is outdated, but even at the time it was created:
+   Shouldn't it be supposed to configure boot? Or is it supposed to be
+   explained in another page? It say to reboot and hopefully hop into Nix,
+   but the chroot part don't seem to configure boot at all. If I'm not
+   missing anything, it won't boot at all? --Bphd (talk) 12:17, 10 October
+   2023 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Installing_from_Linux&oldid=9700"
+     * This page was last edited on 10 October 2023, at 11:16.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

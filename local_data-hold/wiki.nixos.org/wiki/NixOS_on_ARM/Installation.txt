@@ -1,0 +1,152 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+          * 1.1 Getting the installer
+               * 1.1.1 UEFI iso
+               * 1.1.2 SD card images (SBCs and similar platforms)
+          * 1.2 Installation steps
+   [ ] Toggle the table of contents
+
+                           NixOS on ARM/Installation
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+    This article or section is out of date.                                   
+    Reason: This page needs a cleanup; it was migrated from an organically    
+    evolving article from about three wikis ago. The information may still be 
+    accurate though. (Discuss in Talk:NixOS on ARM/Installation)              
+    Once the page has been updated this notice can be removed.                
+
+Installation
+
+  Getting the installer
+
+    UEFI iso
+
+   Note: On Raspberry Pi devices, the NixOS ISO are not compatible due to
+   hardware limitations rather than issues with the NixOS installer itself.
+   As a result, it is recommended to use the SD card images files (.img)
+   instead for a successful installation experience.
+
+   Continue to the UEFI page.
+
+    SD card images (SBCs and similar platforms)
+
+   For AArch64 it is possible to download images from Hydra.
+
+     * 24.05
+     * unstable (LTS kernel)
+     * unstable (Latest kernel)
+
+   On the page click on the latest successful build to get a download link
+   under build products.
+
+  Installation steps
+
+   The .img files can be directly written to a microSD/SD card (minimal
+   recommended size: 4 GB) using dd, once uncompressed from the ZSTD
+   container. The SD card needs to be unmounted first.
+
+   Once the NixOS image file is downloaded, run the following command to
+   install the image onto the SD Card, replace /dev/mmcblk0 with the path to
+   the SD card (use dmesg to find it out) and image.img with the path to the
+   image.
+
+   sudo dd if=image.img of=/dev/mmcblk0
+
+   This should be enough to get you started, you may now boot your device for
+   the first time.
+
+   The base images are configured to boot up with a serial TTY ( RX/TX UART )
+   @ 115200 Baud. That way you not necessarily have to have a HDMI Display
+   and keyboard.
+
+   Note: If the image has the extension .zst, it will need to be decompressed
+   before writing to installation device. Use
+
+   nix-shell -p zstd --run "zstdcat image.img.zst | dd of=/dev/mmcblk0
+   status=progress"
+
+   to decompress the image on-the-fly.
+
+   Note: For some platforms, manually editing and adding kernel command-line
+   arguments to /boot/extlinux/extlinux.conf may be needed for serial to
+   work, and is "as" supported as would be editing the command-line manually
+   during boot.
+
+   Continue with NixOS_on_ARM/Initial_Configuration.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/Installation&oldid=16146"
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 1 August 2024, at 19:18.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

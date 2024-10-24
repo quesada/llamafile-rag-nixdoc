@@ -1,0 +1,116 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Keeping user services running after logout
+   [ ] Toggle the table of contents
+
+                             Systemd/User Services
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Translate this page
+   ← Back to systemd
+
+   Systemd supports running a separate instance of systemd for a given user,
+   allowing the user to control their own services. See here for more
+   information: https://wiki.archlinux.org/title/Systemd/User In NixOS, a
+   user service can be expressed with systemd.user.services.<name>, as
+   documented here:
+   https://search.nixos.org/options?query=systemd.user.services This may be
+   useful if you want a user to be able to start, stop, and restart their own
+   instance of a service without needing to make the user a sudoer. Here is
+   an example:
+
+ systemd.user.services.my-cool-user-service = {
+   enable = true;
+   after = [ "network.target" ];
+   wantedBy = [ "default.target" ];
+   description = "My Cool User Service";
+   serviceConfig = {
+       Type = "simple";
+       ExecStart = ''/my/cool/user/service'';
+   };
+ };
+
+   By default, user services will be stopped when the user logs out and will
+   start again when the user logs back in due to us setting wantedBy = [
+   "default.target" ] in the example.
+
+Keeping user services running after logout
+
+   If you need a user service to stay running after a user logs out, you need
+   to enable "lingering" by setting users.users.<username>.linger = true;
+   You'll also likely want to change to wantedBy = [ "multi-user.target" ];
+   so the service starts at boot time.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Systemd/User_Services/en&oldid=16484"
+   Category:
+     * Systemd
+     * This page was last edited on 8 August 2024, at 08:29.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

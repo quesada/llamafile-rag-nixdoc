@@ -1,0 +1,33 @@
+   Link: preload stylesheet
+   Link: modulepreload
+   Link: modulepreload
+   Link: modulepreload
+   Skip to content
+   NixOS 与 Flakes
+   SearchK
+   Main Navigation首页前言开始使用最佳实践
+
+   简体中文
+
+   English
+
+   简体中文
+
+   English
+
+   Appearance
+
+                                 NixOS 与 Flakes
+
+   一份非官方的新手指南
+
+   想要学习使用 NixOS 与 Flakes 吗？在寻找一份新手友好的教程？那你可来对地方了！
+
+   前言
+   开始学习
+   前往 GitHub 仓库
+   NixOS Flakes
+
+   Licensed under CC BY-SA 4.0
+
+   Copyright © 2023-present Ryan Yin

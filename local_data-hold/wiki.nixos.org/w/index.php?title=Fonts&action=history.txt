@@ -1,0 +1,332 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Fonts: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    10 August 2024
+
+     * curprev [ ] [ ] 06:2706:27, 10 August 2024‎ Merrkry talk contribs‎ m
+       12,660 bytes +1‎ typo Tag: Visual edit
+     * curprev [ ] [ ] 06:2106:21, 10 August 2024‎ Merrkry talk contribs‎
+       12,659 bytes +167‎ Add read permission to
+       /run/current-system/sw/share/X11/fonts:ro to grant access to the link
+       chain with some misc typo fixes. Tag: Visual edit
+
+    28 June 2024
+
+     * curprev [ ] [ ] 04:1304:13, 28 June 2024‎ Frontear talk contribs‎ m
+       12,492 bytes +171‎ improved guidance on where to determine font names
+       for nerdfonts Tag: Visual edit
+
+    13 May 2024
+
+     * curprev [ ] [ ] 09:2109:21, 13 May 2024‎ Artoria2e5 talk contribs‎
+       12,321 bytes +142‎ Make the lead graf look somewhat complete. On
+       mobile, all sections are folded by default and only the lede is
+       visible, so it gotta have something. Tag: Visual edit
+     * curprev [ ] [ ] 09:1809:18, 13 May 2024‎ Artoria2e5 talk contribs‎
+       12,179 bytes +21‎ →‎Use custom font substitutions: it's nicer, true,
+       but it's also more similar/correct.
+     * curprev [ ] [ ] 09:1509:15, 13 May 2024‎ Artoria2e5 talk contribs‎
+       12,158 bytes +827‎ Document the two fonts. shorthands Tag: Visual
+       edit: Switched
+     * curprev [ ] [ ] 09:0909:09, 13 May 2024‎ Artoria2e5 talk contribs‎
+       11,331 bytes +11‎ →‎Set multiple fonts for different languages:
+       rephrase?
+     * curprev [ ] [ ] 09:0809:08, 13 May 2024‎ Artoria2e5 talk contribs‎
+       11,320 bytes +327‎ Split section: →‎configuring fonts
+     * curprev [ ] [ ] 09:0409:04, 13 May 2024‎ Artoria2e5 talk contribs‎
+       10,993 bytes +990‎ →‎Installing fonts on NixOS: Migrate my diffs from
+       https://nixos.wiki/index.php?title=Fonts&action=history. The edit
+       summaries were: "Use a manpage website that actually updates. die.net
+       should, well, die."; "I'm starting to think the Persian example is
+       untested! Ubuntu should absolutely not be a monospace font. Or a serif
+       font, for that matter."; "add: link to archwiki metric-compat list;
+       explanation of why you don't want sans-serif and serif to mix; how
+       defaultFonts works under the hood"
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:0521:05, 24 April 2024‎ Klinger talk contribs‎ m
+       10,003 bytes +21‎ No edit summary
+     * curprev [ ] [ ] 10:4510:45, 24 April 2024‎ Peiyuanix talk contribs‎
+       9,982 bytes +758‎ Flatpak font probem Tag: Visual edit
+     * curprev [ ] [ ] 09:2609:26, 24 April 2024‎ Peiyuanix talk contribs‎
+       9,224 bytes +940‎ Fix solutions for tufo fonts problem in flatpak
+       applications Tag: Visual edit
+
+    23 April 2024
+
+     * curprev [ ] [ ] 15:1515:15, 23 April 2024‎ Mic92 talk contribs‎ 8,284
+       bytes +503‎ import from old wiki
+
+    29 December 2023
+
+     * curprev [ ] [ ] 23:4123:41, 29 December 2023‎ imported>Kernald‎ m
+       7,781 bytes +3‎ Use new name of `fonts.enableDefaultPackages`
+
+    4 November 2023
+
+     * curprev [ ] [ ] 14:1114:11, 4 November 2023‎ imported>Vieta‎ 7,778
+       bytes +308‎ the last revision does not work properly
+
+    3 October 2023
+
+     * curprev [ ] [ ] 15:5615:56, 3 October 2023‎ imported>Hypnosis2839‎ m
+       7,470 bytes +79‎ →‎Installing fonts on NixOS: fix link
+     * curprev [ ] [ ] 15:5415:54, 3 October 2023‎ imported>Hypnosis2839‎
+       7,391 bytes +113‎ replace fonts.fonts with fonts.packages
+
+    24 September 2023
+
+     * curprev [ ] [ ] 01:0601:06, 24 September 2023‎ imported>L0b0‎ 7,278
+       bytes −3‎ Fix option name
+
+    19 September 2023
+
+     * curprev [ ] [ ] 10:4510:45, 19 September 2023‎ imported>Vieta‎ m 7,281
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 10:3510:35, 19 September 2023‎ imported>Vieta‎ m 7,279
+       bytes −3‎ No edit summary
+     * curprev [ ] [ ] 10:3410:34, 19 September 2023‎ imported>Vieta‎ m 7,282
+       bytes +674‎ fonts.fonts --> fonts.packages ; bindfs for font support
+
+    13 September 2023
+
+     * curprev [ ] [ ] 18:0518:05, 13 September 2023‎ imported>ThatLeaflet‎
+       6,608 bytes +135‎ Adds warning about granting filesystem access to
+       flatpak apps. Some apps, such as Steam, will refuse to launch if given
+       too much filesystem access.
+
+    7 May 2023
+
+     * curprev [ ] [ ] 12:3012:30, 7 May 2023‎ imported>Atkrad‎ m 6,473 bytes
+       −38‎ The "Vazir Code" project has discontinued.
+       https://github.com/rastikerdar/vazir-code-font
+     * curprev [ ] [ ] 12:0512:05, 7 May 2023‎ imported>Atkrad‎ m 6,511 bytes
+       +15‎ The Vazir font name changed to Vazirmatn.
+
+    27 September 2022
+
+     * curprev [ ] [ ] 17:2717:27, 27 September 2022‎ imported>ErnstderLage‎
+       m 6,496 bytes +14‎ update pkg
+
+    15 September 2022
+
+     * curprev [ ] [ ] 13:1913:19, 15 September 2022‎ imported>Phrogg‎ m
+       6,482 bytes +9‎ No edit summary
+     * curprev [ ] [ ] 13:1713:17, 15 September 2022‎ imported>Phrogg‎ 6,473
+       bytes +587‎ Added instructions on how to not expose the whole drive to
+       flatpaks for using cursors and fonts
+
+    20 May 2022
+
+     * curprev [ ] [ ] 10:0210:02, 20 May 2022‎ imported>Minion3665‎ m 5,886
+       bytes −15‎ This snippet uses `with pkgs;`, so the extra `pkgs`
+       qualifiers are redundant
+
+    7 May 2022
+
+     * curprev [ ] [ ] 00:4400:44, 7 May 2022‎ imported>R-k-b‎ 5,901 bytes
+       +112‎ share/X11-fonts doesn't exist, and share/X11/fonts only exists
+       when the option is enabled
+
+    6 May 2022
+
+     * curprev [ ] [ ] 19:3719:37, 6 May 2022‎ imported>Arashsm79‎ m 5,789
+       bytes +1‎ Fix a typo.
+     * curprev [ ] [ ] 15:2715:27, 6 May 2022‎ imported>Arashsm79‎ 5,788
+       bytes +599‎ Add a workaround to Flatpak applications not finding
+       system fonts. Related issue:
+       https://github.com/NixOS/nixpkgs/issues/119433
+
+    19 April 2022
+
+     * curprev [ ] [ ] 18:0618:06, 19 April 2022‎ imported>Zaechus‎ m 5,189
+       bytes −32‎ penultimate is deprecated
+
+    2 July 2021
+
+     * curprev [ ] [ ] 16:3816:38, 2 July 2021‎ imported>DearRude‎ m 5,221
+       bytes +38‎ Add vazir code to RTL (Persian) parts since it has been
+       added to nixpkgs
+
+    20 March 2021
+
+     * curprev [ ] [ ] 22:5822:58, 20 March 2021‎ imported>HanEmile‎ m 5,183
+       bytes 0‎ fixed a minor type (conrains → contains)
+
+    18 February 2021
+
+     * curprev [ ] [ ] 09:0309:03, 18 February 2021‎ imported>Ngiger‎ 5,183
+       bytes +210‎ pkgs/font name may differ
+
+    2 January 2021
+
+     * curprev [ ] [ ] 08:3108:31, 2 January 2021‎ imported>R-k-b‎ 4,973
+       bytes +1,221‎ add an example to fix bad font substition
+
+    19 November 2020
+
+     * curprev [ ] [ ] 05:1805:18, 19 November 2020‎ imported>Artturin‎ 3,752
+       bytes +28‎ No edit summary
+
+    13 November 2020
+
+     * curprev [ ] [ ] 17:0817:08, 13 November 2020‎ imported>Artturin‎ 3,724
+       bytes −36‎ Consistency and the override doesn't need to be multiline
+       and it looks better
+     * curprev [ ] [ ] 16:5216:52, 13 November 2020‎ imported>Feliix42‎ 3,760
+       bytes −633‎ Adapt instructions for 20.09, overriding the nerdfont
+       selection does not require an overlay anymore
+
+    26 September 2020
+
+     * curprev [ ] [ ] 19:0919:09, 26 September 2020‎ imported>Verhovsky‎
+       4,393 bytes +363‎ No edit summary
+     * curprev [ ] [ ] 18:5518:55, 26 September 2020‎ imported>Verhovsky‎
+       4,030 bytes +11‎ No edit summary
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:3221:32, 24 September 2020‎ imported>Garbas‎ m
+       4,019 bytes −5‎ No edit summary
+     * curprev [ ] [ ] 20:4520:45, 24 September 2020‎ imported>Garbas‎ m
+       4,024 bytes +3‎ No edit summary
+
+    18 August 2020
+
+     * curprev [ ] [ ] 11:4411:44, 18 August 2020‎ imported>Moleksiak‎ m
+       4,021 bytes +2‎ Added parentheses so that override is properly
+       recognized as one element of the list
+
+    17 August 2020
+
+     * curprev [ ] [ ] 17:3717:37, 17 August 2020‎ imported>Extends‎ 4,019
+       bytes +389‎ Integrated the option to use to download only certain
+       fonts from nerdfonts repository on unstable.
+     * curprev [ ] [ ] 17:2617:26, 17 August 2020‎ imported>Extends‎ m 3,630
+       bytes +2‎ No edit summary
+
+    15 August 2020
+
+     * curprev [ ] [ ] 09:0609:06, 15 August 2020‎ imported>Extends‎ m 3,628
+       bytes −13‎ correcting useless things
+     * curprev [ ] [ ] 08:5808:58, 15 August 2020‎ imported>Extends‎ 3,641
+       bytes +812‎ Added an overlay for download specific nerd fonts.
+
+    26 June 2020
+
+     * curprev [ ] [ ] 08:5408:54, 26 June 2020‎ imported>Siers‎ m 2,829
+       bytes +5‎ Tiny grammar updates
+
+    24 March 2020
+
+     * curprev [ ] [ ] 16:0416:04, 24 March 2020‎ imported>Aaron C Hall‎
+       2,824 bytes +66‎ link to what is meant by fonts.fonts.
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Fonts"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

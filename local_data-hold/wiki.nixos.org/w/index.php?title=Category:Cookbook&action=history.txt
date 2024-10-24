@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      Category:Cookbook: Revision history
+
+   Help
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    18 April 2024
+
+     * curprev [ ] [ ] 21:0121:01, 18 April 2024‎ Klinger talk contribs‎
+       1,586 bytes −128‎ typo fixed. 2 sentences removed because they are
+       misleading (many of Arch Wiki articles are cookbooks but there are
+       also many other article types there) and a sentence with broken link
+       removed. Tag: Visual edit: Switched
+     * curprev [ ] [ ] 20:4920:49, 18 April 2024‎ Klinger talk contribs‎
+       1,714 bytes +4‎ make the first sentence in the five resource
+       categories the same. Tag: Visual edit
+     * curprev [ ] [ ] 20:4920:49, 18 April 2024‎ Klinger talk contribs‎
+       1,710 bytes +85‎ make the first sentence in the five resource
+       categories the same. Tag: Visual edit
+
+    20 September 2021
+
+     * curprev [ ] [ ] 09:2109:21, 20 September 2021‎ imported>Nix‎ 1,625
+       bytes +951‎ add comparison to other main resource types
+     * curprev [ ] [ ] 09:0909:09, 20 September 2021‎ imported>Nix‎ 674 bytes
+       +23‎ make Cookbook a subcategory of "Resource"
+
+    25 November 2017
+
+     * curprev [ ] [ ] 14:3714:37, 25 November 2017‎ imported>Makefu‎ 651
+       bytes +1‎ No edit summary
+     * curprev [ ] [ ] 11:4411:44, 25 November 2017‎ imported>Makefu‎ 650
+       bytes +494‎ No edit summary
+
+    23 August 2017
+
+     * curprev [ ] [ ] 17:0617:06, 23 August 2017‎ imported>Makefu‎ 156 bytes
+       +156‎ Created page with "Cookbooks are collections of recipes. They
+       are arranged by theme / tool into separate articles. External
+       Cookbooks can be found at Bookmarks#Cookbooks."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Category:Cookbook"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

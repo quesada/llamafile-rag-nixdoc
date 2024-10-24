@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Information for "Flatpak"
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Flatpak      
+   Default sort key                 Flatpak      
+   Page length (in bytes)           4,252        
+   Namespace ID                     0            
+   Page ID                          952          
+   Page content language            en - English 
+   Page content model               wikitext     
+   Indexing by robots               Allowed      
+   Number of redirects to this page 0            
+   Counted as a content page        Yes          
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>Phrogg          
+   Date of page creation                        11:18, 15 September 2022 
+   Latest editor                                Mic92 (talk | contribs)  
+   Date of latest edit                          07:18, 4 September 2024  
+   Total number of edits                        23                       
+   Total number of distinct authors             12                       
+   Recent number of edits (within past 90 days) 2                        
+   Recent number of distinct authors            2                        
+
+Page properties
+
+                            Template used on this page:       
+   Transcluded template (1)                                   
+                              * Template:File (view source)   
+
+   Retrieved from "https://wiki.nixos.org/wiki/Flatpak"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

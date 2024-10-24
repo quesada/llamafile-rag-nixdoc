@@ -1,0 +1,89 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                     BOINC
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 11:19, 17 May 2024 by Klinger (talk | contribs) (links to
+   BOINC and documentation of boinc-manager)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   BOINC lets you contribute computing power on your home PC to projects
+   doing research in many scientific areas. You can contribute to a single
+   project, or to any combination of them. To install and enable BOINC on
+   NixOS, add this to your configuration.nix:
+
+ services.boinc.enable = true;
+ services.boinc.extraEnvPackages = [ pkgs.libglvnd pkgs.brotli ]; #Rosetta Beta 6.05 needs libGL.so.1 and libbrotlidec.so.1
+
+   Then to open the BOINC Manager, you can run the command boincmgr.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=BOINC&oldid=12879"
+   Category:
+     * Applications
+     * This page was last edited on 17 May 2024, at 11:19.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

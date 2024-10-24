@@ -1,0 +1,397 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Category:Applications
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+
+Subcategories
+
+   This category has the following 11 subcategories, out of 11 total.
+
+  A
+
+     * ActivityPub
+     * Audio
+
+  B
+
+     * Backup
+
+  F
+
+     * File Manager
+
+  I
+
+     * IDE
+
+  M
+
+     * Media Player
+
+  N
+
+     * Note taking
+
+  T
+
+     * Terminal
+     * Text Editor
+
+  V
+
+     * Version control
+
+  W
+
+     * Web Browser
+
+Pages in category "Applications"
+
+   The following 200 pages are in this category, out of 211 total.
+
+   (previous page) (next page)
+
+  1
+
+     * 1Password
+
+  3
+
+     * 3proxy
+
+  A
+
+     * Adguard Home
+     * Agenix
+     * Ambermoon
+     * Anki
+     * Augustus
+     * Awesome
+
+  B
+
+     * Battle.net
+     * Bazel
+     * BitlBee
+     * BOINC
+     * Borg backup
+     * Btrbk
+     * Budgie Desktop
+     * Buildkite
+
+  C
+
+     * Caddy
+     * Calibre
+     * Certbot
+     * Chromium
+     * Chrony
+     * Consul
+     * Continuous Integration (CI)
+     * Coq
+     * Craft CMS
+
+  D
+
+     * DaVinci Resolve
+     * Dict
+     * Discord
+     * Distrobox
+     * Dnscontrol
+     * Doas
+     * Doas/en
+     * Doas/ru
+     * Dolibarr ERP & CRM
+     * Dolphin
+     * Dolphin Emulator
+     * Droidcam
+     * Dropbox
+     * Dwm
+
+  E
+
+     * Emacs
+     * Explaining the current Steam Package build
+
+  F
+
+     * Fail2ban
+     * Fcitx5
+     * Feh
+     * Firefox
+     * Firefox/en
+     * Firefox/ru
+     * Firejail
+     * Firewall
+     * Flameshot
+     * Frida
+     * Fsharp
+     * Fzf
+
+  G
+
+     * Games
+     * Gammastep
+     * Git
+     * Gitlab runner
+     * Gitolite
+     * Gn
+     * GNOME
+     * GNOME/Calendar
+     * GNS3
+     * GNU GRUB
+     * GNU Radio
+     * Go
+     * Godot
+     * Gpu-screen-recorder
+
+  H
+
+     * Haskell
+     * Helix
+     * Helm and Helmfile
+     * Home Assistant
+     * Hyprland
+
+  I
+
+     * I3
+     * Immersed
+     * IPFS
+     * IRC
+     * Iwd
+
+  J
+
+     * JACK
+     * Java
+     * JAX
+     * Jellyfin
+     * Jenkins
+     * Jetbrains Tools
+     * Julia
+
+  K
+
+     * Kakoune
+     * Katago
+     * KDE
+     * KDE Connect
+     * Kitty
+     * Kodi
+     * Konqueror
+     * Konqueror/en
+     * Konqueror/fr
+     * Konqueror/ru
+     * Kubernetes
+     * Kubespray
+
+  L
+
+     * LibreOffice
+     * Librewolf
+     * Libvirt
+     * LIRC
+     * LLVM
+     * Logseq
+     * Lutris
+
+  M
+
+     * Mastodon
+     * Matlab
+     * Matrix
+     * Mattermost
+     * Minecraft
+     * Minetest Server
+     * Mosh
+     * Mosquitto
+     * MPD
+     * MPV
+     * Msmtp
+     * MTP
+     * Mtr
+     * Mullvad VPN
+     * MultiMC
+     * Mumble
+     * MusicBrainz Picard
+
+  N
+
+     * Nagios
+     * Nautilus
+     * Neovim
+     * Neovim/en
+     * Neovim/ru
+     * NetBox
+     * Network Simulator - ns-3
+     * Nextcloud
+     * Nginx
+     * NixOS configuration editors
+     * Nvim-r
+
+  O
+
+     * Obsidian
+     * OBS Studio
+     * Octodns
+     * Ollama
+     * OneDrive
+     * ONLYOFFICE
+     * OpenSnitch
+     * OpenVPN
+
+  P
+
+     * Packettracer
+     * Pantheon
+     * PCManFM
+     * Pidgin
+     * PlayStation 2
+     * Plex
+     * Plotinus
+     * PostgreSQL
+
+  Q
+
+     * Qtile
+     * QuakeJS
+     * Quassel
+     * Qutebrowser
+
+  R
+
+     * Radarr
+     * Ranger
+     * Rclone
+     * Redmine
+     * Redshift
+     * Remote Desktop
+     * Restic
+     * RetroArch
+     * Rsync
+
+  S
+
+     * Samba
+     * SCION
+     * Signald
+     * Sigrok
+     * Slack
+     * Slock
+     * Smartmontools
+     * SoftMaker Office
+     * Sonarr
+     * Spotify
+     * St
+     * Star Citizen
+     * Steam
+     * Subversion
+     * Sunshine
+     * Sway
+     * Syncthing
+     * Systemd/logind
+     * Systemd/logind/en
+     * Systemd/logind/ru
+
+  T
+
+     * Tangram
+     * Taskwarrior
+     * Teamspeak
+     * Telegram
+     * TexLive
+     * Thunar
+     * Thunderbird
+     * Tor
+     * Transmission
+     * Tup
+
+  U
+
+     * Unbound
+
+  V
+
+     * Viber
+     * Vim
+     * Vim/de
+     * Vim/en
+     * Vim/ja
+     * Vim/ru
+     * Visual Studio Code
+     * Vivaldi
+     * VSCodium
+   (previous page) (next page)
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Applications&oldid=8380"
+   Category:
+     * Software
+     * This page was last edited on 18 November 2020, at 22:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

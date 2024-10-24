@@ -1,0 +1,150 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                         Build flags: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    24 April 2024
+
+     * curprev [ ] [ ] 20:2520:25, 24 April 2024‎ Klinger talk contribs‎ m
+       2,806 bytes +43‎ Category:Development Category:nix
+
+    12 December 2023
+
+     * curprev [ ] [ ] 07:4007:40, 12 December 2023‎ imported>Kquote03‎ 2,763
+       bytes +1‎ updated to hostPlatform
+
+    12 July 2023
+
+     * curprev [ ] [ ] 19:5119:51, 12 July 2023‎ imported>Eopb‎ m 2,762 bytes
+       0‎ Fix path to configuration file
+
+    11 September 2021
+
+     * curprev [ ] [ ] 13:1113:11, 11 September 2021‎ imported>Srid‎ 2,762
+       bytes +88‎ What are 'flags'?
+
+    29 August 2021
+
+     * curprev [ ] [ ] 11:4411:44, 29 August 2021‎ imported>Symphorien‎ 2,674
+       bytes +666‎ mention stdenv.hostPlatform.*support
+
+    3 June 2021
+
+     * curprev [ ] [ ] 08:2308:23, 3 June 2021‎ imported>Appetrosyan‎ 2,008
+       bytes +19‎ Moved to templates and fixed rendering.
+     * curprev [ ] [ ] 08:1308:13, 3 June 2021‎ imported>Appetrosyan‎ 1,989
+       bytes −62‎ Rewrote to use the file template
+
+    23 May 2021
+
+     * curprev [ ] [ ] 20:2320:23, 23 May 2021‎ imported>Lassulus‎ 2,051
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 20:2220:22, 23 May 2021‎ imported>Symphorien‎ 2,051
+       bytes +2,051‎ Created page with "=== Building a package for a specific
+       CPU === By default, packages built for, say, x86_64 do not take
+       advantage of the feature of more recent cpus so that the executables
+       you..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Build_flags"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

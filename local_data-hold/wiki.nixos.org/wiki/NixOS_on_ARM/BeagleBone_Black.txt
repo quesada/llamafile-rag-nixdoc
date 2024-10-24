@@ -1,0 +1,134 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Serial console
+     * 4 Notes about the boot process
+   [ ] Toggle the table of contents
+
+                         NixOS on ARM/BeagleBone Black
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+    This article or section is out of date.                                   
+    Reason: Section refers to old user-provided images. Should be reviewed    
+    with cross-compilation, or native compilation through userspace           
+    emulation. (Discuss in Talk:NixOS on ARM/BeagleBone Black)                
+    Once the page has been updated this notice can be removed.                
+
+   BeagleBone Black
+   Architecture ARMv7 
+
+Status
+
+   @dezgeg's porting efforts to ARMv7 should work.
+
+Board-specific installation notes
+
+   First follow the generic installation steps to get the installer image.
+
+   U-Boot and its SPL (called the MLO) need to be copied to specific sectors
+   on the microSD card with dd. Download U-Boot & MLO for the board
+   (uboot-am335x_boneblack_defconfig-2017.03_u-boot.img,
+   uboot-am335x_boneblack_defconfig-2017.03_MLO), and copy them to the
+   correct location with (again, replace /dev/sdX with the correct path to
+   the SD card device):
+
+ sudo dd if=uboot-am335x_boneblack_defconfig-2017.03_MLO        of=/dev/sdX count=1 seek=1 bs=128k
+ sudo dd if=uboot-am335x_boneblack_defconfig-2017.03_u-boot.img of=/dev/sdX count=2 seek=1 bs=384k
+
+   In case there is a valid boot loader on the eMMC of the board and the
+   NixOS U-Boot isn't getting launched, try holding the button labeled 'S2'
+   when resetting the board. Also the boot ROM might have a size limitation
+   on the microSD cards used for booting; the author wasn't able to get a 64
+   GB SDXC card working but a 8 GB SDHC card worked.
+
+   Then, install using the installation and configuration steps.
+
+Serial console
+
+     This article or section needs expansion.                                 
+     Reason: The exact console parameter is needed. (Discuss in Talk:NixOS on 
+     ARM/BeagleBone Black#)                                                   
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+Notes about the boot process
+
+   Only serial console (via the 6-pin FTDI pin header) is supported.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/BeagleBone_Black&oldid=12027"
+   Hidden categories:
+     * Pages or sections flagged with Template:outdated
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 9 April 2024, at 03:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

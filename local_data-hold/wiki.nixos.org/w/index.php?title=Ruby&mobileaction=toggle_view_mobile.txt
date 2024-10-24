@@ -1,0 +1,135 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Troubleshooting
+          * 1.1 Trouble with native dependencies
+     * 2 See also
+   [ ] Toggle the table of contents
+
+                                      Ruby
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:Ruby#)                   
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+Troubleshooting
+
+  Trouble with native dependencies
+
+   Few gems will force include paths for their native dependencies in the
+   extconf.rb describing their native dependencies.
+
+   This issue will exhibit symptoms like being unable to find dependencies
+   that are made available through nix when building; either through bundix
+   or simple bundler calls.
+
+   A simple fix is to fork the gem into an alternative location, apply the
+   fix that follows, and then reference the new git repository with fix for
+   the gem.
+
+   The fix will probably look like this (for ruby-filemagic):
+
+ diff --git a/ext/filemagic/extconf.rb b/ext/filemagic/extconf.rb
+ index 316e0ab979d243d03a967fda962a43b59a1bbdec..062e91d1023a3363962531fc8a54e7f0feb3bc26 100644
+ --- a/ext/filemagic/extconf.rb
+ +++ b/ext/filemagic/extconf.rb
+ @@ -1,15 +1,11 @@
+  require 'mkmf'
+ 
+ +# gcc should be able to handle this properly.
+  HEADER_DIRS = [
+ -  '/opt/local/include', # MacPorts
+ -  '/usr/local/include', # compiled from source and Homebrew
+ -  '/usr/include',       # system
+  ]
+ 
+ +# gcc should be able to handle this properly.
+  LIB_DIRS = [
+ -  '/opt/local/lib', # MacPorts
+ -  '/usr/local/lib', # compiled from source and Homebrew
+ -  '/usr/lib',       # system
+  ]
+ 
+  $CFLAGS << ' -Wall' if ENV['WALL']
+
+See also
+
+     * manveru/bundix Generates a Nix expression for your Bundler-managed
+       application
+     * Chapter 9.14 Ruby of the nixpkgs manual
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Ruby&oldid=17502"
+   Categories:
+     * Development
+     * Languages
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 15 September 2024, at 15:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

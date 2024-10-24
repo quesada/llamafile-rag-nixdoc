@@ -1,0 +1,196 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Usage
+     * 2 Configuration
+   [ ] Toggle the table of contents
+
+                                     Disko
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Other languages:
+     * English
+     * русский
+
+   Disko is a utility and NixOS module for declarative disk partitioning.
+
+   Disko Documentation Index
+
+Usage
+
+   The following example creates a new GPT partition table for the disk
+   /dev/vda including two partitions for EFI boot and a bcachefs root
+   filesystem.
+
+ disko-config.nix
+
+ {
+   disko.devices = {
+     disk = {
+       main = {
+         device = "/dev/vda";
+         type = "disk";
+         content = {
+           type = "gpt";
+           partitions = {
+             ESP = {
+               end = "500M";
+               type = "EF00";
+               content = {
+                 type = "filesystem";
+                 format = "vfat";
+                 mountpoint = "/boot";
+               };
+             };
+             root = {
+               name = "root";
+               end = "-0";
+               content = {
+                 type = "filesystem";
+                 format = "bcachefs";
+                 mountpoint = "/";
+               };
+             };
+           };
+         };
+       };
+     };
+   };
+ }
+
+   The following command will apply the disk layout specified in the
+   configuration and mount them afterwards. Warning: This will erase all data
+   on the disk.
+
+   Warning: The disko commands will erase all existing data on your disk and
+   repartition it according to the given configuration.
+
+ # sudo nix run github:nix-community/disko -- --mode disko ./disko-config.nix
+
+   Alternativley use a disk layout configuration of a remote repository
+   containing a flake.nix file as an entry point.
+
+ # sudo nix run github:nix-community/disko -- --mode disko --flake github:Lassulus/flakes-testing#fnord
+
+   The commands above requires Flake features available on your system.
+
+   To verify both partitions got mounted correctly, run
+
+ # mount | grep /mnt
+
+Configuration
+
+   In case the NixOS base system was installed on a partition layout
+   bootstrapped with Disko, the disk config itself can be integrated into the
+   system. First copy the file, for example disko-config.nix into your system
+   configuration directory
+
+ # cp disko-config.nix /etc/nixos/
+
+   Add the Disko module on a flake-enabled system. Insert the required input
+   and reference it and your disko-config.nix in the modules section. For
+   alternative installation methods consult the Disko quickstart guide.
+
+ /etc/nixos/flake.nix
+
+ {
+   inputs = {
+     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+     disko.url = "github:nix-community/disko";
+     disko.inputs.nixpkgs.follows = "nixpkgs";
+   };
+
+   outputs = {self, nixpkgs, disko, ...}@inputs: {
+
+     nixosConfigurations.mysystem = inputs.nixpkgs.lib.nixosSystem {
+       system = "x86_64-linux";
+       specialArgs.inputs = inputs;
+       modules = [
+         disko.nixosModules.disko
+         ./disko-config.nix
+         {
+           disko.devices.main.device = nixpkgs.lib.mkForce "/dev/vda";
+         }
+         ./configuration.nix
+       ];
+     };
+   };
+ }
+
+   Ensure that there are no automatically generated entries of fileSystems
+   options in /etc/nixos/hardware-configuration.nix. Disko will automatically
+   generate them for you. Rebuild your system to apply the Disko
+   configuration.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Disko&oldid=16454"
+   Category:
+     * Filesystem
+     * This page was last edited on 7 August 2024, at 10:15.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

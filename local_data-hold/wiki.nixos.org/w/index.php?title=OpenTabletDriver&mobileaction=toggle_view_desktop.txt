@@ -1,0 +1,112 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installing OpenTabletDriver
+     * 2 Troubleshooting
+   [ ] Toggle the table of contents
+
+                                OpenTabletDriver
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   OpenTabletDriver is an open source, cross-platform, low latency, user-mode
+   tablet driver.
+
+                          Installing OpenTabletDriver
+
+   Install OpenTabletDriver, it's daemon and GUI by:
+
+ /etc/nixos/configuration.nix
+
+ { config, lib, pkgs, ... }:
+ {
+   ...
+   # Enable OpenTabletDriver
+   hardware.opentabletdriver.enable = true;
+   ...
+ }
+
+                                Troubleshooting
+
+   Check out the official OpenTabletDriver Wiki
+
+   Warning: Do not run otd-daemon as root
+
+   But in case you do, run:
+
+ sudo rm /tmp/CoreFxPipe_OpenTabletDriver.Daemon
+
+   to stop the daemon from crashing when ran as user again.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=OpenTabletDriver&oldid=13819"
+   Category:
+     * Hardware
+     * This page was last edited on 9 July 2024, at 06:50.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

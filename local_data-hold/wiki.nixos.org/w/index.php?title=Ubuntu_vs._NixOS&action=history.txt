@@ -1,0 +1,143 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Ubuntu vs. NixOS: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 April 2024
+
+     * curprev [ ] [ ] 18:1218:12, 6 April 2024‎ Sdht0 talk contribs‎ 14,078
+       bytes −104‎ Remove duplicate header
+
+    1 April 2024
+
+     * curprev [ ] [ ] 14:1114:11, 1 April 2024‎ Mic92 talk contribs‎ 14,182
+       bytes −20‎ fix links
+     * curprev [ ] [ ] 14:1014:10, 1 April 2024‎ Mic92 talk contribs‎ 14,202
+       bytes −15‎ fix links Tag: Visual edit: Switched
+
+    5 October 2023
+
+     * curprev [ ] [ ] 15:4815:48, 5 October 2023‎ imported>Skylark‎ m 14,217
+       bytes +3‎ →‎Ubuntu vs. NixOS: Where are packages installed? - missing
+       "in"
+
+    4 December 2022
+
+     * curprev [ ] [ ] 13:0613:06, 4 December 2022‎ imported>Ncfavier‎ 14,214
+       bytes +16‎ update nix search command
+
+    7 July 2022
+
+     * curprev [ ] [ ] 22:3722:37, 7 July 2022‎ imported>Fricklerhandwerk‎ m
+       14,198 bytes +24‎ add to cookbook category
+     * curprev [ ] [ ] 22:3422:34, 7 July 2022‎ imported>Fricklerhandwerk‎ m
+       14,174 bytes 0‎ Fricklerhandwerk moved page Ubungu vs. NixOS to Ubuntu
+       vs. NixOS: late at night typo
+     * curprev [ ] [ ] 22:3322:33, 7 July 2022‎ imported>Fricklerhandwerk‎
+       14,174 bytes −265‎ remove redundant blurb
+     * curprev [ ] [ ] 22:3222:32, 7 July 2022‎ imported>Fricklerhandwerk‎
+       14,439 bytes +14,439‎ break out comparison table from Cheatsheet
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Ubuntu_vs._NixOS"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

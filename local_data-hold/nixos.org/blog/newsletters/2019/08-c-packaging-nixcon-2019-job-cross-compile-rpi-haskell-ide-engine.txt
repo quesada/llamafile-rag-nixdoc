@@ -1,0 +1,83 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+  #08 - C++ packaging, NixCon 2019, job, cross-compile RPI, Haskell IDE Engine
+
+   Published on Wed May 01 2019
+
+  #08 - C++ packaging, NixCon 2019, job, cross-compile RPI, Haskell IDE Engine
+
+                                      News
+
+     * Setting up a C++ project environment with Nix
+
+       Jacek explans step by step how to package a simple C++ project and how
+       to build against a matrix of different dependencies.
+
+     * Anduril Industries is Hiring Nix Engineers
+
+       Please see this post or email travis@anduril.com for more information.
+
+     * Software Heritage and GNU Guix join forces to enable long term
+       reproducibility
+
+     * NixCon Brno 2019 is looking for sponsorship
+
+       NixCon is happening again, if your company is using Nix in production,
+       consider sponsoring our community event.
+
+     * cross-compile NixOS images to Raspberry Pi Zero or Beaglebone
+
+     * Haskell IDE Engine builds for all GHC versions
+
+       If you’ve ever been frustrated with mismatched GHC versions when using
+       HIE, this project solves this by providing Nix builds for all of them,
+       with caches for Linux.
+
+     * Hercules CI sprint #1 development update
+
+       Development update includes features and bug fixes shipped in last two
+       weeks and shares plans what the focus is in next two weeks.
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

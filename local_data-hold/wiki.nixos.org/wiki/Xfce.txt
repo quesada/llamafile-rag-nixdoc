@@ -1,0 +1,306 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Enabling
+          * 1.1 Using as a desktop manager and not a window manager
+               * 1.1.1 With xmonad as the window manager
+                    * 1.1.1.1 Without xfce desktop
+                    * 1.1.1.2 With xfce desktop
+                    * 1.1.1.3 Java-based GUI applications
+                    * 1.1.1.4 Additional resources
+     * 2 Troubleshooting
+          * 2.1 Pulseaudio
+   [ ] Toggle the table of contents
+
+                                      Xfce
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Xfce is a lightweight desktop environment based on GTK+. It includes a
+   window manager, a file manager, desktop and panel.
+
+   This article is an extension of the documentation in the NixOS manual.
+
+Enabling
+
+   To use xfce set services.xserver.desktopManager.xfce.enable to true. For
+   example:
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, callPackage, ... }: {
+   ...
+   # if you use pulseaudio
+   nixpkgs.config.pulseaudio = true;
+
+   services.xserver = {
+     enable = true;
+     desktopManager = {
+       xterm.enable = false;
+       xfce.enable = true;
+     };
+     displayManager.defaultSession = "xfce";
+   };
+   ...
+ }
+
+    Tip                                                                       
+    In order to affect your system by your nix-language-specific changes you  
+    have to evaluate it, run (as root):                                       
+                                                                              
+    # nixos-rebuild switch                                                    
+
+  Using as a desktop manager and not a window manager
+
+   You can use xfce purely as a desktop manager, leaving window management to
+   another window manager like i3 for example. In this scenario, xfce's role
+   is to answer to media keys, prompt when plugging a new monitor and so on.
+
+   Example config:
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, callPackage, ... }: {
+   ...
+   services.xserver = {
+     enable = true;  
+     desktopManager = {
+       xterm.enable = false;
+       xfce = {
+         enable = true;
+         noDesktop = true;
+         enableXfwm = false;
+       };
+     };
+     displayManager.defaultSession = "xfce";
+     windowManager.i3.enable = true;
+   };
+   ...
+ }
+
+    Tip                                                                       
+    In order to affect your system by your nix-language-specific changes you  
+    have to evaluate it, run (as root):                                       
+                                                                              
+    # nixos-rebuild switch                                                    
+
+   On first login, make sure to choose the session xfce+i3 in your display
+   manager. If you choose xfce you will end up in xfce without panels nor
+   window manager, which is unusable.
+
+   Note that xfce manages your session instead of i3: exiting i3 will blank
+   your screen but not terminate your session. In your i3 config, replace
+   i3-msg exit with xfce4-session-logout.
+
+    With xmonad as the window manager
+
+   One of the possibilities is to use xmonad as a window manager in a Xfce
+   desktop environment.
+
+      Without xfce desktop
+
+   The previously described configuration is extended with the part that
+   configures xmonad:
+
+ /etc/nixos/configuration.nix
+
+ { config, pkgs, callPackage, ... }: {
+   ...
+   services.xserver = {
+     enable = true;  
+     desktopManager = {
+       xterm.enable = false;
+       xfce = {
+         enable = true;
+         noDesktop = true;
+         enableXfwm = false;
+       };
+     };
+     windowManager = {
+       xmonad = {
+         enable = true;
+         enableContribAndExtras = true;
+         extraPackages = haskellPackages : [
+           haskellPackages.xmonad-contrib
+           haskellPackages.xmonad-extras
+           haskellPackages.xmonad
+         ];
+       };
+     };
+     displayManager.defaultSession = "xfce+xmonad";
+   };
+   ...
+ }
+
+   Xmonad's contrib package comes with a config to integrate seamlessly into
+   Xfce, like connecting workspaces to xfce's top panel's preview of
+   workspaces. To enable this config, put the following into the user's
+   xmonad config file:
+
+ ~/.xmonad/xmonad.hs
+
+   import XMonad
+   import XMonad.Config.Xfce
+   main = xmonad xfceConfig
+          { terminal = "xfce4-terminal"
+          , modMask = mod4Mask -- optional: use Win key instead of Alt as MODi key
+          }
+
+   Since Xfce uses Alt for a lot of keybindings, using the Win key for xmonad
+   hotkeys may be preferred.
+
+    Tip                                                                       
+    In order to affect your system by your nix-language-specific changes you  
+    have to evaluate it, run (as root):                                       
+                                                                              
+    # nixos-rebuild switch                                                    
+
+   After choosing the xfce+xmonad session in your display manager, you will
+   be taken to a clean screen, where you can open a terminal with
+   MOD+Shift+Enter or launch an application with MOD(+SHIFT)+p.
+
+      With xfce desktop
+
+   If you instead prefer to have panels (like the top panel) in addition to
+   the main clean display area managed by xmonad, you can remove the
+   xfce.noDesktop = true; option from the configuration.
+
+    Tip                                                                       
+    In order to affect your system by your nix-language-specific changes you  
+    have to evaluate it, run (as root):                                       
+                                                                              
+    # nixos-rebuild switch                                                    
+
+   After switching to your new configuration, reboot and clean your sessions
+   with rm -rf ~/.cache/sessions/* before logging in to a graphical session.
+
+   After logging in you will be greeted by xfce's desktop which interferes
+   with xmonad. To solve this issue you have to remove the xfdesktop process
+   from being started in the session. Open the session manager in the
+   application launcher with MOD(+SHIFT)+p and then typing in "Session and
+   Startup". Go to tab "Session" and set the restart style of xfdesktop to
+   "Never". Kill the process with "Quit program", then "Save session." After
+   this, xfce4 and xmonad will work together nicely.
+
+      Java-based GUI applications
+
+   Java-based applications may not work properly with xmonad. The
+   applications main window may stay blank or gray on startup. This is a
+   known issue with some versions of Java, where xmonad is not recognized as
+   a "non-reparenting" window manager. There are multiple solutions to this
+   problem as described on xmonad's FAQ page.
+
+   One alternative is to fake xmonad's window manager name, after running the
+   EMWH initialization. This particular approach works well when running
+   xmonad alongside the xfce-based desktop (described above).
+
+ ~/.xmonad/xmonad.hs
+
+     import XMonad
+     import XMonad.Config.Xfce
+     import XMonad.Hooks.EwmhDesktops
+     import XMonad.Hooks.SetWMName
+
+     main = xmonad xfceConfig
+             { terminal = "xfce4-terminal"
+             , modMask = mod4Mask -- Use Win as MOD key
+             , startupHook = ewmhDesktopsStartup &gt;&gt; setWMName "LG3D" -- for some reason the double greater sign is escaped here due to wiki formatting, replace this with proper greater signs!
+             }
+
+      Additional resources
+
+   Note that, unlike suggested in additional resources, the xmonad packages
+   should not be installed in the environment (neither as systemPackages nor
+   user packages), since that leads to errors when (re)compiling xmonad's
+   config file.
+
+   Additional resources:
+
+   Haskell Wiki: Installing xmonad on NixOS
+
+   Haskell Wiki: Using xmonad in Xfce
+
+   Haskell Wiki: Xmonad default key bindings
+
+   Haskell Wiki FAQ: Problems with Java applications
+
+Troubleshooting
+
+  Pulseaudio
+
+   If you use pulse audio, set nixpkgs.config.pulseaudio = true as shown
+   above. Otherwise, you may experience glitches like being able to mute the
+   sound card but not unmute it.
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Xfce&oldid=12874"
+   Categories:
+     * Desktop environment
+     * NixOS Manual
+     * This page was last edited on 16 May 2024, at 19:38.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

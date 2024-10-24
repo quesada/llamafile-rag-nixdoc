@@ -1,0 +1,185 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Keycloak: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    22 July 2024
+
+     * curprev [ ] [ ] 13:2413:24, 22 July 2024‎ Onny talk contribs‎ 5,305
+       bytes +2‎ →‎Importing realms Tag: Visual edit
+     * curprev [ ] [ ] 13:2313:23, 22 July 2024‎ Onny talk contribs‎ 5,303
+       bytes +38‎ →‎Importing realms Tag: Visual edit
+
+    20 July 2024
+
+     * curprev [ ] [ ] 21:0221:02, 20 July 2024‎ Onny talk contribs‎ 5,265
+       bytes +843‎ Importing realms Tag: Visual edit
+
+    26 June 2024
+
+     * curprev [ ] [ ] 14:1514:15, 26 June 2024‎ Onny talk contribs‎ 4,422
+       bytes +48‎ Fix for running http only Tag: Visual edit
+
+    23 June 2024
+
+     * curprev [ ] [ ] 18:5318:53, 23 June 2024‎ Onny talk contribs‎ 4,374
+       bytes +187‎ →‎Setup: Add login instructions Tag: Visual edit
+     * curprev [ ] [ ] 18:4718:47, 23 June 2024‎ Onny talk contribs‎ 4,187
+       bytes −852‎ →‎Troubleshooting
+     * curprev [ ] [ ] 18:4618:46, 23 June 2024‎ Onny talk contribs‎ 5,039
+       bytes +359‎ Add simple setup instruction Tag: Visual edit
+     * curprev [ ] [ ] 18:1818:18, 23 June 2024‎ Onny talk contribs‎ 4,680
+       bytes −152‎ Cleanup and restructuring page Tag: Visual edit
+
+    16 May 2024
+
+     * curprev [ ] [ ] 19:0119:01, 16 May 2024‎ Klinger talk contribs‎ m
+       4,832 bytes +24‎ added category nixos manual
+     * curprev [ ] [ ] 18:5918:59, 16 May 2024‎ Klinger talk contribs‎ m
+       4,808 bytes +17‎ changed categories to Category: Server Category:
+       Security
+
+    29 March 2024
+
+     * curprev [ ] [ ] 09:1709:17, 29 March 2024‎ imported>Edelagnier‎ 4,791
+       bytes +2,047‎ add guide to create a theme
+
+    18 August 2022
+
+     * curprev [ ] [ ] 14:3014:30, 18 August 2022‎ imported>Nix‎ m 2,744
+       bytes +4‎ Fix category
+
+    9 August 2022
+
+     * curprev [ ] [ ] 21:0221:02, 9 August 2022‎ imported>Fufexan‎ m 2,740
+       bytes +24‎ Add page to Software category
+
+    21 June 2022
+
+     * curprev [ ] [ ] 13:2613:26, 21 June 2022‎ imported>Riotbib‎ 2,716
+       bytes +1,284‎ No edit summary
+
+    18 October 2021
+
+     * curprev [ ] [ ] 15:2515:25, 18 October 2021‎ imported>Nix‎ m 1,432
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 15:2315:23, 18 October 2021‎ imported>Nix‎ 1,430 bytes
+       −10,693‎ cleanup
+
+    16 October 2021
+
+     * curprev [ ] [ ] 15:4515:45, 16 October 2021‎ imported>Vater‎ 12,123
+       bytes +348‎ No edit summary
+     * curprev [ ] [ ] 15:2315:23, 16 October 2021‎ imported>Vater‎ m 11,775
+       bytes +32‎ No edit summary
+     * curprev [ ] [ ] 15:2215:22, 16 October 2021‎ imported>Vater‎ m 11,743
+       bytes −92‎ No edit summary
+     * curprev [ ] [ ] 12:3412:34, 16 October 2021‎ imported>Vater‎ 11,835
+       bytes +11,835‎ Created page with "'''[https://keycloak.org/
+       Keycloak]''' (wikipedia:en:Keycloak) is a software for
+       IdMcategory:IdM. Keycloak is part of the
+       manual.category:manual<ref>https://n..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Keycloak"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

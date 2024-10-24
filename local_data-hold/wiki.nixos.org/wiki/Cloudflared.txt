@@ -1,0 +1,132 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Example
+   [ ] Toggle the table of contents
+
+                                  Cloudflared
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Cloudflared is a command line client for a network tunnel from the
+   cloudflare network to a server.
+
+   Introduced in https://github.com/NixOS/nixpkgs/pull/171875
+
+Example
+
+   To get credentialsFile (e.g. tunnel-ID.json) do:
+
+ cloudflared tunnel login <the-token-you-see-in-dashboard>
+ cloudflared tunnel create ConvenientTunnelName
+
+ {
+   services.cloudflared = {
+     enable = true;
+     tunnels = {
+       "00000000-0000-0000-0000-000000000000" = {
+         credentialsFile = "${config.sops.secrets.cloudflared-creds.path}";
+         default = "http_status:404";
+       };
+     };
+   };
+ }
+
+   Then you can use dashboard to add your public hosts (will need to convert
+   the new tunnel to dashboard-managed).
+
+   Alternatively, save the cert.pem to cloudflared user's
+   %home%/.cloudflared/cert.pem, and instead of using dashboard specify
+   ingress rules in your configuration.nix like this:
+
+ {
+   services.cloudflared = {
+     enable = true;
+     tunnels = {
+       "00000000-0000-0000-0000-000000000000" = {
+         credentialsFile = "${config.sops.secrets.cloudflared-creds.path}";
+         ingress = {
+           "*.domain1.com" = {
+             service = "http://localhost:80";
+             path = "/*.(jpg|png|css|js)";
+           };
+           "*.domain2.com" = "http://localhost:80";
+         };
+         default = "http_status:404";
+       };
+     };
+   };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Cloudflared&oldid=17669"
+   Category:
+     * Networking
+     * This page was last edited on 27 September 2024, at 18:56.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

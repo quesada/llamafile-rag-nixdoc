@@ -1,0 +1,266 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Setting fish as your shell
+          * 2.1 Running fish interactively with zsh as system shell on darwin
+     * 3 Configuration
+          * 3.1 System wide
+          * 3.2 Home Manager
+     * 4 Useful scripts
+          * 4.1 Show that you are in a nix-shell
+          * 4.2 Environments
+               * 4.2.1 haskellEnv
+               * 4.2.2 pythonEnv
+     * 5 See also
+   [ ] Toggle the table of contents
+
+                                      fish
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   fish, the Friendly Interactive Shell, is a command shell designed around
+   user-friendliness.
+
+Installation
+
+   A basic user-specific installation with Home Manager may look like this:
+
+ home-manager.users.myuser = {
+   programs.fish.enable = true;
+ };
+
+   Change myuser to the username of the user you want to configure.
+
+   You can enable the fish shell and manage fish configuration and plugins
+   with Home Manager, but to enable vendor fish completions provided by
+   Nixpkgs you will also want to enable the fish shell in
+   /etc/nixos/configuration.nix:
+
+   programs.fish.enable = true;
+
+Setting fish as your shell
+
+   Warning! As noted in the fish documentation, using fish as your *login*
+   shell (referenced in /etc/passwd) may cause issues because fish is not
+   POSIX compliant. In particular, this author found systemd's emergency mode
+   to be completely broken when fish was set as the login shell.
+
+   This issue is discussed extensively on the Gentoo and Arch wikis. There
+   they present an alternative, keeping bash as the system shell but having
+   it exec fish when run interactively.
+
+   Here is one solution, which launches fish unless the parent process is
+   already fish:
+
+ programs.bash = {
+   interactiveShellInit = ''
+     if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+     then
+       shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+       exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+     fi
+   '';
+ };
+
+   If you still want to set fish as the login shell, see Command
+   Shell#Changing default shell.
+
+  Running fish interactively with zsh as system shell on darwin
+
+   Zsh users on darwin will need to use a modified version of the above
+   snippet. As written, it presents two incompatibilities. First, being
+   BSD-derived, MacOS's ps command accepts different options. Second, this is
+   a script intended for bash, not zsh. MacOS uses zsh as its default shell.
+
+ programs.zsh = {
+   initExtra = ''
+     if [[ $(ps -o command= -p "$PPID" | awk '{print $1}') != 'fish' ]]
+     then
+         exec fish -l
+     fi
+   ''
+ };
+
+Configuration
+
+  System wide
+
+   To enable fish plugins, add your preferred plugins to
+   `environment.systemPackages`:
+
+ environment.systemPackages = with pkgs; [
+   fishPlugins.done
+   fishPlugins.fzf-fish
+   fishPlugins.forgit
+   fishPlugins.hydro
+   fzf
+   fishPlugins.grc
+   grc
+ ];
+
+ programs.fish.enable = true;
+
+  Home Manager
+
+   An example configuration in Home Manager for adding plugins and changing
+   options could look like this:
+
+ home-manager.users.myuser = {
+   programs.fish = {
+     enable = true;
+     interactiveShellInit = ''
+       set fish_greeting # Disable greeting
+     '';
+     plugins = [
+       # Enable a plugin (here grc for colorized command output) from nixpkgs
+       { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+       # Manually packaging and enable a plugin
+       {
+         name = "z";
+         src = pkgs.fetchFromGitHub {
+           owner = "jethrokuan";
+           repo = "z";
+           rev = "e0e1b9dfdba362f8ab1ae8c1afc7ccf62b89f7eb";
+           sha256 = "0dbnir6jbwjpjalz14snzd3cgdysgcs3raznsijd6savad3qhijc";
+         };
+       }
+     ];
+   };
+ };
+
+   Full list of home-manager options for fish can be found See also here.
+
+   See fishPlugins package set for available plugins in nixpkgs.
+
+Useful scripts
+
+  Show that you are in a nix-shell
+
+   Add this to the fish_prompt function (usually placed in
+   ~/.config/fish/functions/fish_prompt.fish):
+
+ set -l nix_shell_info (
+   if test -n "$IN_NIX_SHELL"
+     echo -n "<nix-shell> "
+   end
+ )
+
+   and $nix_shell_info to the echo in that function, e.g.:
+
+ echo -n -s "$nix_shell_info ~>"
+
+   Now your prompt looks like this:
+
+     * outside: ~>
+     * inside: <nix-shell> ~>
+
+   You can directly start nix-shell in fish with nix-shell --run fish.
+
+  Environments
+
+   Here are some examples of helper functions that put you in a nix-shell
+   with the given packages installed.
+
+   You can either put these in programs.fish.functions with home-manager or
+   in ~/.config/fish/functions/fish_prompt.fish without.
+
+    haskellEnv
+
+ function haskellEnv
+   nix-shell -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ $argv ])"
+ end
+
+ # Invocation: haskellEnv package1 packages2 .. packageN
+
+    pythonEnv
+
+ function pythonEnv --description 'start a nix-shell with the given python packages' --argument pythonVersion
+   if set -q argv[2]
+     set argv $argv[2..-1]
+   end
+ 
+   for el in $argv
+     set ppkgs $ppkgs "python"$pythonVersion"Packages.$el"
+   end
+ 
+   nix-shell -p $ppkgs
+ end
+
+ # Invocation: pythonEnv 3 package1 package2 .. packageN
+ # or:         pythonEnv 2 ..
+
+See also
+
+     * Command Shell
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Fish&oldid=13719"
+   Category:
+     * Shell
+     * This page was last edited on 4 July 2024, at 18:17.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

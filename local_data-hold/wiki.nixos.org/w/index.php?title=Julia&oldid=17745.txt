@@ -1,0 +1,106 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation And Versions
+     * 2 Packages
+   [ ] Toggle the table of contents
+
+                                     Julia
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 14:22, 8 October 2024 by Mic92 (talk | contribs) (imported
+   from old wiki)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Julia is a programming language, that aims to create an unprecedented
+   combination of ease-of-use, power, and efficiency in a single language.
+
+Installation And Versions
+
+   You can install the newest version of Julia either with julia-bin (the
+   derivation which downloads the binary) or julia (the derivation which
+   builds Julia from the source). From the end-user perspective, -bin
+   packages should be indistinguishable from source-built ones.
+
+Packages
+
+   Some Julia packages expect binaries to be installed on your system. Until
+   a better solution is found, you can run Julia inside Distrobox.
+
+   Most notably, Julia Plots does not work. You can use Gadfly instead.
+
+   Another solution is to enable nix-ld, see also here.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Julia&oldid=17745"
+   Categories:
+     * Applications
+     * Languages
+     * This page was last edited on 8 October 2024, at 14:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

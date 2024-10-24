@@ -1,0 +1,103 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                             Cleaning the nix store
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Sometimes your store fills up the disk, but a simple
+
+ nix-store --gc
+
+   does not seem to clean all that much.
+
+   This usually means that you have some old collection roots that keep old
+   versions of nixpkgs around.
+
+   Sometimes result files created by an ad-hoc nix-build bind a lot of
+   resources, these can be found by running:
+
+ nix-store --gc --print-roots | egrep -v "^(/nix/var|/run/\w+-system|\{memory|/proc)"
+
+   Additional Resources about cleaning up the nix-store:
+
+     * https://matthewrhone.dev/nixos-package-guide#cleanup-old-packages-user-wide
+     * Storage optimization
+     * https://old.reddit.com/r/NixOS/comments/8m1n3d/taking_out_the_trash/
+
+   There are multiple tools that can help with discovering gcroots and
+   calculate the disk size:
+
+     * https://github.com/symphorien/nix-du
+     * https://github.com/utdemir/nix-tree
+     * https://github.com/cdepillabout/nix-query-tree-viewer
+     * https://github.com/craigmbooth/nix-visualize
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Cleaning_the_nix_store&oldid=17733"
+   Category:
+     * Nix
+     * This page was last edited on 7 October 2024, at 07:22.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

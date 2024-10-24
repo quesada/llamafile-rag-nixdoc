@@ -1,0 +1,47 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                    Stdenv updates branch merged into master
+
+   Published on Fri Feb 21 2014
+
+                    Stdenv updates branch merged into master
+
+   The stdenv-updates branch has been merged into the master branch of
+   Nixpkgs. The main change are that brings is that Nixpkgs/NixOS are now
+   based on GCC 4.8 and Glibc 2.18, in addition to many smaller updates.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,148 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                    Cleaning the nix store: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 October 2024
+
+     * curprev [ ] [ ] 07:2207:22, 7 October 2024‎ Jalil talk contribs‎ m
+       1,058 bytes 0‎ Remove unnecessary leading white space from command
+       Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:1421:14, 24 April 2024‎ Klinger talk contribs‎ m
+       1,058 bytes +18‎ Category:nix
+
+    1 April 2024
+
+     * curprev [ ] [ ] 13:1313:13, 1 April 2024‎ Mic92 talk contribs‎ 1,040
+       bytes −20‎ No edit summary
+
+    28 September 2023
+
+     * curprev [ ] [ ] 07:2907:29, 28 September 2023‎ imported>IgorM‎ m 1,060
+       bytes +10‎ Fixed syntax highlighting
+
+    23 September 2021
+
+     * curprev [ ] [ ] 17:3517:35, 23 September 2021‎ imported>Nix‎ m 1,050
+       bytes +11‎ syntax
+     * curprev [ ] [ ] 17:2717:27, 23 September 2021‎ imported>Nix‎ m 1,039
+       bytes +7‎ some cleanup
+
+    15 February 2021
+
+     * curprev [ ] [ ] 09:5109:51, 15 February 2021‎ imported>Makefu‎ 1,032
+       bytes +533‎ add more references and a command to find result files
+
+    27 August 2020
+
+     * curprev [ ] [ ] 14:4914:49, 27 August 2020‎ imported>Mic92‎ 499 bytes
+       +33‎ No edit summary
+     * curprev [ ] [ ] 14:2014:20, 27 August 2020‎ imported>Profpatsch‎ 466
+       bytes +466‎ add a list of tools to clean the store
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Cleaning_the_nix_store"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

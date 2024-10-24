@@ -1,0 +1,175 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Writing Pedias
+     * 2 Comparison to other resource page types
+   [ ] Toggle the table of contents
+
+                                Category:Pedias
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   Help
+   From NixOS Wiki
+   Revision as of 20:05, 2 September 2024 by Klinger (talk | contribs)
+   (→‎Writing Pedias: Changed link to MoS)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Pedia is one of the five primary resource categories for the wiki.
+
+   Pedias (abbreviation of "encyclopedia") are understanding-oriented
+   articles aimed at explaining a particular topic. They are encyclopedic,
+   intended to provide an overview of the subject at hand and various
+   perspectives of it. A pedia article might be read casually for leisure,
+   rather than being used as reference while coding.
+
+  Writing Pedias
+
+   Besides the general style considerations, pedia articles should value:
+
+   Overview
+           Pedias are meant to provide a clear overview of their subject
+           matter, and be accordingly organized into easily navigable
+           sections.
+
+   Diversity
+           Pedias should cover multiple workflows, approaches and
+           perspectives to the topic.
+
+   Focus
+           Pedias should maintain focus on the subject at hand, linking to
+           other resources such as dedicated articles when a section starts
+           running too long.
+
+   While in general, pedia articles can take a wide variety of forms, the
+   following canonical form is designed for articles covering a software
+   package, application or libraries, and will often be applicable in the
+   NixOS Wiki:
+
+    1. Introduction: a general overview.
+    2. Usage: a practical overview of different approaches to installing,
+       configuring and operating the software, linking to more comprehensive
+       guides.
+    3. Internals: a theoretical overview of the internal architecture of the
+       software, including critical files and directories, processes and
+       objects.
+    4. Development: a project overview for potential contributors, including
+       an overview of the source-code directory structure, development
+       process, issue tracking and the developer community.
+    5. History: a historical overview of the software, including an overview
+       of the origins and past development of the software, and the broader
+       historical context, such as precedents and antecedents.
+
+  Comparison to other resource page types
+
+     * If information is less encyclopedic and more similar to a compendium,
+       study guide, or a bibliographic guide, a page would be considered a
+       guide.
+     * If information is more about direct instruction to achieve a specific
+       task, a page would be considered a tutorial.
+     * If a page is more just a set of tips and tricks (less instructive than
+       a tutorial), it would be a cookbook.
+     * If a page is a detailed reference (like a man page or full software
+       manual), it would fit under references.
+
+Pages in category "Pedias"
+
+   The following 19 pages are in this category, out of 19 total.
+
+  H
+
+     * NixOS Wiki:History
+     * Hydra
+     * Hydra/de
+     * Hydra/en
+     * Hydra/ru
+
+  N
+
+     * Nix Community
+     * Nix ecosystem
+     * Nix ecosystem/en
+     * Nix ecosystem/fr
+     * Nix ecosystem/ja
+     * Nix ecosystem/ru
+     * Nix ecosystem/zh-cn
+     * NixOps
+     * Nix package manager
+     * Nixpkgs
+     * Nix vs. Linux Standard Base
+
+  O
+
+     * OfBorg
+     * Overview of the Nix Language
+     * Overview of the NixOS Linux distribution
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category:Pedias&oldid=17075"
+   Category:
+     * Resource
+     * This page was last edited on 2 September 2024, at 20:05.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

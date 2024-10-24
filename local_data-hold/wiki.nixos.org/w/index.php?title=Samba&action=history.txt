@@ -1,0 +1,346 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Samba: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    8 October 2024
+
+     * curprev [ ] [ ] 14:3914:39, 8 October 2024‎ Mic92 talk contribs‎
+       15,012 bytes −1‎ fix security option
+
+    20 September 2024
+
+     * curprev [ ] [ ] 21:0421:04, 20 September 2024‎ Brookst talk contribs‎
+       15,013 bytes +90‎ Migrate config as per
+       https://github.com/NixOS/nixpkgs/pull/302681 Tag: Visual edit:
+       Switched
+
+    16 August 2024
+
+     * curprev [ ] [ ] 10:0410:04, 16 August 2024‎ Mic92 talk contribs‎
+       14,923 bytes +25‎ imported from old wiki
+
+    8 August 2024
+
+     * curprev [ ] [ ] 16:2416:24, 8 August 2024‎ IFreilicht talk contribs‎
+       14,898 bytes +72‎ Fix some oversights in time machine config after
+       properly testing Tag: Visual edit
+     * curprev [ ] [ ] 15:0015:00, 8 August 2024‎ IFreilicht talk contribs‎
+       14,826 bytes +873‎ Updated section on Time Machine Tag: Visual edit
+
+    3 August 2024
+
+     * curprev [ ] [ ] 20:1520:15, 3 August 2024‎ Crazyminecuber talk
+       contribs‎ m 13,953 bytes +365‎ Added config for avahi which I needed
+       to enable in order to discover drives on windows. Tag: Visual edit:
+       Switched
+
+    22 June 2024
+
+     * curprev [ ] [ ] 16:5016:50, 22 June 2024‎ Backpackvacuum talk
+       contribs‎ m 13,588 bytes +22‎ fixed incorrect line that did not work
+       because it was missing the toString function so that uid and gid could
+       be inserted into the samba options. Also was just missing 'uid=' for
+       the uid option. Tag: Visual edit
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:5020:50, 19 April 2024‎ Klinger talk contribs‎ m
+       13,566 bytes +24‎ Category:Server Category:Applications
+
+    24 February 2024
+
+     * curprev [ ] [ ] 19:2519:25, 24 February 2024‎ imported>Onny‎ 13,542
+       bytes +7‎ Restructuring page and cleanup
+     * curprev [ ] [ ] 19:1919:19, 24 February 2024‎ imported>Onny‎ m 13,535
+       bytes +1‎ No edit summary
+     * curprev [ ] [ ] 19:1919:19, 24 February 2024‎ imported>Onny‎ 13,534
+       bytes −311‎ Restructuring page and cleanup
+
+    26 January 2024
+
+     * curprev [ ] [ ] 08:3008:30, 26 January 2024‎ imported>Onsamyj‎ 13,845
+       bytes +183‎ Clarification for mount as user
+
+    16 January 2024
+
+     * curprev [ ] [ ] 19:3319:33, 16 January 2024‎ imported>Solomon‎ m
+       13,662 bytes −3‎ "windows 10" -> Windows in samba-wsdd comment
+
+    8 January 2024
+
+     * curprev [ ] [ ] 21:5721:57, 8 January 2024‎ imported>Solomon‎ m 13,665
+       bytes −80‎ use services.samba-wsdd.openFirewall
+
+    21 November 2023
+
+     * curprev [ ] [ ] 09:2109:21, 21 November 2023‎ imported>Quentinsf‎
+       13,745 bytes +39‎ Update samba systemd service names
+
+    28 July 2023
+
+     * curprev [ ] [ ] 17:2717:27, 28 July 2023‎ imported>Nodupe‎ m 13,706
+       bytes +72‎ Corrected the search link - now the page loads, but it has
+       hardcoded the unstable release.
+
+    20 April 2023
+
+     * curprev [ ] [ ] 13:3013:30, 20 April 2023‎ imported>Mentallyinspired‎
+       m 13,634 bytes +35‎ Moved comment for readability
+     * curprev [ ] [ ] 13:2813:28, 20 April 2023‎ imported>Mentallyinspired‎
+       m 13,599 bytes +248‎ added overrideAttrs to fix bug with missing path
+       for dnspython, tdb, ldb and talloc
+
+    18 March 2023
+
+     * curprev [ ] [ ] 23:2923:29, 18 March 2023‎ imported>Jfly‎ 13,351 bytes
+       +7‎ No edit summary
+
+    1 November 2022
+
+     * curprev [ ] [ ] 10:3010:30, 1 November 2022‎ imported>Onny‎ 13,344
+       bytes +61‎ Add note on opening firewall for SMB sharing
+
+    5 September 2022
+
+     * curprev [ ] [ ] 05:4905:49, 5 September 2022‎ imported>Delroth‎ 13,283
+       bytes +126‎ No edit summary
+
+    15 June 2022
+
+     * curprev [ ] [ ] 14:0114:01, 15 June 2022‎ imported>Fleaz‎ m 13,157
+       bytes +1‎ add missing trailing dot to allow subnet definition
+
+    11 April 2022
+
+     * curprev [ ] [ ] 16:0216:02, 11 April 2022‎ imported>Milahu‎ 13,156
+       bytes +114‎ open firewall ports for wsdd
+     * curprev [ ] [ ] 15:1315:13, 11 April 2022‎ imported>Milahu‎ 13,042
+       bytes +1,828‎ add ipv4 localhost to hosts allow, add some
+       troubleshooting commands
+
+    26 March 2022
+
+     * curprev [ ] [ ] 20:4420:44, 26 March 2022‎ imported>Ozkutuk‎ 11,214
+       bytes +674‎ Add section regarding mounting CIFS share as user
+
+    22 February 2022
+
+     * curprev [ ] [ ] 16:1016:10, 22 February 2022‎ imported>Santry‎ 10,540
+       bytes +22‎ Clarify language around user authentication for samba
+       server
+
+    17 February 2022
+
+     * curprev [ ] [ ] 18:3318:33, 17 February 2022‎ imported>Shad‎ m 10,518
+       bytes 0‎ Change quote to double quote for string
+
+    28 December 2021
+
+     * curprev [ ] [ ] 23:0323:03, 28 December 2021‎ imported>Pgronkievitz‎ m
+       10,518 bytes −66‎ use `services.samba.openFirewall` instead of
+       manually opening ports
+
+    17 October 2021
+
+     * curprev [ ] [ ] 18:1318:13, 17 October 2021‎ imported>Maximeborges‎
+       10,584 bytes +724‎ Fix AD DC instructions
+
+    13 October 2021
+
+     * curprev [ ] [ ] 12:2712:27, 13 October 2021‎ imported>Maximeborges‎
+       9,860 bytes +2,167‎ Add Samba4 AC DC configuration steps
+
+    20 August 2021
+
+     * curprev [ ] [ ] 19:1619:16, 20 August 2021‎ imported>2x‎ m 7,693 bytes
+       −1‎ →‎Stale file handle: fix typorino ("ino" as in inode, not "info")
+
+    11 May 2021
+
+     * curprev [ ] [ ] 20:4020:40, 11 May 2021‎ imported>Voidless‎ 7,694
+       bytes +405‎ No edit summary
+
+    18 April 2021
+
+     * curprev [ ] [ ] 08:4708:47, 18 April 2021‎ imported>Wamserma‎ m 7,289
+       bytes +1‎ fix typo
+
+    7 December 2020
+
+     * curprev [ ] [ ] 21:0221:02, 7 December 2020‎ imported>Artturin‎ 7,288
+       bytes −139‎ sambaMaster does not exist anymore
+
+    7 October 2020
+
+     * curprev [ ] [ ] 04:0004:00, 7 October 2020‎ imported>Jaculabilis‎ m
+       7,427 bytes +138‎ Add smbpasswd command needed to access shares when
+       setting up the smb server
+
+    24 September 2020
+
+     * curprev [ ] [ ] 21:4421:44, 24 September 2020‎ imported>Garbas‎ m
+       7,289 bytes +3‎ No edit summary
+
+    20 June 2020
+
+     * curprev [ ] [ ] 20:5520:55, 20 June 2020‎ imported>Symphorien‎ 7,286
+       bytes +426‎ mention firewall issue with netbios
+     * curprev [ ] [ ] 20:4220:42, 20 June 2020‎ imported>Symphorien‎ 6,860
+       bytes +799‎ the section about PCManFM is true for nautilus and thunar
+
+    24 December 2019
+
+     * curprev [ ] [ ] 09:0709:07, 24 December 2019‎ imported>Jchv‎ 6,061
+       bytes +425‎ More improvements to documentation around PCManFM.
+     * curprev [ ] [ ] 08:5908:59, 24 December 2019‎ imported>Jchv‎ 5,636
+       bytes +721‎ - Remove GIO_EXTRA_MODULES hack as it should no longer be
+       needed as of 19.09. - Add more detail around the dbus session.
+
+    26 October 2019
+
+     * curprev [ ] [ ] 21:0721:07, 26 October 2019‎ imported>Paumr‎ 4,915
+       bytes −2‎ →‎excerpt of /etc/nixos/configuration.nix
+
+    7 March 2019
+
+     * curprev [ ] [ ] 12:2812:28, 7 March 2019‎ imported>Wucke13‎ 4,917
+       bytes +765‎ Added way to enable PCManFM to browse samba shares
+
+    4 January 2019
+
+     * curprev [ ] [ ] 23:3023:30, 4 January 2019‎ imported>Mic92‎ 4,152
+       bytes +1,019‎ printer sharing example
+
+    27 February 2018
+
+     * curprev [ ] [ ] 07:1807:18, 27 February 2018‎ imported>Makefu‎ 3,133
+       bytes +48‎ split into client and server
+     * curprev [ ] [ ] 07:1507:15, 27 February 2018‎ imported>Makefu‎ 3,085
+       bytes +2‎ remove broken links
+     * curprev [ ] [ ] 07:1207:12, 27 February 2018‎ imported>Makefu‎ 3,083
+       bytes +23‎ move Apple time machine to subsection
+     * curprev [ ] [ ] 02:5402:54, 27 February 2018‎ imported>Lukeadams‎
+       3,060 bytes +576‎ add time machine / sambaMaster info
+
+    29 October 2017
+
+     * curprev [ ] [ ] 16:1516:15, 29 October 2017‎ imported>Sjau‎ 2,484
+       bytes +546‎ changeing server stuff.... adding seperate shares
+
+    12 September 2017
+
+     * curprev [ ] [ ] 17:2817:28, 12 September 2017‎ imported>Mic92‎ 1,938
+       bytes +795‎ No edit summary
+
+    27 August 2017
+
+     * curprev [ ] [ ] 12:5712:57, 27 August 2017‎ imported>Fadenb‎ m 1,143
+       bytes −42‎ →‎excerpt of /etc/nixos/configuration.nix: whitespace
+       removal
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Samba"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

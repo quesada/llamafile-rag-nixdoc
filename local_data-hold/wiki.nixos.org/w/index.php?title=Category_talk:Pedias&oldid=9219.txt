@@ -1,0 +1,96 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Renaming "Discussions"
+       1 comment
+   [ ] Toggle the table of contents
+
+                              Category talk:Pedias
+
+     * Category
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 00:23, 20 September 2021 by imported>Nix (Nix moved page
+   Category talk:Discussion to Category talk:Pedias: Discussion implies
+   dialogue, not encyclopedic text. There are already discussion pages.
+   Pedias is an abbreviation of encyclopedia.)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+   Latest comment: 20 September 2021 by Nix in topic Renaming "Discussions"
+
+Renaming "Discussions"
+
+   Latest comment: 20 September 20211 comment1 person in discussion
+
+   I am renaming discussions to Pedias (as in the abbreviation of
+   encyclopedia) in order to disambiguate them from these discussion pages
+   and give them a more descriptive name. Nix (talk) 00:13, 20 September 2021
+   (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Category_talk:Pedias&oldid=9219"
+     * This page was last edited on 20 September 2021, at 00:23.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

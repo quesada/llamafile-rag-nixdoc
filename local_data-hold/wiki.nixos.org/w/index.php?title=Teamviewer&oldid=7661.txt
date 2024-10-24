@@ -1,0 +1,110 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+   [ ] Toggle the table of contents
+
+                                   Teamviewer
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 11:39, 17 May 2020 by imported>Cx405
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Teamviewer is a proprietary software application for remote control,
+   desktop sharing, online meetings, web conferencing and file transfer
+   between computers.
+
+  Installation
+
+   To perform full installation with a service, add this to your
+   configuration.nix:
+
+   services.teamviewer.enable = true;
+
+   Please be aware, that installing Teamviewer by adding it to the
+   environment.systemPackages of your configuration.nix:
+
+   environment.systemPackages = with pkgs; [
+   ...
+   teamviewer
+   ...
+   ];
+
+   or installing it via nix-env -i teamviewer will not install its
+   corresponding service. This will allow Teamviewer to start outgoing
+   connections, but will not allow it to receive connections from the
+   Internet. Upon the start, Teamviewer will hence display Not ready. Please
+   check your connection message.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Teamviewer&oldid=7661"
+   Category:
+     * Guide
+     * This page was last edited on 17 May 2020, at 11:39.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

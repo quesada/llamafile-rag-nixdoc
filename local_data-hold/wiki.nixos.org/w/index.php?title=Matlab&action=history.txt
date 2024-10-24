@@ -1,0 +1,147 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Matlab: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    12 May 2024
+
+     * curprev [ ] [ ] 09:2409:24, 12 May 2024‎ Zimward talk contribs‎ m
+       3,956 bytes −3‎ fix typo: runned -> run Tag: Visual edit
+
+    20 February 2024
+
+     * curprev [ ] [ ] 16:1216:12, 20 February 2024‎ imported>Fadenb‎ m 3,959
+       bytes +96‎ Use syntaxHighlight instead of pre
+
+    21 October 2021
+
+     * curprev [ ] [ ] 16:3916:39, 21 October 2021‎ imported>Mazurel‎ m 3,863
+       bytes +581‎ Added no hardware support entry and slightly modified
+       structure of the document
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:0706:07, 20 September 2021‎ imported>Nix‎ m 3,282
+       bytes +27‎ add Software/Applications subcategory
+
+    7 September 2021
+
+     * curprev [ ] [ ] 10:4410:44, 7 September 2021‎ imported>Mazurel‎ 3,255
+       bytes +290‎ No edit summary
+
+    8 June 2021
+
+     * curprev [ ] [ ] 08:1808:18, 8 June 2021‎ imported>Mazurel‎ 2,965 bytes
+       −160‎ No edit summary
+
+    2 June 2021
+
+     * curprev [ ] [ ] 12:3112:31, 2 June 2021‎ imported>Mazurel‎ 3,125 bytes
+       +3,125‎ Created page with "MATLAB (an abbreviation of "matrix
+       laboratory") is a proprietary multi-paradigm programming language and
+       numeric computing environment developed by
+       MathWorks.[https://en.wikip..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Matlab"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

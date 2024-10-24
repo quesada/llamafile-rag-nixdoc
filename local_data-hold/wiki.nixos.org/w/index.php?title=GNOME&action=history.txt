@@ -1,0 +1,338 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            GNOME: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    17 October 2024
+
+     * curprev [ ] [ ] 05:2005:20, 17 October 2024‎ Carschandler talk
+       contribs‎ 11,927 bytes −12‎ adwaita-icon-theme has moved to top-level
+       Tag: Visual edit
+
+    1 October 2024
+
+     * curprev [ ] [ ] 18:0318:03, 1 October 2024‎ Klinger talk contribs‎ m
+       11,939 bytes +72‎ →‎Excluding GNOME Applications: The wiki tries to
+       show examples for the stable channel (geary example will be only be
+       valid from 24.11 onward)
+     * curprev [ ] [ ] 12:0212:02, 1 October 2024‎ DontEatOreo talk contribs‎
+       m 11,867 bytes −106‎ Update "Excluding GNOME Applications" Code
+       Example Tag: Visual edit
+
+    13 September 2024
+
+     * curprev [ ] [ ] 19:5519:55, 13 September 2024‎ Klinger talk contribs‎
+       m 11,973 bytes +19‎ Category:GNOME added
+
+    2 August 2024
+
+     * curprev [ ] [ ] 17:4317:43, 2 August 2024‎ Bashfulrobot talk contribs‎
+       m 11,954 bytes +92‎ →‎Dynamic triple buffering - allowAlias will break
+       a build if you use stylix Tag: Visual edit
+     * curprev [ ] [ ] 17:2817:28, 2 August 2024‎ Bashfulrobot talk contribs‎
+       11,862 bytes +1,094‎ →‎Change user's profile picture - add a
+       workaround to change the photo for both login and lockscreen Tag:
+       Visual edit
+
+    1 July 2024
+
+     * curprev [ ] [ ] 21:0821:08, 1 July 2024‎ Klinger talk contribs‎ m
+       10,768 bytes +30‎ link to category instead of redirect page
+
+    11 June 2024
+
+     * curprev [ ] [ ] 10:4110:41, 11 June 2024‎ ASHGOLDOFFICIAL talk
+       contribs‎ m 10,738 bytes −7‎ removed blank line Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 10:4010:40, 11 June 2024‎ ASHGOLDOFFICIAL talk
+       contribs‎ m 10,745 bytes −1‎ typo
+
+    9 June 2024
+
+     * curprev [ ] [ ] 22:4622:46, 9 June 2024‎ ASHGOLDOFFICIAL talk
+       contribs‎ m 10,746 bytes +18‎ →‎dconf settings Tag: Visual edit
+     * curprev [ ] [ ] 22:4322:43, 9 June 2024‎ ASHGOLDOFFICIAL talk
+       contribs‎ m 10,728 bytes +1,032‎ Added explanation to dconf settings.
+       Please expand and correct me. Tag: Visual edit: Switched
+     * curprev [ ] [ ] 21:3421:34, 9 June 2024‎ ASHGOLDOFFICIAL talk
+       contribs‎ m 9,696 bytes +10‎ Small changes
+     * curprev [ ] [ ] 21:2421:24, 9 June 2024‎ ASHGOLDOFFICIAL talk
+       contribs‎ m 9,686 bytes +46‎ added lockAll to system-wide extension
+       configuration example Tag: Visual edit: Switched
+     * curprev [ ] [ ] 21:1421:14, 9 June 2024‎ ASHGOLDOFFICIAL talk
+       contribs‎ 9,640 bytes +1,519‎ Added examples of managing extensions;
+       updated dynamic triple buffering overlay, added warning; added curly
+       braces (as NixOS manual do) to configuration examples to indicate its
+       type (attribute set). Tag: Visual edit: Switched
+     * curprev [ ] [ ] 05:0505:05, 9 June 2024‎ Mic92 talk contribs‎ 8,121
+       bytes −120‎ reformat code
+     * curprev [ ] [ ] 05:0405:04, 9 June 2024‎ Mic92 talk contribs‎ 8,241
+       bytes −144‎ make the example using user-level home-manager to be
+       consistent with the rest of the article
+     * curprev [ ] [ ] 05:0005:00, 9 June 2024‎ Mic92 talk contribs‎ 8,385
+       bytes −179‎ improve indendation
+
+    3 June 2024
+
+     * curprev [ ] [ ] 14:4114:41, 3 June 2024‎ Mic92 talk contribs‎ 8,564
+       bytes −728‎ drop 23.11 code
+
+    16 May 2024
+
+     * curprev [ ] [ ] 19:3119:31, 16 May 2024‎ Klinger talk contribs‎ 9,292
+       bytes +150‎ added link to nixos manual Tag: Visual edit
+
+    9 May 2024
+
+     * curprev [ ] [ ] 15:3715:37, 9 May 2024‎ NixHelp talk contribs‎ m 9,142
+       bytes +1,119‎ →‎Add back dynamic triple buffering for gnome 45 since
+       NixOS 24.05 is not yet released Tag: Visual edit
+
+    6 May 2024
+
+     * curprev [ ] [ ] 17:2917:29, 6 May 2024‎ Why-not-try-calmer talk
+       contribs‎ m 8,023 bytes +9‎ Triple-buffering patch for GNOME 46 Tag:
+       Visual edit: Switched
+
+    1 May 2024
+
+     * curprev [ ] [ ] 15:4715:47, 1 May 2024‎ Mic92 talk contribs‎ 8,014
+       bytes +117‎ imported from old wiki
+
+    20 April 2024
+
+     * curprev [ ] [ ] 03:1003:10, 20 April 2024‎ Crimson talk contribs‎
+       7,897 bytes +349‎ Clean up and few changes
+     * curprev [ ] [ ] 02:1202:12, 20 April 2024‎ Crimson talk contribs‎ m
+       7,548 bytes +69‎ No edit summary
+
+    19 April 2024
+
+     * curprev [ ] [ ] 20:1720:17, 19 April 2024‎ Klinger talk contribs‎
+       7,479 bytes +285‎ →‎Excluding some GNOME applications from the default
+       install: - some more Gnome apps added. And exchanged first two
+       paragraphs: Definition should be first. Tag: Visual edit: Switched
+
+    6 April 2024
+
+     * curprev [ ] [ ] 21:0921:09, 6 April 2024‎ Sdht0 talk contribs‎ 7,194
+       bytes −12‎ →‎Excluding some GNOME applications from the default
+       install: Use short form `ic`
+
+    30 January 2024
+
+     * curprev [ ] [ ] 13:2213:22, 30 January 2024‎
+       imported>Why-not-try-calmer‎ 7,206 bytes +2‎ →‎Profiling (with
+       sysprof)
+     * curprev [ ] [ ] 13:2013:20, 30 January 2024‎
+       imported>Why-not-try-calmer‎ m 7,204 bytes +253‎ No edit summary
+
+    26 December 2023
+
+     * curprev [ ] [ ] 23:1723:17, 26 December 2023‎
+       imported>WhiteBlackGoose‎ 6,951 bytes +1,066‎ Dynamic triple buffering
+       overlay added
+
+    23 December 2023
+
+     * curprev [ ] [ ] 11:2311:23, 23 December 2023‎ imported>Onny‎ 5,885
+       bytes +7‎ No edit summary
+     * curprev [ ] [ ] 11:2211:22, 23 December 2023‎ imported>Onny‎ 5,878
+       bytes +416‎ Add tips and tricks section
+
+    29 September 2023
+
+     * curprev [ ] [ ] 09:0809:08, 29 September 2023‎ imported>IgorM‎ m 5,462
+       bytes +33‎ Fixed syntax highlighting
+
+    13 February 2023
+
+     * curprev [ ] [ ] 02:5402:54, 13 February 2023‎ imported>Vater‎ m 5,429
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 02:3002:30, 13 February 2023‎ imported>Vater‎ 5,430
+       bytes +195‎ No edit summary
+
+    12 February 2023
+
+     * curprev [ ] [ ] 22:4722:47, 12 February 2023‎ imported>Vater‎ 5,235
+       bytes +826‎ →‎Troubleshoots: autoLogin on GNOME
+
+    24 September 2022
+
+     * curprev [ ] [ ] 14:4714:47, 24 September 2022‎ imported>Rapenne-s‎ m
+       4,409 bytes −61‎ Gnome extension manager is installed by default now
+     * curprev [ ] [ ] 09:4309:43, 24 September 2022‎ imported>Rapenne-s‎
+       4,470 bytes +379‎ How to manage extensions
+
+    6 July 2022
+
+     * curprev [ ] [ ] 16:0916:09, 6 July 2022‎ imported>Jedsek‎ m 4,091
+       bytes −48‎ No edit summary
+
+    29 May 2022
+
+     * curprev [ ] [ ] 18:3218:32, 29 May 2022‎ imported>Jtojnar‎ m 4,139
+       bytes −2‎ remove gnome3 alias
+
+    11 May 2022
+
+     * curprev [ ] [ ] 09:3709:37, 11 May 2022‎ imported>Milahu‎ 4,141 bytes
+       +68‎ refactor gnome.excludePackages
+
+    1 March 2022
+
+     * curprev [ ] [ ] 08:5008:50, 1 March 2022‎ imported>C3n21‎ m 4,073
+       bytes +534‎ No edit summary
+
+    2 January 2022
+
+     * curprev [ ] [ ] 10:1010:10, 2 January 2022‎ imported>Georgeoshardo‎ m
+       3,539 bytes +18‎ Added pkgs.gnome.geary to the excludable GNOME
+       packages
+
+    23 October 2021
+
+     * curprev [ ] [ ] 05:3205:32, 23 October 2021‎ imported>Artturin‎ m
+       3,521 bytes −25‎ No edit summary
+
+    20 September 2021
+
+     * curprev [ ] [ ] 05:4905:49, 20 September 2021‎ imported>Nix‎ m 3,546
+       bytes +26‎ add Software/Applications subcategory
+
+    24 July 2021
+
+     * curprev [ ] [ ] 19:1419:14, 24 July 2021‎ imported>Marek-lach‎ m 3,520
+       bytes −17‎ correction with how to remove some default apps
+
+    23 July 2021
+
+     * curprev [ ] [ ] 10:5410:54, 23 July 2021‎ imported>Marek-lach‎ 3,537
+       bytes +707‎ Add info about excluding certain Gnome packages from
+       installation
+
+    12 July 2021
+
+     * curprev [ ] [ ] 19:1119:11, 12 July 2021‎ imported>Sagikazarmark‎ m
+       2,830 bytes −1‎ Option has been renamed
+
+    15 May 2021
+
+     * curprev [ ] [ ] 14:3414:34, 15 May 2021‎ imported>Busti‎ m 2,831 bytes
+       +11‎ fix missing with pkgs
+
+    24 April 2021
+
+     * curprev [ ] [ ] 17:5817:58, 24 April 2021‎ imported>Yusdacra‎ m 2,820
+       bytes +9‎ Added nix highlighting to a section which didnt have it
+
+    2 March 2021
+
+     * curprev [ ] [ ] 21:4321:43, 2 March 2021‎ imported>Rain0981‎ 2,811
+       bytes −9‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/GNOME"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

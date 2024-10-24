@@ -1,0 +1,103 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                Information for "File:Pinebook-Pro-glamour.jpg"
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    File:Pinebook-Pro-glamour.jpg            
+   Default sort key                 Pinebook-Pro-glamour.jpg                 
+   Page length (in bytes)           25                                       
+   Namespace ID                     6                                        
+   Namespace                        File                                     
+   Page ID                          563                                      
+   Page content language            en - English                             
+   Page content model               wikitext                                 
+   Indexing by robots               Allowed                                  
+   Number of redirects to this page 0                                        
+   Hash value                       4e6284ef3b8cf75ed06f839effbc41cd2ffa94c0 
+
+Page protection
+
+   Edit   Allow all users (infinite) 
+   Move   Allow all users (infinite) 
+   Upload Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>Samueldr          
+   Date of page creation                        01:48, 7 January 2020      
+   Latest editor                                Samueldr (talk | contribs) 
+   Date of latest edit                          05:21, 8 April 2024        
+   Total number of edits                        3                          
+   Total number of distinct authors             3                          
+   Recent number of edits (within past 90 days) 0                          
+   Recent number of distinct authors            0                          
+
+   Retrieved from "https://wiki.nixos.org/wiki/File:Pinebook-Pro-glamour.jpg"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

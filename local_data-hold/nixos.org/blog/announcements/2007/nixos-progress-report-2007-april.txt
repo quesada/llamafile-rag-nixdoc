@@ -1,0 +1,53 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                             NixOS progress report
+
+   Published on Thu Apr 05 2007
+
+                             NixOS progress report
+
+   NixOS screenshot NixOS is now almost usable as a desktop OS ;-). We have
+   an X server, a bunch of Gnome packages, basic wireless support, and of
+   course all the applications in Nixpkgs that we had all along running on
+   other Linux distributions. Here are a few screenshots:
+
+     * X server with Compiz window manager.
+     * Emacs and a few terminals showing off the (near) absence of /lib, /bin
+       etc.; everything is in the Nix store.
+     * Some applications.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,407 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Software
+          * 1.1 Server Protocols
+          * 1.2 Self hosting
+          * 1.3 Clients
+     * 2 Configuration
+          * 2.1 VNC
+               * 2.1.1 Desktop session
+               * 2.1.2 Tiger VNC
+               * 2.1.3 x2go
+               * 2.1.4 Guacamole
+                    * 2.1.4.1 Guacamole Server
+                    * 2.1.4.2 user-mapping.xml
+                    * 2.1.4.3 Guacamole Client
+                    * 2.1.4.4 Reverse Proxy
+                    * 2.1.4.5 Firewall
+                    * 2.1.4.6 References
+          * 2.2 RDP
+               * 2.2.1 GNOME
+               * 2.2.2 Meshcentral
+   [ ] Toggle the table of contents
+
+                                 Remote Desktop
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 19:55, 5 October 2024 by JollyDevelopment (talk | contribs)
+   (→‎Guacamole)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+                                    Software
+
+   Remote desktop software is split into two types: servers and clients. To
+   access a computer remotely, it must have a server running, which usually
+   is exposed to a port or set thereof. Access to that server can be gained
+   using a client; many protocols, like RDP, are open to all clients willing
+   to support them. Others require specific clients, so consult the
+   documentation for whichever service you choose to use.
+
+Server Protocols
+
+     * VNC
+     * XRDP
+
+Self hosting
+
+     * Rustdesk (nixpkgs: rustdesk-server)
+
+Clients
+
+     * Apache Guacamole
+     * freerdp
+     * KRDC (KDE)
+     * remmina
+     * tightvnc and its forks tigervnc and turbovnc
+     * x2goclient
+     * GNOME Connections
+     * RustDesk
+
+                                 Configuration
+
+VNC
+
+   Most servers provide a vncserver command. Various servers provide
+   configuration options either by CLI or by configuration file.
+
+    Desktop session
+
+   To start a desktop session or window manager, one currently has to do this
+   manually because servers still have hard-coded paths to
+   /usr/share/xsessions to look for .desktop files. That means one has to
+   write a script that starts the desktop session, window manager, or any
+   other X application.
+
+   Some servers will automatically run $HOME/.vnc/xstartup but the more
+   secure option is to write an executable script and run vncserver -xstartup
+   $pathToScript
+
+   An example script:
+
+ #!/usr/bin/env bash
+
+ # set some env variables
+ # start window manager
+ exec icewm
+
+   pathToScript can also be a path to an executable like
+   ${pkgs.icewm}/bin/icewm
+
+  Tiger VNC
+
+   Nixpkgs has a package but no service. The server component can be started
+   using the vncserver command. To connect, use the vncviewer command.
+
+  x2go
+
+   X2go client is packaged in nixos as x2goclient.
+
+   The server is installed by adding the following line:
+   services.x2goserver.enable = true;
+   to /etc/nixos/configuration.nix.
+
+  Guacamole
+
+    Guacamole Server
+
+   In nixos the guacamole server component is provided by guacamole-server
+
+   A basic server setup service entry would look like this:
+
+    services.guacamole-server = {
+        enable = true;
+        host = "127.0.0.1";
+        port = 4822;
+        userMappingXml = ./user-mapping.xml;
+    };
+
+   This creates the guacamole-server.service systemd unit.
+
+   See the search.nixos options for other configuration options.
+
+   The host entry indicates on which IP the server component listens. The
+   port entry here is the default port of 4822.
+
+   The ./user-mapping.xml is a relative path to the file which declares the
+   service. So if the service is in /etc/nixos/configuration.nix then in this
+   example the file would reside at /etc/nixos/user-mapping.xml. Contents of
+   the file are discussed below.
+
+    user-mapping.xml
+
+   The user-mapping.xml file is how to define the user(s) that are allowed to
+   login to the webportal, as well as the connections available to the user.
+
+   The file content should look something like this:
+
+    <user-mapping>
+        <authorize username="USERNAME_HERE" password="ENCRYPTED_PASSWORD_HERE" encoding="sha256">
+          <connection name="NAME_OF_THE_CONNECTION">
+              <protocol>rdp</protocol>
+              <param name="hostname">XXX.XXX.XXX.XXX</param>
+              <param name="port">3389</param>
+              <param name="ignore-cert">true</param>
+          </connection>
+          <connection name="NAME_OF_THE_CONNECTION">
+              <protocol>ssh</protocol>
+              <param name="hostname">XXX.XXX.XXX.XXX</param>
+              <param name="port">22</param>
+          </connection>
+        </authorize>
+    </user-mapping>
+
+   The password="" can be a plain text password, but it is not recommended.
+   An easy way to encrypt a password would be something like:
+
+    $  echo -n 'SUPERsecretPASSWORD' | openssl dgst -sha256
+    SHA2-256(stdin)= 491cf91d586fb9442db7efe92b7839190206a653971573c23fed0435ceb596e8
+
+   The upstream documentation has complete configuration options avaiable.
+
+    Guacamole Client
+
+   In nixos the guacamole client component is provided by the
+   guacamole-client component.
+
+   This is the part of the service that provides the webportal for end users.
+
+   A basic client setup service entry would look like this:
+
+    services.guacamole-client = {
+        enable = true;
+        enableWebserver = true;
+        settings = {
+            guacd-port = 4822;
+            guacd-hostname = "localhost";
+        };
+    };
+
+   This creates a tomcat.service systemd unit.
+
+   See the search.nixos options for other configuration options.
+
+   The webportal this provides is served by the tomcat server, and listens on
+   port 8080 by default. The settings.guacd-port tells the client software
+   how to communicate with the guacamole-server component.
+
+   The upstream documentation has the list of guacamole.properties options
+   that can be provided for this setting.
+
+   At this point if you are intending to serve the webportal directly, then
+   the service can be reached at the url
+   http://<your-computer-ip:8080/guacamole.
+
+    Reverse Proxy
+
+   If you want to use nginx as a reverse proxy in front of the webportal,
+   then the below options can serve as an example setup.
+
+   This example has a virtual host available as https://remote.mydomain.net.
+   It uses the nginx service, and LetsEncrypt for SSL. Configuration of a DNS
+   domain and records is outside the scope of this document.
+
+    services.nginx = {
+        enable = true;
+        upstreams."guacamole_server" = {
+            extraConfig =
+                keepalive 4;
+            ;
+            servers = {
+                "127.0.0.1:8080" = {};
+            };
+        };
+        virtualHosts."remote.mydomain.net" = {
+            forceSSL = true; # redirect http to https
+            enableACME = true;
+            locations."/" = {
+                extraConfig =
+                    proxy_buffering off;
+                    proxy_set_header Upgrade $http_upgrade;
+                    proxy_set_header Connection $http_connection;
+                    proxy_set_header X-Real-IP $remote_addr;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header Host $host;
+                    proxy_set_header X-NginX-Proxy true;
+                    proxy_pass http://guacamole_server/guacamole$request_uri;
+                    proxy_redirect http://guacamole_server/ https://$server_name/;
+                ;
+            };
+        };
+    };        
+    # this sets up the letsencrypt service to get ssl certs for the above
+    security.acme = {
+        acceptTerms = true;
+        defaults.email = "your.email@server.name";
+    };   
+
+   The upstreams."guacamole_server".servers setting points the to IP:port
+   where the guacamole-client webportal is hosted. In this example nginx and
+   guacamole are on the same host.
+
+   The virtualHosts."name".forceSSL ensures requests sent to HTTP are
+   redirected to HTTPS. The enableACME sets up LetsEncrypt and nginx to get
+   and renew SSL certs.
+
+   The proxy_buffering off;, proxy_set_header Upgrade $http_upgrade;, and
+   proxy_set_header Connection $http_connection; settings are required to
+   prevent nginx from buffering traffic, which can prevent guacamole from
+   operating properly.
+
+   The optional proxy_pass http://guacamole_server/guacamole$request_uri;
+   allows end users to access the service at https://remote.mydomain.net as
+   opposed to https://remote.mydomain.net/guacamole.
+
+   See the upstream documentation for more details and other proxy examples.
+
+    Firewall
+
+   In the case of the above reverse proxy example, the correct firewall ports
+   will also need to be opened on the server hosting the nginx proxy.
+
+    networking.firewall = {
+        enable = true;
+        allowedTCPPorts = [
+            80 # http
+            443 # https
+            8080 # guacamole
+            4822 # guacamole
+        ];
+    };                                       
+
+   For any systems that will be reached from the guacamole service, the
+   corresponding ports will need to be opened. The below example opens ports
+   that match the connection settings in the above user-mapping.xml.
+
+    networking.firewall = {
+        enable = true;
+        allowedTCPPorts = [
+            22 # ssh
+            3389 # rdp
+        ];
+    };                                       
+
+    References
+
+   The original package request has good discussions as well
+
+RDP
+
+   NixOS has first-class support for XRDP. Client-wise, RDP can be accessed
+   in many ways, but `remmina` and `freerdp` support it natively.
+
+   All of the options for the xrdp service can be viewed on the NixOS Options
+   wiki, though an example setup inside of configuration.nix is provided
+   below:
+
+ services.xserver.enable = true;
+ services.xserver.displayManager.sddm.enable = true;
+ services.xserver.desktopManager.plasma5.enable = true;
+
+ services.xrdp.enable = true;
+ services.xrdp.defaultWindowManager = "startplasma-x11";
+ services.xrdp.openFirewall = true;
+
+   (Source: Discourse Link, nixpkgs code)
+
+   A different window manager can be used for XRDP than a machine user,
+   provided it has been enabled (through NixOS services or nixpkgs.
+
+   Make sure you log out the visual user first on the remote machine,
+   otherwise you'll get a black screen. (Source: Reddit). You may be able to
+   work around this by enabling and configuring Polkit, as demonstrated on
+   that page.
+
+  GNOME
+
+   [IMG]GNOME running in an XRDP shell in Remmina.
+
+   The XRDP defaultWindowManager setting to access a remote GNOME shell
+   should be set to gnome-remote-desktop. Also ensure you include the package
+   pkgs.gnome.gnome-remote-desktop in your configuration files and that you
+   have a firewall port open for XRDP to communicate on (for the GNOME
+   connections app, this is usually 3389).
+
+  Meshcentral
+
+   Meshcentral is a self-hosted open source administration tool similar to
+   teamviewer. It can be added with:
+
+   services.meshcentral.enable = true;
+
+   However, the agent (client) is not available. (Request)
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Remote_Desktop&oldid=17715"
+   Categories:
+     * Applications
+     * Desktop
+     * Server
+     * This page was last edited on 5 October 2024, at 19:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

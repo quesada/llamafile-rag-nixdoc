@@ -1,0 +1,353 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Usage
+     * 3 Tips and tricks
+          * 3.1 Bcachefs unlocking
+          * 3.2 Tor in initrd
+               * 3.2.1 Prepare the Onion ID
+               * 3.2.2 Setup Tor
+               * 3.2.3 Setup haveged
+               * 3.2.4 Setup ntpdate
+               * 3.2.5 Usage
+          * 3.3 Enable Wifi in initrd
+   [ ] Toggle the table of contents
+
+                             Remote disk unlocking
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 13:55, 14 June 2024 by Teutat3s (talk | contribs) (Properly
+   escape greater than signs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   If you want to unlock your computer remotely via SSH or even through Tor,
+   and you are facing the problem, that you can’t reach your computer before
+   your computer is unlocked. Tor will help you to reach your computer, even
+   during the boot process.
+
+Setup
+
+   Generate host key for the SSH daemon which will run in initrd during boot
+
+ # ssh-keygen -t ed25519 -N "" -f /etc/secrets/initrd/ssh_host_ed25519_key
+
+   Enable SSH daemon in initrd
+
+ /etc/nixos/configuration.nix
+
+ boot.initrd = {
+   availableKernelModules = [ "r8169" ];
+   network = {
+     enable = true;
+     udhcpc.enable = true;
+     flushBeforeStage2 = true;
+     ssh = {
+       enable = true;
+       port = 22;
+       authorizedKeys = [ "ssh-rsa AAAAyourpublic-key-here..." ];
+       hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
+     };
+     postCommands = ''
+       # Automatically ask for the password on SSH login
+       echo 'cryptsetup-askpass || echo "Unlock was successful; exiting SSH session" && exit 1' >> /root/.profile
+     '';
+   };
+ };
+
+   Adapt following parts according to your setup
+
+     * authorizedKeys: Add the SSH public keys for the users which should be
+       able to authenticate to the SSH daemon to the authorizedKeys option.
+     * availableKernelModules: Most likely your network card is not working
+       without its kernel module being part of the initrd, so you have to
+       find out which module is used for your network. Use lspci -v | grep
+       -iA8 'network\|ethernet' for that.
+     * kernelParams: Instead of using DHCP you could also configure a static
+       IP, for example with kernel parameter boot.kernelParams = [
+       "ip=10.25.0.2::10.25.0.1:255.255.255.0:myhost::none" ];, where
+       10.25.0.2 is the client IP, 10.25.0.1 is the gateway IP. See the
+       kernel documentation for more information on the ip= parameter. When
+       using DHCP, make sure your computer is always attached to the network
+       and is able to get an IP adress, or the boot process will hang.
+
+   The postCommands option is necessary to get a password prompt instead of a
+   shell. If you omit it, you will get dropped into /bin/ash, and you will
+   have to manually run cryptsetup-askpass to enter the password.
+   Alternatively, the boot.initrd.systemd.users.root.shell option can be set
+   to /bin/conspy for passwords which expect stdin. This binary included by
+   default, and provided by busybox.
+
+Usage
+
+   After reboot, connect to the initrd SSH daemon using
+
+ # ssh root@10.25.0.2
+
+   Where 10.25.0.2 is the IP which is acquired via DHCP or configured via the
+   kernel parameter.
+
+Tips and tricks
+
+  Bcachefs unlocking
+
+   Unlocking encrypted Bcachefs root filesystems is not yet supported. As a
+   workaround, following script, in combination with the setup above, can be
+   used as SSH shell, to unlock the disk /dev/vda2.
+
+ /etc/nixos/configuration.nix
+
+ boot.initrd.systemd = let
+   askPass = pkgs.writeShellScriptBin "bcachefs-askpass" ''
+     keyctl link @u @s
+     mkdir /sysroot
+     until bcachefs mount /dev/vda2 /sysroot
+     do
+       sleep  1
+     done
+   '';
+ in {
+   enable = true;
+   initrdBin = with pkgs; [ keyutils ];
+   storePaths = ["${askPass}/bin/bcachefs-askpass"];
+   users.root.shell = "${askPass}/bin/bcachefs-askpass";
+ };
+
+   Using systemd in initrd automatically continues the boot process after the
+   target /sysroot is mounted.
+
+  Tor in initrd
+
+   An example with an ssh server listening at a tor hidden service address
+   can be found at krebs/2configs/tor/initrd.nix in stockholm
+
+    Prepare the Onion ID
+
+   You need 3 files to create an onion id (a.k.a. tor hidden service).
+
+     * hostname
+     * hs_ed25519_public_key
+     * hs_ed25519_secret_key
+
+   To create these files, you have to run tor once, with a dummy
+   configuration.
+
+ DataDirectory /tmp/my-dummy.tor/
+ SOCKSPort 127.0.0.1:10050 IsolateDestAddr
+ SOCKSPort 127.0.0.1:10063
+ HiddenServiceDir /home/tony/tor/onion
+ HiddenServicePort 1234 127.0.0.1:1234
+
+   Let’s asume you created this file in /home/tony/tor/tor.rc.
+
+   Verify that everything is tor.rc awesome, by running tor -f
+   /home/tony/tor/tor.rc --verify-config. If you don’t see any errors, just
+   run tor -f /home/tony/tor/tor.rc.
+
+   You will get some output like this.
+
+ May 21 18:38:39.000 [notice] Bootstrapped 80% (ap_conn): Connecting to a relay to build circuits
+ May 21 18:38:39.000 [notice] Bootstrapped 85% (ap_conn_done): Connected to a relay to build circuits
+ May 21 18:38:39.000 [notice] Bootstrapped 89% (ap_handshake): Finishing handshake with a relay to build circuits
+ May 21 18:38:39.000 [notice] Bootstrapped 90% (ap_handshake_done): Handshake finished with a relay to build circuits
+ May 21 18:38:39.000 [notice] Bootstrapped 95% (circuit_create): Establishing a Tor circuit
+ May 21 18:38:40.000 [notice] Bootstrapped 100% (done): Done
+
+   Hit Ctrl-C and the files you need, should be in /home/tony/tor/onion.
+
+    Setup Tor
+
+   Now that you have your 3 files, you have to script a bit, but it’s not too
+   complicated.
+
+ # copy your onion folder
+ boot.initrd.secrets = {
+   "/etc/tor/onion/bootup"; = /home/tony/tor/onion; # maybe find a better spot to store this.
+ };
+
+ # copy tor to you initrd
+ boot.initrd.extraUtilsCommands = ''
+   copy_bin_and_libs ${pkgs.tor}/bin/tor
+ '';
+
+ # start tor during boot process
+ boot.initrd.network.postCommands = let
+   torRc = (pkgs.writeText "tor.rc" ''
+     DataDirectory /etc/tor
+     SOCKSPort 127.0.0.1:9050 IsolateDestAddr
+     SOCKSPort 127.0.0.1:9063
+     HiddenServiceDir /etc/tor/onion/bootup
+     HiddenServicePort 22 127.0.0.1:22
+   '');
+ in ''
+   echo "tor: preparing onion folder"
+   # have to do this otherwise tor does not want to start
+   chmod -R 700 /etc/tor
+
+   echo "make sure localhost is up"
+   ip a a 127.0.0.1/8 dev lo
+   ip link set lo up
+
+   echo "tor: starting tor"
+   tor -f ${torRc} --verify-config
+   tor -f ${torRc} &
+ '';
+
+   That was it. Tor should be running during your boot process.
+
+    Setup haveged
+
+   If your system doesn't gather enough entropy the startup time of tor is
+   rather long (2:42 vs 0:06 on a RPi 4b). Counter it by starting haveged.
+
+   Append in your boot.initrd.extraUtilsCommands.
+
+   copy_bin_and_libs ${pkgs.haveged}/bin/haveged
+
+   Then use this snippet before echo "tor: starting tor" in your
+   boot.initrd.network.postCommands.
+
+       echo "haveged: starting haveged"
+       haveged -F &
+
+    Setup ntpdate
+
+   If your system doesn't utilize a RTC you've to ensure time is correctly
+   set before startup of tor.
+
+   Append in your boot.initrd.extraUtilsCommands.
+
+   copy_bin_and_libs ${pkgs.ntp}/bin/ntpdate
+
+   Then use this snippet before echo "tor: starting tor" in your
+   boot.initrd.network.postCommands.
+
+       echo "ntp: starting ntpdate"
+       echo "ntp   123/tcp" >> /etc/services
+       echo "ntp   123/udp" >> /etc/services
+       ntpdate w.x.y.z # pick one IP from https://www.ntppool.org/
+
+    Usage
+
+   When your computer boots, and asks for the LUKS password. Now you can
+   unlock your encrypted Hard drive using:
+
+ torify ssh root@<onion.id>.onion -p 22 'my-secret-password'
+
+  Enable Wifi in initrd
+
+   Following example configuration by @loutr enables wifi connections inside
+   initrd. Replace interface name wlp0s20f0u4 with the name of your wifi
+   adapter. Depending on your wifi device, you might need to add different
+   kernel modules.
+
+ boot.initrd = {
+   # crypto coprocessor and wifi modules
+   availableKernelModules = [ "ccm" "ctr" "iwlmvm" "iwlwifi" ];
+
+   systemd = {
+     enable = true;
+
+     packages = [ pkgs.wpa_supplicant ];
+     initrdBin = [ pkgs.wpa_supplicant ];
+     targets.initrd.wants = [ "wpa_supplicant@wlp0s20f0u4.service" ];
+
+     # prevent WPA supplicant from requiring `sysinit.target`.
+     services."wpa_supplicant@".unitConfig.DefaultDependencies = false;
+
+     users.root.shell = "/bin/systemd-tty-ask-password-agent";
+
+     network = {
+       enable = true;
+       networks."10-wlan" = {
+         matchConfig.Name = "wlp0s20f0u4";
+         networkConfig.DHCP = "yes";
+       };
+       ssh = {
+         enable = true;
+         port = 22;
+         hostKeys = [ "/etc/ssh/ssh_host_ed25519_key" ];
+         authorizedKeys = default.user.openssh.authorizedKeys.keys;
+       };
+     };
+
+     secrets."/etc/wpa_supplicant/wpa_supplicant-wlp0s20f0u4.conf" = /root/secrets/wpa_supplicant.conf;
+
+   };
+
+   The file wpa_supplicat-wlp0s20f0u4.conf is the wireless profile used by
+   wpa_supplicant which will get copied into the initramfs.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Remote_disk_unlocking&oldid=13172"
+   Categories:
+     * Server
+     * Cookbook
+     * This page was last edited on 14 June 2024, at 13:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

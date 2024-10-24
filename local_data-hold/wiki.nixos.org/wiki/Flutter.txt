@@ -1,0 +1,215 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Development
+          * 1.1 Linux desktop/Web
+          * 1.2 Android
+     * 2 Emulators
+     * 3 Packaging
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                    Flutter
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Flutter is an open-source mobile application development framework created
+   by Google. It allows developers to build high-performance, cross-platform
+   apps for iOS and Android using a single codebase.
+
+   In order to understand the sections below more for Android development on
+   NixOS, check out the Android wiki page.
+
+Development
+
+  Linux desktop/Web
+
+   To build Flutter apps to Linux desktop or Web you only need the flutter
+   package from Nixpkgs. Then run flutter build linux or flutter build web.
+
+  Android
+
+   The easiest way is to install Android Studio by adding pkgs.android-studio
+   to your list of packages in configuration.nix.
+
+   If you prefer VSCode, you can create a dev-shell with the packages "jdk",
+   "flutter", and a preferred android sdk such as the preconfigured one
+   "androidenv.androidPkgs_9_0.androidsdk" (mentioned in the Android wiki
+   page). Add other packages if missing any. Or you can install Android
+   Studio to get all the Android packages, and install Flutter.
+
+   Below is an example flake.nix for creating a dev shell. Create following
+   flake.nix in a new project directory
+
+ flake.nix
+
+ {
+ description = "Flutter 3.13.x";
+ inputs = {
+   nixpkgs.url = "github:NixOS/nixpkgs/23.11";
+   flake-utils.url = "github:numtide/flake-utils";
+ };
+ outputs = { self, nixpkgs, flake-utils }:
+   flake-utils.lib.eachDefaultSystem (system:
+     let
+       pkgs = import nixpkgs {
+         inherit system;
+         config = {
+           android_sdk.accept_license = true;
+           allowUnfree = true;
+         };
+       };
+       buildToolsVersion = "34.0.0";
+       androidComposition = pkgs.androidenv.composeAndroidPackages {
+         buildToolsVersions = [ buildToolsVersion "28.0.3" ];
+         platformVersions = [ "34" "28" ];
+         abiVersions = [ "armeabi-v7a" "arm64-v8a" ];
+       };
+       androidSdk = androidComposition.androidsdk;
+     in
+     {
+       devShell =
+         with pkgs; mkShell rec {
+           ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
+           buildInputs = [
+             flutter
+             androidSdk # The customized SDK that we've made above
+             jdk17
+           ];
+         };
+     });
+ }
+
+   If you don't want to customize the android sdk, you can instead use the
+   predefined packages, as mentioned in this section on the manual, such as
+   androidenv.androidPkgs_9_0.androidsdk:
+
+ flake.nix
+
+ {
+ description = "Flutter 3.13.x";
+ inputs = {
+   nixpkgs.url = "github:NixOS/nixpkgs/23.11";
+   flake-utils.url = "github:numtide/flake-utils";
+ };
+ outputs = { self, nixpkgs, flake-utils }:
+   flake-utils.lib.eachDefaultSystem (system:
+     let
+       pkgs = import nixpkgs {
+         inherit system;
+         config = {
+           android_sdk.accept_license = true;
+           allowUnfree = true;
+         };
+       };
+       androidSdk = pkgs.androidenv.androidPkgs_9_0.androidsdk;
+     in
+     {
+       devShell =
+         with pkgs; mkShell rec {
+           ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
+           buildInputs = [
+             flutter
+             androidsdk
+             jdk17
+           ];
+         };
+     });
+ }
+
+   Run following commands to start a new demo project and run the "hello
+   world" application
+
+ # nix develop
+ # flutter create my_app
+ # cd my_app
+ # flutter run
+
+Emulators
+
+   View the Android wiki page for more info, but you can set up emulators in
+   Android Studio, run them from there, then target the emulator in VSCode
+   when running your flutter code. Otherwise, you can Nixify or even manually
+   add your emulators as stated in the Android wiki page
+
+Packaging
+
+   Use buildFlutterApplication from nixpkgs.
+
+See also
+
+     * The team working on flutter in nixpkgs maintains several pieces of
+       infrastructure related to the cause. The documentation is lacking as
+       of now, but there are plans to improve it.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Flutter&oldid=16747"
+   Category:
+     * Development
+     * This page was last edited on 16 August 2024, at 10:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

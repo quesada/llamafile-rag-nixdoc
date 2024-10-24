@@ -1,0 +1,105 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Can I update/improve this page
+   [ ] Toggle the table of contents
+
+             Talk:Yubikey based Full Disk Encryption (FDE) on NixOS
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   I've also added a nix expression to set up a shell:
+
+   https://github.com/sgillespie/nixos-yubikey-luks
+
+   If it's useful I can add it here
+
+Can I update/improve this page
+
+   Hi! I'm fairly new to nix/NixOS and tried this guide to rebuild my Yubikey
+   based decryption which I previously used in Arch. While following the
+   guide, I found some issues and also see some improvements:
+
+     * while the SLOT is definded as env variable, the "2" is hardcoded in
+       the yubikey commands
+     * the /dev/partition paths didn't work on my VM using NixOS 23.05, I'd
+       use the "old" paths /dev/mapper/<name> instead
+     * I would add a section that tries to close and reopen the luks device
+       with the new credentials to test if the setup was successful
+     * I would add a section which adds a password as a Backup decryption
+       method (addresses
+       https://github.com/sgillespie/nixos-yubikey-luks/issues/7)
+
+   Can I simply edit the page with those changes or is there some PR/review
+   process for the wiki pages?
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Yubikey_based_Full_Disk_Encryption_(FDE)_on_NixOS&oldid=6957"
+     * This page was last edited on 28 November 2023, at 10:11.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

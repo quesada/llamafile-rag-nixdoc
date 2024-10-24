@@ -1,0 +1,177 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Установка
+          * 1.1 Intel
+          * 1.2 AMD
+     * 2 Проверьте вашу конфигурацию
+     * 3 Приложения
+          * 3.1 Chromium
+          * 3.2 Firefox
+          * 3.3 Firefox
+          * 3.4 MPV
+     * 4 Also see
+   [ ] Toggle the table of contents
+
+                           Аппаратное Ускорение Видео
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Accelerated Video Playback
+   and the translation is 74% complete.
+   Outdated translations are marked like this.
+   Other languages:
+     * English
+     * français
+     * русский
+     * 中文
+     * 日本語
+
+   Ускорение воспроизведения видео в NixOS обычно осуществляется путем
+   добавления соответствующих пакетов в hardware.opengl.extraPackages.
+
+Установка
+
+  Intel
+
+ /etc/nixos/configuration.nix
+
+ {
+   hardware.graphics = { # hardware.opengl in 24.05 and older
+     enable = true;
+     extraPackages = with pkgs; [
+       intel-media-driver # For Broadwell (2014) or newer processors. LIBVA_DRIVER_NAME=iHD
+       intel-vaapi-driver # For older processors. LIBVA_DRIVER_NAME=i965
+     ];
+   };
+   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; }; # Optionally, set the environment variable
+ }
+
+   Note, intel-vaapi-driver still performs better for browsers
+   (gecko/chromium based) on newer Skylake (2015) processors.^[1]
+
+   Для поддержки 32-битной версии используйте
+   hardware.graphics.extraPackages32:
+
+ /etc/nixos/configuration.nix
+
+ {
+   # hardware.opengl.extraPackages32 in 24.05
+   hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
+ }
+
+  AMD
+
+   Конфигурация AMD (по крайней мере, для iGPU Ryzen 5) работает из коробки:
+
+ /etc/nixos/configuration.nix
+
+ {
+   hardware.opengl.enable = true;
+ }
+
+Проверьте вашу конфигурацию
+
+   Вы можете протестировать вашу конфигурацию выполнив: nix-shell -p
+   libva-utils --run vainfo
+
+   See Arch Linux wiki#Hardware video acceleration for more information.
+
+Приложения
+
+  Chromium
+
+   См. Chromium#Accelerated_video_playback.
+
+  Firefox
+
+  Firefox
+
+  MPV
+
+   Вы можете разместить следующую конфигурацию в ~/.config/mpv/mpv.conf:
+
+ hwdec=auto-safe
+ vo=gpu
+ profile=gpu-hq
+ gpu-context=wayland ; On wayland only
+
+   See Arch Linux wiki#mpv.
+
+Also see
+
+     * Arch Linux wiki#Hardware video acceleration.
+     * nixos-hardware has example configurations for various types of
+       hardware.
+    1. ↑ https://github.com/intel/media-driver/issues/1024
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Accelerated_Video_Playback/ru&oldid=16846"
+   Category:
+     * Video
+     * This page was last edited on 21 August 2024, at 18:38.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

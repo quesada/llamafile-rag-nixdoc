@@ -1,0 +1,161 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                    NixOS 维基
+
+     * Page
+     * Discussion
+   [ ] 大陆简体
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page NixOS Wiki and the
+   translation is 100% complete.
+   Other languages:
+     * English
+     * español
+     * français
+     * русский
+     * 中文（中国大陆）
+     * 日本語
+     * 한국어
+
+   由于未知原因，翻译页面在处理url等内容时会出现未知错误，本页面错误处用(!error)代替
+
+    Getting started
+
+   这是官方的 NixOS Wiki。 它包括 NixOS 手册 中未涵盖的主题：NixOS 用户指南、配置示例和故障排除提示.
+
+   NixOS 是基于 Nix 包管理器和 Nixpkgs 包存储库的 Linux 操作系统发行版。
+
+   Newcomers to NixOS are encouraged to read the Nix Core Ecosystem overview
+   article to get a comprehensive orientation. For more specific
+   introductions, see:
+
+     * NixOS
+     * Nix package manager
+     * Nixpkgs package repository
+     * Nix Language
+
+   If you want to try Nix standalone in another Linux distribution or on a
+   Mac, take your first steps on (!error)
+
+   Nix生态中有许多的附加工具，例如:
+
+     * Home-manager 用于管理用户配置文件和home目录的内容
+     * Nix Flakes 用于替代 nix-channel
+
+   这些功能增加了复杂性，容易让新手感到困惑，您或许可以决定不使用这他们。 从简单的 Nix/NixOS 开始，只有当你足够了解 Nix/NixOS
+   并得心应手后，才将 Home Manager 和/或 Flakes 整合到你的设置中.
+
+    Setting up NixOS
+     * 在桌面上，使用 NixOS as a desktop
+     * 在 ARM 上，使用 NixOS on ARM
+     * 在云中，使用 NixOS friendly hosters
+
+    Documentation topics
+
+   第一站应该是 Resources，它是通往最重要文档的门户。以下是一些亮点。
+
+   主要参考资料：
+
+     * NixOS manual
+     * Nix manual
+     * Nixpkgs manual
+     * Hydra manual
+
+   主要页面类别：
+
+     * Software
+     * Hardware
+     * Desktop - 如何设置个人电脑
+     * Server - 如何设置服务器
+     * Community - 人员、沟通、在 NixOS 上工作
+
+   另请参阅：
+
+     * FAQ
+     * Nix vs. Linux Standard Base
+     * Terms and Definitions in Nix Project
+     * Cheatsheet / Comparison between Ubuntu and NixOS
+
+    Special pages
+     * Overview of special pages
+     * All pages of wiki.nixos.org
+     * All categories of wiki.nixos.org
+     * Unpatrolled changes of wiki.nixos.org
+
+    Get in touch
+
+   With the community
+
+     * Official NixOS website
+     * Community overview
+     * Chats and forums
+     * Get support
+     * Events
+
+   (!error)
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Wiki/zh-cn&oldid=17351"
+     * This page was last edited on 9 September 2024, at 04:44.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

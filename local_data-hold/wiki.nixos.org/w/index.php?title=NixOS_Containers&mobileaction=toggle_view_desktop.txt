@@ -1,0 +1,305 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Native NixOS containers
+          * 1.1 Configuration
+               * 1.1.1 Networking
+          * 1.2 Usage
+     * 2 Declarative OCI containers (Docker/Podman)
+          * 2.1 Example config
+          * 2.2 Usage
+     * 3 Troubleshooting
+          * 3.1 I have changed the host's channel and some services are no
+            longer functional
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                NixOS Containers
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+Native NixOS containers
+
+   It is possible to configure native systemd-nspawn containers, which are
+   running NixOS and are configured and managed by NixOS using the containers
+   directive.
+
+  Configuration
+
+   The following example creates a container called nextcloud running the web
+   application Nextcloud. It will start automatically at boot and has its
+   private network subnet.
+
+ /etc/nixos/configuration.nix
+
+ networking.nat = {
+   enable = true;
+   internalInterfaces = ["ve-+"];
+   externalInterface = "ens3";
+   # Lazy IPv6 connectivity for the container
+   enableIPv6 = true;
+ };
+
+ containers.nextcloud = {
+   autoStart = true;
+   privateNetwork = true;
+   hostAddress = "192.168.100.10";
+   localAddress = "192.168.100.11";
+   hostAddress6 = "fc00::1";
+   localAddress6 = "fc00::2";
+   config = { config, pkgs, lib, ... }: {
+
+     services.nextcloud = {
+       enable = true;
+       package = pkgs.nextcloud28;
+       hostName = "localhost";
+       config.adminpassFile = "${pkgs.writeText "adminpass" "test123"}"; # DON'T DO THIS IN PRODUCTION - the password file will be world-readable in the Nix Store!
+     };
+
+     system.stateVersion = "23.11";
+
+     networking = {
+       firewall = {
+         enable = true;
+         allowedTCPPorts = [ 80 ];
+       };
+       # Use systemd-resolved inside the container
+       # Workaround for bug https://github.com/NixOS/nixpkgs/issues/162686
+       useHostResolvConf = lib.mkForce false;
+     };
+    
+     services.resolved.enable = true;
+
+   };
+ };
+
+   In order to reach the web application on the host system, we have to open
+   Firewall port 80 and also configure NAT through networking.nat. The web
+   service of the container will be available at http://192.168.100.11
+
+    Networking
+
+    This article or section needs expansion.                                  
+    Reason: This article is a stub. (Discuss in Talk:NixOS Containers#)       
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   By default, if privateNetwork is not set, the container shares the network
+   with the host, enabling it to bind any port on any interface. However,
+   when privateNetwork is set to true, the container gains its private
+   virtual eth0 and ve-<container_name> on the host. This isolation is
+   beneficial when you want the container to have its dedicated networking
+   stack.
+
+   NAT (Network Address Translation)
+
+   Bridge
+
+ networking = {
+   bridges.br0.interfaces = [ "eth0s31f6" ]; # Adjust interface accordingly
+  
+   # Get bridge-ip with DHCP
+   useDHCP = false;
+   interfaces."br0".useDHCP = true;
+
+   # Set bridge-ip static
+   interfaces."br0".ipv4.addresses = [{
+     address = "192.168.100.3";
+     prefixLength = 24;
+   }];
+   defaultGateway = "192.168.100.1";
+   nameservers = [ "192.168.100.1" ];
+ };
+
+ containers.<name> = {
+   privateNetwork = true;
+   hostBridge = "br0"; # Specify the bridge name
+   localAddress = "192.168.100.5/24";
+   config = { };
+ };
+
+  Usage
+
+   List containers
+
+ # machinectl list
+
+   Checking the status of the container
+
+ # systemctl status container@nextcloud
+
+   Login into the container
+
+ # nixos-container root-login nextcloud
+
+   Start or stop a container
+
+ # nixos-container start nextcloud
+ # nixos-container stop nextcloud
+
+   Destroy a container including its file system
+
+ # nixos-container destroy nextcloud
+
+   Further informations are available in the NixOS Manual, NixOS manual.
+
+Declarative OCI containers (Docker/Podman)
+
+  Example config
+
+ { config, pkgs, ... }:
+
+ {
+   config.virtualisation.oci-containers.containers = {
+     hackagecompare = {
+       image = "chrissound/hackagecomparestats-webserver:latest";
+       ports = ["127.0.0.1:3010:3010"];
+       volumes = [
+         "/root/hackagecompare/packageStatistics.json:/root/hackagecompare/packageStatistics.json"
+       ];
+       cmd = [
+         "--base-url"
+         "\"/hackagecompare\""
+       ];
+     };
+   };
+ }
+
+  Usage
+
+   NixOS uses Podman to run OCI containers. Note that these are
+   user-specific, so running commands with or without sudo can change your
+   output.
+
+   List containers
+
+ # podman ps
+
+   Update image
+
+ # podman restart hackagecompare
+
+   List images
+
+ # podman ls
+
+   Remove container
+
+ # podman rm hackagecompare
+
+   Remove image
+
+ # podman rmi c0d9a5f58afe
+
+   Update image
+
+ # podman pull chrissound/hackagecomparestats-webserver:latest
+
+   Run interactive shell in running container
+
+ # podman exec -ti $ContainerId /bin/sh
+
+Troubleshooting
+
+  I have changed the host's channel and some services are no longer functional
+
+   Symptoms:
+
+     * Lost data in PostgreSQL database
+     * MySQL has changed its path, where it creates the database
+
+   Solution
+
+   If you did not have a system.stateVersion option set inside your
+   declarative container configuration, it will use the default one for the
+   channel. Your data might be safe, if you did nothing meanwhile. Add the
+   missing system.stateVersion to your container, rebuild, and possibly
+   stop/start the container.
+
+See also
+
+     * NixOS Manual, Chapter on Container Management
+     * Blog Article - Declarative NixOS Containers
+     * NixOS Discourse - Extra-container: Run declarative containers without
+       full system rebuilds
+     * Nixpkgs - nixos-container.pl
+     * Nixpkgs - nixos-containers.nix
+     * nixos-nspawn
+     * tfc/nspawn-nixos
+     * MicroVMs as a more isolated alternative, e.g. with
+       https://github.com/astro/microvm.nix
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Containers&oldid=13896"
+   Categories:
+     * Server
+     * NixOS
+     * Container
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 10 July 2024, at 08:15.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

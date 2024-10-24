@@ -1,0 +1,213 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Polkit: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    10 July 2024
+
+     * curprev [ ] [ ] 12:2412:24, 10 July 2024‎ Artoria2e5 talk contribs‎
+       4,878 bytes +187‎ →‎Writing rules:
+       /etc/polkit-1/rules.d/10-nixos.rules
+     * curprev [ ] [ ] 12:2012:20, 10 July 2024‎ Artoria2e5 talk contribs‎ m
+       4,691 bytes −4‎ →‎No password for wheel
+     * curprev [ ] [ ] 12:2012:20, 10 July 2024‎ Artoria2e5 talk contribs‎
+       4,695 bytes +604‎ Group rules together. Add a rule "no password for
+       wheel", because who doesn't have wheelNeedsPassword on their
+       plaything?
+     * curprev [ ] [ ] 11:4311:43, 10 July 2024‎ Artoria2e5 talk contribs‎
+       4,091 bytes +122‎ →‎Enable polkit
+     * curprev [ ] [ ] 11:4011:40, 10 July 2024‎ Artoria2e5 talk contribs‎
+       3,969 bytes +9‎ →‎Reboot/poweroff for unprivileged users
+     * curprev [ ] [ ] 11:4011:40, 10 July 2024‎ Artoria2e5 talk contribs‎
+       3,960 bytes +177‎ →‎Reboot/poweroff for unprivileged users
+     * curprev [ ] [ ] 03:2103:21, 10 July 2024‎ Mic92 talk contribs‎ 3,783
+       bytes +1‎ imported from old wiki
+
+    15 March 2024
+
+     * curprev [ ] [ ] 21:4721:47, 15 March 2024‎ imported>Lumarius‎ 3,782
+       bytes +156‎ Added a note about lxqt-policykit
+
+    1 October 2023
+
+     * curprev [ ] [ ] 12:2512:25, 1 October 2023‎ imported>IgorM‎ m 3,626
+       bytes +20‎ Fixed syntax highlighting
+
+    26 July 2023
+
+     * curprev [ ] [ ] 08:3408:34, 26 July 2023‎ imported>Kavika13‎ m 3,606
+       bytes +4‎ No edit summary
+     * curprev [ ] [ ] 08:3308:33, 26 July 2023‎ imported>Kavika13‎ m 3,602
+       bytes +100‎ No edit summary
+     * curprev [ ] [ ] 08:3108:31, 26 July 2023‎ imported>Kavika13‎ 3,502
+       bytes +37‎ Fix syntax error in polkit permissions for reboot/poweroff
+
+    13 May 2023
+
+     * curprev [ ] [ ] 07:4107:41, 13 May 2023‎ imported>Kquote03‎ 3,465
+       bytes +236‎ No edit summary
+
+    14 April 2023
+
+     * curprev [ ] [ ] 12:2412:24, 14 April 2023‎ imported>Mweinelt‎ m 3,229
+       bytes +22‎ →‎Reboot/poweroff for unprivileged users
+     * curprev [ ] [ ] 12:2112:21, 14 April 2023‎ imported>Mweinelt‎ m 3,207
+       bytes −2‎ →‎Reboot/poweroff for unprivileged users
+     * curprev [ ] [ ] 12:2112:21, 14 April 2023‎ imported>Mweinelt‎ 3,209
+       bytes −78‎ reboot/poweroff for unprivileged users
+     * curprev [ ] [ ] 12:2112:21, 14 April 2023‎ imported>Mweinelt‎ 3,287
+       bytes +830‎ reboot/poweroff for unprivileged users
+
+    26 March 2023
+
+     * curprev [ ] [ ] 01:5601:56, 26 March 2023‎ imported>Tkuwill‎ m 2,457
+       bytes −18‎ I wrote the code by myself. Reference: sed manual.
+
+    20 March 2023
+
+     * curprev [ ] [ ] 15:4815:48, 20 March 2023‎ imported>Tkuwill‎ m 2,475
+       bytes +671‎ I wrote the code by myself.
+
+    24 January 2023
+
+     * curprev [ ] [ ] 21:3821:38, 24 January 2023‎ imported>Skallito‎ m
+       1,804 bytes −32‎ Fix syntax for the service.
+
+    31 December 2022
+
+     * curprev [ ] [ ] 19:1219:12, 31 December 2022‎ imported>Coreyoconnor‎
+       1,836 bytes +12‎ update to newer unit options unitConfig and
+       serviceConfig
+
+    21 December 2022
+
+     * curprev [ ] [ ] 04:4904:49, 21 December 2022‎ imported>Robbins‎ m
+       1,824 bytes +30‎ No edit summary
+
+    11 September 2022
+
+     * curprev [ ] [ ] 06:4006:40, 11 September 2022‎ imported>Chewie‎ 1,794
+       bytes +614‎ Mention use of systemd user service to launch a polkit
+       authentication agent
+
+    4 September 2022
+
+     * curprev [ ] [ ] 14:4514:45, 4 September 2022‎ imported>Aaron C Hall‎
+       1,180 bytes −1‎ Inverse is true, see
+       https://search.nixos.org/options?channel=22.05&show=security.polkit.enable&from=0&size=50&sort=relevance&type=packages&query=Polkit
+
+    25 March 2022
+
+     * curprev [ ] [ ] 19:0419:04, 25 March 2022‎ imported>Sorrel‎ 1,181
+       bytes +730‎ mention authentication agents briefly
+
+    21 November 2021
+
+     * curprev [ ] [ ] 14:1214:12, 21 November 2021‎ imported>Coolshaurya‎ m
+       451 bytes +11‎ Use proper code tag
+     * curprev [ ] [ ] 14:1114:11, 21 November 2021‎ imported>Coolshaurya‎
+       440 bytes +440‎ Add polkit page
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Polkit"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

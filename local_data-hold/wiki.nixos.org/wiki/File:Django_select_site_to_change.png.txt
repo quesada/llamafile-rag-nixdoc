@@ -1,0 +1,113 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                     File:Django select site to change.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+   File:Django select site to change.png
+   Size of this preview: 800 × 317 pixels. Other resolution: 1,461 × 579
+   pixels.
+
+   Original file ‎(1,461 × 579 pixels, file size: 70 KB, MIME type:
+   image/png)
+
+   Screenshot of the Django administration "Select site to change" page
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail  Dimensions  User            Comment           
+                     Thumbnail                                                
+                     for                                                      
+           06:49, 20 version as 1,461 × 579                 Cropped excess
+   current February  of 06:49,  (70 KB)     Imported>Benley whitespace
+           2020      20         
+                     February   
+                     2020       
+                     Thumbnail                                                
+                     for                                    Screenshot of the 
+           06:44, 20 version as 1,470 × 775                 Django            
+           February  of 06:44,  (76 KB)     Imported>Benley administration    
+           2020      20                                     "Select site to   
+                     February                               change" page
+                     2020       
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following 2 pages use this file:
+
+     * Mailman
+     * File:Screenshot Capture - 2020-02-20 - 01-43-03.png (file redirect)
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:Django_select_site_to_change.png&oldid=7369"
+     * This page was last edited on 1 April 2024, at 11:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

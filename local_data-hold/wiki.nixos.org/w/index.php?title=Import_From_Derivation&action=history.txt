@@ -1,0 +1,161 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                    Import From Derivation: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    13 September 2024
+
+     * curprev [ ] [ ] 09:5709:57, 13 September 2024‎ Mic92 talk contribs‎
+       235 bytes 0‎ No edit summary
+
+    9 October 2023
+
+     * curprev [ ] [ ] 21:5421:54, 9 October 2023‎ imported>Fricklerhandwerk‎
+       235 bytes −4,385‎ IFD is now documented in the Nix manual
+
+    11 October 2022
+
+     * curprev [ ] [ ] 19:5319:53, 11 October 2022‎ imported>Bpfoley‎ m 4,620
+       bytes 0‎ Typo in URL :)
+
+    9 August 2022
+
+     * curprev [ ] [ ] 20:5520:55, 9 August 2022‎ imported>Fufexan‎ m 4,620
+       bytes +19‎ Add page to Nix category
+
+    26 March 2022
+
+     * curprev [ ] [ ] 18:4518:45, 26 March 2022‎ imported>Srid‎ 4,601 bytes
+       +541‎ IFD and haskell
+
+    8 November 2021
+
+     * curprev [ ] [ ] 18:0418:04, 8 November 2021‎ imported>Asymmetric‎
+       4,060 bytes +29‎ Undo revision 6945 by Asymmetric (talk)
+     * curprev [ ] [ ] 17:4617:46, 8 November 2021‎ imported>Asymmetric‎
+       4,031 bytes −29‎ Clarify example documentation
+     * curprev [ ] [ ] 17:0217:02, 8 November 2021‎ imported>Asymmetric‎ m
+       4,060 bytes +44‎ fix code syntax
+     * curprev [ ] [ ] 16:5316:53, 8 November 2021‎ imported>Asymmetric‎ m
+       4,016 bytes +96‎ add link to blog post, fix section formatting
+
+    11 November 2020
+
+     * curprev [ ] [ ] 19:0619:06, 11 November 2020‎ imported>Roberth‎ m
+       3,920 bytes +114‎ Use (f drv) to clarify that it's only such usages
+       that cause IFD
+     * curprev [ ] [ ] 18:3618:36, 11 November 2020‎ imported>Roberth‎ 3,806
+       bytes +46‎ No edit summary
+     * curprev [ ] [ ] 18:3418:34, 11 November 2020‎ imported>Roberth‎ 3,760
+       bytes +1,389‎ Add sections When to use IFD, Recognizing IFD
+
+    7 February 2019
+
+     * curprev [ ] [ ] 17:1017:10, 7 February 2019‎ imported>Grahamc‎ m 2,371
+       bytes +6‎ No edit summary
+     * curprev [ ] [ ] 17:0917:09, 7 February 2019‎ imported>Grahamc‎ 2,365
+       bytes +2,365‎ Start describing IFD
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Import_From_Derivation"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

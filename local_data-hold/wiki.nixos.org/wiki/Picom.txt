@@ -1,0 +1,126 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Installing a custom fork
+     * 3 Troubleshooting
+          * 3.1 Issues with Nvidia proprietary drivers
+   [ ] Toggle the table of contents
+
+                                     Picom
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   picom is a standalone compositor for Xorg, suitable for use with window
+   managers that do not provide compositing. picom is a fork of compton,
+   which is a fork of xcompmgr-dana, which in turn is a fork of xcompmgr.
+
+Installation
+
+   Put the following line into your system or home-manager config to install
+   picom and enable it's service:
+
+ services.picom.enable = true;
+
+   If you just want to install picom without automatically running it every
+   time your system boots, use this instead:
+
+ packages.picom.enable = true;
+
+Installing a custom fork
+
+   Picom is known for having multiple forks, each having their own features
+   such as animations, better performance or fixes that the most popular
+   forks don't implement. Usually these forks are not available in nixpkgs.
+   But with the following code you can compile and build custom versions from
+   any source. Nurl can be used to generate fetch calls.
+
+ environment.systemPackages = with pkgs; [
+   (picom.overrideAttrs (oldAttrs: rec {
+     src = fetchFromGitHub {
+       owner = "pijulius";
+       repo = "picom";
+       rev = "da21aa8ef70f9796bc8609fb495c3a1e02df93f9";
+       hash = "sha256-rxGWAot+6FnXKjNZkMl1uHHHEMVSxm36G3VoV1vSXLA=";
+     };
+   }))
+ ];
+
+Troubleshooting
+
+  Issues with Nvidia proprietary drivers
+
+   See Nvidia#Fix_app_flickering_with_Picom
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Picom&oldid=13236"
+   Category:
+     * Window managers
+     * This page was last edited on 19 June 2024, at 16:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

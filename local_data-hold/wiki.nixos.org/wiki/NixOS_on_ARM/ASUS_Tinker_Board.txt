@@ -1,0 +1,161 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Board-specific installation notes
+     * 3 Serial console
+     * 4 TODO
+     * 5 Resources
+   [ ] Toggle the table of contents
+
+                         NixOS on ARM/ASUS Tinker Board
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   NixOS on TinkerBoard
+   Manufacturer ASUS            
+   Architecture ARMv7           
+   Bootloader   Upstream u-boot 
+   Maintainer   tomberek        
+
+Status
+
+     This article or section is out of date.                                  
+     Reason: Section refers to old user-provided images. Should be reviewed   
+     with cross-compilation, or native compilation through userspace          
+     emulation. (Discuss in Talk:NixOS on ARM/ASUS Tinker Board)              
+     Once the page has been updated this notice can be removed.               
+
+   @dezgeg's porting efforts to ARMv7 works on the TinkerBoard, with some
+   modification for u-boot and DTB paths. Support for this board is a work in
+   progress. Please contact me (@tomberek) for
+   comments/thoughts/feedback/etc.
+
+Board-specific installation notes
+
+   First follow the generic installation steps to get the installer image on
+   an SD card.
+
+   The Tinker Board seems to look for U-Boot at a specific offset rather than
+   in a file. So copy the initial 4MB from the TinkerOS image and then copy
+   it to the NixOS image while skipping the MBR/partition table in the first
+   512 bytes. It turns out the bootstrap section of the MBR is also needed,
+   so copy that as well.
+
+   These commands may use either the /dev/sdX or the file images and later
+   copied to SD cards - this was discovered iteratively, thus was performed
+   on the sd cards directly. Use with caution. (Assumes /dev/sdc is TinkerOS
+   and /dev/sdb is NixOS images or devices respectively).
+
+ dd if=/dev/sdc of=tinker_sector bs=512k count=8 status=progress # grab tinker initial sectors
+ dd if=tinker_sector of=/dev/sdb bs=512 skip=1 seek=1 count=8191 # copy the img and env blobs
+ dd of=/dev/sdb if=tinker_sector bs=428 count=1 # bootstrap code from begining of MBR
+
+   It turns out that getting into U-Boot using the TinkerOS image, halting
+   the boot process, replacing SD cards with the NixOS image fails, but the
+   error message suggests the extlinux merely has a different name for the
+   DTB than NixOS has packaged. Simply copy from the nixos dtb file
+   `/boot/nixos/<hash>-dtbs/rk3288-tinker.dtb` to
+   `rockchip-tinker_rk3288.dtb`.
+
+   Then, install using the installation and configuration steps.
+
+Serial console
+
+   Your configuration.nix will need to modify the default boot.kernelParams
+   configuration to use the serial console.
+
+    
+
+ /etc/nixos/configuration.nix
+
+ boot.kernelParams = [
+     "console=ttymxc0,115200n8" # HDMI?
+     "console=tty0"             # Primary Console?
+     "console=ttyS1,115200n8"   # Serial port?
+     "console=ttyS2,115200n8"   # Serial port pins 8+10
+  ];
+
+TODO
+
+     * Build U-boot from upstream
+     * upload images/blobs
+     * host binary cache
+
+Resources
+
+     * NixOS_on_ARM
+     * Official ASUS website
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/ASUS_Tinker_Board&oldid=11632"
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 5 April 2024, at 03:05.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

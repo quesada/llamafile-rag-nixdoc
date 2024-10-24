@@ -1,0 +1,802 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Support
+     * 2 Upstream installation methods
+          * 2.1 Virtual machine
+          * 2.2 OCI container
+     * 3 Native installation
+          * 3.1 Declarative configuration
+          * 3.2 Imperative configuration
+          * 3.3 Firewalling
+               * 3.3.1 First start
+               * 3.3.2 Using components without YAML configuration
+               * 3.3.3 Making additional python packages available
+               * 3.3.4 Using custom components
+               * 3.3.5 Using custom lovelace modules
+          * 3.4 Reusing existing YAML configuration
+     * 4 Tracking the latest release
+     * 5 Snippets
+          * 5.1 Reverse Proxying with nginx
+          * 5.2 Using PostgreSQL
+          * 5.3 Updating Zigbee Firmware over the air
+          * 5.4 Automations, Scenes, and Scripts from the UI
+     * 6 Examples
+          * 6.1 Entity Customization
+          * 6.2 Alarm Control Panel
+          * 6.3 Groups / Helpers
+               * 6.3.1 Binary Sensor Group
+               * 6.3.2 Sensor Group
+          * 6.4 Automations
+               * 6.4.1 Automation with a Condition
+               * 6.4.2 Automation with Multiple Conditions, Multiple Actions
+               * 6.4.3 Trigger Using Numeric State
+               * 6.4.4 Trigger Checking for Entity State Missing / Changing
+                 to Unknown
+               * 6.4.5 Time Based Trigger, Setting Data Field On Entity Such
+                 as Thermostat
+          * 6.5 Trust a private certificate authority
+     * 7 Example configurations
+     * 8 Misc
+          * 8.1 Run Home Assistant from GitHub repository
+   [ ] Toggle the table of contents
+
+                                 Home Assistant
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   [IMG]
+
+   Home Assistant is an open source home automation software that puts local
+   control and privacy first. Powered by a worldwide community of tinkerers
+   and DIY enthusiasts.
+
+   NixOS provides native support for Home Assistant Core and offers
+   integration facilities for most pieces of its comprehensive ecosystem:
+
+     * As of the 2024.8.3 release we support roughly 90.4% (1152/1274) of the
+       built-in integrations
+     * We support custom components through the
+       services.home-assistant.customComponents option
+     * We support source-built custom lovelace modules mostly through
+       services.home-assistant.customLovelaceModules option
+     * We do not support addons, which are used to deploy additional
+       services, that are configurable from Home Assistant on their operating
+       system
+          * NixOS has native support for various services, that integrate
+            with Home Assistant, e.g. Mosquitto, Wyoming, zigbee2mqtt, Z-Wave
+            JS
+
+Support
+
+   Depending on the installation method one of various support channels
+   should be used.
+
+   If you rely on the NixOS package and/or module, issues should be reported
+   on the nixpkgs Issue tracker or the #homeautomation:nixos.org Matrix room.
+
+   Only if you rely on one of the upstream supported deployment methods
+   issues can be directly reported to the upstream project. Make sure to
+   follow their guide on reporting issues.
+
+Upstream installation methods
+
+   If you intend for Home Assistant to be an end-user configurable
+   experience, as opposed to the declarative configuration experience NixOS
+   offers, then consider these setups. They have the benefit of full upstream
+   support.
+
+  Virtual machine
+
+   Home Assistant OS in VirtualboxHAOS in Virtualbox
+
+   Home Assistant maintains their own operating system and provides QEMU
+   (qcow2) and Virtualbox (vdi) compatible images. NixOS supports
+   virtualization solutions like libvirt and Incus, both of which wrap QEMU,
+   and Virtualbox.
+
+   Example:
+
+     * NixOS: Headless Home Assistant VM (myme.no) using libvirt
+
+  OCI container
+
+   Home Assistant also provides a container image for OCI compatible
+   runtimes.
+
+   The following example configuration uses podman to download and run the
+   home-assistant:stable image. The frontend will be available via HTTP on
+   port tcp/8123 in the host network namespace and can be reverse proxied
+   from there.
+
+ { 
+   virtualisation.oci-containers = {
+     backend = "podman";
+     containers.homeassistant = {
+       volumes = [ "home-assistant:/config" ];
+       environment.TZ = "Europe/Berlin";
+       # Note: The image will not be updated on rebuilds, unless the version label changes
+       image = "ghcr.io/home-assistant/home-assistant:stable";
+       extraOptions = [
+         # Use the host network namespace for all sockets
+         "--network=host"
+         # Pass devices into the container, so Home Assistant can discover and make use of them
+         "--device=/dev/ttyACM0:/dev/ttyACM0"
+       ];
+     };
+   };
+ }
+
+Native installation
+
+     * There is full support for configuring the through the
+       services.home-assistant.config option.
+     * This is also the case for the Lovelace YAML configuration through the
+       services.home-assistant.lovelace option.
+          * Custom Lovelace modules can be configured through
+            services.home-assistant.customLovelaceModules. The resources
+            section of your Lovelace configuration will automatically be
+            populated.
+     * Custom components can be enabled through the
+       services.home-assistant.customComponents.
+
+  Declarative configuration
+
+   Set up your home-assistant by configuring the
+   services.home-assistant.config attribute set as if it were your
+   home-assistant YAML configuration. The module parses the root and
+   platforms level to automatically discover integrations used and will
+   provide their dependencies to your home-assistant package.
+
+   The following is a minimal configuration, that has all the dependencies
+   that are required to complete the initial configuration flow, that creates
+   your first user:
+
+ {
+   services.home-assistant = {
+     enable = true;
+     extraComponents = [
+       # Components required to complete the onboarding
+       "analytics"
+       "google_translate"
+       "met"
+       "radio_browser"
+       "shopping_list"
+       # Recommended for fast zlib compression
+       # https://www.home-assistant.io/integrations/isal
+       "isal"
+     ];
+     config = {
+       # Includes dependencies for a basic setup
+       # https://www.home-assistant.io/integrations/default_config/
+       default_config = {};
+     };
+   };
+ }
+
+  Imperative configuration
+
+   Alternatively, If you would like to manage your configuration outside your
+   NixOS configuration, you can set up the module to pass a configuration
+   directory. This kind of setup is useful if you want to gradually migrate
+   your existing configuration over.
+
+   Using a custom configuration has the drawback, that we cannot
+   automatically recognize and install component dependencies, and it is
+   unlikely that we will continue to support these kinds of setups going
+   forward.
+
+ {
+   services.home-assistant = {
+     # opt-out from declarative configuration management
+     config = null;
+     lovelaceConfig = null;
+     # configure the path to your config directory
+     configDir = "/etc/home-assistant";
+     # specify list of components required by your configuration
+     extraComponents = [
+       "esphome"
+       "met"
+       "radio_browser"
+     ];
+   };
+ }
+
+  Firewalling
+
+   If not using a reverse-proxy, and you just want unencrypted access on a
+   local network don't forget to update your firewall configuration to expose
+   the port home-assistant is running on.
+
+ {
+   networking.firewall.allowedTCPPorts = [ <other ports> 8123 ];
+ }
+
+      First start
+
+   On your first start you may see multiple ModuleNotFoundError in Home
+   Assistants journal log. These are dependencies required to set up devices
+   Home Assistant already found on the network.
+
+   The appropriate component to load can be looked up in the
+   component-packages.nix file, that gets auto-generated as part of the
+   packaging process.
+
+   For example, we can map the following error to
+
+  ModuleNotFoundError: No module named 'aioesphomeapi'
+
+   the esphome module quite easily.
+
+ {
+   version = "2022.8.0";
+   components = {
+     [...]
+     "esphome" = ps: with ps; [
+       aioesphomeapi
+       aiohttp-cors
+       ifaddr
+       zeroconf
+     ];
+     [...]
+
+     * https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/home-assistant/component-packages.nix
+
+    Using components without YAML configuration
+
+   When a component has no YAML configuration its dependencies can in theory
+   be installed by mentioning the component name in
+   services.home-assistant.config.wled = {};. This is deprecated, since Home
+   Assistant will usually complain about the config having been migrated into
+   the graphical user interface.
+
+   In recent versions of the home-assistant this use case has become more
+   prominent and therefore received a more straightforward implementation,
+   that also ensures that the component is still provided by Home Assistant.
+
+ {
+   services.home-assistant.extraComponents = [
+     "wled"
+   ];
+ }
+
+    Making additional python packages available
+
+   We control the dependencies we pass into the Home Assistant python
+   environment through module options that make the dependencies available,
+   when their relative component was declaratively mentioned.
+
+   For other use cases like PostgreSQL support in the recorder component or
+   the use of custom components, we provide an option to inject arbitrary
+   dependencies from nixpkgs available python package set.
+
+ {
+   services.home-assistant.extraPackages = python3Packages: with python3Packages; [
+     # recorder postgresql support
+     psycopg2
+
+     # miele@home
+     flatdict
+     (callPackage ./pymiele.nix)
+   ];
+ }
+
+    Using custom components
+
+   We provide a way to declaratively manage custom components through the
+   NixOS module with the services.home-assistant.customComponents option.
+
+   Custom components can be found under
+   pkgs.home-assistant-custom-components.
+
+    Using custom lovelace modules
+
+   We provide a way to declaratively manage custom lovelace modules through
+   the NixOS module with the services.home-assistant.customLovelaceModules
+   option.
+
+   Custom components can be found under
+   pkgs.home-assistant-custom-lovelace-modules.
+
+  Reusing existing YAML configuration
+
+   The module also supports passing it an existing configuration, however
+   that comes with certain drawbacks. For example we cannot automatically
+   detect the components, that your configuration requires. In that scenario
+   you will need to resolve dependencies manually using the packages
+   extraComponents parameter. Also you will be unable to reuse configuration
+   values between parts of your NixOS configuration. A barebones setup to get
+   you started may look like this:
+
+ {
+   services.home-assistant = {
+     enable = true;
+     # Pass the path to the directory where your configuration.yaml
+     # resides, /var/lib/hass might be a good location.
+     configDir = /var/lib/hass;
+     # Override the package to handle dependency management manually
+     package = (pkgs.home-assistant.override {
+       # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/home-assistant/component-packages.nix
+       extraComponents = [
+         "default_config"
+         "esphome"
+         "met"
+       ];
+       extraPackages = ps: with ps; [
+         # Are you using a database server for your recorder?
+         # https://www.home-assistant.io/integrations/recorder/
+         #mysqlclient
+         #psycopg2
+       ];
+     })
+   };
+ }
+
+   You may find the following script helpful. It looks up missing
+   dependencies from the home-assistant.service systemd unit journal:
+   https://gist.github.com/AngryAnt/74c047a2b8438517c822ffdd9663aa57
+
+                          Tracking the latest release
+
+   Home Assistant is a fast-paced open source project, that currently
+   features one major release every month, and a handful of minor ones in
+   between. Firmwares and API endpoints tend to change from time to time, so
+   Home Assistant and its bindings need to keep up to keep things work. The
+   version we provide at the branch off is just a snapshot in time, and does
+   not receive any updates, because there would just be too many dependencies
+   and breaking changes to backport. But with NixOS it is still possible to
+   use the version in nixpkgs/unstable by creating an overlay and using the
+   module from nixos-unstable.
+
+ let
+   # Track NixOS unstable via nix-channel, or replace it with something like niv at your own discretion
+   # nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
+   unstable = import <nixos-unstable> {};
+ in
+ {
+   nixpkgs.overlays = [
+     (self: super: {
+       inherit (unstable) home-assistant;
+     })
+   ];
+
+   disabledModules = [
+     "services/home-automation/home-assistant.nix"
+   ];
+
+   imports = [
+     <nixos-unstable/nixos/modules/services/home-automation/home-assistant.nix>
+   ];
+ }
+
+                                    Snippets
+
+Reverse Proxying with nginx
+
+   If you run a public Home Assistant instance it is a good idea to enable
+   SSL/TLS. The following configuration generates a certificate using
+   letsencrypt:
+
+   services.home-assistant.config.http = {
+     server_host = "::1";
+     trusted_proxies = [ "::1" ];
+     use_x_forwarded_for = true;
+   };
+
+   services.nginx = {
+     recommendedProxySettings = true;
+     virtualHosts."home.example.com" = {
+       forceSSL = true;
+       enableACME = true;
+       extraConfig = ''
+         proxy_buffering off;
+       '';
+       locations."/" = {
+         proxyPass = "http://[::1]:8123";
+         proxyWebsockets = true;
+       };
+     };
+   };
+
+Using PostgreSQL
+
+   Home Assistant supports PostgreSQL as a database backend for, among other
+   things, its logger and history components. It's a lot more scalable and
+   typically provides faster response times than the SQLite database, that is
+   used by default.
+
+   Remember to make backups of your database, for Home Assistant is becoming
+   more and more stateful and has moved away from a completely declarative
+   YAML configuration for new and core components.
+
+   Also note that when overriding the package you may want to disable install
+   checks as they tend to take a long time to complete.
+
+   services.home-assistant = {
+     extraPackages = ps: with ps; [ psycopg2 ];
+     config.recorder.db_url = "postgresql://@/hass";
+   };
+
+   services.postgresql = {
+     enable = true;
+     ensureDatabases = [ "hass" ];
+     ensureUsers = [{
+       name = "hass";
+       ensureDBOwnership = true;
+     }];
+   };
+
+Updating Zigbee Firmware over the air
+
+   To allow ZHA OTA updates you need to configure the z2m_remote_index
+   setting for ZHA. Before doing any updates, you should read the official
+   integration documentation
+   https://www.home-assistant.io/integrations/zha/#ota-firmware-updates
+
+   Before updating a device, you should do some research. Some firmware
+   updates break certain features you might use (e.g., group binding for IKEA
+   devices). Some updates may also require changes to ZHA. In rare cases, you
+   can even brick devices by installing a firmware update.
+
+ services.home-assistant.config = {
+   zha.zigpy_config.ota.z2m_remote_index = "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/index.json";
+ };
+
+Automations, Scenes, and Scripts from the UI
+
+   These can be created from the user interface, but the files generated from
+   it need to be included in your configuration.
+
+ {
+   services.home-assistant.config = {
+     "automation ui" = "!include automations.yaml";
+     "scene ui" = "!include scenes.yaml";
+     "script ui" = "!include scripts.yaml";
+   };
+ };
+
+   It is also possible to mix declarative and generated configuration for
+   these components, by creating multiple configuration sections with the
+   automation, scenes, or scripts prefix:
+
+ services.home-assistant.config = {
+   "automation nixos" = [
+     # YAML automations go here
+   ];
+   "automation ui" = "!include automations.yaml";
+ }
+
+                                    Examples
+
+  Entity Customization
+
+   You can declaratively define how entities appear in the GUI with respect
+   to their display names (friendly_name) the "show as" (device_class) and
+   the icon displayed (icon). See this page for more documentation and how
+   the YAML will ultimately be generated:
+   https://www.home-assistant.io/docs/configuration/customizing-devices/.
+
+     config = {
+       default_config = {};
+       homeassistant = {
+         # MUST be at the top or will break entire configuration
+         customize = {
+           # Declare all "entity_id" objects here at this level to customize them
+           "binary_sensor.name" = {
+             # Custom name however you want the entity to appear in the GUI
+             friendly_name = "friendlyname";
+             # See https://www.home-assistant.io/integrations/binary_sensor/ for documentation
+             device_class = "deviceclass";
+             # See https://www.home-assistant.io/docs/configuration/customizing-devices/#icon for documentation
+             icon = "mdi:iconname";
+           };
+         };
+       };
+     };
+
+  Alarm Control Panel
+
+   You can declaratively define your own Alarm Control Panel which will
+   appear on the GUI and have entities available to be changed via
+   declaratively created automations. See
+   https://www.home-assistant.io/integrations/manual/ for more documentation.
+
+     config = {
+       default_config = {};
+       homeassistant = {
+
+       # On same level as automations
+       "alarm_control_panel" = [
+         {
+           platform = "manual";
+           name = "Home Alarm";
+           code_arm_required = "false";
+           arming_time = "30";
+           delay_time = "20";
+           trigger_time = "4";
+           disarmed = {
+             trigger_time = "0";
+           };
+           armed_home = {
+             arming_time = "0";
+             delay_time = "0";
+           };
+           armed_night = {
+             arming_time = "0";
+             delay_time = "0";
+           };
+         }
+       ];
+
+  Groups / Helpers
+
+   You can declaratively define groups rather than setting them up in the
+   GUI, and customize their unique_id, platform, type, and entitiy_id's
+   associated. See https://www.home-assistant.io/integrations/group/ for more
+   documentation. Can be used in conjunction with “Entity Customization”
+   section above for additional flexibility by plugging in the unique_id then
+   changing the friendly_name, icon, device_class etc.
+
+    Binary Sensor Group
+
+   Example of Door and Window Sensor Group that could be used in an
+   Automation for triggering an alarm system if any door or window is opened.
+
+       # Door and Window Sensor Group
+       "binary_sensor" = [
+         {
+           unique_id = "binary_sensor.all_door_and_window_sensors";
+           platform = "group";
+           device_class = "door";
+           entities = [
+             "binary_sensor.sensor_1"
+             "binary_sensor.sensor_2"
+             "binary_sensor.sensor_3"
+           ];
+         }
+       ];
+
+    Sensor Group
+
+   Example of Sensor group using “min” mode that could be used in an
+   Automation to trigger a Low Battery Alert across all batteries in the
+   group.
+
+       # Sensor Battery Group
+       "sensor" = [
+         {
+           unique_id = "sensor.all_batteries";
+           platform = "group";
+           type = "min";
+           # Use this or else if any go to "unknown" the group will show unknown
+           ignore_non_numeric = "true";
+           device_class = "battery";
+           entities = [
+             "sensor.battery_1"
+             "sensor.battery_2"
+             "sensor.battery_3"
+           ];
+         }
+       ];
+
+  Automations
+
+    Automation with a Condition
+
+         {
+           alias = "Name To Display in Automations List";
+           trigger = {
+             platform = "state";
+             entity_id = "binary_sensor.someid1";
+             to = "off";
+             for = "00:10:00";
+           };
+           condition = {
+             condition = "state";
+             entity_id = "binary_sensor.someid2";
+             state = "on";
+           };
+           action = {
+             service = "light.turn_off";
+             entity_id = "light.someid";
+           };
+         }
+
+    Automation with Multiple Conditions, Multiple Actions
+
+         {
+           alias = "Name in Automations GUI";
+           trigger = {
+             platform = "state";
+             entity_id = "binary_sensor.someid";
+             to = "on";
+           };
+           condition = [
+             {
+               condition = "state";
+               entity_id = "sun.sun";
+               state = "below_horizon";
+             }
+             {
+               condition = "state";
+               entity_id = "light.someid";
+               state = "off";
+             }
+           ];
+           action = [
+             {
+               service = "notify.notify";
+               data = {
+                 message = "Some Notification";
+               };
+             }
+             {
+               service = "siren.turn_on";
+               entity_id = "siren.someid";
+             }
+           ];
+         }
+
+    Trigger Using Numeric State
+
+         {
+           alias = "Some Name";
+           trigger = {
+             platform = "numeric_state";
+             entity_id = "sensor.batteries";
+             below = "45";
+           };
+           action = {
+             service = "notify.notify";
+             data = {
+               message = "Low Battery Detected";
+             };
+           };
+         }
+
+    Trigger Checking for Entity State Missing / Changing to Unknown
+
+         {
+           alias = "Object Went Unknown";
+           trigger = {
+             platform = "state";
+             entity_id = "switch.someid";
+             to = "unknown";
+             for = "00:5:00";
+           };
+           action = {
+             service = "notify.notify";
+             data = {
+               message = "Object Went Offline";
+             };
+           };
+         }
+
+    Time Based Trigger, Setting Data Field On Entity Such as Thermostat
+
+         {
+           alias = "Do Something At Certain Time";
+           trigger = {
+             platform = "time";
+             at = "23:00:00";
+           };
+           action = {
+             service = "climate.set_temperature";
+             entity_id = "climate.thermostat";
+             data = {
+               temperature = "68";
+             };
+           };
+         }
+
+   If you did not create any automations through the UI, Home Assistant will
+   fail loading because the automations.yaml file does not exist yet, and it
+   will fail including it. To avoid that, add a systemd tmpfiles.d rule:
+
+ systemd.tmpfiles.rules = [
+   "f ${config.services.home-assistant.configDir}/automations.yaml 0755 hass hass"
+ ];
+
+Trust a private certificate authority
+
+   Home Assistant does not natively support adding a private CA to the
+   certificate store (see this thread for more details).
+
+   Home Assistant trusts certificates provided by the certifi python package,
+   which nix overwrites with the cacert package. Using overrides you can
+   append your root CA certificate to the certificates provided by certifi.
+
+   services.home-assistant.package = (pkgs.home-assistant.override {
+     extraPackages = py: with py; [ ];
+     packageOverrides = final: prev: {
+       certifi = prev.certifi.override {
+         cacert = pkgs.cacert.override {
+           extraCertificateFiles = [ ./my_custom_root_ca.crt ];
+         };
+       };
+   }).overrideAttrs (oldAttrs: {
+     doInstallCheck = false;
+   });
+
+                             Example configurations
+
+     * Mic92's config
+
+                                      Misc
+
+Run Home Assistant from GitHub repository
+
+   When developing Home Assistant for some test dependencies additional
+   libraries are needed. A nix-shell expression for this is available here.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Home_Assistant&oldid=17749"
+   Category:
+     * Applications
+     * This page was last edited on 8 October 2024, at 14:36.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

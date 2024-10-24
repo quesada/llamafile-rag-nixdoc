@@ -1,0 +1,49 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                                 New NixOS ISOs
+
+   Published on Wed Feb 06 2008
+
+                                 New NixOS ISOs
+
+   NixOS installer online help New NixOS installation CD images for i686 and
+   x86_64 are available, which is a good thing as the previous ones were
+   already a few months old. The new images are Nix 0.11-based, contain
+   Memtest86+ as a convenience, should support more SATA drives, and show
+   online help (the NixOS manual) on virtual console 7.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,96 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                   NixOS on ARM: Difference between revisions
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+   ← Older edit
+   VisualWikitext
+
+   Revision as of 22:19, 12 July 2024 Latest revision as of 03:15, 10 October
+   view source                        2024 view source
+   Nicolas-goudry (talk | contribs)   Msgilligan (talk | contribs)
+   trusted                            6 edits
+   370 edits                          Add Radxa ROCK 4 to table (will add
+   No edit summary                    linked page next)
+   ← Older edit                       Tag: Visual edit: Switched
+                                          
+   Line 366:                          Line 366:
+                | 4 GB                    | 4 GB                              
+                | microSD                 | microSD                           
+                                          |-                                  
+                                          | Radxa                             
+                                          | [[NixOS on ARM/Radxa ROCK 4|ROCK  
+                                          4]]                                 
+                                          | Rockchip RK3399                   
+                                          | AArch64                           
+                                          | 2× Cortex-A72, 4×Cortex-A53       
+                                          | 2/4 GB                            
+                                          | eMMC, microSD, NVMe via expansion 
+                                          board                               
+                |-                        |-                                  
+                | Radxa                   | Radxa                             
+
+   Retrieved from "https://wiki.nixos.org/wiki/NixOS_on_ARM"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

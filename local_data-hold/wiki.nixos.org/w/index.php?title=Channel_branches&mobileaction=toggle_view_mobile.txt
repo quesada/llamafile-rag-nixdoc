@@ -1,0 +1,214 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 The official channels
+     * 2 Channel update process
+          * 2.1 Hydra Build
+          * 2.2 Success Conditions
+          * 2.3 Channel Update
+     * 3 When unstable lags behind master
+     * 4 Check build status
+     * 5 See also
+   [ ] Toggle the table of contents
+
+                                Channel branches
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Nixpkgs is the Git repository containing all package recipes and NixOS
+   module declarations. Installing packages directly from the master branch
+   of the Nixpkgs repository is possible but risky, since Git commits are
+   merged into master before being heavily tested. That is where channel
+   branches are useful.
+
+   A "channel branch" is Git branch with the "verified" Git commits in
+   Nixpkgs that is exposed at channels.nixos.org. There is also a channel
+   status webpage that tracks the age of channel branches.
+
+   Each channel branch follows a corresponding development branch to which
+   new commits are first added. These new commits are then "verified" using
+   the Hydra continuous integration system, where each channel branch
+   corresponds to building any new or updated packages for that branch and
+   perform the associated tests. A channel branch is updated once its builds
+   succeeds for a new commit. Contrary to users of the development branches,
+   channel branch users will benefit from both "verified" commits and
+   pre-built packages from the public binary cache.
+
+   There are several types of channel branches, each with its own use case
+   and verification phase.
+
+The official channels
+
+   Channels can be broadly categorized into stable and unstable channels, and
+   large and small channels:
+
+     * Stable/unstable:
+          * Stable channels (nixos-24.05) only provide conservative updates
+            for fixing bugs and security vulnerabilities, but do not receive
+            major updates after the initial release. New stable channels are
+            released every six months.
+          * Unstable channels (nixos-unstable, nixpkgs-unstable) follow the
+            master branch of Nixpkgs, delivering the latest tested updates on
+            a rolling basis.
+     * Large/small:
+          * Large channels (nixos-24.05, nixos-unstable) are updated only
+            after Hydra has finished building the full breadth of Nixpkgs.
+          * Small channels (nixos-24.05-small, nixos-unstable-small) are
+            identical to large channels, but are updated as soon as Hydra has
+            finished building a defined set of commonly-used packages. Thus,
+            users following these channels will get faster updates but may
+            need to build any packages they use from outside the defined set
+            themselves. These channels are intended to be used for server
+            setups, for example.
+
+   Most users will want the stable/large channel, currently nixos-24.05.
+
+   NixOS uses Nix profiles for the root user to refer different versions of
+   the system-wide configuration. Profiles set for other users only control
+   the user environment for that user.
+
+Channel update process
+
+   The channel update process begins when anyone with commit access pushes
+   changes to either master or one of the release-XX.XX branches.
+
+  Hydra Build
+
+   Then, for each unstable channel (see above), a particular job at
+   hydra.nixos.org is started which must succeed:
+
+     * For NixOS: the trunk-combined/tested job, which includes some
+       automated NixOS tests.
+     * For nixos-small: the unstable-small/tested job.
+     * For nixpkgs: the trunk/unstable job, which contains some critical
+       release packages.
+
+  Success Conditions
+
+   For a channel update to succeed, two conditions need to be satisfied:
+
+     * Particular jobset evaluation needs to be completely built ie. no more
+       queued jobs, even if some jobs may fail
+     * Particular jobset evaluation's tested/unstable job needs to be built
+       succesfully
+
+   The nixos.org server has a cronjob for which nixos-channel-scripts are
+   executed and poll for the newest jobset that satisfies the above two
+   conditions and trigger a channel update.
+
+  Channel Update
+
+   Once the job succeeds at a particular nixpkgs commit, cache.nixos.org will
+   download binaries from hydra.nixos.org. When the download completes, the
+   channel updates.
+
+   For the NixOS channel command-not-found index is generated, which can take
+   some time since it has to fetch all packages. nixpkgs is quickly updated
+   since none of the above needs to happen once a channel update is
+   triggered.
+
+   Updates for the -unstable channels typically take a few days after commits
+   land in the master branch.
+
+   To find out when a channel was last updated, check
+   https://status.nixos.org/. The progress of a particular pull request can
+   be tracked via the (third-party) Nixpkgs Pull Request Tracker.
+
+When unstable lags behind master
+
+   As https://status.nixos.org shows, a downside of nixos-unstable is that
+   when the channel is blocked due to hydra failures, other (security) fixes
+   will also not get in. While of course we try to keep hydra green, it is
+   expected that this happens every once in a while. When you want to upgrade
+   or downgrade a single package while leaving the rest of your system on
+   nixos-unstable, you could use this approach.
+
+Check build status
+
+   hydra-check
+
+ $ hydra-check --channel unstable bash
+ Build Status for nixpkgs.bash.x86_64-linux on unstable
+ ✔ bash-4.4-p23 from 2021-05-23 - https://hydra.nixos.org/build/143785213
+
+   also useful for finding build logs
+
+See also
+
+     * nix.dev FAQ: Which channel branch should I use?
+     * It's not about “Flakes vs. Channels” by samueldr
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Channel_branches&oldid=13660"
+   Categories:
+     * Nix
+     * NixOS
+     * Hydra
+     * Software
+     * This page was last edited on 1 July 2024, at 20:48.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

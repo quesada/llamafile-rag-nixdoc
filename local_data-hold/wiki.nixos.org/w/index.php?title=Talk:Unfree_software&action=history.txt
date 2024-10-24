@@ -1,0 +1,130 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                     Talk:Unfree software: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    25 September 2024
+
+     * curprev [ ] [ ] 22:4022:40, 25 September 2024‎ Quatquatt talk
+       contribs‎ m 545 bytes 0‎ Quatquatt moved page Talk:Unfree Software to
+       Talk:Unfree software over redirect: Made the wrong change, sorry about
+       that :3
+     * curprev [ ] [ ] 22:3622:36, 25 September 2024‎ Quatquatt talk
+       contribs‎ m 545 bytes 0‎ Quatquatt moved page Talk:Unfree software to
+       Talk:Unfree Software: This should redirect to the proper page. Not
+       sure why the redirect was deleted.
+
+    21 June 2024
+
+     * curprev [ ] [ ] 05:5905:59, 21 June 2024‎ Tomodachi94 talk contribs‎ m
+       545 bytes 0‎ Tomodachi94 moved page Talk:Unfree Software to
+       Talk:Unfree software: use sentance case
+
+    16 October 2023
+
+     * curprev [ ] [ ] 09:4309:43, 16 October 2023‎ imported>Ejiek‎ 545 bytes
+       +545‎ nixpkgs.config -> pkgs & multiple unfree definitions
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Talk:Unfree_software"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,273 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Basic Setup
+          * 1.1 For 24.11 unstable release
+     * 2 Problems
+          * 2.1 Dual Monitors
+     * 3 Special Configuration
+          * 3.1 Enable Southern Islands (SI) and Sea Islands (CIK) support
+          * 3.2 HIP
+               * 3.2.1 Blender
+          * 3.3 OpenCL
+               * 3.3.1 Radeon 500 series (aka Polaris)
+               * 3.3.2 Older GPUs (TeraScale)
+          * 3.4 Vulkan
+               * 3.4.1 AMDVLK
+          * 3.5 GUI tools
+               * 3.5.1 LACT - Linux AMDGPU Controller
+   [ ] Toggle the table of contents
+
+                                    AMD GPU
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 21:53, 7 October 2024 by ExRyuske (talk | contribs) (added
+   OpenCL option variant for 24.11)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   This guide is about setting up NixOS to correctly use your AMD Graphics
+   card if it is relatively new (aka, after the GCN architecture).
+
+Basic Setup
+
+   For ordinary desktop / gaming usage, AMD GPUs are expected to work out of
+   the box. As with any desktop configuration though, graphics acceleration
+   does need to be enabled.
+
+ hardware.opengl = {
+   enable = true;
+   driSupport = true;
+   driSupport32Bit = true;
+ };
+
+  For 24.11 unstable release
+
+ hardware.graphics = {
+   enable = true;
+   enable32Bit = true;
+ };
+
+Problems
+
+  Dual Monitors
+
+   If you encounter problems having multiple monitors connected to your GPU,
+   adding `video` parameters for each connector to the kernel command line
+   sometimes helps.
+
+   For example:
+
+ boot.kernelParams = [
+   "video=DP-1:2560x1440@144"
+   "video=DP-2:2560x1440@144"
+ ];
+
+   With the connector names (like `DP-1`), the resolution and frame rate
+   adjusted accordingly.
+
+   To figure out the connector names, execute the following command while
+   your monitors are connected:
+
+ head /sys/class/drm/*/status
+
+                             Special Configuration
+
+   The following configurations are only required if you have a specific
+   reason for needing them. They are not expected to be necessary for a
+   typical desktop / gaming setup.
+
+Enable Southern Islands (SI) and Sea Islands (CIK) support
+
+   The oldest architectures that AMDGPU supports are Southern Islands (SI,
+   i.e. GCN 1) and Sea Islands (CIK, i.e. GCN 2), but support for them is
+   disabled by default. To use AMDGPU instead of the radeon driver, you can
+   set the kernel parameters:
+
+ # For Southern Islands (SI i.e. GCN 1) cards
+ boot.kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" ];
+ # For Sea Islands (CIK i.e. GCN 2) cards
+ boot.kernelParams = [ "radeon.cik_support=0" "amdgpu.cik_support=1" ];
+
+   Doing this is required to use Vulkan on these cards, as the radeon driver
+   doesn't support it.
+
+HIP
+
+   Most software has the HIP libraries hard-coded. You can work around it on
+   NixOS by using:
+
+   systemd.tmpfiles.rules =
+   let
+     rocmEnv = pkgs.symlinkJoin {
+       name = "rocm-combined";
+       paths = with pkgs.rocmPackages; [
+         rocblas
+         hipblas
+         clr
+       ];
+     };
+   in [
+     "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
+   ];
+
+  Blender
+
+   Hardware accelerated rendering can be achieved by using the package
+   blender-hip.
+
+   Currently, you need to use the latest kernel for blender-hip to work.
+
+OpenCL
+
+ # For 24.05
+ hardware.opengl.extraPackages = with pkgs; [ rocmPackages.clr.icd ];
+ # For 24.11
+ hardware.graphics.extraPackages = with pkgs; [ rocmPackages.clr.icd ];
+
+   You should also install the clinfo package to verify that OpenCL is
+   correctly setup (or check in the program you use to see if it is now
+   available, such as in Darktable).
+
+  Radeon 500 series (aka Polaris)
+
+   As of ROCm 4.5, AMD has disabled OpenCL on Polaris-based cards. This can
+   be re-enabled by setting the environment variable ROC_ENABLE_PRE_VEGA=1
+
+ environment.variables = {
+   ROC_ENABLE_PRE_VEGA = "1";
+ };
+
+  Older GPUs (TeraScale)
+
+   For graphics cards older than GCN 1 — or for any GCN using the "radeon"
+   driver — enable OpenCL by adding Clover instead of the ROCm ICD:
+
+ hardware.opengl.extraPackages = with pkgs; [
+   # OpenCL support for the older Radeon R300, R400, R500,
+   # R600, R700, Evergreen, Northern Islands,
+   # Southern Islands (radeon), and Sea Islands (radeon)
+   # GPU families
+   mesa.opencl
+   # NOTE: at some point GPUs in the R600 family and newer
+   # may need to replace this with the "rusticl" ICD;
+   # and GPUs in the R500-family and older may need to
+   # pin the package version or backport Clover
+   # - https://www.phoronix.com/news/Mesa-Delete-Clover-Discussion
+   # - https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/19385
+ ];
+
+   Merely installing mesa.opencl with nix-shell -p will not work; it needs to
+   be present at build-time for the OpenCL ICD loader, which only searches
+   static paths.
+
+Vulkan
+
+   Vulkan is already enabled by default (using Mesa RADV) on 64 bit
+   applications. The settings to control it are:
+
+ hardware.opengl.driSupport = true; # This is already enabled by default
+ hardware.opengl.driSupport32Bit = true; # For 32 bit applications
+
+  AMDVLK
+
+   The AMDVLK drivers can be used in addition to the Mesa RADV drivers. The
+   program will choose which one to use:
+
+ hardware.opengl.extraPackages = with pkgs; [
+   amdvlk
+ ];
+ # For 32 bit applications
+ hardware.opengl.extraPackages32 = with pkgs; [
+   driversi686Linux.amdvlk
+ ];
+
+   More information can be found here:
+   https://nixos.org/manual/nixos/unstable/index.html#sec-gpu-accel-vulkan
+
+GUI tools
+
+    LACT - Linux AMDGPU Controller
+
+   This application allows you to overclock, undervolt, set fans curves of
+   AMD GPUs on a Linux system.
+
+   In order to install the daemon service you need to add the package to
+   systemd.packages. Also the wantedBy field should be set to
+   multi-user.target to start the service during boot.
+
+ environment.systemPackages = with pkgs; [ lact ];
+ systemd.packages = with pkgs; [ lact ];
+ systemd.services.lactd.wantedBy = ["multi-user.target"];
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=AMD_GPU&oldid=17739"
+   Category:
+     * Video
+     * This page was last edited on 7 October 2024, at 21:53.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

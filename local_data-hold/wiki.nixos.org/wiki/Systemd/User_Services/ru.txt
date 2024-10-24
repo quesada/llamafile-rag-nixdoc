@@ -1,0 +1,118 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Продолжение работы пользовательских служб после выхода из системы
+   [ ] Toggle the table of contents
+
+                        Systemd/Пользовательские сервисы
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Systemd/User Services and
+   the translation is 100% complete.
+   ← Back to systemd
+
+   Systemd поддерживает запуск отдельного экземпляра systemd для конкретного
+   пользователя, позволяя ему управлять своими собственными службами. В NixOS
+   пользовательский сервис может быть выражен с помощью
+   systemd.user.services.<name>, как описано здесь:
+   https://search.nixos.org/options?query=systemd.user.services. Это может
+   быть полезно, если вы хотите, чтобы пользователь мог запускать,
+   останавливать и перезапускать свой собственный экземпляр службы без
+   необходимости делать его sudoer. Пример сервиса:
+
+ systemd.user.services.my-cool-user-service = {
+   enable = true;
+   after = [ "network.target" ];
+   wantedBy = [ "default.target" ];
+   description = "Мой Классный Пользовательский Сервис";
+   serviceConfig = {
+       Type = "simple";
+       ExecStart = ''/my/cool/user/service'';
+   };
+ };
+
+   По умолчанию пользовательские сервисы будут остановлены, когда
+   пользователь выйдет из системы, и запустятся снова, когда пользователь
+   снова войдет в систему, благодаря тому, что мы установили wantedBy =
+   ["default.target" ] в примере.
+
+Продолжение работы пользовательских служб после выхода из системы
+
+   Если вам нужно, чтобы пользовательский сервис продолжал работать после
+   выхода пользователя из системы, вам нужно включить "lingering", установив
+   users.users.<username>.linger = true;. Вы также, вероятно, захотите
+   изменить wantedBy = ["multi-user.target" ];, чтобы служба запускалась во
+   время загрузки.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Systemd/User_Services/ru&oldid=16485"
+   Category:
+     * Systemd
+     * This page was last edited on 8 August 2024, at 08:29.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,137 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Redmine: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 November 2022
+
+     * curprev [ ] [ ] 17:0317:03, 6 November 2022‎ imported>Vater‎ m 2,097
+       bytes +152‎ →‎configuration examples
+     * curprev [ ] [ ] 16:3116:31, 6 November 2022‎ imported>Vater‎ 1,945
+       bytes +190‎ No edit summary
+
+    5 November 2022
+
+     * curprev [ ] [ ] 17:5117:51, 5 November 2022‎ imported>Vater‎ m 1,755
+       bytes −50‎ →‎basic configuration
+     * curprev [ ] [ ] 17:4917:49, 5 November 2022‎ imported>Vater‎ m 1,805
+       bytes 0‎ No edit summary
+     * curprev [ ] [ ] 17:1917:19, 5 November 2022‎ imported>Vater‎ 1,805
+       bytes +106‎ No edit summary
+     * curprev [ ] [ ] 15:0215:02, 5 November 2022‎ imported>Vater‎ m 1,699
+       bytes +66‎ No edit summary
+     * curprev [ ] [ ] 12:1512:15, 5 November 2022‎ imported>Vater‎ m 1,633
+       bytes −1‎ →‎minimal configuration
+     * curprev [ ] [ ] 12:1412:14, 5 November 2022‎ imported>Vater‎ m 1,634
+       bytes +204‎ No edit summary
+     * curprev [ ] [ ] 10:4510:45, 5 November 2022‎ imported>Vater‎ 1,430
+       bytes +700‎ No edit summary
+     * curprev [ ] [ ] 10:1710:17, 5 November 2022‎ imported>Vater‎ 730 bytes
+       +730‎ Created page with "[https://redmine.org/ {{PAGENAME}}]
+       ([[wikipedia:en:{{PAGENAME}}]]) is available as a module. ==
+       configuration examples == ==== minimal configuration ====
+       <syntaxhighli..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Redmine"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,118 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Usage
+          * 1.1 See also
+   [ ] Toggle the table of contents
+
+                                     Fsharp
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 09:34, 20 December 2022 by imported>Aerphanas (add to
+   languages categories)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+                                     Usage
+
+   F# is packaged in the dotnet-sdk family of packages (dotnet-sdk_3,
+   dotnet-sdk_5, and dotnet-sdk_7 as of Dec 20, 2022).
+
+   You can pop into a REPL:
+
+ $ nix-shell -p dotnet-sdk
+ warning: unknown setting 'experimental-features'
+
+ [nix-shell:~]$ dotnet fsi
+
+ Microsoft (R) F# Interactive version 12.0.5.0 for F# 6.0
+ Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+ For help type #help;;
+
+ > printfn "Hello world from F#!";;
+ Hello world from F#!
+ val it : unit = ()
+
+   To create a project use
+
+ dotnet new console --language F#
+ dotnet run
+
+   like so!
+
+See also
+
+     * DotNET
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Fsharp&oldid=8787"
+   Categories:
+     * Applications
+     * Languages
+     * This page was last edited on 20 December 2022, at 09:34.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

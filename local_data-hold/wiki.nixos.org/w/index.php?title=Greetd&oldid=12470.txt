@@ -1,0 +1,159 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Usage
+   [ ] Toggle the table of contents
+
+                                     Greetd
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 20:27, 24 April 2024 by Klinger (talk | contribs)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   greetd is a minimal login manager.
+
+Usage
+
+   Using this configuration, greetd will use the greeter gtkgreet, asking for
+   user, password and which session to start as defined in the
+   /etc/greetd/environments file:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ { config, lib, pkgs, ... }:
+ let
+   swayConfig = pkgs.writeText "greetd-sway-config" ''
+     # `-l` activates layer-shell mode. Notice that `swaymsg exit` will run after gtkgreet.
+     exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
+     bindsym Mod4+shift+e exec swaynag \
+       -t warning \
+       -m 'What do you want to do?' \
+       -b 'Poweroff' 'systemctl poweroff' \
+       -b 'Reboot' 'systemctl reboot'
+   '';
+ in
+ {
+   services.greetd = {
+     enable = true;
+     settings = {
+       default_session = {
+         command = "${pkgs.sway}/bin/sway --config ${swayConfig}";
+       };
+     };
+   };
+
+   environment.etc."greetd/environments".text = ''
+     sway
+     fish
+     bash
+     startxfce4
+   '';
+ }
+
+   In this minimal example, the Wayland compositor Sway automatically gets
+   executed by the user myuser after successfull boot, no password required:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ services.greetd = {
+   enable = true;
+   settings = rec {
+     initial_session = {
+       command = "${pkgs.sway}/bin/sway";
+       user = "myuser";
+     };
+     default_session = initial_session;
+   };
+ };
+
+   initial_session is executed automatically. If you just define
+   default_session, greetd will ask for a password and execute command with
+   user myuser.
+
+   Note:
+
+   If you're hosting gtkgreet in a Wayland compositor, there is a known
+   issue, between GTK portals and dbus, of a delay before the greeter
+   appears,. There are a couple known workarounds depending on the compositor
+   you're using:
+
+     * Cage:
+       https://github.com/Hjdskes/cage/issues/169#issuecomment-691659377
+     * Sway:
+       https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Greetd&oldid=12470"
+   Category:
+     * Desktop environment
+     * This page was last edited on 24 April 2024, at 20:27.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,138 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 QMK
+     * 2 NixOS configuration
+     * 3 VIA
+          * 3.1 Installation
+     * 4 Flashing custom firmware
+   [ ] Toggle the table of contents
+
+                                      Qmk
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+QMK
+
+   QMK (Quantum Mechanical Keyboard) is an open-source firmware for
+   mechanical keyboards that enables users to customize and program various
+   aspects of their keyboards. It provides a rich set of features for
+   customization, including keymaps, macros, LED backlighting, and layers.
+
+   QMK is built on top of the popular AVR and ARM microcontrollers, making it
+   compatible with a wide range of keyboards, including custom and commercial
+   keyboards. It allows users to create fully programmable keyboard layouts,
+   which can then be saved, shared, and reused across different boards or
+   devices.
+
+NixOS configuration
+
+   To access the keyboard for configuration as a normal non-root user add the
+   following nixos configuration:
+
+ {
+   hardware.keyboard.qmk.enable = true
+ }
+
+   After that you can configure keyboard settings using the Via app (if your
+   firmware has enabled support for it).
+
+VIA
+
+   VIA is a feature in QMK that lets you change your keymap on your keyboard
+   without needing to reflash firmware. Your keyboard must support VIA in
+   order for it to work.
+
+  Installation
+
+   Install the VIA package, and add the package to udev. The nixpkg disables
+   the prompt to add the udev due to compatibility issues with NixOS, so it's
+   necessary for the app to detect your keyboard.
+
+ {
+   environment.systemPackages = with pkgs; [
+      via
+   ];
+   services.udev.packages = [ pkgs.via ];
+ }
+
+   After updating udev rules a system restart is required for the changes to
+   take effect.
+
+Flashing custom firmware
+
+   The qmk commandline application is fully supported in nixpkgs. After doing
+   nix-shell -p qmk you can follow the upstream documentation for building,
+   customizing and flashing your keyboard
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Qmk&oldid=13215"
+   Category:
+     * Hardware
+     * This page was last edited on 18 June 2024, at 21:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

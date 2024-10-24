@@ -1,0 +1,54 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                  Service deployment paper accepted for SCM-12
+
+   Published on Mon Aug 22 2005
+
+                  Service deployment paper accepted for SCM-12
+
+   The paper “Service Configuration Management” (accepted at the 12th
+   International Workshop on Software Configuration Management) describes how
+   we can rather easily deploy “services” (e.g., complete webserver
+   configurations such as our Subversion server) through Nix by treating the
+   non-component parts (such as configuration files, control scripts and
+   static data) as components that are built by Nix expressions. The result
+   is that all advantages that Nix offers to software deployment also extend
+   to service deployment, such as the ability to easily have multiple
+   configuration side by side, to roll back configurations, and to identify
+   the precise dependencies of a configuration.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

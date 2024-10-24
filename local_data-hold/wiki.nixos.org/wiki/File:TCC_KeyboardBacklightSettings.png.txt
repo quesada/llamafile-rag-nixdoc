@@ -1,0 +1,107 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                     File:TCC KeyboardBacklightSettings.png
+
+     * File
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+     * File
+     * File history
+     * File usage
+   File:TCC KeyboardBacklightSettings.png
+   Size of this preview: 800 × 450 pixels. Other resolution: 1,390 × 782
+   pixels.
+
+   Original file ‎(1,390 × 782 pixels, file size: 85 KB, MIME type:
+   image/png)
+
+   A screenshot showing the Keyboard Backlight settings in the Tuxedo Control
+   Center.
+
+File history
+
+   Click on a date/time to view the file as it appeared at that time.
+
+           Date/Time Thumbnail  Dimensions  User                 Comment      
+                                                                 A screenshot 
+                     Thumbnail                                   showing the  
+                     for                                         Keyboard     
+   current 14:23, 15 version as 1,390 × 782 Imported>Occhioverde Backlight    
+           July 2023 of 14:23,  (85 KB)                          settings in  
+                     15 July                                     the Tuxedo   
+                     2023                                        Control      
+                                                                 Center.      
+
+   You cannot overwrite this file.
+
+File usage
+
+   The following page uses this file:
+
+     * Hardware/TUXEDO
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=File:TCC_KeyboardBacklightSettings.png&oldid=10855"
+     * This page was last edited on 1 April 2024, at 11:55.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,50 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                              NixOS 14.04 released
+
+   Published on Fri May 30 2014
+
+                              NixOS 14.04 released
+
+   NixOS 14.04 “Baboon” has been released, the second stable release branch.
+   It brings Linux 3.12, systemd 212, GCC 4.8, Glibc 2.19, KDE 4.12,
+   light-weight NixOS containers, and much more. See the release notes for
+   details. You can get NixOS 14.04 ISOs and VirtualBox appliances from the
+   download page. For information on how to upgrade a 13.10 system to 14.04,
+   check out the manual section on upgrading.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

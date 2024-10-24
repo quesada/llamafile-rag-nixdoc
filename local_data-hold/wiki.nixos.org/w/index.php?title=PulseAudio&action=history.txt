@@ -1,0 +1,181 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          PulseAudio: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    15 September 2024
+
+     * curprev [ ] [ ] 22:1622:16, 15 September 2024‎ H7x4 talk contribs‎
+       5,408 bytes +15‎ Add pipewire to "See also"
+     * curprev [ ] [ ] 05:1405:14, 15 September 2024‎ Phanirithvij talk
+       contribs‎ m 5,393 bytes +18‎ fix article link
+
+    15 November 2022
+
+     * curprev [ ] [ ] 16:2216:22, 15 November 2022‎ imported>Cluxter‎ 5,375
+       bytes +833‎ Add sections about loading modules and about Bauer
+       stereophonic-to-binaural DSP library (bs2b)
+
+    29 June 2022
+
+     * curprev [ ] [ ] 04:4504:45, 29 June 2022‎ imported>Haizaar‎ 4,542
+       bytes +286‎ No edit summary
+
+    12 February 2022
+
+     * curprev [ ] [ ] 05:0805:08, 12 February 2022‎ imported>Edrex‎ 4,256
+       bytes +157‎ mention how to unload a default module
+
+    15 June 2021
+
+     * curprev [ ] [ ] 12:0412:04, 15 June 2021‎ imported>Flexagoon‎ 4,099
+       bytes +214‎ No edit summary
+
+    7 November 2020
+
+     * curprev [ ] [ ] 07:0907:09, 7 November 2020‎ imported>Artturin‎ 3,885
+       bytes −60‎ No edit summary
+
+    30 September 2020
+
+     * curprev [ ] [ ] 00:4300:43, 30 September 2020‎ imported>Tobias.bora‎
+       3,945 bytes +16‎ No edit summary
+     * curprev [ ] [ ] 00:4100:41, 30 September 2020‎ imported>Tobias.bora‎
+       3,929 bytes +506‎ No edit summary
+
+    24 June 2019
+
+     * curprev [ ] [ ] 03:5003:50, 24 June 2019‎ imported>Cx405‎ 3,423 bytes
+       +808‎ Add fix for Creative sound cards. I am using it right now and it
+       worked.
+
+    29 November 2017
+
+     * curprev [ ] [ ] 13:0313:03, 29 November 2017‎ imported>Makefu‎ m 2,615
+       bytes +7‎ fix package name
+     * curprev [ ] [ ] 12:4212:42, 29 November 2017‎ imported>Makefu‎ 2,608
+       bytes +402‎ No edit summary
+
+    8 November 2017
+
+     * curprev [ ] [ ] 21:4421:44, 8 November 2017‎ imported>Gleber‎ 2,206
+       bytes +55‎ →‎Enabling PulseAudio: Use nixos configuration.nix to add
+       user to audio group instead of `usermod` command
+
+    24 October 2017
+
+     * curprev [ ] [ ] 16:3916:39, 24 October 2017‎ imported>HLandau‎ m 2,151
+       bytes +5‎ No edit summary
+     * curprev [ ] [ ] 16:3816:38, 24 October 2017‎ imported>HLandau‎ m 2,146
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 16:3216:32, 24 October 2017‎ imported>HLandau‎ m 2,144
+       bytes +47‎ No edit summary
+     * curprev [ ] [ ] 16:3116:31, 24 October 2017‎ imported>HLandau‎ 2,097
+       bytes +2,097‎ Created page with "PulseAudio is a popular sound server
+       for Linux. It is now required by a number of applications, and should
+       be enabled if audio support is desired on NixOS. Enabling
+       PulseAudio..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/PulseAudio"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

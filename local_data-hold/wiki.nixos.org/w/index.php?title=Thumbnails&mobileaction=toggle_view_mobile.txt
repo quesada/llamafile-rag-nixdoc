@@ -1,0 +1,157 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Creating custom thumbnailers
+          * 1.1 Example
+          * 1.2 FFmpeg thumbnailer
+   [ ] Toggle the table of contents
+
+                                   Thumbnails
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: Explain how thumbnails can be configured in different file        
+    managers, preferably by linking to their articles (Discuss in             
+    Talk:Thumbnails#)                                                         
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+Creating custom thumbnailers
+
+   Most package mangers accept the Thumbnail Managing Standard, by using it
+   you can create your own thumbnailer for any file format, this can be done
+   by:
+
+    1. First you need to figure out how to create a .png image from a file in
+       the desired format.
+    2. Create a .thumbnailer file in $XDG_DATA_DIRS/thumbnailers.
+    3. Restart your thumbnailer service (This is specific to each file
+       manager) and test if it's working.
+
+  Example
+
+   You could create a thumbnailer for Krita's .kra file format like so:
+
+   .kra are zip files, with a preview stored at /preview.png, we can use
+   unzip to extract the preview:
+
+ unzip -p robot-squirrel.kra preview.png > robot-squirrel.png
+
+   Create a .thumbnailer file in any $XDG_DATA_DIRS/thumbnailers directory.
+
+ # $HOME/.local/share/thumbnailers/kra.thumbnailer
+ [Thumbnailer Entry]
+ Exec=sh -c "unzip -p %i preview.png > %o"
+ MimeType=application/x-krita;
+
+   Restart your thumbnailer service (This is specific to each file manager)
+   and test if it's working.
+
+   After you have a working definition, you can make it reproducible like so:
+
+ # configuration.nix
+ { pkgs, ... }: {
+   environment.systemPackages = [
+     (
+       pkgs.writeTextFile {
+         # This can be anything, it's just the name of the derivation in the nix store
+         name = "krita-thumbnailer";
+         # This is the important part, the path under which this will be installed
+         destination = "/share/thumbnailers/kra.thumbnailer";
+         # The contents of your thumbnailer, don't forget to specify the full path to executables
+         text = ''
+           [Thumbnailer Entry]
+           Exec=sh -c "${pkgs.unzip}/bin/unzip -p %i preview.png > %o"
+           MimeType=application/x-krita;
+         '';
+       }
+     )
+   ];
+ }
+
+  FFmpeg thumbnailer
+
+   On minimal GNOME environments (for example ones with the option
+   services.gnome.core-utilities.enable set to false, or ones without
+   pkgs.gnome.totem), video thumbnails do not work by default. To fix this,
+   you can use ffmpegthumbnailer:
+
+ # configuration.nix
+ { pkgs, ... }: {
+   environment.systemPackages = [
+     pkgs.ffmpegthumbnailer
+   ];
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Thumbnails&oldid=17155"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 4 September 2024, at 19:32.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

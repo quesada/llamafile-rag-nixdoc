@@ -1,0 +1,2668 @@
+                              NixOps User's Guide
+
+Version 1.8pre3071_2b63a9a
+
+  Eelco Dolstra
+
+  Rob Vermaas
+
+   Copyright © 2012-2016 Eelco Dolstra, Rob Vermaas
+
+     ----------------------------------------------------------------------
+
+   Table of Contents
+
+   1. Introduction
+
+   2. Installation
+
+   3. Overview
+
+                3.1. Deploying to a NixOS machine
+
+                3.2. Accessing machines
+
+                3.3. Checking machine status
+
+                3.4. Network special attributes
+
+                3.5. Network arguments
+
+                3.6. Managing keys
+
+                3.7. Special NixOS module inputs
+
+   A. Command Reference
+
+                nixops — deploy a set of NixOS machines
+
+   B. Configuration Options
+
+                B.1. Machines
+
+   D. Hacking
+
+   E. Release Notes
+
+                E.1. Release 1.7 (April 17, 2019)
+
+                E.2. Release 1.6.1 (Sep 14, 2018)
+
+                E.3. Release 1.6 (Mar 28, 2018)
+
+                E.4. Release 1.5.2 (Oct 29, 2017)
+
+                E.5. Release 1.5.1 (Jul 5, 2017)
+
+                E.6. Release 1.5 (Feb 16, 2017)
+
+                E.7. Release 1.4 (Jul 11, 2016)
+
+                E.8. Release 1.3.1 (January 14, 2016)
+
+                E.9. Release 1.3 (September 28, 2015)
+
+                E.10. Release 1.2 (April 30, 2014)
+
+                E.11. Release 1.1.1 (October 2, 2013)
+
+                E.12. Release 1.1 (September 9, 2013)
+
+                E.13. Release 1.0.1 (July 11, 2013)
+
+                E.14. Release 1.0 (June 18, 2013)
+
+   List of Examples
+
+   3.1. trivial-nixos.nix: NixOS target physical network specification
+
+   3.2. key-dependency.nix: track key dependence with systemd
+
+                            Chapter 1. Introduction
+
+   NixOps is a tool for deploying NixOS machines in a network or cloud. It
+   takes as input a declarative specification of a set of “logical” machines
+   and then performs any necessary steps or actions to realise that
+   specification: instantiate cloud machines, build and download
+   dependencies, stop and start services, and so on. NixOps has several nice
+   properties:
+
+     * It’s declarative: NixOps specifications state the desired
+       configuration of the machines, and NixOps then figures out the actions
+       necessary to realise that configuration. So there is no difference
+       between doing a new deployment or doing a redeployment: the resulting
+       machine configurations will be the same.
+
+     * It performs fully automated deployment. This is a good thing because
+       it ensures that deployments are reproducible.
+
+     * It performs provisioning. Based on the given deployment specification,
+       it will start missing virtual machines, create disk volumes, and so
+       on.
+
+     * It’s based on the Nix package manager, which has a purely functional
+       model that sets it apart from other package managers. Concretely this
+       means that multiple versions of packages can coexist on a system, that
+       packages can be upgraded or rolled back atomically, that dependency
+       specifications can be guaranteed to be complete, and so on.
+
+     * It’s based on NixOS, which has a declarative approach to describing
+       the desired configuration of a machine. This makes it an ideal basis
+       for automated configuration management of sets of machines. NixOS also
+       has desirable properties such as (nearly) atomic upgrades, the ability
+       to roll back to previous configurations, and more.
+
+     * It’s multi-cloud. Machines in a single NixOps deployment can be
+       deployed to different target environments. For instance, one logical
+       machine can be deployed to a local “physical” machine, another to an
+       automatically instantiated Amazon EC2 instance in the eu-west-1
+       region, another in the us-east-1 region, and so on.
+
+     * It supports separation of “logical” and “physical” aspects of a
+       deployment. NixOps specifications are modular, and this makes it easy
+       to separate the parts that say what logical machines should do from
+       where they should do it. For instance, the former might say that
+       machine X should run a PostgreSQL database and machine Y should run an
+       Apache web server, while the latter might state that X should be
+       instantiated as an EC2 m1.large machine while Y should be instantiated
+       as an m1.small. We could also have a second physical specification
+       that says that X and Y should both be instantiated as VirtualBox VMs
+       on the developer’s workstation. So the same logical specification can
+       easily be deployed to different environments.
+
+     * It uses a single formalism (the Nix expression language) for package
+       management and system configuration management. This makes it very
+       easy to add ad hoc packages to a deployment.
+
+     * It combines system configuration management and provisioning.
+       Provisioning affects configuration management: for instance, if we
+       instantiate an EC2 machine as part of a larger deployment, it may be
+       necessary to put the IP address or hostname of that machine in a
+       configuration file on another machine. NixOps takes care of this
+       automatically.
+
+     * It can provision non-machine cloud resources such as Amazon S3 buckets
+       and EC2 keypairs.
+
+   This manual describes how to install NixOps and how to use it. The
+   appendix contains a copy of the NixOps manual page, which is also
+   available by running man nixops.
+
+                            Chapter 2. Installation
+
+   NixOps runs on Linux and Mac OS X. (It may also run on other platforms;
+   the main prerequisite is that Nix runs on your platform.) Installing it
+   requires the following steps:
+
+    1. Install the Nix package manager. It’s available from the Nix website
+       in binary form for several platforms. Please refer to the installation
+       instruction in the Nix manual for more details.
+
+    2. Install the latest version of NixOps.
+
+ $ nix-env -i nixops
+
+                              Chapter 3. Overview
+
+   Table of Contents
+
+   3.1. Deploying to a NixOS machine
+
+   3.2. Accessing machines
+
+   3.3. Checking machine status
+
+   3.4. Network special attributes
+
+   3.5. Network arguments
+
+   3.6. Managing keys
+
+   3.7. Special NixOS module inputs
+
+   This chapter gives a quick overview of how to use NixOps.
+
+3.1. Deploying to a NixOS machine
+
+   To deploy to a machine that is already running NixOS, simply set
+   deployment.targetHost to the IP address or host name of the machine, and
+   leave deployment.targetEnv undefined. See Example 3.1.
+
+   Example 3.1. trivial-nixos.nix: NixOS target physical network
+   specification
+
+ {
+   webserver =
+     { config, pkgs, ... }:
+     { deployment.targetHost = "1.2.3.4";
+     };
+ }
+
+3.2. Accessing machines
+
+   You can login to individual machines by doing nixops ssh name, where name
+   is the name of the machine.
+
+   It’s also possible to perform a command on all machines:
+
+ $ nixops ssh-for-each -d load-balancer-ec2 -- df /tmp
+ backend1...> /dev/xvdb      153899044 192084 145889336   1% /tmp
+ proxy......> /dev/xvdb      153899044 192084 145889336   1% /tmp
+ backend2...> /dev/xvdb      153899044 192084 145889336   1% /tmp
+
+   By default, the command is executed sequentially on each machine. You can
+   add the flag -p to execute it in parallel.
+
+3.3. Checking machine status
+
+   The command nixops check checks the status of each machine in a
+   deployment. It verifies that the machine still exists (i.e. hasn’t been
+   destroyed outside of NixOps), is up (i.e. the instance has been started)
+   and is reachable via SSH. It also checks that any attached disks (such as
+   EBS volumes) are not in a failed state, and prints the names of any
+   systemd units that are in a failed state.
+
+   For example, for the 3-machine EC2 network shown above, it might show:
+
+ $ nixops check -d load-balancer-ec2
+ +----------+--------+-----+-----------+----------+----------------+---------------+-------+
+ | Name     | Exists | Up  | Reachable | Disks OK | Load avg.      | Failed units  | Notes |
+ +----------+--------+-----+-----------+----------+----------------+---------------+-------+
+ | backend1 | Yes    | Yes | Yes       | Yes      | 0.03 0.03 0.05 | httpd.service |       |
+ | backend2 | Yes    | No  | N/A       | N/A      |                |               |       |
+ | proxy    | Yes    | Yes | Yes       | Yes      | 0.00 0.01 0.05 |               |       |
+ +----------+--------+-----+-----------+----------+----------------+---------------+-------+
+
+   This indicates that Apache httpd has failed on backend1 and that machine
+   backend2 is not running at all. In this situation, you should run nixops
+   deploy --check to repair the deployment.
+
+3.4. Network special attributes
+
+   It is possible to define special options for the whole network. For
+   example:
+
+ {
+   network = {
+     description = "staging environment";
+     enableRollback = true;
+   };
+
+   defaults = {
+     imports = [ ./common.nix ];
+   };
+
+   machine = { ... }: {};
+ }
+
+   Each attribute is explained below:
+
+   defaults
+
+           Applies given NixOS module to all machines defined in the network.
+
+   network.description
+
+           A sentence describing the purpose of the network for easier
+           comparison when running nixops list
+
+   network.enableRollback
+
+           If true, each deployment creates a new profile generation to able
+           to run nixops rollback. Defaults to false.
+
+3.5. Network arguments
+
+   In NixOps you can pass in arguments from outside the nix expression. The
+   network file can be a nix function, which takes a set of arguments which
+   are passed in externally and can be used to change configuration values,
+   or even to generate a variable number of machines in the network.
+
+   Here is an example of a network with network arguments:
+
+ { maintenance ? false
+ }:
+ {
+   machine =
+     { config, pkgs, ... }:
+     { services.httpd.enable = maintenance;
+       ...
+     };
+ }
+
+   This network has a maintenance argument that defaults to false. This value
+   can be used inside the network expression to set NixOS option, in this
+   case whether or not Apache HTTPD should be enabled on the system.
+
+   You can pass network arguments using the set-args nixops command. For
+   example, if we want to set the maintenance argument to true in the
+   previous example, you can run:
+
+   $ nixops set-args --arg maintenance true -d argtest
+
+   The arguments that have been set will show up:
+
+ $ nixops info -d argtest
+ Network name: argtest
+ Network UUID: 634d6273-f9f6-11e2-a004-15393537e5ff
+ Network description: Unnamed NixOps network
+ Nix expressions: .../network-arguments.nix
+ Nix arguments: maintenance = true
+
+ +---------+---------------+------+-------------+------------+
+ | Name    |     Status    | Type | Resource Id | IP address |
+ +---------+---------------+------+-------------+------------+
+ | machine | Missing / New | none |             |            |
+ +---------+---------------+------+-------------+------------+
+
+
+   Running nixops deploy after changing the arguments will deploy the new
+   configuration.
+
+3.6. Managing keys
+
+   Files in /nix/store/ are readable by every user on that host, so storing
+   secret keys embedded in nix derivations is insecure. To address this,
+   nixops provides the configuration option deployment.keys, which nixops
+   manages separately from the main configuration derivation for each
+   machine.
+
+   Add a key to a machine like so.
+
+ {
+   machine =
+     { config, pkgs, ... }:
+     {
+       deployment.keys.my-secret.text = "shhh this is a secret";
+       deployment.keys.my-secret.user = "myuser";
+       deployment.keys.my-secret.group = "wheel";
+       deployment.keys.my-secret.permissions = "0640";
+     };
+ }
+    
+
+   This will create a file /run/keys/my-secret with the specified contents,
+   ownership, and permissions.
+
+   Among the key options, only text is required. The user and group options
+   both default to "root", and permissions defaults to "0600".
+
+   Keys from deployment.keys are stored under /run/ on a temporary filesystem
+   and will not persist across a reboot. To send a rebooted machine its keys,
+   use nixops send-keys. Note that all nixops commands implicitly upload keys
+   when appropriate, so manually sending keys should only be necessary after
+   an unattended reboot.
+
+   If you have a custom service that depends on a key from deployment.keys,
+   you can opt to let systemd track that dependency. Each key gets a
+   corresponding systemd service "${keyname}-key.service" which is active
+   while the key is present, and otherwise inactive when the key is absent.
+   See Example 3.2 for how to set this up.
+
+   Example 3.2. key-dependency.nix: track key dependence with systemd
+
+ {
+   machine =
+     { config, pkgs, ... }:
+     {
+       deployment.keys.my-secret.text = "shhh this is a secret";
+
+       systemd.services.my-service = {
+         after = [ "my-secret-key.service" ];
+         wants = [ "my-secret-key.service" ];
+         script = ''
+           export MY_SECRET=$(cat /run/keys/my-secret)
+           run-my-program
+         '';
+       };
+     };
+ }
+      
+
+   These dependencies will ensure that the service is only started when the
+   keys it requires are present. For example, after a reboot, the services
+   will be delayed until the keys are available, and systemctl status and
+   friends will lead you to the cause.
+
+3.7. Special NixOS module inputs
+
+   In deployments with multiple machines, it is often convenient to access
+   the configuration of another node in the same network, e.g. if you want to
+   store a port number only once.
+
+   This is possible by using the extra NixOS module input nodes.
+
+ {
+   network.description = "Gollum server and reverse proxy";
+
+   gollum =
+     { config, pkgs, ... }:
+     {
+       services.gollum = {
+         enable = true;
+         port = 40273;
+       };
+       networking.firewall.allowedTCPPorts = [ config.services.gollum.port ];
+     };
+
+   reverseproxy =
+     { config, pkgs, nodes, ... }:
+     let
+       gollumPort = nodes.gollum.config.services.gollum.port;
+     in
+     {
+       services.nginx = {
+         enable = true;
+         virtualHosts."wiki.example.net".locations."/" = {
+           proxyPass = "http://gollum:${toString gollumPort}";
+         };
+       };
+       networking.firewall.allowedTCPPorts = [ 80 ];
+     };
+ }
+    
+
+   Moving the port number to a different value is now without the risk of an
+   inconsistent deployment.
+
+   Aditional module inputs are
+
+     * name: The name of the machine.
+
+     * uuid: The NixOps UUID of the deployment.
+
+     * resources: NixOps resources associated with the deployment.
+
+                         Appendix A. Command Reference
+
+   Table of Contents
+
+   nixops — deploy a set of NixOS machines
+
+Name
+
+   nixops — deploy a set of NixOS machines
+
+Synopsis
+
+   nixops { --version | --help | command [arguments...] } [ { --state | -s }
+   statefile ] [ { --deployment | -d } uuid-or-name ] [--confirm] [--debug]
+
+Description
+
+   NixOps is a tool for deploying NixOS machines in a network or cloud.
+
+Common options
+
+   --state, -s
+
+           Path to the state file that contains the deployments. It defaults
+           to the value of the NIXOPS_STATE environment variable, or
+           ~/.nixops/deployments.nixops if that one is not defined. It must
+           have extension .nixops. The state file is actually a SQLite
+           database that can be inspected using the sqlite3 command (for
+           example, sqlite3 deployments.nixops .dump). If it does not exist,
+           it is created automatically.
+
+   --deployment, -d
+
+           UUID or symbolic name of the deployment on which to operate.
+           Defaults to the value of the NIXOPS_DEPLOYMENT environment
+           variable.
+
+   --confirm
+
+           Automatically confirm “dangerous” actions, such as terminating EC2
+           instances or deleting EBS volumes. Without this option, you will
+           be asked to confirm each dangerous action interactively.
+
+   --debug
+
+           Turn on debugging output. In particular, this causes NixOps to
+           print a Python stack trace if an unhandled exception occurs.
+
+   --help
+
+           Print a brief summary of NixOps’s command line syntax.
+
+   --version
+
+           Print NixOps’s version number.
+
+Common options passed along to Nix
+
+   -I
+
+           Append a directory to the Nix search path.
+
+   --max-jobs
+
+           Set maximum number of concurrent Nix builds.
+
+   --cores
+
+           Sets the value of the NIX_BUILD_CORES environment variable in the
+           invocation of builders
+
+   --keep-going
+
+           Keep going after failed builds.
+
+   --keep-failed
+
+           Keep temporary directories of failed builds.
+
+   --show-trace
+
+           Print a Nix stack trace if evaluation fails.
+
+   --fallback
+
+           Fall back on installation from source.
+
+   --option
+
+           Set a Nix option.
+
+   --read-only-mode
+
+           Run Nix evaluations in read-only mode.
+
+Environment variables
+
+   NIXOPS_STATE
+
+           The location of the state file if --state is not used. It defaults
+           to ~/.nixops/deployments.nixops.
+
+   NIXOPS_DEPLOYMENT
+
+           UUID or symbolic name of the deployment on which to operate. Can
+           be overridden using the -d option.
+
+   EC2_ACCESS_KEY, AWS_ACCESS_KEY_ID
+
+           AWS Access Key ID used to communicate with the Amazon EC2 cloud.
+           Used if deployment.ec2.accessKeyId is not set in an EC2 machine’s
+           configuration.
+
+   EC2_SECRET_KEY, AWS_SECRET_ACCESS_KEY
+
+           AWS Secret Access Key used to communicate with the Amazon EC2
+           cloud. It is only used if no secret key corresponding to the AWS
+           Access Key ID is defined in ~/.ec2-keys or ~/.aws/credentials.
+
+   AWS_SHARED_CREDENTIALS_FILE
+
+           Alternative path to the the shared credentials file, which is
+           located in ~/.aws/credentials by default.
+
+   HETZNER_ROBOT_USER, HETZNER_ROBOT_PASS
+
+           Username and password used to access the Robot for Hetzner
+           deployments.
+
+   GCE_PROJECT
+
+           GCE Project which should own the resources in the Google Compute
+           Engine deployment. Used if deployment.gce.project is not set in a
+           GCE machine configuration and if resources.$TYPE.$NAME.project is
+           not set in a GCE resource specification.
+
+   GCE_SERVICE_ACCOUNT, ACCESS_KEY_PATH
+
+           GCE Service Account ID and the path to the corresponding private
+           key in .pem format which should be used to manage the Google
+           Compute Engine deployment. Used if deployment.gce.serviceAccount
+           and deployment.gce.accessKey are not set in a GCE machine
+           configuration and if resources.$TYPE.$NAME.serviceAccount and
+           resources.$TYPE.$NAME.accessKey are not set in a GCE resource
+           specification.
+
+Files
+
+   ~/.ec2-keys
+
+           This file maps AWS Access Key IDs to their corresponding Secret
+           Access Keys. Each line must consist of an Access Key IDs, a Secret
+           Access Keys and an optional symbolic identifier, separated by
+           whitespace. Comments starting with # are stripped. An example:
+
+ AKIABOGUSACCESSKEY BOGUSSECRETACCESSKEY dev # AWS development account
+ AKIABOGUSPRODACCESSKEY BOGUSPRODSECRETACCESSKEY prod # AWS production account
+
+           The identifier can be used instead of actual Access Key IDs in
+           deployment.ec2.accessKeyId, e.g.
+
+ deployment.ec2.accessKeyId = "prod";
+
+           This is useful if you have an AWS account with multiple user
+           accounts and you don’t want to hard-code an Access Key ID in a
+           NixOps specification.
+
+   ~/.aws/credentials
+
+           This file pairs AWS Access Key IDs with their corresponding Secret
+           Access Keys under symbolic profile names. It consists of sections
+           marked by profile names. Sections contain newline-separated
+           "assignments" of "variables" aws_access_key_id and
+           aws_secret_access_key to a desired Access Key ID and a Secret
+           Access Key, respectively, e.g.:
+
+ [dev]
+ aws_access_key_id = AKIABOGUSACCESSKEY
+ aws_secret_access_key = BOGUSSECRETACCESSKEY
+
+ [prod]
+ aws_access_key_id = AKIABOGUSPRODACCESSKEY
+ aws_secret_access_key = BOGUSPRODSECRETACCESSKEY
+
+           Symbolic profile names are specified in
+           deployment.ec2.accessKeyId, e.g.:
+
+ deployment.ec2.accessKeyId = "prod";
+
+           If an actual Access Key IDs is used in deployment.ec2.accessKeyId
+           its corresponding Secret Access Key is looked up under [default]
+           profile name. Location of credentials file can be customized by
+           setting the AWS_SHARED_CREDENTIALS_FILE environment variable.
+
+Command nixops create
+
+  Synopsis
+
+   nixops create nixexprs... [ -I path ...]
+
+  Description
+
+   This command creates a new deployment state record in NixOps’s database.
+   The paths of the Nix expressions that specify the desired deployment
+   (nixexprs) are stored in the state file. The UUID of the new deployment is
+   printed on standard output.
+
+  Options
+
+   -I path
+
+           Add path to the Nix expression search path for all future
+           evaluations of the deployment specification. NixOps stores path in
+           the state file. This option may be given multiple times. See the
+           description of the -I option in nix-instantiate(1) for details.
+
+   --deployment, -d
+
+           Set the symbolic name of the new deployment to the given string.
+           The name can be used to refer to the deployment by passing the
+           option -d name or the environment variable NIXOPS_DEPLOYMENT=name
+           to subsequent NixOps invocations. This is typically more
+           convenient than using the deployment’s UUID. However, names are
+           not required to be unique; if you create multiple deployments with
+           the same name, NixOps will complain.
+
+  Examples
+
+   To create a deployment with symbolic name foo, and then perform the actual
+   deployment:
+
+ $ nixops create expr1.nix expr2.nix -d foo
+ created deployment ‘32b06868-d27c-11e2-a055-81d7beb7925e’
+
+ $ nixops deploy -d foo
+
+Command nixops modify
+
+  Synopsis
+
+   nixops modify nixexprs... [ { --name | -n } name ] [ -I path ...]
+
+  Description
+
+   This command modifies an existing deployment. The options are the same as
+   for nixops create. The symbolic name of the deployment can be changed
+   using the --name flag.
+
+  Examples
+
+   To change the Nix expressions specifying the deployment, and rename it
+   from foo to bar:
+
+ $ nixops modify -d foo -n bar expr3.nix expr4.nix
+
+   Note that -d identifies the existing deployment, while -n specifies its
+   new name.
+
+Command nixops clone
+
+  Synopsis
+
+   nixops clone [ { --name | -n } name ]
+
+  Description
+
+   This command clones an existing deployment; that is, it creates a new
+   deployment that has the same deployment specification and parameters, but
+   a different UUID and (optionally) name. Note that nixops clone does not
+   currently clone the state of the machines in the existing deployment.
+   Thus, when you first run nixops deploy on the cloned deployment, NixOps
+   will create new instances from scratch.
+
+  Examples
+
+   To create a new deployment bar by cloning the deployment foo:
+
+ $ nixops clone -d foo -n bar
+
+Command nixops delete
+
+  Synopsis
+
+   nixops delete [--all] [--force]
+
+  Description
+
+   This command deletes a deployment from the state file. NixOps will
+   normally refuse to delete the deployment if any resources belonging to the
+   deployment (such as virtual machines) still exist. You must run nixops
+   destroy first to get rid of any such resources. However, if you pass
+   --force, NixOps will forget about any still-existing resources; this
+   should be used with caution.
+
+   If the --all flag is given, all deployments in the state file are deleted.
+
+  Examples
+
+   To delete the deployment named foo:
+
+ $ nixops delete -d foo
+
+Command nixops deploy
+
+  Synopsis
+
+   nixops deploy [ --kill-obsolete | -k ] [--dry-run] [--repair]
+   [--create-only] [--build-only] [--copy-only] [--check] [--allow-reboot]
+   [--force-reboot] [--allow-recreate] [ --include machine-name... ] [
+   --exclude machine-name... ] [ -I path ...] [ --max-concurrent-copy N ]
+
+  Description
+
+   This command deploys a set of machines on the basis of the specification
+   described by the Nix expressions given in the preceding nixops create
+   call. It creates missing virtual machines, builds each machine
+   configuration, copies the closure of each configuration to the
+   corresponding machine, uploads any keys described in deployment.keys, and
+   activates the new configuration.
+
+  Options
+
+   --kill-obsolete, -k
+
+           Destroy (terminate) virtual machines that were previously created
+           as part of this deployment, but are obsolete because they are no
+           longer mentioned in the deployment specification. This happens if
+           you remove a machine from the specification after having run
+           nixops deploy to create it. Without this flag, such obsolete
+           machines are left untouched.
+
+   --dry-run
+
+           Dry run; show what would be done by this command without actually
+           doing it.
+
+   --repair
+
+           Use --repair when calling nix-build. This is useful for repairing
+           the nix store when some inconsistency is found and
+           nix-copy-closure is failing as a result. Note that this option
+           only works in nix setups that run without the nix daemon.
+
+   --create-only
+
+           Exit after creating any missing machines. Nothing is built and no
+           existing machines are touched.
+
+   --build-only
+
+           Just build the configuration locally; don’t create or deploy any
+           machines. Note that this may fail if the configuration refers to
+           information only known after machines have been created (such as
+           IP addresses).
+
+   --copy-only
+
+           Exit after creating missing machines, building the configuration
+           and copying closures to the target machines; i.e., do everything
+           except activate the new configuration.
+
+   --check
+
+           Normally, NixOps assumes that the deployment state of machines
+           doesn’t change behind its back. For instance, it assumes that a
+           VirtualBox VM, once started, will continue to run unless you run
+           nixops destroy to terminate it. If this is not the case, e.g.,
+           because you shut down or destroyed a machine through other means,
+           you should pass the --check option to tell NixOps to verify its
+           current knowledge.
+
+   --allow-reboot
+
+           Allow NixOps to reboot the instance if necessary. For instance, if
+           you change the type of an EC2 instance, NixOps must stop, modify
+           and restart the instance to effectuate this change.
+
+   --force-reboot
+
+           Reboot the machine to activate the new configuration (using
+           nixos-rebuild boot).
+
+   --allow-recreate
+
+           Recreate resources that have disappeared (e.g. destroyed through
+           mechanisms outside of NixOps). Without this flag, NixOps will
+           print an error if a resource that should exist no longer does.
+
+   --include machine-name...
+
+           Only operate on the machines explicitly mentioned here, excluding
+           other machines.
+
+   --exclude machine-name...
+
+           Only operate on the machines that are not mentioned here.
+
+   -I path
+
+           Add path to the Nix expression search path. This option may be
+           given multiple times and takes precedence over the -I flags used
+           in the preceding nixops create invocation. See the description of
+           the -I option in nix-instantiate(1) for details.
+
+   --max-concurrent-copy N
+
+           Use at most N concurrent nix-copy-closure processes to deploy
+           closures to the target machines. N defaults to 5.
+
+  Examples
+
+   To deploy all machines:
+
+ $ nixops deploy
+
+   To deploy only the logical machines foo and bar, checking whether their
+   recorded deployment state is correct:
+
+ $ nixops deploy --check --include foo bar
+
+   To create any missing machines (except foo) without doing anything else:
+
+ $ nixops deploy --create-only --exclude foo
+
+Command nixops destroy
+
+  Synopsis
+
+   nixops destroy [--all] [ --include machine-name... ] [ --exclude
+   machine-name... ]
+
+  Description
+
+   This command destroys (terminates) all virtual machines previously created
+   as part of this deployment, and similarly deletes all disk volumes if
+   they’re marked as “delete on termination”. Unless you pass the --confirm
+   option, you will be asked to approve every machine destruction.
+
+   This command has no effect on machines that cannot be destroyed
+   automatically; for instance, machines in the none target environment (such
+   as physical machines, or virtual machines not created by NixOps).
+
+  Options
+
+   --all
+
+           Destroy all deployments.
+
+   --include machine-name...
+
+           Only destroy the machines listed here.
+
+   --exclude machine-name...
+
+           Destroy all machines except the ones listed here.
+
+  Examples
+
+   To destroy all machines:
+
+ $ nixops destroy
+
+   To destroy the machine named foo:
+
+ $ nixops destroy --include foo
+
+Command nixops stop
+
+  Synopsis
+
+   nixops stop [ --include machine-name... ] [ --exclude machine-name... ]
+
+  Description
+
+   This command stops (shuts down) all non-obsolete machines that can be
+   automatically started. This includes EC2 and VirtualBox machines, but not
+   machines using the none backend (because NixOps doesn’t know how to start
+   them automatically).
+
+  Options
+
+   --include machine-name...
+
+           Only stop the machines listed here.
+
+   --exclude machine-name...
+
+           Stop all machines except the ones listed here.
+
+  Examples
+
+   To stop all machines that support being stopped:
+
+ $ nixops stop
+
+Command nixops start
+
+  Synopsis
+
+   nixops start [ --include machine-name... ] [ --exclude machine-name... ]
+
+  Description
+
+   This command starts all non-obsolete machines previously stopped using
+   nixops stop.
+
+  Options
+
+   --include machine-name...
+
+           Only start the machines listed here.
+
+   --exclude machine-name...
+
+           Start all machines except the ones listed here.
+
+  Examples
+
+   To start all machines that were previously stopped:
+
+ $ nixops start
+
+Command nixops list
+
+  Synopsis
+
+   nixops list
+
+  Description
+
+   This command prints information about all deployments in the database: the
+   UUID, the name, the description, the number of running or stopped
+   machines, and the types of those machines.
+
+  Examples
+
+ $ nixops list
+ +--------------------------------------+------------------------+------------------------+------------+------------+
+ |                 UUID                 |          Name          |      Description       | # Machines |    Type    |
+ +--------------------------------------+------------------------+------------------------+------------+------------+
+ | 80dc8e11-287d-11e2-b05a-a810fd2f513f |          test          |      Test network      |     4      |    ec2     |
+ | 79fe0e26-d1ec-11e1-8ba3-a1d56c8a5447 |   nixos-systemd-test   | Unnamed NixOps network |     1      | virtualbox |
+ | 742c2a4f-0817-11e2-9889-49d70558c59e |       xorg-test        | NixOS X11 Updates Test |     0      |            |
+ +--------------------------------------+------------------------+------------------------+------------+------------+
+
+Command nixops info
+
+  Synopsis
+
+   nixops info [--all] [--plain] [--no-eval]
+
+  Description
+
+   This command prints some information about the current state of the
+   deployment. For each machine, it prints:
+
+     * The logical name of the machine.
+
+     * Its state, which is one of New (not deployed yet), Up (created and up
+       to date), Outdated (created but not up to date with the current
+       configuration, e.g. due to use of the --exclude option to nixops
+       deploy) and Obsolete (created but no longer present in the
+       configuration).
+
+     * The type of the machine (i.e. the value of deployment.targetEnv, such
+       as ec2). For EC2 machines, it also shows the machine’s region or
+       availability zone.
+
+     * The virtual machine identifier, if applicable. For EC2 machines, this
+       is the instance ID. For VirtualBox VMs, it’s the virtual machine name.
+
+     * The IP address of the machine. This is its public IP address, if it
+       has one, or its private IP address otherwise. (For instance,
+       VirtualBox machines only have a private IP address.)
+
+  Options
+
+   --all
+
+           Print information about all resources in all known deployments,
+           rather than in a specific deployment.
+
+   --plain
+
+           Print the information in a more easily parsed format where columns
+           are separated by tab characters and there are no column headers.
+
+   --no-eval
+
+           Do not evaluate the deployment specification. Note that as a
+           consequence the “Status” field in the output will show all
+           machines as “Obsolete” (since the effective deployment
+           specification is empty).
+
+  Examples
+
+ $ nixops info -d foo
+ Network name: test
+ Network UUID: 80dc8e11-287d-11e2-b05a-a810fd2f513f
+ Network description: Test network
+ Nix expressions: /home/alice/test-network.nix
+
+ +----------+-----------------+------------------------------+------------+-----------------+
+ |   Name   |      Status     |             Type             |   VM Id    |    IP address   |
+ +----------+-----------------+------------------------------+------------+-----------------+
+ | backend0 |  Up / Outdated  | ec2 [us-east-1b; m2.2xlarge] | i-905e9def |   23.23.12.249  |
+ | backend1 |  Up / Outdated  | ec2 [us-east-1b; m2.2xlarge] | i-925e9ded |  184.73.128.122 |
+ | backend2 |  Up / Obsolete  | ec2 [us-east-1b; m2.2xlarge] | i-885e9df7 | 204.236.192.216 |
+ | frontend | Up / Up-to-date |  ec2 [us-east-1c; m1.large]  | i-945e9deb |  23.23.161.169  |
+ +----------+-----------------+------------------------------+------------+-----------------+
+
+Command nixops check
+
+  Synopsis
+
+   nixops check [--all]
+
+  Description
+
+   This command checks and prints the status of each machine in the
+   deployment. For instance, for an EC2 machine, it will ask EC2 whether the
+   machine is running or stopped. If a machine is supposed to be up, NixOps
+   will try to connect to the machine via SSH and get the current load
+   average statistics.
+
+  Options
+
+   --all
+
+           Check all machines in all known deployments, rather than in a
+           specific deployment.
+
+  Examples
+
+   For a running VirtualBox instance, NixOps will print something like:
+
+ $ nixops check
+ machine> VM state is ‘running’
+ machine> pinging SSH... up [1.03 0.34 0.12]
+
+   For a stopped EC2 instance, NixOps might show:
+
+ machine> instance state is ‘stopped’
+
+Command nixops ssh
+
+  Synopsis
+
+   nixops ssh [username@]machine [ command [args...] ]
+
+  Description
+
+   This command opens an SSH connection to the specified machine and executes
+   the specified command. If no command is specified, an interactive shell is
+   started.
+
+  Options
+
+   --include-keys
+
+           Include the public SSH host keys into .ssh/known_hosts for all
+           machines in the imported network.
+
+  Examples
+
+   To start a shell on machine foo:
+
+ $ nixops ssh foo
+
+   To run Emacs on machine bar:
+
+ $ nixops ssh bar -- -X emacs
+
+   Passes -X (“enable X11 forwarding”) to SSH.
+
+Command nixops ssh-for-each
+
+  Synopsis
+
+   nixops ssh-for-each [ --parallel | -p ] [ --include machine-name... ] [
+   --exclude machine-name... ] [ command [args...] ]
+
+  Description
+
+   This operation executes the specified shell command on all non-obsolete
+   machines.
+
+  Options
+
+   --parallel
+
+           Execute the command on each machine in parallel. The default is to
+           do each machine sequentially.
+
+   --include machine-name...
+
+           Execute the command only on the machines listed here.
+
+   --exclude machine-name...
+
+           Execute the command on all machines except the ones listed here.
+
+  Examples
+
+   To reboot all machines in parallel:
+
+ $ nixops ssh-for-each -p reboot
+
+Command nixops mount
+
+  Synopsis
+
+   nixops mount [ { --option | -o } option ...] [username@]machine
+   [:[remote]] local
+
+  Description
+
+   This command mounts the directory remote in the file system of the
+   specified machine onto the directory local in the local file system. If
+   :remote is omitted, the entire remote file system is mounted. If you
+   specify an empty path (i.e. :), then the home directory of the specified
+   user is mounted. If no user is specified, root is assumed.
+
+   This command is implemented using sshfs, so you must have sshfs installed
+   and the fuse kernel module loaded.
+
+  Options
+
+   --option / -o opt
+
+           Pass additional options to sshfs. See sshfs(1) for details.
+
+  Examples
+
+   To mount the entire file system of machine foo onto the local directory
+   ~/mnt:
+
+ $ nixops mount foo ~/mnt
+
+ $ ls -l ~/mnt
+ total 72
+ drwxr-xr-x 1 root  root   4096 Jan 15 11:44 bin
+ drwx------ 1 root  root   4096 Jan 14 17:15 boot
+ …
+
+   To mount the home directory of user alice:
+
+ $ nixops mount alice@foo: ~/mnt
+
+   To mount a specific directory, passing the option transform_symlinks to
+   ensure that absolute symlinks in the remote file system work properly:
+
+ $ nixops mount foo:/data ~/mnt -o transform_symlinks
+
+Command nixops reboot
+
+  Synopsis
+
+   nixops reboot [ --include machine-name... ] [ --exclude machine-name... ]
+   [ --no-wait ] [ command [args...] ]
+
+  Description
+
+   This command reboots all non-obsolete machines in parallel.
+
+  Options
+
+   --include machine-name...
+
+           Only reboot the machines listed here.
+
+   --exclude machine-name...
+
+           Reboot all machines except the ones listed here.
+
+   --no-wait
+
+           Do not wait until the machines have finished rebooting.
+
+  Examples
+
+   To reboot all machines except foo and wait until they’re up again, that
+   is, are reachable via SSH again:
+
+ $ nixops reboot --exclude foo
+
+Command nixops backup
+
+  Synopsis
+
+   nixops backup [ --include machine-name... ] [ --exclude machine-name... ]
+
+  Description
+
+   This command makes a backup of all persistent disks of all machines.
+   Currently this is only implemented for EC2 EBS instances/volumes.
+
+  Options
+
+   --include machine-name...
+
+           Only backup the persistent disks of the machines listed here.
+
+   --exclude machine-name...
+
+           Backup the persistent disks of all machines except the ones listed
+           here.
+
+  Examples
+
+   To backup the persistent disks of all machines:
+
+ $ nixops backup
+
+Command nixops restore
+
+  Synopsis
+
+   nixops restore [ --include machine-name... ] [ --exclude machine-name... ]
+   [ --backup-id backup-id... ]
+
+  Description
+
+   This command restores a machine to a backup.
+
+  Options
+
+   --include machine-name...
+
+           Only backup the persistent disks of the machines listed here.
+
+   --exclude machine-name...
+
+           Restore the persistent disks of all machines to a given backup
+           except the ones listed here.
+
+   --devices device-name...
+
+           Restore only the persistent disks which are mapped to the
+           specified device names.
+
+   --backup-idbackup-id
+
+           Restore the persistent disks of all machines to a given backup
+           except the ones listed here.
+
+  Examples
+
+   To list the available backups and restore the persistent disks of all
+   machines to a given backup:
+
+             $ nixops backup-status
+             $ nixops restore --backup-id 20120803151302
+
+   Restore the persistent disks at device /dev/xvdf of all machines to a
+   given backup:
+
+             $ nixops restore --devices /dev/xvdf --backup-id 20120803151302
+
+Command nixops show-option
+
+  Synopsis
+
+   nixops show-option [--xml] machine option
+
+  Description
+
+   This command prints the value of the specified NixOS configuration option
+   for the specified machine.
+
+  Examples
+
+ $ nixops show-option machine services.xserver.enable
+ false
+
+ $ nixops show-option --xml machine boot.initrd.availableKernelModules
+ <?xml version='1.0' encoding='utf-8'?>
+ <expr>
+   <list>
+     <string value="md_mod" />
+     <string value="raid0" />
+     …
+   </list>
+ </expr>
+
+Command nixops set-args
+
+  Synopsis
+
+   nixops set-args [ --arg name value ...] [ --argstr name value ...] [
+   --unset name ...]
+
+  Description
+
+   This command persistently sets arguments to be passed to the deployment
+   specification.
+
+  Options
+
+   --arg name value
+
+           Set the function argument name to value, where the latter is an
+           arbitrary Nix expression.
+
+   --argstr name value
+
+           Like --arg, but the value is a literal string rather than a Nix
+           expression. Thus, --argstr name value is equivalent to --arg name
+           \"value\".
+
+   --unset name
+
+           Remove a previously set function argument.
+
+  Examples
+
+   Consider the following deployment specification (servers.nix):
+
+ { nrMachines, active }:
+
+ with import <nixpkgs/lib>;
+
+ let
+
+   makeMachine = n: nameValuePair "webserver-${toString n}"
+     ({ config, pkgs, ... }:
+     { deployment.targetEnv = "virtualbox";
+       services.httpd.enable = active;
+       services.httpd.adminAddr = "foo@example.org";
+     });
+
+ in listToAttrs (map makeMachine (range 1 nrMachines))
+
+   This specifies a network of nrMachines identical VirtualBox VMs that run
+   the Apache web server if active is set. To create 10 machines without
+   Apache:
+
+ $ nixops create servers.nix
+ $ nixops set-args --arg nrMachines 10 --arg active false
+ $ nixops deploy
+
+   Next we can enable Apache on the existing machines:
+
+ $ nixops set-args --arg active true
+ $ nixops deploy
+
+   or provision additional machines:
+
+ $ nixops set-args --arg nrMachines 20
+ $ nixops deploy
+
+Command nixops show-console-output
+
+  Synopsis
+
+   nixops show-console-output machine
+
+  Description
+
+   This command prints the console output of the specified machine, if
+   available. Currently this is only supported for the EC2 backend.
+
+  Examples
+
+ $ nixops show-console-output machine
+ Xen Minimal OS!
+ [    0.000000] Initializing cgroup subsys cpuset
+ [    0.000000] Initializing cgroup subsys cpu
+ [    0.000000] Linux version 3.2.36 (nixbld@) (gcc version 4.6.3 (GCC) ) #1 SMP Fri Jan 4 16:07:14 UTC 2013
+ …
+
+Command nixops export
+
+  Synopsis
+
+   nixops export [--all]
+
+  Description
+
+   This command exports the state of the specified deployment, or all
+   deployments if --all is given, as a JSON represention to standard output.
+   The deployment(s) can be imported into another state file using nixops
+   import.
+
+  Examples
+
+   To export a specific deployment, and import it into the state file
+   other.nixops:
+
+ $ nixops export -d foo > foo.json
+ $ nixops import -s other.nixops < foo.json
+ added deployment ‘2bbaddca-01cb-11e2-88b2-19d91ca51c50’
+
+   If desired, you can then remove the deployment from the old state file:
+
+ $ nixops delete -d foo --force
+
+   To export all deployments:
+
+ $ nixops export --all > all.json
+
+Command nixops import
+
+  Synopsis
+
+   nixops import [--include-keys]
+
+  Description
+
+   This command creates deployments from the state data exported by nixops
+   export. The state is read from standard input. See nixops export for
+   examples.
+
+Command nixops send-keys
+
+  Synopsis
+
+   nixops send-keys [ --include machine-name... ] [ --exclude machine-name...
+   ]
+
+  Description
+
+   This command uploads the keys described in deployment.keys to remote
+   machines in the /run/keys/ directory.
+
+   Keys are not persisted across reboots by default. If a machine reboot is
+   triggered from outside nixops, it will need nixops send-keys to repopulate
+   its keys.
+
+   Note that nixops deploy does an implicit send-keys where appropriate, so
+   manually sending keys is only necessary after unattended reboots.
+
+  Options
+
+   --include machine-name...
+
+           Only operate on the machines explicitly mentioned here, excluding
+           other machines.
+
+   --exclude machine-name...
+
+           Only operate on the machines that are not mentioned here.
+
+                       Appendix B. Configuration Options
+
+   Table of Contents
+
+   B.1. Machines
+
+B.1. Machines
+
+   NixOps adds several options to the NixOS machine configuration system. For
+   the standard NixOS configuration options, please see the NixOS manual or
+   the configuration.nix(5) man page.
+
+  Appendix C. Configuration Options
+
+   deployment.alwaysActivate
+
+           Always run the activation script, no matter whether the
+           configuration has changed (the default). This behaviour can be
+           enforced even if it's set to false using the command line option
+           --always-activate on deployment.
+
+           If this is set to false, activation is done only if the new system
+           profile doesn't match the previous one.
+
+           Type: boolean
+
+           Default: true
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/options.nix 
+
+   deployment.autoLuks
+
+           The LUKS volumes to be created. The name of each attribute set
+           specifies the name of the LUKS volume; thus, the resulting device
+           will be named /dev/mapper/name.
+
+           Type: attribute set of submodules
+
+           Default: { }
+
+           Example: { secretdisk = { device = "/dev/xvdf"; passphrase =
+           "foobar"; } ; }
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/auto-luks.nix 
+
+   deployment.autoLuks.<name>.autoFormat
+
+           If the underlying device does not currently contain a filesystem
+           (as determined by blkid, then automatically initialise it using
+           cryptsetup luksFormat.
+
+           Type: boolean
+
+           Default: false
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/auto-luks.nix 
+
+   deployment.autoLuks.<name>.cipher
+
+           The cipher used to encrypt the volume.
+
+           Type: string
+
+           Default: "aes-cbc-essiv:sha256"
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/auto-luks.nix 
+
+   deployment.autoLuks.<name>.device
+
+           The underlying (encrypted) device.
+
+           Type: string
+
+           Example: "/dev/xvdg"
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/auto-luks.nix 
+
+   deployment.autoLuks.<name>.keySize
+
+           The size in bits of the encryption key.
+
+           Type: signed integer
+
+           Default: 128
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/auto-luks.nix 
+
+   deployment.autoLuks.<name>.passphrase
+
+           The passphrase (key file) used to decrypt the key to access the
+           volume. If left empty, a passphrase is generated automatically;
+           this passphrase is lost when you destroy the machine or underlying
+           device, unless you copy it from NixOps's state file. Note that
+           unless deployment.storeKeysOnMachine is set to false, the
+           passphrase is stored in the Nix store of the instance, so an
+           attacker who gains access to the disk containing the store can
+           subsequently decrypt the encrypted volume.
+
+           Type: string
+
+           Default: ""
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/auto-luks.nix 
+
+   deployment.autoRaid0
+
+           The RAID-0 volumes to be created. The name of each attribute set
+           specifies the name of both the volume group and the logical
+           volume; thus, the resulting device will be named /dev/name/name.
+
+           Type: attribute set of submodules
+
+           Default: { }
+
+           Example: { bigdisk = { devices = [ "/dev/xvdg" "/dev/xvdh" ] ; } ;
+           }
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/auto-raid0.nix 
+
+   deployment.autoRaid0.<name>.devices
+
+           The underlying devices to be combined into a RAID-0 volume.
+
+           Type: list of strings
+
+           Example: [ "/dev/xvdg" "/dev/xvdh" ]
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/auto-raid0.nix 
+
+   deployment.hasFastConnection
+
+           If set to true, whole closure will be copied using just
+           `nix-copy-closure`.
+
+           If set to false, closure will be copied first using binary
+           substitution. Addtionally, any missing derivations copied with
+           `nix-copy-closure` will be done using --gzip flag.
+
+           Some backends set this value to true.
+
+           Type: boolean
+
+           Default: false
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/options.nix 
+
+   deployment.keys
+
+           The set of keys to be deployed to the machine. Each attribute maps
+           a key name to a file that can be accessed as destDir/name, where
+           destDir defaults to /run/keys. Thus, { password.text = "foobar"; }
+           causes a file destDir/password to be created with contents foobar.
+           The directory destDir is only accessible to root and the keys
+           group, so keep in mind to add any users that need to have access
+           to a particular key to this group.
+
+           Each key also gets a systemd service name-key.service which is
+           active while the key is present and inactive while the key is
+           absent. Thus, { password.text = "foobar"; } gets a
+           password-key.service.
+
+           Type: attribute set of string or key optionss
+
+           Default: { }
+
+           Example: { password = { text = "foobar"; } ; }
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/keys.nix 
+
+   deployment.keys.<name>.destDir
+
+           When specified, this allows changing the destDir directory of the
+           key file from its default value of /run/keys.
+
+           This directory will be created, its permissions changed to 0750
+           and ownership to root:keys.
+
+           Type: path
+
+           Default: "/run/keys"
+
+   deployment.keys.<name>.group
+
+           The group that will be set for the key file.
+
+           Type: string
+
+           Default: "root"
+
+   deployment.keys.<name>.keyFile
+
+           When non-null, contents of the specified file will be deployed to
+           the specified key on the target machine. If the key name is
+           password and /foo/bar is set here, the contents of the file
+           destDir/password deployed will be the same as local file /foo/bar.
+
+           Since no serialization/deserialization of key contents is
+           involved, there are no limits on that content: null bytes, invalid
+           Unicode, /dev/random output -- anything goes.
+
+           NOTE: Either text or keyFile have to be set.
+
+           Type: null or path
+
+           Default: null
+
+   deployment.keys.<name>.permissions
+
+           The default permissions to set for the key file, needs to be in
+           the format accepted by chmod(1).
+
+           Type: string
+
+           Default: "0600"
+
+           Example: "0640"
+
+   deployment.keys.<name>.text
+
+           When non-null, this designates the text that the key should
+           contain. So if the key name is password and foobar is set here,
+           the contents of the file destDir/password will be foobar.
+
+           NOTE: Either text or keyFile have to be set.
+
+           Type: null or string
+
+           Default: null
+
+           Example: "super secret stuff"
+
+   deployment.keys.<name>.user
+
+           The user which will be the owner of the key file.
+
+           Type: string
+
+           Default: "root"
+
+   deployment.owners
+
+           List of email addresses of the owners of the machines. Used to
+           send email on performing certain actions.
+
+           Type: list of strings
+
+           Default: [ ]
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/options.nix 
+
+   deployment.storeKeysOnMachine
+
+           If true, secret information such as LUKS encryption keys or SSL
+           private keys is stored on the root disk of the machine, allowing
+           the machine to do unattended reboots. If false, secrets are not
+           stored; NixOps supplies them to the machine at mount time. This
+           means that a reboot will not complete entirely until you run
+           nixops deploy or nixops send-keys.
+
+           Type: boolean
+
+           Default: false
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/keys.nix 
+
+   deployment.targetEnv
+
+           This option specifies the type of the environment in which the
+           machine is to be deployed by NixOps.
+
+           Type: string
+
+           Default: "none"
+
+           Example: "ec2"
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/options.nix 
+
+   deployment.targetHost
+
+           This option specifies the hostname or IP address to be used by
+           NixOps to execute remote deployment operations.
+
+           Type: string
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/options.nix 
+
+   deployment.targetPort
+
+           This option specifies the SSH port to be used by NixOps to execute
+           remote deployment operations.
+
+           Type: signed integer
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/options.nix 
+
+   fileSystems
+
+           NixOps extends NixOS' fileSystem option to allow convenient
+           attaching of EC2 volumes.
+
+           Type: list or attribute set of submodules
+
+           Declared by:
+
+         /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/doc/manual/dummy.nix 
+
+   networking.privateIPv4
+
+           IPv4 address of this machine within in the logical network. This
+           address can be used by other machines in the logical network to
+           reach this machine. However, it need not be visible to the outside
+           (i.e., publicly routable).
+
+           Type: string
+
+           Example: "10.1.2.3"
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/options.nix 
+
+   networking.publicIPv4
+
+           Publicly routable IPv4 address of this machine.
+
+           Type: null or string
+
+           Default: null
+
+           Example: "198.51.100.123"
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/options.nix 
+
+   networking.vpnPublicKey
+
+           Public key of the machine's VPN key (set by nixops)
+
+           Type: null or string
+
+           Default: null
+
+           Declared by:
+
+           /nix/store/8r23ggv6s7w676cf8k9idy880f9kpxm9-source/nix/options.nix 
+
+                              Appendix D. Hacking
+
+   This section provides some notes on how to hack on NixOps. To get the
+   latest version of NixOps from GitHub:
+
+ $ git clone git://github.com/NixOS/nixops.git
+ $ cd nixops
+
+   To build it and its dependencies:
+
+ $ nix-build release.nix -A build.x86_64-linux
+
+   The resulting NixOps can be run as ./result/bin/nixops.
+
+   To build all dependencies and start a shell in which all environment
+   variables (such as PYTHONPATH) are set up so that those dependencies can
+   be found:
+
+ $ nix-shell release.nix -A build.x86_64-linux --exclude tarball
+ $ echo $PYTHONPATH
+ /nix/store/5dbidajmgrvskv7kj6bwrkza8szxkgar-python3-3.7.5/lib/python3.7/site-packages:...
+
+   You can then run NixOps in your source tree as follows:
+
+ $ nixops
+
+   To run the tests, do
+
+ $ python3 tests.py
+
+   Note that some of the tests involve the creation of EC2 resources and thus
+   cost money. You must set the environment variable EC2_ACCESS_KEY and
+   (optionally) EC2_SECRET_KEY. (If the latter is not set, it will be looked
+   up in ~/.ec2-keys or in ~/.aws/credentials, as described in ???.) To run a
+   specific test, run python3 tests.py test-name, e.g. To filter on which
+   backends you want to run functional tests against, you can filter on one
+   or more tags. There are also a few NixOS VM tests. These can be run as
+   follows:
+
+ $ nix-build release.nix -A tests.none_backend
+
+   Some useful snippets to debug nixops: Logging
+
+ # this will not work, because sys.stdout is substituted with log file
+ print('asdf')
+
+ # this will work
+ self.log('asdf')
+ from __future__ import print_function; import sys; print('asfd', file=sys.__stdout__)
+ import sys; import pprint; pprint.pprint(some_structure, stream=sys.__stdout__)
+
+   To set breakpoint use
+
+ import sys; import pdb; pdb.Pdb(stdout=sys.__stdout__).set_trace()
+
+                           Appendix E. Release Notes
+
+   Table of Contents
+
+   E.1. Release 1.7 (April 17, 2019)
+
+   E.2. Release 1.6.1 (Sep 14, 2018)
+
+   E.3. Release 1.6 (Mar 28, 2018)
+
+   E.4. Release 1.5.2 (Oct 29, 2017)
+
+   E.5. Release 1.5.1 (Jul 5, 2017)
+
+   E.6. Release 1.5 (Feb 16, 2017)
+
+   E.7. Release 1.4 (Jul 11, 2016)
+
+   E.8. Release 1.3.1 (January 14, 2016)
+
+   E.9. Release 1.3 (September 28, 2015)
+
+   E.10. Release 1.2 (April 30, 2014)
+
+   E.11. Release 1.1.1 (October 2, 2013)
+
+   E.12. Release 1.1 (September 9, 2013)
+
+   E.13. Release 1.0.1 (July 11, 2013)
+
+   E.14. Release 1.0 (June 18, 2013)
+
+E.1. Release 1.7 (April 17, 2019)
+
+     * General
+
+  Warning
+
+       Azure backend is now disabled after the updates to Azure's Python
+       libraries in NixOS 19.03. Please see PR#1131 for more details.
+
+       Existing Azure deployments should use NixOps release 1.6.1. We hope to
+       revive the Azure support in the future once the API compatibility
+       issues are resolved.
+
+          * Mitigation for ssh StrictHostKeyChecking=no issue.
+
+          * Fix nixops info --plain output.
+
+          * Documentation fixes: add AWS VPC resources and fix some outdated
+            command outputs.
+
+          * Addition of Hashicorp's Vault AppRole resource.
+
+     * AWS
+
+          * Add more auto retries to api calls to prevent eventual
+            consistency issues.
+
+          * Fix nixops check with NVMe devices.
+
+          * Route53: normalize DNS hostname.
+
+          * S3: support bucket lifecycle configuration as well as versioning.
+
+          * S3: introduce persistOnDestroy for S3 buckets which allows
+            keeping the bucket during a destroy for later usage
+
+          * Fix backup-status output when backup is performed on a subset of
+            devices.
+
+     * Datadog
+
+          * add tags for Datadog monitors
+
+     * GCE
+
+          * Fix machines being leaked when running destroy after a stop
+            operation.
+
+          * make sure the machine exists before attempting a destroy.
+
+     * Hetzner
+
+          * Remove usage of local commands for network configuration.
+
+  Warning
+
+            Note that this is incompatible with NixOS versions prior to
+            18.03, see release-notes.
+
+     * VirtualBox
+
+          * added NixOS 18.09/19.03 images.
+
+          * handle deleted VMs from outside NixOps.
+
+   This release has contributions from Amine Chikhaoui, Assassinkin, aszlig,
+   Aymen Memni, Chaker Benhamed, Chawki Cheikch, David Kleuker, Domen Kožar,
+   Dorra Hadrich, dzanot, Eelco Dolstra, Jörg Thalheim, Kosyrev Serge, Max
+   Wilson, Michael Bishop, Niklas Hambüchen, Pierre Bourdon, PsyanticY,
+   Robert Hensing.
+
+E.2. Release 1.6.1 (Sep 14, 2018)
+
+     * General
+
+          * Fix the deployment of machines with a large number of keys.
+
+          * Show exit code of configuration activation script, when it is
+            non-zero.
+
+          * Ignore evaluation errors in destroy and delete operations.
+
+          * Removed top-level Exception catch-all
+
+          * Minor bugfixes.
+
+     * AWS
+
+          * Automatically retry certain API calls.
+
+          * Fixed deployment errors when deployment.route53.hostName contains
+            uppercase letters.
+
+          * Support for GCE routes.
+
+          * Support attaching NVMe disks.
+
+     * GCE
+
+          * Add labels for GCE volumes and snapshots.
+
+          * Add option to enable IP forwarding.
+
+     * VirtualBox
+
+          * Use images from nixpkgs if available.
+
+   This release has contributions from Amine Chikhaoui, aszlig, Aymen Memni,
+   Chaker Benhamed, Domen Kožar, Eelco Dolstra, Justin Humm, Michael Bishop,
+   Niklas Hambüchen, Rob Vermaas, Sergei Khoma.
+
+E.3. Release 1.6 (Mar 28, 2018)
+
+     * General
+
+          * JSON output option for show-option command.
+
+          * Added experimental --show-plan to deploy command. Only works for
+            VPC resources currently.
+
+     * Backend: libvirtd
+
+          * Added support for custom kernel/initrd/cmdline, for easier kernel
+            testing/developing.
+
+          * Fail early when defining domain.
+
+          * Support NixOS 18.03
+
+     * Backend: AWS/EC2
+
+          * Allow changing security groups for instances that were deployed
+            with a default VPC (no explicit subnetId/vpc)
+
+          * Make sure EC2 keypair not destroyed when it is in use, instead
+            produce error.
+
+          * Support for separate Route53 resources.
+
+          * Support CloudWatch metrics and alarms.
+
+          * Support updating IAM instance profile of an existing instance.
+
+          * Support VPC resources.
+
+          * RDS: allow multiple security groups.
+
+          * Allow S3 buckets to be configured as websites.
+
+          * Fix issue where S3 bucket policy was only set on initial deploy.
+
+     * Backend: Datadog
+
+          * Support sending start/finish of deploy and destroy events.
+
+          * Support setting downtime during deployment.
+
+     * Backend: Azure
+
+          * Fix Azure access instructions.
+
+     * Backend: Google Compute
+
+          * Add support for labelling GCE instances
+
+          * Minor fixes to make GCE backend more consistent with backends
+            such as EC2.
+
+          * Fix attaching existing volumes to instances.
+
+          * Implemented show-physical --backup for GCE, similar to EC2.
+
+          * Prevent google-instance-setup service from replacing the host key
+            deployed by NixOps.
+
+          * Allow instances to be created inside VPC subnets.
+
+   This release has contributions from Adam Scott, Amine Chikhaoui, Anthony
+   Cowley, Brian Olsen, Daniel Kuehn, David McFarland, Domen Kožar, Eelco
+   Dolstra, Glenn Searby, Graham Christensen, Masato Yonekawa, Maarten
+   Hoogendoorn, Matthieu Coudron, Maximilian Bosch, Michael Bishop, Niklas
+   Hambüchen, Oussama Elkaceh, Pierre-Étienne Meunier, Peter Jones, Rob
+   Vermaas, Samuel Leathers, Shea Levy, Tomasz Czyż, Vaibhav Sagar.
+
+E.4. Release 1.5.2 (Oct 29, 2017)
+
+     * General
+
+          * This release has various minor bug and documentation fixes.
+
+          * #703: don't ask for known host if file doesn't exist.
+
+          * Deprecated --evaluate-only for --dry-run.
+
+     * Backend: libvirtd
+
+          * Added domainType option.
+
+          * Make the libvirt images readable only by their owner/group.
+
+          * Create "persistent" instead of "transient" domains, this ensures
+            that nixops deployments/VMs survive a reboot.
+
+          * Stop using disk backing file and use self contained images.
+
+     * Backend: EC2
+
+          * #652, allow securityGroups of Elastic File System mount target to
+            be set.
+
+          * #709: allow Elastic IP resource for security group sourceIP
+            attribute.
+
+     * Backend: Azure
+
+          * Use Azure images from nixpkgs, if they are available.
+
+     * Backend: Google Compute
+
+          * Use Google Compute images from nixpkgs, if they are available.
+
+   This release has contributions from Andreas Rammhold, Bjørn Forsman, Chris
+   Van Vranken, Corbin, Daniel Ehlers, Domen Kožar, Johannes Bornhold, John
+   M. Harris, Jr, Kevin Quick, Kosyrev Serge, Marius Bergmann, Nadrieril, Rob
+   Vermaas, Vlad Ki.
+
+E.5. Release 1.5.1 (Jul 5, 2017)
+
+     * General
+
+          * This release has various minor bug and documentation fixes.
+
+     * Backend: None
+
+          * #661: Added deployment.keys.*.keyFile option to provide keys from
+            local files, rather than from text literals.
+
+          * #664: Added deployment.keys.*.destDir and deployment.keys.*.path
+            options to give more control over where the deployment keys are
+            stored on the deployed machine.
+
+     * Backend: Datadog
+
+          * Show URL for dashboards and timeboards in info output.
+
+     * Backend: Hetzner
+
+          * Added option to disable creation of sub-accounts.
+
+     * Backend: Google Compute
+
+          * Added option to set service account for an instance.
+
+          * Added option to use preemptible option when creating an instance.
+
+     * Backend: Digital Ocean
+
+          * Added option to support IPv6 on Digital Ocean.
+
+   This release has contributions from Albert Peschar, Amine Chikhaoui,
+   aszlig, Clemens Fruhwirth, Domen Kožar, Drew Hess, Eelco Dolstra, Igor
+   Pashev, Johannes Bornhold, Kosyrev Serge, Leon Isenberg, Maarten
+   Hoogendoorn, Nadrieril Feneanar, Niklas Hambüchen, Philip Patsch, Rob
+   Vermaas, Sven Slootweg.
+
+E.6. Release 1.5 (Feb 16, 2017)
+
+     * General
+
+          * Various minor documentation and bug fixes
+
+          * #508: Implementation of SSH tunnels has been rewritten to use
+            iproute in stead of netttools
+
+          * #400: The ownership of keys is now implemented after user/group
+            creation
+
+          * #216: Added --keep-days option for cleaning up backups
+
+          * #594: NixOps statefile is now created with stricter permissions
+
+          * Use types.submodule instead of deprecated types.optionSet
+
+          * #566: Support setting deployment.hasFastConnection
+
+          * Support for "nixops deploy --evaluate-only"
+
+     * Backend: None
+
+          * Create /etc/hosts
+
+     * Backend: Amazon Web Services
+
+          * Support for Elastic File Systems
+
+          * Support latest EBS volume types
+
+          * Support for Simple Notification Service
+
+          * Support for Cloudwatch Logs resources
+
+          * Support loading credentials from ~/.aws/credentials (AWS default)
+
+          * Use HVM as default virtualization type (all new instance types
+            are HVM)
+
+          * #550: Fix sporadic error "Error binding parameter 0 - probably
+            unsupported type"
+
+     * Backend: Datadog
+
+          * Support provisioning Datadog Monitors
+
+          * Support provisioning Datadog Dashboards
+
+     * Backend: Hetzner
+
+          * #564: Binary cache substitutions didn't work because of
+            certificate errors
+
+     * Backend: VirtualBox
+
+          * Support dots in machine names
+
+          * Added vcpu option
+
+     * Backend: Libvirtd
+
+          * Documentation typo fixes
+
+     * Backend: Digital Ocean
+
+          * Initial support for Digital Ocean to deploy machines
+
+   This release has contributions from Amine Chikhaoui, Anders Papitto,
+   aszlig, Aycan iRiCAN, Christian Kauhaus, Corbin Simpson, Domen Kožar,
+   Eelco Dolstra, Evgeny Egorochkin, Igor Pashev, Maarten Hoogendoorn, Nathan
+   Zadoks, Pascal Wittmann, Renzo Carbonaram, Rob Vermaas, Ruslan Babayev,
+   Susan Potter and Danylo Hlynskyi.
+
+E.7. Release 1.4 (Jul 11, 2016)
+
+     * General
+
+          * Added show-arguments command to query nixops arguments that are
+            defined in the nix expressions
+
+          * Added --dry-activate option to the deploy command, to see what
+            services will be stopped/started/restarted.
+
+          * Added --fallback option to the deploy command to match the same
+            flag on nix-build.
+
+          * Added --cores option to the deploy command to match the same flag
+            on nix-build.
+
+     * Backend: None
+
+     * Amazon EC2
+
+          * Use hvm-s3 AMIs when appropriate
+
+          * Allow EBS optimized flag to be changed (needs --allow-reboot)
+
+          * Allow to recover from spot instance kill, when using external
+            volume defined as resource (resources.ebsVolumes)
+
+          * When disassociating an elastic IP, make sure to check the current
+            instance is the one who is currently associated with it, in case
+            someone else has 'stolen' the elastic IP
+
+          * Use generated list for deployment.ec2.physicalProperties, based
+            on Amazon Pricing listing
+
+          * EC2 AMI registry has been moved the the nixpkgs repository
+
+          * Allow a timeout on spot instance creation
+
+          * Allow updating security groups on running instances in a VPC
+
+          * Support x1 instances
+
+     * Backend: Azure
+
+          * New Azure Cloud backend contributed by Evgeny Egorochkin
+
+     * Backend: VirtualBox
+
+          * Respect deployment.virtualbox.disks.*.size for images with a
+            baseImage
+
+          * Allow overriding the VirtualBox base image size for disk1
+
+     * Libvirt
+
+          * Improve logging messages
+
+          * #345: Use qemu-system-x86_64 instead of qemu-kvm for non-NixOS
+            support
+
+          * add extraDomainXML NixOS option
+
+          * add extraDevicesXML NixOS option
+
+          * add vcpu NixOS option
+
+   This release has contributions from Amine Chikhaoui, aszlig, Cireo, Domen
+   Kožar, Eelco Dolstra, Eric Sagnes, Falco Peijnenburg, Graham Christensen,
+   Kevin Cox, Kirill Boltaev, Mathias Schreck, Michael Weiss, Brian Zach Abe,
+   Pablo Costa, Peter Hoeg, Renzo Carbonara, Rob Vermaas, Ryan Artecona,
+   Tobias Pflug, Tom Hunger, Vesa Kaihlavirta, Danylo Hlynskyi.
+
+E.8. Release 1.3.1 (January 14, 2016)
+
+     * General
+
+          * #340: "too long for Unix domain socket" error
+
+          * #335: Use the correct port when setting up an SSH tunnel
+
+          * #336: Add support for non-machine IP resources in /etc/hosts
+
+          * Fix determining system.stateVersion
+
+          * ssh_util: Reconnect on dead SSH master socket
+
+          * #379: Remove reference to `jobs` attribute in NixOS
+
+     * Backend: None
+
+          * Pass deployment.targetPort to ssh for none backend
+
+          * #361: don't use _ssh_private_key if its corresponding public key
+            hasn't been deployed yet
+
+     * Amazon EC2
+
+          * Allow specifying assumeRolePolicy for IAM roles
+
+          * Add vpcId option to EC2 security group resources
+
+          * Allow VPC security groups to refer to sec. group names (within
+            the same sec. group) as well as group ids
+
+          * Prevent vpc calls to be made if only security group ids are being
+            used (instead of names)
+
+          * Use correct credentials for VPC API calls
+
+          * Fix "creating EC2 instance (... region ‘None’)" when recreating
+            missing instance
+
+          * Allow keeping volumes while destroying deployment
+
+     * VirtualBox
+
+          * #359: Change sbin/mount.vboxsf to bin/mount.vboxsf
+
+     * Hetzner
+
+          * #349: Don't create /root/.ssh/authorized_keys
+
+          * #348: Fixup and refactor Hetzner backend tests
+
+          * hetzner-bootstrap: Fix wrapping Nix inside chroot
+
+          * hetzner-bootstrap: Allow to easily enter chroot
+
+     * Libvirt
+
+          * #374: Add headless mode
+
+          * #374: Use more reliable method to retrieve IP address
+
+          * #374: Nicer error message for missing images dir
+
+          * #374: Be able to specify xml for devices
+
+   This release has contributions from aszlig, Bas van Dijk, Domen Kožar,
+   Eelco Dolstra, Kevin Cox, Paul Liu, Robin Gloster, Rob Vermaas, Russell
+   O'Connor, Tristan Helmich and Yves Parès (Ywen)
+
+E.9. Release 1.3 (September 28, 2015)
+
+     * General
+
+          * NixOps now requires NixOS 14.12 and up.
+
+          * Machines in NixOps network now have access to the deployment
+            name, uuid and its arguments, by means of the deployment.name,
+            deployment.uuid and deployment.arguments options.
+
+          * Support for <...> paths in network spec filenames, e.g. you can
+            use: nixops create '<nixops/templates/container.nix>'.
+
+          * Support ‘username@machine’ for nixops scp
+
+     * Amazon EC2
+
+          * Support for the latest EC2 instance types, including t2 and c4
+            instance.
+
+          * Support Amazon EBS SSD disks.
+
+          * Instances can be placed in an EC2 placement group. This allows
+            instances to be grouped in a low-latency 10 Gbps network.
+
+          * Allow starting EC2 instances in a VPC subnet.
+
+          * More robust handling of spot instance creation.
+
+          * Support for setting bucket policies on S3 buckets created by
+            NixOps.
+
+          * Route53 support now uses CNAME to public DNS hostname, in stead
+            of A record to the public IP address.
+
+          * Support Amazon RDS instances.
+
+     * Google Cloud
+
+          * Instances
+
+          * Disks
+
+          * Images
+
+          * Load balancer, HTTP health check, Target pools and forwarding
+            rules.
+
+          * Static IPs
+
+          * New backend for Google Cloud Platform. It includes support for
+            the following resources:
+
+     * VirtualBox
+
+          * VirtualBox 5.0 is required for the VirtualBox backend.
+
+     * NixOS container
+
+          * New backend for NixOS containers.
+
+     * Libvirt
+
+          * New backend for libvirt using QEMU/KVM.
+
+   This release has contributions from Andreas Herrmann, Andrew Murray,
+   aszlig, Aycan iRiCAN, Bas van Dijk, Ben Moseley, Bjørn Forsman, Boris
+   Sukholitko, Bruce Adams, Chris Forno, Dan Steeves, David Guibert, Domen
+   Kožar, Eelco Dolstra, Evgeny Egorochkin, Leroy Hopson, Michael Alyn
+   Miller, Michael Fellinger, Ossi Herrala, Rene Donner, Rickard Nilsson, Rob
+   Vermaas, Russell O'Connor, Shea Levy, Tomasz Kontusz, Tom Hunger, Trenton
+   Strong, Trent Strong, Vladimir Kirillov, William Roe.
+
+E.10. Release 1.2 (April 30, 2014)
+
+     * General
+
+          * NixOps now requires NixOS 13.10 and up.
+
+          * Add --all option to nixops destroy, nixops delete and nixops
+            ssh-for-each.
+
+          * The -d option now matches based on prefix for convenience when
+            the specified uuid/id is not found.
+
+          * Resources can now be accessed via direct reference, i.e. you can
+            use securityGroups = [ resources.ec2SecurityGroups.foo ]; in
+            stead of securityGroups = [ resources.ec2SecurityGroups.foo.name
+            ];.
+
+          * Changed default value of deployment.storeKeysOnMachine to false,
+            which is the more secure option. This can prevent unattended
+            reboot from finishing, as keys will need to be pushed to the
+            machine.
+
+     * Amazon EC2
+
+          * Support provisioning of elastic IP addresses.
+
+          * Support provisioning of EC2 security groups.
+
+          * Support all HVM instance types.
+
+          * Support ap-southeast-1 region.
+
+          * Better handling of errors in pushing Route53 records.
+
+          * Support using ARN's for applying instance profiles to EC2
+            instances. This allows cross-account API access.
+
+          * Base HVM image was updated to allow using all emphemeral devices.
+
+          * Instance ID is now available in nix through the
+            deployment.ec2.instanceId option, set by nixops.
+
+          * Support independent provisioning of EBS volumes. Previously, EBS
+            volumes could only be created as part of an EC2 instance, meaning
+            their lifetime was tied to the instance and they could not be
+            managed separately. Now they can be provisioned independently,
+            e.g.:
+
+       resources.ebsVolumes.bigdata =
+         { name = "My Big Fat Data";
+           region = "eu-west-1";
+           zone = "eu-west-1a";
+           accessKeyId = "...";
+           size = 1000;
+         };
+      
+
+          * To allow cross-account API access, the
+            deployment.ec2.instanceProfile option can now be set to either a
+            name (previous behaviour) or an Amazon Resource Names (ARN) of
+            the instance profile you want to apply.
+
+     * Hetzner
+
+          * Always hard reset on destroying machine.
+
+          * Support for Hetzner vServers.
+
+          * Disabled root password by default.
+
+          * Fix hard reset for rebooting to rescue mode.. This is
+            particularly useful if you have a dead server and want to put it
+            in rescue mode. Now it's possible to do that simply by running:
+
+       nixops reboot --hard --rescue --include=deadmachine
+      
+
+     * VirtualBox
+
+          * Require VirtualBox >= 4.3.0.
+
+          * Support for shared folders in VirtualBox. You can mount host
+            folder on the guest by setting the
+            deployment.virtualbox.sharedFolders option.
+
+          * Allow destroy if the VM is gone already
+
+   This release has contributions from aszlig, Corey O'Connor, Domen Kožar,
+   Eelco Dolstra, Michael Stone, Oliver Charles, Rickard Nilsson, Rob
+   Vermaas, Shea Levy and Vladimir Kirillov.
+
+E.11. Release 1.1.1 (October 2, 2013)
+
+   This a minor bugfix release.
+
+     * Added a command-line option --include-keys to allow importing SSH
+       public host keys, of the machines that will be imported, to the
+       .ssh/known_hosts of the user.
+
+     * Fixed a bug that prevented switching the deployment.storeKeysOnMachine
+       option value.
+
+     * On non-EC2 systems, NixOps will generate ECDSA SSH host key pairs
+       instead of DSA from now on.
+
+     * VirtualBox deployments use generated SSH host keypairs.
+
+     * For all machines which nixops generates an SSH host keypair for, it
+       will add the SSH public host key to the known_hosts configuration of
+       all machines in the network.
+
+     * For EC2 deployments, if the nixops expression specifies a set of
+       security groups for a machine that is different from the security
+       groups applied to the existing machine, it will produce a warning that
+       the change cannot be made.
+
+     * For EC2 deployments, disks that are not supposed to be attached to the
+       machine are detached only after system activation has been completed.
+       Previously this was done before, but that could lead to volumes not
+       being able to detach without needing to stop the machine.
+
+     * Added a command-line option --repair as a convient way to pass this
+       option, which allows repairing of broken or changed paths in the nix
+       store, to nix-build calls that nixops performs. Note that this option
+       only works in nix setups that run without the nix daemon.
+
+   This release has contributions from aszlig, Ricardo Correia, Eelco
+   Dolstra, Rob Vermaas.
+
+E.12. Release 1.1 (September 9, 2013)
+
+     * Backend for Hetzner, a German data center provider. More information
+       and a demo video can be found here.
+
+     * When using the deployment.keys.* options, the keys in /run/keys are
+       now created with mode 600.
+
+     * Fixed bug where EBS snapshots name tag was overridden by the instance
+       name tag.
+
+     * The nixops executable now has the default OpenSSH from nixpkgs in its
+       PATH now by default, to work around issues with left-over SSH master
+       connections on older version of OpenSSH, such as the version that is
+       installed by default on CentOS.
+
+     * A new resource type has been introduced to generate sets of SSH
+       public/private keys.
+
+     * Support for spot instances in the EC2 backend. By specifying the
+       deployment.ec2.spotInstancePrice option for a machine, you can set the
+       spot instance price in cents. NixOps will wait 10 minutes for a spot
+       instance to be fulfilled, if not, then it will error out for that
+       machine.
+
+E.13. Release 1.0.1 (July 11, 2013)
+
+   This is a minor bugfix release.
+
+     * Reduce parallelism for running EC2 backups, to prevent hammering the
+       AWS API in case of many disks.
+
+     * Propagate the instance tags to the EBS volumes (except for Name tag,
+       which is overriden with a detailed description of the volume and its
+       use).
+
+E.14. Release 1.0 (June 18, 2013)
+
+   Initial release.

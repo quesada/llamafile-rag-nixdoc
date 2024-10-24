@@ -1,0 +1,180 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                   Proxmox Linux Container: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    6 September 2024
+
+     * curprev [ ] [ ] 13:4813:48, 6 September 2024‎ Nani8ot talk contribs‎
+       5,049 bytes +61‎ Add note to only run /run/current-system/activate
+       when no commands can be found, e.g. ls. Tag: Visual edit: Switched
+     * curprev [ ] [ ] 12:4712:47, 6 September 2024‎ Nani8ot talk contribs‎
+       4,988 bytes +149‎ Make a note about the general Proxmox article which
+       includes better, up-to-date instructions. Tag: Visual edit
+     * curprev [ ] [ ] 12:4112:41, 6 September 2024‎ Nani8ot talk contribs‎
+       4,839 bytes +93‎ Add instruction to execute
+       /run/current-system/activate to properly load the current system
+       environment. This makes nixos-rebuild and other commands available.
+       Tag: Visual edit
+
+    15 July 2024
+
+     * curprev [ ] [ ] 18:2418:24, 15 July 2024‎ Vater talk contribs‎ 4,746
+       bytes +666‎ →‎Entering into container by pct enter
+
+    14 January 2023
+
+     * curprev [ ] [ ] 20:2420:24, 14 January 2023‎ imported>Novmar‎ 4,080
+       bytes +231‎ No edit summary
+
+    3 November 2022
+
+     * curprev [ ] [ ] 20:4120:41, 3 November 2022‎ imported>Thornycrackers‎
+       3,849 bytes +134‎ No edit summary
+
+    11 March 2022
+
+     * curprev [ ] [ ] 03:3003:30, 11 March 2022‎ imported>Illustris‎ m 3,715
+       bytes −25‎ No edit summary
+     * curprev [ ] [ ] 03:2603:26, 11 March 2022‎ imported>Illustris‎ 3,740
+       bytes +131‎ No edit summary
+
+    10 March 2022
+
+     * curprev [ ] [ ] 15:5615:56, 10 March 2022‎ imported>Raboof‎ 3,609
+       bytes +241‎ Link to example of using Nix to create a non-NixOS LXC for
+       Proxmox
+
+    5 February 2022
+
+     * curprev [ ] [ ] 10:4610:46, 5 February 2022‎ imported>Altano‎ 3,368
+       bytes +249‎ No edit summary
+     * curprev [ ] [ ] 10:2010:20, 5 February 2022‎ imported>Altano‎ 3,119
+       bytes +8‎ Let's be more explicit about what the variables are for
+       shell expansion. This example tripped me up by not working on zsh
+       where the $BUILDID_ variable didn't expand correctly (since '_' was
+       included in the name)
+
+    21 December 2021
+
+     * curprev [ ] [ ] 07:5607:56, 21 December 2021‎ imported>Vater‎ 3,111
+       bytes +74‎ →‎Preparing the container: the lxc.init.cmd entry must be
+       ''/sbin/init'' now (nixos 21.11 (tested on pve 7.1))
+
+    1 June 2020
+
+     * curprev [ ] [ ] 18:2318:23, 1 June 2020‎ imported>ThinkChaos‎ 3,037
+       bytes +3‎ Make it clearer where to find the system tarball
+
+    10 May 2018
+
+     * curprev [ ] [ ] 01:4601:46, 10 May 2018‎ imported>Samueldr‎ m 3,034
+       bytes +21‎ rephrases→‎CLI operations
+     * curprev [ ] [ ] 01:4401:44, 10 May 2018‎ imported>Samueldr‎ m 3,013
+       bytes +5‎ markdown: go away!
+     * curprev [ ] [ ] 01:4001:40, 10 May 2018‎ imported>Samueldr‎ 3,008
+       bytes +3,008‎ Inits page with rough~ish notes
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Proxmox_Linux_Container"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

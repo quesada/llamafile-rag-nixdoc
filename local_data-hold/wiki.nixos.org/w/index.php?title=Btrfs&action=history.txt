@@ -1,0 +1,248 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Btrfs: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    23 September 2024
+
+     * curprev [ ] [ ] 21:4421:44, 23 September 2024‎ ANoob talk contribs‎ m
+       9,686 bytes +39‎ →‎Install NixOS: Added pointer to example for mount
+       options. Tag: Visual edit
+
+    16 May 2024
+
+     * curprev [ ] [ ] 20:1420:14, 16 May 2024‎ Isti115 talk contribs‎ m
+       9,647 bytes +8‎ Mount the swap subvolume without tracking access
+       times. Tag: Visual edit
+
+    3 April 2024
+
+     * curprev [ ] [ ] 08:2508:25, 3 April 2024‎ Brauni talk contribs‎ 9,639
+       bytes −839‎ Removed "Erase your darlings" from "Encryption" Section.
+       With the Setup that was described there was NO persistence. Tag:
+       Visual edit
+
+    26 February 2024
+
+     * curprev [ ] [ ] 21:4721:47, 26 February 2024‎ imported>Taxborn‎ m
+       10,478 bytes +3‎ Typo and slight grammar change
+
+    9 February 2024
+
+     * curprev [ ] [ ] 20:3720:37, 9 February 2024‎ imported>Vieta‎ 10,475
+       bytes +449‎ No edit summary
+
+    20 January 2024
+
+     * curprev [ ] [ ] 16:5916:59, 20 January 2024‎ imported>Tripplilley‎ m
+       10,026 bytes −1‎ →‎Creating Subvolumes: fix typo in section title
+
+    28 November 2023
+
+     * curprev [ ] [ ] 15:4515:45, 28 November 2023‎ imported>Ryan4yin‎
+       10,027 bytes +395‎ restore root subvolume via
+       boot.initrd.postDeviceCommands
+
+    20 November 2023
+
+     * curprev [ ] [ ] 12:3112:31, 20 November 2023‎ imported>Raboof‎ 9,632
+       bytes +27‎ →‎Format partitions and create subvolumes: document you
+       need btrfs-progs for mkfs.btrfs
+
+    7 October 2023
+
+     * curprev [ ] [ ] 21:5721:57, 7 October 2023‎ imported>Vieta‎ 9,605
+       bytes −171‎ removed personal note
+     * curprev [ ] [ ] 21:5121:51, 7 October 2023‎ imported>Vieta‎ 9,776
+       bytes +2,387‎ TODO Addding "erase your darlings" config
+
+    4 September 2023
+
+     * curprev [ ] [ ] 23:3923:39, 4 September 2023‎
+       imported>Fricklerhandwerk‎ 7,389 bytes +196‎ add disko as
+       recommendation
+     * curprev [ ] [ ] 16:3116:31, 4 September 2023‎ imported>Sirphobos‎
+       7,193 bytes +1,805‎ added short scrubbing section
+     * curprev [ ] [ ] 15:4515:45, 4 September 2023‎ imported>Sirphobos‎
+       5,388 bytes +1,674‎ changed/expanded snapshot section
+
+    28 August 2023
+
+     * curprev [ ] [ ] 11:2611:26, 28 August 2023‎ imported>Privacy1st‎ 3,714
+       bytes −161‎ use single BTRFS command to create swapfile
+
+    14 May 2023
+
+     * curprev [ ] [ ] 13:5513:55, 14 May 2023‎ imported>Onny‎ m 3,875 bytes
+       +24‎ No edit summary
+
+    10 February 2023
+
+     * curprev [ ] [ ] 19:5619:56, 10 February 2023‎ imported>Onny‎ 3,851
+       bytes +106‎ Add note on removing a subvolume
+
+    5 February 2023
+
+     * curprev [ ] [ ] 01:4001:40, 5 February 2023‎ imported>Onny‎ 3,745
+       bytes +142‎ Note on set snapshot read-write again
+     * curprev [ ] [ ] 00:5200:52, 5 February 2023‎ imported>Onny‎ 3,603
+       bytes +132‎ Add section on subvolumes
+     * curprev [ ] [ ] 00:4200:42, 5 February 2023‎ imported>Onny‎ 3,471
+       bytes +396‎ Add section on transfer snapshot
+     * curprev [ ] [ ] 00:3200:32, 5 February 2023‎ imported>Onny‎ m 3,075
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 00:3100:31, 5 February 2023‎ imported>Onny‎ m 3,076
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 00:2900:29, 5 February 2023‎ imported>Onny‎ 3,077
+       bytes +398‎ Add section on subvolume snapshots
+
+    3 September 2022
+
+     * curprev [ ] [ ] 06:0806:08, 3 September 2022‎ imported>Vixea‎ 2,679
+       bytes −2‎ Undo revision 8150 by Vixea (talk)
+     * curprev [ ] [ ] 06:0706:07, 3 September 2022‎ imported>Vixea‎ 2,681
+       bytes −14‎ Undo revision 8151 by Vixea (talk)
+     * curprev [ ] [ ] 06:0706:07, 3 September 2022‎ imported>Vixea‎ 2,695
+       bytes −4‎ Undo revision 8152 by Vixea (talk)
+     * curprev [ ] [ ] 06:0706:07, 3 September 2022‎ imported>Vixea‎ 2,699
+       bytes −14‎ Undo revision 8153 by Vixea (talk) sadly it doesn't solve
+       the issue builds but leaves system un bootable
+     * curprev [ ] [ ] 05:1405:14, 3 September 2022‎ imported>Vixea‎ 2,713
+       bytes +14‎ fix nixos-install
+     * curprev [ ] [ ] 05:1305:13, 3 September 2022‎ imported>Vixea‎ 2,699
+       bytes +4‎ fix boot mount
+     * curprev [ ] [ ] 03:5903:59, 3 September 2022‎ imported>Vixea‎ 2,695
+       bytes +14‎ when creating subvolumes the corrrect path is /mnt/@ you
+       need to specify the -root
+     * curprev [ ] [ ] 03:5703:57, 3 September 2022‎ imported>Vixea‎ 2,681
+       bytes +2‎ when creating subvolumes the corrrect path is /mnt/@
+
+    9 August 2022
+
+     * curprev [ ] [ ] 21:0021:00, 9 August 2022‎ imported>Fufexan‎ m 2,679
+       bytes +29‎ Add page to Configuration category
+
+    3 June 2022
+
+     * curprev [ ] [ ] 01:3601:36, 3 June 2022‎ imported>Kebo‎ m 2,650 bytes
+       −1‎ fix mount typo
+
+    2 June 2022
+
+     * curprev [ ] [ ] 01:2201:22, 2 June 2022‎ imported>Zaechus‎ m 2,651
+       bytes 0‎ rearrange a mount command
+
+    13 May 2022
+
+     * curprev [ ] [ ] 18:0018:00, 13 May 2022‎ imported>Zaechus‎ m 2,651
+       bytes −35‎ remove swap volume from general installation example
+
+    11 May 2022
+
+     * curprev [ ] [ ] 19:4819:48, 11 May 2022‎ imported>Zaechus‎ 2,686 bytes
+       +2,686‎ create the Btrfs page with a basic installation example, how
+       to create a swap file, and a quirk of mount options on nixos
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Btrfs"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

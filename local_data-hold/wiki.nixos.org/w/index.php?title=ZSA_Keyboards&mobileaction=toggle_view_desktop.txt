@@ -1,0 +1,146 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Configuring a keyboard
+     * 2 Flashing firmware
+          * 2.1 Pre-requirement
+          * 2.2 Flashing via a Chromium-based web browser (Chrome,
+            Chromium...)
+          * 2.3 Flashing via wally-cli (command line tool)
+          * 2.4 Flashing via Keymapp (graphical tool)
+   [ ] Toggle the table of contents
+
+                                 ZSA Keyboards
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   ZSA offers a variety of ergonomic keyboards, such as the Ergodox EZ and
+   the Moonlander Mark I.
+
+   The use of ZSA's keyboards does not require any change to the NixOS
+   configuration, but flashing firmware onto them does.
+
+                             Configuring a keyboard
+
+   ZSA's keyboards can be configured using their online Oryx configurator
+   tool. You will then need to flash the firmware onto the keyboard, which
+   can be done in three ways, all necessitating a common change in the NixOS
+   configuration, as seen in the following section.
+
+                               Flashing firmware
+
+Pre-requirement
+
+   Some udev rules are necessary for the connection before flashing any
+   firmware onto the keyboard. You have to activate them in your NixOS
+   configuration first:
+
+ /etc/nixos/configuration.nix
+
+ hardware.keyboard.zsa.enable = true;
+
+   Once the new configuration is applied, you may flash ZSA's keyboards with
+   one of the three following methods.
+
+Flashing via a Chromium-based web browser (Chrome, Chromium...)
+
+   In ZSA's Oryx configurator tool, you can click “Save to my keyboard” to
+   flash the keyboard.
+
+Flashing via wally-cli (command line tool)
+
+   ZSA's wally-cli command-line tool can be used to flash the keyboard. You
+   will need to install it:
+
+ /etc/nixos/configuration.nix
+
+ environment.systemPackages = with pkgs; [ wally-cli ];
+
+   Then, you may use the following command to flash the keyboard, replacing
+   the path with the location of the downloaded firmware:
+
+ wally-cli /path/to/firmware.bin
+
+Flashing via Keymapp (graphical tool)
+
+   ZSA's keymapp graphical tool can be used to flash the keyboard. It is
+   user-friendly, and has other features, such as live layout viewing, key
+   presses heatmap, and links to various tools offered by ZSA's online Oryx
+   configurator. You will need to install it:
+
+ /etc/nixos/configuration.nix
+
+ environment.systemPackages = with pkgs; [ keymapp ];
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=ZSA_Keyboards&oldid=13129"
+   Category:
+     * Hardware
+     * This page was last edited on 11 June 2024, at 13:59.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

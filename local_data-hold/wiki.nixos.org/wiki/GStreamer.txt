@@ -1,0 +1,187 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installing via nixpkgs
+     * 2 Test the installation
+     * 3 Troubleshooting
+          * 3.1 erroneous pipeline: no element "filesrc"
+   [ ] Toggle the table of contents
+
+                                   GStreamer
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   GStreamer is a popular multimedia framework to handle a variety of video
+   and audio formats on different platforms in a uniform way through a
+   powerful and convenient API in order to build multimedia apps, video/audio
+   editors and streaming services. It consists of a huge amount low-level
+   plugins like "videotestsrc", "videoconvert" and "autovideosink" as well as
+   a few higher level test-and-combine framework tools like "gst-inspect",
+   "gst-launch" etc.
+
+Installing via nixpkgs
+
+   In Nix as in other Linux distributions those tools and plugins are split
+   into separate packages, which you can bring together with a custom Nix
+   shell environment:
+
+ # file: flake.nix
+ {
+   description = "A GStreamer development flake";
+
+   outputs = { self, nixpkgs }:
+     let
+       system = "x86_64-linux";
+       pkgs = nixpkgs.legacyPackages.${system};
+     in {
+       devShells.${system}.default = pkgs.mkShell {
+         buildInputs = with pkgs; [
+           # Video/Audio data composition framework tools like "gst-inspect", "gst-launch" ...
+           gst_all_1.gstreamer
+           # Common plugins like "filesrc" to combine within e.g. gst-launch
+           gst_all_1.gst-plugins-base
+           # Specialized plugins separated by quality
+           gst_all_1.gst-plugins-good
+           gst_all_1.gst-plugins-bad
+           gst_all_1.gst-plugins-ugly
+           # Plugins to reuse ffmpeg to play almost every video format
+           gst_all_1.gst-libav
+           # Support the Video Audio (Hardware) Acceleration API
+           gst_all_1.gst-vaapi
+           #...
+         ];
+       };
+     };
+ }
+
+   To activate this environment in your terminal run
+
+ $ nix develop
+
+   You can find all available Nix package names through the Nix search page.
+
+Test the installation
+
+   You can test that the gst_all_1.gstreamer tools are available by running a
+   dummy pipeline
+
+ $ gst-launch-1.0 videotestsrc ! videoconvert ! autovideosink
+
+   which should open a colored video window.
+
+   You can test that the plugins like from gst_all_1.gst-plugins-base are
+   available to the higher level tools by inspecting such a base plugin like
+   filesrc with
+
+ $ gst-inspect-1.0 filesrc
+ Factory Details:
+   ...
+   Long-name                File Source
+   Description              Read from arbitrary point in a file
+   ...
+ Plugin Details:
+   Name                     coreelements
+   Description              GStreamer core elements
+   Filename                 /nix/store/p39g1.../libgstcoreelements.so
+   ...
+
+   or by using it in a pipeline. Here, we could play a video from the local
+   machine with
+
+ $ gst-launch-1.0 filesrc location=my_video.mp4 ! videoconvert ! autovideosink
+
+   If the plugins are not correctly made available to the higher level tools,
+   you'll get an error
+
+ $ gst-inspect-1.0 filesrc
+ No such element or plugin 'filesrc'
+
+Troubleshooting
+
+    erroneous pipeline: no element "filesrc"
+
+   In some cases while creating a shell using "mkShell" or
+   "writeShellApplication" just setting the "runtimeInputs" is not enough.
+   It's necessary to manually set the "GST_PLUGIN_SYSTEM_PATH_1_0"
+   environment variable.^[1]
+
+   Adding the following export to your script, sets "gstreamer" and
+   "gst-plugins-base" and "gst-plugins-good" paths. Similarly you can add any
+   other "gst-plugins" package as well.
+
+ export GST_PLUGIN_SYSTEM_PATH_1_0="${gst_all_1.gstreamer.out}/lib/gstreamer-1.0:${gst_all_1.gst-plugins-base}/lib/gstreamer-1.0:${gst_all_1.gst-plugins-good}/lib/gstreamer-1.0"
+
+   Note: "gstreamer.out" is the derivative that contains "/lib" directory for
+   that package.
+
+    1. ↑ https://discourse.nixos.org/t/how-to-use-gst-plugins/6345
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=GStreamer&oldid=12421"
+     * This page was last edited on 24 April 2024, at 19:20.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

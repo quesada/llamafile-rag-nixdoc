@@ -1,0 +1,119 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Installation
+     * 2 Shell Integration
+     * 3 Extra Options
+   [ ] Toggle the table of contents
+
+                                     Zoxide
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Zoxide is a smarter cd (change directory) command that supports all major
+   shells.
+
+Installation
+
+   A basic user-specific installation with Home Manager may look like this:
+
+ home-manager.users.myuser = {
+   programs.zoxide.enable = true;
+ };
+
+   Change myuser to the username of the user you want to configure.
+
+Shell Integration
+
+   You can choose which shell integrations to enable with the
+   enable*Integration options. By default all are enabled.
+
+ programs.zoxide.enableBashIntegration= true;
+ programs.zoxide.enableFishIntegration= true;
+ programs.zoxide.enableNushellIntegration = true;
+ programs.zoxide.enableZshIntegration = true;
+
+   After adding Zoxide, you will have to restart your shell to gain access to
+   the z command.
+
+Extra Options
+
+   You can pass extra flags to Zoxide using programs.zoxide.options as
+   follows:
+
+ programs.zoxide.options = [
+   "--cmd cd"
+ ];
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Zoxide&oldid=13555"
+   Category:
+     * Shell
+     * This page was last edited on 25 June 2024, at 21:10.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

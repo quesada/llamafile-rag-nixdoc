@@ -1,0 +1,1009 @@
+   [ ]
+    1. 1. Introduction
+    2. 2. Quick Start
+    3. 3. Installation
+    4.   1. 3.1. Supported Platforms
+         2. 3.2. Installing a Binary Distribution
+         3. 3.3. Installing Nix from Source
+         4.   1. 3.3.1. Prerequisites
+              2. 3.3.2. Obtaining a Source Distribution
+              3. 3.3.3. Building Nix from Source
+         5. 3.4. Using Nix within Docker
+         6. 3.5. Security
+         7.   1. 3.5.1. Single-User Mode
+              2. 3.5.2. Multi-User Mode
+         8. 3.6. Environment Variables
+         9. 3.7. Upgrading Nix
+        10. 3.8. Uninstalling Nix
+    5. 4. Nix Store
+    6.   1. 4.1. File System Object
+         2. 4.2. Store Object
+         3. 4.3. Store Path
+         4. 4.4. Store Types
+         5.   1. 4.4.1. Dummy Store
+              2. 4.4.2. Experimental Local Overlay Store
+              3. 4.4.3. Experimental SSH Store
+              4. 4.4.4. Experimental SSH Store with filesytem mounted
+              5. 4.4.5. HTTP Binary Cache Store
+              6. 4.4.6. Local Binary Cache Store
+              7. 4.4.7. Local Daemon Store
+              8. 4.4.8. Local Store
+              9. 4.4.9. S3 Binary Cache Store
+             10. 4.4.10. SSH Store
+    7. 5. Nix Language
+    8.   1. 5.1. Data Types
+         2. 5.2. Language Constructs
+         3.   1. 5.2.1. String interpolation
+              2. 5.2.2. Lookup path
+         4. 5.3. Operators
+         5. 5.4. Derivations
+         6.   1. 5.4.1. Advanced Attributes
+              2. 5.4.2. Import From Derivation
+         7. 5.5. Built-in Constants
+         8. 5.6. Built-in Functions
+    9. 6. Package Management
+   10.   1. 6.1. Profiles
+         2. 6.2. Garbage Collection
+         3.   1. 6.2.1. Garbage Collector Roots
+   11. 7. Advanced Topics
+   12.   1. 7.1. Sharing Packages Between Machines
+         2.   1. 7.1.1. Serving a Nix store via HTTP
+              2. 7.1.2. Copying Closures via SSH
+              3. 7.1.3. Serving a Nix store via SSH
+         3. 7.2. Remote Builds
+         4. 7.3. Tuning Cores and Jobs
+         5. 7.4. Verifying Build Reproducibility
+         6. 7.5. Using the post-build-hook
+   13. 8. Command Reference
+   14.   1. 8.1. Common Options
+         2. 8.2. Common Environment Variables
+         3. 8.3. Main Commands
+         4.   1. 8.3.1. nix-build
+              2. 8.3.2. nix-shell
+              3. 8.3.3. nix-store
+              4.   1. 8.3.3.1. nix-store --add-fixed
+                   2. 8.3.3.2. nix-store --add
+                   3. 8.3.3.3. nix-store --delete
+                   4. 8.3.3.4. nix-store --dump-db
+                   5. 8.3.3.5. nix-store --dump
+                   6. 8.3.3.6. nix-store --export
+                   7. 8.3.3.7. nix-store --gc
+                   8. 8.3.3.8. nix-store --generate-binary-cache-key
+                   9. 8.3.3.9. nix-store --import
+                  10. 8.3.3.10. nix-store --load-db
+                  11. 8.3.3.11. nix-store --optimise
+                  12. 8.3.3.12. nix-store --print-env
+                  13. 8.3.3.13. nix-store --query
+                  14. 8.3.3.14. nix-store --read-log
+                  15. 8.3.3.15. nix-store --realise
+                  16. 8.3.3.16. nix-store --repair-path
+                  17. 8.3.3.17. nix-store --restore
+                  18. 8.3.3.18. nix-store --serve
+                  19. 8.3.3.19. nix-store --verify-path
+                  20. 8.3.3.20. nix-store --verify
+              5. 8.3.4. nix-env
+              6.   1. 8.3.4.1. nix-env --delete-generations
+                   2. 8.3.4.2. nix-env --install
+                   3. 8.3.4.3. nix-env --list-generations
+                   4. 8.3.4.4. nix-env --query
+                   5. 8.3.4.5. nix-env --rollback
+                   6. 8.3.4.6. nix-env --set-flag
+                   7. 8.3.4.7. nix-env --set
+                   8. 8.3.4.8. nix-env --switch-generation
+                   9. 8.3.4.9. nix-env --switch-profile
+                  10. 8.3.4.10. nix-env --uninstall
+                  11. 8.3.4.11. nix-env --upgrade
+         5. 8.4. Utilities
+         6.   1. 8.4.1. nix-channel
+              2. 8.4.2. nix-collect-garbage
+              3. 8.4.3. nix-copy-closure
+              4. 8.4.4. nix-daemon
+              5. 8.4.5. nix-hash
+              6. 8.4.6. nix-instantiate
+              7. 8.4.7. nix-prefetch-url
+         7. 8.5. Experimental Commands
+         8.   1. 8.5.1. nix
+              2. 8.5.2. nix build
+              3. 8.5.3. nix bundle
+              4. 8.5.4. nix config
+              5. 8.5.5. nix config check
+              6. 8.5.6. nix config show
+              7. 8.5.7. nix copy
+              8. 8.5.8. nix daemon
+              9. 8.5.9. nix derivation
+             10. 8.5.10. nix derivation add
+             11. 8.5.11. nix derivation show
+             12. 8.5.12. nix develop
+             13. 8.5.13. nix edit
+             14. 8.5.14. nix eval
+             15. 8.5.15. nix flake
+             16. 8.5.16. nix flake archive
+             17. 8.5.17. nix flake check
+             18. 8.5.18. nix flake clone
+             19. 8.5.19. nix flake info
+             20. 8.5.20. nix flake init
+             21. 8.5.21. nix flake lock
+             22. 8.5.22. nix flake metadata
+             23. 8.5.23. nix flake new
+             24. 8.5.24. nix flake prefetch
+             25. 8.5.25. nix flake show
+             26. 8.5.26. nix flake update
+             27. 8.5.27. nix fmt
+             28. 8.5.28. nix hash
+             29. 8.5.29. nix hash convert
+             30. 8.5.30. nix hash file
+             31. 8.5.31. nix hash path
+             32. 8.5.32. nix hash to-base16
+             33. 8.5.33. nix hash to-base32
+             34. 8.5.34. nix hash to-base64
+             35. 8.5.35. nix hash to-sri
+             36. 8.5.36. nix help
+             37. 8.5.37. nix help-stores
+             38. 8.5.38. nix key
+             39. 8.5.39. nix key convert-secret-to-public
+             40. 8.5.40. nix key generate-secret
+             41. 8.5.41. nix log
+             42. 8.5.42. nix nar
+             43. 8.5.43. nix nar cat
+             44. 8.5.44. nix nar dump-path
+             45. 8.5.45. nix nar ls
+             46. 8.5.46. nix nar pack
+             47. 8.5.47. nix path-info
+             48. 8.5.48. nix print-dev-env
+             49. 8.5.49. nix profile
+             50. 8.5.50. nix profile diff-closures
+             51. 8.5.51. nix profile history
+             52. 8.5.52. nix profile install
+             53. 8.5.53. nix profile list
+             54. 8.5.54. nix profile remove
+             55. 8.5.55. nix profile rollback
+             56. 8.5.56. nix profile upgrade
+             57. 8.5.57. nix profile wipe-history
+             58. 8.5.58. nix realisation
+             59. 8.5.59. nix realisation info
+             60. 8.5.60. nix registry
+             61. 8.5.61. nix registry add
+             62. 8.5.62. nix registry list
+             63. 8.5.63. nix registry pin
+             64. 8.5.64. nix registry remove
+             65. 8.5.65. nix repl
+             66. 8.5.66. nix run
+             67. 8.5.67. nix search
+             68. 8.5.68. nix shell
+             69. 8.5.69. nix store
+             70. 8.5.70. nix store add
+             71. 8.5.71. nix store add-file
+             72. 8.5.72. nix store add-path
+             73. 8.5.73. nix store cat
+             74. 8.5.74. nix store copy-log
+             75. 8.5.75. nix store copy-sigs
+             76. 8.5.76. nix store delete
+             77. 8.5.77. nix store diff-closures
+             78. 8.5.78. nix store dump-path
+             79. 8.5.79. nix store gc
+             80. 8.5.80. nix store info
+             81. 8.5.81. nix store ls
+             82. 8.5.82. nix store make-content-addressed
+             83. 8.5.83. nix store optimise
+             84. 8.5.84. nix store path-from-hash-part
+             85. 8.5.85. nix store ping
+             86. 8.5.86. nix store prefetch-file
+             87. 8.5.87. nix store repair
+             88. 8.5.88. nix store sign
+             89. 8.5.89. nix store verify
+             90. 8.5.90. nix upgrade-nix
+             91. 8.5.91. nix why-depends
+         9. 8.6. Files
+        10.   1. 8.6.1. nix.conf
+              2. 8.6.2. Profiles
+              3.   1. 8.6.2.1. manifest.nix
+                   2. 8.6.2.2. manifest.json
+              4. 8.6.3. Channels
+              5. 8.6.4. Default Nix expression
+   15. 9. Architecture and Design
+   16. 10. Formats and Protocols
+   17.   1. 10.1. JSON Formats
+         2.   1. 10.1.1. Store Object Info
+              2. 10.1.2. Derivation
+         3. 10.2. Serving Tarball Flakes
+         4. 10.3. Store Path Specification
+         5. 10.4. Nix Archive (NAR) Format
+         6. 10.5. Derivation "ATerm" file format
+   18. 11. Glossary
+   19. 12. Contributing
+   20.   1. 12.1. Hacking
+         2. 12.2. Testing
+         3. 12.3. Documentation
+         4. 12.4. Experimental Features
+         5. 12.5. CLI guideline
+         6. 12.6. C++ style guide
+   21. 13. Releases
+   22.   1. 13.1. Release 2.22 (2024-04-23)
+         2. 13.2. Release 2.21 (2024-03-11)
+         3. 13.3. Release 2.20 (2024-01-29)
+         4. 13.4. Release 2.19 (2023-11-17)
+         5. 13.5. Release 2.18 (2023-09-20)
+         6. 13.6. Release 2.17 (2023-07-24)
+         7. 13.7. Release 2.16 (2023-05-31)
+         8. 13.8. Release 2.15 (2023-04-11)
+         9. 13.9. Release 2.14 (2023-02-28)
+        10. 13.10. Release 2.13 (2023-01-17)
+        11. 13.11. Release 2.12 (2022-12-06)
+        12. 13.12. Release 2.11 (2022-08-25)
+        13. 13.13. Release 2.10 (2022-07-11)
+        14. 13.14. Release 2.9 (2022-05-30)
+        15. 13.15. Release 2.8 (2022-04-19)
+        16. 13.16. Release 2.7 (2022-03-07)
+        17. 13.17. Release 2.6 (2022-01-24)
+        18. 13.18. Release 2.5 (2021-12-13)
+        19. 13.19. Release 2.4 (2021-11-01)
+        20. 13.20. Release 2.3 (2019-09-04)
+        21. 13.21. Release 2.2 (2019-01-11)
+        22. 13.22. Release 2.1 (2018-09-02)
+        23. 13.23. Release 2.0 (2018-02-22)
+        24. 13.24. Release 1.11.10 (2017-06-12)
+        25. 13.25. Release 1.11 (2016-01-19)
+        26. 13.26. Release 1.10 (2015-09-03)
+        27. 13.27. Release 1.9 (2015-06-12)
+        28. 13.28. Release 1.8 (2014-12-14)
+        29. 13.29. Release 1.7 (2014-04-11)
+        30. 13.30. Release 1.6.1 (2013-10-28)
+        31. 13.31. Release 1.6 (2013-09-10)
+        32. 13.32. Release 1.5.2 (2013-05-13)
+        33. 13.33. Release 1.5 (2013-02-27)
+        34. 13.34. Release 1.4 (2013-02-26)
+        35. 13.35. Release 1.3 (2013-01-04)
+        36. 13.36. Release 1.2 (2012-12-06)
+        37. 13.37. Release 1.1 (2012-07-18)
+        38. 13.38. Release 1.0 (2012-05-11)
+        39. 13.39. Release 0.16 (2010-08-17)
+        40. 13.40. Release 0.15 (2010-03-17)
+        41. 13.41. Release 0.14 (2010-02-04)
+        42. 13.42. Release 0.13 (2009-11-05)
+        43. 13.43. Release 0.12 (2008-11-20)
+        44. 13.44. Release 0.11 (2007-12-31)
+        45. 13.45. Release 0.10.1 (2006-10-11)
+        46. 13.46. Release 0.10 (2006-10-06)
+        47. 13.47. Release 0.9.2 (2005-09-21)
+        48. 13.48. Release 0.9.1 (2005-09-20)
+        49. 13.49. Release 0.9 (2005-09-16)
+        50. 13.50. Release 0.8.1 (2005-04-13)
+        51. 13.51. Release 0.8 (2005-04-11)
+        52. 13.52. Release 0.7 (2005-01-12)
+        53. 13.53. Release 0.6 (2004-11-14)
+        54. 13.54. Release 0.5 and earlier
+     * Light
+     * Rust
+     * Coal
+     * Navy
+     * Ayu
+
+                              Nix Reference Manual
+
+   _____________________
+
+     Warning
+     This program is experimental and its interface is subject to change.
+
+                                      Name
+
+   nix flake - manage Nix flakes
+
+                                    Synopsis
+
+   nix flake [option...] subcommand
+
+   where subcommand is one of the following:
+
+     * nix flake archive - copy a flake and all its inputs to a store
+     * nix flake check - check whether the flake evaluates and run its tests
+     * nix flake clone - clone flake repository
+     * nix flake info - show flake metadata
+     * nix flake init - create a flake in the current directory from a
+       template
+     * nix flake lock - create missing lock file entries
+     * nix flake metadata - show flake metadata
+     * nix flake new - create a flake in the specified directory from a
+       template
+     * nix flake prefetch - download the source tree denoted by a flake
+       reference into the Nix store
+     * nix flake show - show the outputs provided by a flake
+     * nix flake update - update flake lock file
+
+                                  Description
+
+   nix flake provides subcommands for creating, modifying and querying Nix
+   flakes. Flakes are the unit for packaging Nix code in a reproducible and
+   discoverable way. They can have dependencies on other flakes, making it
+   possible to have multi-repository Nix projects.
+
+   A flake is a filesystem tree (typically fetched from a Git repository or a
+   tarball) that contains a file named flake.nix in the root directory.
+   flake.nix specifies some metadata about the flake such as dependencies
+   (called inputs), as well as its outputs (the Nix values such as packages
+   or NixOS modules provided by the flake).
+
+                                Flake references
+
+   Flake references (flakerefs) are a way to specify the location of a flake.
+   These have two different forms:
+
+Attribute set representation
+
+   Example:
+
+ {
+   type = "github";
+   owner = "NixOS";
+   repo = "nixpkgs";
+ }
+
+   The only required attribute is type. The supported types are listed below.
+
+URL-like syntax
+
+   Example:
+
+ github:NixOS/nixpkgs
+
+   These are used on the command line as a more convenient alternative to the
+   attribute set representation. For instance, in the command
+
+ # nix build github:NixOS/nixpkgs#hello
+
+   github:NixOS/nixpkgs is a flake reference (while hello is an output
+   attribute). They are also allowed in the inputs attribute of a flake, e.g.
+
+ inputs.nixpkgs.url = "github:NixOS/nixpkgs";
+
+   is equivalent to
+
+ inputs.nixpkgs = {
+   type = "github";
+   owner = "NixOS";
+   repo = "nixpkgs";
+ };
+
+   Following RFC 3986, characters outside of the allowed range (i.e. neither
+   reserved characters nor unreserved characters) must be percent-encoded.
+
+  Examples
+
+   Here are some examples of flake references in their URL-like
+   representation:
+
+     * nixpkgs: The nixpkgs entry in the flake registry.
+     * nixpkgs/a3a3dda3bacf61e8a39258a0ed9c924eeca8e293: The nixpkgs entry in
+       the flake registry, with its Git revision overridden to a specific
+       value.
+     * github:NixOS/nixpkgs: The master branch of the NixOS/nixpkgs
+       repository on GitHub.
+     * github:NixOS/nixpkgs/nixos-20.09: The nixos-20.09 branch of the
+       nixpkgs repository.
+     * github:NixOS/nixpkgs/a3a3dda3bacf61e8a39258a0ed9c924eeca8e293: A
+       specific revision of the nixpkgs repository.
+     * github:edolstra/nix-warez?dir=blender: A flake in a subdirectory of a
+       GitHub repository.
+     * git+https://github.com/NixOS/patchelf: A Git repository.
+     * git+https://github.com/NixOS/patchelf?ref=master: A specific branch of
+       a Git repository.
+     * git+https://github.com/NixOS/patchelf?ref=master&rev=f34751b88bd07d7f44f5cd3200fb4122bf916c7e:
+       A specific branch and revision of a Git repository.
+     * https://github.com/NixOS/patchelf/archive/master.tar.gz: A tarball
+       flake.
+
+Path-like syntax
+
+   Flakes corresponding to a local path can also be referred to by a direct
+   path reference, either /absolute/path/to/the/flake
+   or./relative/path/to/the/flake. Note that the leading ./ is mandatory for
+   relative paths. If it is omitted, the path will be interpreted as URL-like
+   syntax, which will cause error messages like this:
+
+ error: cannot find flake 'flake:relative/path/to/the/flake' in the flake registries
+
+   The semantic of such a path is as follows:
+
+     * If the directory is part of a Git repository, then the input will be
+       treated as a git+file: URL, otherwise it will be treated as a path:
+       url;
+     * If the directory doesn't contain a flake.nix file, then Nix will
+       search for such a file upwards in the file system hierarchy until it
+       finds any of:
+         1. The Git repository root, or
+         2. The filesystem root (/), or
+         3. A folder on a different mount point.
+
+   Contrary to URL-like references, path-like flake references can contain
+   arbitrary unicode characters (except # and ?).
+
+  Examples
+
+     * .: The flake to which the current directory belongs to.
+     * /home/alice/src/patchelf: A flake in some other directory.
+     * ./../sub directory/with Ûñî©ôδ€: A flake in another relative directory
+       that has Unicode characters in its name.
+
+Flake reference attributes
+
+   The following generic flake reference attributes are supported:
+
+     * dir: The subdirectory of the flake in which flake.nix is located. This
+       parameter enables having multiple flakes in a repository or tarball.
+       The default is the root directory of the flake.
+
+     * narHash: The hash of the NAR serialisation (in SRI format) of the
+       contents of the flake. This is useful for flake types such as tarballs
+       that lack a unique content identifier such as a Git commit hash.
+
+   In addition, the following attributes are common to several flake
+   reference types:
+
+     * rev: A Git or Mercurial commit hash.
+
+     * ref: A Git or Mercurial branch or tag name.
+
+   Finally, some attribute are typically not specified by the user, but can
+   occur in locked flake references and are available to Nix code:
+
+     * revCount: The number of ancestors of the commit rev.
+
+     * lastModified: The timestamp (in seconds since the Unix epoch) of the
+       last modification of this version of the flake. For Git/Mercurial
+       flakes, this is the commit time of commit rev, while for tarball
+       flakes, it's the most recent timestamp of any file inside the tarball.
+
+Types
+
+   Currently the type attribute can be one of the following:
+
+     * indirect: The default. Indirection through the flake registry. These
+       have the form
+
+ [flake:]<flake-id>(/<rev-or-ref>(/rev)?)?
+
+       These perform a lookup of <flake-id> in the flake registry. For
+       example, nixpkgs and nixpkgs/release-20.09 are indirect flake
+       references. The specified rev and/or ref are merged with the entry in
+       the registry; see nix registry for details.
+
+       For example, these are valid indirect flake references:
+
+          * nixpkgs
+          * nixpkgs/nixos-unstable
+          * nixpkgs/a3a3dda3bacf61e8a39258a0ed9c924eeca8e293
+          * nixpkgs/nixos-unstable/a3a3dda3bacf61e8a39258a0ed9c924eeca8e293
+          * sub/dir (if a flake named sub is in the registry)
+     * path: arbitrary local directories. The required attribute path
+       specifies the path of the flake. The URL form is
+
+ path:<path>(\?<params>)?
+
+       where path is an absolute path to a directory in the file system
+       containing a file named flake.nix.
+
+       If the flake at path is not inside a git repository, the path: prefix
+       is implied and can be omitted.
+
+       path generally must be an absolute path. However, on the command line,
+       it can be a relative path (e.g. . or ./foo) which is interpreted as
+       relative to the current directory. In this case, it must start with .
+       to avoid ambiguity with registry lookups (e.g. nixpkgs is a registry
+       lookup; ./nixpkgs is a relative path).
+
+       For example, these are valid path flake references:
+
+          * path:/home/user/sub/dir
+          * /home/user/sub/dir (if dir/flake.nix is not in a git repository)
+          * ./sub/dir (when used on the command line and dir/flake.nix is not
+            in a git repository)
+     * git: Git repositories. The location of the repository is specified by
+       the attribute url.
+
+       They have the URL form
+
+ git(+http|+https|+ssh|+git|+file):(//<server>)?<path>(\?<params>)?
+
+       If path starts with / (or ./ when used as an argument on the command
+       line) and is a local path to a git repository, the leading git: or
+       +file prefixes are implied and can be omitted.
+
+       The ref attribute defaults to resolving the HEAD reference.
+
+       The rev attribute must denote a commit that exists in the branch or
+       tag specified by the ref attribute, since Nix doesn't do a full clone
+       of the remote repository by default (and the Git protocol doesn't
+       allow fetching a rev without a known ref). The default is the commit
+       currently pointed to by ref.
+
+       When git+file is used without specifying ref or rev, files are fetched
+       directly from the local path as long as they have been added to the
+       Git repository. If there are uncommitted changes, the reference is
+       treated as dirty and a warning is printed.
+
+       For example, the following are valid Git flake references:
+
+          * git:/home/user/sub/dir
+          * /home/user/sub/dir (if dir/flake.nix is in a git repository)
+          * ./sub/dir (when used on the command line and dir/flake.nix is in
+            a git repository)
+          * git+https://example.org/my/repo
+          * git+https://example.org/my/repo?dir=flake1
+          * git+ssh://git@github.com/NixOS/nix?ref=v1.2.3
+          * git://github.com/edolstra/dwarffs?ref=unstable&rev=e486d8d40e626a20e06d792db8cc5ac5aba9a5b4
+          * git+file:///home/my-user/some-repo/some-repo
+     * mercurial: Mercurial repositories. The URL form is similar to the git
+       type, except that the URL schema must be one of hg+http, hg+https,
+       hg+ssh or hg+file.
+
+     * tarball: Tarballs. The location of the tarball is specified by the
+       attribute url.
+
+       In URL form, the schema must be tarball+http://, tarball+https:// or
+       tarball+file://. If the extension corresponds to a known archive
+       format (.zip, .tar, .tgz, .tar.gz, .tar.xz, .tar.bz2 or .tar.zst),
+       then the tarball+ can be dropped.
+
+     * file: Plain files or directory tarballs, either over http(s) or from
+       the local disk.
+
+       In URL form, the schema must be file+http://, file+https:// or
+       file+file://. If the extension doesn’t correspond to a known archive
+       format (as defined by the tarball fetcher), then the file+ prefix can
+       be dropped.
+
+     * github: A more efficient way to fetch repositories from GitHub. The
+       following attributes are required:
+
+          * owner: The owner of the repository.
+
+          * repo: The name of the repository.
+
+       These are downloaded as tarball archives, rather than through Git.
+       This is often much faster and uses less disk space since it doesn't
+       require fetching the entire history of the repository. On the other
+       hand, it doesn't allow incremental fetching (but full downloads are
+       often faster than incremental fetches!).
+
+       The URL syntax for github flakes is:
+
+ github:<owner>/<repo>(/<rev-or-ref>)?(\?<params>)?
+
+       <rev-or-ref> specifies the name of a branch or tag (ref), or a commit
+       hash (rev). Note that unlike Git, GitHub allows fetching by commit
+       hash without specifying a branch or tag.
+
+       You can also specify host as a parameter, to point to a custom GitHub
+       Enterprise server.
+
+       Some examples:
+
+          * github:edolstra/dwarffs
+          * github:edolstra/dwarffs/unstable
+          * github:edolstra/dwarffs/d3f2baba8f425779026c6ec04021b2e927f61e31
+          * github:internal/project?host=company-github.example.org
+     * gitlab: Similar to github, is a more efficient way to fetch GitLab
+       repositories. The following attributes are required:
+
+          * owner: The owner of the repository.
+
+          * repo: The name of the repository.
+
+       Like github, these are downloaded as tarball archives.
+
+       The URL syntax for gitlab flakes is:
+
+       gitlab:<owner>/<repo>(/<rev-or-ref>)?(\?<params>)?
+
+       <rev-or-ref> works the same as github. Either a branch or tag name
+       (ref), or a commit hash (rev) can be specified.
+
+       Since GitLab allows for self-hosting, you can specify host as a
+       parameter, to point to any instances other than gitlab.com.
+
+       Some examples:
+
+          * gitlab:veloren/veloren
+          * gitlab:veloren/veloren/master
+          * gitlab:veloren/veloren/80a4d7f13492d916e47d6195be23acae8001985a
+          * gitlab:openldap/openldap?host=git.openldap.org
+
+       When accessing a project in a (nested) subgroup, make sure to
+       URL-encode any slashes, i.e. replace / with %2F:
+
+          * gitlab:veloren%2Fdev/rfcs
+     * sourcehut: Similar to github, is a more efficient way to fetch
+       SourceHut repositories. The following attributes are required:
+
+          * owner: The owner of the repository (including leading ~).
+
+          * repo: The name of the repository.
+
+       Like github, these are downloaded as tarball archives.
+
+       The URL syntax for sourcehut flakes is:
+
+       sourcehut:<owner>/<repo>(/<rev-or-ref>)?(\?<params>)?
+
+       <rev-or-ref> works the same as github. Either a branch or tag name
+       (ref), or a commit hash (rev) can be specified.
+
+       Since SourceHut allows for self-hosting, you can specify host as a
+       parameter, to point to any instances other than git.sr.ht.
+
+       Currently, ref name resolution only works for Git repositories. You
+       can refer to Mercurial repositories by simply changing host to
+       hg.sr.ht (or any other Mercurial instance). With the caveat that you
+       must explicitly specify a commit hash (rev).
+
+       Some examples:
+
+          * sourcehut:~misterio/nix-colors
+          * sourcehut:~misterio/nix-colors/main
+          * sourcehut:~misterio/nix-colors?host=git.example.org
+          * sourcehut:~misterio/nix-colors/182b4b8709b8ffe4e9774a4c5d6877bf6bb9a21c
+          * sourcehut:~misterio/nix-colors/21c1a380a6915d890d408e9f22203436a35bb2de?host=hg.sr.ht
+
+                                  Flake format
+
+   As an example, here is a simple flake.nix that depends on the Nixpkgs
+   flake and provides a single package (i.e. an installable derivation):
+
+ {
+   description = "A flake for building Hello World";
+
+   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-20.03";
+
+   outputs = { self, nixpkgs }: {
+
+     packages.x86_64-linux.default =
+       # Notice the reference to nixpkgs here.
+       with import nixpkgs { system = "x86_64-linux"; };
+       stdenv.mkDerivation {
+         name = "hello";
+         src = self;
+         buildPhase = "gcc -o hello ./hello.c";
+         installPhase = "mkdir -p $out/bin; install -t $out/bin hello";
+       };
+
+   };
+ }
+
+   The following attributes are supported in flake.nix:
+
+     * description: A short, one-line description of the flake.
+
+     * inputs: An attrset specifying the dependencies of the flake (described
+       below).
+
+     * outputs: A function that, given an attribute set containing the
+       outputs of each of the input flakes keyed by their identifier, yields
+       the Nix values provided by this flake. Thus, in the example above,
+       inputs.nixpkgs contains the result of the call to the outputs function
+       of the nixpkgs flake.
+
+       In addition to the outputs of each input, each input in inputs also
+       contains some metadata about the inputs. These are:
+
+          * outPath: The path in the Nix store of the flake's source tree.
+            This way, the attribute set can be passed to import as if it was
+            a path, as in the example above (import nixpkgs).
+
+          * rev: The commit hash of the flake's repository, if applicable.
+
+          * revCount: The number of ancestors of the revision rev. This is
+            not available for github repositories, since they're fetched as
+            tarballs rather than as Git repositories.
+
+          * lastModifiedDate: The commit time of the revision rev, in the
+            format %Y%m%d%H%M%S (e.g. 20181231100934). Unlike revCount, this
+            is available for both Git and GitHub repositories, so it's useful
+            for generating (hopefully) monotonically increasing version
+            strings.
+
+          * lastModified: The commit time of the revision rev as an integer
+            denoting the number of seconds since 1970.
+
+          * narHash: The SHA-256 (in SRI format) of the NAR serialization of
+            the flake's source tree.
+
+       The value returned by the outputs function must be an attribute set.
+       The attributes can have arbitrary values; however, various nix
+       subcommands require specific attributes to have a specific value (e.g.
+       packages.x86_64-linux must be an attribute set of derivations built
+       for the x86_64-linux platform).
+
+     * nixConfig: a set of nix.conf options to be set when evaluating any
+       part of a flake. In the interests of security, only a small set of set
+       of options is allowed to be set without confirmation so long as
+       accept-flake-config is not enabled in the global configuration:
+
+          * bash-prompt
+          * bash-prompt-prefix
+          * bash-prompt-suffix
+          * flake-registry
+          * commit-lockfile-summary
+
+Flake inputs
+
+   The attribute inputs specifies the dependencies of a flake, as an attrset
+   mapping input names to flake references. For example, the following
+   specifies a dependency on the nixpkgs and import-cargo repositories:
+
+ # A GitHub repository.
+ inputs.import-cargo = {
+   type = "github";
+   owner = "edolstra";
+   repo = "import-cargo";
+ };
+
+ # An indirection through the flake registry.
+ inputs.nixpkgs = {
+   type = "indirect";
+   id = "nixpkgs";
+ };
+
+   Alternatively, you can use the URL-like syntax:
+
+ inputs.import-cargo.url = "github:edolstra/import-cargo";
+ inputs.nixpkgs.url = "nixpkgs";
+
+   Each input is fetched, evaluated and passed to the outputs function as a
+   set of attributes with the same name as the corresponding input. The
+   special input named self refers to the outputs and source tree of this
+   flake. Thus, a typical outputs function looks like this:
+
+ outputs = { self, nixpkgs, import-cargo }: {
+   ... outputs ...
+ };
+
+   It is also possible to omit an input entirely and only list it as expected
+   function argument to outputs. Thus,
+
+ outputs = { self, nixpkgs }: ...;
+
+   without an inputs.nixpkgs attribute is equivalent to
+
+ inputs.nixpkgs = {
+   type = "indirect";
+   id = "nixpkgs";
+ };
+
+   Repositories that don't contain a flake.nix can also be used as inputs, by
+   setting the input's flake attribute to false:
+
+ inputs.grcov = {
+   type = "github";
+   owner = "mozilla";
+   repo = "grcov";
+   flake = false;
+ };
+
+ outputs = { self, nixpkgs, grcov }: {
+   packages.x86_64-linux.grcov = stdenv.mkDerivation {
+     src = grcov;
+     ...
+   };
+ };
+
+   Transitive inputs can be overridden from a flake.nix file. For example,
+   the following overrides the nixpkgs input of the nixops input:
+
+ inputs.nixops.inputs.nixpkgs = {
+   type = "github";
+   owner = "my-org";
+   repo = "nixpkgs";
+ };
+
+   It is also possible to "inherit" an input from another input. This is
+   useful to minimize flake dependencies. For example, the following sets the
+   nixpkgs input of the top-level flake to be equal to the nixpkgs input of
+   the dwarffs input of the top-level flake:
+
+ inputs.nixpkgs.follows = "dwarffs/nixpkgs";
+
+   The value of the follows attribute is a /-separated sequence of input
+   names denoting the path of inputs to be followed from the root flake.
+
+   Overrides and follows can be combined, e.g.
+
+ inputs.nixops.inputs.nixpkgs.follows = "dwarffs/nixpkgs";
+
+   sets the nixpkgs input of nixops to be the same as the nixpkgs input of
+   dwarffs. It is worth noting, however, that it is generally not useful to
+   eliminate transitive nixpkgs flake inputs in this way. Most flakes provide
+   their functionality through Nixpkgs overlays or NixOS modules, which are
+   composed into the top-level flake's nixpkgs input; so their own nixpkgs
+   input is usually irrelevant.
+
+                                   Lock files
+
+   Inputs specified in flake.nix are typically "unlocked" in the sense that
+   they don't specify an exact revision. To ensure reproducibility, Nix will
+   automatically generate and use a lock file called flake.lock in the
+   flake's directory. The lock file contains a graph structure isomorphic to
+   the graph of dependencies of the root flake. Each node in the graph
+   (except the root node) maps the (usually) unlocked input specifications in
+   flake.nix to locked input specifications. Each node also contains some
+   metadata, such as the dependencies (outgoing edges) of the node.
+
+   For example, if flake.nix has the inputs in the example above, then the
+   resulting lock file might be:
+
+ {
+   "version": 7,
+   "root": "n1",
+   "nodes": {
+     "n1": {
+       "inputs": {
+         "nixpkgs": "n2",
+         "import-cargo": "n3",
+         "grcov": "n4"
+       }
+     },
+     "n2": {
+       "inputs": {},
+       "locked": {
+         "owner": "edolstra",
+         "repo": "nixpkgs",
+         "rev": "7f8d4b088e2df7fdb6b513bc2d6941f1d422a013",
+         "type": "github",
+         "lastModified": 1580555482,
+         "narHash": "sha256-OnpEWzNxF/AU4KlqBXM2s5PWvfI5/BS6xQrPvkF5tO8="
+       },
+       "original": {
+         "id": "nixpkgs",
+         "type": "indirect"
+       }
+     },
+     "n3": {
+       "inputs": {},
+       "locked": {
+         "owner": "edolstra",
+         "repo": "import-cargo",
+         "rev": "8abf7b3a8cbe1c8a885391f826357a74d382a422",
+         "type": "github",
+         "lastModified": 1567183309,
+         "narHash": "sha256-wIXWOpX9rRjK5NDsL6WzuuBJl2R0kUCnlpZUrASykSc="
+       },
+       "original": {
+         "owner": "edolstra",
+         "repo": "import-cargo",
+         "type": "github"
+       }
+     },
+     "n4": {
+       "inputs": {},
+       "locked": {
+         "owner": "mozilla",
+         "repo": "grcov",
+         "rev": "989a84bb29e95e392589c4e73c29189fd69a1d4e",
+         "type": "github",
+         "lastModified": 1580729070,
+         "narHash": "sha256-235uMxYlHxJ5y92EXZWAYEsEb6mm+b069GAd+BOIOxI="
+       },
+       "original": {
+         "owner": "mozilla",
+         "repo": "grcov",
+         "type": "github"
+       },
+       "flake": false
+     }
+   }
+ }
+
+   This graph has 4 nodes: the root flake, and its 3 dependencies. The nodes
+   have arbitrary labels (e.g. n1). The label of the root node of the graph
+   is specified by the root attribute. Nodes contain the following fields:
+
+     * inputs: The dependencies of this node, as a mapping from input names
+       (e.g. nixpkgs) to node labels (e.g. n2).
+
+     * original: The original input specification from flake.lock, as a set
+       of builtins.fetchTree arguments.
+
+     * locked: The locked input specification, as a set of builtins.fetchTree
+       arguments. Thus, in the example above, when we build this flake, the
+       input nixpkgs is mapped to revision
+       7f8d4b088e2df7fdb6b513bc2d6941f1d422a013 of the edolstra/nixpkgs
+       repository on GitHub.
+
+       It also includes the attribute narHash, specifying the expected
+       contents of the tree in the Nix store (as computed by nix hash-path),
+       and may include input-type-specific attributes such as the
+       lastModified or revCount. The main reason for these attributes is to
+       allow flake inputs to be substituted from a binary cache: narHash
+       allows the store path to be computed, while the other attributes are
+       necessary because they provide information not stored in the store
+       path.
+
+     * flake: A Boolean denoting whether this is a flake or non-flake
+       dependency. Corresponds to the flake attribute in the inputs attribute
+       in flake.nix.
+
+   The original and locked attributes are omitted for the root node. This is
+   because we cannot record the commit hash or content hash of the root
+   flake, since modifying flake.lock will invalidate these.
+
+   The graph representation of lock files allows circular dependencies
+   between flakes. For example, here are two flakes that reference each
+   other:
+
+ {
+   inputs.b = ... location of flake B ...;
+   # Tell the 'b' flake not to fetch 'a' again, to ensure its 'a' is
+   # *this* 'a'.
+   inputs.b.inputs.a.follows = "";
+   outputs = { self, b }: {
+     foo = 123 + b.bar;
+     xyzzy = 1000;
+   };
+ }
+
+   and
+
+ {
+   inputs.a = ... location of flake A ...;
+   inputs.a.inputs.b.follows = "";
+   outputs = { self, a }: {
+     bar = 456 + a.xyzzy;
+   };
+ }
+
+   Lock files transitively lock direct as well as indirect dependencies. That
+   is, if a lock file exists and is up to date, Nix will not look at the lock
+   files of dependencies. However, lock file generation itself does use the
+   lock files of dependencies by default.
+
+                                    Options
+
+Logging-related options
+
+     * --debug
+
+       Set the logging verbosity level to 'debug'.
+
+     * --log-format format
+
+       Set the format of log output; one of raw, internal-json, bar or
+       bar-with-logs.
+
+     * --print-build-logs / -L
+
+       Print full build logs on standard error.
+
+     * --quiet
+
+       Decrease the logging verbosity level.
+
+     * --verbose / -v
+
+       Increase the logging verbosity level.
+
+Miscellaneous global options
+
+     * --help
+
+       Show usage information.
+
+     * --offline
+
+       Disable substituters and consider all previously downloaded files
+       up-to-date.
+
+     * --option name value
+
+       Set the Nix configuration setting name to value (overriding nix.conf).
+
+     * --refresh
+
+       Consider all previously downloaded files out-of-date.
+
+     * --version
+
+       Show version information.
+
+     Note
+
+     See man nix.conf for overriding configuration settings with command line
+     flags.

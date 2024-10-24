@@ -1,0 +1,132 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Обработка нажатий клавиши питания
+          * 1.1 Не выключать компьютер при нажатие клавиши питания
+          * 1.2 Игнорировать аппаратные клавиши при использовании
+            systemd-inhibit
+   [ ] Toggle the table of contents
+
+                                 Systemd/logind
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Systemd/logind and the
+   translation is 93% complete.
+   ← Back to systemd
+
+   logind это менеджер входа в систему являющийся компонентом Systemd. Его
+   главное руководство это systemd-logind.service(8). Параметры его
+   конфигурации описаны в logind.conf(5).
+
+Обработка нажатий клавиши питания
+
+   logind handles power and standby hardware switches. The Arch wiki has a
+   good overview of which ACPI events are handled.
+
+  Не выключать компьютер при нажатие клавиши питания
+
+   Если вы пользуетесь ноутбуком, то часто не хотите, чтобы случайное
+   короткое нажатие на кнопку питания привело к выключению системы. Вы можете
+   добавить следующий фрагмент кода в свой конфиг logind чтобы избежать
+   этого:
+
+ services.logind.extraConfig = ''
+     # не выключать компьютер при коротком нажатии клавиши питания
+     HandlePowerKey=ignore
+   '';
+
+   Долгое нажатие кнопки питания (5 секунд или дольше) для выполнения
+   жесткого сброса обрабатывается BIOS/EFI вашего компьютера и поэтому все
+   еще возможно.
+
+  Игнорировать аппаратные клавиши при использовании systemd-inhibit
+
+   code>systemd-inhibit позволяет наложить блокировку, например, на shutdown
+   или sleep, которая будет действовать до тех пор, пока данный процесс
+   запущен. По умолчанию действия аппаратных клавиш, настроенные в logind,
+   отменяют такие запреты. Допустим, вы хотите, чтобы ваш ноутбук не
+   выключался при закрытии крышки в некоторых обстоятельствах, например, если
+   вы хотите послушать музыку. Если вы запустите экран блокировки с запретом
+   на переключение крышки systemd-inhibit --what=handle-lid-switch
+   lock-screen-tool logind все равно отменяет это решение пользователя. Чтобы
+   это работало, вам нужно указать logind игнорировать переключатель lid в
+   системной конфигурации:
+
+ services.logind.extraConfig = ''
+   # хотите иметь возможность слушать музыку при закрытом ноутбуке
+   LidSwitchIgnoreInhibited=no
+ '';
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Systemd/logind/ru&oldid=16453"
+   Categories:
+     * Applications
+     * Systemd
+     * This page was last edited on 7 August 2024, at 08:20.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

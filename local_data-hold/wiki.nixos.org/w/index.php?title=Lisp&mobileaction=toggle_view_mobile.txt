@@ -1,0 +1,118 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 About
+     * 2 Common Lisp
+          * 2.1 Editor integration
+               * 2.1.1 Emacs
+               * 2.1.2 VS Code
+     * 3 Scheme
+   [ ] Toggle the table of contents
+
+                                      Lisp
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section needs expansion.                                  
+    Reason: This article is incomplete. (Discuss in Talk:Lisp#)               
+    Please consult the pedia article metapage for guidelines on contributing. 
+
+   Also see the Lisp section of the NixOS manual.
+
+About
+
+   Lisp is a family of typically interpreted functional languages with
+   dynamic, minimal typing, and many parantheses.
+
+Common Lisp
+
+   The modern implementation is sbcl. Nix can be used for library management
+   with sbclPackages. External package management can be used with caution.
+
+  Editor integration
+
+    Emacs
+
+   See emacs.
+
+    VS Code
+
+   The Alive extension for VS Code can be used. Be careful to follow the
+   instructions described on the marketplace. Refer to the Lisp section of
+   the NixOS manual to start with quicklisp. VS Code can be launched from a
+   Nix shell with required packages available but this may cause stability
+   issues.
+
+Scheme
+
+   Retrieved from "https://wiki.nixos.org/w/index.php?title=Lisp&oldid=11013"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 15 December 2023, at 10:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

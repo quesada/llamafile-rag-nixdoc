@@ -1,0 +1,127 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                           Telegram: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    2 May 2024
+
+     * curprev [ ] [ ] 21:2221:22, 2 May 2024‎ Klinger talk contribs‎ m 389
+       bytes +27‎ Category:Applications Tags: Mobile edit Mobile web edit
+
+    22 June 2023
+
+     * curprev [ ] [ ] 04:2604:26, 22 June 2023‎ imported>Georgeoshardo‎ m
+       362 bytes +8‎ No edit summary
+     * curprev [ ] [ ] 04:2404:24, 22 June 2023‎ imported>Georgeoshardo‎ m
+       354 bytes +8‎ No edit summary
+
+    20 May 2021
+
+     * curprev [ ] [ ] 20:0220:02, 20 May 2021‎ imported>Alexnortung‎ 346
+       bytes +346‎ Created page with "Telegram is a cloud-based mobile and
+       desktop messaging app with a focus on security. == Installation == The
+       telegram desktop client can be installed with the <code>tdesktop<..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Telegram"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

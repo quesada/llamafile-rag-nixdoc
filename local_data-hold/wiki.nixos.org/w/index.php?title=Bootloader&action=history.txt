@@ -1,0 +1,271 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          Bootloader: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    14 September 2024
+
+     * curprev [ ] [ ] 08:2808:28, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 13,152 bytes −6‎ oopsie, fix iso url
+     * curprev [ ] [ ] 08:2708:27, 14 September 2024‎ Phanirithvij talk
+       contribs‎ m 13,158 bytes +5‎ update nixos iso url
+
+    10 July 2024
+
+     * curprev [ ] [ ] 19:3819:38, 10 July 2024‎ 0x4A6F talk contribs‎ 13,153
+       bytes +4‎ remove link to legacy wiki
+
+    25 April 2024
+
+     * curprev [ ] [ ] 10:4410:44, 25 April 2024‎ Mic92 talk contribs‎ 13,149
+       bytes +1,487‎ imported from old wiki
+
+    19 April 2024
+
+     * curprev [ ] [ ] 15:3815:38, 19 April 2024‎ Klinger talk contribs‎ m
+       11,662 bytes +22‎ Added category:Booting
+     * curprev [ ] [ ] 05:1505:15, 19 April 2024‎ Mic92 talk contribs‎ 11,640
+       bytes +2‎ copy from old wiki
+     * curprev [ ] [ ] 05:1505:15, 19 April 2024‎ Mic92 talk contribs‎ 11,638
+       bytes +1‎ copy from old wiki
+
+    21 December 2023
+
+     * curprev [ ] [ ] 00:1800:18, 21 December 2023‎
+       imported>Cessationoftime‎ m 11,637 bytes −2‎ No edit summary
+
+    6 August 2023
+
+     * curprev [ ] [ ] 02:4002:40, 6 August 2023‎ imported>Winny‎ 11,639
+       bytes +304‎ tidy up boot parameters section and make it its own
+       section
+
+    9 July 2023
+
+     * curprev [ ] [ ] 15:2215:22, 9 July 2023‎ imported>Niscolas‎ 11,335
+       bytes +186‎ No edit summary
+
+    28 March 2023
+
+     * curprev [ ] [ ] 18:5118:51, 28 March 2023‎ imported>Sashanoraa‎ m
+       11,149 bytes +98‎ Add that systemd-boot has this option as well
+
+    5 July 2022
+
+     * curprev [ ] [ ] 13:4913:49, 5 July 2022‎ imported>Scvalex‎ 11,051
+       bytes +524‎ Mention nixos-enter as the easier way of entering an
+       installed system from installation media, and expand the tips.
+
+    4 May 2022
+
+     * curprev [ ] [ ] 11:3111:31, 4 May 2022‎ imported>Lassulus‎ 10,527
+       bytes −177‎ remove deprecated warning
+
+    8 March 2022
+
+     * curprev [ ] [ ] 16:5816:58, 8 March 2022‎ imported>EyJhb‎ m 10,704
+       bytes +725‎ reset my BIOS this morning, and looked here for this info
+       but could not find it
+
+    5 January 2022
+
+     * curprev [ ] [ ] 05:0505:05, 5 January 2022‎ imported>Vater‎ m 9,979
+       bytes +93‎ form (fixing Category:Pages with syntax highlighting
+       errors)
+
+    6 August 2021
+
+     * curprev [ ] [ ] 16:2416:24, 6 August 2021‎ imported>0x4A6F‎ 9,886
+       bytes +43‎ No edit summary
+
+    29 July 2021
+
+     * curprev [ ] [ ] 16:3616:36, 29 July 2021‎ imported>Mic92‎ m 9,843
+       bytes −16‎ fix efiSysMountPoint option
+
+    23 July 2021
+
+     * curprev [ ] [ ] 14:5614:56, 23 July 2021‎ imported>Marek-lach‎ 9,859
+       bytes +16‎ update working mountpoint syntax
+
+    18 February 2021
+
+     * curprev [ ] [ ] 06:5006:50, 18 February 2021‎ imported>Edrex‎ 9,843
+       bytes −22‎ →‎Installing x86_64 NixOS on IA-32 UEFI
+
+    13 May 2020
+
+     * curprev [ ] [ ] 15:4115:41, 13 May 2020‎ imported>CsawyerYumaed‎ 9,865
+       bytes +868‎ added grub kernel command line options for booting.
+
+    1 August 2019
+
+     * curprev [ ] [ ] 16:4616:46, 1 August 2019‎ imported>Iceychris‎ m 8,997
+       bytes +168‎ add a simple way of reinstalling the bootloader while the
+       system is running
+
+    15 July 2019
+
+     * curprev [ ] [ ] 18:2318:23, 15 July 2019‎ imported>User‎ 8,829 bytes
+       +177‎ No edit summary
+
+    8 April 2019
+
+     * curprev [ ] [ ] 20:4720:47, 8 April 2019‎ imported>LinArcX‎ 8,652
+       bytes +237‎ clarification about how to bind system virtual file
+       systems.
+
+    25 November 2018
+
+     * curprev [ ] [ ] 13:0113:01, 25 November 2018‎ imported>Balsoft‎ 8,415
+       bytes +2,943‎ Add tutorial on installing 64-bit system with 32-bit
+       UEFI bootloader.
+
+    6 July 2018
+
+     * curprev [ ] [ ] 16:3416:34, 6 July 2018‎ imported>Sfultong‎ 5,472
+       bytes +125‎ adding instructions for binding virtual file systems
+
+    26 June 2018
+
+     * curprev [ ] [ ] 21:3021:30, 26 June 2018‎ imported>Samueldr‎ 5,347
+       bytes +194‎ Reviews section to be more factual and explains the
+       difference with default settings.
+
+    5 May 2018
+
+     * curprev [ ] [ ] 05:0005:00, 5 May 2018‎ imported>Gnidorah‎ 5,153 bytes
+       +6‎ No edit summary
+     * curprev [ ] [ ] 04:5904:59, 5 May 2018‎ imported>Gnidorah‎ 5,147 bytes
+       +582‎ No edit summary
+
+    31 March 2018
+
+     * curprev [ ] [ ] 04:0204:02, 31 March 2018‎ imported>Samueldr‎ m 4,565
+       bytes +389‎ Adds a note about configurationlimit and grub.
+
+    10 March 2018
+
+     * curprev [ ] [ ] 16:5316:53, 10 March 2018‎ imported>Samueldr‎ m 4,176
+       bytes +1,475‎ Adds a section about recalcitrant UEFI implementations.
+
+    12 February 2018
+
+     * curprev [ ] [ ] 05:0405:04, 12 February 2018‎ imported>Samueldr‎ m
+       2,701 bytes +71‎ Updates new generation section, there is a possibly
+       useless recommendation of re-installing the bootloader.
+
+    3 February 2018
+
+     * curprev [ ] [ ] 15:4415:44, 3 February 2018‎ imported>Samueldr‎ m
+       2,630 bytes +322‎ Adds a one-liner to detect Legacy / UEFI
+     * curprev [ ] [ ] 15:3115:31, 3 February 2018‎ imported>Samueldr‎ m
+       2,308 bytes −3‎ Ugh, wikimarkup != markdown
+     * curprev [ ] [ ] 15:2915:29, 3 February 2018‎ imported>Samueldr‎ m
+       2,311 bytes +380‎ Moves a generic FAQ entry from GRUB to here.
+     * curprev [ ] [ ] 15:2715:27, 3 February 2018‎ imported>Samueldr‎ 1,931
+       bytes +1,931‎ Adds two common troubleshooting steps
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Bootloader"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

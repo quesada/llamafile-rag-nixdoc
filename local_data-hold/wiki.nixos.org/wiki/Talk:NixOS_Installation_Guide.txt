@@ -1,0 +1,119 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 November 2017 wiki-thon
+       1 comment
+     * 2 take inspiration from Arch Wiki?
+       1 comment
+     * 3 post-installation recommendations
+     * 4 Partitioning and formatting sections are confusing
+   [ ] Toggle the table of contents
+
+                         Talk:NixOS Installation Guide
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 9 July 2021 by Isa in topic take inspiration from Arch
+   Wiki?
+
+November 2017 wiki-thon
+
+   Latest comment: 26 November 20171 comment1 person in discussion
+
+   My personal notes about the expected layout.
+
+   --— samueldr (talk) 01:53, 26 November 2017 (UTC)Reply
+
+take inspiration from Arch Wiki?
+
+   Latest comment: 9 July 20211 comment1 person in discussion
+
+   What if this article was structured like
+   https://wiki.archlinux.org/title/Installation_guide, adapting as
+   needed?--Isa (talk) 18:56, 9 July 2021 (UTC)Reply
+
+post-installation recommendations
+
+   The arch wiki has something similar to this, where it outlines what you
+   should do after install. It would be beneficial to have something similar
+   on this article or on another article
+
+   For example, enabling display managers, enabling a desktop environment,
+   where to find packages and options, etc.
+
+Partitioning and formatting sections are confusing
+
+   For example, for the boot sector it just says +500M, this would be
+   familiar to someone used to fdisk. But someone who isn't doesn't even know
+   what unit it is might assume they're just meant to add 500 to 2048 and
+   write 2548. This is an easy fix(probably by using code blocks).
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:NixOS_Installation_Guide&oldid=12087"
+     * This page was last edited on 15 April 2024, at 00:42.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,308 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                    Nix Installation Guide: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    9 July 2024
+
+     * curprev [ ] [ ] 21:0721:07, 9 July 2024‎ Msgilligan talk contribs‎ m
+       12,435 bytes +1‎ Add missing `[`
+     * curprev [ ] [ ] 21:0621:06, 9 July 2024‎ Msgilligan talk contribs‎ m
+       12,434 bytes +13‎ Add period and "To Install:" Tag: Visual edit:
+       Switched
+     * curprev [ ] [ ] 21:0421:04, 9 July 2024‎ Msgilligan talk contribs‎
+       12,421 bytes +1,030‎ Add "Installing on Debian Using APT" section Tag:
+       Visual edit: Switched
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:1821:18, 24 April 2024‎ Klinger talk contribs‎ m
+       11,391 bytes +40‎ Category:nix Category:Cookbook
+
+    6 April 2024
+
+     * curprev [ ] [ ] 08:3108:31, 6 April 2024‎ Claes talk contribs‎ 11,351
+       bytes +8‎ Link to Nix and NixOS Tag: Visual edit
+     * curprev [ ] [ ] 08:2708:27, 6 April 2024‎ Claes talk contribs‎ 11,343
+       bytes +97‎ Clarify installation of Nix Tag: Visual edit
+
+    26 October 2022
+
+     * curprev [ ] [ ] 06:0006:00, 26 October 2022‎ imported>Mic92‎ 11,246
+       bytes −20‎ also stable nix has flakes
+
+    24 October 2022
+
+     * curprev [ ] [ ] 05:1805:18, 24 October 2022‎ imported>V3vAP‎ 11,266
+       bytes +26‎ No edit summary
+     * curprev [ ] [ ] 05:1105:11, 24 October 2022‎ imported>V3vAP‎ 11,240
+       bytes +481‎ No edit summary
+     * curprev [ ] [ ] 03:4303:43, 24 October 2022‎ imported>V3vAP‎ 10,759
+       bytes +847‎ No edit summary
+
+    6 July 2022
+
+     * curprev [ ] [ ] 14:2214:22, 6 July 2022‎ imported>Mschwaig‎ 9,912
+       bytes +286‎ added a clarifying header that refers back to more
+       official documentation
+
+    3 June 2022
+
+     * curprev [ ] [ ] 13:2113:21, 3 June 2022‎ imported>MForster‎ m 9,626
+       bytes −1‎ Fixed typo
+
+    31 January 2022
+
+     * curprev [ ] [ ] 09:2109:21, 31 January 2022‎ imported>Drupol‎ m 9,627
+       bytes +222‎ Add Fish shell installation tips.
+
+    2 January 2022
+
+     * curprev [ ] [ ] 18:1718:17, 2 January 2022‎ imported>Klaymore‎ 9,405
+       bytes +10‎ Added note that you can reboot after installation instead
+       of sourcing the profile
+
+    4 November 2021
+
+     * curprev [ ] [ ] 06:5506:55, 4 November 2021‎ imported>Doronbehar‎
+       9,395 bytes −838‎ Remove now uneeded NFS patch with sqlite-wal
+
+    7 December 2020
+
+     * curprev [ ] [ ] 05:5505:55, 7 December 2020‎ imported>DavHau‎ 10,233
+       bytes +4‎ No edit summary
+
+    13 August 2020
+
+     * curprev [ ] [ ] 13:3113:31, 13 August 2020‎ imported>Drewrisinger‎ m
+       10,229 bytes −2‎ Fix WSL Install Link
+     * curprev [ ] [ ] 13:3013:30, 13 August 2020‎ imported>Drewrisinger‎
+       10,231 bytes +1,729‎ Instructions on Installing Nix on WSL
+
+    5 August 2020
+
+     * curprev [ ] [ ] 17:0917:09, 5 August 2020‎ imported>HaoZeke‎ 8,502
+       bytes +2‎ Updated the filename.
+
+    10 July 2020
+
+     * curprev [ ] [ ] 06:2606:26, 10 July 2020‎ imported>Ktosiek‎ 8,500
+       bytes +9‎ Adding -L to curl, like on https://nixos.org/download.html
+
+    22 June 2020
+
+     * curprev [ ] [ ] 16:1716:17, 22 June 2020‎ imported>Mickours‎ m 8,491
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 16:1216:12, 22 June 2020‎ imported>Mickours‎ 8,489
+       bytes +346‎ Add source command to make nix available
+
+    17 December 2019
+
+     * curprev [ ] [ ] 01:4001:40, 17 December 2019‎ imported>Jorsn‎ 8,143
+       bytes +8‎ update proot section: current static builds and "no such
+       file or directory" errors
+
+    13 October 2019
+
+     * curprev [ ] [ ] 00:3200:32, 13 October 2019‎ imported>Jorsn‎ 8,135
+       bytes +44‎ Section Proot: added hint about "file does not exist"-error
+       and proot-termux
+
+    4 July 2019
+
+     * curprev [ ] [ ] 11:4311:43, 4 July 2019‎ imported>Symphorien‎ 8,091
+       bytes +173‎ →‎NFS: use an override to install a patched nix so that
+       the patch is picked when updating
+     * curprev [ ] [ ] 11:3111:31, 4 July 2019‎ imported>Symphorien‎ 7,918
+       bytes −311‎ →‎WSL: the sqlite locking mode patch is also needed on WSL
+
+    28 May 2019
+
+     * curprev [ ] [ ] 10:4310:43, 28 May 2019‎ imported>Symphorien‎ 8,229
+       bytes +361‎ →‎Nix store on an unusual filesystem: disable sqlite wal
+       on WSL
+     * curprev [ ] [ ] 10:3010:30, 28 May 2019‎ imported>Symphorien‎ 7,868
+       bytes +578‎ →‎Single-user install: explain what to do if the
+       installtion fails because of user namespaces.
+
+    1 May 2019
+
+     * curprev [ ] [ ] 17:0517:05, 1 May 2019‎ imported>Symphorien‎ m 7,290
+       bytes +2‎ →‎Case insensitive filesystem on Linux: fix typo
+     * curprev [ ] [ ] 16:0616:06, 1 May 2019‎ imported>Symphorien‎ 7,288
+       bytes +1,939‎ Nix store on CIFS and NFS
+     * curprev [ ] [ ] 14:1314:13, 1 May 2019‎ imported>Symphorien‎ 5,349
+       bytes +1,091‎ →‎PRoot: explain how to build a recent version oneself.
+
+    11 February 2019
+
+     * curprev [ ] [ ] 11:5311:53, 11 February 2019‎ imported>Mic92‎ 4,258
+       bytes −44‎ simplify installation
+     * curprev [ ] [ ] 09:1609:16, 11 February 2019‎ imported>Mic92‎ 4,302
+       bytes −385‎ switch to rust version of nix-user-chroot
+     * curprev [ ] [ ] 09:1209:12, 11 February 2019‎ imported>Mic92‎ 4,687
+       bytes +61‎ improve check if userns is available.
+
+    19 November 2018
+
+     * curprev [ ] [ ] 14:0714:07, 19 November 2018‎ imported>Mic92‎ 4,626
+       bytes +2‎ No edit summary
+     * curprev [ ] [ ] 14:0614:06, 19 November 2018‎ imported>Mic92‎ 4,624
+       bytes +218‎ nix-user-chroot + sandbox don't compose
+     * curprev [ ] [ ] 14:0314:03, 19 November 2018‎ imported>Mic92‎ 4,406
+       bytes +117‎ nix 2.0 variant is useless unless nix is already
+       installed.
+
+    6 November 2018
+
+     * curprev [ ] [ ] 00:1100:11, 6 November 2018‎ imported>Colemickens‎ m
+       4,289 bytes +7‎ modify instruction to work out of box in 18.10
+
+    25 October 2018
+
+     * curprev [ ] [ ] 09:0409:04, 25 October 2018‎ imported>Mickours‎ m
+       4,282 bytes −1‎ Use GID instead of USER because this group may not
+       exists
+
+    8 October 2018
+
+     * curprev [ ] [ ] 09:1109:11, 8 October 2018‎ imported>Mickours‎ 4,283
+       bytes +8‎ Fix Proot command
+
+    15 August 2018
+
+     * curprev [ ] [ ] 20:5720:57, 15 August 2018‎ imported>Lheckemann‎ 4,275
+       bytes +158‎ →‎nix 2.0's native method
+
+    24 April 2018
+
+     * curprev [ ] [ ] 15:4715:47, 24 April 2018‎ imported>Mic92‎ 4,117 bytes
+       +502‎ nix --store awesomeness
+
+    6 April 2018
+
+     * curprev [ ] [ ] 07:0107:01, 6 April 2018‎ imported>Tomberek‎ 3,615
+       bytes +133‎ No edit summary
+
+    10 February 2018
+
+     * curprev [ ] [ ] 17:3117:31, 10 February 2018‎ imported>Waldyrious‎ m
+       3,482 bytes +165‎ minor adjustments to punctuation, formatting and
+       capitalization
+
+    6 October 2017
+
+     * curprev [ ] [ ] 21:0121:01, 6 October 2017‎ imported>Ixxie‎ m 3,317
+       bytes 0‎ Ixxie moved page Installing Nix to Nix Installation Guide
+     * curprev [ ] [ ] 20:4320:43, 6 October 2017‎ imported>Ixxie‎ 3,317
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 20:4220:42, 6 October 2017‎ imported>Ixxie‎ 3,318
+       bytes 0‎ →‎PRoot
+     * curprev [ ] [ ] 20:4120:41, 6 October 2017‎ imported>Ixxie‎ 3,318
+       bytes −6‎ No edit summary
+     * curprev [ ] [ ] 20:4120:41, 6 October 2017‎ imported>Ixxie‎ 3,324
+       bytes +3,324‎ Moved install instructions from the Nix article.
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Nix_Installation_Guide"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

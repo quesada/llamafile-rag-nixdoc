@@ -1,0 +1,213 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Daemon configuration
+     * 2 Web interface
+   [ ] Toggle the table of contents
+
+                                     Nagios
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Revision as of 20:40, 30 September 2022 by imported>Ciarandg (Fix module
+   syntax)
+   (diff) ← Older revision | Latest revision (diff) | Newer revision → (diff)
+
+   Nagios is a monitoring daemon. It comprises the daemon itself, and a web
+   interface.
+
+  Daemon configuration
+
+   The simplest way of having the Nagios daemon run is to write its
+   configuration in a main.cfg alongside configuration.nix in /etc/nixos.
+
+   Then
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {config, pkg, lib, ...}
+ {
+    # [...]
+    services.nagios = {
+       enable = true;
+       objectDefs = [ ./main.cfg ];
+    };
+ }
+
+     Tip                                                                      
+     In order to affect your system by your nix-language-specific changes you 
+     have to evaluate it, run (as root):                                      
+                                                                              
+     # nixos-rebuild switch                                                   
+
+   Nagios configuration files contain a lot of boilerplate, it is possible to
+   reuse some of the default configuration files. For example to reuse
+   templates.cfg, timeperiods.cfg and commands.cfg:
+
+ {
+     services.nagios.objectDefs =
+       (map (x: "${pkgs.nagios}/etc/objects/${x}.cfg") [ "templates" "timeperiods" "commands" ]) ++
+       [ ./main.cfg ];
+ }
+
+   To enable verbose logging into /var/log/nagios/debug.log:
+
+ {
+     services.nagios.extraConfig = {
+         debug_level = "-1";
+         debug_file = "/var/log/nagios/debug.log";
+      };
+ }
+
+  Web interface
+
+   The NixOS module for Nagios does not automatically configure the web
+   interface for your favorite web server. The section below describes a
+   possible configuration for Nginx.
+
+   The web interface does not handle authentication; instead it is delegated
+   to the web server. We will use HTTP basic authentication. This is only
+   safe over HTTPS, of course. You need to create a htpasswd file readable by
+   the nginx user only:
+
+ htpasswd -c /var/lib/nagios/htpasswd admin_account
+ chmod 0440 /var/lib/nagios/htpasswd
+ chown nginx:nginx /var/lib/nagios/htpasswd
+
+   Now a possible configuration looks like this:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {config, pkgs, lib, ...}:
+ {
+      # [...]
+      services.phpfpm.pools.nagios = {
+         user = "nagios";
+         settings = {
+           "listen.owner" = config.services.nginx.user;
+           "pm" = "ondemand";
+           "pm.max_children" = 2;
+           "pm.process_idle_timeout" = "60s";
+           "pm.max_requests" = 200;
+         };
+       };
+       services.fcgiwrap = {
+         enable = true;
+         user = "nagios";
+       };
+       services.nginx.virtualHosts."nagios.example.com" = {
+         forceSSL = true;
+         enableACME = true;
+         root = "${pkgs.nagios}/share/";
+         extraConfig = ''
+           index index.php;
+           auth_basic "Nagios";
+           auth_basic_user_file /var/lib/nagios/htpasswd;
+         '';
+         locations = {
+           "/".tryFiles = "$uri /index.php";
+           "/nagios/".alias = "${pkgs.nagios}/share/";
+           "~ \\.cgi$" = {
+             root = "${pkgs.nagios}/sbin/";
+             extraConfig = ''
+               rewrite ^/nagios/cgi-bin/(.*)$ /$1;
+
+               include ${pkgs.nginx}/conf/fastcgi.conf;
+               include ${pkgs.nginx}/conf/fastcgi_params;
+
+               fastcgi_param AUTH_USER       $remote_user;
+               fastcgi_param REMOTE_USER     $remote_user;
+               fastcgi_param SCRIPT_FILENAME ${pkgs.nagios}/share/sbin$fastcgi_script_name; 
+
+               fastcgi_pass unix:${config.services.fcgiwrap.socketAddress};
+             '';
+           };
+           "~* \\.php$" = {
+             tryFiles = "$uri =404";
+             extraConfig = ''
+               include ${pkgs.nginx}/conf/fastcgi_params;
+               include ${pkgs.nginx}/conf/fastcgi.conf;
+               fastcgi_split_path_info ^(.+\.php)(/.+)$;
+               fastcgi_pass unix:${config.services.phpfpm.pools.nagios.socket};
+               fastcgi_index index.php;
+             '';
+           };
+         };
+       };
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nagios&oldid=7500"
+   Category:
+     * Applications
+     * This page was last edited on 30 September 2022, at 20:40.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

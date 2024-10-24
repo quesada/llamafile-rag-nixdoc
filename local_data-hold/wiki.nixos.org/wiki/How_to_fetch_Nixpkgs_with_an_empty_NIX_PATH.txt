@@ -1,0 +1,102 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                  How to fetch Nixpkgs with an empty NIX PATH
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   You can fetch Nixpkgs with an empty NIX_PATH. This comes in handy if you
+   want to remove impure references to the NIX_PATH from your code base.
+
+   To do so, you can use builtins.fetchTarball, like this:
+
+ let
+   nixpkgs = builtins.fetchTarball {
+     url    = "https://github.com/NixOS/nixpkgs/archive/3389f23412877913b9d22a58dfb241684653d7e9.tar.gz";
+     sha256 = "0wgm7sk9fca38a50hrsqwz6q79z35gqgb9nw80xz7pfdr4jy9pf8";
+   };
+
+   pkgs = import nixpkgs { config = {}; };
+
+ in
+   ...
+
+   … replacing 3389f2… with the desired revision of Nixpkgs and replacing
+   0wgm7s… with the corresponding SHA256 hash.
+
+   You can use the following command to obtain the correct SHA256 hash to use
+   if you prefer not to use trial and error:
+
+ $ nix-prefetch-url --unpack "https://github.com/NixOS/nixpkgs/archive/${REVISION}.tar.gz"
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=How_to_fetch_Nixpkgs_with_an_empty_NIX_PATH&oldid=4291"
+   Categories:
+     * Nix
+     * Nixpkgs
+     * Cookbook
+     * This page was last edited on 2 December 2020, at 00:35.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

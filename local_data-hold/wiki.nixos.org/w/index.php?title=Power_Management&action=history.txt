@@ -1,0 +1,141 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                       Power Management: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    29 July 2024
+
+     * curprev [ ] [ ] 19:2319:23, 29 July 2024‎ Onny talk contribs‎ 5,171
+       bytes −16‎ →‎Hard drive power management Tag: Visual edit
+     * curprev [ ] [ ] 19:2319:23, 29 July 2024‎ Onny talk contribs‎ 5,187
+       bytes +992‎ Restructuring, add section on hdd power modes Tag: Visual
+       edit
+
+    17 May 2024
+
+     * curprev [ ] [ ] 19:2319:23, 17 May 2024‎ Onny talk contribs‎ 4,195
+       bytes +851‎ Add notes on hibernation Tag: Visual edit
+
+    20 October 2023
+
+     * curprev [ ] [ ] 13:2613:26, 20 October 2023‎ imported>Skylark‎ 3,344
+       bytes −57‎ Drop a redlink, add See also: Laptop which overlaps with
+       this article
+
+    22 August 2023
+
+     * curprev [ ] [ ] 23:4523:45, 22 August 2023‎ imported>Lelgenio‎ 3,401
+       bytes +2,383‎ Add workaround for systems that immediatly wakeup after
+       beign suspended
+
+    14 October 2017
+
+     * curprev [ ] [ ] 19:3019:30, 14 October 2017‎ imported>Samueldr‎ 1,018
+       bytes +1,018‎ Created page with "{{expansion}} == Suspend == ===
+       Suspend hooks === NixOS provides the
+       {{nixos:option|powerManagement.resumeCommands}} option which defines
+       commands that are added to a globa..."
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Power_Management"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

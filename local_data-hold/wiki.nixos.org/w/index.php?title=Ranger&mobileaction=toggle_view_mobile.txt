@@ -1,0 +1,113 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Enabling
+          * 1.1 Adds file glyphs / icon support to Ranger
+   [ ] Toggle the table of contents
+
+                                     Ranger
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Ranger is a command line file manager with a minimalistic vim-inspired
+   interface.
+
+Enabling
+
+   To use ranger, add it to configuration.nix:
+
+    
+
+ /etc/nixos/configuration.nix
+
+ environment.systemPackages = with pkgs; [
+     #----=[ File Manager ]=----#
+     ranger
+     ...
+ ];
+
+     Tip                                                                      
+     In order to affect your system by your nix-language-specific changes you 
+     have to evaluate it, run (as root):                                      
+                                                                              
+     # nixos-rebuild switch                                                   
+
+  Adds file glyphs / icon support to Ranger
+
+   Follow the instructions in: ranger_devicons But before install it, you
+   have to install a nerdfont derivations. i suggest to install:
+   nur.repos.mic92.source-code-pro-nerdfonts from NUR.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Ranger&oldid=13554"
+   Categories:
+     * File Manager
+     * Applications
+     * This page was last edited on 25 June 2024, at 21:04.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

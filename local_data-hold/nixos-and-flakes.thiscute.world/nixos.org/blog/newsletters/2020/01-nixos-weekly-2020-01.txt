@@ -1,0 +1,97 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #01 - NixOS Weekly
+
+   Published on Fri Jan 10 2020
+
+                               #01 - NixOS Weekly
+
+                                      News
+
+     * Nix Notes
+
+       The Nix Notes is a collection of short notes about Nix, each
+       contributing to the same virtual machine image. The notes show how to
+       deploy the image to Digital Ocean, update the running virtual machine
+       without recreating it, and more.
+
+     * Deploying a fully automated Nix-based static website
+
+     * NYLUG Presents: “Sneaking in Nix - Building Production Containers with
+       Nix” by Graham Christensen
+
+     * Lead DevOps Engineer with NixOs, Rust and Cloudflare
+
+     * A Nix-based functional organization for managing processes
+
+     * Windows-on-NixOS, part 1: Migrating bare-metal to a VM
+
+     * Updating NixOS local VMs
+
+     * Azure-cli v2.0 support
+
+       The python az package, has been added. Replacing the deprecated node
+       azure package.
+
+     * What happens when you run nixos-rebuild.
+
+     * Reading Nix expressions
+
+       Summary of lessons learned at NixCon 2019
+
+     * Nix application VMs: security through virtualization
+
+       Simple application VMs (hypervisor-based sandbox) based on Nix package
+       manager.
+
+     * RFC 0046 FCP, Platform Support Tiers
+
+       The Final Comment Period for RFC 0046 has started with disposition to
+       merge and, barring any blocking issues, will be merged after
+       2020-01-12. Your opinions, comments, and approvals are welcome!
+
+     * Mobile NixOS: December 2019 round-up
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

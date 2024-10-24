@@ -1,0 +1,196 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Using syslinux.cfg
+     * 2 Using grub
+   [ ] Toggle the table of contents
+
+                  NixOS Installation Guide/Manual USB Creation
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+    This article or section is out of date.                                   
+    Reason: Instructions are old, from around 2014, but are still somewhat    
+    relevant to update. (Discuss in Talk:NixOS Installation Guide/Manual USB  
+    Creation)                                                                 
+    Once the page has been updated this notice can be removed.                
+
+Using syslinux.cfg
+
+   If you have trouble booting from a USB drive or sdcard with Unetbootin (I
+   just got a blinking cursor instead of a bootloader on an Asus eee 1000)
+   the procedure described on http://knoppix.net/wiki/Bootable_USB_Key should
+   work. After preparing the sdcard with mkdiskimage and syslinux you can
+   mount it and copy all the content from the NixOS iso:
+
+ $ mount -o loop ~/Downloads/nixos-graphical-0.1pre27337-i686-linux.iso /media/iso
+ $ rsync -av --progress /media/iso/ /media/sd-card/
+
+   The syslinux.cfg needs to be created manually, but the details can easily
+   be derived from the grub.cfg on the NixOS install cd.
+
+   I specified the root device by UUID, to get the UUID:
+
+ blkid /dev/mmcblk0p1
+
+   The relevant section from the live cd: /media/sd-card/boot/grub/grub.cfg
+
+ menuentry "NixOS Installer / Rescue" {
+   linux /boot/bzImage init=/nix/store/r7xhnzymi1ll49r4glf1dwr5y1alx0bl-system/init root=LABEL=NIXOS_INSTALL_CD_0.1pre27337 splash=verbose vga=0x317
+   initrd /boot/initrd
+ }
+
+   can be used in the syslinux config file: /media/sd-card/syslinux.cfg (you
+   should just need to update the init path and the root UUID / LABEL or
+   device path)
+
+ DEFAULT linux
+ LABEL linux
+   SAY Now booting the kernel from SYSLINUX...
+   KERNEL /boot/bzImage
+   APPEND init=/nix/store/r7xhnzymi1ll49r4glf1dwr5y1alx0bl-system/init root=UUID=509C-63E2 ro initrd=/boot/initrd splash=verbose
+
+   Note: in place of using mkdiskimage, you can simply format your SDCard as
+   a fat32 system and install syslinux on it:
+
+ mkdosfs -F32 /dev/mmcblk0p1
+ syslinux -s /dev/mmcblk0p1
+
+Using grub
+
+    1. Download the ISO image from https://nixos.org/download/#nixos-iso.
+    2. Prepare your USB stick. If it isn't yet partitioned to your liking,
+       create a bootable partition on /dev/sdb1:
+
+ fdisk /dev/sdb
+
+       And format it with:
+
+ mkdosfs /dev/sdb1
+
+       Add ext2 partitions if you like. If you want both 32-bit and 64-bit
+       NixOS, you need at least two partitions. You can directly use the
+       entire disk without partition if that's what you like. Once you have
+       your VFAT (dosfs) block device, you should give it a label, within a
+       11-character limit, e.g.:
+
+ dosfslabel /dev/sdb1 NIXBOOT
+
+    3. Mount the bootable USB partition with:
+
+ mkdir -p /media/NIXBOOT
+ mount /dev/sdb1 /media/NIXBOOT
+
+    4. Mount the ISO image with:
+
+ mkdir -p /media/iso
+ mount -o loop ~/Downloads/nixos-graphical-0.2pre4463_5e88e9b-c877f45-x86_64-linux.iso /media/iso
+
+    5. Copy the contents of the NixOS ISO (/media/iso) to your USB stick
+       (/media/NIXBOOT) with:
+
+ rsync -av --progress /media/iso/ /media/NIXBOOT/
+
+    6. Install a complete and recent GRUB to the USB stick with:
+
+ grub-install /dev/sdb --root-directory=/media/NIXBOOT/
+
+    7. Edit the file /media/NIXBOOT/boot/grub/grub.cfg. Start from an
+       existing grub.cfg, say from your hard drive or from another working
+       bootable USB stick (e.g., from GRML.org). Then, merge in the entry for
+       NixOS from /media/iso/boot/grub/grub.cfg, modifying the LABEL to be
+       that of your VFAT partition:
+
+ menuentry "NixOS Installer / Rescue" {
+   linux /boot/bzImage init=/nix/store/p94ckcksmhj90cr868cpcajrqgzwy57w-nixos-0.2pre4463_5e88e9b-c877f45/init root=LABEL=NIXBOOT
+   initrd /boot/initrd
+ }
+
+    8. To share your USB stick with other distributions (e.g., GRML, or both
+       32- and 64- bit NixOS), you can move NixOS's bzImage and initrd to
+       different location (e.g., /boot/nix32/ and /boot/nix64/), and you
+       appropriately edit the entries in your grub.cfg. If you have both
+       nix32 and nix64, only one can have its nix-store.squashfs in the root
+       of any given partition. That's where you can use a second partition,
+       for the second one. For instance, copy the contents of your 64-bit
+       NixOS to the first partition, with label NIX64, and copy the
+       nix-store.squashfs of your 32-bit NixOS to the second partition with
+       label NIX32 (and create an empty nix/store). Copy the 32-bit kernel
+       and initrd to /boot/nix32/ on the bootable partition, and edit the
+       grub.cfg of the bootable partition accordingly.
+    9. There you go: you have a bootable NixOS USB drive, possibly allowing
+       you to boot NixOS 64-bit, NixOS 32-bit, GRML 64-bit, GRML 32-bit,
+       FreeBSD, FreeDOS, boot-sector-tetris, etc. Just you convince your BIOS
+       to let you boot off it.
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_Installation_Guide/Manual_USB_Creation&oldid=17418"
+   Hidden category:
+     * Pages or sections flagged with Template:outdated
+     * This page was last edited on 14 September 2024, at 08:27.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

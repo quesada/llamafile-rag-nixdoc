@@ -1,0 +1,110 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                     PICO-8
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   PICO-8 is a "fantasy console", allowing for easy game creation on heavily
+   limited specifications.
+
+   The editor is only available commercially and distributed as a binary, the
+   following nix-shell script allows you to run it:
+
+ { pkgs ? import <nixpkgs> {} }:
+ let fhs = pkgs.buildFHSUserEnv {
+   name = "pico8";
+   targetPkgs = pkgs: (with pkgs; [
+     xorg.libX11
+     xorg.libXext
+     xorg.libXcursor
+     xorg.libXinerama
+     xorg.libXi
+     xorg.libXrandr
+     xorg.libXScrnSaver
+     xorg.libXxf86vm
+     xorg.libxcb
+     xorg.libXrender
+     xorg.libXfixes
+     xorg.libXau
+     xorg.libXdmcp
+     alsa-lib
+     udev
+   ]);
+   runScript = "bash -c ./pico8";
+ };
+ in pkgs.stdenv.mkDerivation {
+   name = "pico8-shell";
+   nativeBuildInputs = [ fhs ];
+   shellHook = ''
+      exec pico8
+     '';
+ }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=PICO-8&oldid=9737"
+     * This page was last edited on 5 May 2022, at 06:05.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

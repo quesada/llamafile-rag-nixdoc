@@ -1,0 +1,125 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Downside of the Wrapper Approach
+     * 2 Alternatives
+   [ ] Toggle the table of contents
+
+                             Wrappers vs. Dotfiles
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Usually user applications (like editors, etc.) get configured through
+   dotfiles in the user's home directory. An alternative, declarative
+   approach is to create wrappers for application on a per-user basis, like
+   this:
+
+ {
+   users.users.root.packages = [
+     (pkgs.writeScriptBin "htop" ''
+       #! ${pkgs.bash}/bin/bash
+       export HTOPRC=${pkgs.writeText "htoprc" ...}
+       exec ${pkgs.htop}/bin/htop "$@"
+     '')
+   ];
+ }
+
+   The disadvantage of this way is that it doesn't propagate man pages and
+   other paths from the old derivation. Please refer to
+   Nix_Cookbook#Wrapping_packages to possible solutions to retain all
+   outputs.
+
+   You can use this simple function which takes care of wrapping the script &
+   symlinking
+
+  writeShellScriptBinAndSymlink = name: text: super.symlinkJoin {
+     name = name;
+     paths = [
+       super."${name}"
+       (super.writeShellScriptBin name text)
+     ];
+   };
+
+  Downside of the Wrapper Approach
+
+     * There might be applications that don't provide means to specify
+       configuration. One could override $HOME, but then there might be
+       applications that require $HOME for other stuff than configuration.
+     * Applications cannot write their configuration anymore, e.g. htop will
+       just terminate without error and nothing changed.
+
+  Alternatives
+
+     * Home Manager manages dotfiles in the user's home directory
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Wrappers_vs._Dotfiles&oldid=6205"
+   Category:
+     * Configuration
+     * This page was last edited on 27 September 2023, at 11:09.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,175 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                          VirtualBox: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    8 August 2024
+
+     * curprev [ ] [ ] 09:2909:29, 8 August 2024‎ Martin von Wittich talk
+       contribs‎ 2,683 bytes +424‎ Added a warning not to include virtualbox
+       in environment.systemPackages Tag: Visual edit: Switched
+
+    5 August 2024
+
+     * curprev [ ] [ ] 17:5317:53, 5 August 2024‎ Hessa talk contribs‎ m
+       2,259 bytes −1‎ Fixed a spelling error Tag: Visual edit
+
+    5 July 2024
+
+     * curprev [ ] [ ] 18:2218:22, 5 July 2024‎ Klinger talk contribs‎ m
+       2,260 bytes +137‎ Beginning sentence and link Tag: Visual edit
+
+    12 June 2024
+
+     * curprev [ ] [ ] 08:5908:59, 12 June 2024‎ Layer-09 talk contribs‎ m
+       2,123 bytes +2‎ The option
+       `virtualisation.virtualbox.guest.draganddrop' has been renamed to
+       `virtualisation.virtualbox.guest.dragAndDrop'. Tag: Visual edit
+
+    7 June 2024
+
+     * curprev [ ] [ ] 13:5313:53, 7 June 2024‎ Mic92 talk contribs‎ 2,121
+       bytes +8‎ imported from old wiki
+
+    4 April 2023
+
+     * curprev [ ] [ ] 10:2910:29, 4 April 2023‎ imported>Milahu‎ 2,113 bytes
+       +49‎ add link to Virt-manager, add Virt-manager to "Possible
+       solutions"
+
+    30 March 2023
+
+     * curprev [ ] [ ] 03:2303:23, 30 March 2023‎ imported>Alizter‎ 2,064
+       bytes +320‎ Add tip about changing audio driver
+
+    1 February 2023
+
+     * curprev [ ] [ ] 12:0512:05, 1 February 2023‎ imported>Kravemir‎ 1,744
+       bytes +218‎ No edit summary
+
+    2 September 2022
+
+     * curprev [ ] [ ] 15:1315:13, 2 September 2022‎ imported>Milahu‎ 1,526
+       bytes +300‎ add section: VirtualBox Guest Additions
+
+    24 September 2021
+
+     * curprev [ ] [ ] 08:0508:05, 24 September 2021‎ imported>Nix‎ m 1,226
+       bytes +51‎ add Virtualization category
+     * curprev [ ] [ ] 07:5907:59, 24 September 2021‎ imported>Nix‎ m 1,175
+       bytes 0‎ Nix moved page Virtualbox to VirtualBox: match official
+       casing
+
+    17 July 2020
+
+     * curprev [ ] [ ] 03:4403:44, 17 July 2020‎ imported>Asdf8dfafjk‎ 1,175
+       bytes +396‎ No edit summary
+
+    22 January 2019
+
+     * curprev [ ] [ ] 22:0622:06, 22 January 2019‎ imported>Makefu‎ 779
+       bytes +779‎ init
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/VirtualBox"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

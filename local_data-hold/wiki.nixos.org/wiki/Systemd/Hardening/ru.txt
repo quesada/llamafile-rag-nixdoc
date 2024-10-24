@@ -1,0 +1,185 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Accessing the network with a different RootDirectory
+     * 2 Dropping a shell inside a systemd service
+     * 3 Hardening examples
+     * 4 См. Также
+   [ ] Toggle the table of contents
+
+                               Systemd/Hardening
+
+     * Page
+     * Discussion
+   [ ] русский
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   This page is a translated version of the page Systemd/Hardening and the
+   translation is 29% complete.
+   ← Back to systemd
+
+   Опции служб Systemd по умолчанию довольно слабые по защищённости, поэтому
+   часто бывает желательно рассмотреть способы усиления безопасности служб
+   Systemd.
+
+   A good way to get started on a given service is to look at the output of
+   the command systemd-analyze security myService. From there, you can look
+   at the documentation for the options you see in the output, often in man
+   systemd.exec or man systemd.resource-control, and set the appropriate
+   options for your service.
+
+Accessing the network with a different RootDirectory
+
+   To be able to access the network while having a RootDirectory specified,
+   you need to give access to /etc/ssl, /etc/static/ssl and /etc/resolv.conf.
+   The simplest way of doing this is by simply putting /etc in the
+   BindReadOnlyPaths option.
+
+   A more granular way, would be to put these 3 paths into BindReadOnlyPaths,
+   and wait for the creation of /etc/resolv.conf through a systemd.path unit.
+
+Dropping a shell inside a systemd service
+
+   While hardening a service, it often happens that you want a shell inside a
+   hardened systemd unit, for exemple to check access to files, or check the
+   network connectivity. One way to do this is to use tmux to create a
+   session inside the service, and attaching to it outside of the service.
+
+   Простой пример:
+
+ { pkgs, ... }:
+ {
+   systemd.services.myService = {
+     serviceConfig = {
+       ExecStart = "${pkgs.tmux}/bin/tmux -S /tmp/tmux.socket new-session -s my-session -d";
+       ExecStop = "${pkgs.tmux}/bin/tmux -S /tmp/tmux.socket kill-session -t my-session";
+       Type = "forking";
+
+       # ...
+     };
+   };
+ }
+
+   Example with a RootDirectory specified:
+
+ { pkgs }:
+ {
+   systemd.services.myService = {
+     serviceConfig = {
+       ExecStart = "${pkgs.tmux}/bin/tmux -S /run/myService/tmux.socket new-session -s my-session -d";
+       ExecStop = "${pkgs.tmux}/bin/tmux -S /run/myService/tmux.socket kill-session -t my-session";
+       Type = "forking";
+
+       <div lang="en" dir="ltr" class="mw-content-ltr">
+ # Used as root directory
+       RuntimeDirectory = "myService";
+       RootDirectory = "/run/myService";
+ </div>
+
+       BindReadOnlyPaths = [
+         "/nix/store"
+
+         <div lang="en" dir="ltr" class="mw-content-ltr">
+ # So tmux uses /bin/sh as shell
+         "/bin"
+       ];
+ </div>
+
+       <div lang="en" dir="ltr" class="mw-content-ltr">
+ # This sets up a private /dev/tty
+       # The tmux server would crash without this
+       # since there would be nothing in /dev
+       PrivateDevices = true;
+     };
+   };
+ }
+
+   To attach to the shell, simply execute tmux -S /path/to/tmux.socket
+   attach.
+
+Hardening examples
+
+   This list contains proposed hardening options that are not yet upstreamed.
+   Please use with caution, and please notify the author of the change if
+   something breaks:
+
+     * Chrony: https://github.com/NixOS/nixpkgs/pull/104944/files
+     * Isso: https://github.com/NixOS/nixpkgs/pull/140840/files
+     * Mautrix-based bridge: https://github.com/mautrix/docs/pull/18/files
+     * Postfix: https://github.com/NixOS/nixpkgs/pull/93305/files
+     * TheLounge: https://github.com/thelounge/thelounge-deb/pull/78
+
+См. Также
+
+     * SHH, systemd hardening helper: systemd hardening made easy with SHH
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Systemd/Hardening/ru&oldid=16807"
+   Categories:
+     * NixOS
+     * Cookbook
+     * Security
+     * Systemd
+     * This page was last edited on 20 August 2024, at 08:33.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

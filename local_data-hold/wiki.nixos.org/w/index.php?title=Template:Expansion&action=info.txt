@@ -1,0 +1,175 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      Information for "Template:Expansion"
+
+     * Template
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Page information
+   Help
+
+Basic information
+
+   Display title                    Template:expansion               
+   Default sort key                 Expansion                        
+   Page length (in bytes)           1,942                            
+   Namespace ID                     10                               
+   Namespace                        Template                         
+   Page ID                          152                              
+   Page content language            en - English                     
+   Page content model               wikitext                         
+   Indexing by robots               Allowed                          
+   Number of redirects to this page 0                                
+   Number of subpages of this page  0 (0 redirects; 0 non-redirects) 
+
+Page protection
+
+   Edit Allow all users (infinite) 
+   Move Allow all users (infinite) 
+
+   View the protection log for this page.
+
+Edit history
+
+   Page creator                                 imported>Samueldr       
+   Date of page creation                        01:13, 6 September 2017 
+   Latest editor                                Sdht0 (talk | contribs) 
+   Date of latest edit                          21:18, 6 April 2024     
+   Total number of edits                        6                       
+   Total number of distinct authors             3                       
+   Recent number of edits (within past 90 days) 0                       
+   Recent number of distinct authors            0                       
+
+Page properties
+
+                             This page is a member of a hidden category:      
+   Hidden category (1)                                                        
+                               * Category:Pages or sections flagged with      
+                                 Template:Expansion                           
+                             Templates used on this page:                     
+                                                                              
+                               * Template:Expansion (view source)             
+                               * Template:Ic (view source)                    
+   Transcluded templates (7)   * Template:META Box (view source)              
+                               * Template:META Box Blue (view source)         
+                               * Template:META Message (view source)          
+                               * Template:Note (view source)                  
+                               * Template:Template (view source)              
+                             Templates used on this page:                     
+                                                                              
+                               * Adguard Home (view source)                   
+                               * Bluetooth (view source)                      
+                               * Craft CMS (view source)                      
+                               * Cross Compiling (view source)                
+                               * GNU GRUB (view source)                       
+                               * Godot (view source)                          
+                               * Hardware (view source)                       
+                               * Hardware/Framework (view source)             
+                               * Hyprland (view source)                       
+                               * I3 (view source)                             
+                               * LXD (view source)                            
+                               * Lisp (view source)                           
+                               * Mozc (view source)                           
+                               * Neo4j (view source)                          
+                               * NixOS Containers (view source)               
+                               * NixOS Installation Guide (view source)       
+                               * NixOS on ARM/BeagleBone Black (view source)  
+                               * NixOS on ARM/Jetson TK1 (view source)        
+                               * NixOS on ARM/LS1046A (view source)           
+                               * NixOS on ARM/Libre Computer ROC-RK3399-PC    
+                                 (view source)                                
+                               * NixOS on ARM/OLIMEX Teres-A64 (view source)  
+                               * NixOS on ARM/Orange Pi Zero Plus2 H5 (view   
+                                 source)                                      
+                               * NixOS on ARM/PINE64 Pinebook Pro (view       
+                                 source)                                      
+   Pages transcluded on (64)   * NixOS on ARM/PcDuino3 Nano (view source)     
+                               * NixOS on ARM/QEMU (view source)              
+                               * NixOS on ARM/Scaleway C1 (view source)       
+                               * NixOS on ARM/UEFI (view source)              
+                               * NixOS on ARM/Wandboard (view source)         
+                               * NixOS on MIPS (view source)                  
+                               * NixOps (view source)                         
+                               * Nixpkgs/Building RPM DEB with nixpkgs (view  
+                                 source)                                      
+                               * OfBorg (view source)                         
+                               * Packaging (view source)                      
+                               * Packaging/Perl (view source)                 
+                               * Polkit (view source)                         
+                               * Qt (view source)                             
+                               * Ruby (view source)                           
+                               * Serial Console (view source)                 
+                               * Specialisation (view source)                 
+                               * Steam (view source)                          
+                               * Tailscale (view source)                      
+                               * Thumbnails (view source)                     
+                               * Transmission (view source)                   
+                               * UEFI (view source)                           
+                               * Unbound (view source)                        
+                               * Vagrant (view source)                        
+                               * Vagrant Box (view source)                    
+                               * Wayland (view source)                        
+                               * Zim (view source)                            
+                               * Template:Expansion (view source)             
+                               * More...                                      
+
+   Retrieved from "https://wiki.nixos.org/wiki/Template:Expansion"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

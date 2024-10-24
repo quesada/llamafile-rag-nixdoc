@@ -1,0 +1,127 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup MySQL
+     * 2 Setup MariaDB
+     * 3 Maintenance
+          * 3.1 Upgrade
+   [ ] Toggle the table of contents
+
+                                     Mysql
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   MySQL and MariaDB are installed via the same services.mysql configuration.
+
+     * MySQL is a widely used open source relational database management
+       system (RDBMS) that offers various features, tools, and services for
+       data warehousing, analytics, machine learning, and more.
+     * MariaDB is a popular and stable fork of MySQL that is compatible with
+       MySQL and has additional enhancements and features.
+
+                                  Setup MySQL
+
+   Setup and enable Mysql database daemon (in this example: latest stable
+   version in nixpkgs)
+
+ services.mysql = {
+   enable = true;
+   package = pkgs.mysql;
+ };
+
+                                 Setup MariaDB
+
+   Setup and enable MariaDB database daemon (in this example: version 11.0)
+
+ services.mysql = {
+   enable = true;
+   package = pkgs.mariadb_110;
+ };
+
+                                  Maintenance
+
+Upgrade
+
+   NixOS will not run mysql_upgrade automatically for you after upgrading to
+   a new major version, because it is a "dangerous" operation (can lead to
+   data corruption) and users are strongly advised (by MariaDB upstream) to
+   backup their database before running mysql_upgrade.
+
+ mysqldump -u root -p --all-databases > alldb.sql
+
+   After backup is completed, you can proceed with the upgrade process
+
+ mysql_upgrade
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Mysql&oldid=17679"
+   Category:
+     * Database
+     * This page was last edited on 29 September 2024, at 17:47.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

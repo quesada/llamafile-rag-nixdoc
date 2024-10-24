@@ -1,0 +1,204 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Status
+     * 2 Installation instructions
+          * 2.1 Partitioning
+               * 2.1.1 By copying the sd image internally
+               * 2.1.2 MBR partition scheme
+               * 2.1.3 GPT partition scheme
+     * 3 Serial console
+     * 4 Compatibility notes
+          * 4.1 Downstream kernel
+     * 5 USB booting with u-boot
+     * 6 Resources
+   [ ] Toggle the table of contents
+
+                          NixOS on ARM/PINE64 Pinebook
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to NixOS on ARM
+
+   The Pinebook (sometimes referred as pinebook-a64) is a laptop design based
+   on the Allwinner A64 SoC. It was available in two sizes, 11.6" and 14",
+   but is now only available as 11.6". The 11.6" has two resolutions, first
+   models had a 1366×768 panel, while the more recent ones have a 1920×1080
+   panel.
+
+   PINEBOOK     
+   A Pinebook 11".
+   Manufacturer PINE64 (Pine Microsystems Inc.) 
+   Architecture AArch64                         
+   Bootloader   Upstream U-Boot^[1]             
+   Boot order   SD, eMMC                        
+   Maintainer   
+
+   It can boot from SD or from an included and replaceable eMMC module.
+
+Status
+
+   Upstream NixOS AArch64 image boots on the PINE A64-LTS, using the proper
+   upstream U-Boot.
+
+   U-boot support has been added 2019-05-18. The bootloader has not been
+   built for now.
+
+Installation instructions
+
+   To use the generic installation image for your board, you will need to
+   copy it verbatim to an SD card.
+
+ sudo dd if=sd-image-aarch64-linux.img of=/dev/DEVICE conv=sync status=progress
+
+   This board requires the installation of u-boot at a specific location on
+   the storage where NixOS was written to.
+
+ sudo dd if=u-boot-sunxi-with-spl.bin of=/dev/DEVICE bs=1024 seek=8
+
+  Partitioning
+
+   The internal storage needs to be partitioned in a way that that the
+   bootloader will not interfere with nor be interfered by a partition.
+
+   Then, continue installation using the installation and configuration
+   steps.
+
+    By copying the sd image internally
+
+   This is an easy solution, that also allows booting and installing as one
+   would from an SD card on a generic Allwinner platform. Simply dd the SD
+   image to the internal storage. The internal storage is likely to be
+   /dev/mmcblk2.
+
+    MBR partition scheme
+
+     This article or section needs expansion.                                 
+     Reason: Installation instructions need to be written up to keep space    
+     for embedding the bootloader to the SPL. (Discuss in Talk:NixOS on       
+     ARM/PINE64 Pinebook#)                                                    
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+    GPT partition scheme
+
+   The Allwinner/GPT Installation page explains how to create a GPT partition
+   table while allowing the isntallation of u-boot at the required offset.
+
+Serial console
+
+   Details about the pinout for the headphone jack are available on the
+   PINE64 wiki. It is also available on their store. The serial settings are
+   the usual Allwinner settings.
+
+   On early models^[Which?] serial needs to be toggled via software. On
+   recent models, a physical switch is present on the main board. The
+   linux-sunxi wiki's Pinebook page has details about serial access.
+
+Compatibility notes
+
+   Mainline kernel
+   HDMI   * Hasn't been tested.   
+
+  Downstream kernel
+
+   Note: Keep in mind that using non-upstream forks of the kernel always
+   incurs some risk as far as security goes.
+
+     This article or section needs expansion.                                 
+     Reason: Find and document use of a kernel with the added capabilities.   
+     (Discuss in Talk:NixOS on ARM/PINE64 Pinebook#)                          
+     Please consult the pedia article metapage for guidelines on              
+     contributing.                                                            
+
+USB booting with u-boot
+
+   You will need to either have mainline U-Boot installed to the eMMC or to
+   an SD card.
+
+   Stop the boot process when prompted (by pressing a key). Then, do the
+   following:
+
+ Hit any key to stop autoboot:  0
+ => setenv boot_targets usb0
+ => boot
+
+   This sets the boot order for this boot only. U-Boot can boot (among
+   others) either of the NixOS sd-image or EFI iso from USB.
+
+Resources
+
+     * Official product page
+     * linux-sunxi wiki page
+    1. ↑ https://github.com/NixOS/nixpkgs/pull/61652
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=NixOS_on_ARM/PINE64_Pinebook&oldid=17492"
+   Hidden category:
+     * Pages or sections flagged with Template:Expansion
+     * This page was last edited on 15 September 2024, at 10:07.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

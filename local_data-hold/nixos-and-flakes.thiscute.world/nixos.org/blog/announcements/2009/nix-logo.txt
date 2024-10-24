@@ -1,0 +1,49 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                                    Nix logo
+
+   Published on Fri Dec 25 2009
+
+                                    Nix logo
+
+   Nix logo Long overdue, the Nix project finally has a logo! The logo was
+   originally created by Simon Frankau for the Haskell logo competition, who
+   kindly gave us permission to use it for the Nix project. (The snowflake
+   motif is even more appropriate for Nix, because nix is Latin for snow.)
+   Any further modifications are entirely our fault.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,148 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Resources
+   [ ] Toggle the table of contents
+
+                            Nixpkgs/Patching Nixpkgs
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Sometimes it may be required to patch a copy of Nixpkgs directly, rather
+   than use an overlay to patch an individual package. One scenario of where
+   this might happen is if Nixpkgs doesn't contain a change you need, but you
+   find some existing PR that has yet to be merged, and so want to leverage
+   those changes prior to them being merged.
+
+   For the sake of example, let's say you are using the software package
+   Ghidra, and the latest version available on Nixpkgs unstable is Ghidra
+   11.1.2. You know that the Ghidra developers have recently released 11.2,
+   and want to use it before it's in Nixpkgs. You could try to create an
+   overlay and manually update the package, but maybe in the process you
+   realize it is not a trivial update. You may find there is already a
+   pending PR to Nixpkgs with the updated version and changes you want, such
+   as this PR introducing Ghidra 11.2. If you didn't want to wait for this PR
+   to be merged into Nixpkgs, you could apply the PR patch directly to your
+   Nixpkgs instead. Which we will do below.
+
+   There are of course other reasons you may wish to use a patched Nixpkgs
+   and the method applies to any of those cases.
+
+   First you will need to apply the Nixpkgs PR patch to some copy of Nixpkgs.
+   In this example we will assume a Flake (flake.nix) that has an input
+   nixpkgs-unstable pointing to nixos-unstable:
+
+ inputs = {
+     # ...
+     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+     # ...
+ };
+
+   We will use the applyPatches function to apply the unmerged PR changes to
+   nixpkgs-unstable. First we need to covert the PR to a patch, which can be
+   done by appending .patch to the github PR url. This will redirect to
+   another link, for example
+   https://github.com/NixOS/nixpkgs/pull/344917.patch will redirect to
+   https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/344917.patch.
+   We can use the latter.
+
+     let
+       pkgs-unstable' =
+         (import nixpkgs-unstable {
+           system = "x86_64-linux";
+         }).applyPatches
+           {
+             name = "nixpkgs-unstable-patched";
+             src = inputs.nixpkgs-unstable;
+             patches = [
+               (builtins.fetchurl {
+                 url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/344917.patch";
+                 sha256 = "sha256-aws9J5ZNUyz4Z2RqPVEovBTNng4AdhzS03Bqg8jejWQ=";
+               })
+             ];
+           };
+       pkgs-unstable = import pkgs-unstable' {
+         system = "x86_64-linux";
+       };
+     # ...
+
+   In the above example we create a derivation with the patch applied, called
+   pkgs-unstable'. We then import that new derivation which we assign to
+   pkgs-unstable. Now we can use pkgs-unstable to access the Ghidra 11.2
+   package, as well as any other packages normally available in nixpkgs.
+
+Resources
+
+   The following are resources that go into more depth on this topic.
+
+    1. Patching <nixpkgs>
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Nixpkgs/Patching_Nixpkgs&oldid=17729"
+     * This page was last edited on 7 October 2024, at 00:49.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

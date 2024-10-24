@@ -1,0 +1,231 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Basic Usage
+     * 2 Advanced Usage
+     * 3 Extending Fail2ban
+     * 4 See also
+   [ ] Toggle the table of contents
+
+                                    Fail2ban
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Fail2ban is an intrusion prevention software. It scans through log files
+   to find signs of malicious intent. In general, Fail2ban will update the
+   firewall rules to reject the offending IP address for a set amount of
+   time.
+
+   Fail2Ban uses the concept of a "jail" to modularize its configuration. A
+   jail consists of an action (such as blocking a port using iptables) that
+   is triggered when a filter (regular expression) applied to a log file
+   triggers/matches more than a certain number of times in a certain time
+   period. Actions that ship with Fail2Ban are defined in
+   /etc/fail2ban/action.d, while filters are defined in
+   /etc/fail2ban/filter.d.
+
+Basic Usage
+
+   Enable Fail2ban NixOS module with the expression:
+
+   services.fail2ban.enable = true;
+
+   NixOS comes with a pre-configured SSH jail which will observe errors in
+   the SSH daemon and ban offending IPs. If all you need is basic
+   rate-limiting and only have the SSH port exposed, you don't have to setup
+   anything else.
+
+Advanced Usage
+
+   The Fail2ban NixOS module exposes various parameters for adjusting the
+   configuration. In the following, all options mentioned are implicitly
+   prefixed with services.fail2ban , unless specified otherwise.
+
+     * The maxretry option allows you to specify how many failures are
+       required for an IP address to be blocked.
+     * To prevent being locked out accidentally, use ignoreIP to whitelist
+       IPs or IP ranges to be never cheked. In the example below, common LAN
+       IP address ranges as well as the specific IP '8.8.8.8' and the address
+       associated with the hostname "wiki.nixos.org" are excluded from any
+       bans. Note that the loopback addresses "127.0.0.0/8" and "::1" are
+       added by default.
+     * bantime specifies for how much time an IP address is blocked after
+       reaching the maximum number of failures. Note that the bantime can be
+       increased for every violation by setting bantime-increment.enable =
+       true;. The bantime increment can then be customized by specifying a
+       formula (in Python) like ban.Time *
+       math.exp(float(ban.Count+1)*banFactor)/math.exp(1*banFactor) with
+       bantime-increment.formula, the multipliers with
+       bantime-increment.multipliers, the maximum bantime with
+       bantime-increment.maxtime and the indication to consider the bans
+       issued throughout multiple jails with bantime-increment.overalljails
+     * banaction specifies which of the actions in /etc/fail2ban/action.d
+       should be the default ban action (e.g., iptables, iptables-new,
+       iptables-multiport, iptables-ipset-proto6-allports, shorewall, etc.)
+     * extraPackages contains a list of derivations whose outputs are needed
+       by Fail2ban actions
+
+   services.fail2ban = {
+     enable = true;
+    # Ban IP after 5 failures
+     maxretry = 5;
+     ignoreIP = [
+       # Whitelist some subnets
+       "10.0.0.0/8" "172.16.0.0/12" "192.168.0.0/16"
+       "8.8.8.8" # whitelist a specific IP
+       "wiki.nixos.org" # resolve the IP via DNS
+     ];
+     bantime = "24h"; # Ban IPs for one day on the first ban
+     bantime-increment = {
+       enable = true; # Enable increment of bantime after each violation
+       formula = "ban.Time * math.exp(float(ban.Count+1)*banFactor)/math.exp(1*banFactor)";
+       multipliers = "1 2 4 8 16 32 64";
+       maxtime = "168h"; # Do not ban for more than 1 week
+       overalljails = true; # Calculate the bantime based on all the violations
+     };
+     jails = {
+       apache-nohome-iptables.settings = {
+         # Block an IP address if it accesses a non-existent
+         # home directory more than 5 times in 10 minutes,
+         # since that indicates that it's scanning.
+         filter = "apache-nohome";
+         action = ''iptables-multiport[name=HTTP, port="http,https"]'';
+         logpath = "/var/log/httpd/error_log*";
+         backend = "auto";
+         findtime = 600;
+         bantime  = 600;
+         maxretry = 5;
+       };
+     };
+   };
+
+   These settings are written to /etc/fail2ban/jail.local, where fail2ban
+   will read them.
+
+Extending Fail2ban
+
+   Fail2ban capabilities can be freely extended by adding new jails, filters,
+   and actions; the first ones of them are already covered in the "Basic
+   usage" section, while the other two need dedicated config files to be
+   created in the /etc/fail2ban/filter.d and /etc/fail2ban/action.d folders.
+
+   In order to do this, you'll have to add a environment.etc section to your
+   NixOS config file and specify there the contents of your custom actions
+   and filters:
+
+   environment.etc = {
+     # Define an action that will trigger a Ntfy push notification upon the issue of every new ban
+     "fail2ban/action.d/ntfy.local".text = pkgs.lib.mkDefault (pkgs.lib.mkAfter ''
+       [Definition]
+       norestored = true # Needed to avoid receiving a new notification after every restart
+       actionban = curl -H "Title: <ip> has been banned" -d "<name> jail has banned <ip> from accessing $(hostname) after <failures> attempts of hacking the system." https://ntfy.sh/Fail2banNotifications
+     '');
+     # Defines a filter that detects URL probing by reading the Nginx access log
+     "fail2ban/filter.d/nginx-url-probe.local".text = pkgs.lib.mkDefault (pkgs.lib.mkAfter ''
+       [Definition]
+       failregex = ^<HOST>.*(GET /(wp-|admin|boaform|phpmyadmin|\.env|\.git)|\.(dll|so|cfm|asp)|(\?|&)(=PHPB8B5F2A0-3C92-11d3-A3A9-4C7B08C10000|=PHPE9568F36-D428-11d2-A769-00AA001ACF42|=PHPE9568F35-D428-11d2-A769-00AA001ACF42|=PHPE9568F34-D428-11d2-A769-00AA001ACF42)|\\x[0-9a-zA-Z]{2})
+     '');
+   };
+
+   The defined filters and actions can then be used in a new jail (created as
+   seen above):
+
+   services.fail2ban = {
+     # --- snip ---
+     jails = {
+       nginx-url-probe.settings = {
+         enabled = true;
+         filter = "nginx-url-probe";
+         logpath = "/var/log/nginx/access.log";
+         action = ''%(action_)s[blocktype=DROP]
+                  ntfy'';
+         backend = "auto"; # Do not forget to specify this if your jail uses a log file
+         maxretry = 5;
+         findtime = 600;
+       };
+     };
+   };
+
+   For more details on how to develop Fail2ban filters please see the
+   official documentation.
+
+See also
+
+     * Linode's tutorial on how to setup Fail2ban (not NixOS-specific):
+       https://www.linode.com/docs/guides/using-fail2ban-to-secure-your-server-a-tutorial/
+     * Solène's blog post on how to extend Fail2ban on NixOS:
+       https://dataswamp.org/~solene/2022-10-02-nixos-fail2ban.html
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Fail2ban&oldid=17635"
+   Categories:
+     * Applications
+     * Server
+     * Networking
+     * This page was last edited on 26 September 2024, at 20:21.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

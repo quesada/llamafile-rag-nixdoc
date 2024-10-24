@@ -1,0 +1,119 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Public NixOS AMIs
+     * 2 Creating a NixOS AMI
+     * 3 Additional Resources
+     * 4 Troubleshooting
+     * 5 SSH Asks For Password
+   [ ] Toggle the table of contents
+
+                          Install NixOS on Amazon EC2
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Amazon EC2 is a widely used cloud deployment platform that is part of
+   Amazon Web Services (AWS). NixOS largely supports the platform through
+   AMIs and the nixos-generators project.
+
+Public NixOS AMIs
+
+   A list of NixOS AMI's available on AWS is located here and for a more up
+   to date list: here (cf. this discourse thread).
+
+   The default user for these AMI's is root. There isn't a default password,
+   instead authentication is done by using the SSH key selected during the
+   EC2 creation process.
+
+Creating a NixOS AMI
+
+   The nixos-generators project is currently the best method to create your
+   own NixOS AMI. Follow the directions provided by nixos-generators & then
+   follow the instructions provided by AWS.
+
+Additional Resources
+
+   Building and Importing NixOS AMIs on EC2 by Jack Kelly
+
+Troubleshooting
+
+SSH Asks For Password
+
+   When connecting to a newly launched EC2 instance via SSH, it may ask for a
+   password. This seems to be because the amazon-init systemd service is
+   still reading user data. Back out of the current SSH attempt and try again
+   in a few minutes.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Install_NixOS_on_Amazon_EC2&oldid=1005"
+   Categories:
+     * Deployment
+     * Server
+     * This page was last edited on 4 March 2024, at 13:20.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

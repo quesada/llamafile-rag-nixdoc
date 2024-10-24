@@ -1,0 +1,133 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 untrusted binaries
+       6 comments
+   [ ] Toggle the table of contents
+
+                            Talk:Packaging/Binaries
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 8 October 2021 by Milahu in topic untrusted binaries
+
+untrusted binaries
+
+   Latest comment: 8 October 20216 comments2 people in discussion
+
+   packaging and running untrusted binaries on nixos?
+
+     * NixOS Containers?
+     * firejail?
+     * virtual machine?
+     * https://github.com/mviereck/x11docker - "Run GUI applications and
+       desktops in docker. Focus on security." (via stackexchange)
+
+   for example jdownloader is closed source, so i want to limit access to
+   files, clipboard, etc.
+
+   --Milahu (talk) 16:47, 1 October 2021 (UTC)Reply
+
+   A virtual machine is most robust. X11docker a good combo; x11docker
+   supports Kata Containers, which aims to combine the security of VMs with
+   speed of containers. Security a good page for this too. Spectrum OS is a
+   Nix-based design with similar aims; they were looking at crosvm with
+   virtio_wl. — Nix (talk) 09:24, 2 October 2021 (UTC)Reply
+
+           There is a demo here: https://alyssa.is/using-virtio-wl/#demo —
+           Nix (talk) 09:28, 2 October 2021 (UTC)Reply
+
+   Another relevant approach is Microsoft's development of VAIL with RDP
+   (extending Wayland's Weston compositing manager's RDP support) in order to
+   support low-latency zero-copy GPU-accelerated X11/Wayland-graphical Linux
+   virtual machines on Windows. The same technology could be deployed very
+   similarly with a Linux-guest-on-Linux-host approach for the sake of of
+   security. — Nix (talk) 23:59, 7 October 2021 (UTC)Reply
+
+   I did some looking into OSTree today. They bill themselves as "git for
+   operating system binaries," and were largely inspired by NixOS. Fedora is
+   building CoreOS for containerized-cloud and Silverblue as an immutable
+   containerized workstation OS. There's also projects like Toolbox built
+   around OSTree which look inspired by nix-shell, but adds containerization.
+   Particularly interesting for this discussion is the model of Silverblue.
+   They seem mostly to lean on Flatpaks though, which isn't very sound as is.
+   — Nix (talk) 00:47, 8 October 2021 (UTC)Reply
+
+   complex stuff! assuming that containers are too insecure, probably the
+   simplest solution for running (and packaging) UNTRUSTED binaries is a
+   microvm like firecracker, managed with ignite. both packages are in
+   nixpkgs. we can also use firecracker directly as in microvm.nix. no need
+   to install a new OS. no need for wayland. no need for sudo. it just takes
+   some hours to compile a custom guest kernel, but sooner or later, the
+   firecracker-kernel will be on cache.nixos.org. --Milahu (talk) 10:27, 8
+   October 2021 (UTC)Reply
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Packaging/Binaries&oldid=9354"
+     * This page was last edited on 8 October 2021, at 10:27.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,52 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                             NixOS progress report
+
+   Published on Sat Sep 22 2007
+
+                             NixOS progress report
+
+   NixOS screenshot Wine now runs on NixOS! Finally we can run all those
+   legacy applications… Thanks to Michael Raskin for adding Wine and a
+   NPTL-enabled Glibc (which Wine seems to need). This is a nice application
+   of purely functional package composition, by the way: Wine didn’t work
+   with the standard Glibc in Nixpkgs, so we just pass it another Glibc at
+   build time.
+
+   In other news, Nix 0.11 and Nixpkgs 0.11 will be released soon.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

@@ -1,0 +1,186 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                      Talk:NixOS on ARM: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   [ Compare selected revisions ]
+
+    7 April 2024
+
+     * curprev [ ] [ ] 04:4704:47, 7 April 2024‎ Samueldr talk contribs‎ m
+       2,139 bytes −670‎ →‎Native support for raspi in nixpkgs: outdated
+     * curprev [ ] [ ] 04:4704:47, 7 April 2024‎ Samueldr talk contribs‎ m
+       2,809 bytes −1,456‎ →‎QEMU support: outdated
+     * curprev [ ] [ ] 04:4604:46, 7 April 2024‎ Samueldr talk contribs‎ m
+       4,265 bytes −423‎ →‎Manual cross-compilation: drop
+     * curprev [ ] [ ] 04:4504:45, 7 April 2024‎ Samueldr talk contribs‎ m
+       4,688 bytes −279‎ Handled comment
+
+    3 April 2024
+
+     * curprev [ ] [ ] 18:1318:13, 3 April 2024‎ Samueldr talk contribs‎
+       4,967 bytes +6‎ No edit summary
+
+    1 January 2024
+
+     * curprev [ ] [ ] 15:0615:06, 1 January 2024‎ imported>ShalokShalom‎
+       4,961 bytes +395‎ →‎Option boot.loader.grub.devices: new section
+
+    1 June 2023
+
+     * curprev [ ] [ ] 23:1723:17, 1 June 2023‎ imported>Bsammon‎ 4,566 bytes
+       +82‎ No edit summary
+     * curprev [ ] [ ] 23:1423:14, 1 June 2023‎ imported>Bsammon‎ 4,484 bytes
+       +197‎ No edit summary
+
+    11 July 2019
+
+     * curprev [ ] [ ] 20:3320:33, 11 July 2019‎ imported>Thra11‎ 4,287 bytes
+       +560‎ No edit summary
+
+    19 December 2018
+
+     * curprev [ ] [ ] 02:1902:19, 19 December 2018‎ imported>Samueldr‎ m
+       3,727 bytes +16‎ No edit summary
+     * curprev [ ] [ ] 02:0802:08, 19 December 2018‎ imported>Samueldr‎ m
+       3,711 bytes +415‎ Adds note for deps for u-boot 2018.09
+
+    3 December 2018
+
+     * curprev [ ] [ ] 01:2901:29, 3 December 2018‎ imported>Samueldr‎ m
+       3,296 bytes +260‎ Adds link to a page listing uboot builds from hydra
+
+    10 April 2018
+
+     * curprev [ ] [ ] 23:2323:23, 10 April 2018‎ imported>Flokli‎ 3,036
+       bytes +223‎ add note about NixOS_on_ARM/QEMU
+
+    21 January 2018
+
+     * curprev [ ] [ ] 00:1300:13, 21 January 2018‎ imported>Samueldr‎ 2,813
+       bytes +934‎ Adds discussion point about non-upstream bootloader and
+       kernel
+
+    29 November 2017
+
+     * curprev [ ] [ ] 01:1501:15, 29 November 2017‎ imported>Samueldr‎ m
+       1,879 bytes +315‎ Adds note for qemu-system support comeback.
+
+    16 September 2017
+
+     * curprev [ ] [ ] 18:0718:07, 16 September 2017‎ imported>Dezgeg‎ 1,564
+       bytes +96‎ No edit summary
+
+    11 September 2017
+
+     * curprev [ ] [ ] 08:5108:51, 11 September 2017‎ imported>Makefu‎ 1,468
+       bytes +566‎ →‎Native support for raspi in nixpkgs: new section
+     * curprev [ ] [ ] 08:2508:25, 11 September 2017‎ imported>Dezgeg‎ 902
+       bytes +233‎ →‎QEMU support
+
+    3 September 2017
+
+     * curprev [ ] [ ] 20:0120:01, 3 September 2017‎ imported>Samueldr‎ 669
+       bytes +669‎ Add note about QEMU instructions not working
+   [ Compare selected revisions ]
+   Retrieved from "https://wiki.nixos.org/wiki/Talk:NixOS_on_ARM"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

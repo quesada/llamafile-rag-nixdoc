@@ -1,0 +1,90 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                                    Apropos
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   By default as of NixOS 21.05, apropos, whatis and man -k do not find
+   anything when run, because the man page index cache is not generated.
+
+   To generate it manually (and again to update it when new software is
+   installed), run:
+
+ sudo mkdir -p /var/cache/man/nixos
+ sudo mandb
+
+   To enable automatically building the immutable cache, you can set:
+
+ documentation.man.generateCaches = true;
+
+   Note that this will rebuild the cache every time you change anything in
+   environment.systemPackages, and will make the mandb command fail.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Apropos&oldid=6542"
+     * This page was last edited on 19 June 2021, at 09:51.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

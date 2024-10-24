@@ -1,0 +1,114 @@
+   Link: canonical
+   Link: sitemap
+   [ Submit ]
+   Explore Download Learn Values Community Blog Donate  Search
+
+                               #09 - NixOS Weekly
+
+   Published on Fri Nov 27 2020
+
+                               #09 - NixOS Weekly
+
+                                      News
+
+Announcements
+
+     * Announcing Nixpkgs Database
+
+       A database and search engine for the entire history of each package at
+       Nixpkgs.
+
+     * Cachix: write access control for binary caches
+
+       The trust of who created binary cache contents comes from who owns the
+       private signing key.
+
+       This approach has a number of disadvantages when it comes to lifecycle
+       in teams, so API tokens are now the default way to manage write
+       access.
+
+     * NixOS 21.03 Call for Release Manager
+
+     * nixpkgs: Python 2.7 packages are no longer built
+
+     * nixpkgs: Haskell packages now follow nightly
+
+     * Mach-nix now has conda packages as a backend
+
+     * Running NixOS on Pinecube
+
+     * Our New Nix Deployment Tool: deploy-rs
+
+Tutorials
+
+     * How to Setup Prometheus, Grafana and Loki on NixOS
+
+     * Deploying NixOS using Terraform
+
+     * Setting up i3 on Thinkpads running NixOS
+
+     * How to use NixOS for lightweight integration tests
+
+     * Lightweight Linux VMs on NixOS
+
+     * XMonad + Polybar on NixOS
+
+Resources
+
+     * Eight Months of NixOS
+
+     * One week of NixOS
+
+     * Moving into NixOS
+
+     * Automatically OCR scanned PDFs in NixOS
+
+       Annotated code showing you how to automatically create searchable
+       scans of all the documents you receive in the post.
+
+Jobs
+
+     * Internal Tooling & SRE at NoRedInk - Nix, Haskell, k8s
+
+     * DevOps Engineer (Munich or Remote)
+
+                     Contribute to NixOS Weekly Newsletter
+
+   This work would not be possible without the many contributions of the
+   community.
+
+   You can help too! Create or comment on the pull request for the next
+   edition or look at the issue tracker to add other improvements.
+
+    The Project
+
+     * Channel Status
+     * Packages search
+     * Options search
+     * Reproducible Builds Status
+     * Security
+
+    Get in Touch
+
+     * Forum
+     * Matrix Chat
+     * Commercial support
+
+    Contribute
+
+     * Contributing Guide
+     * Donate
+
+    Stay up to Date
+
+     * Blog
+     * Newsletter
+
+     ----------------------------------------------------------------------
+
+   Copyright © 2024 NixOS contributors
+   CC-BY-SA-4.0
+
+     ----------------------------------------------------------------------
+
+    Connect with us:

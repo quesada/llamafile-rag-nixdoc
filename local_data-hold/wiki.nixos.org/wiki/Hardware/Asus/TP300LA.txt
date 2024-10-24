@@ -1,0 +1,133 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Hardware Support
+          * 1.1 Function keys
+          * 1.2 Sensors
+   [ ] Toggle the table of contents
+
+                                  Asus TP300LA
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   ← Back to Hardware Hub
+
+Hardware Support
+
+   Note: The i5-4210U and Intel integrated GPU version was tested^[1]. Many
+   versions of the TP300LA exists.
+
+   Most hardware functions as expected without changes, this includes
+   brightness, wifi, bluetooth, webcam, sound and HDMI out.
+
+   Only specific or uncommon hardware notes have been added.
+
+  Function keys
+
+   Function keys for airplane mode, brightness, screen disable, and volume
+   works^[2]. The screen setup function key is mapping to Super_L+P. The
+   windows key on the side of the device will map to a Super_L press and
+   release on release, there is no way to map to it being held.
+
+   The auto brightness key doesn't map to anything.
+
+  Sensors
+
+   Both orientation sensors and light sensors are supported under NixOS
+   17.09, using IIO^[3].
+
+   The orientation sensor isn't oriented like the screen, PR#7752 on
+   systemd will add the required configuration upstream, hopefully it will be
+   present in the next stable release of NixOS.
+
+   Meanwhile, adding this to your configuration.nix will configure the sensor
+   appropriately.
+
+ { config }:
+ {
+   hardware.sensor.iio.enable = true;
+   # Accelerometer orientation; upstreaming in preogress.
+   # https://github.com/systemd/systemd/pull/7752
+   services.udev.extraHwdb = ''
+     sensor:modalias:acpi:INVN6500*:dmi:*svn*ASUSTeK*:*pn*TP300LA*
+      ACCEL_MOUNT_MATRIX=0, 1, 0; 1, 0, 0; 0, 0, 1
+   '';
+ }
+
+   A reboot may be the easiest way to refresh everything for
+   iio-sensor-proxy. Test using monitor-sensor.
+
+     ----------------------------------------------------------------------
+
+    1. ↑ Model #90NB05Y1-M01340 (Finding the model number)
+    2. ↑ Tested using kernel 4.14 on NixOS 17.09
+    3. ↑ Tested using kernel 4.14 on NixOS 17.09
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Hardware/Asus/TP300LA&oldid=12062"
+     * This page was last edited on 12 April 2024, at 13:50.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

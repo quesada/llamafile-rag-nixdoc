@@ -1,0 +1,326 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Setup
+     * 2 Configuration
+          * 2.1 Importing realms
+     * 3 Tips and tricks
+          * 3.1 Installation in subdirectory
+          * 3.2 Keycloak themes on NixOS
+               * 3.2.1 Create a theme
+               * 3.2.2 Create a package
+               * 3.2.3 Create a packages set
+               * 3.2.4 Configure your keycloak service
+   [ ] Toggle the table of contents
+
+                                    Keycloak
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+
+   Keycloak (Wikipedia) is identity and access management software, and can
+   serve as an authentication server for applications (providing support for
+   OpenID Connect, OAuth 2.0, and SAML).
+
+   For official documentation on Keycloak please consult the NixOS manual.
+
+Setup
+
+   Following configuration will enable a minimal and insecure Keycloak
+   instance for testing purpose.
+
+ environment.etc."keycloak-database-pass".text = "PWD";
+ services.keycloak = {
+   enable = true;
+   settings = {
+     hostname = "localhost";
+     http-enabled = true;
+     hostname-strict-https = false;
+   };
+   database.passwordFile = "/etc/keycloak-database-pass";
+ };
+
+   After applying the configuration the Keycloak management interface will be
+   available at http://localhost. Login with username admin and password
+   changeme.
+
+Configuration
+
+  Importing realms
+
+   Note: The module is not yet part of the latest NixOS stable release and
+   will be available with version 24.11.
+
+   Using the realmFiles option, it is possible provision a realm from a JSON
+   file or previous JSON export.
+
+ { ... }: let
+
+   realm = {
+     realm = "OIDCDemo";
+     enabled = true;
+     clients = [{
+       clientId = "mydemo";
+       rootUrl = "http://localhost:8080";
+     }];
+     users = [{
+       enabled = true;
+       firstName = "Christian";
+       lastName = "Bauer";
+       username = "cbauer";
+       email = "cbauer@localhost";
+       credentials = [{
+         type = "password";
+         temporary = false;
+         value = "changeme";
+       }];
+     }];
+   };
+
+ in {
+
+   services.keycloak = {
+     realmFiles = [
+       (pkgs.writeText "OIDCDemo.json" (builtins.toJSON realm))
+     ];
+   };
+
+ }
+
+Tips and tricks
+
+  Installation in subdirectory
+
+   Keycloak may be installed in a subdirectory of a domain. Thus you don't
+   need to configure and expose a subdomain. For example with the following
+   configuration, remember to edit domain.tld, reflecting your used domain.
+
+    
+
+ /etc/nixos/configuration.nix
+
+ {
+
+   services.nginx = {
+     enable = true;
+
+     # enable recommended settings
+     recommendedGzipSettings = true;
+     recommendedOptimisation = true;
+     recommendedTlsSettings = true;
+     recommendedProxySettings = true;
+
+     virtualHosts = {
+       "domain.tld" = {
+         forceSSL = true;
+         enableACME = true;
+         locations = {
+           "/cloak/" = {
+             proxyPass = "http://localhost:${toString config.services.keycloak.settings.http-port}/cloak/";
+           };
+         };
+       };
+     };
+   };
+
+   services.postgresql.enable = true;
+
+   services.keycloak = {
+     enable = true;
+
+     database = {
+       type = "postgresql";
+       createLocally = true;
+
+       username = "keycloak";
+       passwordFile = "/etc/nixos/secrets/keycloak_psql_pass";
+     };
+
+     settings = {
+       hostname = "domain.tld";
+       http-relative-path = "/cloak";
+       http-port = 38080;
+       proxy = "passthrough";
+       http-enabled = true;
+     };
+   };
+
+ }
+
+  Keycloak themes on NixOS
+
+   You need to create a package for your custom theme and configure the
+   keycloak service to use it
+
+   Here is a what a basic theme will look like :
+
+    - configuration.nix
+    - keycloak
+        - custom_theme
+            - login
+                - resources
+                    - css
+                        - custom.css
+                   - theme.properties
+        - default.nix <- set of packages to be imported in your configuration.nix
+        - keycloak_custom_theme.nix <- package for your theme
+
+    Create a theme
+
+    
+
+ custom.css
+
+     body {
+         background: red;
+          color: blue;
+     }
+
+    
+
+ theme.properties
+
+     parent=base
+     import=common/keycloak
+     styles=css/custom.css
+
+    Create a package
+
+    
+
+ keycloak_custom_theme.nix
+
+     { stdenv }:
+     stdenv.mkDerivation rec {
+       name = "keycloak_custom_theme";
+       version = "1.0";
+
+       src = ./keycloak_custom_theme;
+
+       nativeBuildInputs = [ ];
+       buildInputs = [ ];
+
+       installPhase = ''
+         mkdir -p $out
+         cp -a login $out
+       '';
+     }
+
+    Create a packages set
+
+    
+
+ default.nix
+
+      {pkgs, ...}: let
+       callPackage = pkgs.callPackage;
+     in {
+       nixpkgs.overlays = [(final: prev: {
+         custom_keycloak_themes = {
+           custom = callPackage ./keycloak_custom_theme.nix {};
+         };
+       })];
+     }
+
+    Configure your keycloak service
+
+    
+
+ configuration.nix
+
+     { config, pkgs, lib, ... }:
+     {
+         imports =
+                 [ # Include the results of the hardware scan.
+                 ./hardware-configuration.nix
+                 ./keycloak
+                 ];
+     ...
+         environment.systemPackages = with pkgs; [
+                 ...
+             # authentication requires
+                 keycloak
+                 custom_keycloak_themes.agatha
+         ];
+     ...
+     services.keycloak = {
+                 enable = true;
+                 themes = with pkgs ; {
+                         custom = custom_keycloak_themes.custom;
+                 };
+     ...
+     }
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Keycloak&oldid=15362"
+   Categories:
+     * Server
+     * Security
+     * NixOS Manual
+     * This page was last edited on 22 July 2024, at 13:24.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

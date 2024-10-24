@@ -1,0 +1,312 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Docker: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    20 September 2024
+
+     * curprev [ ] [ ] 15:0915:09, 20 September 2024‎ Aos talk contribs‎ m
+       10,096 bytes +20‎ Use official nix search options Tag: Visual edit:
+       Switched
+
+    11 August 2024
+
+     * curprev [ ] [ ] 12:2712:27, 11 August 2024‎ Jooooscha talk contribs‎ m
+       10,076 bytes +22‎ Improve section title Tag: Visual edit
+     * curprev [ ] [ ] 12:2412:24, 11 August 2024‎ Jooooscha talk contribs‎ m
+       10,054 bytes −18‎ Fix: change page-titles to headings Tag: Visual edit
+     * curprev [ ] [ ] 12:2212:22, 11 August 2024‎ Jooooscha talk contribs‎
+       10,072 bytes +2,634‎ Clean up a bit and improve the Docker Compose
+       section Tag: Visual edit
+
+    18 June 2024
+
+     * curprev [ ] [ ] 14:2814:28, 18 June 2024‎ Kiara talk contribs‎ 7,438
+       bytes +101‎ →‎Using Nix in containers: - NixOS in containers using
+       Arion Tag: Visual edit
+
+    26 April 2024
+
+     * curprev [ ] [ ] 09:2109:21, 26 April 2024‎ Cdro talk contribs‎ 7,337
+       bytes 0‎ →‎Building a docker image with nixpkgs: Update broken
+       redirection Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 09:1609:16, 24 April 2024‎ RobbieBuxton talk contribs‎
+       7,337 bytes +348‎ →‎Building a docker image with nixpkgs Tag: Visual
+       edit: Switched
+
+    19 April 2024
+
+     * curprev [ ] [ ] 21:0421:04, 19 April 2024‎ Klinger talk contribs‎ m
+       6,989 bytes +23‎ Category:Cookbook Category:Software Category:Server
+       Category:Container
+
+    18 April 2024
+
+     * curprev [ ] [ ] 21:3421:34, 18 April 2024‎ Klinger talk contribs‎
+       6,966 bytes −68‎ moved to Category:Software (as all virtualization
+       engines). Removed some unneccessary categories.
+
+    1 April 2024
+
+     * curprev [ ] [ ] 14:0314:03, 1 April 2024‎ Mic92 talk contribs‎ 7,034
+       bytes −20‎ fix links
+
+    25 March 2024
+
+     * curprev [ ] [ ] 17:3617:36, 25 March 2024‎ imported>SIGSTKFLT‎ m 7,054
+       bytes +41‎ consider using rootless mode below
+
+    5 March 2024
+
+     * curprev [ ] [ ] 02:2302:23, 5 March 2024‎ imported>Jmarmstrong1207‎ m
+       7,013 bytes +10‎ No edit summary
+
+    14 February 2024
+
+     * curprev [ ] [ ] 01:1601:16, 14 February 2024‎ imported>Tsengia‎ 7,003
+       bytes +676‎ Add HOW TO for changing the docker daemon's data-root
+       directory
+
+    29 December 2023
+
+     * curprev [ ] [ ] 01:4901:49, 29 December 2023‎ imported>Camilosampedro‎
+       6,327 bytes +35‎ Without an explicit "backend" option, the
+       oci-containers default to running on "podman". This guide is for
+       docker, so I believe it is expected that these settings run on docker.
+
+    4 December 2023
+
+     * curprev [ ] [ ] 09:1509:15, 4 December 2023‎ imported>Running-grass‎ m
+       6,292 bytes −2‎ fix typo
+
+    29 July 2023
+
+     * curprev [ ] [ ] 15:5115:51, 29 July 2023‎ imported>Curious‎ m 6,294
+       bytes +1‎ Fill in the missing semicolon.
+
+    15 June 2023
+
+     * curprev [ ] [ ] 12:3812:38, 15 June 2023‎ imported>Raboof‎ 6,293 bytes
+       +127‎ →‎docker containers as systemd services: fix syntax, link to
+       further docs
+     * curprev [ ] [ ] 12:3512:35, 15 June 2023‎ imported>Raboof‎ 6,166 bytes
+       +8‎ →‎docker images as systemd services: images -> containers
+     * curprev [ ] [ ] 12:3312:33, 15 June 2023‎ imported>Raboof‎ 6,158 bytes
+       +164‎ mention running docker containers with
+       virtualisation.oci-containers - still missing further docs though :)
+
+    2 March 2023
+
+     * curprev [ ] [ ] 05:2905:29, 2 March 2023‎ imported>Kadimisetty‎ m
+       5,994 bytes +27‎ →‎Installation
+     * curprev [ ] [ ] 05:2805:28, 2 March 2023‎ imported>Kadimisetty‎ m
+       5,967 bytes 0‎ fix misplaced warning note
+     * curprev [ ] [ ] 05:2605:26, 2 March 2023‎ imported>Kadimisetty‎ 5,967
+       bytes +227‎ →‎Installation
+
+    27 December 2022
+
+     * curprev [ ] [ ] 22:3022:30, 27 December 2022‎ imported>Jooooscha‎ m
+       5,740 bytes −1‎ No edit summary
+     * curprev [ ] [ ] 22:2822:28, 27 December 2022‎ imported>Jooooscha‎
+       5,741 bytes +1,203‎ Restructure and add information
+     * curprev [ ] [ ] 22:0322:03, 27 December 2022‎ imported>Jooooscha‎ m
+       4,538 bytes −13‎ No edit summary
+     * curprev [ ] [ ] 21:5621:56, 27 December 2022‎ imported>Jooooscha‎ m
+       4,551 bytes −2‎ No edit summary
+     * curprev [ ] [ ] 21:5121:51, 27 December 2022‎ imported>Jooooscha‎ m
+       4,553 bytes −53‎ No edit summary
+     * curprev [ ] [ ] 21:4621:46, 27 December 2022‎ imported>Jooooscha‎
+       4,606 bytes −2‎ No edit summary
+     * curprev [ ] [ ] 21:3321:33, 27 December 2022‎ imported>Jooooscha‎
+       4,608 bytes +501‎ Add example for Arion (docker compose)
+
+    24 December 2022
+
+     * curprev [ ] [ ] 01:4901:49, 24 December 2022‎ imported>Yeshey‎ 4,107
+       bytes +152‎ No edit summary
+
+    29 November 2022
+
+     * curprev [ ] [ ] 14:1314:13, 29 November 2022‎ imported>Mic92‎ 3,955
+       bytes +5‎ fix links syntax
+     * curprev [ ] [ ] 13:3813:38, 29 November 2022‎ imported>Das-g‎ m 3,950
+       bytes −7‎ →‎Container images with nix: fix links
+     * curprev [ ] [ ] 13:3713:37, 29 November 2022‎ imported>Das-g‎ 3,957
+       bytes +125‎ →‎Container images with nix: replace lnl7/nix with more
+       recent images, as lnl7/nix is old
+
+    18 November 2022
+
+     * curprev [ ] [ ] 14:0114:01, 18 November 2022‎ imported>Onny‎ 3,832
+       bytes +24‎ Minor cleanup
+
+    29 July 2022
+
+     * curprev [ ] [ ] 21:1721:17, 29 July 2022‎ imported>CardboardTurkey‎ m
+       3,808 bytes +117‎ As of 22.05 rootless docker can be used instead of
+       Podman
+
+    1 March 2022
+
+     * curprev [ ] [ ] 11:2511:25, 1 March 2022‎ imported>Asymmetric‎ m 3,691
+       bytes +23‎ →‎Reproducible image dates: fix date parsing
+     * curprev [ ] [ ] 11:2411:24, 1 March 2022‎ imported>Asymmetric‎ 3,668
+       bytes +352‎ Add section on reproducible image creation dates
+
+    9 January 2022
+
+     * curprev [ ] [ ] 15:2215:22, 9 January 2022‎ imported>Vater‎ m 3,316
+       bytes +20‎ there is a lot of content in several articles
+     * curprev [ ] [ ] 15:1615:16, 9 January 2022‎ imported>Vater‎ m 3,296
+       bytes +105‎ form (fixing Category:Pages with syntax highlighting
+       errors)
+
+    20 September 2021
+
+     * curprev [ ] [ ] 08:5408:54, 20 September 2021‎ imported>Nix‎ m 3,191
+       bytes +3‎ category: cookbook
+     * curprev [ ] [ ] 05:4405:44, 20 September 2021‎ imported>Nix‎ m 3,188
+       bytes +26‎ add Software/Applications subcategory
+
+    7 June 2021
+
+     * curprev [ ] [ ] 04:1904:19, 7 June 2021‎ imported>Cyounkins‎ m 3,162
+       bytes −45‎ Undo revision 5824 by Cyounkins (talk)
+     * curprev [ ] [ ] 02:2002:20, 7 June 2021‎ imported>Cyounkins‎ m 3,207
+       bytes +45‎ root must also be added to docker group
+
+    18 May 2021
+
+     * curprev [ ] [ ] 08:5708:57, 18 May 2021‎ imported>Roberth‎ m 3,162
+       bytes +122‎ Add docker options link
+     * curprev [ ] [ ] 08:5408:54, 18 May 2021‎ imported>Roberth‎ 3,040 bytes
+       +389‎ Add Arion
+     * curprev [ ] [ ] 08:4308:43, 18 May 2021‎ imported>Roberth‎ m 2,651
+       bytes +64‎ Link dockerTools in its relevant section as well
+
+    5 April 2020
+
+     * curprev [ ] [ ] 03:3403:34, 5 April 2020‎ imported>Hmenke‎ 2,587 bytes
+       +141‎ No edit summary
+
+    21 January 2020
+
+     * curprev [ ] [ ] 08:4608:46, 21 January 2020‎ imported>Eoli3n‎ 2,446
+       bytes +1‎ No edit summary
+     * curprev [ ] [ ] 08:4408:44, 21 January 2020‎ imported>Eoli3n‎ 2,445
+       bytes +64‎ No edit summary
+
+    23 May 2018
+
+     * curprev [ ] [ ] 16:4816:48, 23 May 2018‎ imported>Nlewo‎ 2,381 bytes
+       +1,083‎ No edit summary
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Docker"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width

@@ -1,0 +1,378 @@
+   Link: assets
+   Link: canonical
+   Skip to content 
+
+Navigation Menu
+
+   Toggle navigation
+   Sign in
+     * Product 
+          * GitHub Copilot
+            Write better code with AI
+          * Security
+            Find and fix vulnerabilities
+          * Actions
+            Automate any workflow
+          * Codespaces
+            Instant dev environments
+          * Issues
+            Plan and track work
+          * Code Review
+            Manage code changes
+          * Discussions
+            Collaborate outside of code
+          * Code Search
+            Find more, search less
+       Explore
+          * All features
+          * Documentation 
+          * GitHub Skills 
+          * Blog
+     * Solutions 
+       By company size
+          * Enterprises
+          * Small and medium teams
+          * Startups
+       By use case
+          * DevSecOps
+          * DevOps
+          * CI/CD
+          * View all use cases
+       By industry
+          * Healthcare
+          * Financial services
+          * Manufacturing
+          * Government
+          * View all industries
+       View all solutions
+     * Resources 
+       Topics
+          * AI
+          * DevOps
+          * Security
+          * Software Development
+          * View all
+       Explore
+          * Learning Pathways 
+          * White papers, Ebooks, Webinars 
+          * Customer Stories
+          * Partners
+     * Open Source 
+          * GitHub Sponsors
+            Fund open source developers
+          * The ReadME Project
+            GitHub community articles
+       Repositories
+          * Topics
+          * Trending
+          * Collections
+     * Enterprise 
+          * Enterprise platform
+            AI-powered developer platform
+       Available add-ons
+          * Advanced Security
+            Enterprise-grade security features
+          * GitHub Copilot
+            Enterprise-grade AI features
+          * Premium Support
+            Enterprise-grade 24/7 support
+     * Pricing
+   Search or jump to...
+
+           Search code, repositories, users, issues, pull requests...
+
+   Search
+   _____________________
+   Clear
+   Search syntax tips
+
+                                Provide feedback
+
+   We read every piece of feedback, and take your input very seriously.
+
+   _________________________________________
+   _________________________________________
+   _________________________________________
+   _________________________________________
+   _________________________________________
+   _________________________________________
+   _________________________________________
+   [ ] Include my email address so I can be contacted
+   Cancel Submit feedback
+
+                                 Saved searches
+
+Use saved searches to filter your results more quickly
+
+   Name _____________________
+   Query _____________________
+
+   To see all available qualifiers, see our documentation.
+
+   Cancel Create saved search
+   Sign in
+   Sign up Reseting focus
+   You signed in with another tab or window. Reload to refresh your session.
+   You signed out in another tab or window. Reload to refresh your session.
+   You switched accounts on another tab or window. Reload to refresh your
+   session.  Dismiss alert
+   {{ message }}
+   NixOS / nixops Public
+     * *  Notifications You must be signed in to change notification settings
+     * Fork 364
+     * Star 1.8k
+
+   NixOps is a tool for deploying to NixOS machines in a network or cloud.
+
+   nixos.org/nixops
+
+  License
+
+   LGPL-3.0 license
+   1.8k stars  364 forks  Branches  Tags  Activity
+   Star
+   Notifications You must be signed in to change notification settings
+     * Code 
+     * Issues 311
+     * Pull requests 17
+     * Actions 
+     * Projects 0
+     * Security 
+     * Insights
+   Additional navigation options
+     * Code
+     * Issues
+     * Pull requests
+     * Actions
+     * Projects
+     * Security
+     * Insights
+
+                                  NixOS/nixops
+
+    master
+   [ Submit ]
+   BranchesTags
+   Go to file
+   Code
+   [ Submit ][ Submit ]
+
+Folders and files
+
+   Name              Name              Last commit message Last commit date 
+   Latest commit
+             
+             
+             
+   History   
+             
+   3,599 Commits
+   .github/workflows .github/workflows                                      
+   ci                ci                                                     
+   doc               doc                                                    
+   integration-tests integration-tests                                      
+   nix               nix                                                    
+   nixops            nixops                                                 
+   scripts           scripts                                                
+   tests             tests                                                  
+   .flake8           .flake8                                                
+   .gitignore        .gitignore                                             
+   .readthedocs.yml  .readthedocs.yml                                       
+   COPYING           COPYING                                                
+   README.md         README.md                                              
+   bors.toml         bors.toml                                              
+   default.nix       default.nix                                            
+   flake.lock        flake.lock                                             
+   flake.nix         flake.nix                                              
+   live-docs.py      live-docs.py                                           
+   poetry.lock       poetry.lock                                            
+   pyproject.toml    pyproject.toml                                         
+   shell.nix         shell.nix                                              
+   View all files
+
+Repository files navigation
+
+     * README
+     * Code of conduct
+     * LGPL-3.0 license
+     * Security
+
+                                     NixOps
+
+   Warning
+
+   NixOps is in low-maintenance mode and probably not suited for new
+   projects. Use at your own risks.
+
+   Note
+
+   An experimental rewrite of NixOps is happening under
+   https://github.com/nixops4/nixops4
+
+   Test
+
+   NixOps is a tool for deploying to NixOS machines in a network or the
+   cloud. Key features include:
+
+     * Declarative: NixOps determines and carries out actions necessary to
+       realise a deployment configuration.
+     * Testable: Try your deployments on VirtualBox or libvirtd.
+     * Multi Cloud Support: Currently supports deployments to AWS, Hetzner,
+       and GCE
+     * Separation of Concerns: Deployment descriptions are divided into
+       logical and physical aspects. This makes it easy to separate parts
+       that say what a machine should do from where they should do it.
+     * Extensible: NixOps is extensible through a plugin infrastructure which
+       can be used to provide additional backends.
+
+   For more information, please refer to the NixOps manual.
+
+  Running
+
+   NixOps is included in nixpkgs and can be executed in a shell as follows:
+
+ $ nix-shell -p nixops
+
+   or for a bleeding edge version, including many fixes relative to the 1.7
+   series,
+
+ $ nix-shell -p nixopsUnstable
+
+   You may need access to a Nix remote builder if your system does not
+   support the deployment's system builds directly. MacOS users may use a
+   virtual machine with NixOS for this purpose.
+
+   It is also possible to use cross-compilation with NixOps, by setting
+   nixpkgs.localSystem and nixpkgs.crossSystem. A mix of remote, emulated and
+   cross builds is also possible; see this writeup on eno.space.
+
+  Building And Developing
+
+    Building The Nix Package
+
+   You can build the Nix package by simply invoking nix-build on the project
+   root:
+
+ $ nix-build
+
+    Development Shell
+
+   shell.nix provides an environment with all dependencies required for
+   working on NixOps. You can use nix-shell to enter a shell suitable for
+   working on NixOps which will contain all Python dependencies specified in
+   pyproject.toml
+
+ $ nix-shell
+
+    Executing Tests
+
+   Inside the development shell the tests can be executed as follows:
+
+ $ pytest
+
+    Documentation
+
+   NixOps' documentation uses reStructuredText. When editing the docs, get a
+   live-reloading, rendered version of the docs:
+
+ nixops$ ./live-docs.py
+ Serving on http://127.0.0.1:5500
+
+   and verify its lints before committing:
+
+ nixops$ lint-docs
+
+  Contributing
+
+   Contributions to the project are welcome in the form of GitHub PRs. Please
+   consider the following guidelines before creating PRs:
+
+     * Please make sure to format your code using black.
+     * Please add type signatures using mypy.
+     * If you are planning to make any considerable changes, you should first
+       present your plans in a GitHub issue so it can be discussed.
+     * If you are adding features, please also add reasonable tests.
+
+  License
+
+   Licensed under LGPL-3.0.
+
+About
+
+   NixOps is a tool for deploying to NixOS machines in a network or cloud.
+
+   nixos.org/nixops
+
+  Topics
+
+   python aws devops cloud nix virtualbox nixops nixos libvirt gce hetzner
+   digialocean
+
+  Resources
+
+   Readme
+
+  License
+
+   LGPL-3.0 license
+
+  Code of conduct
+
+   Code of conduct
+
+  Security policy
+
+   Security policy
+   Activity
+   Custom properties
+
+  Stars
+
+   1.8k stars
+
+  Watchers
+
+   57 watching
+
+  Forks
+
+   364 forks
+   Report repository
+
+Releases
+
+   15 tags
+
+Sponsor this project
+
+     * open_collective opencollective.com/nixos
+
+Packages 0
+
+   No packages published
+
+Contributors 147
+
+     * *  *  *  *  *  *  *  *  *  *  *  *  * + 133 contributors
+
+Languages
+
+     * Python 88.7%
+     * Nix 10.9%
+     * Shell 0.4%
+
+Footer
+
+   © 2024 GitHub, Inc.
+
+  Footer navigation
+
+     * Terms
+     * Privacy
+     * Security
+     * Status
+     * Docs
+     * Contact
+     * Manage cookies
+     * Do not share my personal information
+   You can’t perform that action at this time.

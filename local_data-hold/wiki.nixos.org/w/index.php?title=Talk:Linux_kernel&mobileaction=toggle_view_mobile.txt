@@ -1,0 +1,149 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+Contents
+
+     * Beginning
+     * 1 Warning for the section about disabling mitigations?
+       2 comments
+     * 2 Custom Extra Settings
+     * 3 Why is the default kernel (just `linux`) not the latest?
+       1 comment
+     * 4 Build kernel from source and use it
+       1 comment
+     * 5 specify pkgs.linuxKernel.packages.* instead of what's currently
+       there
+   [ ] Toggle the table of contents
+
+                               Talk:Linux kernel
+
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Special pages
+     * Printable version
+     * Permanent link
+     * Page information
+   From NixOS Wiki
+   Latest comment: 24 January 2023 by FranciscoKurpiel in topic Build kernel
+   from source and use it
+
+Warning for the section about disabling mitigations?
+
+   Latest comment: 26 August 20192 comments2 people in discussion
+
+   I think that showing users how to disable security features should come
+   with some warning. Users that are not familiar with these mitigations
+   might copy and paste this configuration without considering the security
+   implications. Also I don't think it's a good idea to have the
+   configuration take the command line from the web page, as the web page
+   might change. --Pingiun (talk) 16:16, 26 August 2019 (UTC)Reply
+
+           Good call, just removed it, while still leaving the useful parts
+           of the section.
+           --samueldr (talk) 16:21, 26 August 2019 (UTC)Reply
+
+Custom Extra Settings
+
+   They are not working without Overrides.
+
+   As in :
+
+   extraConfigOverrides
+
+Why is the default kernel (just `linux`) not the latest?
+
+   Latest comment: 9 August 20201 comment1 person in discussion
+
+   Why does the default kernel is just `linux`, and why is it old? It's
+   currently 5.4 on both 20.03 and unstable. I'd expect it to be updated in
+   unstable at least.
+
+   It looks like it's the LTS version of the kernel?
+
+           As you found out by your last sentence, the default Linux package
+           set is set to the latest LTS released at the time the next stable
+           version of NixOS is forked off. This is important because the
+           latest non-LTS version of Linux may be EOL'd before our next
+           release happens! As this is a stable branch, we don't want to
+           rudely upgrade such a critical package from under the user's feet.
+           --samueldr (talk) 01:14, 9 August 2020 (UTC)Reply
+
+Build kernel from source and use it
+
+   Latest comment: 24 January 20231 comment1 person in discussion
+
+   I'm working on the linux kernel, so I need to build a kernel from
+   kernel.org with my changes and run it. I have no clue about how to do this
+   on NixOS. I come from Arch Linux, and their documentation for what I want
+   to do is here:
+   https://wiki.archlinux.org/title/Kernel/Traditional_compilation. It would
+   be awesome if the this page included instructions like that for NixOS.
+
+   --FranciscoKurpiel (talk) 23:11, 24 January 2023 (UTC)Reply
+
+specify pkgs.linuxKernel.packages.* instead of what's currently there
+
+   The reader, from what I can tell, does not know to add pkgs.linuxKernel to
+   the kernel option.
+
+   Retrieved from
+   "https://wiki.nixos.org/w/index.php?title=Talk:Linux_kernel&oldid=11275"
+     * This page was last edited on 2 April 2024, at 01:58.
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Desktop
+     * Powered by MediaWiki
+     * Toggle limited content width

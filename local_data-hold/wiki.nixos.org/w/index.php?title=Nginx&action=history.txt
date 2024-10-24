@@ -1,0 +1,334 @@
+   Jump to content
+   [ ] Main menu
+   Main menu
+   Navigation
+     * Home
+   Ecosystem
+     * Overview
+     * NixOS
+     * Package Manager
+     * Nix Language
+     * Nixpkgs
+     * Hydra
+     * Applications
+   Topics
+     * Software
+     * Hardware
+     * Desktop
+     * Server
+     * Community
+   Learn NixOS
+     * Overview
+     * Guides
+     * Tutorials
+     * References
+     * Cookbooks
+   Wiki
+     * Contribute
+     * Manual of Style
+     * Recent changes
+     * Random page
+   [IMG] NixOS Wiki
+   Search
+   _____________________
+   Search
+     * English
+     * Create account
+     * Log in
+   [ ] Personal tools
+     * Create account
+     * Log in
+     * Dark mode
+
+                            Nginx: Revision history
+
+   Help
+     * Page
+     * Discussion
+   [ ] English
+     * Read
+     * View source
+     * View history
+   [ ] Tools
+   Tools
+   Actions
+     * Read
+     * View source
+     * View history
+   General
+     * What links here
+     * Related changes
+     * Atom
+     * Special pages
+     * Page information
+   View logs for this page
+   Filter revisionsExpandCollapse
+   To date:
+   _____________________
+   Tag filter:
+   _____________________
+   2017 source edit
+   Blanking
+   discussiontools (hidden tag)
+   discussiontools-added-comment (hidden tag)
+   discussiontools-source (hidden tag)
+   discussiontools-source-enhanced (hidden tag)
+   discussiontools-visual (hidden tag)
+   Manual revert
+   Mobile edit
+   Mobile web edit
+   New redirect
+   New topic
+   Redirect target changed
+   Removed redirect
+   Replaced
+   Reply
+   Reverted
+   Rollback
+   translate-translation-pages (hidden tag)
+   Undo
+   Visual edit
+   Visual edit: Switched
+   [ ] Invert selection
+   Show revisions
+
+   Diff selection: Mark the radio buttons of the revisions to compare and hit
+   enter or the button at the bottom.
+   Legend: (cur) = difference with latest revision, (prev) = difference with
+   preceding revision, m = minor edit.
+
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   [ Compare selected revisions ]
+
+    22 September 2024
+
+     * curprev [ ] [ ] 00:5400:54, 22 September 2024‎ Bmnascimento talk
+       contribs‎ 19,303 bytes +46‎ It was missing the
+       "virtualHosts.localhost" part, making the config file invalid. Tag:
+       Visual edit
+
+    21 September 2024
+
+     * curprev [ ] [ ] 07:4907:49, 21 September 2024‎ Krutonium talk
+       contribs‎ 19,257 bytes +273‎ Add robots.txt Tag: Visual edit: Switched
+
+    13 May 2024
+
+     * curprev [ ] [ ] 21:2121:21, 13 May 2024‎ Malteneuss talk contribs‎ m
+       18,984 bytes +250‎ Add rebind attack notice Tag: Visual edit
+     * curprev [ ] [ ] 21:1421:14, 13 May 2024‎ Malteneuss talk contribs‎ m
+       18,734 bytes +1,565‎ Add a Private Local LAN Server Example Nix config
+       code Tag: Visual edit
+     * curprev [ ] [ ] 20:5620:56, 13 May 2024‎ Malteneuss talk contribs‎
+       17,169 bytes +2,472‎ Add a Private Local LAN Server Example Tag:
+       Visual edit
+     * curprev [ ] [ ] 20:2220:22, 13 May 2024‎ Malteneuss talk contribs‎ m
+       14,697 bytes +312‎ Add a raw html test example Tag: Visual edit
+
+    8 May 2024
+
+     * curprev [ ] [ ] 09:1809:18, 8 May 2024‎ Makefu talk contribs‎ 14,385
+       bytes +2‎ Restructure to start with an example, put the openssl stuff
+       and troubleshooting at the back Tag: Visual edit
+
+    24 April 2024
+
+     * curprev [ ] [ ] 21:1121:11, 24 April 2024‎ Klinger talk contribs‎ m
+       14,383 bytes +24‎ No edit summary
+
+    3 January 2024
+
+     * curprev [ ] [ ] 21:2821:28, 3 January 2024‎ imported>Tamiyo‎ m 14,359
+       bytes −1‎ →‎Read-only Filesystem for nginx upgrade to 20.09 =: remove
+       extra equal sign
+
+    18 December 2023
+
+     * curprev [ ] [ ] 21:3321:33, 18 December 2023‎ imported>Tamiyo‎ m
+       14,360 bytes +2‎ →‎LEMP stack: fix syntax issue
+
+    19 November 2023
+
+     * curprev [ ] [ ] 16:0316:03, 19 November 2023‎ imported>Anoadragon453‎
+       m 14,358 bytes +9‎ Replace deprecated "security.acme.email" option
+
+    8 September 2023
+
+     * curprev [ ] [ ] 21:0921:09, 8 September 2023‎ imported>Pyrox0‎ 14,349
+       bytes +22‎ Update syntax highlighting for all non-highlighted blocls
+     * curprev [ ] [ ] 21:0821:08, 8 September 2023‎ imported>Pyrox0‎ 14,327
+       bytes 0‎ commonHttpConfig -> appendHttpConfig
+
+    30 August 2023
+
+     * curprev [ ] [ ] 16:3016:30, 30 August 2023‎ imported>TheHedgehog0‎ m
+       14,327 bytes −169‎ Remove X-XSS-Protection header suggestion(per MDN
+       it's not supported anymore)
+       https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection#browser_compatibility
+
+    27 August 2023
+
+     * curprev [ ] [ ] 15:5815:58, 27 August 2023‎ imported>Dmo84‎ m 14,496
+       bytes +40‎ minor wording
+     * curprev [ ] [ ] 15:5215:52, 27 August 2023‎ imported>Dmo84‎ 14,456
+       bytes +916‎ added troubleshooting for locations (double escape). fixed
+       the wrong not-doubble escaped example.
+
+    15 August 2023
+
+     * curprev [ ] [ ] 19:1719:17, 15 August 2023‎ imported>Nathan-gs‎ 13,540
+       bytes −645‎ NGINX: PAM auth, no longer needed to disable hardening
+       features
+
+    2 August 2023
+
+     * curprev [ ] [ ] 21:3021:30, 2 August 2023‎ imported>Jtbx‎ m 14,185
+       bytes +4‎ Fix capitalisation
+
+    22 July 2023
+
+     * curprev [ ] [ ] 11:3311:33, 22 July 2023‎ imported>H7x4‎ 14,181 bytes
+       +1,191‎ Add section about reverse proxying unix sockets
+
+    18 May 2023
+
+     * curprev [ ] [ ] 02:1302:13, 18 May 2023‎ imported>Dragospe‎ 12,990
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 02:1202:12, 18 May 2023‎ imported>Dragospe‎ 12,991
+       bytes +69‎ No edit summary
+
+    1 April 2023
+
+     * curprev [ ] [ ] 02:2802:28, 1 April 2023‎ imported>Vater‎ m 12,922
+       bytes −1‎ No edit summary
+     * curprev [ ] [ ] 02:2302:23, 1 April 2023‎ imported>Vater‎ m 12,923
+       bytes +57‎ No edit summary
+
+    22 December 2022
+
+     * curprev [ ] [ ] 20:3320:33, 22 December 2022‎ imported>Tamiyo‎ 12,866
+       bytes +104‎ add note about open ports for acme authenticating domains
+
+    20 November 2022
+
+     * curprev [ ] [ ] 21:3421:34, 20 November 2022‎ imported>Georgyo‎ 12,762
+       bytes +1,510‎ No edit summary
+
+    1 November 2022
+
+     * curprev [ ] [ ] 10:3110:31, 1 November 2022‎ imported>Makefu‎ m 11,252
+       bytes −33‎ spacing
+     * curprev [ ] [ ] 10:2810:28, 1 November 2022‎ imported>Makefu‎ 11,285
+       bytes +209‎ add note about nixos options
+     * curprev [ ] [ ] 09:0909:09, 1 November 2022‎ imported>Makefu‎ m 11,076
+       bytes +12‎ spacing
+     * curprev [ ] [ ] 09:0809:08, 1 November 2022‎ imported>Makefu‎ 11,064
+       bytes +434‎ No edit summary
+
+    12 October 2022
+
+     * curprev [ ] [ ] 21:2121:21, 12 October 2022‎ imported>\\\\\\\\\\\‎
+       10,630 bytes −1‎ Nginx is handling TLS, so proxyPass should almost
+       always specify http, not https.
+
+    7 October 2022
+
+     * curprev [ ] [ ] 20:0820:08, 7 October 2022‎ imported>Bronson‎ 10,631
+       bytes −11‎ it's easier to edit configuration.nix than remount the
+       nginx config r/w.
+
+    28 December 2021
+
+     * curprev [ ] [ ] 18:4118:41, 28 December 2021‎ imported>Aviallon‎
+       10,642 bytes −1,351‎ Removed info about rate limiting, as it is fixed
+       according to
+       https://github.com/NixOS/nixpkgs/issues/38144#issuecomment-841843438
+
+    20 September 2021
+
+     * curprev [ ] [ ] 06:1306:13, 20 September 2021‎ imported>Nix‎ m 11,993
+       bytes +21‎ add Server category
+     * curprev [ ] [ ] 06:1306:13, 20 September 2021‎ imported>Nix‎ m 11,972
+       bytes +27‎ add Software/Applications subcategory
+
+    13 June 2021
+
+     * curprev [ ] [ ] 13:4513:45, 13 June 2021‎ imported>Kvtb‎ 11,945 bytes
+       +740‎ →‎Authentication via PAM
+
+    3 March 2021
+
+     * curprev [ ] [ ] 12:0112:01, 3 March 2021‎ imported>Ymarkus‎ 11,205
+       bytes −478‎ →‎Authentication via PAM: Issue #93580 solved
+
+    18 November 2020
+
+     * curprev [ ] [ ] 12:3412:34, 18 November 2020‎ imported>Makefu‎ 11,683
+       bytes +541‎ add 20.09 caveat for read-only fs
+     * curprev [ ] [ ] 03:1403:14, 18 November 2020‎ imported>Zie‎ m 11,142
+       bytes +576‎ added troubleshooting tip, if systemd goes killing your
+       nginx process for seemingly no reason.
+
+    27 July 2020
+
+     * curprev [ ] [ ] 19:4619:46, 27 July 2020‎ imported>Kvtb‎ 10,566 bytes
+       +102‎ refer to issue 93580
+
+    8 May 2020
+
+     * curprev [ ] [ ] 10:1110:11, 8 May 2020‎ imported>Kvtb‎ 10,464 bytes
+       +905‎ Authentication via PAM
+     * curprev [ ] [ ] 10:0010:00, 8 May 2020‎ imported>Kvtb‎ 9,559 bytes
+       −712‎ This no longer applies since NixOS 19.09. In 19.09 and newer
+       versions, this is already handled by a patched version of nginx. The
+       etag patch is applied by default, so no intervention is required
+
+    29 February 2020
+
+     * curprev [ ] [ ] 21:4721:47, 29 February 2020‎ imported>Exyi‎ 10,271
+       bytes +53‎ Link to oficial docs
+     * curprev [ ] [ ] 21:4521:45, 29 February 2020‎ imported>Exyi‎ 10,218
+       bytes +1,479‎ Added basic proxy and HTTP auth examples
+
+    24 December 2019
+
+     * curprev [ ] [ ] 12:3512:35, 24 December 2019‎ imported>Iterprise‎
+       8,739 bytes +49‎ No edit summary
+
+    15 November 2019
+
+     * curprev [ ] [ ] 17:5317:53, 15 November 2019‎ imported>Bachp‎ 8,690
+       bytes +2,175‎ Update phpfpm config to use settings instead of
+       extraConfig
+     * curprev [ ] [ ] 14:4814:48, 15 November 2019‎ imported>Asymmetric‎ m
+       6,515 bytes +8‎ →‎Sample setups: fix alignment
+
+    14 October 2019
+
+     * curprev [ ] [ ] 09:0209:02, 14 October 2019‎ imported>Mic92‎ 6,507
+       bytes +43‎ fix phpfpm syntax.
+
+    10 October 2019
+
+     * curprev [ ] [ ] 18:2618:26, 10 October 2019‎ imported>Thanegill‎ m
+       6,464 bytes −6‎ Change to new phpfpm pool option
+
+    22 September 2019
+
+     * curprev [ ] [ ] 20:0720:07, 22 September 2019‎ imported>Fleaz‎ m 6,470
+       bytes +1‎ Missing semicolon in config example
+
+    19 July 2019
+
+     * curprev [ ] [ ] 13:4513:45, 19 July 2019‎ imported>Bergey‎ 6,469 bytes
+       −3‎ enableSSL is deprecated. Suggest addSSL, so port 80 is available
+       for initial ACME.
+   [ Compare selected revisions ]
+   (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+   Retrieved from "https://wiki.nixos.org/wiki/Nginx"
+     * Privacy policy
+     * About the NixOS Wiki
+     *  
+     * Mobile view
+     * Powered by MediaWiki
+     * Toggle limited content width
